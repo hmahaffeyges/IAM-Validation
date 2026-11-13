@@ -4784,3 +4784,15 @@ Recorded in `doors/DEV_ATLAS_V21_01.md` (`cd4_interior_floor.csv`): donors read 
 
 ### 2026-11-12 · PHY-078: the mini cosmos, version 0 (design and skeleton on the simulators' core)
 Recorded in `doors/DEV_MINICELL_01.md`: `minicell/minicosmos.py`, time along the scale factor, IAM on/off (the Friedmann equation is never modified), 11 self-tests against the canon's four-domains cosmos values, all pass.
+
+### 2026-11-12 · ATL-071: the array reference's excess is the array's unmarked-side offset (exploration)
+Recorded in `doors/DEV_ATLAS_V21_01.md`: marked identity sites read alike on array and sequencing (0.3025 vs 0.2617 bits); unmarked sites 0.0562 on the array against 0.0052 on sequencing, nearly all of the gap; the sequencing marked side 0.2617 bits sits beside H(eps0) 0.2593 and the candidate 0.2627.
+
+### 2026-11-12 · OTH-070: the release check found the report PDFs no longer built; fixed
+The chain v4 release check on main (GitHub run 43308028766) failed 9 of 34 checks; it passed every check on 2026-10-23. Three (V5, V6, V8)
+are the report PDFs: report_pdf_v4.build_pdfs raised reportlab's LayoutError, caught and stored silently, because the at-a-glance row
+'Met-A, each cell' now lists every atlas cell type (1,563 characters) in a 1.25-inch column, one row 1,604 points tall against a 701-point
+page; every report since that row grew had no PDFs. report_pdf_v4.py now shows a long list's first eight entries in the PDF with the count
+of the rest (the HTML keeps all), and table rows may split across pages. Checked on DRR322659's bundle: both PDFs written (21 pages). The
+other six (E2, E4, E6, E9, V2, V11) are traced next; V2 and E4 are the genome-coverage intake check (2026-11-04) refusing the release
+check's own constructed molecule file.

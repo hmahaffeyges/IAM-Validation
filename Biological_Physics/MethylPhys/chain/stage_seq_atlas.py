@@ -974,3 +974,24 @@ def compare(lbeta, piece_dirs, min_reads=5):
 def geo_url(gsm, title):
     """The hg19 .beta file of one published sequencing sample on GEO."""
     return f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/{gsm}_{title}.beta"
+
+
+def ref_compare(cell, seq_cell=None, min_reads=10):
+    """2026-11-12 (development; run_sample.py --build ref-compare): at one cell's Met-A identity sites, the array atlas's healthy level
+    (IAM-Atlas v2.1 mu) against the IAM Sequencing Atlas's pooled healthy donors (metaa_inner_reference, interior calls, sites with at least
+    min_reads reads), the mean per-site disorder H(level) in bits, split by side (array level above or below 0.5). seq_cell names the
+    sequencing atlas's cell when its name differs (neutrophils -> granulocytes)."""
+    import numpy as np, stage_metaa_atlas as SA
+    H = lambda b: -(b * np.log2(b) + (1 - b) * np.log2(1 - b))
+    S = SA.identity_sites(cell); mu = SA._col("mu", cell).reindex(S).clip(1e-6, 1 - 1e-6)
+    I = metaa_inner_of(seq_cell or cell)
+    if I is None: return dict(cell=cell, seq_cell=seq_cell, status="no sequencing reference for this cell")
+    I = I.reindex(S).dropna(subset=["reads_inner"]); I = I[I.reads_inner >= min_reads]
+    lv = (I.meth_inner / I.reads_inner).clip(1e-6, 1 - 1e-6); ma = mu.reindex(I.index)
+    out = dict(cell=cell, seq_cell=seq_cell or cell, identity_sites=len(S), sites_compared=int(len(I)), min_reads=min_reads,
+               all=dict(array_H=round(float(H(ma).mean()), 4), seq_H=round(float(H(lv).mean()), 4)))
+    for side, m in (("marked", ma > 0.5), ("unmarked", ma <= 0.5)):
+        out[side] = dict(sites=int(m.sum()), array_level=round(float(ma[m].mean()), 4), array_H=round(float(H(ma[m]).mean()), 4),
+                         seq_level=round(float(lv[m].mean()), 4), seq_H=round(float(H(lv[m]).mean()), 4))
+    return out
+

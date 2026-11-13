@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1596,
+   "lines": 1601,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 254,
-     "end": 503,
+     "end": 508,
      "args": [
       "a"
      ],
-     "lines": 250,
+     "lines": 255,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -254,8 +254,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 415,
-     "end": 415,
+     "line": 420,
+     "end": 420,
      "args": [
       "m"
      ],
@@ -269,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 506,
-     "end": 526,
+     "line": 511,
+     "end": 531,
      "args": [
       "a",
       "cnt",
@@ -286,8 +286,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 529,
-     "end": 570,
+     "line": 534,
+     "end": 575,
      "args": [
       "a",
       "o",
@@ -307,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 573,
-     "end": 1593,
+     "line": 578,
+     "end": 1598,
      "args": [],
      "lines": 1021,
      "doc": "",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 937,
-     "end": 941,
+     "line": 942,
+     "end": 946,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1172,
-     "end": 1179,
+     "line": 1177,
+     "end": 1184,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1515,
-     "end": 1516,
+     "line": 1520,
+     "end": 1521,
      "args": [
       "b",
       "it",
@@ -4799,7 +4799,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_pdf_v4.py",
-   "lines": 114,
+   "lines": 120,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
@@ -4864,10 +4864,26 @@
     },
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
-     "function": "_tbl",
-     "name": "_tbl",
+     "function": "_cap",
+     "name": "_cap",
      "line": 44,
      "end": 48,
+     "args": [
+      "x",
+      "n"
+     ],
+     "lines": 5,
+     "doc": "2026-11-12: a list reading longer than a page (Met-A, each cell, every atlas cell type) shows its first n entries in the PDF and points to the HTML report, which keeps the whole list (release check V5, V6, V8: LayoutError, one row 1,604 points tall).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_pdf_v4.py",
+     "function": "_tbl",
+     "name": "_tbl",
+     "line": 50,
+     "end": 54,
      "args": [
       "rows",
       "widths",
@@ -4886,8 +4902,8 @@
      "file": "MethylPhys_Interface/report_pdf_v4.py",
      "function": "_explain",
      "name": "_explain",
-     "line": 50,
-     "end": 53,
+     "line": 56,
+     "end": 59,
      "args": [
       "R",
       "sec"
@@ -4902,8 +4918,8 @@
      "file": "MethylPhys_Interface/report_pdf_v4.py",
      "function": "build_pdfs",
      "name": "build_pdfs",
-     "line": 55,
-     "end": 113,
+     "line": 61,
+     "end": 119,
      "args": [
       "o",
       "F",
@@ -4924,8 +4940,8 @@
      "file": "MethylPhys_Interface/report_pdf_v4.py",
      "function": "build_pdfs.doc",
      "name": "doc",
-     "line": 58,
-     "end": 60,
+     "line": 64,
+     "end": 66,
      "args": [
       "path",
       "story"
@@ -9671,7 +9687,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 977,
+   "lines": 998,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -10684,11 +10700,28 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "ref_compare",
+     "name": "ref_compare",
+     "line": 979,
+     "end": 996,
+     "args": [
+      "cell",
+      "seq_cell",
+      "min_reads"
+     ],
+     "lines": 18,
+     "doc": "2026-11-12 (development; run_sample.py --build ref-compare): at one cell's Met-A identity sites, the array atlas's healthy level (IAM-Atlas v2.1 mu) against the IAM Sequencing Atlas's pooled healthy donors (metaa_inner_reference, interior calls, sites with at least min_reads reads), the mean per-site disorder H(level) in bits, split by side (array level above or below 0.5). seq_cell names the sequ",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
     }
    ],
    "first_entered": null
   }
  ],
  "n_files": 37,
- "n_functions": 546
+ "n_functions": 548
 }

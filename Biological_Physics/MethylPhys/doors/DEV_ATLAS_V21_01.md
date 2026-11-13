@@ -2147,3 +2147,11 @@ accounts for about two thirds of the unmarked gap** (per-side A 0.925 -> 0.949 o
 floor at identity sites while every donor reads above theirs. **Next:** a synthetic of an unmarked-side expectation set from each library's
 own interior floor (development, a switch), before any form is sealed; then the cross-laboratory calibrator (ATL-076).
 
+**Why the array reference sits above IAM-A's healthy reference (exploration, 2026-11-12)** (`run_sample.py --build ref-compare --build-cell neutrophils,granulocytes`,
+bundle `data/DEV_ATLAS_V21_01/seq_atlas/array_vs_seq_reference.json`). **Where IAM's Law is:** the hold at marked sites (the candidate's held error); the rest is the
+instrument. At 4,406 of the 6,000 neutrophil identity sites, the array atlas against the sequencing atlas's pooled healthy granulocyte
+donors: marked side, array level 0.9461 (H 0.3025 bits) against sequencing 0.9475 (H 0.2617), alike; unmarked side, array 0.0562
+(H 0.3118) against sequencing 0.0052 (H 0.0363). Nearly all of the array reference's excess is the array reading unmarked sites about five
+points above zero. On sequencing, the marked identity sites' 0.2617 bits sits beside IAM-A's H(eps0) 0.2593 and the candidate's 0.2627,
+and the unmarked identity sites are held about ten times better than the marked ones. Different laboratories and pooled donors; nothing sealed.
+

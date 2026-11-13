@@ -1647,6 +1647,10 @@ The block value of largest size in each pixel, its sign kept, so a changed block
 ### report_figs_v4.py::changes_sky_png.pmean
 The mean of the values falling in each pixel.
 
+### report_pdf_v4.py::_cap
+
+In the PDF report, a list reading longer than 400 characters (for example Met-A for every atlas cell type) shows its first eight entries and the count of the rest; the HTML report keeps the whole list. Table rows may split across pages (2026-11-12, after the release check found every PDF failing on a row taller than a page).
+
 ### report_pdf_v4.py::P
 A paragraph for the PDF, keeping only the tags the PDF library understands.
 
@@ -2658,6 +2662,10 @@ v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a 
 levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
+
+### stage_seq_atlas.py::ref_compare
+
+Development, run by `run_sample.py --build ref-compare --build-cell CELL[,SEQ_CELL] --bundle OUT.json`. At one cell's Met-A identity sites, the array atlas's healthy level (IAM-Atlas v2.1) against the IAM Sequencing Atlas's pooled healthy donors (interior calls, sites with at least 10 reads): mean per-site disorder in bits, overall and by side. It shows how much of an array reference's height is the array's own response and how much the cells hold (2026-11-12).
 
 ### stage_seq_atlas.py::domain_disorder
 Each cell's mean pooled level, its disorder and the donor spread at the domains (`--build seq-domain-disorder`).

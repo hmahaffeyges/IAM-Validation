@@ -41,8 +41,14 @@ def _head(o, sid, when, view):
               "passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so. The full technical record (intake, calibration, tare, noise gate, safeguards, integrity, and how to run it yourself) "
               "is in the HTML report.", "note"), Spacer(1, 4)]
 
+def _cap(x, n=8):
+    """2026-11-12: a list reading longer than a page (Met-A, each cell, every atlas cell type) shows its first n entries in the PDF and
+    points to the HTML report, which keeps the whole list (release check V5, V6, V8: LayoutError, one row 1,604 points tall)."""
+    x = str(x); parts = x.split(", ")
+    return x if len(x) <= 400 or len(parts) <= n else ", ".join(parts[:n]) + f", and {len(parts) - n} more (all in the HTML report)"
+
 def _tbl(rows, widths, head=True):
-    t = Table(rows, colWidths=[w * inch for w in widths], repeatRows=1 if head else 0)
+    t = Table(rows, colWidths=[w * inch for w in widths], repeatRows=1 if head else 0, splitInRow=1)   # 2026-11-12: a row taller than a page splits
     t.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"), ("LINEBELOW", (0, 0), (-1, -1), 0.4, colors.HexColor("#dde2ea")),
                            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#f4f6fa") if head else colors.white),
                            ("LEFTPADDING", (0, 0), (-1, -1), 4), ("RIGHTPADDING", (0, 0), (-1, -1), 4)])); return t
@@ -61,7 +67,7 @@ def build_pdfs(o, F, out, sid, when):
     # researcher
     st = _head(o, sid, when, "Researcher") + [P("At a glance", "h2")]
     st.append(_tbl([[P("<b>Instrument</b>"), P("<b>Question it answers</b>"), P("<b>Reading</b>"), P("<b>State</b>"), P("<b>Status</b>")]]
-                   + [[P(f"<b>{a}</b>"), P(b), P(f"<b>{v}</b>"), P(s_, "small"), P(x, "small")] for a, b, v, s_, x in R.glance_rows(o)], [1.35, 1.45, 1.25, 1.55, 1.7]))
+                   + [[P(f"<b>{a}</b>"), P(b), P(f"<b>{_cap(v)}</b>"), P(s_, "small"), P(x, "small")] for a, b, v, s_, x in R.glance_rows(o)], [1.35, 1.45, 1.25, 1.55, 1.7]))
     _ri = R.report_text()["intro"]; st += [P(html.escape(_ri["title"]), "h2")] + [y for x in _ri["paragraphs"] for y in (P(html.escape(x), "small"), Spacer(1, 5))]
     ph = R.physics_rows(o)
     if ph:

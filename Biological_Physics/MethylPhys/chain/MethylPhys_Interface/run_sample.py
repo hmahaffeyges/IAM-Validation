@@ -343,6 +343,11 @@ def _build(a):
         import stage_seq_values as _SVl; _, rep = _SVl.pat_to_lbeta(a.pat, a.build_out, 0); rep.update(trim_each_end=int(getattr(a, "dev_seq_trim_ends", None) or 0), trimmed=getattr(a, "_trim", None), command=["run_sample.py"] + sys.argv[1:])   # a.pat is already trimmed by then (one trim, trim_pat)
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: rep[k] for k in ("trim_each_end", "molecules", "calls_kept", "cpgs_with_calls")})); return 0
+    if a.build == "ref-compare":   # 2026-11-12 (development): one cell's array reference against the sequencing atlas at its identity sites
+        if not (a.build_cell and a.bundle): print("--build ref-compare needs --build-cell CELL[,SEQ_CELL] and --bundle OUT.json"); return 2
+        import stage_seq_atlas as _SQ; _c = a.build_cell.split(","); rep = _SQ.ref_compare(_c[0], _c[1] if len(_c) > 1 else None)
+        rep.update(command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned")
+        json.dump(rep, open(a.bundle, "w"), indent=1, default=str); print(json.dumps({k: v for k, v in rep.items() if k != "command"})); return 0
     if a.build == "seq-floor-position":   # 2026-11-09 (development): the library floor split by where each call sits on its molecule
         if not a.build_input and a.pat: a.build_input = a.pat   # 2026-11-10: a GEO sample fetched by --geo-pat
         if not a.build_input: print("--build seq-floor-position needs --build-input PAT (or --geo-pat GSM) and --bundle OUT.json"); return 2
@@ -661,7 +666,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-metaa-inner", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("ref-compare", "info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-metaa-inner", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

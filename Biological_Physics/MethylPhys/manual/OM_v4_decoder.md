@@ -37,11 +37,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **546 functions** (nested ones included); 546 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **548 functions** (nested ones included); 548 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,596 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,601 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -55,7 +55,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
 | `stage_q2_selfref.py` | 420 | 37 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
-| `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
+| `MethylPhys_Interface/report_pdf_v4.py` | 120 | 8 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 90 | 5 | 0 | 0 |
 | `stage_seq_values.py` | 256 | 14 | 0 | 0 |
@@ -77,7 +77,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 977 | 51 | 0 | 0 |
+| `stage_seq_atlas.py` | 998 | 52 | 0 | 0 |
 
 ## The one command's options
 
@@ -497,7 +497,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 506 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 511 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -505,7 +505,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 254 (250 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 254 (255 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -513,7 +513,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 529 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 534 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -527,14 +527,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 573 (1021 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1021 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1172 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1177 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -542,13 +542,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 937 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 942 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1515 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1520 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -2607,6 +2607,12 @@ The mean of the values falling in each pixel.
 
 *Code:* `MethylPhys_Interface/report_figs_v4.py` line 126 (2 lines) · arguments: x · calls: array run 2
 
+### `report_pdf_v4.py::_cap`
+
+In the PDF report, a list reading longer than 400 characters (for example Met-A for every atlas cell type) shows its first eight entries and the count of the rest; the HTML report keeps the whole list. Table rows may split across pages (2026-11-12, after the release check found every PDF failing on a row taller than a page).
+
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 44 (5 lines) · arguments: x, n · calls: not called on the traced runs
+
 ### `report_pdf_v4.py::P`
 
 A paragraph for the PDF, keeping only the tags the PDF library understands.
@@ -2629,19 +2635,19 @@ The PDF's heading block, with the research-use line and how to read the commissi
 
 A PDF table.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 44 (5 lines) · arguments: rows, widths, head · calls: array run 3, bam run 2
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 50 (5 lines) · arguments: rows, widths, head · calls: array run 3, bam run 2
 
 ### `report_pdf_v4.py::build_pdfs`
 
 The researcher and plain PDFs, from the same rows and pictures as the page.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 55 (59 lines) · arguments: o, F, out, sid, when · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 61 (59 lines) · arguments: o, F, out, sid, when · calls: array run 1, bam run 1
 
 ### `report_pdf_v4.py::build_pdfs.doc`
 
 Writes one PDF.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 58 (3 lines) · arguments: path, story · calls: array run 2, bam run 2
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 64 (3 lines) · arguments: path, story · calls: array run 2, bam run 2
 
 ## 14b. The report's globe: `report_globe_v4.py`
 
@@ -3307,7 +3313,7 @@ Draws the report's 'How to read this report' section (the law, the ratio to heal
 
 Draws one section's explanation in the researcher PDF, from the same source as the HTML report.
 
-*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 50 (4 lines) · arguments: R, sec · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_pdf_v4.py` line 56 (4 lines) · arguments: R, sec · calls: not called on the traced runs
 
 ### `report_v4.py::detail_tables._cl`
 
@@ -3897,7 +3903,7 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 415 (1 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 420 (1 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::save_layout`
 
@@ -4265,6 +4271,12 @@ v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a 
 levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
+
+### `stage_seq_atlas.py::ref_compare`
+
+Development, run by `run_sample.py --build ref-compare --build-cell CELL[,SEQ_CELL] --bundle OUT.json`. At one cell's Met-A identity sites, the array atlas's healthy level (IAM-Atlas v2.1) against the IAM Sequencing Atlas's pooled healthy donors (interior calls, sites with at least 10 reads): mean per-site disorder in bits, overall and by side. It shows how much of an array reference's height is the array's own response and how much the cells hold (2026-11-12).
+
+*Code:* `stage_seq_atlas.py` line 979 (18 lines) · arguments: cell, seq_cell, min_reads · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::domain_disorder`
 

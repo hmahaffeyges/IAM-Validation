@@ -1,0 +1,15 @@
+Methionine synthetic at the controls' own lengths (control_lengths.csv, loose 0.20, N = 150000 per sample)
+ planted_rise  rep  held_err_length
+        1.000    0          0.04573
+        1.000    1          0.04573
+        1.066    0          0.04851
+        1.066    1          0.04851
+        1.500    0          0.06445
+        1.500    1          0.06315
+        4.000    0          0.12393
+        4.000    1          0.12378
+
+control replicate spread 0.00 %
+planted x1.066: read x1.061
+planted x1.5: read x1.395
+planted x4.0: read x2.708
