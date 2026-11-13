@@ -27,6 +27,12 @@ stored in genome order, so the plan's 20 blocks each fall on a few chromosomes. 
 erase_blocks.py; the default of 20 is unchanged and gives byte-identical plans for all 32 earlier samples). The prediction, the bar and
 pass/fail are untouched. The coverage check still decides; a library it refuses is reported, not read by another route.
 
+**Amendment 2 (2026-11-13, before any held error was computed from a referee library).** The second canary (200 blocks, GitHub run 43408050794) put
+reads on every chromosome in proportion to its length (chr1 8.5 %, chr22 0.9 %) but the coverage check still refused it (chr14, chr17,
+chr22 under half the median share of sites with a value): a small chromosome got only 2-4 blocks, so its share depended on where they fell.
+Changed: 2,000 blocks (5,000 pairs each, the same 10 million). The coverage check is kept, not bypassed; the prediction, bar and pass/fail
+are untouched.
+
 **The prediction, through the meter.** For each cell type, the counter's lone-loss reading (`held_err_length`) that the forward model gives
 at that cell type's own measured clustering (median `coupling` of its libraries, an instrument property read from the same libraries),
 interpolated on the committed grid (`data/DEV_CHAIN_Q2_01/forward_out/pg_<ratio>_<x>.csv`: forward_candidate.py, seq mode, 3 samples of

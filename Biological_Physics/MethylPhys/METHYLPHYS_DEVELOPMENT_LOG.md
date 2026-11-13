@@ -5013,3 +5013,7 @@ The genome-coverage check stopped the canary: GSE173787's runs are stored in gen
 autosomes got no reads). `doors/data/DEV_ERASE_01/erase_blocks.py` takes an optional per-sample `blocks` column; the referee list uses 200
 (the same 10 million pairs). Earlier sample lists are unchanged (all 32 block plans byte-identical). Amendment 1 in doors/PHY_084_REFEREE.md,
 written before any held error was computed from a referee library. Canary rerun.
+
+### 2026-11-13 · PHY-084: second canary covers every chromosome but too few blocks on the small ones; 2,000 blocks
+Amendment 2 in doors/PHY_084_REFEREE.md: 200 blocks spread reads in proportion to chromosome length, but the coverage check refused chr14,
+chr17, chr22 (2-4 blocks each). 2,000 blocks of 5,000 pairs, the same 10 million; the check kept. Canary rerun.
