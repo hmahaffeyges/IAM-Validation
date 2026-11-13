@@ -417,5 +417,19 @@ The counter's read path is directional and reads every call, so GSE210026 cannot
 are not assessed. No held error from the canary was opened. P4 (GSE161463, mature B cells, standard directional WGBS from 1 ug with
 methylated adapters, as PHY-085) proceeds, canary first. Lesson kept: the library method is read before a set is sealed.
 
+**PHY-086, amendment 2 (2026-11-13, sealed before any library of it is opened): P5, iNKT cells from the same laboratory as P4.** To replace the
+withdrawn progenitor arm with standard libraries: GSE66834 (the laboratory of GSE161463, P4), MethylC-seq of sorted iNKT cells, two wild
+type and two TET2/TET3 double knockout ("young", before the cells expand), sheared DNA, end repair, lambda spike-in, paired 2 x 100, each
+library over eight runs (DEV_ERASE_01/erase_types2_samples.csv; 10 million pairs in 2,000 blocks across all eight runs, as P4). The two
+libraries of GSE134396 (knockout cells expanded in recipients) are excluded as transformed.
+**P5.** Knockout over wild type held error (DEV-ERASE-01 recount rule, the one command, --dev-count-only) is inside 0.79-0.95: TET2 and TET3
+together remove at least TET2's share in blood progenitors (PHY-085, 0.900 and 0.909) and at most the largest share measured in stem cells
+(0.79). Not assessed if the two wild-type libraries differ by more than half the expected effect (|ln(WT1/WT2)| > 0.05).
+**P6 (exploration grade, stated before reading).** If the erasers set the difference between cell types, the type gap in wild type is the
+ratio of the types' eraser shares: ln(WT_B / WT_iNKT) = ln(r_iNKT / r_B) within the P4 and P5 spreads, and the knockouts lie closer
+together than the wild types. Graded exploration, not a sealed pass or fail, because B and iNKT were sequenced in different experiments
+(2020, 2015), whose offsets do not cancel across experiments as they do within each ratio.
+**Machines.** Google spot machines, erase_google.sh, canary first (one wild-type library at 2 million pairs).
+
 **Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
 

@@ -5,3 +5,4 @@ degron_samples.csv
 degron_pairs.json
 erase_blood_samples.csv
 erase_types_samples.csv
+erase_types2_samples.csv

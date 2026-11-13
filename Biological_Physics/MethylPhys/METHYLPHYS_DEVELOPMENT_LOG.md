@@ -5067,3 +5067,8 @@ The canary showed 48 % of reads failing quality and alignment about 6 times slow
 protocol is PBAT, non-directional, about 500 cells, ends clipped 6 bp. Withdrawn (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md,
 amendment 1); P1-P3 not assessed; P4 on GSE161463 proceeds. Also corrected: "two coins (one per strand)" in WHY_IAM.md; the book's own text
 is right: two coins are the price of one SAM, one methyl transfer onto one strand.
+
+### 2026-11-13 · PHY-086 amendment 2: iNKT cells (GSE66834) sealed as P5 before any library is opened
+Same laboratory and knockout (TET2 + TET3) as P4's B cells, standard MethylC-seq libraries; P5 expects knockout over wild type 0.79-0.95;
+P6 (exploration grade) asks whether the two types' eraser shares account for the gap between them
+(Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md, amendment 2; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_types2_samples.csv).

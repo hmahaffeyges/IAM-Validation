@@ -94,6 +94,7 @@ GSE132547,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE
 GSE132804,downloads/C_tissue_tests/GSE132804/,7.46,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE133062,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_ATLAS_LAVAGE_01; DEV_ATLAS_LAVAGE_01_OUTCOME; DEV_COMPOSITION_TRUTH_03_OUTCOME; DEV_SYNTH_LEVERS_01,,,,,,
 GSE134217,,,,,,,,DEV_ATLAS_V21_01,,,,,,
+GSE134396,,,,,,,,DEV_ERASE_01,,,,,,
 GSE134664,,,,,,,,DEV_ATLAS_V21_01; DEV_ERASE_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE134664 healthy naive and memory B cells WGBS (4 controls; patients not read),,,,,spent (sequencing commissioning test),,,,,,,,,
 GSE135097,,,,,,,,,not usable (too few donors (one normal line)),lung fibroblast,yes,IDAT listed for 12/12 samples,Transforming growth factor beta 1 induces methylation changes in lung fibroblasts [Illumina],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -396,6 +397,7 @@ GSE64096,,,,,,,,,research,sperm,yes,IDAT listed for 40/40 samples,Intra-sample h
 GSE65097,,,,,,,,DEV_METAA_450K_01,not usable (no raw data (TXT only)),neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE65097_Amr_raw_methylation_data_SLE_neutrophils.txt.gz; GSE65097_RAW.tar),Epigenome profiling reveals significant DNA demethylation of interferon signature genes in lupus neutrophils,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE65163,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT listed for 72/72 samples,The Nasal Methylome and Childhood Atopic Asthma,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE66351,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cortical neurons | oligodendrocytes,yes,IDAT listed for 190/190 samples,"DNA methylation profiling of neuron and glia for the dissection of cell type, age and Alzheimer’s disease-specific changes in the human brain; DNA methylation p",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE66834,,,,,,,,DEV_ERASE_01,,,,,,
 GSE66836,,,,,,,,,,,,,Genome-wide DNA methylation signature in lung adenocarcinomas has prognostic impact,candidates DEV_FINGERPRINT_03
 GSE67170,,,,,,,,,held-out test,t cells cd3,yes,IDAT listed for 89/89 samples,The signature of liver cancer in host peripheral blood mononuclear cells and T cells DNA methylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE67393,,,,,,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_WB450_REHEARSAL_01,,,,,,
