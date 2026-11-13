@@ -55,7 +55,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**83 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**84 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -142,3 +142,4 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_TISSUE_LIVER_01 | `DEV_TISSUE_LIVER_01/liver_synthetic.py` | no chain import | TIS-028, DAT-156 |
 | DEV_TISSUE_LIVER_01 | `DEV_TISSUE_LIVER_01/liver_direction_07.py` | no chain import | TIS-028, DAT-156 |
 | DEV_TISSUE_LUNG_01 | `DEV_TISSUE_LUNG_01/lung_synthetic.py` | no chain import | DAT-153 |
+| PHY_084_REFEREE | `DEV_CHAIN_Q2_01/forward_candidate.py` | no chain import | PHY-084 |

@@ -1,0 +1,1 @@
+forward model of the candidate (per-site loss 0.04922, eraser ratio 0.905) through the counter, seq 1.25, 3 samples of 120000 held molecules: held_err_length 0.04410, held_e_call 0.04873, coupling 1.239

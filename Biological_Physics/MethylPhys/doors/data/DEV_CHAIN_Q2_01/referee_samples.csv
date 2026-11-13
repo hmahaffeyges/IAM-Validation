@@ -1,0 +1,59 @@
+gsm,cell,title,disease_status,cell_type
+GSM5278426,b cells,HC-1-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278427,b cells,HC-2-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278428,b cells,HC-3-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278429,b cells,HC-4-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278430,b cells,HC-5-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278431,b cells,HC-6-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278432,b cells,HC-7-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278433,b cells,HC-8-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278434,b cells,HC-9-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278435,b cells,HC-10-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278436,b cells,HC-11-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278437,b cells,HC-12-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278438,b cells,HC-13-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278439,b cells,HC-14-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278440,b cells,HC-15-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278441,b cells,HC-16-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278442,b cells,HC-17-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278443,b cells,HC-18-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278444,b cells,HC-19-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278445,b cells,HC-20-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278446,b cells,HC-21-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278447,b cells,HC-22-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278448,b cells,HC-23-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278449,b cells,HC-24-CD19 BS-Seq,Healthy control,CD19+ B cells
+GSM5278467,cd4 t cells,HC-1-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278468,cd4 t cells,HC-2-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278469,cd4 t cells,HC-3-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278470,cd4 t cells,HC-4-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278471,cd4 t cells,HC-5-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278472,cd4 t cells,HC-6-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278473,cd4 t cells,HC-7-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278474,cd4 t cells,HC-8-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278475,cd4 t cells,HC-9-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278476,cd4 t cells,HC-10-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278477,cd4 t cells,HC-11-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278478,cd4 t cells,HC-12-CD4 BS-Seq,Healthy control,CD4+ T cells
+GSM5278496,cd8 t cells,HC-1-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278497,cd8 t cells,HC-2-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278498,cd8 t cells,HC-3-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278499,cd8 t cells,HC-4-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278500,cd8 t cells,HC-5-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278501,cd8 t cells,HC-6-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278502,cd8 t cells,HC-7-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278503,cd8 t cells,HC-8-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278504,cd8 t cells,HC-9-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278505,cd8 t cells,HC-10-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278506,cd8 t cells,HC-11-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278507,cd8 t cells,HC-12-CD8 BS-Seq,Healthy control,CD8+ T cells
+GSM5278520,monocytes,HC-1-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278521,monocytes,HC-2-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278522,monocytes,HC-3-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278523,monocytes,HC-4-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278524,monocytes,HC-5-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278525,monocytes,HC-6-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278526,monocytes,HC-7-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278527,monocytes,HC-8-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278528,monocytes,HC-9-CD14 BS-Seq,Healthy control,CD14+ monocytes
+GSM5278529,monocytes,HC-10-CD14 BS-Seq,Healthy control,CD14+ monocytes

@@ -1,0 +1,53 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-13",
+ "title": "The eraser measured in blood; the referee test sealed",
+ "set_out": "Measure the eraser's share in blood cells by the sealed rule (PHY-085); finish the release check; seal the referee test of the healthy baseline (PHY-084) before reading it.",
+ "open_at_turnover": "Read the 58 referee libraries by the sealed rule (canary first) and score them; the website decisions (device columns, headline order); the coin decision; the day summary.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The release check",
+     "status": "development",
+     "what": "release.yml on GitHub after the fixes of 11-12 (OTH-070).",
+     "outcome": "34 of 34 pass (bbf79331), the first full pass since the report PDFs stopped building.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): the chain's own release checks"
+    },
+    {
+     "title": "The eraser in blood progenitors (PHY-085)",
+     "status": "development",
+     "what": "GSE227977's six mouse bone-marrow libraries, Tet2 wild type, mutant, knockout, by the rule sealed before reading.",
+     "outcome": "Met: knockout over wild type 0.900 (LSK) and 0.909 (lineage-negative), sealed 0.86-0.95; TET2 alone causes 9-10 % of losses.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+     "reference": "none (not a reading against healthy): eraser-removed libraries against their own wild type"
+    },
+    {
+     "title": "The referee prediction grid (PHY-084)",
+     "status": "development",
+     "what": "forward_candidate.py at the two measured eraser ratios and six clustering settings, 12 GitHub runs.",
+     "outcome": "All 12 ran; clustering 1.19-2.14 covered.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): synthetic molecules with a planted truth"
+    },
+    {
+     "title": "The referee test sealed (PHY-084)",
+     "status": "development",
+     "what": "GSE173787's 58 healthy controls; prediction through the meter at each cell type's clustering; bar about +/-18 %.",
+     "outcome": "Sealed before any library is read; the scorer passed its synthetic test.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
+     "reference": "none (not a reading against healthy): healthy samples to be read against the M-based prediction"
+    }
+   ]
+  }
+ ]
+}

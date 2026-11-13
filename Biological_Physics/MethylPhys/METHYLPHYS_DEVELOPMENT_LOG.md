@@ -5000,3 +5000,10 @@ alone accounts for about 9-10 % of losses in blood progenitors, against 13.6 % f
 `doors/data/DEV_CHAIN_Q2_01/forward_candidate.py` takes an optional eraser ratio r and plants the candidate over r (default 1: earlier
 results reproduce unchanged, same seeds). The referee prediction for each library is read off a grid at the two measured ratios (0.8642 stem
 cells, DEV-ERASE-01; 0.905 TET2 in blood progenitors, PHY-085) and clustering 1.25-2.5 (the blood libraries read 1.80-2.03), run on GitHub.
+
+### 2026-11-13 · PHY-084: the referee test sealed before any library is read
+**Where IAM's Law is:** the candidate from M alone, plus the eraser's measured share as a band (0.8642-0.905). `doors/PHY_084_REFEREE.md`:
+GSE173787's 58 healthy-control libraries (24 B, 12 CD4, 12 CD8, 10 monocytes), read by the one command on GitHub; each cell type's
+prediction put through the meter at its own measured clustering on the committed forward grid (12 runs, forward_out/pg_*); the observation
+its zero-loose intercept; the bar from measured uncertainty, about +/-18 % (k = 2). MET only if all four types fall inside. The scorer
+(referee_score.py) passed its synthetic test (on target MET; 30 % high NOT MET). Sealed by the agent under the author's standing authority.

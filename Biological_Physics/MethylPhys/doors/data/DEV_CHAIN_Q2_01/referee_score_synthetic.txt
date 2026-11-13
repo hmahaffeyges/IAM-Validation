@@ -1,0 +1,2 @@
+on (planted x1.0): MET; expected MET: ok; pulls [-0.09, -0.03, -0.1, -0.17]; combined u [0.0908, 0.0929, 0.09, 0.0959]
+hi (planted x1.3): NOT MET; expected NOT MET: ok; pulls [3.26, 3.14, 3.33, 3.07]; combined u [0.0909, 0.0947, 0.0947, 0.0926]

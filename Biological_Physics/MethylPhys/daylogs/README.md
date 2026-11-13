@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-13](2026-11-13.md) | The eraser measured in blood; the referee test sealed |
 | [2026-11-12](2026-11-12.md) | The healthy level against M, rescored; what spreads it between cell types |
 | [2026-11-11](2026-11-11.md) | Sequencing self-calibration: why four forms failed, and a fifth |
 | [2026-11-10](2026-11-10.md) | Group-A per cell, and each library's own calibration begun |
