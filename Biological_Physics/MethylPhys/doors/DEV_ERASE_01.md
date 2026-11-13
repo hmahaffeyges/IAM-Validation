@@ -431,5 +431,9 @@ together than the wild types. Graded exploration, not a sealed pass or fail, bec
 (2020, 2015), whose offsets do not cancel across experiments as they do within each ratio.
 **Machines.** Google spot machines, erase_google.sh, canary first (one wild-type library at 2 million pairs).
 
+**PHY-086, amendment 3 (2026-11-13, machines only; method unchanged).** P4's canary (GSM4907469, 2 million pairs, Google) passed its instrument check (2.8 % of reads
+failing quality, 99.8 % mapped). The four full B-cell libraries were moved to GitHub's machines (erase_test.yml, the same erase_gh.sh step)
+once PHY-084 freed them: Google's machines align about 2.4 times slower per pair. No held error was opened.
+
 **Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
 

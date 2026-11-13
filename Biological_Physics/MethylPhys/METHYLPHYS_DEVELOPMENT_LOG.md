@@ -5084,3 +5084,6 @@ For independent healthy residuals the C-score is 1 by construction; drawn on the
 2.5-97.5 % 0.894-1.111 (C units 0.885-1.100), beside the six reference arrays (mean 1.007, sd 0.038) and the commissioned whole-blood band
 0.877-1.152 (Biological_Physics/MethylPhys/doors/data/DEV_CSCORE_BAND_01/cscore_band.py). The lower edge is statistics; the upper edge's
 extra width is whole blood's own clustering, which stays measured. Derivation register row C1.
+
+### 2026-11-13 · PHY-086 amendment 3: P4's canary passed; the four B-cell libraries read on GitHub
+Instrument check passed (2.8 % failing quality, 99.8 % mapped); machines only, method unchanged (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md, amendment 3).

@@ -28581,7 +28581,7 @@
    "sources_of_row": [
     "2026-11-12 session"
    ],
-   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: machines: Google spot (erase_google.sh), amended before any library was opened: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md | 2026-11-13: amendment 1: GSE210026 withdrawn before any held error was read: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md | 2026-11-13: amendment 2: P5 iNKT (GSE66834) sealed: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: machines: Google spot (erase_google.sh), amended before any library was opened: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md | 2026-11-13: amendment 1: GSE210026 withdrawn before any held error was read: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md | 2026-11-13: amendment 2: P5 iNKT (GSE66834) sealed: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md | 2026-11-13: amendment 3: P4 canary passed; full libraries on GitHub: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "id": "PHY-086",
    "title": "The eraser's share by cell type: does removing it bring cell types together?",
    "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
