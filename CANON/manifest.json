@@ -28640,6 +28640,28 @@
    "next_step": "desk physics; changes no number IAM-A uses today",
    "cost": "github",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-12 session"
+   ],
+   "notes": "2026-11-13: c = 1.000, 2.5-97.5 % 0.894-1.111 (C units 0.885-1.100) over 6,000 sites in blocks of 10; commissioned 0.877-1.152 (DEV_CSCORE_BAND_01/cscore_band.py)",
+   "id": "PHY-089",
+   "title": "The C-score's healthy value and band from independence (statistics, not IAM's Law)",
+   "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [],
+   "data_status": "",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "run",
+   "next_step": "none; the band's upper edge beyond independence is whole blood's measured clustering",
+   "cost": "github",
+   "impact": 4
   }
  ],
  "not_tests": {

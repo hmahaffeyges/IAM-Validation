@@ -5078,3 +5078,9 @@ Author's decision (2026-11-13: keep every candidate-level status current). CANON
 rate)" and "The two halves" open -> candidate (PHY-083; the sealed referee test PHY-084 decides); "Erasing process" stays candidate with
 its measured share in blood (PHY-085) and its price (PHY-088) added. Each entry keeps its history with a dated update; FOUR_DOMAINS.md and
 the bit tables regenerated.
+
+### 2026-11-13 · PHY-089: the C-score's healthy value and band from independence (statistics, not IAM's Law)
+For independent healthy residuals the C-score is 1 by construction; drawn on the reference's own 6,000 sites in blocks of 10, c = 1.000 with
+2.5-97.5 % 0.894-1.111 (C units 0.885-1.100), beside the six reference arrays (mean 1.007, sd 0.038) and the commissioned whole-blood band
+0.877-1.152 (Biological_Physics/MethylPhys/doors/data/DEV_CSCORE_BAND_01/cscore_band.py). The lower edge is statistics; the upper edge's
+extra width is whole blood's own clustering, which stays measured. Derivation register row C1.

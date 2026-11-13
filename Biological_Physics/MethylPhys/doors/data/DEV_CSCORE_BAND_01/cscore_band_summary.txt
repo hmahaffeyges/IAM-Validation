@@ -1,0 +1,6 @@
+sites 6000, block 10, blocks 600; 20,000 independent draws
+c under independence: mean 1.0005, sd 0.0552, 2.5-97.5 % 0.894-1.111, one-sided 95 % 1.093
+in C units (c / c_healthy, c_healthy 1.0103): 0.885-1.100, one-sided 95 % 1.082
+six reference arrays (leave-one-out): mean 1.0071, sd 0.0382
+commissioned band (whole blood): 0.877-1.152
+Reading: the lower edge is statistics; the upper edge is wider than independence allows by whole blood's own clustering (measured).
