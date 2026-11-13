@@ -4802,3 +4802,6 @@ Recorded in `doors/DEV_ATLAS_V21_01.md` (`ref_compare/` bundles): the array's un
 
 ### 2026-11-12 · PHY-083: the methionine lever read; the supply route ruled out, the energy route not met (held error fell about 7 % in both lines)
 Recorded in `doors/DEV_METHIONINE_01.md` (`score_methionine.py`): MZGC1 0.936, MZGC3 0.929 against energy 1.012-1.015 / 1.053-1.070 and supply 1.267-1.343 / 2.392-2.708. Leading candidate for the fall: slower division, fewer copies in flight.
+
+### 2026-11-12 · PHY-083: is the methionine fall copier lag? the prediction, written before reading
+Recorded in `doors/DEV_METHIONINE_01.md`: if lag, the fall sits in late-replicating DNA and early DNA reads near the energy route; if not, the ratio is flat across timing.

@@ -64,3 +64,12 @@ sign and size in both lines. Leading candidate, not tested: methionine restricti
 copied strand still awaiting its copier from a loss, so fewer copies in flight read as a lower held error. Open caveat as sealed: SAM/SAH
 was measured at 72 h and the libraries' timing is not stated. One library per arm, so no replicate sets the noise.
 
+**Is the methionine fall copier lag? Prediction written before any reading (2026-11-13 00:43 UTC; exploration on the four spent
+libraries).** In a growing culture, DNA copied late in S phase has had the least time for its copier, so a freshly copied strand still
+awaiting maintenance reads as a lone loss mostly in late-replicating DNA. Slower division (methionine restriction) means fewer such strands.
+**If the fall is lag:** (1) in both controls the held error is higher in late- than in early-replicating DNA; (2) the depleted-over-control
+ratio is lower in late DNA than in early DNA, in both lines; (3) in early DNA the ratio is near the energy route (MZGC3 about 1.05-1.07,
+MZGC1 about 1.01). **If not lag:** the ratio is the same across timing. Timing: the mean of the fifteen ENCODE UW Repli-seq wavelet signals
+(hg19; constitutive timing, no cell line chosen), split into thirds by CpG. Each library's molecule file is split by its molecules' first
+CpG into the three thirds, and each part is counted by the one command (run_sample.py --pat PART --dev-count-only).
+
