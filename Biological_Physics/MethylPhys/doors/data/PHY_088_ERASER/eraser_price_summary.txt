@@ -1,0 +1,8 @@
+M (CANON M_cell) = 20.94; Landauer floor for one reset = ln2 / M = 0.0331 coins (0.693 kT)
+one erasure + restore: 14.0 to 63.2 coins (293 to 1323 kT); 423 to 1909 times Landauer's floor
+   of which oxidations 7.0-10.5, ligase 2.0, dCTP 3.0-48.7, restore 2.0
+a loss from thermal kicks costs one restore: 2.0 coins; an erased mark costs 7.0 to 31.6 times as much
+all erasers, stem cells (DEV-ERASE-01): erasers cause 13.6 % of losses but take 52 % to 83 % of the record's maintenance energy
+TET2 alone, blood progenitors (PHY-085): erasers cause 9.5 % of losses but take 42 % to 77 % of the record's maintenance energy
+Exploration; the dCTP bracket dominates the range (salvage vs de novo). Next: the absolute erasure rate from published 5hmC turnover,
+against the restore rate the hold implies, as an independent check of the measured shares.

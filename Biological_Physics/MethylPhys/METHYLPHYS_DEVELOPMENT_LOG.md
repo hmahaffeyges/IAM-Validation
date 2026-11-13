@@ -5040,3 +5040,12 @@ IAM-A's baseline eps_pred(L) = a + b L: a now has a physical account (PHY-083); 
 tile is counted (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_tiles.py): MIXING (inside one sample, tiles that are less marked lose more, and a sample with more loose
 tiles averages higher, reproducing b) or CELL TYPE (flat inside samples; b only across samples). Eleven spent healthy samples spanning
 the loose share (slope_samples.csv), each read by the one command with --dev-count-tiles; exploration.
+
+### 2026-11-13 · PHY-088: the eraser's price, first ledger (exploration, desk)
+The law prices keeping a mark (the hold, two coins per restore) and gives the floor for resetting one (kT ln 2 = 0.033 coins). One erasure by
+TET, TDG and base excision repair, plus its restore, costs 14.0 to 63.2 coins (293 to 1323 kT), 423 to 1909 times Landauer's floor; each line
+sourced in Biological_Physics/MethylPhys/doors/data/PHY_088_ERASER/eraser_price.py (TCA yields per 2-oxoglutarate, ligase, dCTP salvage or de
+novo, the hold's restore). An erased mark costs 7 to 32 times a mark lost to thermal kicks, so with the measured shares the erasers cause
+13.6 % of losses (all erasers, stem cells) but take 52-83 % of the record's maintenance energy; TET2 alone in blood progenitors, 9.5 % and
+42-77 %. The dCTP bracket sets most of the range. Next: the absolute erasure rate from published 5hmC turnover against the restore rate
+the hold implies, an independent check of the measured shares.
