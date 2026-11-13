@@ -4842,3 +4842,19 @@ interstitial macrophages, erythrocyte progenitors (clustering outside the grid) 
 2 coins can buy (103-112 %); the measured in-tissue coins (atp_coin_table.csv, M 22.1-23.9, all above the canon's 20.94) would bring them to
 about 100 %, so either the cell's coin is bigger than the canon's or the formula is short. (2) met: net rises with restore crew, rho +0.42
 (p 0.024, 29 types). (3) met: net falls with lifespan, rho -0.39 (p 0.047, 27 pairings). Crew and copying are partly one signal.
+
+### 2026-11-12 · PHY-083: the constant push is the ceiling; the candidate is the best hold two coins can buy
+**Where IAM's Law is:** the work per restore, in coins of M kT, against thermal diffusion. `minicell/geometry_profiles.py`
+(`minicell/geometry_profiles_summary.txt`): with the same total work, a constant push gives the highest restore odds of any profile tried
+(power laws 0.7-2.0; 2,000 random monotone profiles, best 0.9989 of it). So the candidate (odds 21.45, held error 0.04454) is a ceiling, not
+a typical value: the best hold two coins can buy. The healthy reading implies odds 18.65, 0.869 of the ceiling. No cell can sit above the
+ceiling with the right coin, so the best holders bound the coin from below: the macrophages (five samples, celltype_net.csv, 2.06 coins at
+M 20.94) need M of at least about 21.6, a coin of at least about 55.8 kJ/mol, consistent with every in-tissue measurement (57-62,
+atp_coin_table.csv) and not with the canon's 54. The canon is unchanged pending the author's decision.
+
+**The cell's settling time ("H/K", author's reservoir analogy, 2026-11-12 late; exploration on the committed hairpin time course,
+hairpin_timecourse/timecourse_summary.txt).** Three time points per clone (days 15, 30, 60) do not resolve a settling time: clone C1's level
+accelerates (0.426, 0.437, 0.504), C2 climbs steadily (0.413, 0.455, 0.494), C3 rises then falls (0.450, 0.483, 0.466). No clone levels off
+within 45 days, so in these maintenance cells the held level is still moving after six weeks: a settling time of weeks or longer, far longer
+than a 72-hour experiment. Mouse stem cells: a lead, not a human measurement. Consequence for DEV-METHIONINE-01: its libraries may sample a
+level still on its way to the new steady state.

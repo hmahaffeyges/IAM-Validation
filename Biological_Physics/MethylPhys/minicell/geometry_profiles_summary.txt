@@ -1,0 +1,8 @@
+constant push (candidate)                               odds    21.45  held error 0.04454  relative to constant 1.000
+push strongest where the mark is lost (U = w x^2)       odds    14.73  held error 0.06358  relative to constant 0.687
+push strongest at the restore site (U = w(2x - x^2))    odds    14.73  held error 0.06358  relative to constant 0.687
+push only over the first half from the restore site     odds     3.65  held error 0.21482  relative to constant 0.170
+push only over the half nearest the lost end            odds     3.66  held error 0.21482  relative to constant 0.170
+healthy reading implies odds about 18.65 = 0.869 of the constant push
+power-law profiles: {0.7: 0.91, 0.85: 0.974, 1.0: 1.0, 1.15: 0.993, 1.25: 0.974, 1.4: 0.93, 2.0: 0.687}
+best of 2,000 random monotone profiles, relative to the constant push: 0.9989
