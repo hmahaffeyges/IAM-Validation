@@ -30,6 +30,11 @@ def reserve_findings(S, name):
 def explore_findings(S, name):
     """2026-11-13 lessons 2-3: seal only what a rehearsal on spent data supports; branches are set by independent measurements."""
     F = []; E = S.get("explore") or {}; P = S.get("prediction") or {}
+    if str(S.get("purpose", "")).lower() == "exploration":
+        if re.search(r"(?i)\b(pass|met|sealed?)\b", str((S.get("bars") or {}).get("rule", ""))) and not re.search(r"(?i)no seal", str((S.get("bars") or {}).get("rule", ""))):
+            F.append(f"{name}: purpose is exploration but bars.rule reads like a seal; an exploration seals nothing ('no seal')")
+        return F
+    if str(S.get("purpose", "")).lower() != "sealed": F.append(f"{name}: purpose must be 'sealed' or 'exploration'")
     pull = num(E.get("rehearsal_pull"))
     if pull is None: F.append(f"{name}: explore.rehearsal_pull must be a number: the sealed scorer's largest |pull| on spent data")
     elif abs(pull) > 2: F.append(f"{name}: the rehearsal on spent data gives |pull| {abs(pull):.2f} > 2: fix the prediction before spending reserved data")
@@ -61,6 +66,7 @@ def sheet_findings(S, name="sheet"):
     F = []
     for k in KEYS:
         if k in ("machines.why_not_github", "value.why_this"): continue
+        if str(S.get("purpose", "")).lower() == "exploration" and (k.startswith("prediction.") or k == "explore.rehearsal_pull"): continue
         v = get(S, k)
         if v in (None, "", [], {}): F.append(f"{name}: '{k}' missing ({k} in CANON/TEST_DESIGN_CHECKLIST.md)")
     M = S.get("machines") or {}
@@ -80,7 +86,7 @@ def sheet_findings(S, name="sheet"):
     if FLAG.search(str(get(S, "data.protocol_read") or "")) and not get(S, "data.method_ok"):
         F.append(f"{name}: the deposited method is flagged ({FLAG.search(str(get(S, 'data.protocol_read'))).group(0)}) and data.method_ok does not say how the read path handles it")
     br = str(get(S, "bars.rule") or "")
-    if br and not (re.search(r"(?i)within 2", br) and re.search(r"(?i)beyond 3", br) and re.search(r"(?i)watch", br)):
+    if str(S.get("purpose", "")).lower() != "exploration" and (br and not (re.search(r"(?i)within 2", br) and re.search(r"(?i)beyond 3", br) and re.search(r"(?i)watch", br))):
         F.append(f"{name}: bars.rule must use the agreed classes (WHY_IAM.md rule 4: within 2 passes; 2 to 3 watch; beyond 3 a real miss)")
     O = get(S, "value.options")
     if not (isinstance(O, list) and len(O) >= 2 and all(isinstance(o, dict) and num(o.get("hours")) is not None and num(o.get("cost_usd")) is not None and "adequate" in o for o in O)):

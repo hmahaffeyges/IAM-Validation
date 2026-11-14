@@ -24,6 +24,7 @@ OK["data"]["form"] = FORM
 OK["explore"] = {"done": "celltype_vs_thermal.py on spent counts: blood types near the thermal level", "rehearsal_pull": -1.16}
 OK["prediction"] = {"form": "thermal level / (1 - s), s each type's eraser share", "decided_by": {"s": "the type's own knockout over control, measured independently"},
                     "reading": "zero loose along IAM-A's slope, every laboratory"}
+OK["purpose"] = "sealed"
 def case(label, edit, expect_refused):
     S = copy.deepcopy(OK); edit(S); F = D.sheet_findings(S, label)
     ok = bool(F) == expect_refused
@@ -54,5 +55,8 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("a branch chosen by the outcome refused (11-13)", lambda S: S["prediction"]["decided_by"].update(s="whichever fits the reading"), True),
      case("no prediction.reading refused (11-13)", lambda S: S["prediction"].pop("reading"), True),
      case("a derivation test naming a set reserved for commissioning refused (11-13)", lambda S: S["data"].update(set="GSE131627 healthy-control monocytes"), True),
+     case("an exploration sheet without a rehearsal or prediction passes", lambda S: [S.update(purpose="exploration"), S.pop("prediction"), S["explore"].pop("rehearsal_pull"), S["bars"].update(rule="exploration: no seal; read and reported as found")], False),
+     case("an exploration sheet that seals refused", lambda S: [S.update(purpose="exploration"), S["bars"].update(rule="pass within 2, watch 2-3, miss beyond 3")], True),
+     case("no purpose refused", lambda S: S.pop("purpose"), True),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

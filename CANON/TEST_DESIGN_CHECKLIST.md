@@ -38,6 +38,7 @@ Answers are evidence (numbers, file names, quoted protocol lines), not reassuran
 
 | Key | Question |
 |---|---|
+| purpose | 'sealed' (a prediction read once against a pass rule) or 'exploration' (spent or synthetic data, seals nothing; explore.rehearsal_pull and prediction.* may be 'not applicable', and bars.rule must say no seal) |
 | explore.done | The exploration on spent data that this test rests on: what was read, by which committed script, and what it showed |
 | explore.rehearsal_pull | The sealed scorer run unchanged on the closest spent data: the largest |pull| it gives (must be within 2 to seal) |
 | prediction.form | The prediction as a formula of independently measured inputs, or a single number with why no measured input matters |

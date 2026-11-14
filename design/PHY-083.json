@@ -1,0 +1,100 @@
+{
+ "_written": "2026-11-13, 7:05 PM Pacific, before the first run of this step",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "the candidate per-site loss (CANON eps0_candidate, from M through two coins per restore against thermal kicks) pushed through the counter; the question is what the counter's held_err reads for it, the quantity behind H_ref_cell",
+  "counterparts": "chips: a refreshed memory cell read through its own sense amplifier; qubits: none yet"
+ },
+ "data": {
+  "set": "synthetic molecules only (forward_candidate.py): planted per-site loss eps0_candidate, real molecule lengths, follow-on clustering 1.5/2.0/2.5",
+  "protocol_read": "synthetic; no deposited library",
+  "spent_first": "yes: no real data is read",
+  "form": [
+   {
+    "form": "synthetic molecules counted by the chain (run_sample.py --pat --dev-count-only)",
+    "hours": 0.05,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "analytic estimate of held_err from the per-site loss",
+    "hours": 0.1,
+    "adequate": false
+   }
+  ],
+  "alternatives": "the analytic route cannot include the counter's own definition (interior calls on mostly methylated molecules), which is the point",
+  "needs": "the counter's held_err, held_err_length and coupling on each replicate",
+  "preflight": {
+   "checked": "forward_candidate.py writes held_err (column added and compiled; the chain's count output carries held_err)",
+   "minutes": 2,
+   "result": "column present in the script; count output field held_err present in referee counts"
+  }
+ },
+ "kiss": {
+  "smallest": "three clustering settings that bracket the healthy samples' 1.31-1.60, three replicates each",
+  "samples_why": "each setting is one point of the counter's response"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "10 of 20 busy at 7:00 PM Pacific",
+  "s_per_pair": "n/a (counting only)",
+  "pairs": "n/a",
+  "peak_mem_gb": "under 2 (earlier grid runs on 7 GB runners)",
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 0.05,
+  "time_limit_hours": 1,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "skip-done: each run writes its own output; a failed run is re-sent alone"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "three m2 runs completed"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 3,
+   "halves_corr_min": 0.9,
+   "hours_per_sample_max": 0.5,
+   "_meaning": "rows_min: three replicate rows written with held_err; halves_corr_min here: min/max of held_err across the replicates (replicate agreement); hours: per run"
+  }
+ },
+ "cosmologist": {
+  "method": "forward model: the theory pushed through the instrument, never the instrument inverted",
+  "null_test": "the three replicates must agree within 10 % (min/max 0.9) before the reading is used"
+ },
+ "value": {
+  "question": "what does the candidate read as on the counter's held_err, compared with H_ref_cell's eps0_meth 0.04377?",
+  "adequate": "replicates agree to about 2 % in earlier grid runs; the question is a 2-15 % difference",
+  "options": [
+   {
+    "name": "three forward runs on GitHub",
+    "hours": 0.05,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "name": "rerun the full 12-point grid",
+    "hours": 0.2,
+    "cost_usd": 0,
+    "adequate": true
+   },
+   {
+    "name": "the cosmologist's way: same forward model, cross-checked against the held_err of spent healthy samples at matched clustering",
+    "hours": 0.05,
+    "cost_usd": 0,
+    "adequate": true
+   }
+  ],
+  "why_this": "the three runs are the cosmologist's way; matched clustering comes from the committed healthy counts"
+ },
+ "explore": {
+  "done": "PHY-083 forward model (forward_out): the candidate reads below healthy on held_err_length; this adds held_err"
+ },
+ "bars": {
+  "rule": "exploration: no seal; read and reported as found"
+ }
+}

@@ -5244,3 +5244,9 @@ mature B none) with P6's exploration; generated tables rebuilt (four_domains.py,
 CANON H_ref_cell (0.2593 bits) is H(eps0_meth), the counter's held_err (isolated losses over interior calls) on 153 healthy samples; the
 candidate is a per-site loss. Comparing H(candidate) = 0.2627 with it is not like for like. forward_candidate.py now writes held_err as well
 (earlier columns unchanged), so the candidate can be read through the same counter quantity (register M2).
+
+### 2026-11-13 · OTH-086: design sheets declare their purpose, sealed or exploration
+The launcher refused PHY-083's forward run for want of a design sheet. Lesson 2 (seal only what a rehearsal on spent data supports)
+applies to sealed tests; an exploration seals nothing. The checklist now asks 'purpose': an exploration sheet answers every question but
+the rehearsal and the prediction, and may not carry a seal (planted cases: an exploration that seals is refused; no purpose is refused;
+30 cases). design/PHY-083.json written for the forward model's held_err runs.
