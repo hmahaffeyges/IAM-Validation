@@ -825,7 +825,7 @@
    "definition": "What fraction of the drive per event ends up held as the record: the holding energy over the drive, both in k_B T units (a ratio of Mahaffey-number quantities).",
    "cosmos": {
     "native": "Smarr share",
-    "formula": "black hole (no spin): N k_B T_H ln2 = T_H S = Mc^2/2, share 1/2; spinning: sqrt(1-chi^2)/2 (the rest goes into rotation); cosmic horizon: T_GH S = M_H c^2, share 1",
+    "formula": "black hole (no spin): N k_B T_H ln2 = T_H S = Mc^2/2, share 1/2; spinning: sqrt(1-chi^2)/2 (the rest goes into rotation); cosmic horizon: T_GH S = M_H c^2, share 1 | ADDED 2026-11-14 (author's authority; sympy): two ratios are in use. Against the ENERGY INSIDE, the black hole holds T S = Mc^2/2 (1/2) and the cosmic horizon T_GH S = M_H c^2 (1). Against the PRICE PAID while the area grew (the integral of T dS), both hold exactly 1/2: for any area-law surface with T ~ 1/R, T S = (1/2) integral T dS. For the black hole the two ratios coincide (first law dM = T dS); for the cosmic horizon the integral is 2 M_H c^2 (the apparent-horizon first law carries a work term), and its temperature is twice a Schwarzschild horizon's at the same radius. So the horizon's 1 and the black hole's 1/2 differ in what they are compared with, not in the law.",
     "status": "derived",
     "source": "p1_03 sec:vl_bh; p2_12 eq:lam_smarr; App. E #348, #499"
    },
