@@ -113,15 +113,19 @@ M / ln 2 = 30.2.
 M is the budget each spend brings against disorder, not the energy a mark is held with. Healthy cells hold each methylation mark at about
 3.08 k_B T (153 healthy samples of 56 cell types), which is φ = 0.147 of one ATP: the cell pays in coins worth 21
 kicks each and holds each mark at about 3 kicks' worth. M sets the gauge's floor, the best a record could be held against thermal kicks,
-1/(1 + e^M) = 8.0e-10; healthy cells sit far above it, at about 4.4 errors in a hundred. Why the cell holds 0.147 of its drive, where
-a chip and a black hole hold one half, is open.
+1/(1 + e^M) = 8.0e-10; healthy cells sit far above it, at about 4.4 errors in a hundred. That level is now derived from M: a restore costs two ATP (one
+S-adenosylmethionine, exactly two where adenylate kinase is at equilibrium), and a mark kept by a constant push of that size against
+thermal kicks is lost 0.04454 of the time, with nothing fitted; a constant push is the best hold two coins can buy. The share it holds
+is φ = 0.146, close to ln(M)/M = 0.145. With one independently measured input, the share of losses the TET erasers cause on purpose,
+it passed a blind test on another laboratory's healthy blood cells (three cell types pass, B cells on watch).
 M is IAM's Law in dimensionless form: the drive available for keeping a record over the thermal noise of the surface that keeps it. The same
 ratio is computed for a chip (energy per switching event against its temperature), a qubit (its energy gap against its temperature) and a
 black hole (its mass-energy against its Hawking temperature, which gives twice its entropy). Because the kick grows with temperature, M is
 larger in the cold: 23.35 at 5 °C and 22.54 at 15 °C for the same energy per ATP.
 Evidence: the book, [IAM's Law](https://hmahaffeyges.github.io/IAM-Validation/book/ch_iams_law.html) (the M number) and
 [Landauer's bound in the cell](https://hmahaffeyges.github.io/IAM-Validation/book/ch_landauer.html); the values in `CANON/iam_canon.json` and
-`CANON/foundation.json`. **Open question:** what sets φ.
+`CANON/foundation.json`; the derivation in the book's IAM-A chapter. The number itself is familiar to every biochemist, the free energy
+of ATP in units of kT; what is new is its use as the drive of a held record. **Open question:** each cell type's own eraser share.
 
 **And the middle mark, where healthy sits?**
 For Met-A it is measured: the median of healthy reference arrays run beside the sample. For IAM-A it comes from the sample itself. A cell's

@@ -5316,7 +5316,14 @@ and a scheduled refresh that rewrites good cells (the eraser as planned maintena
 ### 2026-11-14 · PHY-087: the within-sample slope follows from the derived hold with cooperative maintenance (exploration)
 Prediction written before the measured slope was re-read: if the restore push a held mark receives scales with the held share of its
 neighbourhood (cooperative maintenance), the derived pump gives the counter's held error a slope against tile looseness of 0.0369-0.0398 at
-zero looseness. Measured, eleven samples: median 0.0551, inside the 0.5-2 band written first. After the fact, evaluated at each sample's own
+zero looseness (one-sided difference as written; the script's centred difference gives 0.0365-0.0394). Measured, eleven samples: median 0.0551, inside the 0.5-2 band written first. After the fact, evaluated at each sample's own
 looseness: median ratio 0.93 (0.64-1.34) on the ten samples that passed PHY-087's null test; erythrocyte progenitors (failed the null test)
 far below. So the mixing part of IAM-A's slope (about 40 %) follows from M with one assumption, a crew share linear in neighbourhood
 (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_pump.py). Exploration; nothing sealed.
+
+### 2026-11-14 · PHY-083: the book's cell chapters cite IAM's Law by reference; the M-number answer carries the derivation
+The derivation board found that no cell equation traced back to the law's chapter by reference. Three references added, each on its own
+line (no check moved): the bridge chapter's Landauer statement now cites Eq. eq:law and eq:law_landauer; the M-number definition cites
+eq:law_landauer; the IAM-A gauge cites eq:M and eq:law. The Q&A 'What is the M number?' replaces 'why 0.147 is open' with the derived
+level (two ATP per restore, constant push, 0.04454, phi 0.146, ln(M)/M 0.145) and the blind test, and states plainly that the ratio itself
+is familiar; the open question becomes each cell type's eraser share. Author's instruction (2026-11-14): do what is right for IAM.
