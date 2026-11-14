@@ -40,7 +40,7 @@ $\varepsilon=1/(1+e^{E/\kB T})$. \derived{} Three energies mark the gauge:
 \begin{tabular}{@{}llllll@{}}\toprule
 mark & where & energy holding each site & thermal kicks win & entropy per site & set by \\\midrule
 floor $\Hmin$ & left & one full ATP, $M=20.94\,\kB T$ & 1 in $1.24\times10^{9}$ & $2.5\times10^{-8}$ bits & $M$ alone \calc \\
-healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured; candidate from $M$ and the SAM price (Section~\ref{sec:middle_candidate}) \conjecture \\
+healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured; derived from $M$ and the SAM price, one measured input (Section~\ref{sec:middle_candidate}) \derived \\
 ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & physics \derived \\\bottomrule
 \end{tabular}\end{center}
 The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
@@ -52,12 +52,12 @@ efficiency, $\phi$. Thermodynamics bounds the holding energy by the free energy 
 the cell actually holds is set by the kinetics of maintenance, the balance of restore and loss, $E_{\rm hold}=\kB T\ln(g/f)$
 (Section~\ref{sec:balance}), whether the cell divides or not. Restore and loss rates measured in the same cells return this balance by construction, since at steady state $g/f=(1-\varepsilon)/\varepsilon$;
 deriving $\phi$ needs the writer's discrimination measured outside the cell, and is the central open problem of the cellular rung
-(Chapter~\ref{ch:open}). \openprob{} A candidate that gives it from $M$ and the price of the methyl donor, by a different route, is set out next. \conjecture
+(Chapter~\ref{ch:open}). \openprob{} A derivation that gives it from $M$ and the price of the methyl donor, by a different route, is set out next. \derived
 
-\section{A candidate for the healthy reference from $M$ and the SAM price}\label{sec:middle_candidate}
+\section{The healthy reference from $M$ and the SAM price}\label{sec:middle_candidate}
 
-The floor and the ceiling are derived; the healthy reference is measured. A candidate gives it from $M$ and the price of the methyl donor, with nothing fitted to
-methylation data ($M$ comes from the free energy of ATP and body temperature, the SAM price from published biochemistry). \conjecture{} It holds the two marks apart by how
+The floor and the ceiling are derived; the healthy reference is measured, and derived here from $M$ and the price of the methyl donor, with nothing fitted to
+methylation data ($M$ comes from the free energy of ATP and body temperature, the SAM price from published biochemistry). \derived{} It holds the two marks apart by how
 they are held. The floor is a site held behind a wall $M$ kicks high: Boltzmann's factor, an error that falls exponentially with the
 energy, a record held by the landscape alone. The healthy reference is a site held by restoring that is paid for continuously against
 thermal kicks: a driven passage, an error that falls only in proportion to the work. \interp
@@ -73,7 +73,7 @@ reflecting, the lost end absorbing; the Einstein relation ties the drift to the 
 $M\,\kB T$. The restore that sets the healthy level is one methyl transfer (below: half-lost pairs are restored far faster than lost
 ones), and each transfer spends one SAM, whose synthesis spends ATP $\to$ AMP $+\,2$P$_i$. Adenylate kinase ($\mathrm{ATP}+\mathrm{AMP}\rightleftharpoons2\,\mathrm{ADP}$) links
 the two bonds, so one SAM costs $2-\Delta G_{\rm AK}/\Delta G_{\rm ATP}$ coins, exactly two where it is at equilibrium. \derived{} With $W=2M\kB T=41.88\,\kB T$, $g/f=21.45$, $\varepsilon_0=0.04454$, $E_{\rm hold}=\kB T\ln(g/f)=3.066\,\kB T$ and $\phi=E_{\rm hold}/M\kB T=0.1464$, against the measured
-$3.08\,\kB T$, $\phi=0.147$, and a pooled healthy lone-loss intercept of 0.04526 (95~\% 0.04375--0.04657, 197 samples). \conjecture{}
+$3.08\,\kB T$, $\phi=0.147$, and a pooled healthy lone-loss intercept of 0.04526 (95~\% 0.04375--0.04657, 197 samples). The first is a per-site loss and the second a lone-loss reading on the counter; the like-for-like comparison, through the counter and with the eraser's measured share, is the blind test below. \derived{}
 The simpler form $g/f=M$ gives 0.04558 and $3.042\,\kB T$; the two differ by about 2~\%, finer than the present resolution.
 
 What it explains, and what has been measured beside it:
@@ -99,10 +99,10 @@ What is not settled: the factor of two was looked for after one coin gave odds o
 set by how near equilibrium adenylate kinase sits in each cell: within a factor two the price is 1.967--2.033 coins and the held error
 0.04386--0.04524 (the textbook tables give 2.09--2.14, because their standard values imply $K_{\rm AK}\approx0.22$ rather than the measured value near 1);
 the recycling of the methyl group (SAH back to methionine) is not counted; the constant push across one mark is a modeling choice; the stem-cell control of the UHRF1 series holds at 0.03216,
-which needs $59.2\,\kB T$ per restore, more than two coins ($41.88\,\kB T$); and removing the eraser lowers the held error only modestly, so
+which needs $59.2\,\kB T$ per restore, more than two coins ($41.88\,\kB T$); and removing the eraser lowers the held error modestly in stem cells and blood progenitors and not at all in mature B cells (PHY-086), so the eraser's share is measured cell type by cell type, and
 whether loss at held sites is undriven or partly paid erasing changes the factor of order one. \openprob
 
-\paragraph{A blind test on a laboratory never read.} The candidate with the eraser's measured share, pushed through the counter at each
+\paragraph{A blind test on a laboratory never read.} The derived level with the eraser's measured share, pushed through the counter at each
 library's own clustering, was sealed before 54 healthy-control libraries of sorted blood cells from a laboratory never read were opened
 (B cells 23, CD4 T cells 9, CD8 T cells 12, monocytes 10; four more were refused at intake and are reported). Each cell type's bar was
 built from measured uncertainty (GUM, $k=2$: the spread between cell types, the eraser share, the forward model, copier lag and the

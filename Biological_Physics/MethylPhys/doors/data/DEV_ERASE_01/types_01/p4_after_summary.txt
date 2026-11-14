@@ -1,0 +1,2 @@
+(1) at zero loose: control 0.05571, knockout 0.05500, ratio 0.987
+(2) PHY-084 B cells: measured 0.0325; sealed prediction 0.0438 (pull -2.45); with a zero eraser share 0.0378 (pull -1.16, same sigma). After the fact; a lead for A8, not a result.

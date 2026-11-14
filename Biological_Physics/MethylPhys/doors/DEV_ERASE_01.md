@@ -437,3 +437,21 @@ once PHY-084 freed them: Google's machines align about 2.4 times slower per pair
 
 **Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
 
+**PHY-086 P4 result (2026-11-13, 4:35 PM Pacific, scored once by p4_score.py, committed before reading): NOT MET, a real miss.** In mature splenic B cells (GSE161463),
+removing TET2 and TET3 did not lower the lone-loss held error: knockout over control 1.042 against the sealed 0.75-0.95 (pull +3.71 by the
+project's standard, beyond 3). The null test passed: the two controls agree within 1.5 %, the two knockouts within 3.3 %. The knockouts carry
+about twice the loose share (0.16-0.17 against 0.07-0.08); read at zero loose along IAM-A's slope, after the fact, the ratio is 0.987: still no
+eraser effect. Reading: in these mature B cells the erasers' share of the loss is near zero, not the 9-14 % measured in stem cells and blood
+progenitors, so the eraser share is NOT one number across cell types (register A5, A8). After the fact, and in mouse: with no eraser share,
+PHY-084's prediction for B cells moves from 0.0438 to 0.0378 (pull -2.45 to -1.16), toward the measured 0.0325 (types_01/p4_after.py); that is a lead for the per-type work, not a result.
+P5 (iNKT, same laboratory) is still reading.
+
+```
+PHY-086 P4 (mature B cells, TET2+TET3 removed): knockout over control 1.0419; sealed range 0.75-0.95: NOT MET; pull +3.71 (miss)
+controls 0.05784, 0.05875; knockouts 0.06174, 0.05974; measurement sigma 0.0134, prediction sigma 0.0500
+eraser share of the loss in mature B cells: -4.2 % (stem cells 13.6 %, blood progenitors TET2 alone 9-10 %)
+GSM4907469 held_err_length 0.05784 loose 0.078 coupling 1.126 held_opp 429021
+GSM4907470 held_err_length 0.05875 loose 0.071 coupling 1.175 held_opp 462384
+GSM4907471 held_err_length 0.06174 loose 0.173 coupling 1.277 held_opp 448379
+GSM4907472 held_err_length 0.05974 loose 0.159 coupling 1.287 held_opp 421964
+```

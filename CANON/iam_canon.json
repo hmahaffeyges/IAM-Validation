@@ -21,7 +21,12 @@
     "dG_ATP": {
       "value": 54000.0,
       "units": "J/mol",
-      "source": "cellular ATP hydrolysis free energy (54 kJ/mol)"
+      "source": "cellular ATP hydrolysis free energy, 54 kJ/mol (Nelson and Cox, Lehninger Principles of Biochemistry, 2017: cite Nelson2017 in the book)",
+      "band": [
+        53500.0,
+        61700.0
+      ],
+      "band_note": "Measured in tissue, magnitude: rat erythrocytes 57.1, skeletal muscle 57.3, liver 58.7, brain 58.9 kJ/mol (Front Physiol 2021, 10.3389/fphys.2021.658997, Table 1, free Mg corrected); human brain 62.1 (Iotti et al. 2005, BBA, 31P-MRS model); ranges quoted for liver 53.5-59 and heart 59.5-61.7. The canon keeps 54 kJ/mol (the nameplate) with this band; decided 2026-11-13 on the author's deferral (keep, cite, band). Each cell type's own coin is register A16 (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/atp_coin_table.csv)."
     },
     "M_cell": {
       "value": 20.94,

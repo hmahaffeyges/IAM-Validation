@@ -1,0 +1,7 @@
+PHY-086 P4 (mature B cells, TET2+TET3 removed): knockout over control 1.0419; sealed range 0.75-0.95: NOT MET; pull +3.71 (miss)
+controls 0.05784, 0.05875; knockouts 0.06174, 0.05974; measurement sigma 0.0134, prediction sigma 0.0500
+eraser share of the loss in mature B cells: -4.2 % (stem cells 13.6 %, blood progenitors TET2 alone 9-10 %)
+GSM4907469 held_err_length 0.05784 loose 0.078 coupling 1.126 held_opp 429021
+GSM4907470 held_err_length 0.05875 loose 0.071 coupling 1.175 held_opp 462384
+GSM4907471 held_err_length 0.06174 loose 0.173 coupling 1.277 held_opp 448379
+GSM4907472 held_err_length 0.05974 loose 0.159 coupling 1.287 held_opp 421964

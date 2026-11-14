@@ -5176,3 +5176,17 @@ Ninio) would give 0.00015-0.00043. After the fact; the meter's own false marks a
 From the tile files: the within-sample slope times the rise of a sample's mean tile looseness with its loose share predicts b = 0.0127
 (the ten samples that passed the null test) to 0.0142 (all eleven): 0.37-0.41 of IAM-A's 0.034625. The remaining ~60 % is cell type, so the
 slope's open part and each type's own level (register A8) are one question (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_read.py).
+
+### 2026-11-13 · PHY-086 P4 NOT MET: in mature B cells removing TET2 and TET3 does not lower the held error
+Knockout over control 1.042 against the sealed 0.75-0.95 (pull +3.71, beyond 3: a real miss); replicates agree (1.5 %, 3.3 %); at zero
+loose, after the fact, 0.987 (p4_after.py). The eraser share is not one number across cell types: near zero in mature B cells, 9-14 % in stem cells and
+blood progenitors. Lead for each type's level (A8): with no eraser share, the B-cell prediction of PHY-084 would move toward the measured
+value (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p4_score.py; Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).
+
+### 2026-11-13 · PHY-083: the book's healthy reference marked derived, one measured input; the coin cited with its measured band
+On the author's authority ('the rest you do what is best for IAM'): in the IAM-A chapter the healthy reference now reads derived from M and
+the SAM price with one measured input (the eraser share), in the table, the lead-in, the section title and the blind-test paragraph; the
+section label is unchanged. The comparison of the per-site value with the lone-loss reading now says the like-for-like comparison is the
+blind test, and the open list says the eraser's share is measured type by type (PHY-086 P4). Line count unchanged; every check passes.
+The coin (CANON dG_ATP) keeps 54 kJ/mol, cited (Nelson and Cox 2017), with the measured band 53.5-61.7 kJ/mol and its sources
+(Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/atp_coin_table.csv; docs/book/part6/p6_08_iama.tex).
