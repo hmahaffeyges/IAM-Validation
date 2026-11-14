@@ -60,7 +60,7 @@
  },
  "watchers": {
   "count": 1,
-  "stop_condition": "20 runs completed"
+  "stop_condition": "78 runs completed"
  },
  "canary": {
   "instrument_check": {
@@ -108,5 +108,6 @@
  },
  "bars": {
   "rule": "no seal: exploration; conv_fail reported per library with its counting uncertainty"
- }
+ },
+ "amendment_1": "2026-11-14, 3:10 PM Pacific, before any library is read: the 58 healthy blood libraries in PHY-084's run list (all spent; 4 were refused by intake for partial coverage and are counted anyway, as counts) (GSE173787, hg19, referee_runs.csv) added behind the same canary, so the meter's false marks are also measured in the commissioned cell types (human); same method and rule"
 }
