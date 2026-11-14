@@ -5329,3 +5329,8 @@ line (no check moved): the bridge chapter's Landauer statement now cites Eq. eq:
 eq:law_landauer; the IAM-A gauge cites eq:M and eq:law. The Q&A 'What is the M number?' replaces 'why 0.147 is open' with the derived
 level (two ATP per restore, constant push, 0.04454, phi 0.146, ln(M)/M 0.145) and the blind test, and states plainly that the ratio itself
 is familiar; the open question becomes each cell type's eraser share. Author's instruction (2026-11-14): do what is right for IAM.
+
+### 2026-11-14 · OTH-086: the gate refuses private names and new private-domain material in public files
+CANON/privacy_check.py runs in checked_push.sh on the lines a push adds: a private name (matched by hash, CANON/privacy_hashes.txt, so no
+public file spells it) or a new term from the private domains outside the book's existing Part 5 chapters and their verification files is refused.
+Lines already on main are never flagged; genomics terms such as ChIP-seq are not triggers. Planted controls (six cases) pass.

@@ -9,6 +9,7 @@ python3 CANON/compile_check.py || { echo "checked_push.sh: COMPILE CHECK FAILED 
 python3 CANON/canon_check.py || { echo "checked_push.sh: CANON CHECK FAILED - push refused"; exit 1; }
 git fetch -q origin main
 python3 CANON/repro_check.py || { echo "checked_push.sh: REPRODUCIBILITY CHECK FAILED - push refused"; exit 1; }
+python3 CANON/privacy_check.py controls && python3 CANON/privacy_check.py || { echo "checked_push.sh: PRIVACY CHECK FAILED - a private name or new private-domain material in a public file - push refused"; exit 1; }
 python3 CANON/status_check.py || { echo "checked_push.sh: STATUS CHECK FAILED [failed: CANON/status_check.py; each finding is printed above with its check name in brackets] - push refused"; exit 1; }
 python3 CANON/book_toolbox.py --check || { echo "checked_push.sh: BOOK TOOLBOX CHECK FAILED - run python3 CANON/book_toolbox.py - push refused"; exit 1; }
 python3 CANON/chain_gate_controls.py > /dev/null || { echo "checked_push.sh: CHAIN GATE CONTROLS FAILED - CANON/chain_gate_controls.py (the gate's own planted cases) did not pass; its output is above - push refused"; exit 1; }
