@@ -5401,3 +5401,12 @@ wrong by x kT has a lowest error f(x) = 1/(1+e^x); that is the floor's own form,
 choosing a half-marked over a bare CpG is such a copy: this is the established source of the 1/(1+D) form the unmarked side already uses
 (register A15, four_domains gate_error, D = 47.4-80 measured, 0.0123-0.0207, no proofreading). A literature pass found older DNMT1 measurements
 of 7-40 fold (truncated enzymes, early time points); the canon keeps the two most complete. PHY-091 supplies the meter's false marks to subtract.
+
+### 2026-11-14 · PHY-092 first reading NOT ASSESSED (its own null rule failed); re-read at 50,000-CpG tiles queued
+Where IAM's Law is: a loose tile is a stretch where the paid hold failed; whether the mature B-cell knockouts' extra loose tiles sit in domains decides
+which term of IAM-A's baseline carries a type's eraser (A8). The four P4 libraries were recounted from their saved molecules by the one command
+(pipeline items p092-*), read by where_01/a8_where.py (a8_where_summary.txt): 10,431 tiles in all four; tiles loose in exactly one wild type 0.0513,
+against 0.0355 loose in both knockouts and neither wild type, so the null rule (below a fifth) fails: NOT ASSESSED. The run-length statistic (1.16
+against 1.04 shuffled, p 0.0005) and the knockout-only tiles' wild-type level (0.774 against 0.823) are recorded and not read. Lesson: the synthetic
+used tile noise 0.01, far below the wild types' own; it now also runs at 0.06. Amendment 1 (design sheet): re-read at 25 counter tiles pooled,
+the size PHY-087 needed for this counter; same rule.

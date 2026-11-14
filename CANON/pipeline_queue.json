@@ -12,6 +12,16 @@
    }
   },
   {
+   "id": "p092-read25",
+   "row": "PHY-092",
+   "design": "design/PHY-092.json",
+   "workflow": "explore.yml",
+   "inputs": {
+    "script": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/where_01/a8_where_gh.py",
+    "args": "25"
+   }
+  },
+  {
    "id": "p091-GSM1866966",
    "row": "PHY-091",
    "design": "design/PHY-091.json",

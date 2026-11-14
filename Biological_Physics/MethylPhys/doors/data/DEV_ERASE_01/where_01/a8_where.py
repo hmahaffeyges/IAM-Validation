@@ -8,12 +8,14 @@ molecules saved for PHY-086 P4 (pipeline items p092-<GSM>). A tile is loose belo
 Usage: a8_where.py TILES_DIR [OUT]  (TILES_DIR holds the four <GSM>_tiles.csv.gz). Writes a8_where_summary.txt."""
 import os, sys, gzip, csv, random, statistics as S
 WT, KO, CUT, MIN = ("GSM4907469", "GSM4907470"), ("GSM4907471", "GSM4907472"), 0.70, 200
+AGG = int(os.environ.get("TILE_AGG", "1"))   # 2026-11-14 amendment 1: AGG consecutive tiles pooled (call-weighted), as PHY-087 needed 25
 def load(d, g):
-    T = {}
+    S0 = {}
     with gzip.open(os.path.join(d, f"{g}_tiles.csv.gz"), "rt") as f:
         for r in csv.DictReader(f):
-            if r.get("mean_call") and int(r["calls"]) >= MIN: T[(r["chrom"], int(r["tile"]))] = float(r["mean_call"])
-    return T
+            if r.get("mean_call"):
+                k = (r["chrom"], int(r["tile"]) // AGG); a = S0.setdefault(k, [0.0, 0]); n = int(r["calls"]); a[0] += float(r["mean_call"]) * n; a[1] += n
+    return {k: v[0] / v[1] for k, v in S0.items() if v[1] >= MIN * AGG}
 def runs(keys):
     by = {}
     for c, t in keys: by.setdefault(c, []).append(t)
@@ -40,10 +42,11 @@ def main(d, out=None):
     p = (1 + sum(x >= obs for x in null)) / (1 + len(null))
     held = [k for k in common if all(T[g][k] >= CUT for g in WT)]
     wt_ko = [S.mean(T[g][k] for g in WT) for k in ko_only]; wt_held = [S.mean(T[g][k] for g in WT) for k in held]
-    L = [f"tiles in all four libraries (>= {MIN} calls): {len(common)}",
+    L = [f"tiles in all four libraries (>= {MIN * AGG} calls; {AGG} counter tiles pooled): {len(common)}",
          f"(1) null test: tiles loose in exactly one wild type: {one_wt:.4f} of tiles",
          f"(2) tiles loose in both knockouts, neither wild type: {len(ko_only)} ({len(ko_only) / len(common):.4f}); mean run length {obs:.2f} vs shuffled "
          f"{S.mean(null):.2f} (95 % {sorted(null)[1899]:.2f}); one-sided p = {p:.4f} -> {'CLUSTERED (domains)' if p < 0.01 else 'not clustered'}",
+         f"null rule (design): one-wild-type share below a fifth of the knockout-only share: {'MET' if one_wt < len(ko_only) / len(common) / 5 else 'NOT MET -> not assessed'}",
          f"(3) wild-type mean call of those tiles {S.mean(wt_ko) if wt_ko else float('nan'):.3f} vs all held tiles {S.mean(wt_held):.3f}"]
     open(os.path.join(out or d, "a8_where_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L)); return obs, p
 if __name__ == "__main__": main(*sys.argv[1:3])

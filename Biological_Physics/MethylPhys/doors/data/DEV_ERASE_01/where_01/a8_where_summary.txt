@@ -1,0 +1,4 @@
+tiles in all four libraries (>= 200 calls): 10431
+(1) null test: tiles loose in exactly one wild type: 0.0513 of tiles
+(2) tiles loose in both knockouts, neither wild type: 370 (0.0355); mean run length 1.16 vs shuffled 1.04 (95 % 1.06); one-sided p = 0.0005 -> CLUSTERED (domains)
+(3) wild-type mean call of those tiles 0.774 vs all held tiles 0.823

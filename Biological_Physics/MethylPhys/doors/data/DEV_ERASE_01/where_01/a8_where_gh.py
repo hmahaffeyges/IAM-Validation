@@ -13,6 +13,7 @@ def get(u, raw=False):
         if e.code not in (301, 302, 303, 307, 308): raise
         b = urllib.request.urlopen(e.headers["Location"], timeout=600).read()
     return b if raw else json.loads(b)
+if len(sys.argv) > 1: os.environ["TILE_AGG"] = sys.argv[1]   # amendment 1: counter tiles pooled
 sys.path.insert(0, H); import a8_where as A
 runs = {}
 for page in range(1, 4):

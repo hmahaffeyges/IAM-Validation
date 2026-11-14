@@ -28760,8 +28760,8 @@
    ],
    "data_status": "spent only: the four PHY-086 P4 libraries, recounted from their saved molecules",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
-   "status": "planned",
-   "next_step": "synthetic passed (a8_where_synthetic.py); recounts queued in the pipeline",
+   "status": "running",
+   "next_step": "first reading not assessed (its null rule failed at 2,000-CpG tiles); re-read at 50,000-CpG tiles queued (amendment 1)",
    "cost": "github",
    "impact": 4
   }

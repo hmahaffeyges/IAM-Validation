@@ -107,5 +107,6 @@
  },
  "bars": {
   "rule": "no seal: exploration; clustered if one-sided p < 0.01"
- }
+ },
+ "amendment_1": "2026-11-14, 3:27 PM Pacific, after the first reading at counter tiles (2,000 CpGs) failed its own null rule (one-wild-type share 0.0513 against a knockout-only 0.0355, so NOT ASSESSED): re-read at 25 counter tiles pooled (50,000 CpGs), the size PHY-087 needed for the same counter; the synthetic now also runs at the wild types' measured tile noise (SYN_NOISE 0.06, passed); same rule; recounts reused, no new machine time"
 }
