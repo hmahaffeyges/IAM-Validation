@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-14](2026-11-14.md) | The eraser's share in LSK progenitors read |
 | [2026-11-13](2026-11-13.md) | The eraser measured in blood; the referee test sealed |
 | [2026-11-12](2026-11-12.md) | The healthy level against M, rescored; what spreads it between cell types |
 | [2026-11-11](2026-11-11.md) | Sequencing self-calibration: why four forms failed, and a fifth |

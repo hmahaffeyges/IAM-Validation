@@ -492,3 +492,25 @@ wild types not assessed). **Design sheet:** design/PHY-090.json. **Machines:** G
 (limit 0.05), mapped 0.993 (minimum 0.95), 0.00068 s per pair (limit 0.0015); canary rule met (types_01/canary_p7/canary_check.py). Fetch 1,909 s, align 1,352 s.
 No held error was read for scoring (the canary is depth-limited and is not one of the scored counts). The six libraries were sent at the
 sealed 10 million pairs (runs in p7_runs: 43570129206 to 43570209551).
+
+**PHY-090 result (2026-11-14, 2:10 AM Pacific; scored once by the sealed rule, scorer unchanged):**
+
+```
+PHY-090 P7 (LSK, GSE72630): knockout over wild type 0.951; prediction 0.86 (sigma 0.035); pull +2.59: watch
+null test: max |ln(WT ratio)| 0.031 (limit 0.05)
+GSM1866966 WT held_err_length 0.05198 loose 0.110
+GSM1866967 WT held_err_length 0.05294 loose 0.129
+GSM1866968 WT held_err_length 0.05133 loose 0.104
+GSM1866969 KO held_err_length 0.05030 loose 0.088
+GSM1866970 KO held_err_length 0.04964 loose 0.101
+GSM1866971 KO held_err_length 0.04860 loose 0.074
+P8 (exploration): one laboratory, B / iNKT / LSK: sd ln(level) wild type 0.064, knockout 0.103: wild types closer (the governor direction)
+```
+
+By the agreed classes P7 is on WATCH (pull +2.59): removing TET2 and TET3
+lowers LSK held error by about 5 %, less than the 10-14 % predicted from TET2 in another laboratory's LSK (PHY-085) and all erasers in stem
+cells. The null test is clean. Not a pass and not a real miss; the eraser's share again differs by cell type and laboratory. Noted after
+the fact only (not a re-score): the knockouts' loose shares (0.088, 0.101, 0.074) are lower than the wild types' (0.110, 0.129, 0.104), so their held error would
+read lower along IAM-A's slope even with no eraser effect; that makes 0.951 an upper bound on how much the eraser matters here. P8
+(exploration): across this laboratory's three types (mature B, iNKT, LSK) the wild types spread less than the knockouts (0.064 against
+0.103), the direction a regulated common level predicts; three points, a lead only.

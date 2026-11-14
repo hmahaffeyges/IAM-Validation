@@ -5263,3 +5263,45 @@ Exploration on spent counts and one synthetic run; nothing sealed.
 Rehearsed on spent data before sealing (PHY-085 LSK, TET2 alone: pull +1.14), then sealed: GSE72630 LSK, TET2 and TET3 removed, knockout
 over wild type 0.86 (sigma 0.035) in the agreed classes, with P8 (the governor question across three types of one laboratory) as
 exploration (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md; design/PHY-090.json; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p7_score.py).
+
+### 2026-11-13 · Day summary
+**Set out:** Measure the eraser's share in blood (PHY-085); finish the release check; seal and read the referee test of the healthy
+baseline (PHY-084); keep deriving each cell type's level.
+**Ran, and how each came out:**
+- Release check: 34 of 34 pass (OTH-070).
+- The eraser in blood progenitors: TET2 removed, 0.900 and 0.909 of wild type, inside the sealed 0.86-0.95 (PHY-085, met).
+- The referee test: 54 healthy libraries from a laboratory never read; three cell types pass and B cells are on watch (pull -2.45), none
+  beyond 3, by the standard committed before the seal; four libraries refused at intake and reported (PHY-084, met).
+- Mature B cells without TET2 and TET3: 1.042, not met (PHY-086 P4); young iNKT: 0.926, met (P5); wild-type B and iNKT hold alike (P6).
+- Cell types read like for like sit near the derived thermal level; the deep B-cell low came mostly from the own-slope reading.
+- The eraser's price: one erasure plus its restore costs 14-63 coins (PHY-088).
+- The Met-A healthy level like for like: healthy reads 1.13 and 1.15 of the thermal level on two counter quantities, about the stem-cell
+  eraser factor (PHY-083, M2).
+- The healthy reference marked derived with one measured input, in the book and the canon (PHY-083).
+- PHY-090 sealed after a rehearsal on spent data (pull +1.14); its canary met.
+- The C-score's healthy value and band from independence (statistics, not physics) (PHY-089).
+**Successes:**
+- The blind referee test passed by the agreed standard; the derived hold now has a measured input, the eraser share, cell type by cell type.
+**Learned:**
+- The eraser's share is not one number: stem cells 13.6 %, blood progenitors 9-10 %, young iNKT 7 %, mature B none.
+- Seal only what a rehearsal on spent data supports; branch only on independently measured inputs.
+**Errors (the agent's own), and what caught each:**
+- PHY-084's sealed pass rule was stricter than the agreed standard (the author asked).
+- Planned to seal a hunch unexplored, and searched raw reads before deposited aligned files (the author).
+- The commit script hashed the whole repository copy on the laptop at every commit; the laptop app crashed (the author). Fixed with a
+  size and time cache; heavy work only on GitHub and Google.
+**The author's instructions and corrections:**
+- Derive first, commission later; explore before sealing; IAM-A never reads against the atlas; no heavy work on the laptop.
+**Path changes:** design sheets declare their purpose (sealed or exploration); the cheapest adequate data form is required; the commit
+script hashes only changed files.
+**Data:** GSE173787 healthy controls (54 read, 4 refused at intake); GSE161463 and GSE66834 (P4, P5); GSE72630 sealed for PHY-090; the
+ENCODE healthy B-cell set reserved for commissioning, unread.
+**Machines:** GitHub for every read and synthetic; Google only for the P4 B-cell canary; the laptop for edits and commits only.
+**Open at turnover:** read PHY-090 by its sealed rule; each cell type's level (A8); the book cross-references (author's yes).
+
+### 2026-11-14 · PHY-090 read: the eraser's share in LSK progenitors is about 5 % (on watch, pull +2.59)
+Six GSE72630 libraries on GitHub at the sealed depth (10 million pairs, over 99 % mapped), scored once: knockout over wild type 0.951
+against 0.86 (sigma 0.035), pull +2.59, watch; null test clean (0.031). P8 exploration: wild types of three types from one laboratory spread
+less than their knockouts (0.064 against 0.103). The eraser's share is measured type by type and laboratory by laboratory: stem cells
+13.6 %, blood progenitors (TET2, another laboratory) 9-10 %, LSK (this laboratory) about 5 %, young iNKT 7 %, mature B none
+(Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).

@@ -1,0 +1,9 @@
+PHY-090 P7 (LSK, GSE72630): knockout over wild type 0.951; prediction 0.86 (sigma 0.035); pull +2.59: watch
+null test: max |ln(WT ratio)| 0.031 (limit 0.05)
+GSM1866966 WT held_err_length 0.05198 loose 0.110
+GSM1866967 WT held_err_length 0.05294 loose 0.129
+GSM1866968 WT held_err_length 0.05133 loose 0.104
+GSM1866969 KO held_err_length 0.05030 loose 0.088
+GSM1866970 KO held_err_length 0.04964 loose 0.101
+GSM1866971 KO held_err_length 0.04860 loose 0.074
+P8 (exploration): one laboratory, B / iNKT / LSK: sd ln(level) wild type 0.064, knockout 0.103: wild types closer (the governor direction)

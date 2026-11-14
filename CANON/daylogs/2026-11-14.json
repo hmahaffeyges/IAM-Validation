@@ -1,0 +1,29 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-14",
+ "title": "The eraser's share in LSK progenitors read",
+ "set_out": "Read PHY-090 by its sealed rule; keep deriving each cell type's level; keep heavy work off the laptop.",
+ "open_at_turnover": "Each cell type's level (A8): donor age and the governor lead; the book cross-references (author's yes); the qubit floor constants (private).",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The eraser's share in LSK progenitors (PHY-090)",
+     "status": "development",
+     "what": "Six GSE72630 libraries on GitHub at the sealed depth, scored once by the sealed rule.",
+     "outcome": "On watch: knockout over wild type 0.951 against 0.86 (pull +2.59), null test clean; P8 (exploration) wild types spread less than knockouts.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+     "reference": "none (not a reading against healthy): a ratio within one experiment"
+    }
+   ]
+  }
+ ]
+}
