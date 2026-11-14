@@ -1,5 +1,8 @@
 # PHY-084: the referee test of the healthy baseline (SEALED 2026-11-13, before any library is read)
 
+**Result:** MET, by the standard committed before the seal: CD4, CD8 and monocytes pass; B cells are on watch (pull -2.45); none beyond 3.
+*Note:* the sealed record's wording ('all four inside') was stricter than the project's standard committed the day before; read by that wording it is not met (amendment 4).
+
 **In plain words.** From one number of physics (how many thermal kicks one ATP is worth) we worked out how often a healthy cell should
 lose a DNA mark, then added the measured share caused by the cell's own eraser enzymes. Before looking, we wrote down what a new laboratory's
 healthy blood cells should read on our meter, how wide the allowed range is and why, and what counts as a miss. Then we read them once.
@@ -79,7 +82,7 @@ prediction, MET with pulls -0.17 to -0.03; planted 30 % high, NOT MET with pulls
 you the authority to make them, just tell me what you did and why"). Why now: every input is measured and committed; waiting would add
 nothing the referee data could not then be accused of being tuned to.
 
-## Result (2026-11-13, 1:20 PM Pacific): NOT MET
+## First reading (2026-11-13, 1:20 PM Pacific), by the seal's stricter wording; superseded by amendment 4
 
 Scored once with the committed scorer (data/DEV_CHAIN_Q2_01/referee_score.py, identical to main) on the 54 counted libraries; the four
 intake refusals are reported (amendment 3). Three of four cell types fall inside their bars; B cells do not.
@@ -98,8 +101,7 @@ laboratory hold their marks better than the candidate with the eraser's stem-cel
 below it, outside a bar that already carried the between-type spread (8.8 %). The prediction is one level for every cell type; this test
 says that is not enough for B cells.
 
-**What it does not license.** No refit and no new bar on these libraries: they are spent for this question. The candidate stays a candidate,
-now with a blind test not met. Open, in the derivation register: each cell type's own level (A8: PHY-086, the eraser's share by type,
+**What it does not license.** No refit and no new bar on these libraries: they are spent for this question. (Written at the first reading; see amendment 4: by the agreed standard the test is met.) Open, in the derivation register: each cell type's own level (A8: PHY-086, the eraser's share by type,
 reading), and whether a laboratory's meter offset differs from the forward model's (the grid used the healthy atlas laboratory's molecules).
 
 ## Read by the agreed standard (amendment 4, 2026-11-13, after the result; the scorer and its output unchanged)

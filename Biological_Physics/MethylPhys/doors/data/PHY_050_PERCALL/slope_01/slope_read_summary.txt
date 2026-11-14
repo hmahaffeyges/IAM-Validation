@@ -1,0 +1,17 @@
+null test (halves' correlation > 0.7 in every sample): FAILED (min 0.523)
+WITHIN samples: median slope 0.0551 (range 0.0322 to 0.0791); replicate half A median 0.0551
+ACROSS samples: slope 0.0685 per unit tile looseness (11 samples); on the counter's loose share: 0.0170 (IAM-A's b 0.034625)
+WITHIN / ACROSS = 0.81  (MIXING predicts near 1; CELL TYPE near 0)
+
+       gsm                        cell  loose_share  tiles  halves_r  x_mean    held  within_b  within_a
+GSM5652296           naive cd4 t cells      0.03042  13957     0.848 0.14665 0.03442   0.04768   0.04852
+GSM5652299                    nk cells      0.05785  13951     0.811 0.18429 0.03777   0.03560   0.03488
+GSM5652260   kidney tubular epithelium      0.08804  14015     0.862 0.19804 0.03899   0.05003   0.04986
+GSM5652187  kidney tubular endothelium      0.10316  14024     0.887 0.21094 0.04489   0.07895   0.07822
+GSM5652247            pancreatic delta      0.11390  13925     0.807 0.21988 0.04660   0.07691   0.07673
+GSM5652216               cardiomyocyte      0.13547  13994     0.830 0.21521 0.04257   0.04744   0.04668
+GSM5652194        pancreas endothelium      0.16049  13912     0.770 0.23777 0.04597   0.05734   0.05683
+GSM5652198           colon fibroblasts      0.19018  14002     0.815 0.25162 0.04675   0.05513   0.05509
+GSM5652359   gastric fundus epithelium      0.24328  13941     0.848 0.24666 0.04645   0.07853   0.07854
+GSM5652295 effector memory cd8 t cells      0.45654  13940     0.823 0.25996 0.05094   0.07910   0.07834
+GSM5652275     erythrocyte progenitors      0.95666  13926     0.523 0.42838 0.05412   0.03215   0.03198

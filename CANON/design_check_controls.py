@@ -2,7 +2,7 @@
 """Planted cases for CANON/design_check.py: a complete sheet passes, and each of the 2026-11-13 mistakes is refused."""
 import os, sys, copy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import design_check as D
-OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks at 310 K"},
+OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks at 310 K", "counterparts": "chips: none yet; qubits: none yet"},
       "data": {"set": "GSE161463", "protocol_read": "sheared, end repaired, methylated adapters, standard directional WGBS from 1 ug",
                "spent_first": "no: spent sets hold no eraser-removed mature B cells", "alternatives": "GSE210026 (PBAT, refused)"},
       "kiss": {"smallest": "two wild type, two knockout: the fewest that measure replicate scatter", "samples_why": "each arm needs two"},
@@ -40,5 +40,6 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("preflight that found a problem without resolving it refused", lambda S: S["data"]["preflight"].update(result="chr6 missing in 4 libraries"), True),
      case("'quality-failed share' in a clean preflight is not a problem", lambda S: S["data"]["preflight"].update(result="99.8 % mapped, 2.8 % quality-failed share"), False),
      case("'MET only if every type is inside' without the agreed classes refused (PHY-084, 11-13)", lambda S: S["bars"].update(rule="MET if all four types lie inside k = 2"), True),
+     case("a sheet without the chip and qubit counterpart refused (11-13)", lambda S: S["physics"].pop("counterparts"), True),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

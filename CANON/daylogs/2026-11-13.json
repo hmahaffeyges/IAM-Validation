@@ -115,7 +115,7 @@
      "title": "The referee test read (PHY-084)",
      "status": "development",
      "what": "54 healthy-control blood libraries from a laboratory never read, scored once against the M-based prediction sealed before reading.",
-     "outcome": "Passes by the agreed standard (pull within 2 passes, 2 to 3 watch, beyond 3 a miss): CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3. The seal's stricter wording (any type outside) reads NOT MET; both readings are kept.",
+     "outcome": "MET: CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3. Note: the seal's wording was stricter (amendment 4).",
      "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
      "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
     }

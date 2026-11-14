@@ -5132,3 +5132,35 @@ passes; 2 to 3 watch; beyond 3 a real miss; one result just past 2 is not a refu
 monocytes -0.54 pass; B cells -2.45 watch; no type beyond 3. Both readings stay in the record; the shared negative direction stays on watch.
 The design sheet now requires the pass rule in the standard's own classes (bars.rule; a planted case refuses 'all inside')
 (Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes.py).
+
+### 2026-11-13 · PHY-083: rehearsal before a physics-only knockout prediction: the knockouts read below the thermal level at the canon coin
+Before sealing 'with the erasers removed, every type falls to the thermal level' for PHY-086, the prediction was rehearsed on PHY-085's
+spent counts (the design sheet's new rule): TET2-knockout progenitors read 0.85-0.87 of the thermal level at the canon coin (54 kJ/mol),
+which a floor should not allow, and 0.92-0.94 at the measured in-tissue coin (58.5). It is not sealed in that form. Lead: the coin, larger in
+cells that hold best, as a second route to each type's own level. Register, four domains (PHY-084 result) and the simulator's status line
+updated (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/blood_01/knockout_thermal_rehearsal.py).
+
+### 2026-11-13 · PHY-084 in the book: the blind test paragraph in the IAM-A chapter, every number checked
+On the author's approval, the IAM-A chapter (Section sec:middle_candidate) gains the blind test as read by the agreed standard; nine
+verify_book checks read every printed number from referee_classes_summary.txt (Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md).
+
+### 2026-11-13 · PHY-087 step 1 read: the null test failed in one of eleven samples; after the fact about 40 % of IAM-A's slope is mixing
+The eleven tile files (spent Loyfer healthy, chain Stage Q2 --dev-count-tiles, on Google) were read at the desk (slope_read.py). The sealed null
+test, halves' correlation above 0.7 in every sample, failed in one: erythrocyte progenitors (0.523; loose share 0.957, the extreme point), so
+the sealed reading is not clean. All eleven: within-sample slope over across-sample slope 0.81. After the fact, without that sample: 0.41,
+about 40 % of the slope mixing inside a sample and 60 % cell type; the across-sample slope on the counter's loose share is 0.0331 against
+IAM-A's 0.034625. Exploration (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_read.py).
+
+### 2026-11-13 · PHY-083 / PHY-084: the healthy reference raised to derived, one measured input; PHY-084 headlined as met
+The healthy reference was held at candidate because the two-coin price was first tried after one coin gave half the answer. The price is
+now derived independently (adenylate kinase at equilibrium), the constant push is the ceiling, the eraser share is measured independently,
+and the blind test is met. Four domains (gate_error, halves, cells) raised to derived with 'one measured input: the eraser share'; the
+simulator's status line follows. On the author's decision PHY-084 is headlined MET everywhere; the seal's stricter wording is a note
+(record, book footnote, canon notes, manifest, day log). Book check record regenerated on a full checkout: 4,701 checks, 0 failed
+(docs/book/verification/verify_book_gh.py; Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md).
+
+### 2026-11-13 · OTH-064 / OTH-086: a document inventory, and the chip and qubit counterpart in every design sheet
+CANON/doc_inventory.py lists every document and how it stays current (generated, checked by code, frozen, or hand-written with what it
+depends on); the first full run found 724 documents. The design sheet now asks physics.counterparts (author: whatever helps the cell
+chain or simulator, ask the same for the chips and the qubits); a planted case refuses a sheet without it (19 cases)
+(CANON/doc_inventory.py; CANON/TEST_DESIGN_CHECKLIST.md).

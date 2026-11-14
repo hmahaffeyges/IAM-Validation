@@ -1,7 +1,8 @@
 {
  "_written": "AFTER THE FACT, 2026-11-13 1:00 PM Pacific: P4's machines changed three times (GitHub queue, Google, GitHub) and P1-P3 were sealed on a PBAT set; this sheet records the corrected design for P4 and P5",
  "physics": {
-  "where_iam_law": "the thermal part of the loss (CANON eps0_candidate: two coins per restore against thermal kicks at 310 K) is the same in every cell type; removing the eraser should leave each type near it, so the types converge"
+  "where_iam_law": "the thermal part of the loss (CANON eps0_candidate: two coins per restore against thermal kicks at 310 K) is the same in every cell type; removing the eraser should leave each type near it, so the types converge",
+  "counterparts": "chips: none yet; qubits: none yet (the eraser has no assigned counterpart)"
  },
  "data": {
   "set": "P4 GSE161463 (mature splenic B, TET2+TET3 removed, 2 WT + 2 KO); P5 GSE66834 (iNKT, same laboratory, 2 WT + 2 KO young)",

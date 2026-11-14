@@ -164,27 +164,27 @@
     "W_restore": {
       "value": 41.88,
       "units": "kT per methyl transfer",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
     },
     "odds_restore": {
       "value": 21.45,
       "units": "restores per loss",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
     },
     "eps0_candidate": {
       "value": 0.04454,
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): 1/(1 + odds_restore); compare eps_healthy_pool"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds_restore); compare eps_healthy_pool"
     },
     "E_hold_candidate": {
       "value": 3.066,
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): ln(odds_restore); compare E_hold_meth"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln(odds_restore); compare E_hold_meth"
     },
     "phi_candidate": {
       "value": 0.1464,
       "units": "fraction of one ATP per held bit",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): E_hold_candidate / M_cell; compare phi"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): E_hold_candidate / M_cell; compare phi"
     },
     "eps0_candidate_SAM": {
       "value": [
@@ -192,7 +192,7 @@
         0.04524
       ],
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
     },
     "E_hold_candidate_SAM": {
       "value": [
@@ -200,7 +200,7 @@
         3.082
       ],
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: passes by the agreed standard (WHY_IAM rule 4) with B cells on watch, pull -2.45; NOT MET by the seal's stricter wording): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
+      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
     },
     "strand_coupling_maintenance_only": {
       "value": [

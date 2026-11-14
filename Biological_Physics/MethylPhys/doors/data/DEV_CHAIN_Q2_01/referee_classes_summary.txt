@@ -1,4 +1,5 @@
-PHY-084 by the agreed standard (WHY_IAM.md rule 4, committed before the seal): passes, with b cells on watch (pull -2.45); no cell type beyond 3. By the seal's stricter wording (any type outside k = 2): NOT MET.
+PHY-084 by the agreed standard (WHY_IAM.md rule 4, committed before the seal): MET, with B cells on watch (pull -2.45); no cell type beyond 3.
+Note: the seal's own wording (any type outside k = 2) was stricter than this standard; read by it, not met (amendment 4).
 
        cell  n  intercept  pred_mid  u_combined  pull class
     b cells 23    0.03248   0.04377      0.1054 -2.45 watch

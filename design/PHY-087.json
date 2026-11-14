@@ -1,7 +1,8 @@
 {
  "_written": "AFTER THE FACT, 2026-11-13 1:00 PM Pacific: three counts per 16 GB machine were killed for memory, and the relaunch went to Google when GitHub had 17 free slots",
  "physics": {
-  "where_iam_law": "IAM-A's baseline eps_pred(L) = a + b L: a has a physical account (PHY-083); this asks whether b is mixing inside a sample (loose tiles hold weakly) or cell type"
+  "where_iam_law": "IAM-A's baseline eps_pred(L) = a + b L: a has a physical account (PHY-083); this asks whether b is mixing inside a sample (loose tiles hold weakly) or cell type",
+  "counterparts": "chips: memory retention against leakage (refresh as the restore); qubits: none yet"
  },
  "data": {
   "set": "eleven spent healthy Loyfer samples (slope_samples.csv), spanning the loose share",
