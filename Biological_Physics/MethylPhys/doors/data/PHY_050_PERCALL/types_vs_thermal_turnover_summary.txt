@@ -1,0 +1,38 @@
+29 Human Protein Atlas groups matched to atlas types; reading over thermal: median 1.119
+reading/thermal vs MKI67: rho -0.23 (p 0.235, n 29); same sign in both random halves 67 % of 1000 splits
+reading/thermal vs crew: rho -0.35 (p 0.065, n 29); same sign in both random halves 91 % of 1000 splits
+reading/thermal vs lifespan: rho +0.36 (p 0.187, n 15); same sign in both random halves 76 % of 1000 splits
+DUTY FORM (push on a fraction d = crew/(crew + K) of the time; reading/thermal = 1 + K/crew; exact at d 0.9: 1.1028 vs 1/d 1.1111): K 2.52; leave-one-out rms 0.0975 against a flat mean 0.0931: no better than flat, NOT supported; below thermal (unreachable) 2
+
+                          group  ratio  MKI67  crew  lifespan
+        erythrocyte progenitors  0.789  370.6 377.2       NaN
+                    macrophages  0.988   11.8  81.4   164.509
+     breast myoepithelial cells  1.031    1.0  47.7       NaN
+                      monocytes  1.041    8.1  53.9     3.451
+breast hormone-responsive cells  1.042    5.6  50.7       NaN
+                    hepatocytes  1.056    2.1  20.5       NaN
+        pancreatic acinar cells  1.063    1.1  12.7       NaN
+    endometrial glandular cells  1.068    7.4  96.0       NaN
+                       nk-cells  1.073   17.9  96.1       NaN
+                    colonocytes  1.079   21.6  36.3     3.400
+               oligodendrocytes  1.079    1.0  35.4 20904.342
+      fallopian secretory cells  1.081    3.7  26.5       NaN
+            smooth muscle cells  1.106    1.1  24.5       NaN
+          proximal tubule cells  1.115    1.4  14.8       NaN
+                 cardiomyocytes  1.119    1.3  24.6 55747.793
+                    enterocytes  1.125    1.5   8.7     5.300
+                        b-cells  1.125   12.0  56.1    62.865
+      prostatic glandular cells  1.125    3.4  22.9       NaN
+          alveolar cells type 1  1.127    1.1  38.1       NaN
+          pancreatic duct cells  1.131    1.3  26.0       NaN
+                    fibroblasts  1.153    3.0  53.0  9400.000
+                        t-cells  1.165   11.0  87.2   323.047
+                      podocytes  1.167    2.0  17.5   400.000
+               urothelial cells  1.195    6.9  23.1       NaN
+     vascular endothelial cells  1.202    4.1  48.4  2281.250
+         pancreatic islet cells  1.217    2.8  39.0   800.000
+        respiratory basal cells  1.223   15.6  36.3   138.682
+                     adipocytes  1.226    1.0  17.4  4451.220
+                      myonuclei  1.272    1.0  15.1 18340.241
+
+Exploration on spent counts; the hypothesis predicts reading/thermal rising with MKI67 and the crew, falling with lifespan.

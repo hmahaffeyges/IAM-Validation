@@ -5198,3 +5198,11 @@ dated lessons: three questions before every action; explore first on spent data 
 closest spent data, lands within pull 2 (explore.rehearsal_pull); predictions that depend on a measured input sealed as a formula of
 independently measured inputs (prediction.form, prediction.decided_by, never chosen by the outcome); the same reading in every laboratory
 (prediction.reading). 26 planted cases. The atlas rehearsal of the PHY-084 scorer is committed (DEV_CHAIN_Q2_01/rehearsal_atlas/).
+
+### 2026-11-13 · PHY-083, register A8: each type's distance above the thermal level follows the restore crew, not division
+Exploration on spent counts: each atlas type's reading over the thermal level (celltype_vs_thermal.csv) against MKI67, the restore crew
+(DNMT1+UHRF1) and lifespan. The hypothesis that the erasers act where cells divide predicted a rise with division; it is not there
+(MKI67 rho -0.23, same sign in both random halves 67 %). The crew is: rho -0.35 (p 0.065, 29 groups; same sign in both halves 91 %);
+lifespan +0.36 (15 groups, 76 %). Erythrocyte progenitors sit below thermal (0.789), myonuclei and adipocytes highest (1.27, 1.23). The
+derived odds depend on the push alone, so a crew effect points at delivery: a short-handed crew leaves gaps in the push (effective push =
+2M x duty), derived and checked on the same spent data: reading/thermal = 1 + K/crew (exact form within 1 % of 1/d) predicts each left-out group no better than a flat mean (rms 0.0975 against 0.0930) and cannot reach the two groups below thermal: in this simple form, NOT supported (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/types_vs_thermal_turnover.py).
