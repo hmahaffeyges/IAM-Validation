@@ -1,0 +1,25 @@
+name: pipeline
+# 2026-11-14 (the author: when one set of computers finishes one derivation, the next starts, with no downtime). When an explore or erase_test
+# run finishes, and every 15 minutes, CANON/pipeline_next.py starts every ready item of CANON/pipeline_queue.json (its predecessors done, its
+# canary rule met, its design sheet complete, machines free). It starts compute only; it never scores or writes a result.
+on:
+  workflow_run:
+    workflows: [explore, erase_test]
+    types: [completed]
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+permissions: {contents: read, actions: write}
+concurrency: {group: pipeline, cancel-in-progress: false}
+jobs:
+  next:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -q numpy pandas
+      - name: Start what is ready
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: python3 CANON/pipeline_next.py controls && python3 CANON/pipeline_next.py
