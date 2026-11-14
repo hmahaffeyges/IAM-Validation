@@ -47,9 +47,11 @@ def sample(seed):
 rows = []
 for r in range(REPS):
     c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}[MODE] * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
-    rows.append((r, c["held_err_length"], c["held_e_call"], c.get("coupling"))); print(MODE, PARAM, r, rows[-1][1:], flush=True)
-with open(OUT + ".csv", "w") as f: f.write("mode,param,replicate,held_err_length,held_e_call,coupling\n" + "".join(f"{MODE},{PARAM},{a},{b},{c},{d}\n" for a, b, c, d in rows))
+    rows.append((r, c["held_err_length"], c["held_e_call"], c.get("coupling"), c.get("held_err"))); print(MODE, PARAM, r, rows[-1][1:], flush=True)
+# 2026-11-13: held_err (isolated losses over interior calls, the quantity behind CANON eps0_meth / H_ref_cell) added as the last column,
+# so the Met-A healthy level (register M2) can be compared like for like.
+with open(OUT + ".csv", "w") as f: f.write("mode,param,replicate,held_err_length,held_e_call,coupling,held_err\n" + "".join(f"{MODE},{PARAM},{a},{b},{c},{d},{e}\n" for a, b, c, d, e in rows))
 m = lambda k: sum(x[k] for x in rows) / len(rows)
 open(OUT + "_summary.txt", "w").write(f"forward model of the candidate (per-site loss {E:.5f}, eraser ratio {RATIO}) through the counter, {MODE} {PARAM}, {REPS} samples of {N} held molecules: "
-                                      f"held_err_length {m(1):.5f}, held_e_call {m(2):.5f}, coupling {m(3):.3f}\n")
+                                      f"held_err_length {m(1):.5f}, held_e_call {m(2):.5f}, coupling {m(3):.3f}, held_err {m(4):.5f}\n")
 print(open(OUT + "_summary.txt").read())

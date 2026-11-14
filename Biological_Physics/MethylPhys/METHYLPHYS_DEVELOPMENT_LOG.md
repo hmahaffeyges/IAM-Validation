@@ -5239,3 +5239,8 @@ direction, inside replicate noise. Neither decides; a deciding test needs severa
 ### 2026-11-13 · PHY-086: the canon's eraser row carries the share by cell type
 CANON/four_domains.json, cells, eraser: the share is measured type by type (stem cells 13.6 %, blood progenitors 9-10 %, young iNKT 7 %,
 mature B none) with P6's exploration; generated tables rebuilt (four_domains.py, bit_tables.py, book_bits.py).
+
+### 2026-11-13 · PHY-083: the forward model also reports held_err, for the Met-A healthy level like for like
+CANON H_ref_cell (0.2593 bits) is H(eps0_meth), the counter's held_err (isolated losses over interior calls) on 153 healthy samples; the
+candidate is a per-site loss. Comparing H(candidate) = 0.2627 with it is not like for like. forward_candidate.py now writes held_err as well
+(earlier columns unchanged), so the candidate can be read through the same counter quantity (register M2).
