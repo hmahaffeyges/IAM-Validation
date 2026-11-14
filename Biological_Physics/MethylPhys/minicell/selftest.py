@@ -35,4 +35,13 @@ ok &= check("candidate: E_hold = 3.066 kT (canon E_hold_candidate)", abs(float(L
 ok &= check("candidate readings name the driven passage", "driven_passage" in Lc["eps_hold"].relations)
 ok &= check("candidate: a dearer SAM holds better", float(mc.ledger(cc.set(SAM_cost=2.1))["eps_hold"]) < float(Lc["eps_hold"]))
 ok &= check("candidate off: measured phi as before", abs(float(mc.ledger(c)["E_hold_kT"]) - 0.1473 * float(mc.ledger(c)["M"])) < 1e-9)
+# 2026-11-14: writer selection (A15) and the eraser share (A5)
+w = mc.model2(cc.set(eraser_share=0.136))
+ok &= check("eraser: stem-cell share lifts the candidate to 0.05154", abs(float(w["held_error_with_eraser"]) - 0.04454 / 0.864) < 5e-6)
+ok &= check("eraser: mature B (share 0) leaves the thermal level", abs(float(mc.model2(cc)["held_error_with_eraser"]) - float(Lc["eps_hold"])) < 1e-12)
+ok &= check("eraser reading is IAM and names the driven passage", w["held_error_with_eraser"].origin == "IAM" and "driven_passage" in w["held_error_with_eraser"].relations)
+st = [float(mc.model2(cc.set(D_select=D))["stray_mark_rate"]) for D in (47.4, 80.0)]
+ok &= check("writer: stray marks 0.0207-0.0123 for D 47.4-80 (A15)", abs(st[0] - 1 / 48.4) < 1e-12 and abs(st[1] - 1 / 81) < 1e-12)
+ok &= check("writer: the stray-mark reading is not IAM", mc.model2(cc)["stray_mark_rate"].origin != "IAM")
+ok &= check("IAM off: no eraser-on-candidate reading", "held_error_with_eraser" not in mc.model2(cc.set(iam=False)))
 print("ALL PASS" if ok else "SOME FAILED"); sys.exit(0 if ok else 1)

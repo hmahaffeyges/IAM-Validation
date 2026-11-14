@@ -187,6 +187,11 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["held_marked.e"].value = 0.10; P["held_marked.e"].label = "derived"; P["held_marked.e"].origin = "measured"
     P["held_marked.e"].source = ("first calibration: wild type 12.11 needs about 10 % of held marks erased and rewritten per cycle (reaches 12.4 at the human "
                                  "level 0.956; the stem cells' own level at those sites not yet used)")
+    # 2026-11-14 (register A5, A15): two measured inputs, each with its origin; IAM's Law is in neither
+    P["eraser_share"] = Param(0.0, "fraction of held losses", "measured", "the erasers' share of held loss, by cell type: stem 0.136, blood progenitors (TET2) 0.095, "
+                              "LSK 0.049, young iNKT 0.074, mature B 0.0 (DEV-ERASE-01, PHY-085, PHY-086, PHY-090); with the candidate the held error is eps/(1 - share)", "eraser", origin="measured")
+    P["D_select"] = Param(60.0, "odds right site over wrong", "measured", "the writer's selection odds (canon four_domains gate_error, two enzymes 47.4-80); "
+                          "one equilibrium step gives stray marks 1/(1 + D) on the unmarked side (A15); no proofreading", "writer", origin="measured")
     return ModelCard(name, "cell", P)
 
 
@@ -220,4 +225,10 @@ def model2(card):
     kin = (lab[0], lab[1]) if iam else ("established", [])
     out["hemi_share"] = Sc.Reading(Hh, kin[0], kin[1], "shape from established maintenance kinetics; with IAM on it moves only through the level the law sets")
     out["restores_per_loss"] = Sc.Reading(Mm / Hh, kin[0], kin[1], "hairpin metric (maintenance calibrated on 12.11 at 37 C); with IAM on it moves only through the law's level")
+    if "eraser_share" in card:
+        sh = card.v("eraser_share")
+        if iam and card.v("baseline_candidate"):
+            out["held_error_with_eraser"] = Sc.Reading(float(L["eps_hold"]) / (1 - sh), "IAM", list(L["eps_hold"].relations),
+                                                       "the thermal held error the law sets, plus the erasers' measured share for this cell type")
+        out["stray_mark_rate"] = Sc.Reading(1 / (1 + card.v("D_select")), "measured", [], "unmarked side: one equilibrium selection step by the writer, 1/(1 + D) (A15)")
     return out

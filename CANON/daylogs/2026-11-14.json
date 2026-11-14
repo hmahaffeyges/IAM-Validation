@@ -22,6 +22,14 @@
      "outcome": "On watch: knockout over wild type 0.951 against 0.86 (pull +2.59), null test clean; P8 (exploration) wild types spread less than knockouts.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
      "reference": "none (not a reading against healthy): a ratio within one experiment"
+    },
+    {
+     "title": "Mini cell: the writer's selection step and the eraser share (A5, A15)",
+     "status": "development",
+     "what": "Two measured inputs added to the cell simulator, with six self-tests.",
+     "outcome": "23 of 23 self-tests pass; the law's thermal level plus each type's eraser share; stray marks from one selection step.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): the simulator"
     }
    ]
   }

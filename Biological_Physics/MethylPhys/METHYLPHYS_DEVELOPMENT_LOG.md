@@ -5305,3 +5305,10 @@ against 0.86 (sigma 0.035), pull +2.59, watch; null test clean (0.031). P8 explo
 less than their knockouts (0.064 against 0.103). The eraser's share is measured type by type and laboratory by laboratory: stem cells
 13.6 %, blood progenitors (TET2, another laboratory) 9-10 %, LSK (this laboratory) about 5 %, young iNKT 7 %, mature B none
 (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md).
+
+### 2026-11-14 · PHY-083, mini cell: the writer's selection step and the eraser share by cell type (register A5, A15)
+minicell.py gains two measured inputs, each labelled with its origin: eraser_share (by cell type: stem 0.136, blood progenitors 0.095, LSK
+0.049, young iNKT 0.074, mature B 0) lifts the law's thermal held error to eps/(1 - share) when the candidate is on; D_select gives the
+unmarked side's stray marks by one equilibrium selection step, 1/(1 + D) (0.0123-0.0207 for D 80-47.4), labelled measured, not IAM.
+Six new self-tests, 23 of 23 pass. Counterparts (the author's rule): chips, the write error of a cell without error correction (selection)
+and a scheduled refresh that rewrites good cells (the eraser as planned maintenance); qubits, none yet.
