@@ -5346,7 +5346,9 @@ step, as register A15 found. The 0-30 % rise suggests the erasers also clean a s
 The author: when one set of computers finishes one derivation, the next should start, with no downtime. CANON/pipeline_queue.json holds
 prepared items (best data and method settled, a complete design sheet, a canary with its numeric rule); CANON/pipeline_next.py, run by
 .github/workflows/pipeline.yml whenever an explore or erase_test run finishes and every 15 minutes, starts every ready item on GitHub's free
-machines. It starts compute only: it never scores or writes a result. Planted controls (six cases) pass. explore.yml now fails a run whose
+machines. It starts compute only: it never scores or writes a result. Live from 7:36 AM Pacific: the code landed in 62b1a60b (the first
+attempt was refused by the chain gate), the three workflow files went on main after it, and the first pipeline run (43611015073) started
+the two canary libraries. Planted controls (six cases) pass. explore.yml now fails a run whose
 script failed, keeps .csv.gz outputs, and lets scripts read earlier runs' artifacts. First items: PHY-087 step 2, the within-sample slope in
 the blind-test laboratory (design/PHY-087_s2.json, prediction written first): each of its 54 read libraries recounted by the chain from the
 molecules saved for PHY-084 (erase_test.yml with patfrom; no alignment), a two-library canary first, then the reading from chain outputs only
