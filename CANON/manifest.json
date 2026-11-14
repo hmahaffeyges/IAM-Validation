@@ -28689,7 +28689,7 @@
     }
    ],
    "next_step": "every new PHY/COM/DEV row carries design/<ROW>.json",
-   "notes": "2026-11-13: CANON/TEST_DESIGN_CHECKLIST.md, CANON/design_check.py (gate), design_check_controls.py (11 planted cases, each a mistake of 11-13); the launchers refuse jobs without a complete sheet naming their platform | 2026-11-13: design sheet extended (value, cosmologist, preflight): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+   "notes": "2026-11-13: CANON/TEST_DESIGN_CHECKLIST.md, CANON/design_check.py (gate), design_check_controls.py (11 planted cases, each a mistake of 11-13); the launchers refuse jobs without a complete sheet naming their platform | 2026-11-13: design sheet extended (value, cosmologist, preflight): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: lessons at the top of the checklist: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
   }
  ],
  "not_tests": {

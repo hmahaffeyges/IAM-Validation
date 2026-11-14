@@ -2,6 +2,7 @@
 """Planted cases for CANON/design_check.py: a complete sheet passes, and each of the 2026-11-13 mistakes is refused."""
 import os, sys, copy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import design_check as D
+FORM = [{"form": "deposited aligned files (BAM, chain --bam)", "hours": 1, "adequate": True, "chosen": True}, {"form": "raw reads (alignment)", "hours": 5, "adequate": True}]
 OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks at 310 K", "counterparts": "chips: none yet; qubits: none yet"},
       "data": {"set": "GSE161463", "protocol_read": "sheared, end repaired, methylated adapters, standard directional WGBS from 1 ug",
                "spent_first": "no: spent sets hold no eraser-removed mature B cells", "alternatives": "GSE210026 (PBAT, refused)"},
@@ -19,6 +20,10 @@ OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks a
 OK["data"]["needs"] = "paired reads, whole-genome spread, genotype label"
 OK["data"]["preflight"] = {"checked": "200 blocks: chromosome spread, read pairing, genotype labels", "minutes": 6, "result": "all 21 autosomes present in proportion; paired; labels match"}
 OK.pop("_cosm")
+OK["data"]["form"] = FORM
+OK["explore"] = {"done": "celltype_vs_thermal.py on spent counts: blood types near the thermal level", "rehearsal_pull": -1.16}
+OK["prediction"] = {"form": "thermal level / (1 - s), s each type's eraser share", "decided_by": {"s": "the type's own knockout over control, measured independently"},
+                    "reading": "zero loose along IAM-A's slope, every laboratory"}
 def case(label, edit, expect_refused):
     S = copy.deepcopy(OK); edit(S); F = D.sheet_findings(S, label)
     ok = bool(F) == expect_refused
@@ -41,5 +46,12 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("'quality-failed share' in a clean preflight is not a problem", lambda S: S["data"]["preflight"].update(result="99.8 % mapped, 2.8 % quality-failed share"), False),
      case("'MET only if every type is inside' without the agreed classes refused (PHY-084, 11-13)", lambda S: S["bars"].update(rule="MET if all four types lie inside k = 2"), True),
      case("a sheet without the chip and qubit counterpart refused (11-13)", lambda S: S["physics"].pop("counterparts"), True),
+     case("raw reads chosen when aligned files exist, no reason, refused (11-13)", lambda S: [S["data"]["form"][0].update(chosen=False), S["data"]["form"][1].update(chosen=True)], True),
+     case("raw reads chosen with a written reason passes", lambda S: [S["data"]["form"][0].update(chosen=False), S["data"]["form"][1].update(chosen=True, why_not_cheaper="the BAM is GRCh38; the loose share needs hg19 tiles")], False),
+     case("no data.form refused", lambda S: S["data"].pop("form"), True),
+     case("sealing with no rehearsal on spent data refused (11-13)", lambda S: S["explore"].pop("rehearsal_pull"), True),
+     case("rehearsal beyond 2 refused: fix the prediction first (11-13)", lambda S: S["explore"].update(rehearsal_pull=-2.45), True),
+     case("a branch chosen by the outcome refused (11-13)", lambda S: S["prediction"]["decided_by"].update(s="whichever fits the reading"), True),
+     case("no prediction.reading refused (11-13)", lambda S: S["prediction"].pop("reading"), True),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

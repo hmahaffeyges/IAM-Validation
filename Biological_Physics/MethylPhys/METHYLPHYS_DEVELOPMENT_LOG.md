@@ -5190,3 +5190,11 @@ section label is unchanged. The comparison of the per-site value with the lone-l
 blind test, and the open list says the eraser's share is measured type by type (PHY-086 P4). Line count unchanged; every check passes.
 The coin (CANON dG_ATP) keeps 54 kJ/mol, cited (Nelson and Cox 2017), with the measured band 53.5-61.7 kJ/mol and its sources
 (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/atp_coin_table.csv; docs/book/part6/p6_08_iama.tex).
+
+### 2026-11-13 · OTH-086: today's lessons at the top of the design checklist, each enforced
+Author: 'speed and testing smart, exploring first and before sealing making sure we already believe in our sealed prediction and if we can
+predict a measured this or that then we do that ... make sure it never happens again'. CANON/TEST_DESIGN_CHECKLIST.md now opens with four
+dated lessons: three questions before every action; explore first on spent data and seal only when the sealed scorer, run unchanged on the
+closest spent data, lands within pull 2 (explore.rehearsal_pull); predictions that depend on a measured input sealed as a formula of
+independently measured inputs (prediction.form, prediction.decided_by, never chosen by the outcome); the same reading in every laboratory
+(prediction.reading). 26 planted cases. The atlas rehearsal of the PHY-084 scorer is committed (DEV_CHAIN_Q2_01/rehearsal_atlas/).

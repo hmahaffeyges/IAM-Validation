@@ -16,6 +16,36 @@ def get(d, k):
     return d
 def num(x):
     m = re.search(r"-?\d+(\.\d+)?(e-?\d+)?", str(x)); return float(m.group(0)) if m else None
+def explore_findings(S, name):
+    """2026-11-13 lessons 2-3: seal only what a rehearsal on spent data supports; branches are set by independent measurements."""
+    F = []; E = S.get("explore") or {}; P = S.get("prediction") or {}
+    pull = num(E.get("rehearsal_pull"))
+    if pull is None: F.append(f"{name}: explore.rehearsal_pull must be a number: the sealed scorer's largest |pull| on spent data")
+    elif abs(pull) > 2: F.append(f"{name}: the rehearsal on spent data gives |pull| {abs(pull):.2f} > 2: fix the prediction before spending reserved data")
+    d = P.get("decided_by")
+    if isinstance(d, dict):
+        for k, v in d.items():
+            if re.search(r"(?i)\b(outcome|result|the reading itself|whichever|if it reads)\b", str(v)):
+                F.append(f"{name}: prediction.decided_by['{k}'] is chosen by the outcome; name an independent measurement")
+    return F
+
+
+def form_findings(S, name):
+    """data.form (2026-11-13): a list of {form, hours, adequate, chosen}; the chosen one must be the cheapest adequate, or carry a reason."""
+    F = []; L = (S.get("data") or {}).get("form")
+    if not isinstance(L, list) or len(L) < 2:
+        return [f"{name}: data.form must list at least two forms the data exist in (held counts, .pat, BAM, per-site calls, raw reads) with hours"]
+    ok = [x for x in L if isinstance(x, dict) and x.get("adequate") is True and num(x.get("hours")) is not None]
+    ch = [x for x in L if isinstance(x, dict) and x.get("chosen")]
+    if len(ch) != 1: return F + [f"{name}: data.form must mark exactly one chosen form"]
+    c = ch[0]
+    if c.get("adequate") is not True: F.append(f"{name}: data.form: the chosen form is not marked adequate")
+    cheaper = [x for x in ok if x is not c and num(x["hours"]) < num(c.get("hours") or 1e9)]
+    if cheaper and not str(c.get("why_not_cheaper") or "").strip():
+        F.append(f"{name}: data.form: '{cheaper[0].get('form')}' is adequate and faster than the chosen '{c.get('form')}'; say why_not_cheaper")
+    return F
+
+
 def sheet_findings(S, name="sheet"):
     F = []
     for k in KEYS:
@@ -59,6 +89,8 @@ def sheet_findings(S, name="sheet"):
     elif num(P.get("minutes")) > 30: F.append(f"{name}: data.preflight took {num(P.get('minutes'))} min; a preflight is a small slice (30 min at most)")
     elif re.search(r"(?i)\b(missing|refused|absent|not present)\b|(?<![-\w])failed\b(?! share)", str(P.get("result"))) and not str(P.get("resolved", "")).strip():
         F.append(f"{name}: data.preflight found a problem and data.preflight.resolved does not say how it was settled")
+    if S.get("data", {}).get("form") is not None or not S.get("_after_the_fact"): F += form_findings(S, name)
+    if not S.get("_after_the_fact"): F += explore_findings(S, name)
     return F
 def git(*a): return subprocess.run(["git", "-C", R] + list(a), capture_output=True, text=True).stdout
 if __name__ == "__main__":

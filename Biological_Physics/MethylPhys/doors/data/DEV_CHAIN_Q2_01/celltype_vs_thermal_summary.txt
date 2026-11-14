@@ -1,0 +1,25 @@
+thermal through the counter at the canon coin: 0.03630-0.04058 over coupling 1.00-1.75
+atlas laboratory: 55 types; below thermal 5; reading/thermal median 1.127 (range 0.789-1.272)
+atlas: implied eraser share at the canon coin, for types above thermal: median 0.129
+atlas: coin that puts a type at thermal with no eraser: median 47.5 kJ/mol; inside the measured band 53.5-61.7: 4 of 55
+null test (referee laboratory, 1000 random half splits): the full four-type order repeats in 11 %; T cells above B cells and monocytes in both halves 95 %
+
+referee laboratory, read like the atlas (zero loose along IAM-A's slope; own-slope reading listed after):
+       cell  n  reading  coupling  thermal  ratio  eraser_share_if_canon_coin  coin_kJ_if_no_eraser
+    b cells 23   0.0376    1.5027   0.0393 0.9562                     -0.0458               56.6541
+  monocytes 10   0.0374    1.6032   0.0390 0.9581                     -0.0438               56.5347
+cd8 t cells 12   0.0398    1.4960   0.0394 1.0111                      0.0109               53.3660
+cd4 t cells  9   0.0405    1.5016   0.0393 1.0303                      0.0294               52.2957
+    b cells 23   0.0325    1.4860   0.0394 0.8236                     -0.2141               66.4035
+cd8 t cells 12   0.0334    1.5040   0.0393 0.8486                     -0.1783               64.3312
+  monocytes 10   0.0400    1.5940   0.0391 1.0229                      0.0224               52.7040
+cd4 t cells  9   0.0404    1.5050   0.0393 1.0284                      0.0276               52.4023
+
+atlas, the four referee types:
+       cell  n  reading  coupling  thermal  ratio  coin_kJ_if_no_eraser
+  monocytes  3   0.0408    1.5201   0.0392 1.0407               51.7348
+    b cells  3   0.0413    1.4812   0.0395 1.0472               51.3902
+cd4 t cells  3   0.0427    1.4602   0.0396 1.0774               49.8398
+cd8 t cells  3   0.0440    1.5554   0.0391 1.1247               47.5751
+
+Exploration on spent counts; nothing sealed. Thermal level and eraser share at the canon coin; types below thermal point at the coin (A16) or the meter.
