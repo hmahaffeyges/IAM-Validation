@@ -3,7 +3,7 @@
  "date": "2026-11-13",
  "title": "The eraser measured in blood; the referee test sealed",
  "set_out": "Measure the eraser's share in blood cells by the sealed rule (PHY-085); finish the release check; seal the referee test of the healthy baseline (PHY-084) before reading it.",
- "open_at_turnover": "Read the 58 referee libraries by the sealed rule (canary first) and score them; the website decisions (device columns, headline order); the coin decision; the day summary.",
+ "open_at_turnover": "Each cell type's level (A8): donor age and a single-laboratory knockout set; the book cross-references to the law (author's yes); the Q&A on M (author's yes); the slope from physics; the qubit and chip rows.",
  "check_completeness": false,
  "off_page_rows": [],
  "compute": {
@@ -118,6 +118,70 @@
      "outcome": "MET: CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3. Note: the seal's wording was stricter (amendment 4).",
      "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
      "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "The referee test read by the agreed standard (PHY-084)",
+     "status": "development",
+     "what": "Amendment 4: the pass/watch/miss standard committed before the seal.",
+     "outcome": "MET: CD4, CD8 and monocytes pass; B cells on watch (pull -2.45); none beyond 3. The seal's stricter wording is kept as a note.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy baseline (derived from M), blind laboratory"
+    },
+    {
+     "title": "Mature B cells without TET2 and TET3 (PHY-086 P4)",
+     "status": "development",
+     "what": "Four GitHub libraries, scored once by the sealed rule.",
+     "outcome": "Not met: knockout over control 1.042 (pull +3.71); the eraser does almost nothing in mature B cells.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): none (a ratio within one experiment)"
+    },
+    {
+     "title": "Young iNKT cells without TET2 and TET3 (PHY-086 P5, P6)",
+     "status": "development",
+     "what": "Four GitHub libraries, scored once; P6 as exploration.",
+     "outcome": "P5 met: 0.926 inside 0.79-0.95. P6: wild-type B and iNKT hold alike although their erasers differ.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): none (a ratio within one experiment)"
+    },
+    {
+     "title": "Cell types against the thermal level, like for like (exploration)",
+     "status": "development",
+     "what": "Both laboratories read at zero loose along IAM-A's slope; spent counts.",
+     "outcome": "Mature blood types sit near the thermal level (0.96-1.03); the deep B-cell low was mostly the own-slope reading.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): the derived thermal level"
+    },
+    {
+     "title": "Why types differ (A8, exploration)",
+     "status": "development",
+     "what": "Distance above thermal against division, restore crew and lifespan; the duty form; the governor lead.",
+     "outcome": "Crew rho -0.35 (halves 91 %), division not; the duty form no better than flat; the governor checks inconclusive.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): the derived thermal level"
+    },
+    {
+     "title": "The laboratory offset (exploration)",
+     "status": "development",
+     "what": "Interior-only readings of both laboratories.",
+     "outcome": "Not the meter's end and not one factor: it differs by type (CD8 most); donor age is the lead.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): none (laboratory against laboratory)"
+    },
+    {
+     "title": "The Met-A healthy level like for like (PHY-083, M2)",
+     "status": "development",
+     "what": "One free synthetic run through the counter; spent healthy counts at zero loose.",
+     "outcome": "Healthy reads 1.13 (held_err) and 1.15 (lone-loss) of thermal, about the stem-cell eraser factor 1.157.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): the derived thermal level"
+    },
+    {
+     "title": "The design checklist's lessons and gates (OTH-086)",
+     "status": "development",
+     "what": "Lessons at the top; cheapest data form; rehearsal before sealing; commissioning reserve; purpose.",
+     "outcome": "30 planted cases pass; ENCODE healthy B cells reserved for commissioning, unread.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): none (tooling)"
     }
    ]
   }
