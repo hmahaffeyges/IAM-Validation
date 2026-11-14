@@ -5341,3 +5341,20 @@ rise in knockouts by about 1 + D (48-81 times); if the write is one selection st
 0.7-1.5. Across five knockout units (blood progenitors, LSK, young iNKT, mature B) knockout over wild type is 0.985-1.292: one selection
 step, as register A15 found. The 0-30 % rise suggests the erasers also clean a small share of stray marks
 (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/erase_proofreading.py).
+
+### 2026-11-14 · OTH-086: a pipeline so GitHub's machines start the next prepared job without waiting; PHY-087 step 2 queued first
+The author: when one set of computers finishes one derivation, the next should start, with no downtime. CANON/pipeline_queue.json holds
+prepared items (best data and method settled, a complete design sheet, a canary with its numeric rule); CANON/pipeline_next.py, run by
+.github/workflows/pipeline.yml whenever an explore or erase_test run finishes and every 15 minutes, starts every ready item on GitHub's free
+machines. It starts compute only: it never scores or writes a result. Planted controls (six cases) pass. explore.yml now fails a run whose
+script failed, keeps .csv.gz outputs, and lets scripts read earlier runs' artifacts. First items: PHY-087 step 2, the within-sample slope in
+the blind-test laboratory (design/PHY-087_s2.json, prediction written first): each of its 54 read libraries recounted by the chain from the
+molecules saved for PHY-084 (erase_test.yml with patfrom; no alignment), a two-library canary first, then the reading from chain outputs only
+(Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/ref_slope_read.py). Chain: run_sample.py --dev-count-tiles now also writes
+each tile's calls and mean call (stage_q2_selfref.count_pat_tile_calls; same tiling; checked equal to slope_tiles.py's own count on planted
+lines; Decoder entry added), so a tile's looseness comes from the chain, as the chain gate requires.
+
+### 2026-11-14 · PHY-086: the erasers' selectivity, after the fact
+erase_proofreading.py now also reports, per knockout unit, the share of stray marks the erasers remove against the share of held losses they
+cause: selectivity at most about 3, against 47-80 for a proofreading discard step. TET2 alone removes almost no stray marks; TET2 with TET3
+removes 13-23 %. In mature B the erasers remove a fifth of stray marks while causing no held loss. Defined after the ratios were seen.

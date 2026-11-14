@@ -1188,7 +1188,10 @@ The library-noise rule, applied to every library alike: the library's own molecu
 ### stage_q2_selfref.py::count_pat_tile_errors
 The held error tile by tile (DEV-ERASE-01 graded maintenance test): held molecules and lone errors by Stage Q2's own rules, each molecule in the tile of its first CpG (blocks of 2,000 consecutive CpG indices, so no genome table is needed), split into two halves that share no molecule (even and odd lines), so one half can measure a tile's level and the other remove the measurement's own scatter from the slope.
 
-Since 2026-11-10 it also records, for development only, the same held error by distance from the molecule's nearer end (held_by_distance: 1 is the second call in, 6 means six or more), so the meter's end error inside the counted interior can be measured; the reading is unchanged.
+Since 2026-11-10 it also records, for development only, the same held error by distance from the molecule's nearer end (held_by_distance: 1 is the second call in, 6 means six or more), so the meter's end error inside the counted interior can be measured; the reading is unchanged. Since 2026-11-14 the tile file written by `run_sample.py --dev-count-tiles` also carries each tile's calls and mean call (count_pat_tile_calls), columns `calls` and `mean_call`; readers that take only the four count columns are unchanged.
+
+### stage_q2_selfref.py::count_pat_tile_calls
+Each tile's calls and methylated calls over all its molecules, by the same tiling as count_pat_tile_errors (each molecule in the tile of its first CpG, blocks of 2,000 consecutive CpG indices). The tile's mean call is methylated over calls; its looseness is one minus that. Added 2026-11-14 for PHY-087 step 2, so a tile's looseness comes from the chain, not from a script reading the molecule file.
 
 ### stage_q2_selfref.py::chain_sha
 The SHA-256 over every `.py` file of the chain folder, names and contents, in sorted order.

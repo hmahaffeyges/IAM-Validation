@@ -1,0 +1,108 @@
+{
+ "_written": "7:16 AM Pacific, 2026-11-14, before any tile of the second laboratory is read (PHY-087 step 2; the first queued pipeline item)",
+ "physics": {
+  "where_iam_law": "the derived hold (CANON eps0_candidate route: two coins per restore against thermal kicks) with cooperative maintenance (push scaled by the held share of the neighbourhood) gave the first laboratory's within-sample slope (median ratio 0.93, slope_pump.py); this asks whether a second laboratory repeats it, and whether its across-type levels are again steeper than the form (2.4 times in the first)",
+  "counterparts": "kept privately"
+ },
+ "data": {
+  "set": "the blind-test laboratory's 54 read healthy libraries (GSE173787; the four refused at intake for PHY-084 are listed, not read), from molecules saved by the PHY-084 runs",
+  "protocol_read": "the same chain counts (erase_test.yml, Stage Q2 --dev-count-tiles) already run for PHY-084; Ma et al. 2021 standard WGBS",
+  "spent_first": "yes: spent libraries, saved molecule files; no alignment and no new data",
+  "alternatives": "realigning from SRA (hours per library; not needed); the first laboratory only (no replication)",
+  "needs": "each library's .pat and tile counts (both kept as artifacts until 2027-02-11)",
+  "preflight": {
+   "checked": "one artifact listed: GSM5278426 holds its .pat (11.9 MB) and tiles.csv.gz",
+   "minutes": 2,
+   "result": "both files present",
+   "resolved": "yes"
+  },
+  "form": [
+   {
+    "form": "saved molecule files recounted by the chain (erase_test.yml patfrom; run_sample.py --dev-count-tiles, now with each tile's mean call)",
+    "hours": 2,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "raw reads (alignment)",
+    "hours": 150,
+    "adequate": true,
+    "chosen": false
+   }
+  ]
+ },
+ "kiss": {
+  "smallest": "all 54 read libraries (the four cell types, 9-23 each), since each is minutes",
+  "samples_why": "four cell types, enough per type for a within-type spread"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "20 (nothing running)",
+  "why_not_github": "n/a",
+  "s_per_pair": "n/a (no alignment; a chain count on saved molecules, minutes per library)",
+  "pairs": "n/a",
+  "peak_mem_gb": "about 3 (one chain count)",
+  "machine_mem_gb": 16,
+  "parallel_per_machine": 1,
+  "expected_hours": 2,
+  "time_limit_hours": 5,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "each library is its own run; a failed one blocks only the reader, and is listed"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "the pipeline's own record: the run finishes and the reading's summary is in the artifact"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 14000,
+   "halves_corr_min": 0.7,
+   "_from": "the first laboratory's canary (14,106 tiles, 0.823)",
+   "hours_per_sample_max": 0.25,
+   "mean_call_present_min": 0.95
+  },
+  "script": "Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/ref_tiles_canary.py",
+  "libraries": 2
+ },
+ "cosmologist": {
+  "method": "the same two-half tile split as cross-spectra, a second laboratory as an independent instrument",
+  "null_test": "halves' correlation > 0.7 in every library before any slope is read"
+ },
+ "value": {
+  "question": "does a second laboratory repeat the within-sample slope from the derived hold, and the across-type steepness?",
+  "adequate": "54 libraries of four types, 14,000 tiles each",
+  "options": [
+   {
+    "name": "cosmologist's way: a second, independent instrument (another laboratory) read by the same split-half method",
+    "hours": 1,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "realign from SRA",
+    "hours": 150,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   }
+  ]
+ },
+ "bars": {
+  "rule": "exploration: no seal; read and reported as found"
+ },
+ "purpose": "exploration",
+ "prediction": {
+  "written": "7:16 AM Pacific, 2026-11-14",
+  "within": "median within-sample slope over the pump-predicted slope at each library's own looseness, 0.64-1.34 (the first laboratory's range)",
+  "across": "across the four types, held level rises faster than the form gives (first laboratory: 2.4 times); a ratio near 1 would mean cooperativity also sets each type's level",
+  "reading": "exploration: reported as found, nothing sealed"
+ },
+ "explore": {
+  "done": "slope_pump.py on the first laboratory's eleven samples (17c9b335, 145c5b39): within-sample median ratio 0.93; across types 2.4 times steeper than the form",
+  "rehearsal_pull": "not applicable (exploration)"
+ }
+}

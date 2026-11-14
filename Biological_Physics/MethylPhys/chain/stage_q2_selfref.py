@@ -199,6 +199,19 @@ def count_pat_tile_errors(lines, tile=TILE):
         a[h + 1] += n * (len(s_) - 2); a[h] += n * sum(1 for q in range(1, len(s_) - 1) if s_[q] == "T" and s_[q - 1] == "C" and s_[q + 1] == "C")
     return T
 
+def count_pat_tile_calls(lines, tile=TILE):
+    """2026-11-14 (PHY-087 step 2): each tile's calls and methylated calls over ALL its molecules (any number of calls), by the same tiling
+    as count_pat_tile_errors (a molecule belongs to the tile of its first CpG; index // tile). The tile's mean call = methylated / calls;
+    its looseness is 1 - mean call. Returns {(chrom, tile): [calls, methylated]}."""
+    T = {}
+    for line in lines:
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        s_ = [x for x in p[2] if x != "."]
+        if not s_: continue
+        n = int(p[3]); a = T.setdefault((p[0], int(p[1]) // tile), [0, 0]); a[0] += n * len(s_); a[1] += n * s_.count("C")
+    return T
+
 def count_pat_sites(lines, sites):
     """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 2): the held error counted only at a set of sites (genome-wide CpG indices, the .pat
     numbering), by count_pat's own rules: the same split (odd lines), the same held and held-absent molecules, classed from ALL their calls

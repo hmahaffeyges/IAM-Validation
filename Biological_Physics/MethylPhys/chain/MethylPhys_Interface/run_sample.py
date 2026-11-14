@@ -1443,8 +1443,11 @@ def main():
             if a.dev_count_tiles:   # 2026-10-25 (DEV-ERASE-01 graded maintenance test): the held error tile by tile, two independent halves
                 import gzip as _gzt, stage_q2_selfref as _Q2t
                 with (_gzt.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _T = _Q2t.count_pat_tile_errors(_fh)
+                with (_gzt.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _C = _Q2t.count_pat_tile_calls(_fh)   # 2026-11-14: each tile's mean call
                 with (_gzt.open if str(a.dev_count_tiles).endswith(".gz") else open)(a.dev_count_tiles, "wt") as _fo:
-                    _fo.write("chrom,tile,iso_a,opp_a,iso_b,opp_b\n"); [_fo.write(f"{c},{j},{v[0]},{v[1]},{v[2]},{v[3]}\n") for (c, j), v in sorted(_T.items())]
+                    _fo.write("chrom,tile,iso_a,opp_a,iso_b,opp_b,calls,mean_call\n")
+                    for (c, j), v in sorted(_T.items()):
+                        _cc = _C.get((c, j), [0, 0]); _fo.write(f"{c},{j},{v[0]},{v[1]},{v[2]},{v[3]},{_cc[0]}," + (f"{_cc[1] / _cc[0]:.5f}" if _cc[0] else "") + "\n")
                 o["iam_a_count_only"]["count_tiles"] = dict(file=os.path.basename(a.dev_count_tiles), tiles=len(_T), tile_cpgs=_Q2t.TILE, halves="even and odd lines of the .pat (no shared molecule)")
                 print(f"Stage Q2 held error by tile: {len(_T)} tiles written to {a.dev_count_tiles}", flush=True)
             if a.dev_count_sites:   # 2026-10-24 (step 3 version 2): the same count at Met-A's identity sites only

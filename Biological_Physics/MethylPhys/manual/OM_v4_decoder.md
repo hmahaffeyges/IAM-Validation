@@ -37,11 +37,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **548 functions** (nested ones included); 548 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **549 functions** (nested ones included); 549 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,608 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,611 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -53,7 +53,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
 | `stage_v4.py` | 188 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
-| `stage_q2_selfref.py` | 420 | 37 | 0 | 11 |
+| `stage_q2_selfref.py` | 433 | 38 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 120 | 8 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
@@ -527,7 +527,7 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1028 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1031 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
@@ -548,7 +548,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1527 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1530 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1848,9 +1848,15 @@ The library-noise rule, applied to every library alike: the library's own molecu
 
 The held error tile by tile (DEV-ERASE-01 graded maintenance test): held molecules and lone errors by Stage Q2's own rules, each molecule in the tile of its first CpG (blocks of 2,000 consecutive CpG indices, so no genome table is needed), split into two halves that share no molecule (even and odd lines), so one half can measure a tile's level and the other remove the measurement's own scatter from the slope.
 
-Since 2026-11-10 it also records, for development only, the same held error by distance from the molecule's nearer end (held_by_distance: 1 is the second call in, 6 means six or more), so the meter's end error inside the counted interior can be measured; the reading is unchanged.
+Since 2026-11-10 it also records, for development only, the same held error by distance from the molecule's nearer end (held_by_distance: 1 is the second call in, 6 means six or more), so the meter's end error inside the counted interior can be measured; the reading is unchanged. Since 2026-11-14 the tile file written by `run_sample.py --dev-count-tiles` also carries each tile's calls and mean call (count_pat_tile_calls), columns `calls` and `mean_call`; readers that take only the four count columns are unchanged.
 
 *Code:* `stage_q2_selfref.py` line 186 (15 lines) · arguments: lines, tile · calls: not called on the traced runs
+
+### `stage_q2_selfref.py::count_pat_tile_calls`
+
+Each tile's calls and methylated calls over all its molecules, by the same tiling as count_pat_tile_errors (each molecule in the tile of its first CpG, blocks of 2,000 consecutive CpG indices). The tile's mean call is methylated over calls; its looseness is one minus that. Added 2026-11-14 for PHY-087 step 2, so a tile's looseness comes from the chain, not from a script reading the molecule file.
+
+*Code:* `stage_q2_selfref.py` line 202 (12 lines) · arguments: lines, tile · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::chain_sha`
 
@@ -1923,13 +1929,13 @@ The loose share counted molecule by molecule (development, recorded only): of th
 
 Every call at a set of sites, grouped (for Met-A: the cell's held and held-absent identity sites), split by the molecule's class from all its calls by Stage Q2's rules (held, held absent, loose, short): the site level and each class's share and level, so a site's level is shown as the loose share beside the held error (development, step 3 version 3). A synthetic file with planted classes is recovered.
 
-*Code:* `stage_q2_selfref.py` line 223 (24 lines) · arguments: lines, groups · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 236 (24 lines) · arguments: lines, groups · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::count_pat_sites`
 
 The held error counted only at a chosen set of sites (development, Met-A's derived baseline, step 3 version 2): Stage Q2's own rules unchanged, the same held and held-absent molecules classed from all their calls, only the calls counted restricted to the sites. A synthetic file with planted rates 0.06 and 0.05 at a site set returns them once the neighbors' rate is divided out.
 
-*Code:* `stage_q2_selfref.py` line 202 (20 lines) · arguments: lines, sites · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 215 (20 lines) · arguments: lines, sites · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::count_pat`
 
@@ -1941,7 +1947,7 @@ The `.pat` reader: even lines are added to their tile; odd lines that qualify as
 
 The positions of every CpG in a chromosome's sequence.
 
-*Code:* `stage_q2_selfref.py` line 250 (2 lines) · arguments: seq · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 263 (2 lines) · arguments: seq · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_calls_of`
 
@@ -1949,75 +1955,75 @@ One aligned read's methylation calls at CpGs, from the Bismark XM tag or, for ge
 and last 3 aligned bases. Also counts non-CpG conversion (a check on bisulfite conversion) and, on every 20th read, A/T mismatches (a check
 on sequencing error).
 
-*Code:* `stage_q2_selfref.py` line 252 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 265 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_merge`
 
 Merges the calls of the two reads of a pair into one molecule; a CpG on which they disagree is dropped.
 
-*Code:* `stage_q2_selfref.py` line 279 (6 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 292 (6 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::count_bam_region`
 
 Counts one 10 Mb region of an alignment file: primary, mapped, non-duplicate reads with mapping quality at least 10, pairs merged, then
 the same alternation and the same two counts as the `.pat` reader. Also counts calls per qualifying molecule for the response curve.
 
-*Code:* `stage_q2_selfref.py` line 285 (36 lines) · arguments: args · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 298 (36 lines) · arguments: args · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::count_bam_region.done`
 
 Counts one finished molecule: even molecules to their tile, odd held runs to ε.
 
-*Code:* `stage_q2_selfref.py` line 292 (16 lines) · arguments: calls · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 305 (16 lines) · arguments: calls · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::combine_bam`
 
 Adds the regions' counts into one record, with the conversion-failure and substitution rates.
 
-*Code:* `stage_q2_selfref.py` line 321 (8 lines) · arguments: parts, assembly · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 334 (8 lines) · arguments: parts, assembly · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_bam`
 
 Splits the autosomes into 10 Mb regions and counts them in parallel.
 
-*Code:* `stage_q2_selfref.py` line 329 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
+*Code:* `stage_q2_selfref.py` line 342 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
 
 ### `stage_q2_selfref.py::build_line`
 
 How the line was built: per cell type, the median L and the opportunity-weighted ε, then a Theil–Sen line across cell types. Not called at
 run time; the line is read from its frozen file.
 
-*Code:* `stage_q2_selfref.py` line 336 (10 lines) · arguments: per_sample · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 349 (10 lines) · arguments: per_sample · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::line`
 
 Loads the frozen line and refuses it if it was edited after the chain wrote it.
 
-*Code:* `stage_q2_selfref.py` line 346 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 359 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::predict`
 
 ε predicted at a loose share: firm + slope × L.
 
-*Code:* `stage_q2_selfref.py` line 352 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 365 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::residual`
 
 A count against the line: measured ε, predicted ε, and their difference.
 
-*Code:* `stage_q2_selfref.py` line 354 (5 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 367 (5 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_shape_reference`
 
 How the shape reference was built: per cell type, the lowest healthy 10th percentile, and the margin. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 365 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
+*Code:* `stage_q2_selfref.py` line 378 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
 
 ### `stage_q2_selfref.py::shape_reference`
 
 Loads the frozen shape reference and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 373 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 386 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::shape_check`
 
@@ -2028,32 +2034,32 @@ chromosome and the loose share on the autosomes; the aligned-read route counts b
 line, counting the held error on the autosomes only moved IAM-A by a mean of −0.32 % (range −0.71 % to +0.09 %), at most about 2.5 % of the
 band's width (`doors/DEV_IAMA_SEX_01.md`). The commissioned line and band were built on the `.pat` route and are kept.
 
-*Code:* `stage_q2_selfref.py` line 379 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 392 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
 
 ### `stage_q2_selfref.py::reading`
 
 IAM-A = measured ε / predicted ε.
 
-*Code:* `stage_q2_selfref.py` line 390 (4 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 403 (4 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_band`
 
 How band v1 was built: the 2.5th to 97.5th percentile of pooled healthy readings. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 394 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 407 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::band`
 
 Loads band v1 and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 404 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 417 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::grand_verdict`
 
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
 
-*Code:* `stage_q2_selfref.py` line 408 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
+*Code:* `stage_q2_selfref.py` line 421 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 

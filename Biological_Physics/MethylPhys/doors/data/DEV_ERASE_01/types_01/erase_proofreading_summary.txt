@@ -3,5 +3,11 @@ blood progenitors Lin-neg, TET2 (PHY-085)  wild type 0.01710  knockout 0.01685  
 LSK, TET2+TET3 (PHY-090)                   wild type 0.01184  knockout 0.01359  knockout/wild type 1.148
 young iNKT, TET2+TET3 (PHY-086 P5)         wild type 0.01521  knockout 0.01965  knockout/wild type 1.292
 mature B, TET2+TET3 (PHY-086 P4)           wild type 0.01482  knockout 0.01849  knockout/wild type 1.248
+  blood progenitors LSK, TET2 (PHY-085)      stray marks removed +0.039, held losses caused +0.100, selectivity 0.39
+  blood progenitors Lin-neg, TET2 (PHY-085)  stray marks removed -0.015, held losses caused +0.091, selectivity -0.16
+  LSK, TET2+TET3 (PHY-090)                   stray marks removed +0.129, held losses caused +0.049, selectivity 2.61
+  young iNKT, TET2+TET3 (PHY-086 P5)         stray marks removed +0.226, held losses caused +0.074, selectivity 3.06
+  mature B, TET2+TET3 (PHY-086 P4)           stray marks removed +0.199, held losses caused -0.042, selectivity undefined (no held loss)
 range 0.985-1.292: branch S (one selection step; the eraser is not proofreading the unmarked side)
-Exploration on spent counts; the 0-30 % rise suggests the erasers also remove a small share of stray marks.
+Selectivity at most about 3 (against 47-80 for proofreading): the erasers prefer wrong marks only weakly. In mature B they remove a fifth of stray marks while causing no held loss.
+Exploration on spent counts; the selectivity was defined after the ratios were seen.
