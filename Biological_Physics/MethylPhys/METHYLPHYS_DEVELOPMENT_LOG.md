@@ -5258,3 +5258,8 @@ healthy over thermal: held_err 1.131, lone-loss 1.152; the stem-cell eraser fact
 Reading: on both counter quantities the average healthy cell holds at the thermal level plus about the stem-cell eraser share. The earlier H(candidate) 0.2627 against H_ref_cell 0.2593 was not like for like (per-site against the counter at the samples' own loose share).
 Exploration on spent counts and one synthetic run; nothing sealed.
 (Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/m2_like_for_like.py; design/PHY-083.json, exploration.)
+
+### 2026-11-13 · PHY-090 sealed: the eraser's share in LSK progenitors from the laboratory of P4 and P5
+Rehearsed on spent data before sealing (PHY-085 LSK, TET2 alone: pull +1.14), then sealed: GSE72630 LSK, TET2 and TET3 removed, knockout
+over wild type 0.86 (sigma 0.035) in the agreed classes, with P8 (the governor question across three types of one laboratory) as
+exploration (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md; design/PHY-090.json; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p7_score.py).

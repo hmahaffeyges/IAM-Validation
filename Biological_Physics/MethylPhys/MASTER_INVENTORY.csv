@@ -415,6 +415,7 @@ GSE71825,,,,,,,,,not usable (too few donors (3)),naive cd4 t cells | memory cd4 
 GSE71955,,,,,,,,DEV_METAA_HEALTHY_01,held-out test,cd4 t cells | cd8 t cells,yes,IDAT listed for 135/135 samples,Epigenetic profiling in CD4 and CD8 T cells from Graves’ disease patients reveals changes in genes associated with T cell receptor signaling [methylation]; Epig,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE72338,,,,,,,,DEV_ATLAS_V21_01,held-out test,neutrophils | monocytes,yes,IDAT listed for 38/38 samples,Cell-specific methylation patterns in TB patients and household contacts,gold-mine map
 GSE72354,,,,,,,,,held-out test,t cells cd3,yes,IDAT listed for 34/34 samples,DNA methylation signatures triggered by prenatal maternal stress exposure to a natural disaster: Project Ice Storm,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE72630,,,,,,,,DEV_ERASE_01,,,,,,
 GSE74071,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE74877,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE75405,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21,atlas build,naive cd4 t cells | naive cd8 t cells | t effector cell cd8,yes,IDAT listed for 24/24 samples,Genome-wide study of methylation profile of human cytotoxic CD4 T cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01

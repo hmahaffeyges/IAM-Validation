@@ -74,10 +74,10 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_BLOOD_SENSITIVITY_01 | `DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01.py` | no chain import | COM-METAA-020, CAN-007, CAN-011, CAN-020, CAN-021, PHY-001 |
 | DEV_BREACH_01 | `DEV_BREACH_01/planted_breach_01.py` | declares NO CHAIN | BRE-003, BRE-004, BRE-007, DAT-124, SCO-049 |
 | DEV_CEILING_02 | `DEV_CEILING_02/ceiling_position_02.py` | declares NO CHAIN | CAN-003, CAN-006, TIS-001, TIS-002 |
-| DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086 |
-| DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic_v2.py` | no chain import | PHY-006, PHY-085, PHY-086 |
-| DEV_ERASE_01 | `DEV_CHAIN_Q2_01/counter_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086 |
-| DEV_ERASE_01 | `DEV_CHAIN_Q2_01/counter_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086 |
+| DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086, PHY-090 |
+| DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic_v2.py` | no chain import | PHY-006, PHY-085, PHY-086, PHY-090 |
+| DEV_ERASE_01 | `DEV_CHAIN_Q2_01/counter_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086, PHY-090 |
+| DEV_ERASE_01 | `DEV_CHAIN_Q2_01/counter_synthetic.py` | no chain import | PHY-006, PHY-085, PHY-086, PHY-090 |
 | DEV_FIELD_01 | `DEV_FIELD_01/planted_field_01.py` | declares NO CHAIN | FLD-001, FLD-002, FLD-006, HYP-004, DAT-129, SCO-052 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/plant_fingerprint_02.py` | no chain import | DAT-063, SCO-048 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/power_fingerprint_02.py` | no chain import | DAT-063, SCO-048 |

@@ -28690,6 +28690,31 @@
    ],
    "next_step": "every new PHY/COM/DEV row carries design/<ROW>.json",
    "notes": "2026-11-13: CANON/TEST_DESIGN_CHECKLIST.md, CANON/design_check.py (gate), design_check_controls.py (11 planted cases, each a mistake of 11-13); the launchers refuse jobs without a complete sheet naming their platform | 2026-11-13: design sheet extended (value, cosmologist, preflight): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: lessons at the top of the checklist: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: commissioning reserve: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: purpose field: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-085",
+    "PHY-086"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-13 session (derivation register A8)"
+   ],
+   "notes": "sealed 2026-11-13 night after a rehearsal on spent PHY-085 LSK (pull +1.14) | 2026-11-13: sealed: Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "id": "PHY-090",
+   "title": "The eraser's share in LSK progenitors, same laboratory as P4 and P5 (TET2 and TET3 removed); P8 the governor question across three types",
+   "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE72630 (WGBS, LSK, wild type and TET2/TET3 double knockout; Rao laboratory)"
+   ],
+   "data_status": "public_not_downloaded",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "status": "planned",
+   "next_step": "read the six GSE72630 libraries on GitHub (canary first), score once with Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p7_score.py",
+   "cost": "github",
+   "impact": 4
   }
  ],
  "not_tests": {
