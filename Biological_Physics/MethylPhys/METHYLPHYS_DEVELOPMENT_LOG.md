@@ -5334,3 +5334,10 @@ is familiar; the open question becomes each cell type's eraser share. Author's i
 CANON/privacy_check.py runs in checked_push.sh on the lines a push adds: a private name (matched by hash, CANON/privacy_hashes.txt, so no
 public file spells it) or a new term from the private domains outside the book's existing Part 5 chapters and their verification files is refused.
 Lines already on main are never flagged; genomics terms such as ChIP-seq are not triggers. Planted controls (six cases) pass.
+
+### 2026-11-14 · PHY-086: the eraser is not the cell's proofreading of the unmarked side (exploration on spent counts)
+Prediction written first: if the TET erasers act as a Hopfield/Ninio discard step on wrongly written marks, stray marks on the unmarked side
+rise in knockouts by about 1 + D (48-81 times); if the write is one selection step with no proofreading by the eraser, the ratio stays within
+0.7-1.5. Across five knockout units (blood progenitors, LSK, young iNKT, mature B) knockout over wild type is 0.985-1.292: one selection
+step, as register A15 found. The 0-30 % rise suggests the erasers also clean a small share of stray marks
+(Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/erase_proofreading.py).

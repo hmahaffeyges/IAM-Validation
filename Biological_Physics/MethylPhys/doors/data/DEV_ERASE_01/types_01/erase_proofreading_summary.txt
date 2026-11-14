@@ -1,0 +1,7 @@
+blood progenitors LSK, TET2 (PHY-085)      wild type 0.01641  knockout 0.01707  knockout/wild type 1.040
+blood progenitors Lin-neg, TET2 (PHY-085)  wild type 0.01710  knockout 0.01685  knockout/wild type 0.985
+LSK, TET2+TET3 (PHY-090)                   wild type 0.01184  knockout 0.01359  knockout/wild type 1.148
+young iNKT, TET2+TET3 (PHY-086 P5)         wild type 0.01521  knockout 0.01965  knockout/wild type 1.292
+mature B, TET2+TET3 (PHY-086 P4)           wild type 0.01482  knockout 0.01849  knockout/wild type 1.248
+range 0.985-1.292: branch S (one selection step; the eraser is not proofreading the unmarked side)
+Exploration on spent counts; the 0-30 % rise suggests the erasers also remove a small share of stray marks.

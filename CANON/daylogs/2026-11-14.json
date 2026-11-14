@@ -38,6 +38,14 @@
      "outcome": "Median measured 0.0551 against 0.0369-0.0398 predicted, inside the band written first; at each sample's own looseness median ratio 0.93 (ten samples).",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): within-sample slopes"
+    },
+    {
+     "title": "Is the eraser the cell's proofreading? (A18)",
+     "status": "development",
+     "what": "Two branches written first, then the stray-mark counts of five committed knockout units read.",
+     "outcome": "Knockout over wild type 0.985-1.292: one selection step; the eraser is not proofreading the unmarked side.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): knockout over wild type"
     }
    ]
   }
