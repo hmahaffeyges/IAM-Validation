@@ -53,5 +53,6 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("rehearsal beyond 2 refused: fix the prediction first (11-13)", lambda S: S["explore"].update(rehearsal_pull=-2.45), True),
      case("a branch chosen by the outcome refused (11-13)", lambda S: S["prediction"]["decided_by"].update(s="whichever fits the reading"), True),
      case("no prediction.reading refused (11-13)", lambda S: S["prediction"].pop("reading"), True),
+     case("a derivation test naming a set reserved for commissioning refused (11-13)", lambda S: S["data"].update(set="GSE131627 healthy-control monocytes"), True),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

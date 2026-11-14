@@ -16,6 +16,17 @@ def get(d, k):
     return d
 def num(x):
     m = re.search(r"-?\d+(\.\d+)?(e-?\d+)?", str(x)); return float(m.group(0)) if m else None
+def reserve_findings(S, name):
+    """2026-11-13 (author: derive first, then commission; preserve data): a set marked reserved in CANON/data_spent.csv may be named only by a
+    commissioning row (COMMISSION-, COM-); derivation and development tests refuse it."""
+    import csv as _c
+    if re.match(r"(?i)(COMMISSION|COM)[-_]", os.path.basename(str(name))): return []
+    rows = list(_c.DictReader(open(os.path.join(R, "CANON", "data_spent.csv"), encoding="utf-8")))
+    res = [r["dataset"].split()[0] for r in rows if str(r.get("spent_status", "")).lower().startswith("reserved")]
+    text = json.dumps(S.get("data", {}).get("set", ""))
+    return [f"{name}: data.set names {g}, reserved for commissioning in CANON/data_spent.csv; derivations may not spend it" for g in res if g and g in text]
+
+
 def explore_findings(S, name):
     """2026-11-13 lessons 2-3: seal only what a rehearsal on spent data supports; branches are set by independent measurements."""
     F = []; E = S.get("explore") or {}; P = S.get("prediction") or {}
@@ -91,6 +102,7 @@ def sheet_findings(S, name="sheet"):
         F.append(f"{name}: data.preflight found a problem and data.preflight.resolved does not say how it was settled")
     if S.get("data", {}).get("form") is not None or not S.get("_after_the_fact"): F += form_findings(S, name)
     if not S.get("_after_the_fact"): F += explore_findings(S, name)
+    F += reserve_findings(S, name)
     return F
 def git(*a): return subprocess.run(["git", "-C", R] + list(a), capture_output=True, text=True).stdout
 if __name__ == "__main__":

@@ -5213,3 +5213,8 @@ CD4 0.98, CD8 0.85, monocytes 0.96: the end effect is small in both (3-5 %), the
 neither the meter's end nor one laboratory factor. CD8 T cells change most with donor age. The atlas laboratory's four blood types come from the same three donors (aged 50, 55 and 56;
 GEO GSM5652279-5652318). The referee laboratory's controls are white female non-smokers, sex-, age- and ancestry-matched to newly
 diagnosed MS patients (Ma et al. 2021, PNAS 118:e2111920118); their ages are in the supplement, not read; likely younger (lead, not assessed). A sealed per-type test must name donor age as an input or match it (Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/lab_offset_interior.py).
+
+### 2026-11-13 · OTH-086: a commissioning reserve the derivations cannot spend
+Author: derive first, then commission, and preserve data for commissioning. A set marked reserved in CANON/data_spent.csv may now be named
+only by a commissioning row; design_check.py refuses any other test that names one (planted case; 27 cases). ENCODE ENCSR284TCU (healthy
+adult B cells, WGBS, aligned files deposited) is reserved for commissioning IAM-A on sequencing B cells, unread (CANON/design_check.py; CANON/data_spent.csv).
