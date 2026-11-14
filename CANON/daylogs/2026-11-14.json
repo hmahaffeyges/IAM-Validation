@@ -62,6 +62,38 @@
      "outcome": "Within-sample ratio median 1.03 (0.34-1.67), inside the first laboratory's range; across types 2.4 times steeper than the form, as in the first laboratory.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): within-sample slopes"
+    },
+    {
+     "title": "E(a) and the exponent 7/2 read over the whole history (X7)",
+     "status": "development",
+     "what": "Desk derivation, sympy and a full LCDM numeric check (x7_two_histories.py, x7_relative_growth.py).",
+     "outcome": "The rate accounting with n = 7/2 and the first law with the record term agree only at a = 1; over the history they disagree (n_eff = 19/2 + 1/a). E(a) rests on the record constraint, which is the balance law d ln E/d ln a = 1 - ln E (writer at one per e-fold, no eraser). The chains, which use E(a) as the record term's shape, are unchanged. Book: note added at eq:law_Sneed.",
+     "record": "docs/verification/theory/derivations_2026-11-14/x7_two_histories.md",
+     "reference": "none (not a reading against healthy): cosmology derivation"
+    },
+    {
+     "title": "Who writes the cosmic record: baryons only or all matter (R4)",
+     "status": "development",
+     "what": "The book's free-coupling fit (ten published numbers), already run; no new data.",
+     "outcome": "All matter writing (beta_m = Omega_m/2) sits at -0.09 sigma from the free value 0.155 +/- 0.029; baryons only (Omega_b/2 = 0.025) is excluded at 4.5 sigma. Book: note added in the cosmological-constant chapter.",
+     "record": "docs/book/part2/p2_12_lambda.tex",
+     "reference": "none (not a reading against healthy): cosmology derivation"
+    },
+    {
+     "title": "Can halo virialization supply beta_m? (X6)",
+     "status": "development",
+     "what": "Two desk counts, energy and bits (x6_bit_count.py).",
+     "outcome": "Halo kinetic energy is 2.6e-8 to 2.6e-6 of the critical energy against beta_m = 0.158: about a millionth. The size Omega_m/2 is that of matter's binding at the horizon scale (G M_H/(R_H c^2) = 1/2). Which process supplies the amount is open. Book: note added in the cosmological-coupling chapter.",
+     "record": "docs/verification/theory/derivations_2026-11-14/x6_bit_count.md",
+     "reference": "none (not a reading against healthy): cosmology derivation"
+    },
+    {
+     "title": "The virial share for driven systems (R1)",
+     "status": "development",
+     "what": "Desk derivation with sympy checks (r1_driven_share.py).",
+     "outcome": "Clausius' theorem needs only a stationary system; measured halo surface pressure (10-20 % of binding) shows cosmic structure is driven; the sign of the shift in the written share is not fixed by energy flow alone.",
+     "record": "docs/verification/theory/derivations_2026-11-14/r1_driven_share.md",
+     "reference": "none (not a reading against healthy): cosmology derivation"
     }
    ]
   }

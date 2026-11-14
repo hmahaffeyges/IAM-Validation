@@ -44485,5 +44485,58 @@ def check_ref_8():
     value = _ref_row('b cells', 2)
     return locals()
 
+@check(label='ch:iams_law:L336:neff', chapter='ch:iams_law', part=1, title='exponent the rate accounting needs to match the first law (matter era)',
+       file='part1/p1_02_iams_law', line=336, status='calc', kind='sym', printed='19/2+1/a', tol=0.0)
+def check_x7_neff():
+    'Rate accounting dS/dln a ~ a^(n-9/2); first law with rho_info ~ E(a) gives dS/dln a ~ E/(a (H/H0)^4) ~ E a^5 (matter era). Book line 336.'
+    a = sp.symbols('a', positive=True); F = sp.exp(1 - 1/a) * a**5
+    ok = sp.simplify(sp.Rational(9, 2) + a*sp.diff(sp.log(F), a) - (sp.Rational(19, 2) + 1/a)) == 0 and sp.simplify(a**(sp.Rational(7, 2) - sp.Rational(9, 2)) - 1/a) == 0
+    return locals()
+
+@check(label='ch:iams_law:L336:balance', chapter='ch:iams_law', part=1, title='record constraint as the balance law dlnE/dlna = 1 - lnE',
+       file='part1/p1_02_iams_law', line=336, status='derived', kind='sym', printed='', tol=0.0)
+def check_x7_balance():
+    'ln E = 1 - 1/a obeys d ln E/d ln a = 1 - ln E. Book line 336.'
+    a = sp.symbols('a', positive=True); L = 1 - 1/a
+    ok = sp.simplify(a*sp.diff(L, a) - (1 - L)) == 0
+    return locals()
+
+@check(label='ch:virial:L61:lo', chapter='ch:virial', part=2, title='halo kinetic energy over critical energy, sigma 100 km/s',
+       file='part2/p2_02_virial', line=61, status='calc', kind='num', printed='2.6\\times10^{-8}', tol=0.02)
+def check_x6_lo():
+    'K_halos/E_crit = (3/2) Omega_m f_coll sigma^2/c^2, f_coll = 0.5, sigma = 100 km/s. Book line 61.'
+    value = 1.5*Om*0.5*(1e5/c)**2
+    return locals()
+
+@check(label='ch:virial:L61:hi', chapter='ch:virial', part=2, title='halo kinetic energy over critical energy, sigma 1000 km/s',
+       file='part2/p2_02_virial', line=61, status='calc', kind='num', printed='2.6\\times10^{-6}', tol=0.02)
+def check_x6_hi():
+    'Same at sigma = 1000 km/s. Book line 61.'
+    value = 1.5*Om*0.5*(1e6/c)**2
+    return locals()
+
+@check(label='ch:virial:L61:GMRc2', chapter='ch:virial', part=2, title='G M_H/(R_H c^2) = 1/2 for the flat Hubble sphere',
+       file='part2/p2_02_virial', line=61, status='derived', kind='sym', printed='1/2', tol=0.0)
+def check_x6_horizon():
+    'M_H = (4 pi/3) R^3 rho_crit, R = c/H, rho_crit = 3 H^2/(8 pi G). Book line 61.'
+    G_, c_, H_ = sp.symbols('G c H', positive=True); R = c_/H_; M = sp.Rational(4, 3)*sp.pi*R**3*3*H_**2/(8*sp.pi*G_)
+    ok = sp.simplify(G_*M/(R*c_**2) - sp.Rational(1, 2)) == 0
+    return locals()
+
+@check(label='ch:lambda:L139:ob2', chapter='ch:lambda', part=2, title='baryons-only coupling Omega_b/2',
+       file='part2/p2_12_lambda', line=139, status='calc', kind='num', printed='0.025', tol=0.02)
+def check_r4_ob2():
+    'Omega_b/2 with the book\'s Planck Omega_b. Book line 139.'
+    value = Ob/2
+    return locals()
+
+@check(label='ch:lambda:L139:pull', chapter='ch:lambda', part=2, title='baryons-only coupling against the free fit 0.155 +/- 0.029',
+       file='part2/p2_12_lambda', line=139, status='calc', kind='num', printed='4.5', tol=0.02)
+def check_r4_pull():
+    'Pull of Omega_b/2 from the free-coupling fit of ch:dual (0.155 +/- 0.029). Book line 139.'
+    value = (0.155 - Ob/2)/0.029
+    return locals()
+
+
 if __name__ == "__main__":
     sys.exit(main())

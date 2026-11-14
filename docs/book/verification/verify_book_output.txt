@@ -5833,4 +5833,17 @@ PASS  ch:iama:ref:p_cd8                  ch:iama:p6_08_iama:110  printed -1.72  
 PASS  ch:iama:ref:p_mono                 ch:iama:p6_08_iama:110  printed -0.54  recomputed -0.54  tol 0.00500001  [measured] monocyte pull  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt
 PASS  ch:iama:ref:p_b                    ch:iama:p6_08_iama:110  printed -2.45  recomputed -2.45  tol 0.00500001  [measured] B-cell pull  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt
 
-SUMMARY  PASS 4701  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 1: Introduction to IAM's Law and the Virial Theorem | ch:iams_law (part1/p1_02_iams_law.tex)
+PASS  ch:iams_law:L336:neff              ch:iams_law:p1_02_iams_law:336  printed 19/2+1/a  recomputed True  [calc] exponent the rate accounting needs to match the first law (matter era)
+PASS  ch:iams_law:L336:balance           ch:iams_law:p1_02_iams_law:336  printed (algebra)  recomputed True  [derived] record constraint as the balance law dlnE/dlna = 1 - lnE
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:virial (part2/p2_02_virial.tex)
+PASS  ch:virial:L61:lo                   ch:virial:p2_02_virial:61  printed 2.6\times10^{-8}  recomputed 2.631139e-08  tol 5.200005e-10  [calc] halo kinetic energy over critical energy, sigma 100 km/s
+PASS  ch:virial:L61:hi                   ch:virial:p2_02_virial:61  printed 2.6\times10^{-6}  recomputed 2.631139e-06  tol 5.200005e-08  [calc] halo kinetic energy over critical energy, sigma 1000 km/s
+PASS  ch:virial:L61:GMRc2                ch:virial:p2_02_virial:61  printed 1/2  recomputed True  [derived] G M_H/(R_H c^2) = 1/2 for the flat Hubble sphere
+
+== Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:lambda (part2/p2_12_lambda.tex)
+PASS  ch:lambda:L139:ob2                 ch:lambda:p2_12_lambda:139  printed 0.025  recomputed 0.02465  tol 5.000005e-04  [calc] baryons-only coupling Omega_b/2
+PASS  ch:lambda:L139:pull                ch:lambda:p2_12_lambda:139  printed 4.5  recomputed 4.49483  tol 0.0900001  [calc] baryons-only coupling against the free fit 0.155 +/- 0.029
+
+SUMMARY  PASS 4708  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
