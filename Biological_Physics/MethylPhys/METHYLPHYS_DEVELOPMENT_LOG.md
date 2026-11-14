@@ -5250,3 +5250,11 @@ The launcher refused PHY-083's forward run for want of a design sheet. Lesson 2 
 applies to sealed tests; an exploration seals nothing. The checklist now asks 'purpose': an exploration sheet answers every question but
 the rehearsal and the prediction, and may not carry a seal (planted cases: an exploration that seals is refused; no purpose is refused;
 30 cases). design/PHY-083.json written for the forward model's held_err runs.
+
+### 2026-11-13 · PHY-083, register M2: the Met-A healthy level read like for like
+thermal-only candidate through the counter (coupling 1.42; healthy median 1.46): held_err 0.03574, lone-loss 0.03987
+healthy, 150 samples, at zero loose share: held_err 0.04044, lone-loss 0.04592
+healthy over thermal: held_err 1.131, lone-loss 1.152; the stem-cell eraser factor 1/0.8642 = 1.157
+Reading: on both counter quantities the average healthy cell holds at the thermal level plus about the stem-cell eraser share. The earlier H(candidate) 0.2627 against H_ref_cell 0.2593 was not like for like (per-site against the counter at the samples' own loose share).
+Exploration on spent counts and one synthetic run; nothing sealed.
+(Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/m2_like_for_like.py; design/PHY-083.json, exploration.)

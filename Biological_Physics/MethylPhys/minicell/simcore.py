@@ -42,7 +42,7 @@ IAM_RELATIONS = {
                    "(Boltzmann); IAM's content is that E_hold is the share of the drive maintenance delivers (E_hold = phi M kT), so the error moves "
                    "with the drive and the local temperature",
     "delivery_phi": "phi = E_hold / M: the share of each coin delivered as holding",
-    "driven_passage": "DERIVED, one measured input: the eraser share (PHY-083): the baseline as restoring paid against thermal kicks, odds = (w/2)/(1-(1-e^-w)/w), w = W/kT, W = (SAM price in coins) x M kT per methyl transfer; candidate; blind test PHY-084 passed by the agreed standard (B cells on watch, pull -2.45)",
+    "driven_passage": "DERIVED, one measured input: the eraser share (PHY-083): the baseline as restoring paid against thermal kicks, odds = (w/2)/(1-(1-e^-w)/w), w = W/kT, W = (SAM price in coins) x M kT per methyl transfer; candidate; blind test PHY-084 passed by the agreed standard (B cells on watch, pull -2.45) The eraser share is measured type by type and is not one number: stem cells 13.6 %, blood progenitors 9-10 %, young iNKT 7 %, mature B cells none (PHY-085, PHY-086 P4/P5); set it per cell type. Held share for a strong push about ln(M)/M (0.145 at M 20.94).",
     "virial_half": "a 1/r-bound record releases exactly half its binding energy as the minimum cost of the record it writes (the book's labels apply)",
 }
 
