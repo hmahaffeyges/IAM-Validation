@@ -5206,3 +5206,10 @@ Exploration on spent counts: each atlas type's reading over the thermal level (c
 lifespan +0.36 (15 groups, 76 %). Erythrocyte progenitors sit below thermal (0.789), myonuclei and adipocytes highest (1.27, 1.23). The
 derived odds depend on the push alone, so a crew effect points at delivery: a short-handed crew leaves gaps in the push (effective push =
 2M x duty), derived and checked on the same spent data: reading/thermal = 1 + K/crew (exact form within 1 % of 1/d) predicts each left-out group no better than a flat mean (rms 0.0975 against 0.0930) and cannot reach the two groups below thermal: in this simple form, NOT supported (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/types_vs_thermal_turnover.py).
+
+### 2026-11-13 · PHY-084, exploration: the laboratory offset is not the meter's end and differs by cell type
+Read from interior calls only (three or more calls from a molecule end), the referee laboratory over the atlas laboratory stays B 0.93,
+CD4 0.98, CD8 0.85, monocytes 0.96: the end effect is small in both (3-5 %), the offset does not converge, and it differs by type, so it is
+neither the meter's end nor one laboratory factor. CD8 T cells change most with donor age. The atlas laboratory's four blood types come from the same three donors (aged 50, 55 and 56;
+GEO GSM5652279-5652318). The referee laboratory's controls are white female non-smokers, sex-, age- and ancestry-matched to newly
+diagnosed MS patients (Ma et al. 2021, PNAS 118:e2111920118); their ages are in the supplement, not read; likely younger (lead, not assessed). A sealed per-type test must name donor age as an input or match it (Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/lab_offset_interior.py).

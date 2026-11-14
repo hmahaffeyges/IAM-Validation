@@ -1,0 +1,6 @@
+referee over atlas, by distance from the molecule end (1 = end call, interior = 3 or more calls in):
+b cells      end 0.951  next 0.955  interior 0.931   (atlas interior 0.0378, referee 0.0352)
+cd4 t cells  end 1.020  next 1.024  interior 0.982   (atlas interior 0.0383, referee 0.0376)
+cd8 t cells  end 0.867  next 0.873  interior 0.852   (atlas interior 0.0441, referee 0.0376)
+monocytes    end 0.974  next 0.980  interior 0.959   (atlas interior 0.0371, referee 0.0355)
+Reading: the offset does not shrink in the interior, and it differs by type (CD8 most, CD4 least): not the meter's end, not one laboratory factor. CD8 T cells change most with donor age. Atlas donors: three, aged 50, 55, 56 (GEO); referee controls matched to new-onset MS (Ma et al. 2021 PNAS), ages in the supplement, not read: likely younger (lead).
