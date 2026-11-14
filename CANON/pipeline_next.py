@@ -12,7 +12,7 @@ everything that waits on it, and the run log says why. GitHub machines only; Goo
   python3 CANON/pipeline_next.py          start what is ready
   python3 CANON/pipeline_next.py status   print each item's state
   python3 CANON/pipeline_next.py controls planted queues and run states must give the expected decisions"""
-import os, sys, json, io, zipfile, subprocess, tempfile, urllib.request
+import os, sys, json, io, zipfile, subprocess, tempfile, urllib.request, urllib.error
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 Q = os.path.join(ROOT, "CANON", "pipeline_queue.json")
 MAX_LIVE = 18
@@ -41,7 +41,27 @@ def state(item, R):
     if w["status"] != "completed": return "running"
     return "done" if w["conclusion"] == "success" else "failed"
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k): return None
+
+def download(url):
+    """An artifact download answers with a redirect to storage that must be fetched WITHOUT the GitHub token (2026-11-14: forwarding it fails)."""
+    rq = urllib.request.Request(url, headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+    try:
+        with urllib.request.build_opener(_NoRedirect).open(rq, timeout=300) as r: return r.read()
+    except urllib.error.HTTPError as e:
+        if e.code in (301, 302, 303, 307, 308): return urllib.request.urlopen(e.headers["Location"], timeout=600).read()
+        raise
+
+_CANARY = {}
 def canary_ok(item, R):
+    key = (item.get("canary"), item.get("canary_rule"))
+    if key in _CANARY: return _CANARY[key]
+    try: _CANARY[key] = _canary_ok(item, R)
+    except Exception as ex: _CANARY[key] = (False, f"canary check could not run: {type(ex).__name__}: {ex}"[:200])
+    return _CANARY[key]
+
+def _canary_ok(item, R):
     c = item.get("canary")
     if not c: return True, ""
     w = R.get(c)
@@ -49,7 +69,7 @@ def canary_ok(item, R):
     if w["conclusion"] != "success": return False, "canary failed"
     A = api(f"/actions/runs/{w['id']}/artifacts").get("artifacts", [])
     if not A: return False, "canary has no artifact"
-    d = tempfile.mkdtemp(); zipfile.ZipFile(io.BytesIO(api(A[0]["archive_download_url"].split(REPO)[1], raw=True))).extractall(d)
+    d = tempfile.mkdtemp(); zipfile.ZipFile(io.BytesIO(download(A[0]["archive_download_url"]))).extractall(d)
     rc = subprocess.run([sys.executable, os.path.join(ROOT, item["canary_rule"]), d], capture_output=True, text=True)
     return rc.returncode == 0, (rc.stdout + rc.stderr).strip()[-300:]
 

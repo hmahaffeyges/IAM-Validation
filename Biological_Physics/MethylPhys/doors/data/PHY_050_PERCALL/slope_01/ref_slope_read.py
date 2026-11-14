@@ -6,13 +6,20 @@ mean call). This script reads only those chain outputs (each run's <GSM>_tiles.c
   (2) the derived hold with cooperative maintenance (slope_pump.py's form): each library's within-sample slope over the form's slope at its own
       looseness, and the across-type slope over the form's. Prediction written first (design/PHY-087_s2.json): within ratio 0.64-1.34.
 Writes xout/ref_slope_read_summary.txt and xout/ref_slope_pump_summary.txt."""
-import os, sys, io, csv, json, math, zipfile, subprocess, urllib.request, statistics as S
+import os, sys, io, csv, json, math, zipfile, subprocess, urllib.request, urllib.error, statistics as S
 import numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.abspath("xout"); TD = os.path.join(OUT, "tiles"); os.makedirs(TD, exist_ok=True)
 TOK = os.environ["GH_TOKEN"]; REPO = os.environ.get("GITHUB_REPOSITORY", "hmahaffeyges/IAM-Validation")
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k): return None
 def get(u, raw=False):
     rq = urllib.request.Request(u, headers={"Authorization": "Bearer " + TOK, "Accept": "application/vnd.github+json"})
-    b = urllib.request.urlopen(rq, timeout=600).read(); return b if raw else json.loads(b)
+    try:
+        with urllib.request.build_opener(_NoRedirect).open(rq, timeout=600) as r: b = r.read()
+    except urllib.error.HTTPError as e:   # artifact downloads redirect to storage, fetched without the token
+        if e.code not in (301, 302, 303, 307, 308): raise
+        b = urllib.request.urlopen(e.headers["Location"], timeout=600).read()
+    return b if raw else json.loads(b)
 runs = {}
 for page in range(1, 6):
     for w in get(f"https://api.github.com/repos/{REPO}/actions/runs?per_page=100&page={page}")["workflow_runs"]:
