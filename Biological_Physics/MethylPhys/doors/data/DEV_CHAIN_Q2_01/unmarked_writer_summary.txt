@@ -1,0 +1,4 @@
+single selection 1/(1+D), D 47.4-80: 0.0123-0.0207; with one proofreading step: 0.00015-0.00043
+atlas laboratory (healthy, all types): n 150, median 0.0150, 5-95 % 0.0117-0.0188; share inside the single-selection band 88 %; median over the proofread level 35x
+referee laboratory (healthy blood): n 54, median 0.0192, 5-95 % 0.0151-0.0217; share inside the single-selection band 87 %; median over the proofread level 45x
+Reading: both laboratories sit inside the single-selection band and far above the proofread level: the unmarked side reads like one selection step with no proofreading. After the fact; the meter's own false marks are not yet subtracted (next: each library's conversion control).

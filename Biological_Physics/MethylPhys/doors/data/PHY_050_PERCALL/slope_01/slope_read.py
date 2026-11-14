@@ -38,5 +38,9 @@ L = [f"null test (halves' correlation > 0.7 in every sample): {'PASSED' if ok el
      f"WITHIN samples: median slope {wmed:.4f} (range {wlo:.4f} to {whi:.4f}); replicate half A median {D.within_a.median():.4f}",
      f"ACROSS samples: slope {across:.4f} per unit tile looseness (11 samples); on the counter's loose share: {across_L:.4f} (IAM-A's b 0.034625)",
      f"WITHIN / ACROSS = {ratio:.2f}  (MIXING predicts near 1; CELL TYPE near 0)", "", D.round(5).to_string(index=False)]
+for lab, E in (("all 11", D), ("the 10 that passed the null test (after the fact)", D[D.halves_r > 0.7])):
+    dx = float(np.polyfit(E.loose_share, E.x_mean, 1)[0]); bm = float(E.within_b.median()) * dx
+    L.insert(4, f"MIXING-PREDICTED b, {lab}: within slope {E.within_b.median():.4f} x d(mean tile looseness)/d(loose share) {dx:.4f} = {bm:.4f},"
+                f" {bm / 0.034625:.2f} of IAM-A's b; the rest is cell type (A8)")
 open(os.path.join(H, "slope_read_summary.txt"), "w").write("\n".join(L) + "\n")
 print("\n".join(L))

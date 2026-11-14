@@ -5164,3 +5164,15 @@ CANON/doc_inventory.py lists every document and how it stays current (generated,
 depends on); the first full run found 724 documents. The design sheet now asks physics.counterparts (author: whatever helps the cell
 chain or simulator, ask the same for the chips and the qubits); a planted case refuses a sheet without it (19 cases)
 (CANON/doc_inventory.py; CANON/TEST_DESIGN_CHECKLIST.md).
+
+### 2026-11-13 · PHY-083, register A15: the unmarked side's stray marks read as one selection step by the writer, with no proofreading
+The writer's own error from its measured discrimination (1/(1+D), D 47.4-80: 0.0123-0.0207; CANON four_domains gate_error) had been set
+against the marked side's firm rate and did not fit. On the unmarked side, where a stray mark is a wrong write, it fits: healthy atlas
+laboratory median 0.0150 (88 % of 150 samples inside), referee laboratory 0.0192 (87 % of 54 inside). One proofreading step (Hopfield,
+Ninio) would give 0.00015-0.00043. After the fact; the meter's own false marks are not yet subtracted
+(Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/unmarked_writer.py).
+
+### 2026-11-13 · PHY-087: about 40 % of IAM-A's slope is predicted by mixing inside a sample; the rest is each cell type's level
+From the tile files: the within-sample slope times the rise of a sample's mean tile looseness with its loose share predicts b = 0.0127
+(the ten samples that passed the null test) to 0.0142 (all eleven): 0.37-0.41 of IAM-A's 0.034625. The remaining ~60 % is cell type, so the
+slope's open part and each type's own level (register A8) are one question (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_read.py).

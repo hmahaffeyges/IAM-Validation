@@ -2,6 +2,8 @@ null test (halves' correlation > 0.7 in every sample): FAILED (min 0.523)
 WITHIN samples: median slope 0.0551 (range 0.0322 to 0.0791); replicate half A median 0.0551
 ACROSS samples: slope 0.0685 per unit tile looseness (11 samples); on the counter's loose share: 0.0170 (IAM-A's b 0.034625)
 WITHIN / ACROSS = 0.81  (MIXING predicts near 1; CELL TYPE near 0)
+MIXING-PREDICTED b, the 10 that passed the null test (after the fact): within slope 0.0562 x d(mean tile looseness)/d(loose share) 0.2263 = 0.0127, 0.37 of IAM-A's b; the rest is cell type (A8)
+MIXING-PREDICTED b, all 11: within slope 0.0551 x d(mean tile looseness)/d(loose share) 0.2573 = 0.0142, 0.41 of IAM-A's b; the rest is cell type (A8)
 
        gsm                        cell  loose_share  tiles  halves_r  x_mean    held  within_b  within_a
 GSM5652296           naive cd4 t cells      0.03042  13957     0.848 0.14665 0.03442   0.04768   0.04852
