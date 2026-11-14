@@ -232,10 +232,10 @@ Every stage carries one of two labels, so the physics can be told apart from the
   derivation and the test that could have failed.
 
 **Names.** The gauge has three marks. The **floor** is the least entropy a held mark can carry, derived from thermal kicks against
-about one ATP per site (M = 20.94). The **ceiling** (saturation) is every identity site fully scrambled. The **middle**, healthy = 1,
-is the healthy reference: Met-A's is measured once on purified healthy cells of the same type, and IAM-A's is computed from the
+about one ATP per site (M = 20.94). The **ceiling** (saturation) is every identity site fully scrambled. **Healthy = 1**
+is Met-A's healthy reference, measured once on purified healthy cells of the same type, and, for IAM-A, IAM-A's baseline, computed at the
 sample's own loose share. Some file names in the chain predate these names: `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`
-holds Met-A's healthy middle reference, not the floor. The Decoder uses the canon's names and says which file holds what.
+holds Met-A's healthy reference, not the floor. The Decoder uses the canon's names and says which file holds what.
 
 **One reference per reading.** An entropy is read only against a reference made the same way: the atlas measured with the sample's own chemistry, with the array's own line and noise measured on the array (the same-run tare that once served is retired). Met-A's healthy
 reference is purified arrays read by Stage 1; IAM-Atlas v2.1 blends 21 sources, and on Met-A's sites its neutrophil reads 1.062 against
@@ -244,6 +244,24 @@ the average entropy of its parts.
 
 **Built from what, tested on what.** A reviewer's first question about any reference is whether it was tested on the data it was
 built from. Every reference entry names both.
+
+## Where IAM's Law is in the chain
+
+The law: holding a mark costs energy paid at the surface that holds it, at that surface's own temperature, never less than k_B T ln 2 per bit
+(Landauer). For a cell the surface is the DNA, at 310 K, and the drive is one ATP: M = ΔG_ATP / RT = 20.94. Every IAM quantity
+the chain reads comes from that one statement; everything else in the chain is standard method.
+
+- **The floor (derived).** A mark held behind a wall of M thermal kicks is lost with odds 1/(1 + e^M): millions of times below any reading.
+- **The ceiling (derived).** One bit per site, every identity site scrambled: H(β) = 1 bit at β = 0.5 (Met-A's `_ceiling` caveat).
+- **The healthy level (derived, one measured input).** A mark kept by a constant push of two ATP per restore against thermal kicks (first
+  passage under a drive): held error 0.0445 per site and held share φ = E_hold/M = 0.1464 from M alone;
+  the eraser's measured share of the losses is added; through the counter it gives IAM-A's baseline intercept (Section 9) and, through H(β),
+  Met-A's healthy level at held sites (Section 5). The chain reads against the measured references; the derivation explains them.
+- **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
+  (Section 9).
+- **The eraser (measured, by cell type).** The share of losses the erasers cause is measured in eraser-removal libraries (PHY-085, PHY-086,
+  PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). A baseline per cell type is open.
+- **The bit.** Met-A reads disorder in bits, H(β); IAM-A reads the held error, the share of held sites wrong at any moment.
 
 ## The Deconvolver decides what is in a sample, in every instrument
 
@@ -1086,11 +1104,13 @@ Here f_g is this blood's share of cell group g (Stage A), and μ_g,i is the heal
 whole blood the denominator is what a healthy blood with exactly this person's cell mix would read, so a change in the mix does not move
 Met-A; only a change in how well the cells hold their marks does.
 
-**The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
+**The gauge.** Healthy is 1 (the healthy reference, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = 20.94) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
-scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured
-once and never fitted to the sample (a candidate derives it from M and the SAM price, held error 0.0445;
-it is not used by the chain until its test passes).
+scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy reference is measured
+once and never fitted to the sample. Its level is now derived from M with one measured input (PHY-083): a mark kept by a constant push
+of two ATP per restore (one S-adenosylmethionine) loses 0.0445 per site from M alone, and the eraser's measured share
+of the losses is added; it passed the blind test PHY-084 by the agreed standard. The chain still reads against the measured reference; the
+derivation explains it and does not replace it.
 
 **The ceiling caveat (`_ceiling`).** H(β) peaks at β = 0.5. Met-A rises with loss of the pattern only while the methylated sites stay
 above 0.5. Every reading records the mean β of the cell's methylated sites and flags `past_entropy_ceiling` when it has fallen below 0.5,
@@ -1786,17 +1806,20 @@ on 56 healthy cell types, E_hold is 3.08 kT per interior opportunity (`holding_e
   quantity it judges (ε) never share a molecule. In a `.pat` file the alternation is by line, and a line carries every identical
   molecule with its count, so all copies of one pattern go to the same side.
 
-**The self-reference line.** Across healthy cell types, ε rises in a straight line with L:
+**IAM-A's baseline (calibrated).** Across healthy cell types, ε rises in a straight line with L:
 
   ε_predicted = firm + slope × L,  with firm = 0.04026 and slope = 0.03462 (`selfref_line_v1.json`).
 
 This line was measured once on 153 healthy samples of 56 cell types (a public whole-genome bisulfite atlas of purified human cells,
 GSE186458), counted by this same counter. A Theil–Sen fit was used, the median of pairwise slopes, which is robust to outlying cell types.
 The median distance of a cell type from the line is 0.0025. The line is stored on the raw axis this counter writes; there is no scale
-factor anywhere. What the intercept means physically is the subject of a recount (to-do step 14); the reading uses it only as a measured
-constant.
+factor anywhere. What the intercept means physically is now derived (PHY-083): the counter's reading of a mark held by the paid hold of M alone
+(0.0445 per site), plus the eraser's measured share of the losses, pushed through this same counter (a per-site loss and
+the counter's lone-loss reading are different quantities, so the comparison is made like for like, through the counter). The eraser's share
+differs by cell type (PHY-085, PHY-086, PHY-090), the largest part of the spread of healthy cell types about this one line; a baseline per
+cell type is open (register A8). The reading still uses the measured constants.
 
-**The reading.** IAM-A = ε measured / ε predicted at the sample's own L. 1 is on the healthy line; above 1 is more holes than its own
+**The reading.** IAM-A = ε measured / ε predicted at the sample's own L. 1 is on IAM-A's baseline; above 1 is more holes than its own
 state predicts. **Band v1: 0.7787 to 1.0551**, the 2.5th to 97.5th percentile of 156 pooled healthy readings.
 
 **Built from, tested on.** The line, the shape reference and 153 of the band's 156 readings come from the same 153 healthy samples
@@ -3270,7 +3293,7 @@ measured. The tare (a median of at least 3 same-run healthy references, as Stage
 
 **The territories, read on every run.** Besides each cell's identity sites, this stage reads two fixed site sets the identity readings do not
 reach (`territory_sets`, `territory_reading`): the islands, sites every healthy cell type keeps unmarked, and the domains, marked sites some
-healthy cell types hold loosely, each on the A-score gauge against IAM-Atlas v2.1 at each site's own read count. In development: read and
+healthy cell types hold loosely, each on the A gauge (a reading over its healthy reference) against IAM-Atlas v2.1 at each site's own read count. In development: read and
 flagged on arrays and sequencing (INSTRUMENTS.md, In development).
 
 ### `report_v4.py::_fam_of`
@@ -3513,7 +3536,7 @@ With `--dev-line-wide` (LINE_WIDE, development): the line is measured on every s
 
 ### `stage_metaa_atlas.py::predicted_healthy`
 
-Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
+Met-A's healthy reference predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
 *Code:* `stage_metaa_atlas.py` line 1012 (16 lines) · arguments: xs, es, w, blur, min_sites, exclude · calls: not called on the traced runs · constants read: `GH_NODES`
 
@@ -3747,7 +3770,7 @@ against its own predicted held error, and against a second reading. Run by the o
 (`--prior-pat` for the second reading). Development: written under `development.genome_globe`.
 
 **Label: from IAM's physics.** The held error is counted exactly as Stage Q2 counts it (Section 9): on molecules that hold their marks, how
-often one unmethylated call sits between two methylated ones. The prediction is the sample's own: the self-reference line at its loose share.
+often one unmethylated call sits between two methylated ones. The prediction is the sample's own: IAM-A's baseline at its loose share.
 
 **Layout.** hg19's autosomal CpGs in the .pat files' own index order (chr1 to chr22; the X and Y are left off, as the loose share leaves them,
 so a difference of sex is never drawn), cut into regions of 1,000 CpGs; region i of n at NESTED pixel floor(i × NPIX / n), NSIDE 256, and every
@@ -4240,7 +4263,7 @@ Reads a column name with its version ('megakaryocytes@2'); a bare name is versio
 
 ### `stage_coupling.py::read`
 
-Nearest-neighbor coupling on the A-score gauge (in development, plan 49.5). coupling-A is the sample's coupling (Stage Q2) over the healthy
+Nearest-neighbor coupling on the A gauge (a reading over its healthy reference) (in development, plan 49.5). coupling-A is the sample's coupling (Stage Q2) over the healthy
 coupling of its cell type (`Runtime Matrices/Coupling/coupling_reference_v1.json`, built from IAM-Atlas v2.1's healthy sequencing inputs).
 The gauge runs from 0 (errors never neighbors) to the ceiling `coupling_max` over the same healthy coupling (every molecule's errors in one
 run), both counted. Output `coupling_a`: A, healthy, floor, ceiling, band, state, flag; without a reference, the reason.
