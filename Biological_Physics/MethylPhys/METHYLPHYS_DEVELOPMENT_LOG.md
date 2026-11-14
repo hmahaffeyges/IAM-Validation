@@ -5371,3 +5371,13 @@ Step 2 (the blind-test laboratory) ran its two-library canary through the pipeli
 0.62, about 3,450 tiles: the molecules saved for PHY-084 are a 10-million-pair sample), so the pipeline held the other 52 back. Redesigned
 before any of them was read: both laboratories at 50,000-CpG tiles (the canary then 0.76 and 0.80), with the first laboratory's own range
 at that tiling as the band (design/PHY-087_s2.json, '_revised').
+
+### 2026-11-14 · PHY-087 step 2: the within-sample slope replicates in a second laboratory; the across-type steepness replicates too
+Read by the pipeline on GitHub (run 43617722709; chain recounts of the blind-test laboratory's 54 saved libraries, then
+Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/ref_slope_read.py; outputs in slope_01/ref_out). Tiles of 50,000 CpGs.
+All 54 pass the null test (halves' correlation min 0.752). Within-sample slope over the derived form at each library's own looseness:
+median 1.03 (range 0.34-1.67), inside the first laboratory's own range at the same tiles (0.51-1.89, median 1.37). By type: B 1.02, CD4 1.15,
+CD8 1.29, monocytes 0.76. Across libraries the held level rises 0.1433 per unit mean tile looseness against 0.0593 from the form, 2.4 times
+steeper, the same factor as the first laboratory. So both readings replicate in an independent laboratory: the derived hold with
+cooperative maintenance gives the slope inside a sample, and something beyond it sets each sample's level (A8). Exploration; nothing sealed.
+(The reading's 'ACROSS samples ... (11 samples)' label is a fixed string in slope_read.py; the second laboratory's fit is over 54.)

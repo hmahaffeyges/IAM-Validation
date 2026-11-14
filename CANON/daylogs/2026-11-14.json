@@ -54,6 +54,14 @@
      "outcome": "Median ratio 0.93 to 1.37 with tile size (within the band written first, not 7 %); step 2 canary NOT MET at 2,000 CpGs, redesigned at 50,000.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): within-sample slopes"
+    },
+    {
+     "title": "The within-sample slope replicates in a second laboratory (PHY-087 step 2)",
+     "status": "development",
+     "what": "The blind-test laboratory's 54 libraries recounted by the chain from saved molecules and read on GitHub by the pipeline.",
+     "outcome": "Within-sample ratio median 1.03 (0.34-1.67), inside the first laboratory's range; across types 2.4 times steeper than the form, as in the first laboratory.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): within-sample slopes"
     }
    ]
   }

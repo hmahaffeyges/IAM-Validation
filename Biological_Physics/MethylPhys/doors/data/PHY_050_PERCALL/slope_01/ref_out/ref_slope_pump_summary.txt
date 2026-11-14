@@ -1,0 +1,8 @@
+tiles of 50,000 CpGs. Second laboratory, 54 libraries passing the null test of 54 (first laboratory at the same tiles: lab1_slope_read_summary_agg25.txt; median ratio 1.37, range 0.51-1.89):
+within-sample slope over the derived form at each library's own looseness: median 1.03 (range 0.34-1.67); replication band (the first laboratory at the same tiles) 0.51-1.89: INSIDE
+across libraries: held level rises 0.1433 per unit mean tile looseness; the form gives 0.0593 (2.4 times; first laboratory 2.4)
+  b cells        n 23  mean looseness 0.194  held 0.0363  within ratio 1.02
+  cd4 t cells    n  9  mean looseness 0.200  held 0.0394  within ratio 1.15
+  cd8 t cells    n 12  mean looseness 0.199  held 0.0390  within ratio 1.29
+  monocytes      n 10  mean looseness 0.198  held 0.0365  within ratio 0.76
+Exploration on spent libraries, chain outputs only; nothing sealed.
