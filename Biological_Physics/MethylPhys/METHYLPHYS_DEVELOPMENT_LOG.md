@@ -5381,3 +5381,13 @@ CD8 1.29, monocytes 0.76. Across libraries the held level rises 0.1433 per unit 
 steeper, the same factor as the first laboratory. So both readings replicate in an independent laboratory: the derived hold with
 cooperative maintenance gives the slope inside a sample, and something beyond it sets each sample's level (A8). Exploration; nothing sealed.
 (The reading's 'ACROSS samples ... (11 samples)' label is a fixed string in slope_read.py; the second laboratory's fit is over 54.)
+
+### 2026-11-14 · PHY-091: the meter's false marks in each spent library (designed, synthetic passed, chain route added)
+Where IAM's Law is: a stray mark on a site held bare is a WRITE error; before it can be compared with any physical prediction (register A15, kinetic
+proofreading priced with M), the meter's own false marks must be subtracted (A17). The chain's BAM route already counts non-CpG cytosines read as
+methylated (conv_fail, the known-zero channel each library carries). Added: run_sample.py --dev-count-only with --bam (any assembly the reference
+FASTA carries; --assembly mm10), recording held error, stray marks, conv_fail and sub_err, no IAM-A reading (Decoder entry added); erase_gh.sh
+BAMCOUNT=1 and erase_test.yml bamcount. Design sheet design/PHY-091.json (exploration; 2 million pairs per spent library; GitHub). Found in design: the BAM
+route's caller read the strand only from Bismark's tags or XB, so every bwa-meth read (YD:Z:f/r, our aligner) was skipped; fixed in
+stage_q2_selfref._calls_of. A desk check of the caller recovered planted conversion failure 0 to 0.02 on both strands; the logged synthetic test
+(conv_01/conv_synthetic.py) runs the one command on a synthetic bwa-meth BAM on GitHub, first in the pipeline; the 20 libraries wait on it.

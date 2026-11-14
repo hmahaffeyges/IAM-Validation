@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1611,
+   "lines": 1621,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 578,
-     "end": 1608,
+     "end": 1618,
      "args": [],
-     "lines": 1031,
+     "lines": 1041,
      "doc": "",
      "constants": [
       "BIO",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1530,
-     "end": 1531,
+     "line": 1540,
+     "end": 1541,
      "args": [
       "b",
       "it",
@@ -3973,7 +3973,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 433,
+   "lines": 435,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4338,14 +4338,14 @@
      "function": "_calls_of",
      "name": "_calls_of",
      "line": 265,
-     "end": 291,
+     "end": 293,
      "args": [
       "r",
       "ref",
       "ref0",
       "sub"
      ],
-     "lines": 27,
+     "lines": 29,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -4355,8 +4355,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 292,
-     "end": 297,
+     "line": 294,
+     "end": 299,
      "args": [
       "a",
       "b"
@@ -4371,8 +4371,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 298,
-     "end": 333,
+     "line": 300,
+     "end": 335,
      "args": [
       "args"
      ],
@@ -4388,8 +4388,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 305,
-     "end": 320,
+     "line": 307,
+     "end": 322,
      "args": [
       "calls"
      ],
@@ -4405,8 +4405,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 334,
-     "end": 341,
+     "line": 336,
+     "end": 343,
      "args": [
       "parts",
       "assembly"
@@ -4423,8 +4423,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 342,
-     "end": 346,
+     "line": 344,
+     "end": 348,
      "args": [
       "bam",
       "fa",
@@ -4447,8 +4447,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 349,
-     "end": 358,
+     "line": 351,
+     "end": 360,
      "args": [
       "per_sample"
      ],
@@ -4462,8 +4462,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 359,
-     "end": 364,
+     "line": 361,
+     "end": 366,
      "args": [
       "version"
      ],
@@ -4481,8 +4481,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 365,
-     "end": 366,
+     "line": 367,
+     "end": 368,
      "args": [
       "loose_share",
       "version"
@@ -4497,8 +4497,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 367,
-     "end": 371,
+     "line": 369,
+     "end": 373,
      "args": [
       "rec",
       "version"
@@ -4515,8 +4515,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 378,
-     "end": 385,
+     "line": 380,
+     "end": 387,
      "args": [
       "records"
      ],
@@ -4532,8 +4532,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 386,
-     "end": 391,
+     "line": 388,
+     "end": 393,
      "args": [
       "version"
      ],
@@ -4551,8 +4551,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 392,
-     "end": 400,
+     "line": 394,
+     "end": 402,
      "args": [
       "rec",
       "cell",
@@ -4571,8 +4571,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 403,
-     "end": 406,
+     "line": 405,
+     "end": 408,
      "args": [
       "rec",
       "version"
@@ -4589,8 +4589,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 407,
-     "end": 412,
+     "line": 409,
+     "end": 414,
      "args": [
       "healthy",
       "version"
@@ -4605,8 +4605,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 417,
-     "end": 418,
+     "line": 419,
+     "end": 420,
      "args": [
       "version"
      ],
@@ -4624,8 +4624,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 421,
-     "end": 432,
+     "line": 423,
+     "end": 434,
      "args": [
       "records",
       "version",

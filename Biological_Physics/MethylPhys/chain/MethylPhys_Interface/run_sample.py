@@ -638,7 +638,7 @@ def main():
     ap.add_argument("--slide-ref-table", "--ref-table", dest="slide_ref_table", default=None, help="CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted)")
     ap.add_argument("--bam", default=None, help="chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta)")
     ap.add_argument("--ref-fasta", default=None, help="the reference FASTA the --bam was aligned to (indexed)")
-    ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38"), help="assembly of --bam")
+    ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38", "mm10"), help="assembly of --bam (mm10: --dev-count-only only, 2026-11-14)")
     ap.add_argument("--workers", type=int, default=4, help="processes for counting --bam")
     ap.add_argument("--seq-chemistry", default="whole-genome bisulfite", help="chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite)")
     ap.add_argument("--dev-iama-position", action="store_true", help="development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2)")
@@ -1473,7 +1473,17 @@ def main():
             except Exception as e: o["iam_a_mix"] = {"reading": "IAM-A in the sample's mix", "flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _mixed = _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or str(a.specimen).lower() in ("whole blood", "buffy coat")
         _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]
-        if qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so
+        if a.dev_count_only and a.bam:   # 2026-11-14 (PHY-091): Stage Q2's count on an aligned BAM, any assembly the reference FASTA carries; it also
+            # records the meter's own false marks (bisulfite conversion failure at non-CpG cytosines, conv_fail) and A/T substitutions (sub_err)
+            import pysam as _psb
+            _ch = [c for c in _Q2.AUTOSOMES if c in set(_psb.FastaFile(a.ref_fasta).references)]
+            print(f"Stage Q2: counting only on {os.path.basename(a.bam)} ({a.assembly}, {len(_ch)} autosomes), with conversion failure", flush=True)
+            _cb = _Q2.count_bam(a.bam, a.ref_fasta, a.workers, a.assembly, chroms=_ch)
+            o["iam_a_count_only"] = dict(stage="Q2 count on an aligned BAM (development)", flag="DEVELOPMENT, NOT COMMISSIONED: Stage Q2's count only; no IAM-A reading",
+                                         genome=a.assembly, chromosomes=len(_ch), count={k: _cb.get(k) for k in ("held_err", "held_opp", "gain_err", "gain_opp", "loose_share", "tiles",
+                                         "conv_fail", "sub_err", "reads", "molecules", "qualifying")})
+            print("Stage Q2 count on the BAM:", o["iam_a_count_only"]["count"], flush=True)
+        elif qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so
             # IAM-A is read on its cell-independent part, the self-reference line (the held error against the one predicted from the sample's own
             # loose share), with the shape check not applied, and flagged; every other intake rule still stops the file
             print("Stage Q2: a mixed specimen: IAM-A read on the self-reference line, flagged (no healthy shape reference for a mix)", flush=True)

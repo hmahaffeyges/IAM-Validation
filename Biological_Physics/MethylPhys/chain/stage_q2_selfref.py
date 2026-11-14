@@ -266,6 +266,8 @@ def _calls_of(r, ref, ref0, sub):
     q = r.query_sequence; out = {}; nc = [0, 0]; at = [0, 0]
     if q is None: return out, nc, at
     xm = r.get_tag("XM") if r.has_tag("XM") else None; xb = r.get_tag("XB") if r.has_tag("XB") else None
+    if xb is None and r.has_tag("YD"): xb = {"f": "C", "r": "G"}.get(r.get_tag("YD"))   # 2026-11-14 (PHY-091): bwa-meth marks the original strand
+    # with YD:Z:f (top, C read as T) or YD:Z:r (bottom), not XB; before this every bwa-meth read was skipped on the BAM route
     if xm is None and xb not in ("C", "G"): return out, nc, at
     top = (r.get_tag("XG") == "CT") if (xm is not None and r.has_tag("XG")) else (xb == "C")
     pairs = r.get_aligned_pairs(matches_only=True); L = len(pairs)

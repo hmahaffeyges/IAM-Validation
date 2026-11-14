@@ -28715,6 +28715,55 @@
    "next_step": "read the six GSE72630 libraries on GitHub (canary first), score once with Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p7_score.py",
    "cost": "github",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-085",
+    "PHY-086"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-13 session (derivation register A8)"
+   ],
+   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-091",
+   "title": "The meter's false marks in each spent library (bisulfite conversion failure at non-CpG cytosines), for the unmarked side's write error (register A17, then A15)",
+   "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE72630 (WGBS, LSK, wild type and TET2/TET3 double knockout; Rao laboratory)"
+   ],
+   "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "status": "planned",
+   "next_step": "synthetic test passed (conv_synthetic.py); canary on GitHub at 2 million pairs, then the rest",
+   "cost": "github",
+   "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-086"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-13 session (derivation register A8)"
+   ],
+   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-092",
+   "title": "Where the mature B-cell knockouts' extra loose stretches sit: domains or scattered (register A8)",
+   "purpose": "Where IAM's Law is: a loose tile is a stretch where the paid hold has failed; whether the eraser's effect in mature B cells sits in domains or scattered decides which term of IAM-A's baseline carries it",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE161463 (WGBS, mature B, wild type and TET2/TET3 double knockout)"
+   ],
+   "data_status": "spent only: the four PHY-086 P4 libraries, recounted from their saved molecules",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "status": "planned",
+   "next_step": "synthetic passed (a8_where_synthetic.py); recounts queued in the pipeline",
+   "cost": "github",
+   "impact": 4
   }
  ],
  "not_tests": {

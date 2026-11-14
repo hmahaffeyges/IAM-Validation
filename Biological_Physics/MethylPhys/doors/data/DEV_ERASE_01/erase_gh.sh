@@ -140,6 +140,15 @@ if [ "$LIB" = "rrbs" ]; then mv $S/bam/$GSM.s.bam $S/bam/$GSM.bam; log "RRBS lib
 sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 10000000 --tmpdir $S/bam $S/bam/$GSM.s.bam $S/bam/$GSM.bam > $S/logs/${GSM}_markdup.log 2>&1 && rm -f $S/bam/$GSM.s.bam || exit 33
 fi
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
+# 2026-11-14 (PHY-091, design/PHY-091.json): BAMCOUNT=1 counts the aligned file with the one command's BAM route (Stage Q2, --dev-count-only),
+# which also records the meter's false marks (conv_fail, non-CpG cytosines read as methylated) and A/T substitutions; no molecule file is made.
+if [ "${BAMCOUNT:-0}" = "1" ]; then
+  ( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --bam $S/bam/$GSM.bam --ref-fasta $REF --assembly $gen --specimen "cultured cells" \
+      --seq-cell "$GSM" --id $GSM --dev-count-only --workers $T --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 37
+  python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --bam --dev-count-only (chain Stage Q2)', pairs=int(sys.argv[4]), **c['count']), open(sys.argv[3], 'w'), indent=1)" \
+      $OUT/${GSM}_bundle.json $GSM $OUT/${GSM}_conv.json $n1 || exit 38
+  cat $OUT/${GSM}_conv.json; exit 0
+fi
 wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || {
   # 2026-10-24: with the index fetched from the release, bam2pat stopped (exit 34) in every job; its log is kept, the genome dictionary is
   # rebuilt from the fetched hg19 FASTA the committed way (init_genome, the CpG count checked), and bam2pat is run once more

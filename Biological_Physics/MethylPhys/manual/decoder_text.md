@@ -253,7 +253,13 @@ The recursive step of `_redact`: a string gets the replacement, a dictionary and
 **`--dev-count-only` (development, to-do 14).** With `--pat`, Stage Q2's count (the held error and its opportunities) is recorded in the
 bundle as `iam_a_count_only`, flagged not commissioned, even where Stage Q0 refuses an IAM-A reading (a cell line, a mouse sample: no healthy
 reference). IAM-A itself stays refused. The firm-rate recount reads the held error this way, so its count is the one command's. The held error
-does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`).
+does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`). **With `--bam` (2026-11-14, PHY-091):** Stage Q2 counts the aligned file directly (`stage_q2_selfref.count_bam` over the autosomes the reference
+FASTA carries, so mm10 works through `--assembly mm10`) and records, besides the held error and the stray marks, the meter's own false marks:
+`conv_fail`, the share of non-CpG cytosines read as methylated (incomplete bisulfite conversion; the known-zero channel each library carries),
+and `sub_err`, the A/T substitution rate. No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
+false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
+before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
+synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub).
 
 ### run_sample.py::_metaa_atlas
 `--dev-metaa-atlas CELL` (development, not commissioned): maps the values by Stage T step 1 (the self-tare the commissioned Met-A reads), refuses
@@ -1372,7 +1378,7 @@ count lands on the wrong site, and a globe drawn from it looks like a real pictu
 
 **The rule.** Every .pat file is read on **hg19** (wgbstools 0.1.0's CpG index, `stage_q0_intake.GEO_BUILD`): Stage Q0's index ranges, Stage
 Q2's tiles and the whole-genome globe's layout are all hg19 indexes. An aligned BAM is different: Stage Q2 reads the bases themselves against
-the reference sequence given, on hg19 or hg38 (`--assembly`, default hg19), so the only requirement is that the BAM and its reference are the
+the reference sequence given, on hg19 or hg38 (`--assembly`, default hg19; mm10 for `--dev-count-only` only, 2026-11-14), so the only requirement is that the BAM and its reference are the
 same build (IAM-A's line was built this way from ENCODE's GRCh38 files and from the published atlas's hg19 .pat files). The arrays carry their
 own probe names and have no build question.
 

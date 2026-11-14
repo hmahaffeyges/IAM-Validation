@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,611 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,621 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -53,7 +53,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
 | `stage_v4.py` | 188 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
-| `stage_q2_selfref.py` | 433 | 38 | 0 | 11 |
+| `stage_q2_selfref.py` | 435 | 38 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 120 | 8 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
@@ -88,7 +88,7 @@ Read from `run_sample.py`'s own option definitions at build time: **124 options*
 | `--age` | none |  | declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72 |
 | `--alignment-qc` | None |  | Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction |
 | `--array-type` | None |  | declared array type; omit to take it from the IDAT header (Stage 0.1). The chain reads EPIC_v1 only |
-| `--assembly` | 'hg19' |  | assembly of --bam |
+| `--assembly` | 'hg19' |  | assembly of --bam (mm10: --dev-count-only only, 2026-11-14) |
 | `--atlas-v2` | os.environ.get('CPG_ATLAS_V2_PARQUET') |  | atlas v2 parquet for the atlas-based development flags (not stored in the repository) |
 | `--bam` | None |  | chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta) |
 | `--banner` | None |  | a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18) |
@@ -495,7 +495,13 @@ The recursive step of `_redact`: a string gets the replacement, a dictionary and
 **`--dev-count-only` (development, to-do 14).** With `--pat`, Stage Q2's count (the held error and its opportunities) is recorded in the
 bundle as `iam_a_count_only`, flagged not commissioned, even where Stage Q0 refuses an IAM-A reading (a cell line, a mouse sample: no healthy
 reference). IAM-A itself stays refused. The firm-rate recount reads the held error this way, so its count is the one command's. The held error
-does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`).
+does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`). **With `--bam` (2026-11-14, PHY-091):** Stage Q2 counts the aligned file directly (`stage_q2_selfref.count_bam` over the autosomes the reference
+FASTA carries, so mm10 works through `--assembly mm10`) and records, besides the held error and the stray marks, the meter's own false marks:
+`conv_fail`, the share of non-CpG cytosines read as methylated (incomplete bisulfite conversion; the known-zero channel each library carries),
+and `sub_err`, the A/T substitution rate. No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
+false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
+before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
+synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub).
 
 *Code:* `MethylPhys_Interface/run_sample.py` line 202 (5 lines) · arguments: v · calls: array run 865, bam run 359
 
@@ -545,7 +551,7 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1031 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1041 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
@@ -566,7 +572,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1530 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1540 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1978,75 +1984,75 @@ One aligned read's methylation calls at CpGs, from the Bismark XM tag or, for ge
 and last 3 aligned bases. Also counts non-CpG conversion (a check on bisulfite conversion) and, on every 20th read, A/T mismatches (a check
 on sequencing error).
 
-*Code:* `stage_q2_selfref.py` line 265 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 265 (29 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_merge`
 
 Merges the calls of the two reads of a pair into one molecule; a CpG on which they disagree is dropped.
 
-*Code:* `stage_q2_selfref.py` line 292 (6 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 294 (6 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::count_bam_region`
 
 Counts one 10 Mb region of an alignment file: primary, mapped, non-duplicate reads with mapping quality at least 10, pairs merged, then
 the same alternation and the same two counts as the `.pat` reader. Also counts calls per qualifying molecule for the response curve.
 
-*Code:* `stage_q2_selfref.py` line 298 (36 lines) · arguments: args · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 300 (36 lines) · arguments: args · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::count_bam_region.done`
 
 Counts one finished molecule: even molecules to their tile, odd held runs to ε.
 
-*Code:* `stage_q2_selfref.py` line 305 (16 lines) · arguments: calls · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
+*Code:* `stage_q2_selfref.py` line 307 (16 lines) · arguments: calls · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::combine_bam`
 
 Adds the regions' counts into one record, with the conversion-failure and substitution rates.
 
-*Code:* `stage_q2_selfref.py` line 334 (8 lines) · arguments: parts, assembly · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 336 (8 lines) · arguments: parts, assembly · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_bam`
 
 Splits the autosomes into 10 Mb regions and counts them in parallel.
 
-*Code:* `stage_q2_selfref.py` line 342 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
+*Code:* `stage_q2_selfref.py` line 344 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
 
 ### `stage_q2_selfref.py::build_line`
 
 How the line was built: per cell type, the median L and the opportunity-weighted ε, then a Theil–Sen line across cell types. Not called at
 run time; the line is read from its frozen file.
 
-*Code:* `stage_q2_selfref.py` line 349 (10 lines) · arguments: per_sample · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 351 (10 lines) · arguments: per_sample · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::line`
 
 Loads the frozen line and refuses it if it was edited after the chain wrote it.
 
-*Code:* `stage_q2_selfref.py` line 359 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 361 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::predict`
 
 ε predicted at a loose share: firm + slope × L.
 
-*Code:* `stage_q2_selfref.py` line 365 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 367 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::residual`
 
 A count against the line: measured ε, predicted ε, and their difference.
 
-*Code:* `stage_q2_selfref.py` line 367 (5 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 369 (5 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_shape_reference`
 
 How the shape reference was built: per cell type, the lowest healthy 10th percentile, and the margin. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 378 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
+*Code:* `stage_q2_selfref.py` line 380 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
 
 ### `stage_q2_selfref.py::shape_reference`
 
 Loads the frozen shape reference and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 386 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 388 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::shape_check`
 
@@ -2057,32 +2063,32 @@ chromosome and the loose share on the autosomes; the aligned-read route counts b
 line, counting the held error on the autosomes only moved IAM-A by a mean of −0.32 % (range −0.71 % to +0.09 %), at most about 2.5 % of the
 band's width (`doors/DEV_IAMA_SEX_01.md`). The commissioned line and band were built on the `.pat` route and are kept.
 
-*Code:* `stage_q2_selfref.py` line 392 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 394 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
 
 ### `stage_q2_selfref.py::reading`
 
 IAM-A = measured ε / predicted ε.
 
-*Code:* `stage_q2_selfref.py` line 403 (4 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 405 (4 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_band`
 
 How band v1 was built: the 2.5th to 97.5th percentile of pooled healthy readings. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 407 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 409 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::band`
 
 Loads band v1 and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 417 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 419 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::grand_verdict`
 
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
 
-*Code:* `stage_q2_selfref.py` line 421 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
+*Code:* `stage_q2_selfref.py` line 423 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 
@@ -2148,7 +2154,7 @@ count lands on the wrong site, and a globe drawn from it looks like a real pictu
 
 **The rule.** Every .pat file is read on **hg19** (wgbstools 0.1.0's CpG index, `stage_q0_intake.GEO_BUILD`): Stage Q0's index ranges, Stage
 Q2's tiles and the whole-genome globe's layout are all hg19 indexes. An aligned BAM is different: Stage Q2 reads the bases themselves against
-the reference sequence given, on hg19 or hg38 (`--assembly`, default hg19), so the only requirement is that the BAM and its reference are the
+the reference sequence given, on hg19 or hg38 (`--assembly`, default hg19; mm10 for `--dev-count-only` only, 2026-11-14), so the only requirement is that the BAM and its reference are the
 same build (IAM-A's line was built this way from ENCODE's GRCh38 files and from the published atlas's hg19 .pat files). The arrays carry their
 own probe names and have no build question.
 

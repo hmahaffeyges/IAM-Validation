@@ -1,0 +1,112 @@
+{
+ "_written": "2026-11-14, 2:30 PM Pacific, before any library is re-read",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "the unmarked side of IAM-A: a stray mark is a WRITE error on a site held bare; the law prices the hold of the bare state; the meter's own false marks (incomplete bisulfite conversion) must be subtracted before the write error can be compared with any physical prediction (register A17, then A15)",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "the 20 libraries already read for PHY-085 (6, GSE227977), PHY-086 P4 (4, GSE161463), P5 (4, GSE66834) and PHY-090 (6, GSE72630): all spent",
+  "protocol_read": "standard sheared WGBS libraries (each checked at design for P4, P5, P7; PHY-085 GSE227977 checked 11-13)",
+  "spent_first": "yes: every library is spent; nothing reserved is touched",
+  "form": [
+   {
+    "form": "raw reads from SRA, 2 million pairs in the existing block plan (erase_test.yml with maxpairs=2000000), aligned, then the chain's BAM route (run_sample.py --bam) which records conversion failure from non-CpG calls",
+    "hours": 0.6,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "the saved molecule files (.pat)",
+    "hours": 0.05,
+    "adequate": false,
+    "chosen": false,
+    "why_not": "pat files keep CpG calls only; conversion failure needs non-CpG calls"
+   },
+   {
+    "form": "full-depth realignment",
+    "hours": 2.5,
+    "adequate": true,
+    "chosen": false,
+    "why_not": "a conversion rate is measured on billions of non-CpG calls; 2 million pairs give over 100 million, enough"
+   }
+  ],
+  "alternatives": "the deposited per-site calls do not carry non-CpG calls for these sets",
+  "needs": "paired reads, mm10, the chain's BAM route",
+  "preflight": {
+   "checked": "stage_q2_selfref.count_bam_region records nc_m / nc_t (conv_fail) and A/T substitutions (sub_err) on the BAM route; erase_gh.sh writes the BAM before bam2pat",
+   "minutes": 10,
+   "result": "the chain already measures conversion failure on a BAM; erase_gh.sh needs one optional step to run the chain on its own BAM"
+  }
+ },
+ "kiss": {
+  "smallest": "the 14 spent libraries, 2 million pairs each",
+  "samples_why": "every library whose stray marks are already counted, so each gets its own meter correction"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "about 10 of 20 free at 8:00 PM Pacific",
+  "s_per_pair": 0.0008,
+  "pairs": 2000000,
+  "peak_mem_gb": "about 5",
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 0.6,
+  "time_limit_hours": 2,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "each library is its own run; a failed run is re-sent alone"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "20 runs completed"
+ },
+ "canary": {
+  "instrument_check": {
+   "qc_failed_max": 0.05,
+   "mapped_min": 0.95,
+   "conv_fail_max": 0.02,
+   "_from": "PHY-090 canary (2.3 % quality-failed, 99.3 % mapped)",
+   "s_per_pair_max": 0.0015
+  }
+ },
+ "cosmologist": {
+  "method": "calibrate each detector on its own known-zero channel: non-CpG sites are (almost) never methylated in these cells, so their methylated calls measure the meter's false-mark rate in that same library (CMB: each detector's dark/null channel)",
+  "null_test": "conversion failure must agree between the two runs of one library where a library has two runs, and stay below 1 %; else the library is not assessed"
+ },
+ "value": {
+  "question": "the meter's false-mark rate in each spent library, to subtract from its stray-mark rate (A17), giving the unmarked side's true write error for the derivation (A15)",
+  "adequate": "stray marks about 1-2 % of bare sites; typical conversion failure 0.2-0.5 %: the correction is 10-50 % of the signal, so it matters and is measurable",
+  "options": [
+   {
+    "name": "14 spent libraries at 2 million pairs on GitHub",
+    "hours": 0.6,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "full depth on GitHub",
+    "hours": 2.5,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   }
+  ],
+  "why_this": "free, under an hour per library, and a rate needs little depth"
+ },
+ "explore": {
+  "done": "the stray-mark rates of all 14 libraries are already counted (counts in DEV_ERASE_01); the chain's BAM counter already computes conv_fail",
+  "rehearsal_pull": null
+ },
+ "prediction": {
+  "form": "none sealed: exploration (a measured input for A15)",
+  "decided_by": {},
+  "reading": "conv_fail and sub_err from the chain's BAM route; gain_err from the same run for a like-for-like check against the full-depth count"
+ },
+ "bars": {
+  "rule": "no seal: exploration; conv_fail reported per library with its counting uncertainty"
+ }
+}

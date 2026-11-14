@@ -1,0 +1,111 @@
+{
+ "_written": "2026-11-14, 2:48 PM Pacific, before any library is recounted",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "a loose tile is a stretch where the paid hold has failed; in mature B cells removing TET2/TET3 leaves the held level unchanged (P4, 0.987 at zero loose) but doubles the loose share (0.075 -> 0.166): whether those stretches are domains (the hold losing to division) or scattered (local erasure) decides which term of IAM-A's baseline carries a cell type's eraser (register A8, and A7's across-type part)",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "the four GSE161463 mature B-cell libraries read for PHY-086 P4 (2 wild type, 2 TET2/TET3 knockout): spent",
+  "protocol_read": "standard MethylC-seq (checked at P4 design)",
+  "spent_first": "yes: spent; recounted from the molecules saved by the P4 runs",
+  "form": [
+   {
+    "form": "the molecules saved by the P4 runs (erase_test.yml patfrom), recounted by the chain with the 2026-11-14 tile columns (mean_call)",
+    "hours": 0.3,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "the P4 tile files as written 11-13",
+    "hours": 0.0,
+    "adequate": false,
+    "chosen": false,
+    "why_not": "written before the tile counter recorded each tile's mean call"
+   },
+   {
+    "form": "raw reads again",
+    "hours": 2.5,
+    "adequate": true,
+    "chosen": false,
+    "why_not": "the molecules are already saved"
+   }
+  ],
+  "alternatives": "none cheaper",
+  "needs": "each tile's calls and mean call; the tiles' order along each chromosome",
+  "preflight": {
+   "checked": "P4 runs' artifacts exist and are not expired (14 and 66 MB); the counter's tile output carries chrom and tile index",
+   "minutes": 10,
+   "result": "four recounts from saved molecules, then one reading on GitHub"
+  }
+ },
+ "kiss": {
+  "smallest": "the four P4 libraries",
+  "samples_why": "two per arm: the wild types give the null test"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "about 10 of 20 free at 8:00 PM Pacific",
+  "s_per_pair": 0.0008,
+  "pairs": 0,
+  "peak_mem_gb": "about 5",
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 0.5,
+  "time_limit_hours": 2,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "each library is its own run; a failed run is re-sent alone"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "four p092 recounts and the reading completed"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 900,
+   "halves_corr_min": 0.5,
+   "hours_per_sample_max": 1.0,
+   "_from": "P4 counts: 1,091 tiles per library"
+  }
+ },
+ "cosmologist": {
+  "method": "a difference inside one experiment (knockout against wild type, same laboratory and meter), against a shuffled null of the same tile counts per chromosome",
+  "null_test": "the two wild types disagree on few tiles (share loose in exactly one wild type below a fifth of the knockout-only share), else not assessed"
+ },
+ "value": {
+  "question": "do the knockouts' extra loose tiles sit in contiguous domains or scattered (register A8)",
+  "adequate": "about 100 extra loose tiles of about 1,100; the synthetic separates 100 tiles in domains (p 0.0005) from 100 scattered (p 0.22)",
+  "options": [
+   {
+    "name": "recount saved molecules on GitHub, then read",
+    "hours": 0.5,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "re-align from raw reads",
+    "hours": 2.5,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   }
+  ],
+  "why_this": "the molecules are saved; free and under an hour"
+ },
+ "explore": {
+  "done": "P4's counts (loose share 0.075 wild type, 0.166 knockout; held level unchanged); a8_where_synthetic.py passed",
+  "rehearsal_pull": null
+ },
+ "prediction": {
+  "form": "none sealed: exploration",
+  "decided_by": {},
+  "reading": "a8_where.py on the chain's tiles: run-length statistic against shuffles; wild-type mean call of the knockout-only tiles"
+ },
+ "bars": {
+  "rule": "no seal: exploration; clustered if one-sided p < 0.01"
+ }
+}
