@@ -5235,3 +5235,7 @@ ln(KO) 1.025 (leave-one-out 0.853-1.121): no sign of regulation, but laboratory 
 evidence against it. Within one experiment (PHY-085, two progenitor types): wild-type gap 1.3 %, knockout gap 2.3 %, the governor's
 direction, inside replicate noise. Neither decides; a deciding test needs several cell types knocked out in ONE laboratory
 (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/governor_explore.py).
+
+### 2026-11-13 · PHY-086: the canon's eraser row carries the share by cell type
+CANON/four_domains.json, cells, eraser: the share is measured type by type (stem cells 13.6 %, blood progenitors 9-10 %, young iNKT 7 %,
+mature B none) with P6's exploration; generated tables rebuilt (four_domains.py, bit_tables.py, book_bits.py).
