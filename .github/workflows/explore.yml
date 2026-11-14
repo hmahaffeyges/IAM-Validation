@@ -1,4 +1,5 @@
 name: explore
+run-name: "${{ inputs.tag != '' && inputs.tag || 'explore' }}"
 # Exploratory runs on GitHub's free machines (2026-10-20): one committed script, the chain's pinned environment, results to issue 32 and as
 # an artifact. Manual only. Nothing here is sealed or scored; a result becomes a test only through a sealed pre-registration.
 on:
@@ -6,7 +7,8 @@ on:
     inputs:
       script: {description: "script path from the repository root", required: true}
       args: {description: "arguments", required: false, default: ""}
-permissions: {contents: read, issues: write}
+      tag: {description: "pipeline item (pq:<id>, set by CANON/pipeline_next.py); empty for a manual run", required: false, default: ""}
+permissions: {contents: read, issues: write, actions: read}
 jobs:
   explore:
     runs-on: ubuntu-latest
@@ -17,12 +19,13 @@ jobs:
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && pip install -q healpy -c Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py # healpy for explorations only, holding the chain's pins (a free install upgraded numpy and broke pandas, 2026-10-21)
       - name: Run
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}   # 2026-11-14: scripts may read earlier runs' artifacts (ref_tiles.py)
         run: |
           set +e; mkdir -p xout
           python3 "${{ inputs.script }}" ${{ inputs.args }} > xout/run.log 2>&1; echo $? > xout/rc.txt; tail -60 xout/run.log; true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: explore-out, path: "xout/*.json\nxout/*.txt\nxout/*.csv\nxout/*.tar.gz\nxout/*.npz\nxout/*.parquet\nxout/run.log\nxout/*.png\nxout/*.html"}
+        with: {name: explore-out, path: "xout/*.json\nxout/*.txt\nxout/*.csv\nxout/*.csv.gz\nxout/*.tar.gz\nxout/*.npz\nxout/*.parquet\nxout/run.log\nxout/*.png\nxout/*.html"}
       - name: Result to issue 32
         if: always()
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
@@ -34,3 +37,6 @@ jobs:
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
           print(urllib.request.urlopen(rq).status)
           PY
+      - name: Fail the run when the script failed (2026-11-14, so the pipeline never starts work on a failed result)
+        if: always()
+        run: test "$(cat xout/rc.txt 2>/dev/null)" = "0"
