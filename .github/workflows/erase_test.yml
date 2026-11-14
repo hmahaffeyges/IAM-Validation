@@ -12,7 +12,7 @@ on:
       patfrom: {description: "none, or the run id of an earlier erase_test run whose saved molecules (.pat) to count without aligning again", required: true, default: "none"}
       maxpairs: {description: "default, or a cap on read pairs for a short canary (2026-11-12)", required: false, default: "default"}
       tag: {description: "pipeline item (pq:<id>, set by CANON/pipeline_next.py); empty for a manual run", required: false, default: ""}
-permissions: {contents: read, issues: write, actions: read}
+permissions: {contents: read, issues: write, actions: write}
 jobs:
   one:
     runs-on: ubuntu-latest
@@ -49,6 +49,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: {name: "erase-${{ inputs.gsm }}", path: "eout/\nrun.log\nrc.txt"}
+      - name: Start the next pipeline items (2026-11-14; a run started by the pipeline does not fire workflow_run, so it calls the runner itself)
+        if: always() && startsWith(inputs.tag, 'pq:')
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: gh workflow run pipeline.yml -R "$GITHUB_REPOSITORY" || true
       - name: Fail the run when the job did not finish (2026-11-12)
         if: always()
         run: test "$(cat rc.txt 2>/dev/null)" = 0 || { echo "job exit $(cat rc.txt 2>/dev/null || echo none)"; exit 1; }
