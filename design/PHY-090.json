@@ -1,0 +1,108 @@
+{
+ "_written": "2026-11-13, 8:10 PM Pacific, before any library of GSE72630 is opened",
+ "purpose": "sealed",
+ "physics": {
+  "where_iam_law": "the derived hold (thermal loss from M through two coins per restore) is the floor; the eraser adds a measured share on top; this measures that share in LSK progenitors so the per-type baseline (register A8) has its input",
+  "counterparts": "chips: a scheduled refresh that rewrites good cells (planned maintenance as a load); qubits: none yet"
+ },
+ "data": {
+  "set": "GSE72630 (Rao laboratory, La Jolla): WGBS of LSK, 3 wild type, 3 TET2/TET3 double knockout, mm10 (erase_types3_samples.csv)",
+  "protocol_read": "DNA sheared (Covaris S2), Illumina TruSeq Nano DNA libraries, paired 2 x 100 on Genome Analyzer IIx; about 100 million pairs per library in 9 runs",
+  "spent_first": "no: the spent closest data (PHY-085 LSK, TET2 alone, another laboratory) is the rehearsal; only this set has TET2+TET3 in LSK from P4/P5's laboratory",
+  "form": [
+   {
+    "form": "raw reads from SRA, 10 million pairs in 2,000 blocks over all 9 runs (erase_test.yml, the one command)",
+    "hours": 2.5,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "deposited per-site calls (GEO supplementary)",
+    "hours": 0.5,
+    "adequate": false
+   }
+  ],
+  "alternatives": "per-site calls carry no molecules, so no lone-loss count; the same laboratory's other sets were P4 and P5",
+  "needs": "paired directional reads, whole-genome spread (2,000 blocks over all runs), mm10, the genotype label per library",
+  "preflight": {
+   "checked": "GEO protocol and SRA layout of all six libraries; the block plan of one wild type and one knockout",
+   "minutes": 15,
+   "result": "standard sheared TruSeq libraries; paired; 54 runs; 10,000,000 pairs in 2,000 blocks across all 9 runs of each library"
+  }
+ },
+ "kiss": {
+  "smallest": "the six libraries of the set (three replicates per arm give the null test)",
+  "samples_why": "three per arm: the wild types must agree before the ratio is read"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "about 10 of 20 free at 8:00 PM Pacific",
+  "s_per_pair": 0.0008,
+  "pairs": 10000000,
+  "peak_mem_gb": "about 5 (P4/P5 libraries on 7 GB runners)",
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 2.5,
+  "time_limit_hours": 6,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "each library is its own run; a failed run is re-sent alone"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "six p7 runs completed"
+ },
+ "canary": {
+  "instrument_check": {
+   "qc_failed_max": 0.05,
+   "mapped_min": 0.95,
+   "s_per_pair_max": 0.0015,
+   "_from": "P5 canary: 1.3 % quality-failed, 98.6 % mapped, 0.00076 s per pair"
+  }
+ },
+ "cosmologist": {
+  "method": "a ratio inside one experiment, so the laboratory's meter cancels; self-check on its own replicates",
+  "null_test": "the three wild types agree, max |ln ratio| <= 0.05, else not assessed"
+ },
+ "value": {
+  "question": "the eraser's share in LSK progenitors, and whether three types from one laboratory spread less with their erasers than without (P8)",
+  "adequate": "expected effect about 14 % against replicate spread about 2 %",
+  "options": [
+   {
+    "name": "the six GSE72630 libraries on GitHub",
+    "hours": 2.5,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "name": "Google spot machines",
+    "hours": 4,
+    "cost_usd": 3,
+    "adequate": true
+   },
+   {
+    "name": "the cosmologist's way: the same within-experiment ratio, read on its own replicates",
+    "hours": 2.5,
+    "cost_usd": 0,
+    "adequate": true
+   }
+  ],
+  "why_this": "free and faster; the ratio inside one experiment is the cosmologist's self-calibration"
+ },
+ "explore": {
+  "done": "PHY-085 (LSK, TET2 alone, 0.900), P4 (mature B, 1.042), P5 (iNKT, 0.926), the governor checks (inconclusive across laboratories)",
+  "rehearsal_pull": 1.14
+ },
+ "prediction": {
+  "form": "knockout over wild type = 1 - s_LSK with s_LSK between TET2's share (0.10) and all three erasers in stem cells (0.136): center 0.86, sigma 0.035",
+  "decided_by": {
+   "s_LSK": "TET2's share in LSK measured independently (PHY-085, 0.900, another laboratory) and the stem-cell share (DEV-ERASE-01, 0.864)"
+  },
+  "reading": "lone-loss held error of each library (the one command, --dev-count-only), each arm's mean"
+ },
+ "bars": {
+  "rule": "pull = (ratio - 0.86) / 0.035: within 2 passes, 2 to 3 watch, beyond 3 a real miss (WHY_IAM.md rule 4)"
+ }
+}

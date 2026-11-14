@@ -8,3 +8,4 @@ erase_types_samples.csv
 erase_types2_samples.csv
 types_01/counts
 types_01/counts_p5
+erase_types3_samples.csv

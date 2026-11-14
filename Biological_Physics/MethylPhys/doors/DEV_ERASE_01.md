@@ -475,3 +475,15 @@ wild-type type gap ln(B/iNKT) +0.003; eraser-explained gap ln(r_iNKT/r_B) -0.118
 knockout gap ln(B/iNKT) +0.121 against wild-type gap +0.003: knockouts further apart
 Reading: the two types hold alike in wild type although their erasers differ (iNKT about 7 %, mature B none): the erasers do not set the type difference here; P6 not supported. Exploration grade (different experiments).
 ```
+
+**PHY-090 (2026-11-13, 8:15 PM Pacific, sealed before any library of it is opened): P7, LSK progenitors, the laboratory of P4 and P5.** GSE72630 (Rao
+laboratory): WGBS of LSK, three wild type and three TET2/TET3 double knockout, sheared DNA, TruSeq Nano, paired 2 x 100, about 100 million
+pairs per library in nine runs (DEV_ERASE_01/erase_types3_samples.csv; 10 million pairs in 2,000 blocks across all nine runs).
+**P7.** Knockout over wild type (each arm the mean of its libraries' lone-loss held error, the one command, --dev-count-only) = 1 - s with
+s between TET2's share in LSK (PHY-085, 0.900) and all three erasers in stem cells (0.864): center 0.86, sigma 0.035. Pull = (ratio -
+0.86)/0.035, read in the agreed classes: within 2 passes, 2 to 3 watch, beyond 3 a real miss. Not assessed if the three wild types differ
+(max |ln ratio| > 0.05). Rehearsal before sealing (the scorer unchanged, on spent PHY-085 LSK): pull +1.14.
+**P8 (exploration grade, stated now).** With P4 (mature B), P5 (iNKT) and P7 (LSK) from one laboratory: if the held error is regulated
+toward a common level with the eraser as one load, the three wild types spread less than the three knockouts (sd of ln level).
+**Scorer:** types_01/p7_score.py (tested on planted counts: 0.86 passes, 0.93 passes at pull +2.00, 0.75 and 1.00 real misses, unequal
+wild types not assessed). **Design sheet:** design/PHY-090.json. **Machines:** GitHub (erase_test.yml), canary first.
