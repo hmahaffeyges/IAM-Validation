@@ -1,0 +1,6 @@
+PHY-086 P5 (iNKT, GSE66834), scored once by the sealed rule: knockout over wild type 0.926 against 0.79-0.95: MET
+null test |ln(WT1/WT2)| 0.010 (limit 0.05); knockout replicate gap 1.5 %
+GSM1855585 WT   held_err_length 0.05840 loose 0.050 coupling 1.187 held_opp 196548
+GSM1855586 WT   held_err_length 0.05783 loose 0.066 coupling 1.328 held_opp 211643
+GSM1855587 KO   held_err_length 0.05422 loose 0.145 coupling 1.388 held_opp 217893
+GSM1855588 KO   held_err_length 0.05341 loose 0.086 coupling 1.267 held_opp 226667

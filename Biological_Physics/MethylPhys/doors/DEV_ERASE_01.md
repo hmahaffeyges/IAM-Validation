@@ -455,3 +455,23 @@ GSM4907470 held_err_length 0.05875 loose 0.071 coupling 1.175 held_opp 462384
 GSM4907471 held_err_length 0.06174 loose 0.173 coupling 1.277 held_opp 448379
 GSM4907472 held_err_length 0.05974 loose 0.159 coupling 1.287 held_opp 421964
 ```
+
+**PHY-086 P5 result (2026-11-13, 5:55 PM Pacific, scored once by its sealed rule): MET.**
+
+```
+PHY-086 P5 (iNKT, GSE66834), scored once by the sealed rule: knockout over wild type 0.926 against 0.79-0.95: MET
+null test |ln(WT1/WT2)| 0.010 (limit 0.05); knockout replicate gap 1.5 %
+GSM1855585 WT   held_err_length 0.05840 loose 0.050 coupling 1.187 held_opp 196548
+GSM1855586 WT   held_err_length 0.05783 loose 0.066 coupling 1.328 held_opp 211643
+GSM1855587 KO   held_err_length 0.05422 loose 0.145 coupling 1.388 held_opp 217893
+GSM1855588 KO   held_err_length 0.05341 loose 0.086 coupling 1.267 held_opp 226667
+```
+
+**P6 (exploration grade):**
+
+```
+B cells: wild type 0.05830, knockout 0.06074, ratio 1.042; iNKT: wild type 0.05812, knockout 0.05382, ratio 0.926
+wild-type type gap ln(B/iNKT) +0.003; eraser-explained gap ln(r_iNKT/r_B) -0.118
+knockout gap ln(B/iNKT) +0.121 against wild-type gap +0.003: knockouts further apart
+Reading: the two types hold alike in wild type although their erasers differ (iNKT about 7 %, mature B none): the erasers do not set the type difference here; P6 not supported. Exploration grade (different experiments).
+```

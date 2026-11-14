@@ -5218,3 +5218,12 @@ diagnosed MS patients (Ma et al. 2021, PNAS 118:e2111920118); their ages are in 
 Author: derive first, then commission, and preserve data for commissioning. A set marked reserved in CANON/data_spent.csv may now be named
 only by a commissioning row; design_check.py refuses any other test that names one (planted case; 27 cases). ENCODE ENCSR284TCU (healthy
 adult B cells, WGBS, aligned files deposited) is reserved for commissioning IAM-A on sequencing B cells, unread (CANON/design_check.py; CANON/data_spent.csv).
+
+### 2026-11-13 · PHY-086 P5 met: in iNKT cells TET2 and TET3 carry 7 % of the losses; P6: the erasers do not set the type gap
+P5, scored once by its sealed rule: knockout over wild type 0.926, inside 0.79-0.95 (null test 0.010; knockout replicates 1.5 % apart). With
+P4 (mature B cells, 1.042), the eraser share differs by type: about 7 % in young iNKT cells, none in mature B cells. P6, exploration grade:
+the two wild types hold alike (0.05830 and 0.05812, gap +0.003) although their erasers differ (the eraser-explained gap would be -0.118),
+and the knockouts lie further apart (+0.121). So the erasers do not set the difference between these two types; where an eraser is
+removed the level moves, and where none acts the level is the same. A lead to explore on spent data before any seal: the held error may be
+regulated toward a common level (like a governor holding frequency whatever the load), with the eraser one of the loads
+(Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p5_summary.txt, p6_explore.py).

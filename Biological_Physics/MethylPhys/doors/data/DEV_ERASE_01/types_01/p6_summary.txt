@@ -1,0 +1,4 @@
+B cells: wild type 0.05830, knockout 0.06074, ratio 1.042; iNKT: wild type 0.05812, knockout 0.05382, ratio 0.926
+wild-type type gap ln(B/iNKT) +0.003; eraser-explained gap ln(r_iNKT/r_B) -0.118
+knockout gap ln(B/iNKT) +0.121 against wild-type gap +0.003: knockouts further apart
+Reading: the two types hold alike in wild type although their erasers differ (iNKT about 7 %, mature B none): the erasers do not set the type difference here; P6 not supported. Exploration grade (different experiments).
