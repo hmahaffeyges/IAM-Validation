@@ -2,6 +2,14 @@
 
 ## LESSONS, read first (each enforced by design_check.py; newest first)
 
+**2026-11-14 (PHY-092's first reading failed its own null rule; PHY-091's BAM route would have read nothing from bwa-meth files).**
+1. **The synthetic runs at the real data's measured noise, and the null rule is rehearsed on spent real data before anything is queued.**
+   PHY-092's synthetic used tile noise 0.01; the wild types' own was about 0.06, so the reading's null rule failed and it was not assessed.
+   Checked from 11-15 by synthetic.noise_from and synthetic.null_rehearsed.
+2. **A chain route is synthetic-tested through the one command on a file with the real aligner's tags.** The BAM caller read strands only
+   from Bismark's tags or XB; bwa-meth writes YD, so every read would have been skipped (found in design, fixed in _calls_of).
+3. **Before calling something new, search the register and the canon for it.** The 1/(1+D) unmarked-side reading already existed (A15).
+
 **2026-11-13 (author: "speed and testing smart, exploring first and before sealing making sure we already believe in our sealed
 prediction and if we can predict a measured this or that then we do that ... make sure it never happens again").**
 1. **Three questions before EVERY action, desk work included:** what is the fastest, cheapest ADEQUATE data form and machine (held

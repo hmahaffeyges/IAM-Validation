@@ -58,5 +58,7 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("an exploration sheet without a rehearsal or prediction passes", lambda S: [S.update(purpose="exploration"), S.pop("prediction"), S["explore"].pop("rehearsal_pull"), S["bars"].update(rule="exploration: no seal; read and reported as found")], False),
      case("an exploration sheet that seals refused", lambda S: [S.update(purpose="exploration"), S["bars"].update(rule="pass within 2, watch 2-3, miss beyond 3")], True),
      case("no purpose refused", lambda S: S.pop("purpose"), True),
+     case("a sheet written from 11-15 without the synthetic's measured noise refused (PHY-092, 11-14)", lambda S: S.update(_written="2026-11-15, 1:00 AM Pacific"), True),
+     case("a sheet written from 11-15 with measured noise and a rehearsed null passes", lambda S: S.update(_written="2026-11-15, 1:00 AM Pacific", synthetic={"noise_from": "wild types' tile spread 0.06 (P4 recount)", "null_rehearsed": "P4 wild types: 0.03 one-wild-type share"}), False),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

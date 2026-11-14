@@ -109,6 +109,10 @@ def sheet_findings(S, name="sheet"):
     if S.get("data", {}).get("form") is not None or not S.get("_after_the_fact"): F += form_findings(S, name)
     if not S.get("_after_the_fact"): F += explore_findings(S, name)
     F += reserve_findings(S, name)
+    if str(S.get("_written", ""))[:10] >= "2026-11-15":   # 2026-11-14 lesson (PHY-092): the synthetic at the real data's measured noise, the null rule
+        # rehearsed on spent real data (its first reading failed its own null rule: synthetic noise 0.01, real wild types' 0.06)
+        for k in ("synthetic.noise_from", "synthetic.null_rehearsed"):
+            if not str(get(S, k) or "").strip(): F.append(f"{name}: '{k}' missing: the synthetic's noise must be the measured noise of the real data, and the null rule run on spent real data first (2026-11-14 lesson)")
     return F
 def git(*a): return subprocess.run(["git", "-C", R] + list(a), capture_output=True, text=True).stdout
 if __name__ == "__main__":
