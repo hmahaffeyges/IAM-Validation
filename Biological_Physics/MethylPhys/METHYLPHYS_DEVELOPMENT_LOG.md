@@ -5227,3 +5227,11 @@ and the knockouts lie further apart (+0.121). So the erasers do not set the diff
 removed the level moves, and where none acts the level is the same. A lead to explore on spent data before any seal: the held error may be
 regulated toward a common level (like a governor holding frequency whatever the load), with the eraser one of the loads
 (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p5_summary.txt, p6_explore.py).
+
+### 2026-11-13 · PHY-086, exploration: the governor lead, first checks inconclusive
+If the held error is regulated toward a common level with the eraser as one load, wild types sit closer together than knockouts. Across all
+nine knockout units held (five stem-cell units, PHY-085's two, P4, P5): wild-type spread 0.307, knockout 0.289 (ln), slope of ln(WT) on
+ln(KO) 1.025 (leave-one-out 0.853-1.121): no sign of regulation, but laboratory offsets dominate and pull the slope to 1, so this is not
+evidence against it. Within one experiment (PHY-085, two progenitor types): wild-type gap 1.3 %, knockout gap 2.3 %, the governor's
+direction, inside replicate noise. Neither decides; a deciding test needs several cell types knocked out in ONE laboratory
+(Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/governor_explore.py).

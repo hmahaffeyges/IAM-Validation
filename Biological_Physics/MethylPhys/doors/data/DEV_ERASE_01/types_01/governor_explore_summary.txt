@@ -1,0 +1,14 @@
+9 eraser-knockout units; sd of ln(level) across units: wild type 0.307, knockout 0.289
+slope of ln(WT) on ln(KO): b = 1.025 (regulation predicts below 1; added shares about 1); leave-one-out range 0.853-1.121
+
+U1               WT 0.04198 KO 0.04167 ratio 0.993
+U2               WT 0.09085 KO 0.07187 ratio 0.791
+U3               WT 0.04352 KO 0.03761 ratio 0.864
+U4               WT 0.03583 KO 0.03234 ratio 0.903
+U5               WT 0.05525 KO 0.04706 ratio 0.852
+PHY-085 LSK      WT 0.03657 KO 0.03290 ratio 0.900
+PHY-085 Lin-neg  WT 0.03705 KO 0.03366 ratio 0.909
+P4 mature B      WT 0.05830 KO 0.06074 ratio 1.042
+P5 iNKT          WT 0.05812 KO 0.05382 ratio 0.926
+Within one experiment (PHY-085, LSK over Lin-neg): wild type 0.987, knockout 0.977: the governor's direction, inside replicate noise; not decisive
+Exploration on spent counts from five laboratories; laboratory offsets dominate the spread and pull b toward 1.
