@@ -33,17 +33,20 @@ for r in rows:
     z = zipfile.ZipFile(io.BytesIO(get(A[0]["archive_download_url"], raw=True)))
     open(os.path.join(TD, f"{g}_tiles.csv.gz"), "wb").write(z.read(f"eout/{g}_tiles.csv.gz"))
 print(len(rows) - len(miss), "libraries read; missing:", miss, flush=True)
-subprocess.run([sys.executable, os.path.join(H, "slope_read.py")], check=True, env=dict(os.environ, TILES_DIR=TD,
+AGG = "25"   # 2026-11-14: tiles of 50,000 CpGs for BOTH laboratories (the canary at 2,000 failed its rule: halves 0.59-0.62; see design sheet)
+subprocess.run([sys.executable, os.path.join(H, "slope_read.py")], check=True, env=dict(os.environ, TILES_DIR=TD, TILE_AGG=AGG,
                SAMPLES=os.path.join(H, "ref_tile_runs.csv"), SUMMARY=os.path.join(OUT, "ref_slope_read_summary.txt"), SKIP_MISSING="1"))
+subprocess.run([sys.executable, os.path.join(H, "slope_read.py")], check=True, env=dict(os.environ, TILES_DIR=os.path.join(H, "tiles_lab1"), TILE_AGG=AGG,
+               SUMMARY=os.path.join(OUT, "lab1_slope_read_summary_agg25.txt")))
 M = 54000 / (8.314462618 * 310.15); odds = lambda w: (w / 2) / (1 - (1 - math.exp(-w)) / w)
 e = lambda x: 1 / (1 + odds(2 * M * (1 - x))); sl = lambda x: (e(x + 0.005) - e(x - 0.005)) / 0.01
 T = [l.split() for l in open(os.path.join(OUT, "ref_slope_read_summary.txt")) if l.strip().startswith("GSM")]
 X = np.array([[float(t[-4]), float(t[-3]), float(t[-2])] for t in T]); cells = [" ".join(t[1:-7]) for t in T]; hr = [float(t[-5]) for t in T]   # columns: ... tiles, halves_r, x_mean, held, within_b, within_a
 ok = np.array([h > 0.7 for h in hr]); rat = X[ok, 2] / np.array([0.915 * sl(x) for x in X[ok, 0]])
 pr = np.array([0.915 * e(x) for x in X[:, 0]]); bm, bp = np.polyfit(X[ok, 0], X[ok, 1], 1)[0], np.polyfit(X[ok, 0], pr[ok], 1)[0]
-L = [f"second laboratory, {ok.sum()} libraries passing the null test of {len(X)}:",
+L = [f"tiles of 50,000 CpGs. Second laboratory, {ok.sum()} libraries passing the null test of {len(X)} (first laboratory at the same tiles: lab1_slope_read_summary_agg25.txt; median ratio 1.37, range 0.51-1.89):",
      f"within-sample slope over the derived form at each library's own looseness: median {np.median(rat):.2f} (range {rat.min():.2f}-{rat.max():.2f}); "
-     f"prediction written first 0.64-1.34: {'INSIDE' if 0.64 <= np.median(rat) <= 1.34 else 'OUTSIDE'}",
+     f"replication band (the first laboratory at the same tiles) 0.51-1.89: {'INSIDE' if 0.51 <= np.median(rat) <= 1.89 else 'OUTSIDE'}",
      f"across libraries: held level rises {bm:.4f} per unit mean tile looseness; the form gives {bp:.4f} ({bm / bp:.1f} times; first laboratory 2.4)"]
 for c in sorted(set(cells)):
     k = [i for i, x in enumerate(cells) if x == c and ok[i]]

@@ -18,7 +18,11 @@ S = {r["gsm"]: r for r in csv.DictReader(open(os.environ.get("SAMPLES", os.path.
 rows, null, within = [], {}, {}
 for g in S:
     if os.environ.get("SKIP_MISSING") and not os.path.exists(os.path.join(TD, f"{g}_tiles.csv.gz")): continue
-    T = pd.read_csv(os.path.join(TD, f"{g}_tiles.csv.gz"))
+    T = pd.read_csv(os.path.join(TD, f"{g}_tiles.csv.gz"), dtype={"chrom": str})
+    AGG = int(os.environ.get("TILE_AGG", "1"))   # 2026-11-14: pool AGG consecutive tiles (for shallower libraries); 1 = as committed
+    if AGG > 1:
+        T["meth"] = T.calls * T.mean_call.fillna(0); T = T.assign(tile=T.tile // AGG).groupby(["chrom", "tile"], as_index=False)[["iso_a", "opp_a", "iso_b", "opp_b", "calls", "meth"]].sum()
+        T["mean_call"] = (T.meth / T.calls).where(T.calls > 0)
     X = T[(T.opp_a >= 200) & (T.opp_b >= 200) & T.mean_call.notna()].copy()
     a, b = X.iso_a / X.opp_a, X.iso_b / X.opp_b
     null[g] = float(np.corrcoef(a, b)[0, 1])

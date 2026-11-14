@@ -46,6 +46,14 @@
      "outcome": "Knockout over wild type 0.985-1.292: one selection step; the eraser is not proofreading the unmarked side.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): knockout over wild type"
+    },
+    {
+     "title": "The within-sample match depends on tile size (PHY-087, A7 correction)",
+     "status": "development",
+     "what": "The first laboratory re-read at tiles of 2,000 to 50,000 CpGs; step 2's canary scored by its rule.",
+     "outcome": "Median ratio 0.93 to 1.37 with tile size (within the band written first, not 7 %); step 2 canary NOT MET at 2,000 CpGs, redesigned at 50,000.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): within-sample slopes"
     }
    ]
   }

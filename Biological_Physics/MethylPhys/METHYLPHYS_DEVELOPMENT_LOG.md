@@ -5360,3 +5360,14 @@ lines; Decoder entry added), so a tile's looseness comes from the chain, as the 
 erase_proofreading.py now also reports, per knockout unit, the share of stray marks the erasers remove against the share of held losses they
 cause: selectivity at most about 3, against 47-80 for a proofreading discard step. TET2 alone removes almost no stray marks; TET2 with TET3
 removes 13-23 %. In mature B the erasers remove a fifth of stray marks while causing no held loss. Defined after the ratios were seen.
+
+### 2026-11-14 · PHY-087: the within-sample match depends on tile size (correction); step 2's canary failed its rule and was redesigned
+Correction to this morning's entry. The derived form's match to the within-sample slope depends on tile size: read from the first laboratory's
+own chain tile files (tiles_lab1/, which reproduce the committed reading exactly), the median ratio is 0.93 at 2,000-CpG tiles, 1.06 at 4,000,
+1.19 at 10,000, 1.23 at 20,000 and 1.37 at 50,000 (slope_tilesize.py). Finer tiles measure looseness more noisily, which flattens a fitted
+slope; at the tile sizes where every sample passes the null test the ten samples' ratios span 0.51-1.89. So the form gives the within-sample
+slope to within a factor of about 1.4, inside the 0.5-2 band written first, not to 7 % as first reported.
+Step 2 (the blind-test laboratory) ran its two-library canary through the pipeline: at 2,000-CpG tiles it failed its rule (halves 0.59 and
+0.62, about 3,450 tiles: the molecules saved for PHY-084 are a 10-million-pair sample), so the pipeline held the other 52 back. Redesigned
+before any of them was read: both laboratories at 50,000-CpG tiles (the canary then 0.76 and 0.80), with the first laboratory's own range
+at that tiling as the band (design/PHY-087_s2.json, '_revised').
