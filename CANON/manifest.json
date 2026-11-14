@@ -6015,7 +6015,7 @@
    "cost": "",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
-   "notes": "row created from the register entry",
+   "notes": "row created from the register entry | 2026-11-14: wording: private names removed from the record's opening line: Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md",
    "legacy_ids": [],
    "depends_on": [],
    "register_ids": [

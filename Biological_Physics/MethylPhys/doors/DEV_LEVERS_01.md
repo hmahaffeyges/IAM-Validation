@@ -1,6 +1,6 @@
 # DEV-LEVERS-01 — every lever on the methylation channel, with its caveat (audit, 2026-10-13; nothing read, no pass value written)
 
-The quantum line (QAPE) enumerated every platform with its own decoherence channel and caveat before any platform was
+A complete audit enumerates every channel with its own caveat before any channel is
 scored. The cell has never had that audit: each lever was taken up one at a time. This note is that audit. **It is a
 design note.** Nothing here is a result, no bar is written, and every row says plainly whether a *parameter-free*
 prediction is possible, since that is the only kind of test a physicist cannot dismiss as fitting.

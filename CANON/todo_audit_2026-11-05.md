@@ -532,7 +532,7 @@ Counts: {'report': 591, 'in plan': 301, 'not pursued': 9, 'other': 81, 'added': 
 | 1 | 547 | status report, result or explanation; no action of its own | 19. Steps 16, 17, 18: the clean-clone check after the spelling change, the billing blocks, and removing idle charges. |
 | 1 | 548 | status report, result or explanation; no action of its own | 20. Step 19: independence from AWS (most of it done; a data register exists). |
 | 1 | 550 | status report, result or explanation; no action of its own | Private (not on the public plan) |
-| 1 | 551 | private whiteboard: private, correctly off the public plan | The private whiteboard keeps the QAPE, SCAPE, wafer-map, power-grid, battery and cross-system ideas: IAM_private_whiteboard.md. |
+| 1 | 551 | private whiteboard: private, correctly off the public plan | Private ideas stay on the private whiteboard. |
 | 1 | 555 | status report, result or explanation; no action of its own | (The firm-rate derivation, the lever we talked about: 16 machines, about 5 hours. |
 | 1 | 556 | status report, result or explanation; no action of its own | * What it is: recounting the five sets of eraser-removed and matched control samples, 16 samples in all, with the chain's commissioned counter. Then the sealed  |
 | 1 | 557 | status report, result or explanation; no action of its own | * The timing test already ran on GitHub: one mouse sample, 10 million read pairs, 2 threads, finished in 4.25 hours with nothing failing. That includes 1.7 hour |
@@ -582,7 +582,7 @@ Counts: {'report': 591, 'in plan': 301, 'not pursued': 9, 'other': 81, 'added': 
 | 1 | 617 | status report, result or explanation; no action of its own | 33, sealed Met-A	33.1 the second pass on both monocyte series (running). |
 | 1 | 618 | status report, result or explanation; no action of its own | 27, 450K	27.1 a real 450K array with raw IDATs. |
 | 1 | 619 | status report, result or explanation; no action of its own | Branches already done are on the plan too, with their records: the depth test, the full-atlas panel, Met-A for each cell (test 2), and IAM-A's counting error. |
-| 1 | 620 | status report, result or explanation; no action of its own | The private ideas (QAPE, SCAPE, wafers, the grid, batteries) stay on the private whiteboard, not the public plan. |
+| 1 | 620 | status report, result or explanation; no action of its own | The private ideas stay on the private whiteboard, not the public plan. |
 | 1 | 629 | status report, result or explanation; no action of its own | IAM-A Globe "only changes too big to be chance" |
 | 1 | 632 | status report, result or explanation; no action of its own | Read from CANON/plan.json (commit 82d6c6bb). 34 steps: 14 done, 20 open. Steps 33 and 34 were added this morning from your earlier lists. |
 | 1 | 633 | status report, result or explanation; no action of its own | Running now on GitHub |

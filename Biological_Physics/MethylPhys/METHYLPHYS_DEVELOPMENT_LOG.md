@@ -1297,7 +1297,7 @@ A stalled cause attempt (efbe0efa) whose job had been reported failed kept its c
 Adding the cron left website.yml with workflow_dispatch twice. PyYAML accepts a duplicate key silently, which is why my check passed; GitHub rejects the file, so three pushes (f2e5e7c, 8fc6e59, 37c73d9) built nothing and the live page stayed at 2660a96. The duplicate is removed and the workflow checker now refuses a repeated trigger key.
 
 ### 2026-10-13 · Lever audit, priority order, and the funding statement answered plainly
-DEV-LEVERS-01: the audit the cell never had, in the shape QAPE used for the quantum platforms. Ten levers with caveats, and which can give a parameter-free prediction; the three-channel split (copy, de novo, erase) with erasure as the operation that must dissipate; two mechanism signatures (processive error clusters, thermal damage scatters; autocatalysis implies heavy tails). Three never-tested levers surfaced: the erase channel, oxygen and redox, and IDH-mutant tumors as a natural TET knockout in patients. PRIORITY_2026-10-13.md: the order of work with conservative durations at this pace, and which cancers matter most for early detection by sex. Funding statement now says plainly that there is no company or charity behind the work, support is a personal gift and not tax-deductible, and nothing is for sale.
+DEV-LEVERS-01: the audit the cell never had: every lever with its own caveat, enumerated before any is scored. Ten levers with caveats, and which can give a parameter-free prediction; the three-channel split (copy, de novo, erase) with erasure as the operation that must dissipate; two mechanism signatures (processive error clusters, thermal damage scatters; autocatalysis implies heavy tails). Three never-tested levers surfaced: the erase channel, oxygen and redox, and IDH-mutant tumors as a natural TET knockout in patients. PRIORITY_2026-10-13.md: the order of work with conservative durations at this pace, and which cancers matter most for early detection by sex. Funding statement now says plainly that there is no company or charity behind the work, support is a personal gift and not tax-deductible, and nothing is for sale.
 
 ### 2026-10-13 · Roadmap reordered to the priority order, every to-do item mapped to a job
 CANON/next_jobs.json now holds 23 jobs in the order of PRIORITY_2026-10-13.md, each tagged with the to-do ids it carries (M5/M6 first, then the atlas uses, atlas v2.1, the IAM-A close-out, the lever series, colon and the adenomas, liver, breast, the temperature lever, the division-rate lever, the erase channel, the whole-genome sky build with its 3D version, the one-floor write-up, lung, the detection limit and cell-free DNA, blood cancers, whole blood, IAM-A beyond one cell type, replication, the second supply lever, the instrument backlog, two gauge questions, records hygiene). Operations items O1-O5 sit in a housekeeping list that the donor page does not show. The page also now states plainly that there is no entity and support is not tax-deductible.
@@ -4425,7 +4425,7 @@ this was not stated before reading. The verdict stands as recorded; a test on he
 - DOCS-AUDIT-01 opened (`3662e6ae`); its first fixes, the agreed document structure recorded (`a3ae40c4`).
 - The 11-09 day summary, the book review recorded for the author (book unchanged), and the four questions before every new test at the top of the pre-launch checklist (`96967655`).
 - Group-A per cell site by site in the chain (`compare_cells_sites`), rehearsed on 95 kept arrays (`0671dd20`).
-- The study guide written in full, with a lesson on IAM through power system dynamics; a private side-by-side page of every domain's levers; a private predictions database from QAPE and SCAPE Issue 002.
+- The study guide written in full, with a lesson on IAM through power system dynamics; private notes kept outside the repository.
 
 **Learned:**
 - No M formula has yet predicted IAM-A's middle on fresh data; the middle runs about a tenth above 1/(1+M) per call.
@@ -4456,7 +4456,7 @@ this was not stated before reading. The verdict stands as recorded; a test on he
 - IAM-A needs no atlas and no laboratory calibration: the sample is the calibration and the reference.
 - Exploring is legitimate and does not have to be sealed every time; "we are not doing a thesis".
 - Find why the CD8 laboratory keeps distorting the work.
-- QAPE and SCAPE material is private; the field lacks the ruler; review QAPE, SCAPE and Four Domains.
+- Private material stays private; the field lacks the ruler; review Four Domains.
 - Lay every lever of every domain side by side, isolate each one, and fill one domain's gaps from the others as predictions.
 - Follow each lever along the disease scale, from healthy to precancer to stage and metastasis.
 - A study guide from the beginning, laid out so a young reader can follow; a first arXiv paper on the M number.
@@ -4526,7 +4526,7 @@ Exploration continues on these spent samples; fresh healthy data from another la
 - Grid methods for the metering problem: redundant sources and a reasonability alarm ("never trust a suspicious reading"), meters pulled from service when in doubt (WAC 480-100-338), the impedance fault locator and relay zones, the PIE historian, overcorrection by relays left enabled, a powerflow to find the missing model input.
 - For the qubit middle: separate self-made from imported imbalance (two meters, ambient, topology); the island-tying rules (small additions, high reserves, isochronous).
 - IAM's Law includes Bekenstein's surface; the law's wording is to be referee-accurate for a physicist, a biophysicist and a geneticist.
-- The private QAPE technical reference stays out of the repo and anything public.
+- Private references stay out of the repo and anything public.
 
 **Path changes:**
 - The seventh self-calibration form will use each library's own end reach per side and two sources with a stated tolerance; a library out of tolerance is flagged and its state withheld, nothing corrected.
@@ -4539,7 +4539,7 @@ Exploration continues on these spent samples; fresh healthy data from another la
 - Idle on Google and GitHub from about 4 AM to 3 PM (my error). Afternoon and evening: 15 sixth-form rows and 4 per-site dump rows on Google; 54 counts on GitHub, none failed.
 
 **Open at turnover:**
-- The seventh form, offline first on the per-site dumps; the interior lone-loss count on spent samples; the effective-temperature qubit test; the remaining QAPE/SCAPE scorecard checks (private).
+- The seventh form, offline first on the per-site dumps; the interior lone-loss count on spent samples; private checks.
 
 ### 2026-11-11 · PHY-079 exploration: the isolated-loss misses are not the molecule ends (data/PHY_050_LONE_LOSS_LOYFER/interior_exploration.txt)
 On the 54 spent counts of the third test, the last call reads like the interior in the counter's held error (median 1.005; mostly marked-side held sites; the unmarked side, measured later on an atlas donor, does carry an end fault), and counting only the interior leaves the
@@ -5310,8 +5310,8 @@ less than their knockouts (0.064 against 0.103). The eraser's share is measured 
 minicell.py gains two measured inputs, each labelled with its origin: eraser_share (by cell type: stem 0.136, blood progenitors 0.095, LSK
 0.049, young iNKT 0.074, mature B 0) lifts the law's thermal held error to eps/(1 - share) when the candidate is on; D_select gives the
 unmarked side's stray marks by one equilibrium selection step, 1/(1 + D) (0.0123-0.0207 for D 80-47.4), labelled measured, not IAM.
-Six new self-tests, 23 of 23 pass. Counterparts (the author's rule): chips, the write error of a cell without error correction (selection)
-and a scheduled refresh that rewrites good cells (the eraser as planned maintenance); qubits, none yet.
+Six new self-tests, 23 of 23 pass. Counterparts in the other domains are kept
+privately.
 
 ### 2026-11-14 · PHY-087: the within-sample slope follows from the derived hold with cooperative maintenance (exploration)
 Prediction written before the measured slope was re-read: if the restore push a held mark receives scales with the held share of its
