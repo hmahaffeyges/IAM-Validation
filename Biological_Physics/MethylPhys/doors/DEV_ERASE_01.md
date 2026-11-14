@@ -487,3 +487,8 @@ s between TET2's share in LSK (PHY-085, 0.900) and all three erasers in stem cel
 toward a common level with the eraser as one load, the three wild types spread less than the three knockouts (sd of ln level).
 **Scorer:** Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/types_01/p7_score.py (tested on planted counts: 0.86 passes, 0.93 passes at pull +2.00, 0.75 and 1.00 real misses, unequal
 wild types not assessed). **Design sheet:** design/PHY-090.json. **Machines:** GitHub (erase_test.yml), canary first.
+
+**PHY-090 canary (2026-11-13, 11:12 PM Pacific):** GSM1866966 (wild type), 2 million pairs on GitHub (run 43564679932): quality-failed 0.023
+(limit 0.05), mapped 0.993 (minimum 0.95), 0.00068 s per pair (limit 0.0015); canary rule met (types_01/canary_p7/canary_check.py). Fetch 1,909 s, align 1,352 s.
+No held error was read for scoring (the canary is depth-limited and is not one of the scored counts). The six libraries were sent at the
+sealed 10 million pairs (runs in p7_runs: 43570129206 to 43570209551).

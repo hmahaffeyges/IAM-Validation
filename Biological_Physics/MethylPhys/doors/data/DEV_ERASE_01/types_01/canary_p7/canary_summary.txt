@@ -1,0 +1,1 @@
+quality-failed 0.023 (limit 0.05), mapped 0.993 (minimum 0.95), s per pair 0.00068 (limit 0.0015): canary rule met; fetch 1909 s, align 1352 s
