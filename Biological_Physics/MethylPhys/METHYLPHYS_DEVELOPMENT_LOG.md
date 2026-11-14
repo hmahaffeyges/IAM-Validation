@@ -5319,7 +5319,9 @@ neighbourhood (cooperative maintenance), the derived pump gives the counter's he
 zero looseness (one-sided difference as written; the script's centred difference gives 0.0365-0.0394). Measured, eleven samples: median 0.0551, inside the 0.5-2 band written first. After the fact, evaluated at each sample's own
 looseness: median ratio 0.93 (0.64-1.34) on the ten samples that passed PHY-087's null test; erythrocyte progenitors (failed the null test)
 far below. So the mixing part of IAM-A's slope (about 40 %) follows from M with one assumption, a crew share linear in neighbourhood
-(Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_pump.py). Exploration; nothing sealed.
+(Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_pump.py). Exploration; nothing sealed. Tried next, after the fact: the same form
+across cell types. Held level rises 0.1377 per unit mean tile looseness across ten samples; the cooperative pump gives 0.0584, 2.4 times
+less. So cooperativity explains the slope inside a sample but not each type's level (register A8 needs something else).
 
 ### 2026-11-14 · PHY-083: the book's cell chapters cite IAM's Law by reference; the M-number answer carries the derivation
 The derivation board found that no cell equation traced back to the law's chapter by reference. Three references added, each on its own

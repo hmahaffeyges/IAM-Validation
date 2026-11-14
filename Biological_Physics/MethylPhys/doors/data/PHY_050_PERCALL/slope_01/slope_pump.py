@@ -24,5 +24,13 @@ for r in rows:
     L.append(f"  {r[0]} {cell:28} x {x:.3f} measured {wb:.4f} predicted {0.88 * sl(x):.4f}-{0.95 * sl(x):.4f} ratio {q:.2f}")
 L.append(f"the ten that passed PHY-087's null test: median ratio {S.median(rat):.2f} (range {min(rat):.2f}-{max(rat):.2f}); erythrocyte "
          "progenitors (failed the null test; loose share 0.957) far below")
+# 2026-11-14, after the fact (the eleven levels were already printed in slope_read_summary.txt): does the same form explain the ACROSS-
+# type part (register A8)? Fit held level against each sample's mean tile looseness, and the pump-predicted level against the same x.
+import numpy as np
+X = np.array([[float(r[-4]), float(r[-3])] for r in rows]); k = np.array(["erythrocyte" not in " ".join(r[1:-7]) for r in rows])
+pr = np.array([0.915 * e(x) for x in X[:, 0]])
+bm, bp = np.polyfit(X[k, 0], X[k, 1], 1)[0], np.polyfit(X[k, 0], pr[k], 1)[0]
+L.append(f"across types (ten samples, after the fact): held level rises {bm:.4f} per unit mean tile looseness; the cooperative pump gives "
+         f"{bp:.4f} ({bm / bp:.1f} times steeper): the within-sample form does NOT explain each type's level (A8 needs something else)")
 L.append("Exploration on spent counts; the one assumption is the linear crew share f = 1 - x; nothing fitted.")
 open(os.path.join(H, "slope_pump_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
