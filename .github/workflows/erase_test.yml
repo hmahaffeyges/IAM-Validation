@@ -1,4 +1,5 @@
 name: erase_test
+run-name: "${{ inputs.tag != '' && inputs.tag || 'erase_test' }}"
 # DEV-ERASE-01 recount on GitHub (to-do step 14, 2026-10-22): one sample from public SRA to .pat and both counters (erase_gh.sh), with its
 # memory and the time of each part logged, to learn whether a sample fits one GitHub machine (16 GB, 6 h). Manual only.
 on:
@@ -10,6 +11,7 @@ on:
       full: {description: "1 = the one command's full reading (plasma_seq_01); 0 = the count only", required: false, default: "0"}
       patfrom: {description: "none, or the run id of an earlier erase_test run whose saved molecules (.pat) to count without aligning again", required: true, default: "none"}
       maxpairs: {description: "default, or a cap on read pairs for a short canary (2026-11-12)", required: false, default: "default"}
+      tag: {description: "pipeline item (pq:<id>, set by CANON/pipeline_next.py); empty for a manual run", required: false, default: ""}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
   one:
