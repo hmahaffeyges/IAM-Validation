@@ -8,7 +8,7 @@ on:
       script: {description: "script path from the repository root", required: true}
       args: {description: "arguments", required: false, default: ""}
       tag: {description: "pipeline item (pq:<id>, set by CANON/pipeline_next.py); empty for a manual run", required: false, default: ""}
-permissions: {contents: read, issues: write, actions: read}
+permissions: {contents: read, issues: write, actions: write}
 jobs:
   explore:
     runs-on: ubuntu-latest
@@ -37,6 +37,10 @@ jobs:
           rq = urllib.request.Request("https://api.github.com/repos/${{ github.repository }}/issues/32/comments", data=json.dumps({"body": b}).encode(), headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
           print(urllib.request.urlopen(rq).status)
           PY
+      - name: Start the next pipeline items (2026-11-14; a run started by the pipeline does not fire workflow_run, so it calls the runner itself)
+        if: always() && startsWith(inputs.tag, 'pq:')
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: gh workflow run pipeline.yml -R "$GITHUB_REPOSITORY" || true
       - name: Fail the run when the script failed (2026-11-14, so the pipeline never starts work on a failed result)
         if: always()
         run: test "$(cat xout/rc.txt 2>/dev/null)" = "0"
