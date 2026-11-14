@@ -191,7 +191,8 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["eraser_share"] = Param(0.0, "fraction of held losses", "measured", "the erasers' share of held loss, by cell type: stem 0.136, blood progenitors (TET2) 0.095, "
                               "LSK 0.049, young iNKT 0.074, mature B 0.0 (DEV-ERASE-01, PHY-085, PHY-086, PHY-090); with the candidate the held error is eps/(1 - share)", "eraser", origin="measured")
     P["D_select"] = Param(60.0, "odds right site over wrong", "measured", "the writer's selection odds (canon four_domains gate_error, two enzymes 47.4-80); "
-                          "one equilibrium step gives stray marks 1/(1 + D) on the unmarked side (A15); no proofreading", "writer", origin="measured")
+                          "one equilibrium step gives stray marks 1/(1 + D) on the unmarked side (A15); no proofreading. 1/(1 + D) is the lowest error of a one-step "
+                          "thermal copy (Sartori and Pigolotti, PRL 110, 188101, 2013), the same form as the floor 1/(1 + e^M)", "writer", origin="measured")
     return ModelCard(name, "cell", P)
 
 

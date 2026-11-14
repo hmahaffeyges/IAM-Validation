@@ -1,0 +1,5 @@
+planted conversion failure 0.000: chain conv_fail 0.00000 (reads 12000, molecules 6000, held_err 0.09995103439833516): ok
+planted conversion failure 0.003: chain conv_fail 0.00304 (reads 12000, molecules 6000, held_err 0.09995103439833516): ok
+planted conversion failure 0.010: chain conv_fail 0.01005 (reads 12000, molecules 6000, held_err 0.09995103439833516): ok
+planted conversion failure 0.030: chain conv_fail 0.03022 (reads 12000, molecules 6000, held_err 0.09995103439833516): ok
+ALL RECOVERED

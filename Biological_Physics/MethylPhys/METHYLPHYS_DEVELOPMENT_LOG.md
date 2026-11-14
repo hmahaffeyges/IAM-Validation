@@ -5391,3 +5391,13 @@ BAMCOUNT=1 and erase_test.yml bamcount. Design sheet design/PHY-091.json (explor
 route's caller read the strand only from Bismark's tags or XB, so every bwa-meth read (YD:Z:f/r, our aligner) was skipped; fixed in
 stage_q2_selfref._calls_of. A desk check of the caller recovered planted conversion failure 0 to 0.02 on both strands; the logged synthetic test
 (conv_01/conv_synthetic.py) runs the one command on a synthetic bwa-meth BAM on GitHub, first in the pipeline; the 20 libraries wait on it.
+
+### 2026-11-14 · PHY-091 synthetic met through the one command; the floor is the established one-step copy limit (A15 lead)
+PHY-091's synthetic test ran on GitHub (explore.yml, pipeline item p091-synthetic): the one command, run_sample.py --bam --dev-count-only, on a
+synthetic bwa-meth BAM, recovered planted conversion failure 0, 0.003, 0.010 and 0.030 as 0.00000, 0.00304, 0.01005 and 0.03022 (conv_01/
+conv_synthetic_summary.txt). The 20 spent erase libraries, then the 58 spent healthy blood libraries, follow behind one canary.
+Where IAM's Law is (read from the paper, arXiv:1209.4566): Sartori and Pigolotti (PRL 2013) show that a one-step thermal copy telling right from
+wrong by x kT has a lowest error f(x) = 1/(1+e^x); that is the floor's own form, eps_min = 1/(1+e^M) (book p6_08). For the unmarked side, DNMT1
+choosing a half-marked over a bare CpG is such a copy: this is the established source of the 1/(1+D) form the unmarked side already uses
+(register A15, four_domains gate_error, D = 47.4-80 measured, 0.0123-0.0207, no proofreading). A literature pass found older DNMT1 measurements
+of 7-40 fold (truncated enzymes, early time points); the canon keeps the two most complete. PHY-091 supplies the meter's false marks to subtract.

@@ -28736,8 +28736,8 @@
    ],
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
-   "status": "planned",
-   "next_step": "synthetic test passed (conv_synthetic.py); canary on GitHub at 2 million pairs, then the rest",
+   "status": "running",
+   "next_step": "synthetic met through the one command (conv_synthetic_summary.txt); canary on GitHub, then 19 erase and 58 blood libraries",
    "cost": "github",
    "impact": 4
   },
