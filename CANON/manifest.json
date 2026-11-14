@@ -28606,7 +28606,7 @@
    "sources_of_row": [
     "2026-11-12 session"
    ],
-   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: step 1 written before counting (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_tiles.py): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: mixing predicts 37-41 % of b: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: step 1 written before counting (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_tiles.py): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-13: mixing predicts 37-41 % of b: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-14: the within-sample slope from the derived hold: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "id": "PHY-087",
    "title": "IAM-A's baseline slope from physics: why the loss rises with the loose share",
    "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",

@@ -1,0 +1,16 @@
+M 20.94; predicted slope at x = 0: 0.0415 per site, 0.0365-0.0394 through the counter
+measured within-sample slope, eleven samples: median 0.0551 (range 0.0321-0.0791); median / prediction 1.45: inside 0.5-2 (written before reading)
+after the fact, at each sample's own mean looseness x (ratio = measured / (0.915 x predicted per-site slope)):
+  GSM5652296 naive cd4 t cells            x 0.147 measured 0.0477 predicted 0.0490-0.0529 ratio 0.94
+  GSM5652299 nk cells                     x 0.184 measured 0.0356 predicted 0.0532-0.0575 ratio 0.64
+  GSM5652260 kidney tubular epithelium    x 0.198 measured 0.0500 predicted 0.0549-0.0593 ratio 0.88
+  GSM5652187 kidney tubular endothelium   x 0.211 measured 0.0790 predicted 0.0566-0.0611 ratio 1.34
+  GSM5652247 pancreatic delta             x 0.220 measured 0.0769 predicted 0.0578-0.0624 ratio 1.28
+  GSM5652216 cardiomyocyte                x 0.215 measured 0.0474 predicted 0.0571-0.0617 ratio 0.80
+  GSM5652194 pancreas endothelium         x 0.238 measured 0.0573 predicted 0.0603-0.0651 ratio 0.92
+  GSM5652198 colon fibroblasts            x 0.252 measured 0.0551 predicted 0.0623-0.0673 ratio 0.85
+  GSM5652359 gastric fundus epithelium    x 0.247 measured 0.0785 predicted 0.0616-0.0665 ratio 1.23
+  GSM5652295 effector memory cd8 t cells  x 0.260 measured 0.0791 predicted 0.0636-0.0687 ratio 1.20
+  GSM5652275 erythrocyte progenitors      x 0.428 measured 0.0321 predicted 0.1010-0.1091 ratio 0.31
+the ten that passed PHY-087's null test: median ratio 0.93 (range 0.64-1.34); erythrocyte progenitors (failed the null test; loose share 0.957) far below
+Exploration on spent counts; the one assumption is the linear crew share f = 1 - x; nothing fitted.

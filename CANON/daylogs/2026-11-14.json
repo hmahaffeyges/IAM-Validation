@@ -30,6 +30,14 @@
      "outcome": "23 of 23 self-tests pass; the law's thermal level plus each type's eraser share; stray marks from one selection step.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): the simulator"
+    },
+    {
+     "title": "The within-sample slope from the derived hold (PHY-087, A7)",
+     "status": "development",
+     "what": "Prediction written first (cooperative maintenance through the derived pump), then the eleven measured within-sample slopes read.",
+     "outcome": "Median measured 0.0551 against 0.0369-0.0398 predicted, inside the band written first; at each sample's own looseness median ratio 0.93 (ten samples).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): within-sample slopes"
     }
    ]
   }
