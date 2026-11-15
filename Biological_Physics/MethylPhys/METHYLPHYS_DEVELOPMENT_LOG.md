@@ -5575,3 +5575,6 @@ Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic_
 spent referee blood libraries (GSM5278426, GSM5278467, GSM5278520) re-read with the lambda meter, either the negative control amendment 3 lacked or
 each library's meter read directly. Note for the meter (Genome Research 28:1364, 2018): lambda DNA taken through end repair can show apparent non-CpG
 methylation, so a lambda meter can also over-read; recorded beside the reading.
+Timing correction: the PHY-093 design sheet expected 0.6 hours per library; PHY-091 took 1 hour 53 minutes on the canary library
+(GSM5278426), so about 2 hours per library is the right figure (the deep referee libraries, not the shallow eraser sets). The run limit
+is the workflow's own, not the sheet's; the batch of 57 is about 6 hours on 20 machines.
