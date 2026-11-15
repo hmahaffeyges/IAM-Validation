@@ -145,6 +145,9 @@ A public series of arrays: `run_series.py` runs the one command on every array o
 - `--dev-genome-globe` with `--pat` or `--geo-pat` (and `--prior-pat` / `--prior-geo-pat`, `--prior-name`): the whole-genome globe.
 - `--build info-sphere | explorer-purified | explorer-noise | atlas-sphere | atlas-masks`: the chain builds a reference or a reference globe.
 - `--explorer-spec FILE`: the report globe's layers as a Globe Explorer file.
+- `--dev-count-only` with `--pat`: IAM-A's counts only (held error, stray marks, opportunities), flagged, for derivation tests on samples without a healthy
+  reference (cell lines, mouse); with `--bam` (2026-11-14) on any assembly its reference FASTA carries (`--assembly mm10`), also the meter's own false
+  marks: `conv_fail` (non-CpG cytosines read as methylated, each library's known-zero channel) and `sub_err`; Bismark and bwa-meth files (PHY-091).
 
 ## 5. What the chain declines, and why
 
