@@ -5410,3 +5410,10 @@ against 0.0355 loose in both knockouts and neither wild type, so the null rule (
 against 1.04 shuffled, p 0.0005) and the knockout-only tiles' wild-type level (0.774 against 0.823) are recorded and not read. Lesson: the synthetic
 used tile noise 0.01, far below the wild types' own; it now also runs at 0.06. Amendment 1 (design sheet): re-read at 25 counter tiles pooled,
 the size PHY-087 needed for this counter; same rule.
+
+### 2026-11-14 · PHY-092 amendment 1 read: NOT ASSESSED at 50,000-CpG tiles too; closed for now
+Read at 25 counter tiles pooled (a8_where_summary_agg25.txt): 437 tiles in all four libraries; tiles loose in exactly one wild type 0.0114 against
+knockout-only 0.0046 (2 tiles), so the null rule fails again: NOT ASSESSED. Recorded, not read: at this scale the knockouts add almost no loose
+tiles, while at 2,000-CpG tiles they added 3.6 % (also not assessed), which would place the extra looseness in stretches far smaller than
+50,000 CpGs rather than in large domains. The question needs deeper libraries (more calls per tile, so the wild types agree), not more
+pooling; A8 stays open on this point. No further reading of these four libraries is planned (no search over tile sizes).
