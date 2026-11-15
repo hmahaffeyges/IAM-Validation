@@ -16,6 +16,7 @@ except ImportError:
     subprocess.run([sys.executable, "-m", "pip", "install", "-q", "colossus"], check=True)
 
 import os, numpy as np
+_trap = getattr(np, 'trapezoid', None) or np.trapz
 from colossus.cosmology import cosmology
 from colossus.lss import mass_function
 OUT = os.path.abspath("xout"); os.makedirs(OUT, exist_ok=True)
@@ -37,7 +38,7 @@ L = ["X7 exploration: two-entry ledger (local records migrate to the cosmic hori
      "  clock           k      " + "  ".join(f"z={q:<4}" for q in zs) + "  | mean z2.3-9 | spread z1-9 (max-min)"]
 for model, mdef in (("press74", "fof"), ("sheth99", "fof"), ("tinker08", "200m")):
     dn = np.array([mass_function.massFunction(M, zz, q_in='M', q_out='dndlnM', mdef=mdef, model=model) for zz in z])
-    U = np.trapezoid(dn * M**(5 / 3) * ((Dc * E**2)[:, None])**(1 / 3), lnM, axis=1)
+    U = _trap(dn * M**(5 / 3) * ((Dc * E**2)[:, None])**(1 / 3), lnM, axis=1)
     w = np.clip(np.gradient(U, lna), 0, None)
     L.append(f" {model}")
     rows = [("none (book)", None, w)]
