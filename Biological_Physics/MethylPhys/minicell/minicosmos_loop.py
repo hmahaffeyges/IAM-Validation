@@ -23,6 +23,14 @@ LNA = np.linspace(np.log(1e-3), np.log(50.0), 1400); A = np.exp(LNA); I1 = int(n
 E2 = OM0 * A**-3 + OR0 * A**-4 + OL0                                   # (H/H0)^2, LCDM background (light's sector; book: background unchanged)
 DLNH = -(1.5 * OM0 * A**-3 + 2 * OR0 * A**-4) / E2                           # dlnH/dlna
 OMA = OM0 * A**-3 / E2                                   # Omega_m(a)
+def set_background(om0=0.315, beta_m=None, or0=9.1e-5):
+    """Re-set the background for a lever run (minicosmos_levers.py): Omega_m, radiation, and the coupling (default Omega_m/2)."""
+    global OM0, OR0, OL0, BETA_M, E2, DLNH, OMA
+    OM0, OR0 = om0, or0; OL0 = 1 - OM0 - OR0; BETA_M = OM0 / 2 if beta_m is None else beta_m
+    E2 = OM0 * A**-3 + OR0 * A**-4 + OL0
+    DLNH = -(1.5 * OM0 * A**-3 + 2 * OR0 * A**-4) / E2
+    OMA = OM0 * A**-3 / E2
+
 cumtrap = lambda y, x: np.concatenate([[0.0], np.cumsum(0.5 * (y[1:] + y[:-1]) * np.diff(x))])
 
 def growth(E_rec, feedback=True):
