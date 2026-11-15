@@ -259,7 +259,7 @@ FASTA carries, so mm10 works through `--assembly mm10`) and records, besides the
 and `sub_err`, the A/T substitution rate, and (2026-11-15, PHY-091 amendment 2) `tc_err`, the rate of the one substitution that can fake
 a mark: a T read as C on top-strand reads, an A read as G on bottom-strand reads, at non-CpG positions where bisulfite plays no part, base quality
 20 or more. `sub_err` counts every A/T mismatch in any direction, and in a mouse strain also its genetic differences from the reference, so it
-is only an upper bound on the meter's sequencing false marks; `tc_err` is the measured one. Physics: none of IAM's Law; this is the meter. No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
+is only an upper bound on the meter's sequencing false marks; `tc_err` is the measured one. Physics: none of IAM's Law; this is the meter. With `--lambda-bam` and `--lambda-fasta` (2026-11-15, PHY-091 amendment 3) it adds `lambda_meter`: the share of cytosines on the unmethylated lambda spike-in read as C, the meter alone, since genomic non-CpG sites also carry real CpH methylation in neurons and stem or progenitor cells (reads shorter than 50 aligned bases excluded; synthetic test `doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py`, GitHub). No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
 false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
 before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
 synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub).
@@ -1212,6 +1212,9 @@ The held error with the qualifying rule's length bias removed (development, reco
 
 ### stage_q2_selfref.py::_coupling
 Nearest-neighbor coupling on held molecules (development, recorded only, plan 49.5): the adjacent pairs of unmethylated calls, set against what random placement gives each molecule from its own length L and its own number k of unmethylated calls, k (k - 1) / L. 1 when errors fall independently, above 1 when they cluster along the molecule. Nothing fitted. Clustered errors lower the lone-error count IAM-A uses at the same error share, so the two are reported together.
+
+### stage_q2_selfref.py::lambda_meter
+The meter's own false marks read on the unmethylated lambda spike-in (2026-11-15, PHY-091 amendment 3). Every cytosine of the lambda genome is unmethylated, so every C read as C there, CpG or not, is the meter: incomplete bisulfite conversion. Genomic non-CpG sites cannot give that alone, because neurons and stem or progenitor cells carry real CpH methylation. Same read rules and end skip as the genomic count; reads with fewer than 50 aligned bases are left out (partial alignments of genomic reads onto the small lambda genome). Returns None when the reference or alignment has no lambda contig. Where IAM's Law is: it is the meter, not the law; it lets the unmarked side's write error, the writer's one selection step 1/(1+D), be read with the meter removed in any cell type. Synthetic: doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py.
 
 ### stage_q2_selfref.py::meter_end_damage
 

@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "read (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_summary.txt, a17b_read_summary.txt): the meter from non-CpG sites is valid only where real CpH methylation is negligible; in healthy blood (GSE173787) the corrected unmarked-side rate is 0.0143-0.0151 in lymphocytes and 0.0112 in monocytes, inside the one-step band; other laboratories and the mouse progenitors need a spike-in meter (lambda), next",
+   "next_step": "amendment 3 queued (the meter on the lambda spike-in: Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py, then 9 spent libraries behind a canary, then Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17c_read_gh.py); healthy blood already read: lymphocytes 0.0143-0.0151, monocytes 0.0112, inside the one-step band",
    "cost": "github",
    "impact": 4
   },

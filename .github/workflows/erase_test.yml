@@ -13,6 +13,7 @@ on:
       maxpairs: {description: "default, or a cap on read pairs for a short canary (2026-11-12)", required: false, default: "default"}
       tag: {description: "pipeline item (pq:<id>, set by CANON/pipeline_next.py); empty for a manual run", required: false, default: ""}
       bamcount: {description: "1 = count the aligned file with the chain's BAM route, recording conversion failure (PHY-091, 2026-11-14); 0 = the usual molecule-file count", required: false, default: "0"}
+      lambda: {description: "1 = also align to the lambda spike-in genome and read the meter there (PHY-091 amendment 3, 2026-11-15)", required: false, default: "0"}
 permissions: {contents: read, issues: write, actions: write}
 jobs:
   one:
@@ -33,7 +34,7 @@ jobs:
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
           python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1   # stops in seconds if a package is missing (2026-10-23)
           ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
-          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} BAMCOUNT=${{ inputs.bamcount }}; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}; [ "${{ inputs.maxpairs }}" != default ] && export MAXPAIRS=${{ inputs.maxpairs }}
+          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} BAMCOUNT=${{ inputs.bamcount }} LAMBDA=${{ inputs.lambda }}; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}; [ "${{ inputs.maxpairs }}" != default ] && export MAXPAIRS=${{ inputs.maxpairs }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - name: Result to issue 32
         if: always()

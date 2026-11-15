@@ -346,6 +346,26 @@ def combine_bam(parts, assembly):
     return _finish(T, s["e_iso"], s["e_opp"], g_iso=s["g_iso"], g_opp=s["g_opp"], extra=dict(reader="aligned reads", assembly=assembly, sub_err=s["at_mm"] / max(s["at_n"], 1),
                    tc_err=(s["tc_m"] / s["tc_n"]) if s["tc_n"] else None,
                    conv_fail=s["nc_m"] / max(s["nc_t"], 1), molecules=int(s["molecules"]), qualifying=int(s["qualifying"]), reads=int(s["reads"])))
+LAMBDA_CONTIGS = ("NC_001416.1", "lambda", "J02459.1", "chrL", "Lambda_NEB")
+def lambda_meter(bam, fa):
+    """2026-11-15 (PHY-091 amendment 3): the meter's conversion failure read on the unmethylated lambda spike-in, where no cytosine is methylated,
+    so every C read as C (CpG and non-CpG alike) is the meter's false mark; unlike conv_fail at genomic non-CpG sites it carries no real CpH
+    methylation (neurons, stem and progenitor cells). Same read rules and end skip as the genomic count. Returns None when the reference has no
+    lambda contig or no lambda reads."""
+    import pysam
+    F = pysam.FastaFile(fa); B = pysam.AlignmentFile(bam, "rb")
+    ctg = next((c for c in LAMBDA_CONTIGS if c in set(F.references) and c in set(B.references)), None)
+    if ctg is None: return None
+    m = t = reads = 0
+    for r in B.fetch(ctg):
+        if r.is_unmapped or r.is_secondary or r.is_supplementary or r.is_duplicate or r.mapping_quality < 10: continue
+        if r.query_alignment_length < 50: continue   # guard: short partial alignments of genomic reads onto the small lambda genome
+        reads += 1; ref0 = r.reference_start - 1; ref = F.fetch(ctg, max(ref0, 0), r.reference_end + 1).upper()
+        if ref0 < 0: ref = "N" + ref
+        c, n1, _a = _calls_of(r, ref, ref0, False)
+        m += n1[0] + sum(1 for v in c.values() if v); t += n1[1] + len(c)
+    return dict(contig=ctg, reads=reads, cytosines=t, conv_fail_lambda=(m / t) if t else None)
+
 def count_bam(bam, fa, workers, assembly, chroms=AUTOSOMES, span=10_000_000):
     import pysam, multiprocessing as mp
     F = pysam.FastaFile(fa); jobs = [(bam, fa, c, s, min(F.get_reference_length(c), s + span)) for c in chroms for s in range(0, F.get_reference_length(c), span)]

@@ -640,6 +640,8 @@ def main():
     ap.add_argument("--ref-fasta", default=None, help="the reference FASTA the --bam was aligned to (indexed)")
     ap.add_argument("--assembly", default="hg19", choices=("hg19", "hg38", "mm10"), help="assembly of --bam (mm10: --dev-count-only only, 2026-11-14)")
     ap.add_argument("--workers", type=int, default=4, help="processes for counting --bam")
+    ap.add_argument("--lambda-bam", default=None, help="PHY-091 amendment 3 (development): the same reads aligned to the lambda spike-in genome alone; with --lambda-fasta, the meter read on lambda")
+    ap.add_argument("--lambda-fasta", default=None, help="the lambda genome FASTA (NC_001416.1) for --lambda-bam")
     ap.add_argument("--seq-chemistry", default="whole-genome bisulfite", help="chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite)")
     ap.add_argument("--dev-iama-position", action="store_true", help="development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2)")
     ap.add_argument("--geo-pat", default=None, metavar="GSM", help="fetch this GEO sample's .pat file and read it as --pat; the chain takes the file on the build it "
@@ -1484,6 +1486,9 @@ def main():
                                          genome=a.assembly, chromosomes=len(_ch), count={k: _cb.get(k) for k in ("held_err", "held_opp", "gain_err", "gain_opp", "loose_share", "tiles",
                                          "conv_fail", "sub_err", "tc_err", "reads", "molecules", "qualifying")})
             print("Stage Q2 count on the BAM:", o["iam_a_count_only"]["count"], flush=True)
+            _lm = _Q2.lambda_meter(a.lambda_bam or a.bam, a.lambda_fasta or a.ref_fasta)   # 2026-11-15 (PHY-091 amendment 3): the meter on the lambda spike-in, when the library has one
+            o["iam_a_count_only"]["lambda_meter"] = _lm
+            print("Stage Q2 lambda meter:", _lm if _lm else "no lambda contig or no lambda reads", flush=True)
         elif qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so
             # IAM-A is read on its cell-independent part, the self-reference line (the held error against the one predicted from the sample's own
             # loose share), with the shape check not applied, and flagged; every other intake rule still stops the file

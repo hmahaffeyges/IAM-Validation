@@ -132,6 +132,12 @@ if [ "$LIB" = "rrbs" ] && [ "$RESUME" != aligned ]; then
 fi
 if [ "$RESUME" != aligned ]; then
 bwameth.py --threads $T --reference $REF $R1 $R2 2> $S/logs/${GSM}_align.log | samtools view -b -o $S/bam/$GSM.u.bam - || exit 31
+if [ "${LAMBDA:-0}" = "1" ]; then   # 2026-11-15 (PHY-091 amendment 3): the same mates on the lambda genome alone, for the lambda meter
+  mkdir -p $S/lam; /usr/bin/curl -fsSL --retry 5 -o $S/lam/lambda.fa "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_001416.1&rettype=fasta" || exit 41
+  samtools faidx $S/lam/lambda.fa && bwameth.py index $S/lam/lambda.fa > $S/logs/lambda_index.log 2>&1 || exit 42
+  bwameth.py --threads $T --reference $S/lam/lambda.fa $R1 $R2 2> $S/logs/${GSM}_lambda_align.log | samtools view -b -F 4 - | samtools sort -o $S/lam/$GSM.lambda.bam - && samtools index $S/lam/$GSM.lambda.bam || exit 43
+  LAMARGS="--lambda-bam $S/lam/$GSM.lambda.bam --lambda-fasta $S/lam/lambda.fa"; log "lambda alignment: $(samtools view -c $S/lam/$GSM.lambda.bam) reads"
+fi
 rm -f $S/fq/${GSM}_*.fq; rm -rf $S/trim; TA=$(date +%s); log "aligned in $((TA-TF)) s"
   if [ -n "${CKPT:-}" ]; then echo $n1 > $S/pairs.txt; ckput "${GSM}_pairs.txt" $S/pairs.txt; ckput "${GSM}.u.bam" $S/bam/$GSM.u.bam; fi
 else TA=$(date +%s); fi
@@ -144,8 +150,8 @@ samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_
 # which also records the meter's false marks (conv_fail, non-CpG cytosines read as methylated) and A/T substitutions; no molecule file is made.
 if [ "${BAMCOUNT:-0}" = "1" ]; then
   ( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --bam $S/bam/$GSM.bam --ref-fasta $REF --assembly $gen --specimen "cultured cells" \
-      --seq-cell "$GSM" --id $GSM --dev-count-only --workers $T --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 37
-  python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --bam --dev-count-only (chain Stage Q2)', pairs=int(sys.argv[4]), **c['count']), open(sys.argv[3], 'w'), indent=1)" \
+      --seq-cell "$GSM" --id $GSM --dev-count-only ${LAMARGS:-} --workers $T --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 37
+  python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --bam --dev-count-only (chain Stage Q2)', pairs=int(sys.argv[4]), lambda_meter=c.get('lambda_meter'), **c['count']), open(sys.argv[3], 'w'), indent=1)" \
       $OUT/${GSM}_bundle.json $GSM $OUT/${GSM}_conv.json $n1 || exit 38
   cat $OUT/${GSM}_conv.json; exit 0
 fi

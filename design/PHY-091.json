@@ -60,7 +60,7 @@
  },
  "watchers": {
   "count": 1,
-  "stop_condition": "78 runs completed"
+  "stop_condition": "the 9 amendment-3 runs and p091c-read completed"
  },
  "canary": {
   "instrument_check": {
@@ -110,5 +110,6 @@
   "rule": "no seal: exploration; conv_fail reported per library with its counting uncertainty"
  },
  "amendment_1": "2026-11-14, 3:10 PM Pacific, before any library is read: the 58 healthy blood libraries in PHY-084's run list (all spent; 4 were refused by intake for partial coverage and are counted anyway, as counts) (GSE173787, hg19, referee_runs.csv) added behind the same canary, so the meter's false marks are also measured in the commissioned cell types (human); same method and rule",
- "amendment_2": "2026-11-15, 4:35 AM Pacific, proposal (review/PHY-091_AMENDMENT_2_PROPOSAL_2026-11-15.md), before any library is re-read: the chain's count-only aligned-read route adds tc_err, the rate of T read as C (top-strand reads) and A read as G (bottom-strand reads) at non-CpG reference positions, base quality >= 20, read ends skipped as now, the strain's known variants skipped where a list exists; sub_err is kept unchanged. Synthetic first (planted T->C 0, 0.002, 0.01 recovered), canary on one spent eraser library, then the 20 spent eraser libraries; the reading is the stray-mark rate minus conv_fail minus tc_err against the one-step band. Exploration."
+ "amendment_2": "2026-11-15, 4:35 AM Pacific, proposal (review/PHY-091_AMENDMENT_2_PROPOSAL_2026-11-15.md), before any library is re-read: the chain's count-only aligned-read route adds tc_err, the rate of T read as C (top-strand reads) and A read as G (bottom-strand reads) at non-CpG reference positions, base quality >= 20, read ends skipped as now, the strain's known variants skipped where a list exists; sub_err is kept unchanged. Synthetic first (planted T->C 0, 0.002, 0.01 recovered), canary on one spent eraser library, then the 20 spent eraser libraries; the reading is the stray-mark rate minus conv_fail minus tc_err against the one-step band. Exploration.",
+ "amendment_3": "2026-11-15, 8:30 AM Pacific, before any library is re-read: the non-CpG meter also counts real CpH methylation (atlas neurons read negative after subtracting it), so the meter is read where nothing is methylated: the lambda spike-in. The chain's count-only route adds lambda_meter (stage_q2_selfref.lambda_meter; run_sample.py --lambda-bam/--lambda-fasta; erase_gh.sh LAMBDA=1 aligns the same mates to NC_001416.1 alone; reads shorter than 50 aligned bases excluded). Synthetic: conv_01/lambda_synthetic.py (planted 0, 0.003, 0.01, 0.03; short-read guard; no-lambda reference), on GitHub before any library. Spent data only, 9 runs, 2 million pairs each: canary GSM7111686, then GSM7111687-GSM7111691 (GSE227977, lambda-spiked per GEO), negative controls GSM4907469 and GSM4907470 (GSE161463, no spike stated), and GSM7516977 (GSE236026, human, lambda-spiked, hg19 reference already carries lambda). Reading: conv_01/a17c_read_gh.py. Exploration."
 }

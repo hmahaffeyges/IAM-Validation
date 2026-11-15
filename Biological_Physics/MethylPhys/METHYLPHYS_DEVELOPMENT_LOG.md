@@ -5516,3 +5516,14 @@ published figure is real CpH methylation plus conversion failure, so the atlas "
 progenitor 0.0083 is suspect for the same reason (the chain's conv_fail counts real CpH methylation too). The non-CpG route measures the meter only
 where CpH methylation is negligible (mature human blood) or with a spike-in. In the referee laboratory's healthy blood, by cell type: lymphoid
 0.0143-0.0151, monocytes 0.0112 (conv_01/a17_read.csv): inside the one-step band, type-specific. Exploration.
+
+### 2026-11-15 · PHY-091 amendment 3: the meter read on the lambda spike-in; book end-state wording corrected
+The non-CpG meter also counts real CpH methylation (correction 2), so the chain's count-only route now reads the meter where nothing is methylated:
+the lambda spike-in (stage_q2_selfref.lambda_meter; run_sample.py --lambda-bam/--lambda-fasta; erase_gh.sh LAMBDA=1 aligns the same mates to
+NC_001416.1 alone; erase_test.yml input `lambda`). Synthetic doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py runs first on GitHub; then 9 spent
+libraries behind a canary (GSE227977 lambda-spiked mouse blood, two unspiked negative controls from GSE161463, one lambda-spiked human library from
+GSE236026); reading conv_01/a17c_read_gh.py. Design sheet amendment_3.
+Book (author's authority, reported): docs/book/part2/p2_11_dark_energy.tex sec:de_saturation and sec:de_weff no longer say that structure formation
+ends or that the whole record is written; the cosmic record approaches e without reaching it, the growth of new large-scale structure levels off
+while structure keeps evolving in bound systems, and the record term settles at a constant density acting as a cosmological constant on matter's
+ruler (matter's rate settles at H0 sqrt(Omega_L + beta_m e)), rather than shutting off.
