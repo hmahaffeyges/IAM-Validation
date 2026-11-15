@@ -1,0 +1,4 @@
+planted T->C 0.000 (plus 1 % at quality 5, to be excluded): chain tc_err 0.0, conv_fail 0.00297, sub_err 0.00513: ok
+planted T->C 0.002 (plus 1 % at quality 5, to be excluded): chain tc_err 0.001842172907205895, conv_fail 0.00297, sub_err 0.00630: ok
+planted T->C 0.010 (plus 1 % at quality 5, to be excluded): chain tc_err 0.010318253175396032, conv_fail 0.00297, sub_err 0.01020: ok
+ALL RECOVERED

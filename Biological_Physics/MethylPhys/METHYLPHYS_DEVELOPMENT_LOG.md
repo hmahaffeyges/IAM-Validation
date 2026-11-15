@@ -5483,3 +5483,10 @@ review/PHY-091_AMENDMENT_2_PROPOSAL_2026-11-15.md) adds `tc_err` to the count-on
 top-strand reads and A read as G on bottom-strand reads, at reference T or A (no bisulfite involved), base quality >= 20, sampled on the same reads
 as `sub_err`; `sub_err` is unchanged. Decoder entry updated. Synthetic test (doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py) plants 0, 0.002 and
 0.01 at quality 40 plus 1 % at quality 5 that must be excluded; it runs on GitHub before any library is re-read.
+
+### 2026-11-15 · PHY-091 amendment 2 synthetic met; the 20 eraser libraries re-counted behind a canary
+The tc_err synthetic (doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py, GitHub run 43716593024) ran through the one command: planted T->C 0, 0.002
+and 0.01 at quality 40, plus 1 % at quality 5 that must be excluded, were recovered as 0.0, 0.00184 and 0.01032, all inside 4 counting sigma, with
+conv_fail unchanged at 0.00297 (planted 0.003); sub_err picked up the low-quality share as designed (tc_synthetic_summary.txt). The 20 spent eraser
+libraries are queued again with the same inputs (p091b-, canary GSM1866966 under the same canary rule), then p091b-read
+(conv_01/a17b_read_gh.py: the stray-mark rate minus conv_fail minus tc_err against the one-step band). Exploration.
