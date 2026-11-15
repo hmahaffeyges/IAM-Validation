@@ -1,0 +1,6 @@
+T1 islands synthetic (run_sample.py --pat --dev-count-only --dev-count-sites islands), 2026-11-15
+  islands territory: 66986 probes, 66986 with an hg19 CpG index; 4000 island anchors, 4000 far anchors
+  planted islands 0.004, elsewhere 0.015: islands read 0.004148236999275308 on 40017 opportunities (PASS); genome-wide 0.008977019829461629 (PASS)
+  planted islands 0.012, elsewhere 0.012: islands read 0.011969887076537013 on 39850 opportunities (PASS); genome-wide 0.011749224844968993 (PASS)
+  planted islands 0.0, elsewhere 0.015: islands read 0.0 on 40008 opportunities (PASS); genome-wide 0.007151251469007076 (PASS)
+SYNTHETIC MET

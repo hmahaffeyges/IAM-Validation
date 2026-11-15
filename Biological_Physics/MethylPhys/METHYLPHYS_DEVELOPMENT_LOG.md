@@ -5568,3 +5568,10 @@ lambda-spiked mature human blood). The two libraries meant as unspiked controls 
 mismapping guard is not assessed on real data. Also: the PHY-093 synthetic stopped in two of three cases in the development second deconvolution
 (provisional columns; NaN on a constructed file with almost no methylation profile); run_sample.py now records that reading's failure and goes on
 (Decoder entry stage_v4.py::stage_d21_provisional). The third case passed (islands 0.01197 against 0.012 planted).
+
+### 2026-11-15 · PHY-091 amendment 4 queued (the missing negative control) and PHY-093 synthetic met
+PHY-093 synthetic rerun met all three cases (islands 0.00415 / 0.01197 / 0 against 0.004 / 0.012 / 0 planted, about 40,000 opportunities each;
+Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic_summary.txt); the canary library is running. PHY-091 amendment 4: three
+spent referee blood libraries (GSM5278426, GSM5278467, GSM5278520) re-read with the lambda meter, either the negative control amendment 3 lacked or
+each library's meter read directly. Note for the meter (Genome Research 28:1364, 2018): lambda DNA taken through end repair can show apparent non-CpG
+methylation, so a lambda meter can also over-read; recorded beside the reading.

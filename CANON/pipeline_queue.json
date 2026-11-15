@@ -4131,6 +4131,63 @@
    },
    "row": "PHY-093",
    "design": "design/PHY-093.json"
+  },
+  {
+   "id": "p091d-GSM5278426",
+   "row": "PHY-091",
+   "design": "design/PHY-091.json",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278426",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "none",
+    "maxpairs": "2000000",
+    "bamcount": "1",
+    "lambda": "1"
+   },
+   "after": [
+    "p093-GSM5278426"
+   ]
+  },
+  {
+   "id": "p091d-GSM5278467",
+   "row": "PHY-091",
+   "design": "design/PHY-091.json",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278467",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "none",
+    "maxpairs": "2000000",
+    "bamcount": "1",
+    "lambda": "1"
+   },
+   "after": [
+    "p093-GSM5278426"
+   ]
+  },
+  {
+   "id": "p091d-GSM5278520",
+   "row": "PHY-091",
+   "design": "design/PHY-091.json",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278520",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "none",
+    "maxpairs": "2000000",
+    "bamcount": "1",
+    "lambda": "1"
+   },
+   "after": [
+    "p093-GSM5278426"
+   ]
   }
  ]
 }
