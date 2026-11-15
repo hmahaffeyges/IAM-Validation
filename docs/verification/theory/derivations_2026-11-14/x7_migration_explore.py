@@ -9,6 +9,12 @@ rate set by their temperature difference'). Local records L are written at the b
 Two clocks are tried: k per e-fold constant (migration time a fixed fraction of the Hubble time) and k per unit time constant (k(a) = k_t / E(a)).
 For each, n_eff of the cosmic rate, the book's definition d ln[(j/f)]/d ln D, and its spread over z = 1-9. Same code and parameters as
 docs/verification/scripts/verify_bottom_up_exponent.py. Writes xout/x7_migration_summary.txt."""
+import subprocess, sys
+try:
+    __import__("colossus")
+except ImportError:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "colossus"], check=True)
+
 import os, numpy as np
 from colossus.cosmology import cosmology
 from colossus.lss import mass_function
