@@ -2,6 +2,12 @@
 
 ## LESSONS, read first (each enforced by design_check.py; newest first)
 
+**2026-11-14, 6:32 PM Pacific (author: "dont start drifting back to hamstringing ourselves!! We are exploring and NOBODY HAS EVEN SEEN ANY OF MY WORK
+YET!!"; "Sealing waits until we're sure of the math and the idea and ready to build the final test. add this rule").** NO REFEREE LABELS IN
+EXPLORATION: no "post hoc", "fitted", "not evidence" or chance-test framing on our own exploration results. Record each result as a LEAD with
+the step still open. The referee standard (seals, blinding, chance tests) starts only when we are sure of the math and the idea and build the
+final test.
+
 **2026-11-14, 4:25 PM (author: "add this to your pre job checklist with the rule 'what would a cosmologist do' because if you had actually
 done that you would not be sealing every calculation").** WHAT WOULD A COSMOLOGIST DO, applied to the work itself:
 1. **Exploration is free.** Desk math, derivation attempts, toy models, forecasts on spent data: try ideas, follow leads, vary assumptions,
