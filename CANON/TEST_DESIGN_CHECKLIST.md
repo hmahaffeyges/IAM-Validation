@@ -2,6 +2,16 @@
 
 ## LESSONS, read first (each enforced by design_check.py; newest first)
 
+**2026-11-14, 4:25 PM (author: "add this to your pre job checklist with the rule 'what would a cosmologist do' because if you had actually
+done that you would not be sealing every calculation").** WHAT WOULD A COSMOLOGIST DO, applied to the work itself:
+1. **Exploration is free.** Desk math, derivation attempts, toy models, forecasts on spent data: try ideas, follow leads, vary assumptions,
+   and read the results for what they suggest. No principle written in advance, no seal, no pass or fail. A cosmologist runs forecasts and
+   parameter scans freely and blinds only the final analysis. Keep a plain note of what was tried (register row or work note), so we can later
+   see which path led where.
+2. **Final derivation tests only:** the seal, the synthetic test, the canary and the spent-versus-unspent rules apply when we build a test of a
+   real application of the physics that can fail. The exploration is what tells us which test to build and that we already believe it (lesson 2,
+   2026-11-13).
+
 **2026-11-14 (PHY-092's first reading failed its own null rule; PHY-091's BAM route would have read nothing from bwa-meth files).**
 1. **The synthetic runs at the real data's measured noise, and the null rule is rehearsed on spent real data before anything is queued.**
    PHY-092's synthetic used tile noise 0.01; the wild types' own was about 0.06, so the reading's null rule failed and it was not assessed.
