@@ -5584,3 +5584,7 @@ GSM5278446 and GSM5278472 stopped with exit 35: the chain's genome-coverage inta
 them (7 and 11 autosomes under half the median share of sites with a value). They are two of the four libraries PHY-084 already named for partial
 coverage. The molecule-file route runs the Deconvolver first, so the refusal stands; they are left out of the reading (design/PHY-093.json
 amendment 1), not forced through. (The bam2pat reference lookup error earlier in both logs was recovered by the workflow's own retry.)
+
+### 2026-11-15 · PHY-093 amendment 2: a third partial-coverage library refused by intake
+GSM5278476 stopped with exit 35, refused by the genome-coverage intake (chr18 to chr22 under half the median autosome's share). Left out of
+the reading on the same rule as amendment 1 (design/PHY-093.json amendment 2).
