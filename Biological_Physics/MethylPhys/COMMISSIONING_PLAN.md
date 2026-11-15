@@ -495,6 +495,7 @@ _Each branch names the step it came from and its next action, so no path is lost
 ## Scheduled
 
 - 2027-04-12: the next atlas and lung-stroma source search (rule 19) (SCO-075)
+- : PHY-091 (derivation input, A17 -> A15): the meter's false marks in 77 spent libraries on GitHub, then the reading p091-read (PHY-091)
 
 ## Machines running now (machine ledger)
 

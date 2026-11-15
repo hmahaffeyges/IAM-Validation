@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "canary passed (GSM1866966: 99.3 % mapped, conv_fail 0.0059); the 19 erase and 58 blood libraries running on GitHub; read when all are in",
+   "next_step": "canary passed; the 19 erase and 58 blood libraries running on GitHub; then p091-read (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_gh.py: stray marks minus the meter's false marks against the one-step selection band, A17 -> A15)",
    "cost": "github",
    "impact": 4
   },
