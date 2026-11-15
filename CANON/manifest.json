@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "READ 2026-11-15 (exploration; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_summary.txt): healthy blood, stray marks minus the meter's conversion failure 0.0143, inside the one-step band; the mouse eraser libraries need a sharper sequencing-error measure before reading",
+   "next_step": "amendment 2 (tc_err, the substitution that can fake a mark) added to the chain's count-only route; synthetic Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py on GitHub first, then a canary on one spent eraser library, then the 20 eraser libraries; read 2026-11-15 in blood (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_summary.txt)",
    "cost": "github",
    "impact": 4
   },

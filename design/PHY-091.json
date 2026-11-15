@@ -109,5 +109,6 @@
  "bars": {
   "rule": "no seal: exploration; conv_fail reported per library with its counting uncertainty"
  },
- "amendment_1": "2026-11-14, 3:10 PM Pacific, before any library is read: the 58 healthy blood libraries in PHY-084's run list (all spent; 4 were refused by intake for partial coverage and are counted anyway, as counts) (GSE173787, hg19, referee_runs.csv) added behind the same canary, so the meter's false marks are also measured in the commissioned cell types (human); same method and rule"
+ "amendment_1": "2026-11-14, 3:10 PM Pacific, before any library is read: the 58 healthy blood libraries in PHY-084's run list (all spent; 4 were refused by intake for partial coverage and are counted anyway, as counts) (GSE173787, hg19, referee_runs.csv) added behind the same canary, so the meter's false marks are also measured in the commissioned cell types (human); same method and rule",
+ "amendment_2": "2026-11-15, 4:35 AM Pacific, proposal (review/PHY-091_AMENDMENT_2_PROPOSAL_2026-11-15.md), before any library is re-read: the chain's count-only aligned-read route adds tc_err, the rate of T read as C (top-strand reads) and A read as G (bottom-strand reads) at non-CpG reference positions, base quality >= 20, read ends skipped as now, the strain's known variants skipped where a list exists; sub_err is kept unchanged. Synthetic first (planted T->C 0, 0.002, 0.01 recovered), canary on one spent eraser library, then the 20 spent eraser libraries; the reading is the stray-mark rate minus conv_fail minus tc_err against the one-step band. Exploration."
 }

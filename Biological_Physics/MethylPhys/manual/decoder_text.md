@@ -256,10 +256,13 @@ reference). IAM-A itself stays refused. The firm-rate recount reads the held err
 does not depend on the genome; the loose share uses hg19 tiles and is marked meaningless on another genome (`--dev-count-genome`). **With `--bam` (2026-11-14, PHY-091):** Stage Q2 counts the aligned file directly (`stage_q2_selfref.count_bam` over the autosomes the reference
 FASTA carries, so mm10 works through `--assembly mm10`) and records, besides the held error and the stray marks, the meter's own false marks:
 `conv_fail`, the share of non-CpG cytosines read as methylated (incomplete bisulfite conversion; the known-zero channel each library carries),
-and `sub_err`, the A/T substitution rate. No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
+and `sub_err`, the A/T substitution rate, and (2026-11-15, PHY-091 amendment 2) `tc_err`, the rate of the one substitution that can fake
+a mark: a T read as C on top-strand reads, an A read as G on bottom-strand reads, at non-CpG positions where bisulfite plays no part, base quality
+20 or more. `sub_err` counts every A/T mismatch in any direction, and in a mouse strain also its genetic differences from the reference, so it
+is only an upper bound on the meter's sequencing false marks; `tc_err` is the measured one. Physics: none of IAM's Law; this is the meter. No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
 false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
 before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
-synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub).
+synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub).
 
 ### run_sample.py::_metaa_atlas
 `--dev-metaa-atlas CELL` (development, not commissioned): maps the values by Stage T step 1 (the self-tare the commissioned Met-A reads), refuses

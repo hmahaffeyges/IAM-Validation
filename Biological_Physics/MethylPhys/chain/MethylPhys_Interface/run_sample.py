@@ -1475,13 +1475,14 @@ def main():
         _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]
         if a.dev_count_only and a.bam:   # 2026-11-14 (PHY-091): Stage Q2's count on an aligned BAM, any assembly the reference FASTA carries; it also
             # records the meter's own false marks (bisulfite conversion failure at non-CpG cytosines, conv_fail) and A/T substitutions (sub_err)
+            # and, from 2026-11-15 (amendment 2), tc_err: T read as C (top) / A read as G (bottom) at quality >= 20, the substitution that can fake a mark
             import pysam as _psb
             _ch = [c for c in _Q2.AUTOSOMES if c in set(_psb.FastaFile(a.ref_fasta).references)]
             print(f"Stage Q2: counting only on {os.path.basename(a.bam)} ({a.assembly}, {len(_ch)} autosomes), with conversion failure", flush=True)
             _cb = _Q2.count_bam(a.bam, a.ref_fasta, a.workers, a.assembly, chroms=_ch)
             o["iam_a_count_only"] = dict(stage="Q2 count on an aligned BAM (development)", flag="DEVELOPMENT, NOT COMMISSIONED: Stage Q2's count only; no IAM-A reading",
                                          genome=a.assembly, chromosomes=len(_ch), count={k: _cb.get(k) for k in ("held_err", "held_opp", "gain_err", "gain_opp", "loose_share", "tiles",
-                                         "conv_fail", "sub_err", "reads", "molecules", "qualifying")})
+                                         "conv_fail", "sub_err", "tc_err", "reads", "molecules", "qualifying")})
             print("Stage Q2 count on the BAM:", o["iam_a_count_only"]["count"], flush=True)
         elif qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so
             # IAM-A is read on its cell-independent part, the self-reference line (the held error against the one predicted from the sample's own

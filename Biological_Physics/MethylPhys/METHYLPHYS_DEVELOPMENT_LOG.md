@@ -5474,3 +5474,12 @@ meter's conversion failure 0.0143 (0.0101-0.0173), inside the one-step selection
 carries about a quarter to a third of the raw rate. Eraser libraries (20, mouse, older): minus conversion 0.0087 (0.0061-0.0183), below the band;
 their sequencing error is high (median 0.0098), so the upper-bound subtraction (about 0) is too coarse there; they need a sharper sequencing-error
 measure before they are read.
+
+### 2026-11-15 · PHY-091 amendment 2: the sequencing substitution that can fake a mark, added to the count-only route (synthetic queued)
+PHY-091's reading subtracted `sub_err` as an upper bound on the meter's sequencing false marks. `sub_err` counts every A/T mismatch in any
+direction and at any base quality; in the mouse eraser libraries (knockout strains on mm10) it also carries the strain's genetic differences
+(median 0.0098 against 0.0026 in human blood), so the subtraction took those libraries to about zero. Amendment 2 (design/PHY-091.json,
+review/PHY-091_AMENDMENT_2_PROPOSAL_2026-11-15.md) adds `tc_err` to the count-only aligned-read route (stage_q2_selfref._calls_of): T read as C on
+top-strand reads and A read as G on bottom-strand reads, at reference T or A (no bisulfite involved), base quality >= 20, sampled on the same reads
+as `sub_err`; `sub_err` is unchanged. Decoder entry updated. Synthetic test (doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py) plants 0, 0.002 and
+0.01 at quality 40 plus 1 % at quality 5 that must be excluded; it runs on GitHub before any library is re-read.

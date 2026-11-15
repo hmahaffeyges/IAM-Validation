@@ -263,7 +263,8 @@ AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
 def _cpg_index(seq):
     b = np.frombuffer(seq.upper().encode(), dtype=np.uint8); return np.flatnonzero((b[:-1] == ord("C")) & (b[1:] == ord("G")))
 def _calls_of(r, ref, ref0, sub):
-    q = r.query_sequence; out = {}; nc = [0, 0]; at = [0, 0]
+    q = r.query_sequence; out = {}; nc = [0, 0]; at = [0, 0, 0, 0]   # at: A/T mismatches, A/T read; then T->C (top) / A->G (bottom) at quality >= 20, positions read
+    bq = r.query_qualities   # 2026-11-15 (PHY-091 amendment 2): tc_err, the substitution that can fake a mark, measured where no bisulfite is involved
     if q is None: return out, nc, at
     xm = r.get_tag("XM") if r.has_tag("XM") else None; xb = r.get_tag("XB") if r.has_tag("XB") else None
     if xb is None and r.has_tag("YD"): xb = {"f": "C", "r": "G"}.get(r.get_tag("YD"))   # 2026-11-14 (PHY-091): bwa-meth marks the original strand
@@ -276,7 +277,10 @@ def _calls_of(r, ref, ref0, sub):
         k = ri - ref0
         if k < 1 or k + 1 >= len(ref): continue
         rb, qb = ref[k], q[qi]
-        if sub and rb in "AT": at[1] += 1; at[0] += qb != rb
+        if sub and rb in "AT":
+            at[1] += 1; at[0] += qb != rb
+            if (top and rb == "T") or ((not top) and rb == "A"):
+                if bq is None or bq[qi] >= 20: at[3] += 1; at[2] += qb == ("C" if top else "G")
         if xm is not None:
             z = xm[qi]
             if z in "Zz": out[ri if top else ri - 1] = z == "Z"
@@ -326,20 +330,21 @@ def count_bam_region(args):
         ref0 = r.reference_start - 1; ref = F.fetch(chrom, max(ref0, 0), r.reference_end + 1).upper()
         if ref0 < 0: ref = "N" + ref
         c, n1, a1 = _calls_of(r, ref, ref0, st["reads"] % 20 == 0)
-        st["nc_m"] += n1[0]; st["nc_t"] += n1[1]; st["at_mm"] += a1[0]; st["at_n"] += a1[1]
+        st["nc_m"] += n1[0]; st["nc_t"] += n1[1]; st["at_mm"] += a1[0]; st["at_n"] += a1[1]; st["tc_m"] += a1[2]; st["tc_n"] += a1[3]
         if r.is_paired and not r.mate_is_unmapped and r.next_reference_name == chrom and r.next_reference_start >= s0:
             if r.query_name in buf: done(_merge(buf.pop(r.query_name), c)); continue
             if r.next_reference_start >= r.reference_start and r.next_reference_start < e0: buf[r.query_name] = c; continue
         done(sorted(c.items()))
     for c in buf.values(): done(sorted(c.items()))
-    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, n_hist={int(a): int(b) for a, b in nh.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
+    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, n_hist={int(a): int(b) for a, b in nh.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n", "tc_m", "tc_n")})
 def combine_bam(parts, assembly):
     T = {}; s = collections.Counter()
     for p in parts:
         for t, v in p["tiles"].items():
             a = T.setdefault((p["chrom"], int(t)), [0, 0]); a[0] += v[0]; a[1] += v[1]
-        for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n"): s[x] += p[x]
+        for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n", "tc_m", "tc_n"): s[x] += p.get(x, 0)
     return _finish(T, s["e_iso"], s["e_opp"], g_iso=s["g_iso"], g_opp=s["g_opp"], extra=dict(reader="aligned reads", assembly=assembly, sub_err=s["at_mm"] / max(s["at_n"], 1),
+                   tc_err=(s["tc_m"] / s["tc_n"]) if s["tc_n"] else None,
                    conv_fail=s["nc_m"] / max(s["nc_t"], 1), molecules=int(s["molecules"]), qualifying=int(s["qualifying"]), reads=int(s["reads"])))
 def count_bam(bam, fa, workers, assembly, chroms=AUTOSOMES, span=10_000_000):
     import pysam, multiprocessing as mp
