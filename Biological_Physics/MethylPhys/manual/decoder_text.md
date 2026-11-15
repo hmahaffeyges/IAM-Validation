@@ -2664,7 +2664,7 @@ Loads a saved provisional column, if one was built.
 The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 itself is never changed.
 
 ### stage_v4.py::stage_d21_provisional
-A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
+A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18). If it fails (for example on a constructed file with almost no methylation profile), run_sample.py records it under cell_shares_provisional with its reason and the run goes on (2026-11-15, PHY-093 synthetic); it is a development reading and never stops a count.
 
 ### stage_provisional.py::column_v2
 Version 2 of a provisional column (after test 1): the level from the shrunk proportion (m + 1/2)/(n + 1), the counting spread carried through the atlas's inverse transfer by the two ends of its interval (no local slope, so thin sites at the ends are not made narrow), and only sites with at least 5 reads.

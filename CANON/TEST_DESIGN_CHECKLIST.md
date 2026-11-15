@@ -7,7 +7,7 @@ BEFORE each test: (1) Is this the fastest, cheapest, most practical way? (2) Am 
 with spent data first? (4) What would a cosmologist do? (5) Is it public or private? (6) Are the chain and the Decoder covered?
 AFTER each test: (1) Was it the fastest, cheapest, most practical way? (2) Are ALL of these updated fully with the new information: the cross-domain
 docs (private), IAM's web (private/board, register), the canon files (CANON/*.json), the chain, the Decoder, the SOP, the simulators (all four), the
-webpage, the book, the Q&A, every repo item and every private item? (3) Has IAM's web been checked for whether the result transfers to a NEIGHBOUR
+webpage, the book, the Q&A, every repo item and every private item? (3) Has IAM's web been checked for whether the result transfers to a NEIGHBOR
 (connects them) or finishes another derivation directly? (4) Does it transfer to another DOMAIN (the cell, the cosmos, or a private domain)? If so, update that
 domain everywhere too. Record the answers in the development log entry for the test.
 

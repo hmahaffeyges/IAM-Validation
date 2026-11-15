@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "amendment 3 queued (the meter on the lambda spike-in: Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py, then 9 spent libraries behind a canary, then Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17c_read_gh.py); healthy blood already read: lymphocytes 0.0143-0.0151, monocytes 0.0112, inside the one-step band After-test check 2026-11-15: in mature blood the atlas laboratory's published non-CpG figure is 2-3x the referee laboratory's chain-counted conversion failure, so the atlas blood comparison is not assessed like for like (published figure, not the chain's count); amendment 3 (lambda spike-in) running. Book p6_08 and the SOP updated.",
+   "next_step": "amendment 3 queued (the meter on the lambda spike-in: Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py, then 9 spent libraries behind a canary, then Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17c_read_gh.py); healthy blood already read: lymphocytes 0.0143-0.0151, monocytes 0.0112, inside the one-step band After-test check 2026-11-15: in mature blood the atlas laboratory's published non-CpG figure is 2-3x the referee laboratory's chain-counted conversion failure, so the atlas blood comparison is not assessed like for like (published figure, not the chain's count); amendment 3 (lambda spike-in) running. Book p6_08 and the SOP updated. Canon four_domains gate_error (cells' entry) updated 2026-11-15 with the in-cell writer reading. Amendment 3 read 2026-11-15 (a17c_read_gh.py): lambda meter median 0.0072; writer with it ~0.008 in mouse blood, mouse B cells and a human cultured line; human mature blood with lambda still to find.",
    "cost": "github",
    "impact": 4
   },
@@ -28786,7 +28786,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py",
    "status": "designed",
-   "next_step": "synthetic (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic.py) on GitHub, then the canary, then the 57 libraries and the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py)",
+   "next_step": "synthetic (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic.py) on GitHub, then the canary, then the 57 libraries and the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py) Synthetic first run 2026-11-15: 1 of 3 cases passed, 2 stopped in the unguarded provisional deconvolution (now guarded); re-run.",
    "cost": "github",
    "impact": 4,
    "design": "design/PHY-093.json"

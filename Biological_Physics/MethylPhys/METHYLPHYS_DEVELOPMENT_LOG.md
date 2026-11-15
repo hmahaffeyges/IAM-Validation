@@ -5549,3 +5549,22 @@ library's meter already measured by PHY-091; null rule rehearsed on the 20 erase
 countsites; Decoder entry under --dev-count-only). Synthetic islands_synthetic.py through the one command; canary rule p093_canary.py; reader
 p093_read_gh.py; design/PHY-093.json passes design_check. Question: does the islands' unmarked side read at the writer's one-step error plus the
 meter (T1 derives from A15 and A17), or lower (an islands shield to price)?
+
+### 2026-11-15 · PHY-091 in the canon: the writer's error read in cells; the privacy check counts net new terms
+CANON/four_domains.json, the cells' entry of the shared 'gate_error' slot (for cells: the writer's own selection error): the PHY-091 reading in healthy
+blood added (writer lymphoid 0.0143-0.0151, D 65-69; monocytes 0.0112, D 88; meter 0.0049 of 0.0191). It was held back at 9:15 AM because the
+public table FOUR_DOMAINS.md prints the slot's existing label on the edited line and CANON/privacy_check.py read any changed line naming a private-domain
+term as new material. Fix (author 2026-11-15: a cell has no such error; 'you do what you think is the right thing'):
+the check now counts NET new terms per file (an edited line keeping its existing term adds none; any extra occurrence, or a new line naming a private-domain
+term, is refused as before), with controls for each direction. The slot keeps its canon name; nothing was renamed.
+
+### 2026-11-15 · PHY-091 amendment 3 read: the meter on lambda DNA; the writer reads ~0.008 wherever the lambda meter is used
+p091c-read (run 43747067902; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17c_read_gh.py): 9 libraries, every one spiked with lambda.
+Meter on lambda median 0.0072; meter from non-CpG cytosines median 0.0082. Writer (stray-mark rate minus the lambda meter minus tc_err) median 0.0080
+(0.0070-0.0092), below the one-step band 0.0123-0.0207, in mouse mature blood (6), mouse B cells (2) and a human cultured PBAT line (1). In mature mouse
+blood the non-CpG figure is about 1.1 times the lambda meter, so in mature blood it is close to the true meter; the referee laboratory's human blood
+writer (0.0143-0.0151, PHY-091) is then probably not a meter artifact, and the difference is between species or laboratories (to decide on
+lambda-spiked mature human blood). The two libraries meant as unspiked controls turned out to carry about 11,000 lambda reads each, so the
+mismapping guard is not assessed on real data. Also: the PHY-093 synthetic stopped in two of three cases in the development second deconvolution
+(provisional columns; NaN on a constructed file with almost no methylation profile); run_sample.py now records that reading's failure and goes on
+(Decoder entry stage_v4.py::stage_d21_provisional). The third case passed (islands 0.01197 against 0.012 planted).

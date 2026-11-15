@@ -1318,7 +1318,8 @@ def main():
             o["cell_shares"]["declared"] = "the shares were declared with --dev-shares for diagnosis; the Deconvolver's own shares are under cell_shares_read"
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
-            o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
+            try: o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
+            except Exception as e: o["cell_shares_provisional"] = {"flag": "development", "reason": f"not read: {type(e).__name__}: {str(e)[:160]}"}   # 2026-11-15 (PHY-093 synthetic): a development reading that fails is recorded, never stops the run
         _neu_iso = _S0spec.ACCEPTED_SPECIMENS.get(_S0spec.normalise_specimen(a.specimen)) == "isolated neutrophils"   # 2026-11-09: sorted neutrophils get the atlas readings too (the first commissioning's branch still runs)
         _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen) or _neu_iso)
         if _atlas_spec and not (o["cell_shares"] or {}).get("cells"):   # 2026-10-25: say why the atlas readings did not run, instead of leaving them out
