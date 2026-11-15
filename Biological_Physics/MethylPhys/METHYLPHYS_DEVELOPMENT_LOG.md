@@ -5527,3 +5527,15 @@ Book (author's authority, reported): docs/book/part2/p2_11_dark_energy.tex sec:d
 ends or that the whole record is written; the cosmic record approaches e without reaching it, the growth of new large-scale structure levels off
 while structure keeps evolving in bound systems, and the record term settles at a constant density acting as a cosmological constant on matter's
 ruler (matter's rate settles at H0 sqrt(Omega_L + beta_m e)), rather than shutting off.
+
+### 2026-11-15 · PHY-091 after-test check: everything updated; the blood gap between laboratories not assessed like for like
+After-test questions (CANON/TEST_DESIGN_CHECKLIST.md, 2026-11-15). Fastest and cheapest: yes (spent libraries, GitHub, count-only route).
+Updated: book docs/book/part6/p6_08_iama.tex (the unmethylated channel: the meter is about a quarter of what is read in 58 healthy blood libraries,
+0.0049 of 0.0191, not dominant; author's authority, reported); canon CANON/four_domains.json gate_error (the writer read in cells: lymphoid
+0.0143-0.0151, monocytes 0.0112, D 65-88); chain and Decoder (lambda_meter, earlier today); SOP (conv_fail counts real CpH outside mature blood;
+tc_err; lambda_meter); cell simulator (D_select note); register (private). IAM's web: transfers to T1 (the islands' writer part per blood type),
+E3 (one-step copy confirmed in cells), A18 (branch S in blood). Other domains: none changes (the one-step writer is a cell result; the private domains are sorted in private files).
+Correction to correction 2: in mature blood, where real CpH methylation is negligible, the atlas laboratory's published non-CpG figure (0.009-0.012)
+is two to three times the referee laboratory's chain-counted conversion failure (0.0037-0.0050), and after subtracting it the atlas blood types read
+0.0041-0.0069 against the referee's 0.0112-0.0151; as read the two are close. So the atlas is not assessed like for like (published figure, not the
+chain's count; its raw reads are gated). Only the neuron and progenitor part of the earlier retraction stands.

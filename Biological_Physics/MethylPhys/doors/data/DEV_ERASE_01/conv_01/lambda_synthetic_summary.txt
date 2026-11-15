@@ -1,0 +1,8 @@
+PHY-091 amendment 3 synthetic: the chain's lambda meter on planted conversion failure
+  planted 0.0000  recovered 0.00000  reads 6000  cytosines 141050  PASS
+  planted 0.0030  recovered 0.00295  reads 6000  cytosines 141186  PASS
+  planted 0.0100  recovered 0.00985  reads 6000  cytosines 141472  PASS
+  planted 0.0300  recovered 0.03035  reads 6000  cytosines 141206  PASS
+  planted 0.0030 plus 3,000 reads of 40 bases at 0.5: recovered 0.00295 (PASS: short reads excluded)
+  reference with no lambda contig: None (PASS)
+SYNTHETIC MET

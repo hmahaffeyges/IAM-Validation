@@ -2,6 +2,15 @@
 
 ## LESSONS, read first (each enforced by design_check.py; newest first)
 
+**2026-11-15, 9:10 AM Pacific (author, restated as the standing order for every test and every derivation step).**
+BEFORE each test: (1) Is this the fastest, cheapest, most practical way? (2) Am I spending data I don't have to? (3) Have I explored on paper and
+with spent data first? (4) What would a cosmologist do? (5) Is it public or private? (6) Are the chain and the Decoder covered?
+AFTER each test: (1) Was it the fastest, cheapest, most practical way? (2) Are ALL of these updated fully with the new information: the cross-domain
+docs (private), IAM's web (private/board, register), the canon files (CANON/*.json), the chain, the Decoder, the SOP, the simulators (all four), the
+webpage, the book, the Q&A, every repo item and every private item? (3) Has IAM's web been checked for whether the result transfers to a NEIGHBOUR
+(connects them) or finishes another derivation directly? (4) Does it transfer to another DOMAIN (the cell, the cosmos, or a private domain)? If so, update that
+domain everywhere too. Record the answers in the development log entry for the test.
+
 **2026-11-14, 6:32 PM Pacific (author: "dont start drifting back to hamstringing ourselves!! We are exploring and NOBODY HAS EVEN SEEN ANY OF MY WORK
 YET!!"; "Sealing waits until we're sure of the math and the idea and ready to build the final test. add this rule").** NO REFEREE LABELS IN
 EXPLORATION: no "post hoc", "fitted", "not evidence" or chance-test framing on our own exploration results. Record each result as a LEAD with
