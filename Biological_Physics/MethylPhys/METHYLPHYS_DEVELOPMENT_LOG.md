@@ -5490,3 +5490,11 @@ and 0.01 at quality 40, plus 1 % at quality 5 that must be excluded, were recove
 conv_fail unchanged at 0.00297 (planted 0.003); sub_err picked up the low-quality share as designed (tc_synthetic_summary.txt). The 20 spent eraser
 libraries are queued again with the same inputs (p091b-, canary GSM1866966 under the same canary rule), then p091b-read
 (conv_01/a17b_read_gh.py: the stray-mark rate minus conv_fail minus tc_err against the one-step band). Exploration.
+
+### 2026-11-15 · PHY-091 correction: the corrected unmarked-side rate sits in the one-step band in one laboratory only
+The 4:05 AM entry read the referee laboratory (GSE173787: 0.0143 after the meter's conversion failure, inside 0.0123-0.0207) as "the unmarked side
+in human blood". The atlas laboratory's own published meter (Loyfer et al. 2023, open Supplementary Table S1, 205 libraries: non-CpG methylation
+median 0.009, CC conversion 0.992; read on GitHub by doors/data/DEV_METAA_HEALTHY_01/atlas_meter_01/loyfer_conversion_gh.py) puts its corrected rate
+at about 0.007-0.008 (as read 0.0160, referee_diagnosis_summary.txt), below the band; the mouse canary (amendment 2) reads 0.0057. The band holds in
+one laboratory. Open: the atlas figure is the paper's, not the chain's count; its Accel-NGS post-bisulfite library can inflate non-CpG calls; or the
+writer sits below the median measured preference. Exploration.

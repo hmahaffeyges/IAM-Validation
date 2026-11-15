@@ -18,6 +18,9 @@ exactly the IAM content. The background expansion itself is the established one 
 67.16, by the matter sector 72.26; canon locked results) are read, not refitted.
 
 SELF-TESTS (minicosmos_selftest() below): the numbers the canon's four-domains table prints for the cosmos row, recomputed here.
+ADDED 2026-11-15 (v0.1): matter's coupling as its own black-hole half, Lambda's own-horizon temperature, held/paid = 1/2 for settled surfaces,
+and a black-hole module (Hawking temperature, kappa R/c^2 = 1/2, the CMB balance mass): one simulator for the universe and its black holes,
+which the same nearest-surface reading treats as local surfaces inside the cosmic ledger.
 NEXT (v1): the record rate along a (I_dot ~ rho_m D^n f H, n = 7/2) integrated with the growth factor D(a) of the established background,
 to show E(a) arising rather than being put in; then the two-ruler reading of H0 as a time series."""
 import math, os, json, sys
@@ -42,7 +45,30 @@ def ledger(a=1.0, H0_kms=67.16, iam=True):
         out["bit_price_J"] = Sc.Reading(KB * float(out["T_H"]) * LN2, "IAM", ["encoding_surface"], "k_B T_H ln2 per record on the horizon")
         out["E_record"] = Sc.Reading(E_act(a), "IAM", ["encoding_surface"], "cumulative record E(a) = exp(1 - 1/a) (conjecture)")
         out["R_ratio"] = Sc.Reading(OMEGA_M * a ** -3 / (BETA_M * E_act(a)), "IAM", ["virial_half"], "potential half over the record half")
+        # 2026-11-15 (register X6, R13, X1; leads, checked in sympy 2026-11-14 night): the nearest-surface reading
+        om_a = OMEGA_M * a ** -3 / (OMEGA_M * a ** -3 + (1 - OMEGA_M))
+        M_H = C ** 3 / (2 * G * H)                                   # the mass of the Hubble sphere at the critical density, kg
+        out["beta_m_own_hole"] = Sc.Reading(om_a / 2, "IAM", ["settled_half"], "matter's mass in the Hubble sphere priced as its own black hole at "
+                                            "Hawking's temperature holds T S = M c^2 / 2 (Smarr), so matter's share is Omega_m(a)/2; equals beta_m today (lead)")
+        out["lambda_T_ratio"] = Sc.Reading(math.sqrt(1 - om_a), "IAM", ["encoding_surface"], "Lambda's record on its own de Sitter horizon: T_dS/T_H = "
+                                            "sqrt(Omega_L(a)), the book's factor in the Lambda chapter, fixed by the nearest-surface rule (lead)")
+        out["held_per_paid"] = Sc.Reading(0.5, "IAM", ["settled_half"], "a settled area-law surface holds 1/2 of what it paid (T S against the integral of T dS)")
+        out["held_per_inside"] = Sc.Reading(1.0, "IAM", ["settled_half"], "the cosmic horizon's T S over the energy inside (M_H c^2): 1, the canon's ratio; "
+                                            f"inside energy {M_H * C ** 2:.3e} J is half of what was paid")
     return out
+
+def black_hole(M_kg):
+    """2026-11-15 (register X1, X23): a Schwarzschild black hole priced at its own (Hawking) temperature. Established physics plus the settled_half
+    reading. T_CMB today 2.7255 K: a hole colder than the CMB gains more than it radiates."""
+    Rs = 2 * G * M_kg / C ** 2; T = HBAR * C ** 3 / (8 * math.pi * G * M_kg * KB); S = math.pi * Rs ** 2 / (G * HBAR / C ** 3)   # S in units of k_B
+    kappa = C ** 4 / (4 * G * M_kg)
+    return dict(R_s=Sc.Reading(Rs, "established", note="m"), T_Hawking=Sc.Reading(T, "established", note="K"),
+                held_per_inside=Sc.Reading(KB * T * S / (M_kg * C ** 2), "IAM", ["settled_half"], "T S / M c^2 = kappa R/c^2 = 1/2 (Smarr)"),
+                kappa_R_c2=Sc.Reading(kappa * Rs / C ** 2, "established", note="surface gravity times radius over c^2"),
+                held_per_paid=Sc.Reading(0.5, "IAM", ["settled_half"], "1/2, as every settled surface"),
+                colder_than_CMB=Sc.Reading(T < 2.7255, "established", note="True: the hole is a net absorber today"))
+
+M_CMB_BALANCE = HBAR * C ** 3 / (8 * math.pi * G * KB * 2.7255)   # kg: the mass whose Hawking temperature equals today's CMB (about 4.5e22 kg)
 
 def history(a_grid, H0_kms=67.16, iam=True):
     """Every reading along the clock a."""
@@ -61,6 +87,12 @@ def minicosmos_selftest():
     chk("E(1) = 1, E(1/2) inflection value e^-1", abs(E_act(1.0) - 1) < 1e-12 and abs(E_act(0.5) - math.exp(-1)) < 1e-12)
     chk("mu(1) = 1/(1 + beta_m) = 0.864 (four domains, reference)", abs(1 / (1 + BETA_M) - 0.864) < 0.0005)
     chk("IAM off: no IAM readings", all(v.origin != "IAM" for v in ledger(1.0, iam=False).values()))
+    chk("beta_m from matter's own black hole equals the canon beta_m today (X6 lead)", abs(float(L["beta_m_own_hole"]) - BETA_M) < 1e-9)
+    chk("Lambda's own-horizon temperature ratio sqrt(Omega_L) = 0.8274 (Lambda chapter)", abs(float(L["lambda_T_ratio"]) - 0.8274) < 0.0005)
+    B = black_hole(10 * 1.989e30)
+    chk("black hole: T S / M c^2 = 1/2 and kappa R / c^2 = 1/2 (Smarr; X1)", abs(float(B["held_per_inside"]) - 0.5) < 1e-9 and abs(float(B["kappa_R_c2"]) - 0.5) < 1e-12)
+    chk("a 10 solar-mass hole is colder than the CMB", bool(B["colder_than_CMB"].value if hasattr(B["colder_than_CMB"], "value") else float(B["colder_than_CMB"])))
+    chk("CMB balance mass about 4.5e22 kg (saturation chapter)", abs(M_CMB_BALANCE / 4.5e22 - 1) < 0.02)
     print("ALL PASS" if ok else "SOME FAILED"); return ok
 
 if __name__ == "__main__":
