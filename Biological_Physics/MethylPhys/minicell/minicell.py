@@ -193,6 +193,8 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["D_select"] = Param(60.0, "odds right site over wrong", "measured", "the writer's selection odds (canon four_domains gate_error, two enzymes 47.4-80); "
                           "one equilibrium step gives stray marks 1/(1 + D) on the unmarked side (A15); no proofreading. 1/(1 + D) is the lowest error of a one-step "
                           "thermal copy (Sartori and Pigolotti, PRL 110, 188101, 2013), the same form as the floor 1/(1 + e^M)", "writer", origin="measured")
+    P["conv_fail"] = Param(0.0044, "per non-CpG cytosine", "measured", "the meter: bisulfite conversion failure, median of 58 healthy blood libraries (PHY-091, GSE173787, conv_01/a17_read_summary.txt)", "meter", origin="measured")
+    P["tc_err"] = Param(0.00046, "per read T (top) / A (bottom)", "measured", "the meter: the sequencing substitution that can fake a mark, T read as C, quality >= 20 (PHY-091 amendment 2 canary, mouse LSK; human value pending)", "meter", origin="measured")
     return ModelCard(name, "cell", P)
 
 
@@ -208,7 +210,10 @@ def ledger(card):
     eps = Sc.Reading(1 / (1 + math.exp(E)), "IAM", list(E.relations) + ["hold_energy"], "held error the law sets")
     return dict(M=M, M_landauer=Sc.Reading(M / Sc.LN2, "IAM", ["coin_M", "encoding_surface"], "the coin in Landauer units"), E_hold_kT=E, eps_hold=eps,
                 landauer_floor_J=Sc.Reading(kT * Sc.LN2, "established", note="Landauer, kT ln2 at the cell's temperature"),
-                eps_ceiling=Sc.Reading(0.5, "established", note="the coin flip"))
+                eps_ceiling=Sc.Reading(0.5, "established", note="the coin flip"),
+                held_per_paid=Sc.Reading(float(E) / float(M) / 2, "IAM", list(E.relations) + ["paid_pump_third"],
+                                         "share of what is paid that the hold keeps (two coins per restore); a paid pump keeps at most 1/3 (X3)"),
+                pump_ceiling=Sc.Reading(1 / 3, "IAM", ["paid_pump_third"], "the most a paid pump can keep, reached only at zero drive (X3)"))
 
 
 def model2(card):
@@ -232,4 +237,7 @@ def model2(card):
             out["held_error_with_eraser"] = Sc.Reading(float(L["eps_hold"]) / (1 - sh), "IAM", list(L["eps_hold"].relations),
                                                        "the thermal held error the law sets, plus the erasers' measured share for this cell type")
         out["stray_mark_rate"] = Sc.Reading(1 / (1 + card.v("D_select")), "measured", [], "unmarked side: one equilibrium selection step by the writer, 1/(1 + D) (A15)")
+        if "conv_fail" in card:
+            out["stray_mark_rate_as_read"] = Sc.Reading(1 / (1 + card.v("D_select")) + card.v("conv_fail") + card.v("tc_err"), "measured", [],
+                "what the meter reads on the unmarked side: the writer's one-step error plus the meter's false marks (conversion failure and the T->C slip); healthy blood reads 0.0191 (PHY-091)")
     return out

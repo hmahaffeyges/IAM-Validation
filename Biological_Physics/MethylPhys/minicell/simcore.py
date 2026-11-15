@@ -43,6 +43,8 @@ IAM_RELATIONS = {
                    "with the drive and the local temperature",
     "delivery_phi": "phi = E_hold / M: the share of each coin delivered as holding",
     "driven_passage": "DERIVED, one measured input: the eraser share (PHY-083): the baseline as restoring paid against thermal kicks, odds = (w/2)/(1-(1-e^-w)/w), w = W/kT, W = (SAM price in coins) x M kT per methyl transfer; candidate; blind test PHY-084 passed by the agreed standard (B cells on watch, pull -2.45) The eraser share is measured type by type and is not one number: stem cells 13.6 %, blood progenitors 9-10 %, young iNKT 7 %, mature B cells none (PHY-085, PHY-086 P4/P5); set it per cell type. Held share for a strong push about ln(M)/M (0.145 at M 20.94).",
+    "paid_pump_third": "DERIVED 2026-11-14 (register X3, 50 digits): a record held by a pump that pays continuously against thermal kicks keeps at most 1/3 of what it pays, reached only at zero drive; the share falls as the drive rises (the cell, M = 20.94, keeps 0.073 per unit paid, 0.146 per coin)",
+    "settled_half": "a settled area-law surface whose temperature falls as 1/R holds exactly 1/2 of what it paid (T S against the integral of T dS); held / energy inside is a different ratio (1 for the cosmic horizon, 1/2 for a black hole, kappa R/c^2)",
     "virial_half": "a 1/r-bound record releases exactly half its binding energy as the minimum cost of the record it writes (the book's labels apply)",
 }
 
