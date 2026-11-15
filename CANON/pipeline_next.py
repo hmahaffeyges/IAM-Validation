@@ -24,12 +24,18 @@ def api(path, method="GET", body=None, raw=False):
     with urllib.request.urlopen(rq, timeout=300) as r:
         b = r.read(); return b if raw else (json.loads(b) if b else {})
 
-def runs_by_tag():
+def runs_by_tag(workflows=None):
+    # 2026-11-14 night: the lookup used the 300 newest runs of ALL workflows; a busy night pushed finished items (p091-synthetic) out of that
+    # window, so they read as pending and were re-run. Now each queue workflow is searched on its own, up to 1,000 runs, until a page is empty.
     out = {}
-    for page in (1, 2, 3):
-        for w in api(f"/actions/runs?per_page=100&page={page}").get("workflow_runs", []):
-            n = w.get("display_title") or w.get("name") or ""
-            if n.startswith("pq:") and n[3:] not in out: out[n[3:]] = w   # newest first, so the first seen is the latest attempt
+    for wf in (workflows or [None]):
+        base = f"/actions/workflows/{wf}/runs" if wf else "/actions/runs"
+        for page in range(1, 11):
+            ws = api(f"{base}?per_page=100&page={page}").get("workflow_runs", [])
+            for w in ws:
+                n = w.get("display_title") or w.get("name") or ""
+                if n.startswith("pq:") and n[3:] not in out: out[n[3:]] = w   # newest first, so the first seen is the latest attempt
+            if len(ws) < 100: break
     return out
 
 def live_count():
@@ -103,7 +109,7 @@ def decide(queue, R, live, design=design_ok, canary=canary_ok):
 
 def main(mode):
     queue = json.load(open(Q))["items"]
-    R = runs_by_tag(); live = live_count()
+    R = runs_by_tag(sorted({i.get('workflow') for i in queue if i.get('workflow')})); live = live_count()
     st, start, why = decide(queue, R, live)
     for i in queue: print(f"{i['id']:24} {st[i['id']]:8} {why.get(i['id'], '')}")
     if mode == "status": return

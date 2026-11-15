@@ -5423,3 +5423,10 @@ Canary GSM1866966 (wild-type LSK, GSE72630, mm10, 2 million pairs; run 436514066
 failure conv_fail 0.0059 (59,000 non-CpG calls' worth of evidence: within the 0.02 rule), A/T substitutions 0.0074, held error 0.0494, stray marks
 0.0121. The pipeline released the remaining libraries (15 running at 4:30 PM Pacific). Exploration note, one library only: stray marks minus
 false marks is 0.0062, below the one-step selection band 0.0123-0.0207 (A15); read when all libraries are in.
+
+### 2026-11-14 · PHY-091, pipeline runner: finished items re-run after falling out of its look-back window; fixed
+The pipeline runner (CANON/pipeline_next.py) judged each queue item by the 300 newest runs of ALL workflows. A busy night (gate runs, explore runs,
+the runner's own runs) pushed finished PHY-091 items out of that window: p091-synthetic (passed at 01:40 UTC) was re-run at 05:08 UTC, and the
+canary p091-GSM1866966 was re-dispatched too, so 8 blood libraries and the reading wait on its second pass (about an hour). Fix: the lookup now
+searches each queue item's own workflow, up to 1,000 runs, until a page comes back short. pipeline_next.py controls pass; a status read with the fix
+shows the synthetic as done. No result changes: a re-run of the same command on the same data gives the same counts.
