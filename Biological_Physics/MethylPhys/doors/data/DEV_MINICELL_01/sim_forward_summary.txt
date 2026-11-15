@@ -1,0 +1,25 @@
+(1) cosmos simulator self-tests:
+  PASS T_GH = 2.65e-30 K at H0 67.16 (four domains, temperature)
+  PASS bit price 2.53e-53 J at H0 67.16 (four domains, bit_price)
+  PASS horizon bits about 3.3e122 at 67.16 (four domains, bits)
+  PASS horizon bits about 2.8e122 at 72.26
+  PASS R(z=0.0) = 2.0 (four domains, ratio_R)
+  PASS R(z=0.3) = 5.9 (four domains, ratio_R)
+  PASS R(z=0.7) = 19.8 (four domains, ratio_R)
+  PASS R(z=2.0) = 399 (four domains, ratio_R)
+  PASS E(1) = 1, E(1/2) inflection value e^-1
+  PASS mu(1) = 1/(1 + beta_m) = 0.864 (four domains, reference)
+  PASS IAM off: no IAM readings
+  PASS beta_m from matter's own black hole equals the canon beta_m today (X6 lead)
+  PASS Lambda's own-horizon temperature ratio sqrt(Omega_L) = 0.8274 (Lambda chapter)
+  PASS black hole: T S / M c^2 = 1/2 and kappa R / c^2 = 1/2 (Smarr; X1)
+  PASS a 10 solar-mass hole is colder than the CMB
+  PASS CMB balance mass about 4.5e22 kg (saturation chapter)
+  ALL PASS
+(2) cell simulator, law first, IAM on:
+  M 20.941; E_hold 3.0845 kT; held error the law sets 0.04375
+  share kept per unit paid 0.0736 against the pump ceiling 0.3333: below
+  writer's stray marks 1/(1+D) 0.0164; as the meter reads it 0.0213
+  measured (PHY-091): referee blood as read 0.0191 (ratio 1.113); writer corrected 0.0143 (ratio 1.146); atlas corrected ~0.0075 (ratio 2.186)
+  the D that the referee lab's corrected value implies: 68.9; the atlas lab's: 132 (published 10-80, median 20; card uses 60.0)
+ALL COSMOS SELF-TESTS PASS

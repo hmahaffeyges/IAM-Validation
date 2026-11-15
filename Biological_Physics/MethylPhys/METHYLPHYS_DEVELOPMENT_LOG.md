@@ -5498,3 +5498,12 @@ median 0.009, CC conversion 0.992; read on GitHub by doors/data/DEV_METAA_HEALTH
 at about 0.007-0.008 (as read 0.0160, referee_diagnosis_summary.txt), below the band; the mouse canary (amendment 2) reads 0.0057. The band holds in
 one laboratory. Open: the atlas figure is the paper's, not the chain's count; its Accel-NGS post-bisulfite library can inflate non-CpG calls; or the
 writer sits below the median measured preference. Exploration.
+
+### 2026-11-15 · PHY-091 amendment 2 read: in the mouse eraser libraries the corrected unmarked side sits below the one-step band
+p091b-read (GitHub run 43731027262; doors/data/DEV_ERASE_01/conv_01/a17b_read_summary.txt), 20 mouse eraser libraries recounted with tc_err: as read
+0.0159, minus conversion failure 0.0087, minus conversion failure and tc_err 0.0083 (20 % inside 0.0123-0.0207; 19x the one-proofreading-step level).
+tc_err median 0.00046 against the old sub_err 0.0098: the old figure was mostly strain differences, as amendment 2 expected. Across three laboratories
+the corrected rate is 0.0143 (referee, human), about 0.0075 (atlas, human, its published conversion rates) and 0.0083 (mouse). Reading (exploration):
+one selection step with an effective preference of about 70-130, above the isolated enzyme's median 20 and far below a proofreading step.
+The cell simulator's forward check (doors/data/DEV_MINICELL_01/sim_forward_gh.py, run 43731113295) predicts 0.0213 as read at D = 60 against the
+referee's 0.0191; the mini cosmos self-tests all pass with its 2026-11-15 additions.

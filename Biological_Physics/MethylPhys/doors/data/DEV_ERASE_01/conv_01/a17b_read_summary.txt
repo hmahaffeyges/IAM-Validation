@@ -1,0 +1,7 @@
+PHY-091 amendment 2 reading (A17 -> A15), 20 eraser libraries with conv_fail and tc_err. Single selection band 0.0123-0.0207; one proofreading step 0.00015-0.00043.
+  erase libraries, n 20, as read (gain_err): median 0.0159 (range 0.0101-0.0202); inside the single-selection band 85 %; median / proofread level 37x
+  erase libraries, n 20, minus conversion failure: median 0.0087 (range 0.0061-0.0183); inside the single-selection band 20 %; median / proofread level 20x
+  erase libraries, n 20, minus conversion and tc_err (the measured sequencing false marks): median 0.0083 (range 0.0057-0.0178); inside the single-selection band 20 %; median / proofread level 19x
+  erase libraries, n 20, minus conversion and sub_err (old upper bound): median -0.0001 (range -0.0054-0.0083); inside the single-selection band 0 %; median / proofread level -0x
+  erase libraries: conv_fail median 0.0038, sub_err median 0.0098, tc_err median 0.00046
+Reading guide (exploration): if the corrected rates stay in the band and far above the proofread level, the unmarked side is the writer's one-step selection error with the meter's false marks removed (A15 from 'accounted after the fact' toward a derived reading); if they fall below the band, part of what A15 read was the meter.
