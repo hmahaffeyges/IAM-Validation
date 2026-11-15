@@ -28764,6 +28764,32 @@
    "next_step": "NOT ASSESSED at 2,000- and 50,000-CpG tiles (null rule failed both times); needs deeper libraries; A8 open on where the loose stretches sit",
    "cost": "github",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-085",
+    "PHY-086"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-13 session (derivation register A8)"
+   ],
+   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-093",
+   "title": "T1: the islands' unmarked side in healthy blood against the writer's one-step error plus the meter (exploration)",
+   "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE72630 (WGBS, LSK, wild type and TET2/TET3 double knockout; Rao laboratory)"
+   ],
+   "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py",
+   "status": "designed",
+   "next_step": "synthetic (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic.py) on GitHub, then the canary, then the 57 libraries and the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py)",
+   "cost": "github",
+   "impact": 4,
+   "design": "design/PHY-093.json"
   }
  ],
  "not_tests": {

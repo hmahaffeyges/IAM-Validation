@@ -601,7 +601,7 @@ def main():
     ap.add_argument("--dev-count-genome", default="hg19", choices=("hg19", "mm10"), help="--dev-count-only: the genome the .pat was made on (recorded)")
     ap.add_argument("--dev-tiles", default="table", choices=["table", "dictionary"], help="DEVELOPMENT (plan 14.9): Stage Q2's tiles from the commissioned table (default) or from the genome dictionary's chromosome ranges")
     ap.add_argument("--dev-count-tiles", default=None, metavar="OUT.csv[.gz]", help="DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules)")
-    ap.add_argument("--dev-count-sites", default=None, metavar="CELL", help="DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites)")
+    ap.add_argument("--dev-count-sites", default=None, metavar="CELL", help="DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites); CELL = islands (2026-11-15, register T1): the islands territory, both the loss and the stray-mark side")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
                     help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
@@ -1454,17 +1454,23 @@ def main():
                 print(f"Stage Q2 held error by tile: {len(_T)} tiles written to {a.dev_count_tiles}", flush=True)
             if a.dev_count_sites:   # 2026-10-24 (step 3 version 2): the same count at Met-A's identity sites only
                 import gzip as _gz, pyarrow.parquet as _pqs, stage_q2_selfref as _Q2s
-                _MF = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")))["platforms"]["EPIC"][a.dev_count_sites]
                 _K = _pqs.read_table(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1", "sites_sequencing_key.parquet")).to_pandas()
+                if a.dev_count_sites == "islands":   # 2026-11-15 (register T1): the islands territory, sites every healthy cell type keeps unmarked
+                    import stage_metaa_atlas as _SAi
+                    _MF = {"sites": list(_SAi.territory_sets()["islands"])}; _what = "the islands territory (stage_metaa_atlas.territory_sets, IAM-Atlas v2.1)"
+                else:
+                    _MF = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")))["platforms"]["EPIC"][a.dev_count_sites]
+                    _what = "Met-A's commissioned identity sites (metA_floors_v1_3.json, EPIC)"
                 _K = _K[_K.probe.isin(set(_MF["sites"]))]; _idx = _K.loyfer_cpg_index.dropna().astype(int).tolist()
                 with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _cs = _Q2s.count_pat_sites(_fh, _idx)
-                o["iam_a_count_only"]["count_sites"] = dict(cell=a.dev_count_sites, sites="Met-A's commissioned identity sites (metA_floors_v1_3.json, EPIC)", n_probes=len(_MF["sites"]), n_with_cpg_index=len(_idx), **_cs)
+                o["iam_a_count_only"]["count_sites"] = dict(cell=a.dev_count_sites, sites=_what, n_probes=len(_MF["sites"]), n_with_cpg_index=len(_idx), **_cs)
                 # 2026-10-24 (step 3 version 3): every call at those sites by molecule class, the sites split by the atlas's level in the cell (>= 0.5 held)
-                _AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); _ids = _pqs.read_table(os.path.join(_AT, "sites.parquet")).column("cpg").to_pylist()
-                _u = next(_pqs.read_table(os.path.join(_AT, f"mu_part{_n}.parquet"), columns=[a.dev_count_sites]).column(0).to_numpy() for _n in (1, 2, 3) if a.dev_count_sites in _pqs.ParquetFile(os.path.join(_AT, f"mu_part{_n}.parquet")).schema.names)
-                _lv = dict(zip(_ids, _u)); _grp = {int(r.loyfer_cpg_index): ("held" if _lv.get(r.probe, 65535) / 1e4 >= 0.5 else "absent") for r in _K.dropna(subset=["loyfer_cpg_index"]).itertuples() if _lv.get(r.probe, 65535) != 65535}
-                with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: o["iam_a_count_only"]["count_site_classes"] = _Q2s.count_pat_site_classes(_fh, _grp)
-                print("Stage Q2 molecule classes at the identity sites:", o["iam_a_count_only"]["count_site_classes"], flush=True)
+                if a.dev_count_sites != "islands":
+                    _AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); _ids = _pqs.read_table(os.path.join(_AT, "sites.parquet")).column("cpg").to_pylist()
+                    _u = next(_pqs.read_table(os.path.join(_AT, f"mu_part{_n}.parquet"), columns=[a.dev_count_sites]).column(0).to_numpy() for _n in (1, 2, 3) if a.dev_count_sites in _pqs.ParquetFile(os.path.join(_AT, f"mu_part{_n}.parquet")).schema.names)
+                    _lv = dict(zip(_ids, _u)); _grp = {int(r.loyfer_cpg_index): ("held" if _lv.get(r.probe, 65535) / 1e4 >= 0.5 else "absent") for r in _K.dropna(subset=["loyfer_cpg_index"]).itertuples() if _lv.get(r.probe, 65535) != 65535}
+                    with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: o["iam_a_count_only"]["count_site_classes"] = _Q2s.count_pat_site_classes(_fh, _grp)
+                    print("Stage Q2 molecule classes at the identity sites:", o["iam_a_count_only"]["count_site_classes"], flush=True)
                 print(f"Stage Q2 at {a.dev_count_sites} identity sites: {_cs}", flush=True)
         if a.pat and getattr(a, "dev_seq_ref", None) and (o.get("cell_shares") or {}).get("cells"):   # 2026-10-30 (plan 35.30): IAM-A in the sample's own mix
             try:

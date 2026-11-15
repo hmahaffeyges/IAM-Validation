@@ -5539,3 +5539,13 @@ Correction to correction 2: in mature blood, where real CpH methylation is negli
 is two to three times the referee laboratory's chain-counted conversion failure (0.0037-0.0050), and after subtracting it the atlas blood types read
 0.0041-0.0069 against the referee's 0.0112-0.0151; as read the two are close. So the atlas is not assessed like for like (published figure, not the
 chain's count; its raw reads are gated). Only the neuron and progenitor part of the earlier retraction stands.
+
+### 2026-11-15 · PHY-093 designed and queued: the islands' unmarked side in healthy blood (register T1, exploration)
+Before-test questions (CANON/TEST_DESIGN_CHECKLIST.md): fastest and cheapest adequate form, the 58 spent PHY-084/PHY-091 blood libraries at 2 million
+pairs on GitHub (free), pooled by cell type; no data spent that is not already spent; explored first (the chain already counts at a site set; each
+library's meter already measured by PHY-091; null rule rehearsed on the 20 eraser libraries counted both ways: molecule file / aligned file median
+1.032, 0.929-1.151); what a cosmologist would do: split the same detector's map by region; public (cell only); chain and Decoder covered
+(run_sample.py --dev-count-sites islands, the islands territory of stage_metaa_atlas.territory_sets; erase_gh.sh COUNTSITES and the workflow input
+countsites; Decoder entry under --dev-count-only). Synthetic islands_synthetic.py through the one command; canary rule p093_canary.py; reader
+p093_read_gh.py; design/PHY-093.json passes design_check. Question: does the islands' unmarked side read at the writer's one-step error plus the
+meter (T1 derives from A15 and A17), or lower (an islands shield to price)?
