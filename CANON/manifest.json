@@ -28768,25 +28768,25 @@
   {
    "runs": [],
    "depends_on": [
-    "PHY-085",
-    "PHY-086"
+    "PHY-084",
+    "PHY-091"
    ],
    "legacy_ids": [],
    "sources_of_row": [
     "2026-11-13 session (derivation register A8)"
    ],
-   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "2026-11-15: designed (design/PHY-093.json), synthetic met, canary passed; amendment 1: GSM5278446 and GSM5278472 refused by the genome-coverage intake (two of PHY-084's four partial-coverage libraries), left out of the reading",
    "id": "PHY-093",
    "title": "T1: the islands' unmarked side in healthy blood against the writer's one-step error plus the meter (exploration)",
    "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
    "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
    "sources": [
-    "GSE72630 (WGBS, LSK, wild type and TET2/TET3 double knockout; Rao laboratory)"
+    "GSE173787 (WGBS, healthy human blood cell types; the referee laboratory, PHY-084's run list)"
    ],
-   "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
+   "data_status": "spent only: the 58 libraries of PHY-084's run list (referee_runs.csv), re-read from SRA for the islands count; two refused by intake (partial genome coverage)",
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py",
-   "status": "designed",
-   "next_step": "synthetic (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic.py) on GitHub, then the canary, then the 57 libraries and the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py) Synthetic first run 2026-11-15: 1 of 3 cases passed, 2 stopped in the unguarded provisional deconvolution (now guarded); re-run.",
+   "status": "running",
+   "next_step": "remaining libraries on GitHub, then the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read_gh.py, writing its summary in the run's artifact) on the libraries the chain accepted",
    "cost": "github",
    "impact": 4,
    "design": "design/PHY-093.json"

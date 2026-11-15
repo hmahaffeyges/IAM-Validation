@@ -5578,3 +5578,9 @@ methylation, so a lambda meter can also over-read; recorded beside the reading.
 Timing correction: the PHY-093 design sheet expected 0.6 hours per library; PHY-091 took 1 hour 53 minutes on the canary library
 (GSM5278426), so about 2 hours per library is the right figure (the deep referee libraries, not the shallow eraser sets). The run limit
 is the workflow's own, not the sheet's; the batch of 57 is about 6 hours on 20 machines.
+
+### 2026-11-15 · PHY-093 amendment 1: two partial-coverage libraries refused by intake, left out of the reading
+GSM5278446 and GSM5278472 stopped with exit 35: the chain's genome-coverage intake (stage_seq_values.GENOME_COVERAGE_RULE, 2026-11-04) refused
+them (7 and 11 autosomes under half the median share of sites with a value). They are two of the four libraries PHY-084 already named for partial
+coverage. The molecule-file route runs the Deconvolver first, so the refusal stands; they are left out of the reading (design/PHY-093.json
+amendment 1), not forced through. (The bam2pat reference lookup error earlier in both logs was recovered by the workflow's own retry.)

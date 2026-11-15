@@ -3394,7 +3394,8 @@
    "canary": "p093-GSM5278426",
    "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_canary.py",
    "row": "PHY-093",
-   "design": "design/PHY-093.json"
+   "design": "design/PHY-093.json",
+   "refused_by_intake": "GENOME_COVERAGE_REFUSED (stage_seq_values.GENOME_COVERAGE_RULE): read in part; two of PHY-084's four partial-coverage libraries"
   },
   {
    "id": "p093-GSM5278447",
@@ -3556,7 +3557,8 @@
    "canary": "p093-GSM5278426",
    "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_canary.py",
    "row": "PHY-093",
-   "design": "design/PHY-093.json"
+   "design": "design/PHY-093.json",
+   "refused_by_intake": "GENOME_COVERAGE_REFUSED (stage_seq_values.GENOME_COVERAGE_RULE): read in part; two of PHY-084's four partial-coverage libraries"
   },
   {
    "id": "p093-GSM5278473",
@@ -4086,7 +4088,6 @@
     "p093-GSM5278443",
     "p093-GSM5278444",
     "p093-GSM5278445",
-    "p093-GSM5278446",
     "p093-GSM5278447",
     "p093-GSM5278448",
     "p093-GSM5278449",
@@ -4095,7 +4096,6 @@
     "p093-GSM5278469",
     "p093-GSM5278470",
     "p093-GSM5278471",
-    "p093-GSM5278472",
     "p093-GSM5278473",
     "p093-GSM5278474",
     "p093-GSM5278475",

@@ -127,5 +127,6 @@
   "script": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/islands_synthetic.py",
   "noise_from": "planted rates at the measured real levels (stray marks 0.004-0.015, PHY-091 blood 0.016-0.020 as read, meter 0.0049); counting noise is the same binomial noise as the real counts; about 4,000 island anchors as in a pooled type",
   "null_rehearsed": "2026-11-15 on spent data: the molecule-file and aligned-file stray-mark rates of the 20 PHY-091 eraser libraries agree, median ratio 1.032 (0.929-1.151); the islands-versus-genome comparison is made inside the molecule-file route, so that offset cancels"
- }
+ },
+ "amendment_1": "2026-11-15, 3:08 PM Pacific, before the reading: GSM5278446 and GSM5278472 were refused by the chain's genome-coverage intake (autosomes under the limit; two of the four partial-coverage libraries PHY-084 named); the molecule-file route runs the Deconvolver first, so the refusal stands and they are left out of the reading, not forced through (--dev-allow-partial-genome is for development counts only). The reading uses the remaining libraries."
 }
