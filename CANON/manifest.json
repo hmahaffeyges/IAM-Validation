@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "read in blood and in the 20 mouse eraser libraries (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17b_read_summary.txt): corrected unmarked-side rate 0.0143 in the referee laboratory, about 0.0075 in the atlas laboratory, 0.0083 in mouse; next, why the referee laboratory reads higher (library and counter use), and the writer's in vivo preference from open data",
+   "next_step": "read (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_summary.txt, a17b_read_summary.txt): the meter from non-CpG sites is valid only where real CpH methylation is negligible; in healthy blood (GSE173787) the corrected unmarked-side rate is 0.0143-0.0151 in lymphocytes and 0.0112 in monocytes, inside the one-step band; other laboratories and the mouse progenitors need a spike-in meter (lambda), next",
    "cost": "github",
    "impact": 4
   },

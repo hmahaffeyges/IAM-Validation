@@ -5507,3 +5507,12 @@ the corrected rate is 0.0143 (referee, human), about 0.0075 (atlas, human, its p
 one selection step with an effective preference of about 70-130, above the isolated enzyme's median 20 and far below a proofreading step.
 The cell simulator's forward check (doors/data/DEV_MINICELL_01/sim_forward_gh.py, run 43731113295) predicts 0.0213 as read at D = 60 against the
 referee's 0.0191; the mini cosmos self-tests all pass with its 2026-11-15 additions.
+
+### 2026-11-15 · PHY-091 correction 2: non-CpG methylation is not the meter outside mature blood; the two-lab gap withdrawn
+Matching the atlas laboratory's 153 per-sample counts (doors/data/DEV_CHAIN_Q2_01/percall_out) to its published per-library non-CpG methylation
+(open Table S1, doors/data/DEV_METAA_HEALTHY_01/atlas_meter_01/loyfer_conversion.csv) by GEO title: the unmarked-side rate minus that figure is
+negative in cortical neurons (-0.033; their non-CpG methylation 0.047 is real biology) and near zero in colon epithelium and oligodendrocytes. The
+published figure is real CpH methylation plus conversion failure, so the atlas "about 0.0075" of the earlier entry is withdrawn, and the mouse
+progenitor 0.0083 is suspect for the same reason (the chain's conv_fail counts real CpH methylation too). The non-CpG route measures the meter only
+where CpH methylation is negligible (mature human blood) or with a spike-in. In the referee laboratory's healthy blood, by cell type: lymphoid
+0.0143-0.0151, monocytes 0.0112 (conv_01/a17_read.csv): inside the one-step band, type-specific. Exploration.
