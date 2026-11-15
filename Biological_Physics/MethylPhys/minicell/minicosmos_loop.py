@@ -18,10 +18,10 @@ import os, math, numpy as np
 from scipy.integrate import solve_ivp
 from scipy.special import erfc
 
-OM0 = 0.315; OL0 = 1 - OM0; BETA_M = OM0 / 2; DELTA_C = 1.686
+OM0 = 0.315; OR0 = 9.1e-5; OL0 = 1 - OM0 - OR0; BETA_M = OM0 / 2; DELTA_C = 1.686   # the book's sec:numerics background (with radiation)
 LNA = np.linspace(np.log(1e-3), np.log(50.0), 1400); A = np.exp(LNA); I1 = int(np.argmin(abs(LNA)))
-E2 = OM0 * A**-3 + OL0                                   # (H/H0)^2, LCDM background (light's sector; book: background unchanged)
-DLNH = -1.5 * OM0 * A**-3 / E2                           # dlnH/dlna
+E2 = OM0 * A**-3 + OR0 * A**-4 + OL0                                   # (H/H0)^2, LCDM background (light's sector; book: background unchanged)
+DLNH = -(1.5 * OM0 * A**-3 + 2 * OR0 * A**-4) / E2                           # dlnH/dlna
 OMA = OM0 * A**-3 / E2                                   # Omega_m(a)
 cumtrap = lambda y, x: np.concatenate([[0.0], np.cumsum(0.5 * (y[1:] + y[:-1]) * np.diff(x))])
 
@@ -74,8 +74,11 @@ def loop(model, closure, feedback=True, S0_over_S1=1.0, iters=8):
     return dict(E=E, D=D, f=f, R=R, fill=fill)
 
 def fit_ab(E):
-    m = (A >= 0.15) & (A <= 2.0) & (E > 0)
-    b, a0 = np.polyfit(1 / A[m], np.log(E[m]), 1); return a0, -b
+    # the book's own fit (docs/book/figscripts/fig_p2_theory_derivations.py, fig_record_fit): curve_fit of exp(alpha - beta/a) to E itself,
+    # points uniform in ln a over 0.15 <= a <= 2.0
+    from scipy.optimize import curve_fit
+    m = (A >= 0.15) & (A <= 2.0)
+    p, _ = curve_fit(lambda x, al, be: np.exp(al - be / x), A[m], E[m], p0=[1, 1]); return p[0], p[1]
 
 def report(out):
     E = out["E"]; dE = np.gradient(E, LNA); a0, b = fit_ab(E)
