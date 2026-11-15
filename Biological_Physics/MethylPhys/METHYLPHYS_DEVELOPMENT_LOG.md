@@ -5417,3 +5417,9 @@ knockout-only 0.0046 (2 tiles), so the null rule fails again: NOT ASSESSED. Reco
 tiles, while at 2,000-CpG tiles they added 3.6 % (also not assessed), which would place the extra looseness in stretches far smaller than
 50,000 CpGs rather than in large domains. The question needs deeper libraries (more calls per tile, so the wild types agree), not more
 pooling; A8 stays open on this point. No further reading of these four libraries is planned (no search over tile sizes).
+
+### 2026-11-14 · PHY-091 canary passed; the remaining libraries released
+Canary GSM1866966 (wild-type LSK, GSE72630, mm10, 2 million pairs; run 43651406621, 65 minutes): 99.3 % mapped, 2.3 % quality-failed, conversion
+failure conv_fail 0.0059 (59,000 non-CpG calls' worth of evidence: within the 0.02 rule), A/T substitutions 0.0074, held error 0.0494, stray marks
+0.0121. The pipeline released the remaining libraries (15 running at 4:30 PM Pacific). Exploration note, one library only: stray marks minus
+false marks is 0.0062, below the one-step selection band 0.0123-0.0207 (A15); read when all libraries are in.
