@@ -28737,7 +28737,7 @@
    "data_status": "spent only: the 16 libraries already read for PHY-085, PHY-086 P4 and PHY-090",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
    "status": "running",
-   "next_step": "canary passed; the 19 erase and 58 blood libraries running on GitHub; the canary's second pass (re-dispatched 11-14 night by the runner's look-back fault, now fixed) gates the last 8 blood libraries; then p091-read (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_gh.py: stray marks minus the meter's false marks against the one-step selection band, A17 -> A15)",
+   "next_step": "READ 2026-11-15 (exploration; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/a17_read_summary.txt): healthy blood, stray marks minus the meter's conversion failure 0.0143, inside the one-step band; the mouse eraser libraries need a sharper sequencing-error measure before reading",
    "cost": "github",
    "impact": 4
   },

@@ -1,0 +1,10 @@
+PHY-091 reading (A17 -> A15), 78 libraries with conv_fail. Single selection band 0.0123-0.0207; one proofreading step 0.00015-0.00043.
+  erase libraries, n 20, as read (gain_err): median 0.0159 (range 0.0101-0.0202); inside the single-selection band 85 %; median / proofread level 37x
+  erase libraries, n 20, minus conversion failure: median 0.0087 (range 0.0061-0.0183); inside the single-selection band 20 %; median / proofread level 20x
+  erase libraries, n 20, minus conversion and sequencing (upper): median -0.0001 (range -0.0054-0.0083); inside the single-selection band 0 %; median / proofread level -0x
+  erase libraries: conv_fail median 0.0038, sub_err median 0.0098
+  referee blood (GSE173787), n 58, as read (gain_err): median 0.0191 (range 0.0138-0.0220); inside the single-selection band 88 %; median / proofread level 45x
+  referee blood (GSE173787), n 58, minus conversion failure: median 0.0143 (range 0.0101-0.0173); inside the single-selection band 76 %; median / proofread level 33x
+  referee blood (GSE173787), n 58, minus conversion and sequencing (upper): median 0.0116 (range 0.0064-0.0147); inside the single-selection band 28 %; median / proofread level 27x
+  referee blood (GSE173787): conv_fail median 0.0044, sub_err median 0.0026
+Reading guide (exploration): if the corrected rates stay in the band and far above the proofread level, the unmarked side is the writer's one-step selection error with the meter's false marks removed (A15 from 'accounted after the fact' toward a derived reading); if they fall below the band, part of what A15 read was the meter.

@@ -5430,3 +5430,47 @@ the runner's own runs) pushed finished PHY-091 items out of that window: p091-sy
 canary p091-GSM1866966 was re-dispatched too, so 8 blood libraries and the reading wait on its second pass (about an hour). Fix: the lookup now
 searches each queue item's own workflow, up to 1,000 runs, until a page comes back short. pipeline_next.py controls pass; a status read with the fix
 shows the synthetic as done. No result changes: a re-run of the same command on the same data gives the same counts.
+
+### 2026-11-14 · Day summary
+**Set out:** Read PHY-090 by its sealed rule; keep deriving each cell type's level; measure the meter's false marks in every spent library;
+keep heavy work off the laptop.
+**Ran, and how each came out:**
+- The eraser's share in LSK progenitors: about 5 %, on watch (pull +2.59), null test clean (PHY-090).
+- The writer's selection step and the eraser share by cell type, on spent counts (PHY-083, PHY-086).
+- The within-sample slope follows from the derived hold with cooperative maintenance; it depends on tile size (corrected), and replicates in a
+  second laboratory at 50,000-CpG tiles, median ratio 1.03 (PHY-087 step 2).
+- Where the B-cell knockouts' extra loose stretches sit: not assessed, its own null rule failed at two tile sizes; closed for now (PHY-092).
+- The meter's false marks in each spent library: designed, synthetic met through the one command, canary passed, 77 libraries released
+  (PHY-091; read 2026-11-15).
+- A pipeline so GitHub's machines start the next prepared job without waiting; its look-back fault (finished items re-run) fixed (OTH-086).
+- The gate refuses private names and new private-domain material in public files (OTH-086).
+- The book's cell chapters cite IAM's Law by reference (PHY-083).
+**Successes:**
+- The within-sample slope replicated in an unseen laboratory.
+**Learned:**
+- The eraser is not the cell's proofreading of the unmarked side; the floor's form 1/(1+e^M) is the established one-step copy limit.
+- A pipeline judging items by the newest runs of all workflows loses finished items on a busy night.
+**Errors (the agent's own), and what caught each:**
+- Renamed the chain's names in the Decoder (healthy middle, self-reference line, healthy line, A-score) on the strength of an unexecuted plan
+  item; reverted the same day (the author).
+- Let the machines sit idle for an afternoon instead of queueing the next prepared items (the author).
+- Ran local calculations and repeated downloads that slowed the laptop (the author); heavy work moved to GitHub.
+- Wrote time labels ahead of the Pacific clock (found on reading the clock); labels now come from the clock in the same command.
+**The author's instructions and corrections:**
+- Derive first, commission later; keep the machines full with designed tests while desk work goes on; exploration carries no referee labels;
+  read before working; no calculations on the laptop; the chain's names are the names the Decoder uses.
+**Path changes:** the next prepared items queue behind the current ones; the pipeline's run lookup searches each item's own workflow.
+**Data:** GSE72630 read for PHY-090; GSE173787 (58) and the eraser libraries (19 and the canary) counted for PHY-091; nothing new spent.
+**Machines:** GitHub for every count, reading and check; the laptop for edits and commits only.
+**Open at turnover:** read PHY-091 (A17 -> A15); each cell type's level (A8, needs data); the mouse eraser libraries' sequencing error.
+
+### 2026-11-15 · PHY-091 read: in healthy blood the unmarked side's stray marks, with the meter's false marks removed, sit in the one-step selection band
+All 79 runs completed on GitHub with none failed (the last at 11:48 UTC); the reading p091-read (conv_01/a17_read_gh.py, run 43710800806) read the
+chain's count bundle of 78 libraries (gain_err, conv_fail and sub_err from the same aligned file; conv_01/a17_read.csv, a17_read_summary.txt).
+Healthy blood, blind-test laboratory GSE173787 (58 libraries, standard library): stray-mark rate as read median 0.0191 (0.0138-0.0220); minus the
+meter's conversion failure 0.0143 (0.0101-0.0173), inside the one-step selection band 0.0123-0.0207 for 76 %; minus conversion and sequencing error
+(upper-bound correction) 0.0116 (0.0064-0.0147). All 27-45 times the level one proofreading step would leave (0.00015-0.00043). Reading
+(exploration): the unmarked side in human blood is the writer's single selection step with no hidden proofreading (A18 branch S), and the meter
+carries about a quarter to a third of the raw rate. Eraser libraries (20, mouse, older): minus conversion 0.0087 (0.0061-0.0183), below the band;
+their sequencing error is high (median 0.0098), so the upper-bound subtraction (about 0) is too coarse there; they need a sharper sequencing-error
+measure before they are read.
