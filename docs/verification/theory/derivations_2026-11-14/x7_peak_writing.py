@@ -8,7 +8,11 @@ three measured mass functions. If the record's energy ledger follows U (rho_info
   (2) U(far future)/U(today) = e^c.
 Also reported: the record per e-fold priced at T_H per horizon area (the top-down measure), a^-3 H dU/dln a, and where it peaks.
 Writes xout/x7_peak_writing_summary.txt."""
-import os, numpy as np
+import os, sys, subprocess, numpy as np
+try:
+    import colossus
+except ImportError:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "colossus"], check=True)
 from colossus.cosmology import cosmology
 from colossus.lss import mass_function
 trap = getattr(np, "trapezoid", None) or np.trapz
