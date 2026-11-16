@@ -3,7 +3,7 @@
  "date": "2026-11-14",
  "title": "The eraser's share in LSK progenitors read",
  "set_out": "Read PHY-090 by its sealed rule; keep deriving each cell type's level; keep heavy work off the laptop.",
- "open_at_turnover": "Each cell type's level (A8): donor age and the governor lead; the book cross-references (author's yes); the qubit floor constants (private).",
+ "open_at_turnover": "Read PHY-091 (A17 to A15) when its last libraries land; the mouse eraser libraries need a sharper sequencing-error measure; each cell type's level (A8): donor age and the governor lead; X7 (why the record has its shape and size) and R13 (which temperature prices a written bit); the 23 end-state passages listed for the author's keep, reword or remove.",
  "check_completeness": false,
  "off_page_rows": [],
  "compute": {
@@ -94,8 +94,196 @@
      "outcome": "Clausius' theorem needs only a stationary system; measured halo surface pressure (10-20 % of binding) shows cosmic structure is driven; the sign of the shift in the written share is not fixed by energy flow alone.",
      "record": "docs/verification/theory/derivations_2026-11-14/r1_driven_share.md",
      "reference": "none (not a reading against healthy): cosmology derivation"
+    },
+    {
+     "title": "The meter's false marks, synthetic and canary (PHY-091, A17)",
+     "status": "synthetic only",
+     "what": "Designed and queued at 2:59 PM with the chain's --bam --dev-count-only route on any assembly (bwa-meth's strand tag now read by the BAM caller); amendment 1 added PHY-084's 58 spent healthy blood libraries. Synthetic through the one command: planted conversion failure 0, 0.003, 0.010, 0.030 read back as 0.0000, 0.0030, 0.0100, 0.0302. Canary passed (99.3 % mapped, meter 0.6 %) and the pipeline released the rest overnight; read 2026-11-15.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/conv_synthetic_summary.txt",
+     "reference": "none (not a reading against healthy): a synthetic test and a canary"
+    },
+    {
+     "title": "Where the B-cell knockouts' extra loose stretches sit (PHY-092, A8)",
+     "status": "failed",
+     "what": "Not assessed: its own null rule failed at 2,000-CpG tiles (one-wild-type share 0.0513 against knockout-only 0.0355) and again at 50,000 (0.0114 against 0.0046). Closed with no tile-size search; it needs deeper libraries. The synthetic had used tile noise 0.01 where the real wild types vary by about 0.06; that is now a checklist lesson.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): a comparison within one experiment"
+    },
+    {
+     "title": "The gate's privacy check and a pipeline for the machines (OTH-086)",
+     "status": "structure",
+     "what": "6:57 AM CANON/privacy_check.py refuses private names (matched by hash) and new private-domain material in public files; private names were removed from earlier public records. 7:34 AM to 8:09 AM the pipeline (CANON/pipeline_next.py, queue, a design check per item) went live with PHY-087 step 2; a queued run starts the runner itself when it ends.",
+     "record": "CANON/pipeline_next.py",
+     "reference": "none (not a reading against healthy): tooling"
+    },
+    {
+     "title": "Book notes on the author's authority (reported)",
+     "status": "audit",
+     "what": "12:38 PM (2da87a07): notes at eq:law_Sneed (the 7/2 rate accounting and the first law agree only today, so E(a)'s shape rests on the record constraint), in the coupling chapter (halos one by one supply about a millionth of beta_m; Omega_m/2 matches matter's binding at the horizon scale, G M/(R c^2) = 1/2), in the Lambda chapter (baryons-only writing excluded at 4.5 sigma) and in the time chapter (the arrow rests on the second law; the record term vanishes with the Weyl curvature, Penrose's hypothesis); seven new checks, full run 4,708 pass, 0 fail. 1:07 PM: the 4.5 sigma is set by the local Hubble rates read as matter-sector rates. 2:07 PM and 2:16 PM: 'what ends is the writing ... structure formation stops' replaced in four places and in the glossary; the cosmic record levels off while decoherence continues within bound systems.",
+     "record": "docs/book/part2/p2_11_dark_energy.tex",
+     "why": "The far-future wording was not the author's; it contradicted the book's own nearest-surface rule.",
+     "reference": "none (not a reading against healthy): book wording"
+    },
+    {
+     "title": "Canon: both horizons hold 1/2 of what they paid (R6, X1)",
+     "status": "audit",
+     "what": "1:22 PM CANON/four_domains.json held share, cosmos entry: two ratios named. Against the price paid while the area grew, every area-law horizon (black hole and cosmic horizon) holds exactly 1/2; the cosmic horizon's 1 is T S against the energy inside. Checked in code; no status or number changed.",
+     "record": "CANON/four_domains.json",
+     "reference": "none (not a reading against healthy): canon wording"
+    },
+    {
+     "title": "Decoder: where IAM's Law is in the chain",
+     "status": "audit",
+     "what": "2:26 PM new section 'Where IAM's Law is in the chain' (law, M, floor, ceiling, the derived healthy level with one measured input, the balance, the eraser by cell type, the bit); Met-A and IAM-A physics updated to the derived level (PHY-083, met in PHY-084). The renames made in the same pass were reverted at 2:59 PM to the chain's own names (healthy middle, self-reference line, healthy line, A-score).",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "reference": "none (not a reading against healthy): documentation"
+    },
+    {
+     "title": "Lambda's coefficient and the 18th chain (X8)",
+     "status": "development",
+     "what": "The Lambda expression reduces to Omega_b/Omega_m = (3/16) sqrt(Omega_L); measured 0.1564 against 0.1551. Among 1,276 simple forms of the same kind, one matches this closely for a random target 69 % of the time; the 18th chain holds the relation to 1.0046 +/- 0.0068 but cannot supply the coefficient. The only unknown is the 2/pi; lead: the average projection of a direction in a surface onto one axis of it is 2/pi.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): cosmology"
+    },
+    {
+     "title": "IAM from the beginning (X22, X20, X21)",
+     "status": "development",
+     "what": "Horizon fill at the end of inflation 3e-4, electroweak 3e-17, nucleosynthesis 9e-23, recombination 1e-29 (upper bounds). Early records written into the horizon's record term would act like a huge cosmological constant, so their absence is required: early costs are paid into the local thermal bath. X20: per Kiefer and Polarski (arXiv:0810.0087) super-horizon decoherence entropy is capped at half its maximum, the inflationary horizon about 1e-12 full. X21: the record term vanishes with the Weyl curvature, Penrose's smooth start.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): cosmology"
+    },
+    {
+     "title": "The cosmic record priced by bound structure (X7)",
+     "status": "development",
+     "what": "Binding energy of all structure, final over today: 2.75 (Press-Schechter), 2.63 (Sheth-Tormen), c 0.97-1.02, but the past runs too steep. Counted at each halo's formation-epoch density the past follows exp(1 - 1/a) to within 8-17 % (Sheth-Tormen) back to z = 3, but the endpoint drops to c 0.63-0.67. The ten-number fit cannot tell c apart (chi-square 6.35 and 6.43 reproduced; growth points move under 0.5); the chains cannot separate the shapes (0.004 in growth suppression).",
+     "record": "docs/verification/theory/derivations_2026-11-14/x7_two_histories.md",
+     "reference": "none (not a reading against healthy): cosmology"
+    },
+    {
+     "title": "The cell's held-share formula at the horizons (R10)",
+     "status": "development",
+     "what": "Given only each surface's own M, the cell's formula gives the black hole 0.487 against its 1/2 and the cosmic horizon 0.566; the formula never exceeds 2/3. Exploration: the black-hole case had been glanced at first.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): cosmology"
+    },
+    {
+     "title": "Night checks on GitHub: the halves, the matter coupling and rule C (X1, X3, X6, X15, X18, X19, R13)",
+     "status": "development",
+     "what": "6:48 PM to 10:22 PM, sympy on GitHub. A paid hold keeps at most 1/3 of what it pays, settled at 50 digits (X3). Rule C (each sector at its own-density horizon temperature) gives exactly twice Hawking's temperature on a Schwarzschild black hole and is withdrawn with its beta_m = Omega_m^(3/2). Matter in the Hubble sphere priced as its own black hole at Hawking's temperature holds the Smarr half, Omega_m/2 (X6, lead); Lambda's sqrt(Omega_L) is its own horizon's de Sitter temperature, leaving one factor 16/3 (X8). At its own temperature a surface holds kappa R/c^2 of its energy: 1 de Sitter, 1/2 black hole (X1). The 4 Omega_m threshold is a crossing time of 2 Omega_m Hubble times (X15); a particle on its own Compton sphere balances its rest energy with the Bekenstein count 2 pi (X19); the book's matter rate is matter's own congruence feeling the record (X18).",
+     "record": "docs/verification/theory/derivations_2026-11-14/x1_surface_gravity.py",
+     "reference": "none (not a reading against healthy): cosmology"
+    },
+    {
+     "title": "The cosmic M number and local-to-horizon migration (X7)",
+     "status": "development",
+     "what": "The typical collapsing halo's cosmic M grows close to E(a)^2 for every overdensity definition tried; its square root is a Mach number, the virial speed over the thermal speed at the horizon's temperature. Migrating local records to the horizon delays the record without changing its shape (exponent spread 3.3 to 3.0, mean 3.9 to about 4.3).",
+     "record": "docs/verification/theory/derivations_2026-11-14/x7_cosmic_m.py",
+     "reference": "none (not a reading against healthy): cosmology"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The eraser is not the cell's proofreading",
+     "status": "development",
+     "what": "Without TET erasers stray marks rise 0.985-1.292 of wild type in five knockout units, not the 48-81 times a discard step needs; the floor's form 1/(1+e^M) is Sartori and Pigolotti's one-step copy limit.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The within-sample slope replicates; the across-type rise does not follow",
+     "status": "development",
+     "what": "PHY-087 step 2 in the blind-test laboratory: median 1.03 (0.34-1.67) of the derived form at 50,000-CpG tiles; across types the level rises 2.4 times faster than the formula (0.1377 against 0.0584), so each type's level (A8) needs something else.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "E(a)'s shape rests on the record constraint alone",
+     "status": "development",
+     "what": "The 7/2 rate accounting and the first law agree only at a = 1; the chains' fits are untouched because they use E(a) as a shape.",
+     "record": "docs/verification/theory/derivations_2026-11-14/x7_two_histories.md"
+    },
+    {
+     "title": "All matter writes the cosmic record, and halos cannot supply beta_m one by one",
+     "status": "development",
+     "what": "R4: baryons only (Omega_b/2 = 0.025) is excluded at 4.5 sigma within the dual-sector reading of the local Hubble rates. X6: collapsed structure's kinetic energy is 2.6e-8 to 2.6e-6 of the critical energy; the size Omega_m/2 sits at the horizon scale.",
+     "record": "docs/verification/theory/derivations_2026-11-14/x6_bit_count.md"
+    },
+    {
+     "title": "Every settled horizon holds 1/2 of what it paid",
+     "status": "development",
+     "what": "Black hole and cosmic horizon alike, against the price paid as the area grew; a paid pump keeps at most 1/3.",
+     "record": "CANON/four_domains.json"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "Decoder names changed without the author's words",
+     "status": "diagnosis",
+     "what": "Four chain names were renamed in the Decoder on an unexecuted plan item; reverted the same day. Caught by the author.",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md"
+    },
+    {
+     "title": "X7 worked from memory",
+     "status": "diagnosis",
+     "what": "Evening toy models were built without reading X7's own register row and the book's derivation; marked superseded. Caught by the author.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Referee labels in exploration",
+     "status": "diagnosis",
+     "what": "A lead was marked post hoc during exploration; the rule now is that a result is a lead with its open step until the final test. Caught by the author.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Smaller slips corrected the same day",
+     "status": "diagnosis",
+     "what": "A DNMT1 literature entry was a Dnmt3a paper (the reviewer); an end-state review table showed stale glossary text (the reviewer); a 1.24 near-match came from comparing entropy with energy (found in the next check); a far-future sentence not in the author's words had stood in four places (the author).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "thinking",
+   "heading": "Coffee and a whiteboard",
+   "entries": [
+    {
+     "title": "Writing on the nearest surface",
+     "status": "development",
+     "what": "The author's picture: every record is written locally first on its nearest 2D encoding surface (the chromatin for a cell, the surface around a star or halo), pushing out the local fabric; a black hole forms when a local surface saturates; the horizon receives what migrates out. The book's saturation chapter already carries the two-entry ledger.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The cosmic record and the cell's balance law",
+     "status": "development",
+     "what": "E(a) is the cell's balance law with no eraser; the book's 'M solved with feedback' integration is the route to its size (R8).",
+     "record": "docs/verification/theory/derivations_2026-11-14/x7_two_histories.md"
+    }
+   ]
+  },
+  {
+   "kind": "changed",
+   "heading": "What changed in the plan",
+   "entries": [
+    {
+     "title": "Exploration is free",
+     "status": "structure",
+     "what": "Desk math, toy models and forecasts on spent data carry no seal, no referee label and no pass or fail; seals, synthetics, canaries and data-spend rules apply only to final derivation tests.",
+     "record": "CANON/TEST_DESIGN_CHECKLIST.md"
+    },
+    {
+     "title": "Read the row and the book first",
+     "status": "structure",
+     "what": "Before any row is worked: its full register entry, its neighbours, and every book section it names; nothing from memory.",
+     "record": "CANON/TEST_DESIGN_CHECKLIST.md"
     }
    ]
   }
- ]
+ ],
+ "corrected": "2026-11-16: the open items were rewritten without private-domain material, and the day's book, canon, Decoder, gate and cosmology work added from the day's record."
 }
