@@ -203,6 +203,10 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["islands_meter_slope"] = Param(1.01, "islands stray-mark error per unit meter", "measured", "PHY-093, 53 healthy blood libraries: OLS of islands error on each library's meter, bootstrap 0.69-1.22, intercept 0.0001 (conv_01/p093_islands_slope.py): the islands carry only the meter, so each library's islands are its in-sample meter", "meter", origin="measured")
     P["clock_writer"] = Param(0.0261, "stray marks per opportunity, meter removed", "measured", "PHY-094, epiTOC2's 163 CpGs and 25 either side, CD4 T (types 0.0164-0.0311; genome-wide writer 0.0112-0.0147): islands where the shield fails (conv_01/p094_read.csv)", "writer", origin="measured")
     P["A_type_level"] = Param({"cortical neurons": 0.81, "naive T": 0.82, "hepatocytes": 0.90, "oligodendrocytes": 0.92, "cardiomyocytes": 0.95, "adipocytes": 1.02, "effector CD8 T": 1.03, "striated muscle": 1.05, "central memory CD4 T": 1.06}, "IAM-A reading", "measured", "each healthy type's fixed level, one command, 31 atlas libraries GSE186458 (DEV_CHAIN_Q2_01/a8_onecmd_readings.csv): no rise with donor age in cells that divide little; the cause is open (register A8): the single-site balance moves it only x1.003 per K and x1.14 over the coin band", "restore", origin="measured")
+    # 2026-11-16 (register A8 candidate iii, plan A8H): 5hmC. Bisulfite reads 5hmC as held. Stable 5hmC = held in a second account; transient
+    # 5hmC = an erase in progress (leaving), read as held. Recommended reading, pending the author.
+    P["hmC_share_blood"] = Param({"Sgilec8 eosinophil": 0.014, "CD56 NKcell": 0.0141, "CD19 Bcell": 0.0143, "CD16 neutrophil": 0.014, "CD14 monocyte": 0.015, "CD8 T cell": 0.0122, "CD4 T cell": 0.0217}, "5hmC calls per CpG call", "measured", "GSE70519 TAB-seq (Hohos 2016), read 2026-11-16 by a8h_tabseq_read.py on GitHub; order matches the paper, sizes ~0.6 of its Table 2 (definition to check); neurons ~8-13 % of CpGs (literature, not in this card)", "meter", origin="measured")
+    P["hmC_transient_fraction"] = Param(0.0, "fraction of 5hmC that is an erase in progress", "assumed", "OPEN lever, assumed 0 until measured: 0 = all 5hmC stable (held); the share that would be read as held while leaving; Bachman 2014 (E27): most 5hmC is stable", "meter", origin="assumed")
     return ModelCard(name, "cell", P)
 
 
@@ -253,3 +257,16 @@ def model2(card):
         out["clock_survival"] = Sc.Reading(card.v("clock_delta") * (1 + card.v("D_select")), "measured", [],
             "clock tick / the writer's one-step stray rate: the fraction of stray marks kept per round (register C3, lead); replace the denominator with PHY-093's islands rate")
     return out
+
+
+def bisulfite_held_error(eps_true, hmC_share, transient_fraction):
+    """2026-11-16 (register A8, plan A8H): the held error a bisulfite reading reports when transient 5hmC (an erase in progress) is read as held:
+    read = true - transient_fraction x hmC_share (never below 0). With transient_fraction 0 the reading is the true held error."""
+    return max(eps_true - transient_fraction * hmC_share, 0.0)
+
+
+def transient_fraction_needed(A, eps0, hmC_share):
+    """2026-11-16 (plan A8H): the transient fraction of a type's 5hmC that would bring its reading A below 1 back to 1 if counted as leaving:
+    (1 - A) x eps0 / hmC_share. A type reading above 1 cannot be explained by hiding (returns None)."""
+    if A >= 1 or hmC_share <= 0: return None
+    return (1 - A) * eps0 / hmC_share

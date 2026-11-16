@@ -54,4 +54,12 @@ ok &= check("England's bound at the derived error: ln(1/eps0) = 3.11 kT (E7)", a
 lv = mc.law_card()["A_type_level"].value
 ok &= check("each type's level is measured, not IAM, and spans more than the energy balance can make", mc.law_card()["A_type_level"].origin == "measured" and max(lv.values()) / min(lv.values()) > 1.143)
 ok &= check("islands meter slope is measured and inside its bootstrap range", mc.law_card()["islands_meter_slope"].origin == "measured" and 0.69 <= mc.law_card()["islands_meter_slope"].value <= 1.22)
+eps_t = 0.04454
+ok &= check("5hmC: with no transient 5hmC the bisulfite reading is the true held error (A8H)", mc.bisulfite_held_error(eps_t, 0.02, 0.0) == eps_t)
+ok &= check("5hmC: half of a 2 % share in transit lowers the reading by 0.01", abs(mc.bisulfite_held_error(eps_t, 0.02, 0.5) - (eps_t - 0.01)) < 1e-12)
+f_n = mc.transient_fraction_needed(0.81, eps_t, 0.10)
+ok &= check("5hmC: a neuron-like type (A 0.81, 5hmC 10 %) needs ~8.5 % of its 5hmC in transit", abs(f_n - 0.0846) < 0.001)
+ok &= check("5hmC: a type reading above 1 cannot be explained by hiding", mc.transient_fraction_needed(1.06, eps_t, 0.02) is None)
+lc = mc.law_card()
+ok &= check("5hmC: blood shares are measured, the transient fraction is an open lever at 0", lc["hmC_share_blood"].origin == "measured" and lc["hmC_transient_fraction"].value == 0.0)
 print("ALL PASS" if ok else "SOME FAILED"); sys.exit(0 if ok else 1)
