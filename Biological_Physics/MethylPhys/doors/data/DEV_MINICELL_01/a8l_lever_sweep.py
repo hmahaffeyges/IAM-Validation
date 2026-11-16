@@ -11,7 +11,7 @@ for k, lo, hi in (("dG_ATP", 0.9, 1.1), ("T_cell", 0.99, 1.01), ("SAM_cost", 0.7
     v = card.v(k); a, b = held(card.set(**{k: v * lo})), held(card.set(**{k: v * hi}))
     el = math.log(b / a) / math.log(hi / lo); need = math.exp(math.log(TARGET) / abs(el)) if el else float("inf")
     rows.append(("energy (IAM on)", k, v, round(el, 3), round(need, 2)))
-m, d, e, lag = (card.v(f"held_marked.{x}") for x in ("m", "d", "e")) + (card.v("lag"),)
+m, d, e = (card.v(f"held_marked.{x}") for x in ("m", "d", "e")); lag = card.v("lag")
 def lvl(mm, dd, ee, ll):
     U, Hh, M = mc.class_state(mm, dd, ee, ll); return 1 - (M + Hh / 2)
 b0 = lvl(m, d, e, lag)
