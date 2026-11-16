@@ -5433,36 +5433,55 @@ shows the synthetic as done. No result changes: a re-run of the same command on 
 
 ### 2026-11-14 · Day summary
 **Set out:** Read PHY-090 by its sealed rule; keep deriving each cell type's level; measure the meter's false marks in every spent library;
-keep heavy work off the laptop.
+work the cosmology rows the derivation register opened (X6, X7, X8, R4, X22); keep heavy work off the laptop.
 **Ran, and how each came out:**
 - The eraser's share in LSK progenitors: about 5 %, on watch (pull +2.59), null test clean (PHY-090).
 - The writer's selection step and the eraser share by cell type, on spent counts (PHY-083, PHY-086).
 - The within-sample slope follows from the derived hold with cooperative maintenance; it depends on tile size (corrected), and replicates in a
-  second laboratory at 50,000-CpG tiles, median ratio 1.03 (PHY-087 step 2).
+  second laboratory at 50,000-CpG tiles, median ratio 1.03 (PHY-087 step 2); across types the level rises 2.4 times faster (A8 stays open).
 - Where the B-cell knockouts' extra loose stretches sit: not assessed, its own null rule failed at two tile sizes; closed for now (PHY-092).
 - The meter's false marks in each spent library: designed, synthetic met through the one command, canary passed, 77 libraries released
   (PHY-091; read 2026-11-15).
 - A pipeline so GitHub's machines start the next prepared job without waiting; its look-back fault (finished items re-run) fixed (OTH-086).
 - The gate refuses private names and new private-domain material in public files (OTH-086).
 - The book's cell chapters cite IAM's Law by reference (PHY-083).
+- Book notes on the author's authority (2da87a07, 106dc107, 5ca54099, 38a5daf4): E(a)'s shape rests on the record constraint (the 7/2
+  accounting and the first law agree only today); halos supply about a millionth of beta_m, whose size sits at the horizon scale; baryons-only
+  writing excluded at 4.5 sigma within the dual-sector reading; the arrow of time rests on the second law (Penrose's Weyl curvature
+  hypothesis); the far-future 'structure formation stops' wording replaced in four places and the glossary.
+- Canon held share (75a2f407): against the price paid as the area grew, every area-law horizon holds 1/2; the 1 is T S over the energy inside.
+- Decoder: a section 'Where IAM's Law is in the chain'; renames in the same pass reverted to the chain's own names.
+- Cosmology explorations on GitHub: X8 (Omega_b/Omega_m = (3/16) sqrt(Omega_L), 18th chain 1.0046 +/- 0.0068, the 2/pi still to derive);
+  X22 and X20 (the early horizon never near full); X7 with bound structure (past shape within 8-17 % at formation-epoch density, endpoint
+  c 0.63-0.67); R10 (the cell's formula gives the black hole 0.487); night checks: the paid hold keeps at most 1/3 (X3, 50 digits), rule C
+  withdrawn (twice Hawking's temperature), matter's own black-hole Smarr half gives Omega_m/2 (X6), kappa R/c^2 (X1), X15, X18, X19.
 **Successes:**
 - The within-sample slope replicated in an unseen laboratory.
+- The book's cosmology claims were checked in code before a referee could raise them, and the notes landed with 4,708 checks passing.
 **Learned:**
 - The eraser is not the cell's proofreading of the unmarked side; the floor's form 1/(1+e^M) is the established one-step copy limit.
 - A pipeline judging items by the newest runs of all workflows loses finished items on a busy night.
+- All matter writes the cosmic record (R4); beta_m's size is set at the horizon scale (X6); every settled horizon holds 1/2 of what it paid.
 **Errors (the agent's own), and what caught each:**
 - Renamed the chain's names in the Decoder (healthy middle, self-reference line, healthy line, A-score) on the strength of an unexecuted plan
   item; reverted the same day (the author).
 - Let the machines sit idle for an afternoon instead of queueing the next prepared items (the author).
 - Ran local calculations and repeated downloads that slowed the laptop (the author); heavy work moved to GitHub.
 - Wrote time labels ahead of the Pacific clock (found on reading the clock); labels now come from the clock in the same command.
+- Worked X7 from memory without reading its own register row and the book's derivation (the author); the toy models are superseded.
+- Put referee labels on exploration (the author); a DNMT1 entry that was a Dnmt3a paper and a stale review table (the reviewer).
 **The author's instructions and corrections:**
 - Derive first, commission later; keep the machines full with designed tests while desk work goes on; exploration carries no referee labels;
   read before working; no calculations on the laptop; the chain's names are the names the Decoder uses.
-**Path changes:** the next prepared items queue behind the current ones; the pipeline's run lookup searches each item's own workflow.
+- "always use the web first, then the book"; "DO NOT EVER WORK FROM MEMORY".
+- Book changes on the author's authority when correct and most defensible, each reported with its reason.
+- The far-future 'what ends is the writing' sentence "was not my wording AT ALL": structure keeps changing form; the universe matures.
+**Path changes:** the next prepared items queue behind the current ones; the pipeline's run lookup searches each item's own workflow;
+every row is read on IAM's web and in the book before it is worked.
 **Data:** GSE72630 read for PHY-090; GSE173787 (58) and the eraser libraries (19 and the canary) counted for PHY-091; nothing new spent.
 **Machines:** GitHub for every count, reading and check; the laptop for edits and commits only.
-**Open at turnover:** read PHY-091 (A17 -> A15); each cell type's level (A8, needs data); the mouse eraser libraries' sequencing error.
+**Open at turnover:** read PHY-091 (A17 -> A15); each cell type's level (A8, needs data); the mouse eraser libraries' sequencing error;
+X7 and R13 (which temperature prices a written bit).
 
 ### 2026-11-15 · PHY-091 read: in healthy blood the unmarked side's stray marks, with the meter's false marks removed, sit in the one-step selection band
 All 79 runs completed on GitHub with none failed (the last at 11:48 UTC); the reading p091-read (conv_01/a17_read_gh.py, run 43710800806) read the
