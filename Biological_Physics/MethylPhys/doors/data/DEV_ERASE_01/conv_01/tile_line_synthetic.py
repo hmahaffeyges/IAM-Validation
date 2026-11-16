@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic for the per-tile line (TERR/GLB, 2026-11-16). Molecules every 2 kb on chr1-chr4, in 10 Mb blocks that alternate FIRM (even-half
+"""Synthetic for the per-tile line (TERR/GLB, 2026-11-16). Molecules every 25 CpGs on chr1 (CpG-index positions), in blocks of 100,000 CpGs that alternate FIRM (even-half
 mean call 0.9, held loss 0.03) and LOOSE (mean call 0.4, held loss 0.08). Read through the one command (count only). The synthetic counts the
 lone losses it planted itself, block by block, with the count's own rule (a lone unmethylated call between two methylated ones), and checks
 that held_err_firm_tiles and held_err_loose_tiles are within 10 % of its own firm and loose counts (tiles straddling a block edge mix). Exit 1."""
@@ -7,15 +7,15 @@ import os, sys, json, gzip, random, subprocess, tempfile
 H = os.path.dirname(os.path.abspath(__file__)); IF = os.path.abspath(os.path.join(H, "..", "..", "..", "..", "chain", "MethylPhys_Interface"))
 W = tempfile.mkdtemp(); rng = random.Random(46); pat = os.path.join(W, "tiles.pat.gz"); own = {"firm": [0, 0], "loose": [0, 0]}
 with gzip.open(pat, "wt") as f:
-    for chrom in ("chr1", "chr2", "chr3", "chr4"):
-        for pos in range(1_000_000, 120_000_000, 2000):
-            kind = "firm" if (pos // 10_000_000) % 2 == 0 else "loose"
+    for chrom in ("chr1",):
+        for pos in range(1_000, 2_300_000, 25):   # CpG indices (the .pat position column), inside chr1's range
+            kind = "firm" if (pos // 100_000) % 2 == 0 else "loose"
             mm, ph = (0.9, 0.03) if kind == "firm" else (0.4, 0.08)
             ev = "".join("C" if rng.random() < mm else "T" for _ in range(10))
             od = ["T" if rng.random() < ph else "C" for _ in range(12)]
             if od.count("C") >= 0.8 * 12:
                 own[kind][0] += sum(1 for q in range(1, 11) if od[q] == "T" and od[q - 1] == "C" and od[q + 1] == "C"); own[kind][1] += 10
-            f.write(f"{chrom}\t{pos}\t{ev}\t1\n{chrom}\t{pos + 1000}\t{''.join(od)}\t1\n")
+            f.write(f"{chrom}\t{pos}\t{ev}\t1\n{chrom}\t{pos + 11}\t{''.join(od)}\t1\n")
 b = os.path.join(W, "tiles.json")
 p = subprocess.run([sys.executable, "run_sample.py", "--pat", pat, "--specimen", "cultured cells", "--seq-cell", "syn", "--id", "syn",
                     "--dev-count-only", "--dev-allow-partial-genome", "--dev-count-genome", "hg19",
