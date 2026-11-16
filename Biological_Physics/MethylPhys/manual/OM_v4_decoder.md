@@ -261,6 +261,9 @@ the chain reads comes from that one statement; everything else in the chain is s
   Met-A's healthy level at held sites (Section 5). The chain reads against the measured references; the derivation explains them.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
+  Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
+  from detailed balance says that holding a mark at error ε costs at least kT ln(1/ε) of heat per interval, about 3 kT at the
+  derived level and one coin at the floor. Both rest on Landauer's price of a bit at kT.
 - **The eraser (measured, by cell type).** The share of losses the erasers cause is measured in eraser-removal libraries (PHY-085, PHY-086,
   PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). A baseline per cell type is open.
 - **The bit.** Met-A reads disorder in bits, H(β); IAM-A reads the held error, the share of held sites wrong at any moment.

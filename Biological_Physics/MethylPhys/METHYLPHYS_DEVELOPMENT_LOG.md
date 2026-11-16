@@ -5660,3 +5660,9 @@ Reading: the writer leaves essentially no stray marks in the islands, so the isl
 aligned file. It also settles a question about the clock sites (PHY-094): CpG-dense territory does not amplify the meter, so the clock
 sites' excess over genome-wide is the writer's. Not assessed at this depth: island shores, other cell types, other laboratories.
 Amendment 4 (GSM5278470, coverage intake) and the reader fix (genome-wide sum) preceded the reading.
+
+### 2026-11-15 · PHY-078 mini cell: phi derived beside measured; Decoder balance cites its established neighbours
+The mini cell now carries phi = 0.1464 derived from M alone (the A4 derivation, canon phi_candidate) next to the measured 0.1473, so the
+simulator shows which number is physics and which is its check. The Decoder's balance entry names the two established results it stands
+on: Sartori and Pigolotti's one-step copy limit (the floor's form) and England's 2013 heat bound from detailed balance (holding a mark at
+error eps costs at least kT ln(1/eps) per interval: about 3 kT at the derived level, one coin at the floor). No chain value changed.

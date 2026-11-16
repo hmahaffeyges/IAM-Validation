@@ -177,6 +177,7 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["T_cell"] = Param(310.15, "K", "measured", "37 C, the cell's own temperature (canon T_cell)", "kick", origin="measured")
     P["dG_ATP"] = Param(54000.0, "J/mol", "measured", "cytosolic free energy of ATP hydrolysis (canon dG_ATP)", "coin", origin="established")
     P["phi"] = Param(0.1473, "fraction of one coin", "measured", "phi = E_hold/M, canon (56 healthy cell types)", "restore", origin="measured")
+    P["phi_derived"] = Param(0.1464, "fraction of one coin", "derived", "phi(M) = ln(odds(2M))/M from M alone (canon phi_candidate; register A4; heat bound England 2013 eq 6); the measured phi 0.1473 is its check", "restore", origin="IAM")
     P["iam"] = Param(True, "switch", "definition", "IAM on: the held level from the law; off: the measured 37 C level, fixed", origin="ours")
     P["eps_measured_37C"] = Param(0.04376, "held error", "measured", "canon eps0_meth at 37 C (used only with IAM off)", origin="measured")
     P["baseline_candidate"] = Param(False, "switch", "definition", "on (with IAM on): the held level from the driven passage (PHY-083, candidate) instead of measured phi", origin="ours")
