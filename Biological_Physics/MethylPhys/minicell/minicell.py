@@ -180,7 +180,7 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["phi_derived"] = Param(0.1464, "fraction of one coin", "derived", "phi(M) = ln(odds(2M))/M from M alone (canon phi_candidate; register A4; heat bound England 2013 eq 6); the measured phi 0.1473 is its check", "restore", origin="IAM")
     P["iam"] = Param(True, "switch", "definition", "IAM on: the held level from the law; off: the measured 37 C level, fixed", origin="ours")
     P["eps_measured_37C"] = Param(0.04376, "held error", "measured", "canon eps0_meth at 37 C (used only with IAM off)", origin="measured")
-    P["baseline_candidate"] = Param(False, "switch", "definition", "on (with IAM on): the held level from the driven passage (PHY-083, candidate) instead of measured phi", origin="ours")
+    P["baseline_candidate"] = Param(False, "switch", "definition", "on (with IAM on): the held level from the driven passage, DERIVED from M alone (register A4; blind test PHY-084 met 2026-11-13) instead of the measured phi", origin="ours")
     P["SAM_cost"] = Param(2.0, "ATP coins per SAM", "derived", "canon SAM_cost_ATP: exactly 2 where adenylate kinase is at equilibrium (minicell/sam_cost_ak.py)", "coin", origin="established")
     P["held_marked.m"].value = 0.9661; P["held_marked.m"].label = "derived"; P["held_marked.m"].origin = "measured"
     P["held_marked.m"].source = ("calibrated on maintenance alone: hairpin genotype without writers or erasers (Tet1-3 + Dnmt3a/b/c knockout), restores per "
@@ -199,6 +199,10 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     # 2026-11-15 (register C3, A18): the mitotic clock's tick and the erasers' cleaning of stray marks, both measured; IAM's Law is in neither
     P["clock_delta"] = Param(5e-5, "per site per write-erase round", "measured", "methylation gain per round at 163 CpG-island sites bare in fetal tissue (epiTOC2 mitotic clock, Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3; fitted mode, blood ~35 rounds/yr); ~2x faster in precancer", "writer", origin="measured")
     P["eraser_stray_clean"] = Param(0.18, "fraction of stray marks", "measured", "share of unmarked-side stray marks the erasers remove (TET2+TET3: 13-23 %; TET2 alone ~0; erase_proofreading.py): selectivity at most ~3, not a proofreading discard step (A18)", "eraser", origin="measured")
+    # 2026-11-16 (propagation pass; register T1, C3, A8, A4): measured readings the simulator must reproduce or carry; IAM's Law is not in them
+    P["islands_meter_slope"] = Param(1.01, "islands stray-mark error per unit meter", "measured", "PHY-093, 53 healthy blood libraries: OLS of islands error on each library's meter, bootstrap 0.69-1.22, intercept 0.0001 (conv_01/p093_islands_slope.py): the islands carry only the meter, so each library's islands are its in-sample meter", "meter", origin="measured")
+    P["clock_writer"] = Param(0.0261, "stray marks per opportunity, meter removed", "measured", "PHY-094, epiTOC2's 163 CpGs and 25 either side, CD4 T (types 0.0164-0.0311; genome-wide writer 0.0112-0.0147): islands where the shield fails (conv_01/p094_read.csv)", "writer", origin="measured")
+    P["A_type_level"] = Param({"cortical neurons": 0.81, "naive T": 0.82, "hepatocytes": 0.90, "oligodendrocytes": 0.92, "cardiomyocytes": 0.95, "adipocytes": 1.02, "effector CD8 T": 1.03, "striated muscle": 1.05, "central memory CD4 T": 1.06}, "IAM-A reading", "measured", "each healthy type's fixed level, one command, 31 atlas libraries GSE186458 (DEV_CHAIN_Q2_01/a8_onecmd_readings.csv): no rise with donor age in cells that divide little; the cause is open (register A8): the single-site balance moves it only x1.003 per K and x1.14 over the coin band", "restore", origin="measured")
     return ModelCard(name, "cell", P)
 
 
