@@ -33,4 +33,5 @@ bulk = X[X.kind == "bulk"].groupby("lineage").over_thermal_own.mean().round(3).t
 t = ("A8 same-donor reading (atlas lab, exploration):\n" + O.to_string(index=False) + "\n\nmeans by donor and kind:\n" + s.to_string() +
      f"\n\nbulk blood types (donors aged 50-56), over thermal at own clustering: {bulk}\n")
 open(os.path.join(H, "a8_same_donor_summary.txt"), "w").write(t); print(t)
+os.makedirs("xout", exist_ok=True); open("xout/a8_same_donor_summary.txt", "w").write(t); O.to_csv("xout/a8_same_donor.csv", index=False)
 for l in s.to_string().splitlines(): print("::notice::" + l[:300])
