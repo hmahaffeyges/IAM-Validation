@@ -5624,3 +5624,9 @@ dataETOC3, in Runtime Matrices/Clock_Sites/epitoc2_sites.csv) with 25 CpGs eithe
 the molecule files PHY-084 kept (patfrom; no alignment, no unseen data), pooled by cell type, meter removed (PHY-091). The clock's tick over
 that level is the share of stray marks kept each round of writing and erasing. Chain: run_sample.py --dev-count-sites epitoc2 with its Decoder
 entry; synthetic (epitoc2_synthetic.py), canary rule (p094_canary.py) and reader (p094_read_gh.py) in DEV_ERASE_01/conv_01.
+
+### 2026-11-15 · PHY-093 amendment 3: a fourth library refused by the coverage intake
+GSM5278525 stopped at the genome-coverage intake: chr21 under half the median autosome's share of sites with a value, at
+the 2-million-pair depth (9,724 of 813,951 sites; read on a GitHub machine, tools/run_log_tail.py, run 43779520422). At this depth a small
+chromosome can fall under the limit by chance, unlike PHY-084's partial-coverage libraries. Left out of the reading on the same rule as
+amendments 1 and 2 (design/PHY-093.json amendment 3); the reading runs on the libraries the chain accepted.

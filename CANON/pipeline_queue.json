@@ -3991,7 +3991,8 @@
    "canary": "p093-GSM5278426",
    "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_canary.py",
    "row": "PHY-093",
-   "design": "design/PHY-093.json"
+   "design": "design/PHY-093.json",
+   "refused_by_intake": "GENOME_COVERAGE_REFUSED (chr21 under 0.5 of the median autosome's share at 2 million pairs)"
   },
   {
    "id": "p093-GSM5278526",
@@ -4119,7 +4120,6 @@
     "p093-GSM5278522",
     "p093-GSM5278523",
     "p093-GSM5278524",
-    "p093-GSM5278525",
     "p093-GSM5278526",
     "p093-GSM5278527",
     "p093-GSM5278528",
