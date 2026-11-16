@@ -5584,3 +5584,35 @@ GSM5278446 and GSM5278472 stopped with exit 35: the chain's genome-coverage inta
 them (7 and 11 autosomes under half the median share of sites with a value). They are two of the four libraries PHY-084 already named for partial
 coverage. The molecule-file route runs the Deconvolver first, so the refusal stands; they are left out of the reading (design/PHY-093.json
 amendment 1), not forced through. (The bam2pat reference lookup error earlier in both logs was recovered by the workflow's own retry.)
+
+### 2026-11-15 · PHY-093 amendment 2: a third partial-coverage library refused by intake
+GSM5278476 stopped with exit 35, refused by the genome-coverage intake (chr18 to chr22 under half the median autosome's share). Left out of
+the reading on the same rule as amendment 1 (design/PHY-093.json amendment 2).
+
+### 2026-11-15 · PHY-083, PHY-086: the book's IAM-A chapter carries writing and erasing, not division; the mitotic clock read in IAM's terms (register C3)
+Author: 'this is very recent stuff we have established and tested so it should be in the log and the book'. Three findings of 11-13 and 11-14
+were in this log but not in the book; the IAM-A chapter (docs/book/part6/p6_08_iama.tex, sec:middle_candidate) now carries them, each tagged:
+the unmarked side is one selection step by the writer, 1/(1+D), with no proofreading (A15; the meter's share from PHY-091); the erasers are
+not the cell's proofreading (stray marks rise 0-30 % without them, not 1+D; erase_proofreading.py); each type's distance above the thermal
+level follows the restore crew, not division (MKI67 rho -0.23, crew rho -0.35; types_vs_thermal_turnover.py). New lead (register C3): the
+epigenetic mitotic clock (epiTOC2, Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3: methylation gain at 163 CpG-island
+sites, about 5e-5 per site per round, about twice as fast in precancerous tissue) read as the share of the writer's stray marks that survives each
+round of writing and erasing; PHY-093 measures the islands' stray-mark level, the input that connects them. Age clocks tick in non-dividing
+brain, where the eraser's first product (5hmC) is highest (10-40 % of methylated cytosines against 1-2 % elsewhere): consistent with one
+write-erase channel; a level, not a rate, and bisulfite reads 5hmC as methylated there.
+
+### 2026-11-15 · PHY-083, PHY-084: in mature blood the middle line reads from M alone; the eraser share matters in stem and progenitor cells (exploration)
+Author: can the middle line's one measured input (the eraser share) be derived from today's data? Not from 5hmC levels: 5hmC is a mostly stable
+mark (Bachman et al. 2014, Nature Chemistry), not a flux, and mature B cells carry mid 5hmC with a measured share of zero. But the input may drop
+out for mature blood. PHY-084's eight type readings in both laboratories (spent; referee_out_summary.txt, rehearsal_atlas/out_summary.txt),
+re-read with no eraser share, the level from M alone through the counter: median observed over predicted 0.997 (referee 0.952, atlas 1.024)
+against 0.882 with the stem-cell share; mean |ln| 0.112 against 0.161; B cells' pull -2.45 to -1.53, the referee mean pull -1.29 to -0.50.
+With mature B's measured share of zero (PHY-086 P4), the lead is that mature blood's healthy level is derived from M alone, and the eraser share is
+a correction for stem, progenitor and young types. After the fact; B cells remain the lowest type in both laboratories (A8). The seal that
+would decide it: a mature T or myeloid knockout share near zero, predicted before it is read (Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_out_summary.txt).
+
+### 2026-11-15 · PHY-093: the molecule files were kept; the re-alignment was not needed
+PHY-093's design said no molecule files were kept for the 58 referee libraries; only the Google bucket had been checked. Every GitHub run that
+builds a molecule file keeps it in its artifact (erase_gh.sh copies it into eout/): PHY-084's runs of 2026-11-13 hold them (erase-<GSM>, 11-12 MB,
+until 2027-02-11), and PHY-093's own runs hold theirs (2.6-2.8 MB, 2 million pairs, until 2027-02-13). PHY-093 re-aligned what it could have
+counted with patfrom; no unseen data was spent. From now on the kept artifacts are checked before any re-alignment (design/PHY-093.json).

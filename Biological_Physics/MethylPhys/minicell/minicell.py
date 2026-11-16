@@ -195,6 +195,9 @@ def law_card(name="mini cell v2 (healthy, law first)"):
                           "thermal copy (Sartori and Pigolotti, PRL 110, 188101, 2013), the same form as the floor 1/(1 + e^M)", "writer", origin="measured")
     P["conv_fail"] = Param(0.0044, "per non-CpG cytosine", "measured", "the meter: bisulfite conversion failure, median of 58 healthy blood libraries (PHY-091, GSE173787, conv_01/a17_read_summary.txt)", "meter", origin="measured")
     P["tc_err"] = Param(0.00046, "per read T (top) / A (bottom)", "measured", "the meter: the sequencing substitution that can fake a mark, T read as C, quality >= 20 (PHY-091 amendment 2 canary, mouse LSK; human value pending)", "meter", origin="measured")
+    # 2026-11-15 (register C3, A18): the mitotic clock's tick and the erasers' cleaning of stray marks, both measured; IAM's Law is in neither
+    P["clock_delta"] = Param(5e-5, "per site per write-erase round", "measured", "methylation gain per round at 163 CpG-island sites bare in fetal tissue (epiTOC2 mitotic clock, Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3; fitted mode, blood ~35 rounds/yr); ~2x faster in precancer", "clock", origin="measured")
+    P["eraser_stray_clean"] = Param(0.18, "fraction of stray marks", "measured", "share of unmarked-side stray marks the erasers remove (TET2+TET3: 13-23 %; TET2 alone ~0; erase_proofreading.py): selectivity at most ~3, not a proofreading discard step (A18)", "eraser", origin="measured")
     return ModelCard(name, "cell", P)
 
 
@@ -240,4 +243,8 @@ def model2(card):
         if "conv_fail" in card:
             out["stray_mark_rate_as_read"] = Sc.Reading(1 / (1 + card.v("D_select")) + card.v("conv_fail") + card.v("tc_err"), "measured", [],
                 "what the meter reads on the unmarked side: the writer's one-step error plus the meter's false marks (conversion failure and the T->C slip); healthy blood reads 0.0191 (PHY-091)")
+    if "clock_delta" in card and "D_select" in card:
+        # C3: the share of the writer's stray marks that survives a round and is kept (a lower bound read genome-wide; PHY-093 gives the islands' own level)
+        out["clock_survival"] = Sc.Reading(card.v("clock_delta") * (1 + card.v("D_select")), "measured", [],
+            "clock tick / the writer's one-step stray rate: the fraction of stray marks kept per round (register C3, lead); replace the denominator with PHY-093's islands rate")
     return out
