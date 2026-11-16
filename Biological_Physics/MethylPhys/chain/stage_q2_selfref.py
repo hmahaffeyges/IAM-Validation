@@ -148,6 +148,7 @@ def meter_end_damage(by_dist, limit=None):
 
 def count_pat(lines, tiles):
     tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}; QD = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
+    TE = {}   # 2026-11-16 (TERR/GLB, development, recorded only): held losses and opportunities by tile, from the held (odd) half
     RL = [0, 0, 0, 0, 0]; RE = [0.0, 0.0, 0.0, 0.0, 0.0]   # 2026-11-16 (CP1, development, recorded only): runs of consecutive losses 1-4, 5+ on held molecules: observed, expected
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
@@ -166,6 +167,10 @@ def count_pat(lines, tiles):
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
             _iso = sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C"); e_opp += n * (len(s) - 2); e_iso += n * _iso
             _ql = QL.setdefault(len(s), [0, 0, 0]); _ql[0] += n; _ql[1] += n * _iso; _ql[2] += n * (len(s) - 2)
+            _w = tiles.get(c)
+            if _w is not None:
+                _j = np.searchsorted(_w[:, 0], i, side="right") - 1
+                if _j >= 0 and i <= _w[_j, 1]: _te = TE.setdefault((c, int(_j)), [0, 0]); _te[0] += n * _iso; _te[1] += n * (len(s) - 2)
             for q in range(1, len(s) - 1):   # 2026-11-10 (development, recorded only): the same held error by distance from the molecule's nearer end (1 = the second call in)
                 _d = min(q, len(s) - 1 - q, 6); _qd = QD.setdefault(_d, [0, 0]); _qd[1] += n; _qd[0] += n * (s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
@@ -178,7 +183,7 @@ def count_pat(lines, tiles):
                 for _r in range(5): RE[_r] += n * _e[_r]
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **_loss_runs(RL, RE), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **_loss_runs(RL, RE), **_tile_line(tile_calls, TE), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
                    held_by_distance={str(k): v for k, v in sorted(QD.items())}, **meter_end_damage({str(k): v for k, v in QD.items()})), g_iso, g_opp)
 
 def _coupling(K):
@@ -211,6 +216,23 @@ def _loss_runs(RL, RE):
     runs: 1 when losses fall independently, below 1 when they come in stretches (a processive or double-loss mechanism)."""
     lab = ("1", "2", "3", "4", "5+"); o, e = sum(RL), sum(RE)
     return dict(loss_runs=dict(obs={lab[i]: int(RL[i]) for i in range(5)}, exp={lab[i]: round(RE[i], 3) for i in range(5)}), loss_run_ratio=(o / e) if e else None)
+
+def _tile_line(tile_calls, TE):
+    """2026-11-16 (TERR/GLB locality test, development, recorded only): the held error pooled in tiles judged firm (mean call >= CUT) and loose
+    (mean call < CUT), the tile's mean call taken from the even half and its held error from the odd half, so no half judges itself; and the held
+    error in four bands of tile mean call (< 0.5, 0.5-0.7, 0.7-0.85, >= 0.85). If IAM-A's line holds inside one sample, firm tiles read the line
+    at loose share 0 and loose tiles at loose share 1. Tiles with fewer than MIN_TILE_CALLS calls are left out, as in the loose share."""
+    edges = (0.5, CUT, 0.85); F = [0, 0]; L = [0, 0]; B = [[0, 0] for _ in range(4)]; nf = nl = 0
+    for key, (cm, ca) in tile_calls.items():
+        if ca < MIN_TILE_CALLS or key not in TE: continue
+        mean = cm / ca; e = TE[key]
+        if mean >= CUT: F[0] += e[0]; F[1] += e[1]; nf += 1
+        else: L[0] += e[0]; L[1] += e[1]; nl += 1
+        bi = sum(mean >= x for x in edges); B[bi][0] += e[0]; B[bi][1] += e[1]
+    lab = ("<0.5", "0.5-0.7", "0.7-0.85", ">=0.85")
+    return dict(held_err_firm_tiles=(F[0] / F[1]) if F[1] else None, held_err_loose_tiles=(L[0] / L[1]) if L[1] else None,
+                tile_line_n=dict(firm=nf, loose=nl, firm_opp=int(F[1]), loose_opp=int(L[1])),
+                held_err_by_tile_call={lab[k]: ((B[k][0] / B[k][1]) if B[k][1] else None) for k in range(4)})
 
 def count_pat_tile_errors(lines, tile=TILE):
     """2026-10-25 (DEV-ERASE-01, the graded maintenance test; plan 14.1): the held error tile by tile, in two independent halves. Held

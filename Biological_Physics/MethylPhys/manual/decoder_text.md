@@ -143,7 +143,7 @@ The bundle's reference block: the atlases checked, whether they passed, and ever
 | Noise index | 48,528 sites, 95 on the X and 15 on the Y. Even if every one of them read at maximum noise, the index could move by at most 0.0023 bits (0.23 % of its 1-bit scale). |
 | Stage A, the blood mix | 963 markers, 0 on the X or Y. |
 | IAM-Deconvolver | 600 markers, 0 on the X, 0 on the Y. |
-| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file the loose share is counted on chromosomes 1 to 22, and the held error on every chromosome the file holds (the route IAM-A was commissioned on). With the X and Y left out, IAM-A moves by -0.32 % on average (at most -0.71 %), well inside the band, so the line and the band are kept (Decoder finding F37). |
+| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file both counts use chromosomes 1 to 22. |
 | Group-A | Compares groups run in the same series; its sealed bar 2 is a women-against-men null (above). |
 | IAM-Atlas v2.1 and the globes | 813,951 atlas sites, 14,759 on the X and 3 on the Y. The atlas's donors are women and men, so it is 2.5 to 3.6 times less sure on the X and Y than elsewhere (the noise globe shows it). Every change count on a globe is also given on the X and Y, and the page prints the sex Stage 0 read. When a tumor is drawn against its own normal tissue (same person, same sex), its change is counted with and without the X and Y: in a tumor an X change can be real biology. |
 <!-- SEX-SECTION:END -->
@@ -1037,6 +1037,11 @@ losses. Exact (checked against every arrangement of small molecules); nothing fi
 ### stage_q2_selfref.py::_loss_runs
 The run-length spectrum of losses on held molecules: observed runs by length beside the expectation above, and loss_run_ratio = observed
 runs / expected runs (1 for independent losses, below 1 when losses come in stretches). Recorded only, never used in A (register CP1).
+
+### stage_q2_selfref.py::_tile_line
+The locality test of IAM-A's line inside one sample: the held error pooled in tiles judged firm and loose, the tile's mean call from the even
+half of the sample and its held error from the odd half, so no half judges itself; also by four bands of tile mean call. If the line is local,
+firm tiles read the line at loose share 0 and loose tiles at loose share 1. Development, recorded only, never used in A (TERR, GLB).
 
 ### stage_v4.py::_compress
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
