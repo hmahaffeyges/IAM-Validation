@@ -5638,3 +5638,9 @@ comparison now sums only the libraries that carry them and states how many; the 
 ### 2026-11-15 · PHY-078 mini cell: clock_delta on the writer lever
 The clock parameter added today (register C3) named a lever outside the shared vocabulary, so the mini cell's card stopped on its own
 check. The clock tick is the share of the writer's stray marks kept each round, so it sits on the writer lever. No value changed.
+
+### 2026-11-15 · PHY-093 amendment 4: a fifth library refused by the coverage intake
+GSM5278470 stopped at the genome-coverage intake: chr16-chr22 under half the median autosome's share of sites with a
+value (8,897 of 813,951 sites; read on a GitHub machine, tools/run_log_tail.py, run 43764729226); it is the fourth partial-coverage
+library PHY-084 named. Left out of the reading on the same rule as amendments 1-3 (design/PHY-093.json amendment 4); the reading
+runs on the libraries the chain accepted.
