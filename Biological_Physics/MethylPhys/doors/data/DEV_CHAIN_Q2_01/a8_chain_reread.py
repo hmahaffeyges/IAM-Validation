@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""A8 chain re-read (2026-11-16, author: 'Our rule is to ALWAYS USE THE CHAIN'). The 11 same-donor atlas libraries (GSE186458, spent) through the
-FULL one command (run_sample.py, no --dev-count-only), so the chain's own IAM-A reading (Stage Q2, V4.stage_q2 / stage_q2_selfref.reading)
-produces A for each; nothing computed here beyond copying the bundle's iam_a block. Runs ON GITHUB."""
-import os, json, tempfile, subprocess
+"""A8 / A8N chain reading (2026-11-16; author: 'Our rule is to ALWAYS USE THE CHAIN'; 'working smarter not harder'). ONE library per job, run
+in parallel: the one command (run_sample.py --geo-pat, the information sphere skipped); the Deconvolver picks the cell (no label; rule 23b-h);
+IAM-A's reading copied from the bundle. Usage: a8_chain_reread.py GSM [GSM ...]. Runs ON GITHUB."""
+import os, sys, json, tempfile, subprocess
 IF = "Biological_Physics/MethylPhys/chain/MethylPhys_Interface"
-LIBS = {"GSM5652296": "naive cd4 t cells", "GSM5652298": "naive cd8 t cells", "GSM5652286": "t central memory cd4", "GSM5652289": "t effector cell cd8", "GSM5652292": "t effector memory cd4", "GSM5652295": "effector memory cd8 t cells", "GSM5652297": "naive cd8 t cells", "GSM5652285": "t central memory cd4", "GSM5652288": "t effector cell cd8", "GSM5652291": "t effector memory cd4", "GSM5652294": "effector memory cd8 t cells"}
-os.makedirs("xout", exist_ok=True); rows = []
-for g, cell in LIBS.items():
+os.makedirs("xout", exist_ok=True)
+for g in [a for a in sys.argv[1:] if a.startswith("GSM")]:
     w = tempfile.mkdtemp(prefix=g); b = os.path.join(w, "b.json")
     with open(os.path.join("xout", f"a8_chain_{g}_log.txt"), "w") as fh:
-        rc = subprocess.run(["python3", "run_sample.py", "--geo-pat", g, "--geo-dir", w, "--specimen", "sorted cells", "--seq-cell", cell, "--id", g,
+        rc = subprocess.run(["python3", "run_sample.py", "--geo-pat", g, "--geo-dir", w, "--specimen", "sorted cells", "--no-info-sphere", "--id", g,
                              "--out", os.path.join(w, "r.html"), "--bundle", b], cwd=IF, stdout=fh, stderr=subprocess.STDOUT).returncode
-    ia = json.load(open(os.path.join(IF, b) if not os.path.isabs(b) else b)).get("iam_a", {}) if rc == 0 and os.path.exists(b) else {"refusal": f"run failed rc {rc}"}
-    r = {"gsm": g, "cell": cell, **{k: ia.get(k) for k in ("A", "predicted", "held_err", "loose_share", "refusal", "refusal_code", "flag", "label")}}
-    rows.append(r); print(f"::notice::{g} {cell}: A {r['A']} (held {r['held_err']}, predicted {r['predicted']}, loose {r['loose_share']}) {r.get('refusal') or ''}"[:300])
+    B = json.load(open(b)) if rc == 0 and os.path.exists(b) else {}
+    ia = B.get("iam_a", {}) if B else {"refusal": f"run failed rc {rc}"}
+    dc = B.get("deconvolver", B.get("cell_shares", {})) if B else {}
+    top = sorted(dc.items(), key=lambda kv: -kv[1])[:2] if isinstance(dc, dict) and all(isinstance(v, (int, float)) for v in dc.values()) else str(dc)[:80]
+    r = {"gsm": g, **{k: ia.get(k) for k in ("A", "predicted", "held_err", "loose_share", "cell", "refusal", "refusal_code", "flag", "label")}, "deconvolver_top": top}
+    json.dump(r, open(os.path.join("xout", f"a8_chain_{g}.json"), "w"), indent=1, default=str)
+    print("::notice::" + json.dumps(r, default=str)[:600])
     subprocess.run(["rm", "-rf", w])
-json.dump(rows, open("xout/a8_chain_reread.json", "w"), indent=1)
