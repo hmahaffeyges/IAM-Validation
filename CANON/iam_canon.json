@@ -169,27 +169,27 @@
     "W_restore": {
       "value": 41.88,
       "units": "kT per methyl transfer",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
     },
     "odds_restore": {
       "value": 21.45,
       "units": "restores per loss",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
     },
     "eps0_candidate": {
       "value": 0.04454,
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds_restore); compare eps_healthy_pool"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds_restore); compare eps_healthy_pool"
     },
     "E_hold_candidate": {
       "value": 3.066,
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln(odds_restore); compare E_hold_meth"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln(odds_restore); compare E_hold_meth"
     },
     "phi_candidate": {
       "value": 0.1464,
       "units": "fraction of one ATP per held bit",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): E_hold_candidate / M_cell; compare phi"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): E_hold_candidate / M_cell; compare phi"
     },
     "eps0_candidate_SAM": {
       "value": [
@@ -197,7 +197,7 @@
         0.04524
       ],
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
     },
     "E_hold_candidate_SAM": {
       "value": [
@@ -205,7 +205,7 @@
         3.082
       ],
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
+      "derivation": "DERIVED (from M alone, register A4; PHY-083; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
     },
     "strand_coupling_maintenance_only": {
       "value": [
@@ -265,6 +265,68 @@
       "units": "ATP coins (ATP -> ADP + Pi) per SAM made",
       "derivation": "MEASURED (textbook tables, total nucleotides): Making one SAM spends ATP -> AMP + PPi with the PPi hydrolysed (ATP -> AMP + 2 Pi); [dG0(ATP->AMP+PPi) + dG0(PPi->2Pi) + RT ln Q] / [dG0(ATP->ADP+Pi) + RT ln Q'] at textbook standard free energies and cell concentrations (value at standard state; range over four cell types). To be pinned with free, Mg-corrected in-cell values. Their standard free energies imply K_AK about 0.22, against a measured K_AK near 1",
       "source": "Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt (minicell/sam_cost.py)"
+    },
+    "England_hold_heat_kT": {
+      "value": 3.1114,
+      "units": "kT per hold interval (minimum heat)",
+      "derivation": "ESTABLISHED bound applied (England 2013, J. Chem. Phys. 139, 121923, eq 6; arXiv:1209.1179): holding a mark at error eps costs at least kT ln(1/eps) per interval; at eps0_candidate = 0.04454 this is 3.1114 kT = E_hold_candidate + ln(1/(1 - eps0)) (3.0658 + 0.0456); at the floor eps = 1/(1+e^M) it equals M (one coin)",
+      "source": "register A4, E7"
+    },
+    "islands_meter_slope": {
+      "value": 1.01,
+      "range": [
+        0.69,
+        1.22
+      ],
+      "units": "islands stray-mark error per unit meter",
+      "derivation": "MEASURED (PHY-093, exploration; 53 healthy blood libraries, GSE173787): OLS of the islands' stray-mark error on each library's meter (conv_fail + tc_err), 2000 bootstrap resamples; intercept islands_meter_intercept: the islands carry only the meter",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_islands_slope.py (p093_read.csv)"
+    },
+    "islands_meter_intercept": {
+      "value": 0.0001,
+      "units": "islands stray-mark error at zero meter",
+      "derivation": "MEASURED (PHY-093): see islands_meter_slope",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_islands_slope.py"
+    },
+    "islands_writer_error_range": {
+      "value": [
+        -0.0002,
+        0.0014
+      ],
+      "units": "stray marks per opportunity, meter removed",
+      "derivation": "MEASURED (PHY-093): pooled islands minus the type's median meter: B 0.0004, CD4 T 0.0014, CD8 T 0.0004, monocytes -0.0002 (counting errors 0.0003-0.0005); genome-wide writer 0.0112-0.0147",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p093_read.csv"
+    },
+    "clock_sites_writer_range": {
+      "value": [
+        0.0164,
+        0.0311
+      ],
+      "units": "stray marks per opportunity, meter removed",
+      "derivation": "MEASURED (PHY-094, exploration; 54 libraries): epiTOC2's 163 CpGs and 25 either side: B 0.0289, CD4 T 0.0261, CD8 T 0.0311, monocytes 0.0164, about twice the genome-wide writer (0.0112-0.0147) and far above the islands: islands where the shield fails",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_read.csv"
+    },
+    "A_healthy_type_range": {
+      "value": [
+        0.77,
+        1.07
+      ],
+      "units": "IAM-A reading",
+      "derivation": "MEASURED (one command run_sample.py, 31 atlas libraries GSE186458, exploration; IAM-A commissioned for CD8 T cells only): healthy types sit at FIXED A: cortical neurons 0.77-0.85, naive T 0.80-0.83, smooth muscle 0.86-0.90 (loose share outside the line's range), hepatocytes 0.88-0.93, oligodendrocytes 0.91-0.95, effector memory T 0.91-0.99, cardiomyocytes 0.948-0.953 (donors 54-83, flat), adipocytes 1.006-1.024, effector CD8 T 1.01-1.04, striated muscle 1.04-1.07, central memory CD4 T 1.059-1.061; no non-dividing type rises with donor age (register A8, open)",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/a8_onecmd_readings.csv"
+    },
+    "MetA_array_held_height": {
+      "value": 0.9545,
+      "units": "array beta at fully held sites",
+      "derivation": "DERIVED (from S1 through the atlas's measured transfer, readiness L21): transfer(1 - eps0_candidate) = transfer(0.95546) = 0.9545; 0.0044 below the array ceiling 0.959, inside the transfer's worst checked bin 0.018, so no array test resolves it (register M2)",
+      "source": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21.json"
+    },
+    "dG_ATP_cod": {
+      "value": 55600.0,
+      "sd": 1400.0,
+      "units": "J/mol",
+      "derivation": "MEASURED in vivo (31P-NMR, Atlantic cod white muscle at rest; J. Exp. Biol., doi:10.1242/jeb.008763): the fish coin, inside the tissue band 53.5-61.7 kJ/mol; M_fish = dG/(R T_water) needs the water temperature (register F1)",
+      "source": "register F1"
     }
   },
   "names": {

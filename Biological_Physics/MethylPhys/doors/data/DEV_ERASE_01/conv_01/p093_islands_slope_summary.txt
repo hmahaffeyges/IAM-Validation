@@ -1,0 +1,5 @@
+PHY-093 islands vs meter, 53 libraries: slope 1.01 (0.69-1.22), intercept 0.0001
+  B: n 23, writer at islands 0.0004, writer genome-wide 0.0138
+  CD4 T: n 9, writer at islands 0.0014, writer genome-wide 0.0146
+  CD8 T: n 12, writer at islands 0.0004, writer genome-wide 0.0148
+  monocytes: n 9, writer at islands -0.0002, writer genome-wide 0.0112

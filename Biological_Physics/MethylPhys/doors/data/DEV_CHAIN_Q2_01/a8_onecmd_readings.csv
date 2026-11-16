@@ -1,0 +1,32 @@
+gsm,label,age,sex,cell_used_by_IAM_A,A,loose_share,held_err
+GSM5652176,Adipocytes,53,F,adipocytes,1.0241,0.1893,0.047947
+GSM5652177,Adipocytes,35,F,adipocytes,1.0094,0.1969,0.047525
+GSM5652178,Adipocytes,37,F,adipocytes,1.0063,0.1478,0.045666
+GSM5652205,Striated muscle,59,F,striated muscle,1.0678,0.1208,0.047462
+GSM5652206,Striated muscle,34,M,striated muscle,1.041,0.1323,0.046685
+GSM5652207,Smooth muscle,22,M,smooth muscle,0.874,0.7069,0.056584
+GSM5652208,Smooth muscle,17,F,smooth muscle,0.9023,0.5177,0.052507
+GSM5652209,Smooth muscle,51,F,smooth muscle,0.8593,0.7373,0.056533
+GSM5652212,Cardiomyocyte,83,M,cardiomyocyte,0.9529,0.136,0.042857
+GSM5652213,Cardiomyocyte,54,M,cardiomyocyte,0.9498,0.1143,0.042
+GSM5652216,Cardiomyocyte,81,M,cardiomyocyte,0.9475,0.1355,0.042594
+GSM5652219,Oligodendrocytes,31,M,oligodendrocytes,0.9472,0.0924,0.041169
+GSM5652220,Oligodendrocytes,56,M,oligodendrocytes,0.9071,0.0815,0.039084
+GSM5652221,Oligodendrocytes,25,M,oligodendrocytes,0.9154,0.1003,0.040037
+GSM5652223,Neuronal,38,M,cortical neurons,0.8496,0.0666,0.036167
+GSM5652224,Neuronal,31,M,cortical neurons,0.7885,0.0589,0.033359
+GSM5652225,Neuronal,56,M,cortical neurons,0.7695,0.0727,0.032923
+GSM5652233,Hepatocyte,24,M,hepatocyte,0.9283,0.2055,0.043984
+GSM5652234,Hepatocyte,NA,NA,hepatocyte,0.8768,0.2487,0.042853
+GSM5652235,Hepatocyte,56,F,hepatocyte,0.8843,0.2072,0.041951
+GSM5652285,T central memory CD4,30,F,t central memory cd4,1.0593,0.079,0.045552
+GSM5652286,T central memory CD4,29,F,t central memory cd4,1.0605,0.0833,0.04576
+GSM5652288,T effector cell CD8,30,F,t effector cell cd8,1.0431,0.1266,0.046573
+GSM5652289,T effector cell CD8,29,F,t effector cell cd8,1.0169,0.1949,0.047806
+GSM5652291,T effector memory CD4,30,F,t effector memory cd4,0.9931,0.2733,0.049385
+GSM5652292,T effector memory CD4,29,F,t effector memory cd4,0.9412,0.3881,0.050544
+GSM5652294,T effector memory CD8,30,F,t effector cell cd8,1.0141,0.2386,0.049209
+GSM5652295,T effector memory CD8,29,F,effector memory cd8 t cells,0.9094,0.4565,0.05099
+GSM5652296,Naive T cells CD4,29,F,naive cd4 t cells,0.8329,0.0304,0.034412
+GSM5652297,Naive T cells CD8,30,F,naive cd8 t cells,0.8333,0.0259,0.034302
+GSM5652298,Naive T cells CD8,29,F,naive cd8 t cells,0.8031,0.0343,0.033289
