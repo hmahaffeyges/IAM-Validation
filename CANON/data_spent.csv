@@ -275,3 +275,4 @@ GSE189426,spent,monocytes read in COMMISSION-METAA-SORTED-01,2026-11-09
 GSE196071,spent,monocytes read in COMMISSION-METAA-SORTED-01,2026-11-09
 GSE131627,reserved,healthy-control monocytes reserved for COMMISSION-MONO450-01,2026-11-09
 ENCSR284TCU,reserved,"ENCODE/Roadmap healthy adult B cells, WGBS (aligned GRCh38 BAM deposited); reserved for commissioning IAM-A on sequencing B cells (2026-11-13); not read","ENCODE portal, 2026-11-13"
+GSE70519,spent (development) (TAB-seq 5hmC; GSM1808328-GSM1808334; 7 sorted blood types),Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/a8h_tabseq_read.py (pooled 5hmC share per type; a published input for the cell simulator's 5hmC lever; not a reading of a sample by any instrument),GEO
