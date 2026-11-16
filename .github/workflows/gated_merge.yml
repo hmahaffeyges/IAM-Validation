@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - name: dependencies (the chain's own requirements)
-        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow pypdfium2
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow pypdfium2 requests
       - name: preflight (every package the chain needs is present)
         run: python3 Biological_Physics/MethylPhys/chain/preflight.py
       - name: rebase, build, register, gate (dry run), hand back
@@ -51,9 +51,9 @@ jobs:
           json.dump(out, open(os.environ["RUNNER_TEMP"] + "/handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
           EOF
             echo "GATED MERGE: PASSED" >> $RUNNER_TEMP/gate.log
-            # 2026-11-15 (author: the laptop and the phone hotspot): the gated commit itself is kept on gated/<branch>, so the owner's session
+            # 2026-11-15 (author: the laptop and the phone hotspot): the gated commit is written through the git database API (no branch; CANON/api_commit.py), so the owner's session
             # only moves main to it (one small request) instead of downloading the hand-back and uploading every file again
-            git push -q origin HEAD:refs/heads/gated/${BR#gate/} && echo "::notice::gated commit $(git rev-parse HEAD) on gated/${BR#gate/} (base $(git rev-parse origin/main))"
+            GH_TOKEN=${{ secrets.GITHUB_TOKEN }} python3 CANON/api_commit.py gated origin/main || echo "GATED MERGE: no gated commit" | tee -a $RUNNER_TEMP/gate.log
           else echo "GATED MERGE: REFUSED" | tee -a $RUNNER_TEMP/gate.log
             grep -v '^  ok' $RUNNER_TEMP/gate.log | grep -E 'REFUSED|FAILED|CONFLICT|^  \[|: ' | tail -25 | cut -c1-400 | sed 's/^/::error::/'; fi
           grep -v '^  ok' $RUNNER_TEMP/gate.log | tail -40
