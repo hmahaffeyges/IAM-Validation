@@ -5634,3 +5634,7 @@ amendments 1 and 2 (design/PHY-093.json amendment 3); the reading runs on the li
 ### 2026-11-15 · PHY-094 reader: genome-wide sum over libraries that carry it
 The first reading stopped (TypeError, run 43792883360): some count files carry no genome-wide gain counts. The genome-wide
 comparison now sums only the libraries that carry them and states how many; the clock-site sums keep every library. No count re-run.
+
+### 2026-11-15 · PHY-078 mini cell: clock_delta on the writer lever
+The clock parameter added today (register C3) named a lever outside the shared vocabulary, so the mini cell's card stopped on its own
+check. The clock tick is the share of the writer's stray marks kept each round, so it sits on the writer lever. No value changed.

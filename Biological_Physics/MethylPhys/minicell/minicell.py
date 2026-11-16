@@ -196,7 +196,7 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["conv_fail"] = Param(0.0044, "per non-CpG cytosine", "measured", "the meter: bisulfite conversion failure, median of 58 healthy blood libraries (PHY-091, GSE173787, conv_01/a17_read_summary.txt)", "meter", origin="measured")
     P["tc_err"] = Param(0.00046, "per read T (top) / A (bottom)", "measured", "the meter: the sequencing substitution that can fake a mark, T read as C, quality >= 20 (PHY-091 amendment 2 canary, mouse LSK; human value pending)", "meter", origin="measured")
     # 2026-11-15 (register C3, A18): the mitotic clock's tick and the erasers' cleaning of stray marks, both measured; IAM's Law is in neither
-    P["clock_delta"] = Param(5e-5, "per site per write-erase round", "measured", "methylation gain per round at 163 CpG-island sites bare in fetal tissue (epiTOC2 mitotic clock, Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3; fitted mode, blood ~35 rounds/yr); ~2x faster in precancer", "clock", origin="measured")
+    P["clock_delta"] = Param(5e-5, "per site per write-erase round", "measured", "methylation gain per round at 163 CpG-island sites bare in fetal tissue (epiTOC2 mitotic clock, Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3; fitted mode, blood ~35 rounds/yr); ~2x faster in precancer", "writer", origin="measured")
     P["eraser_stray_clean"] = Param(0.18, "fraction of stray marks", "measured", "share of unmarked-side stray marks the erasers remove (TET2+TET3: 13-23 %; TET2 alone ~0; erase_proofreading.py): selectivity at most ~3, not a proofreading discard step (A18)", "eraser", origin="measured")
     return ModelCard(name, "cell", P)
 
