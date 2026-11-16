@@ -52,11 +52,13 @@ if nr: L.append(f"null check, molecule file / aligned file genome-wide: median {
 for k in ("B", "CD4 T", "CD8 T", "monocytes", "other"):
     g = [r for r in rows if r["cell"] == k and r["isl_opp"]]
     if not g: continue
-    ii, io_ = sum(r["isl_iso"] for r in g), sum(r["isl_opp"] for r in g); gi, go = sum(r["gain_iso"] for r in g), sum(r["gain_opp"] for r in g)
+    ii, io_ = sum(r["isl_iso"] for r in g), sum(r["isl_opp"] for r in g)
+    gw = [r for r in g if r["gain_iso"] is not None and r["gain_opp"]]   # 2026-11-15: genome-wide counts missing in some files
+    gi, go = (sum(r["gain_iso"] for r in gw), sum(r["gain_opp"] for r in gw)) if gw else (0, 1)
     m = st.median(r["meter"] for r in g if r["meter"] is not None)
     e_i, e_g = ii / io_, gi / go; s_i = math.sqrt(ii) / io_
     L.append(f"  {k:9s} n {len(g):2d}: clock sites {e_i:.4f} +/- {s_i:.4f} ({ii} of {io_}); genome-wide {e_g:.4f}; meter {m:.4f}; "
-             f"writer clock sites {e_i - m:.4f} vs genome-wide {e_g - m:.4f} (ratio {(e_i - m) / (e_g - m):.2f}); kept per round delta/writer {DELTA / max(e_i - m, 1e-9):.4f}")
+             f"(genome-wide from {len(gw)} of {len(g)} libraries) writer clock sites {e_i - m:.4f} vs genome-wide {e_g - m:.4f} (ratio {(e_i - m) / (e_g - m) if gw and e_g != m else float('nan'):.2f}); kept per round delta/writer {DELTA / max(e_i - m, 1e-9):.4f}")
 L.append("Reading guide (exploration): the writer's stray-mark level at the clock's own sites, meter removed; the clock's tick over it is the share of "
          "stray marks that becomes permanent each round of writing and erasing (C3). A level near the genome-wide writer error ties the clock to IAM-A's derived writer.")
 open(os.path.join(OUT, "p094_read_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))

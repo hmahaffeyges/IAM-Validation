@@ -5630,3 +5630,7 @@ GSM5278525 stopped at the genome-coverage intake: chr21 under half the median au
 the 2-million-pair depth (9,724 of 813,951 sites; read on a GitHub machine, tools/run_log_tail.py, run 43779520422). At this depth a small
 chromosome can fall under the limit by chance, unlike PHY-084's partial-coverage libraries. Left out of the reading on the same rule as
 amendments 1 and 2 (design/PHY-093.json amendment 3); the reading runs on the libraries the chain accepted.
+
+### 2026-11-15 · PHY-094 reader: genome-wide sum over libraries that carry it
+The first reading stopped (TypeError, run 43792883360): some count files carry no genome-wide gain counts. The genome-wide
+comparison now sums only the libraries that carry them and states how many; the clock-site sums keep every library. No count re-run.

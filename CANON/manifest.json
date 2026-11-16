@@ -28802,7 +28802,7 @@
    "sources_of_row": [
     "2026-11-13 session (derivation register A8)"
    ],
-   "notes": "2026-11-15: designed and queued; synthetic, canary, 54 counts from kept molecule files, reading",
+   "notes": "2026-11-15: designed and queued; synthetic, canary, 54 counts from kept molecule files, reading; reader fix 2026-11-15: genome-wide comparison sums only the libraries that carry genome-wide counts (first reading stopped on files without them); clock-site sums unchanged",
    "id": "PHY-094",
    "title": "The mitotic clock's sites: the writer's stray-mark level where the epiTOC2 clock ticks (register C3, exploration)",
    "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
