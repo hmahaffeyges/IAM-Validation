@@ -28775,7 +28775,7 @@
    "sources_of_row": [
     "2026-11-13 session (derivation register A8)"
    ],
-   "notes": "2026-11-15: designed (design/PHY-093.json), synthetic met, canary passed; amendment 1: GSM5278446 and GSM5278472 refused by the genome-coverage intake (two of PHY-084's four partial-coverage libraries), left out of the reading; amendment 2: GSM5278476 refused by the same intake, left out; amendment 3: GSM5278525 refused by the same intake (chr21 at 2 million pairs), left out; amendment 4: GSM5278470 refused by the same intake (chr16-chr22), left out",
+   "notes": "2026-11-15: designed (design/PHY-093.json), synthetic met, canary passed; amendment 1: GSM5278446 and GSM5278472 refused by the genome-coverage intake (two of PHY-084's four partial-coverage libraries), left out of the reading; amendment 2: GSM5278476 refused by the same intake, left out; amendment 3: GSM5278525 refused by the same intake (chr21 at 2 million pairs), left out; amendment 4: GSM5278470 refused by the same intake (chr16-chr22), left out; reader fix 2026-11-15: genome-wide comparison sums only the libraries that carry genome-wide counts (fixed before the islands reading ran; the same fault had stopped the PHY-094 reader); islands sums unchanged",
    "id": "PHY-093",
    "title": "T1: the islands' unmarked side in healthy blood against the writer's one-step error plus the meter (exploration)",
    "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",

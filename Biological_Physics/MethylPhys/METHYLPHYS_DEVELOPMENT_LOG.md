@@ -5644,3 +5644,7 @@ GSM5278470 stopped at the genome-coverage intake: chr16-chr22 under half the med
 value (8,897 of 813,951 sites; read on a GitHub machine, tools/run_log_tail.py, run 43764729226); it is the fourth partial-coverage
 library PHY-084 named. Left out of the reading on the same rule as amendments 1-3 (design/PHY-093.json amendment 4); the reading
 runs on the libraries the chain accepted.
+
+### 2026-11-15 · PHY-093 reader: genome-wide sum over libraries that carry it
+Fixed before the islands reading ran (the PHY-094 reader, of which this is a copy, stopped with a TypeError, run 43792883360): some count files carry no genome-wide gain counts. The genome-wide
+comparison now sums only the libraries that carry them and states how many; the islands sums keep every library. No count re-run.

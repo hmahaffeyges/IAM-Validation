@@ -49,11 +49,13 @@ if nr: L.append(f"null check, molecule file / aligned file genome-wide: median {
 for k in ("B", "CD4 T", "CD8 T", "monocytes", "other"):
     g = [r for r in rows if r["cell"] == k and r["isl_opp"]]
     if not g: continue
-    ii, io_ = sum(r["isl_iso"] for r in g), sum(r["isl_opp"] for r in g); gi, go = sum(r["gain_iso"] for r in g), sum(r["gain_opp"] for r in g)
+    ii, io_ = sum(r["isl_iso"] for r in g), sum(r["isl_opp"] for r in g)
+    gw = [r for r in g if r["gain_iso"] is not None and r["gain_opp"]]   # 2026-11-15: genome-wide counts missing in some files
+    gi, go = (sum(r["gain_iso"] for r in gw), sum(r["gain_opp"] for r in gw)) if gw else (0, 1)
     m = st.median(r["meter"] for r in g if r["meter"] is not None)
     e_i, e_g = ii / io_, gi / go; s_i = math.sqrt(ii) / io_
     L.append(f"  {k:9s} n {len(g):2d}: islands {e_i:.4f} +/- {s_i:.4f} ({ii} of {io_}); genome-wide {e_g:.4f}; meter {m:.4f}; "
-             f"writer islands {e_i - m:.4f} vs genome-wide {e_g - m:.4f} (ratio {(e_i - m) / (e_g - m):.2f})")
+             f"(genome-wide from {len(gw)} of {len(g)} libraries) writer islands {e_i - m:.4f} vs genome-wide {e_g - m:.4f} (ratio {(e_i - m) / (e_g - m) if gw and e_g != m else float('nan'):.2f})")
 L.append("Reading guide (exploration): a ratio near 1 means the islands read at the writer's own one-step error plus the meter (T1 from A15 + A17); "
          "well below 1 means an islands shield to price.")
 open(os.path.join(OUT, "p093_read_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
