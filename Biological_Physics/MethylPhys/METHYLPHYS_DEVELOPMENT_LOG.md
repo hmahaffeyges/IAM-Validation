@@ -5666,3 +5666,73 @@ The mini cell now carries phi = 0.1464 derived from M alone (the A4 derivation, 
 simulator shows which number is physics and which is its check. The Decoder's balance entry names the two established results it stands
 on: Sartori and Pigolotti's one-step copy limit (the floor's form) and England's 2013 heat bound from detailed balance (holding a mark at
 error eps costs at least kT ln(1/eps) per interval: about 3 kT at the derived level, one coin at the floor). No chain value changed.
+
+### 2026-11-15 · Day summary
+**Set out:** Read PHY-091 (A17 to A15) in healthy blood and in the mouse eraser libraries; keep deriving the cell rows first (A4-A8, T1, C3);
+work the cosmic record's size c (X7); keep heavy work off the laptop.
+**Ran, and how each came out:**
+- PHY-091 read (4:15 AM, 58 referee blood libraries, GSE173787): stray-mark rate as read 0.0191, minus the meter's conversion failure 0.0143
+  (76 % inside the one-step band 0.0123-0.0207), 27-45 times a proofreading step's level: the writer's single selection step (A15, A17, A18).
+- PHY-091 amendment 2: tc_err added to the count-only route with its Decoder entry; synthetic met (0, 0.002, 0.010 read as 0.0, 0.00184,
+  0.01032); the 20 mouse eraser libraries re-read: 0.0083, tc_err median 0.00046 against the old sub_err 0.0098.
+- The atlas laboratory's published meter (open Table S1, read on GitHub): not assessed like for like with the chain's count.
+- PHY-091 amendment 3, the lambda spike-in meter: chain lambda_meter with its Decoder entry; synthetic met; 9 spent libraries: lambda meter
+  median 0.0072, writer median 0.0080 (0.0070-0.0092) in mouse blood, mouse B cells and one human PBAT line; the unspiked controls carried lambda.
+- PHY-091 amendment 4: three referee libraries with the lambda meter, counted; reading still to write.
+- PHY-093 (T1, the islands): designed, synthetic met, five partial-coverage libraries left out by the intake (amendments 1-4), reader fixed;
+  read 10:21 PM on 53 libraries: islands error against each library's meter slope 0.97 (0.52-1.27); writer at islands 0.0001 against 0.0138.
+- PHY-094 (C3, the mitotic clock's sites, from PHY-084's kept molecule files): writer B 0.0289, CD4 0.0261, CD8 0.0311, monocytes 0.0164
+  against genome-wide 0.0138-0.0145 (monocytes 0.0108); paired ratio median 1.97 (54 libraries).
+- A8 same-donor pairs (atlas laboratory, spent): memory over naive held error 1.29 and 1.31 in two donors; clustering held fixed changes nothing.
+- A6 in mature blood: PHY-084's eight type readings from M alone, median observed over predicted 0.997 (referee 0.952, atlas 1.024) against
+  0.882 with the stem-cell eraser share; with the derived slope 0.96-1.17 (lead).
+- Mini cell (PHY-078): the 1/3 paid-pump ceiling, held/paid 1/2, the meter split, the clock lever, and phi 0.1464 from M beside the measured
+  0.1473; mini cosmos v0.1 with a black-hole module (16 self-tests pass); minicosmos_loop, its lever card and the growth-ramp check.
+- X7 (c): peak writing and remaining writing by three halo mass functions give c from 0.64 to 1.25; the record fills 15.8 % of today's
+  horizon tiles and the share is flat only after today; the closed loop reproduces the book (alpha 0.930, beta 1.022; growth 0.9923) and
+  computes c about 0.33 (D^(7/2)) and 0.18-0.31 (halo sources).
+- Book and canon (author's authority, each reported): p2_11 end state; p6_08 meter share; four_domains cells' writer-error entry; p6_08
+  writing and erasing, not division, and the mitotic clock (C3); p2_03 / p2_03a the 1/a coefficient is fitted, not derived.
+- Edits moved to GitHub's machines (edit.yml, CANON/api_commit.py); GitHub lookup tools; review of 43 unspent GEO series.
+**Successes:**
+- The islands confirmed the PHY-091 meter library by library and gave an in-sample meter.
+- The A8 history lead replicated in a second donor.
+- The closed-loop cosmos simulator reproduced the book's own table before reporting anything.
+**Learned:**
+- In mature human blood the unmarked side is one selection step with type-specific selectivity (D 65-69 lymphoid, 88 monocytes); the meter
+  is a quarter to a third of the raw rate; the non-CpG meter is the meter only in mature blood.
+- The islands carry only the meter; the clock sites carry about twice the genome-wide writer error; a type's level follows its own history.
+- phi is derived from M (A4); England 2013 bounds the heat of the hold (about 3 kT at the derived level, one coin at the floor).
+- c = 1 is a fit over a = 0.15-2; the record term's size today is pinned by data (0.155 +/- 0.029 against Omega_m/2 = 0.1577); X16 reduces
+  to X7; on held over paid every settled surface holds 1/2 and the 1 is held over energy inside (X1).
+- The fish coin is measured (cod 55.6 +/- 1.4 kJ/mol at 4 C, doi:10.1242/jeb.008763); the fixed-coin-in-joules temperature form was already
+  ruled out by the plant test PHY-057.
+**Errors (the agent's own), and what caught each:**
+- Idle overnight from about 12:30 to 4 AM (the author).
+- The halves explained with the held-over-energy-inside ratio instead of held over paid (the author's question).
+- A two-laboratory gap claimed, then withdrawn, then the atlas comparison found not like for like (the atlas neurons reading negative).
+- Answers in the textbook's terms instead of IAM's, three times (the author).
+- Chapters called read in full when they were not, twice (the reviewer).
+- Heavy laptop work and lookups over the owner's phone connection, two reboots (the author); edits now run on GitHub.
+- PHY-093 re-aligned libraries whose molecule files were kept (found on the author's question).
+- The fish prediction written before the checklist, the fish coin carried as blocked without a search, the C-score called ready for RRBS
+  (the author's checklist question and the repository record).
+- Smaller slips corrected the same day: Tinker's row called an artifact; a Verlinde link; a 9 PM clock-site meter idea; the islands result
+  carried to the fish reading's other side; phi called open (the author); British spelling (the author); a gated archive proposed (the author).
+**The author's instructions and corrections:**
+- "Find another way, what would a cosmologist do here?" (no data behind an application wall).
+- "the book is our canon but our canon is not written in stone"; the math decides, and anything not tagged derived can be wrong.
+- The record is the driver and structure the regulator: "its not dark energy slowing the rate of structure growth its the ledger".
+- "it should be in the log and the book" (writing and erasing, not division); "I thought we already derived phi?"
+- On the canon tags: "I want what is correct and what the evidence shows to be in there".
+- Public files are already on GitHub, so edit them on GitHub's machines, not the laptop.
+- "cell derivations first, all other derivations next, then cell commissioning"; read the checklist before every item.
+**Path changes:** A8 by natural variation and same-donor pairs on spent data; one sealed run per data type will carry the derivation lines
+and the instrument readings together; the checklist gate in code (40 questions); edits on GitHub; the fish test set behind the
+established-physics links.
+**Data:** GSE173787 (58, spent) recounted for PHY-091, PHY-093 (53 read) and PHY-094 (54, kept molecule files); the 20 mouse eraser
+libraries recounted; 9 spent lambda-spiked libraries (GSE227977, GSE161463, GSE236026); two atlas-laboratory libraries counted for A8
+(GSM5652294, GSM5652297); the atlas paper's open supplement; GEO metadata only for 43 unspent series; no unseen data spent.
+**Machines:** GitHub for every count, reading, simulator run and edit; no Google machines; the laptop for text and small requests only.
+**Open at turnover:** read PHY-091 amendment 4; the A8 clock-site and islands counts on the same-donor pairs; the canon's phi and eps0 tags;
+the far-future book proposal from the closed loop; an open sorted healthy blood sequencing set for the combined run; F1's data.
