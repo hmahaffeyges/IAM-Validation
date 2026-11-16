@@ -5648,3 +5648,15 @@ runs on the libraries the chain accepted.
 ### 2026-11-15 · PHY-093 reader: genome-wide sum over libraries that carry it
 Fixed before the islands reading ran (the PHY-094 reader, of which this is a copy, stopped with a TypeError, run 43792883360): some count files carry no genome-wide gain counts. The genome-wide
 comparison now sums only the libraries that carry them and states how many; the islands sums keep every library. No count re-run.
+
+### 2026-11-15 · PHY-093 read: the islands carry only the meter
+Exploration on spent data (PHY-084's kept molecule files, re-counted at the islands territory; 53 reference-lab blood libraries: B 23, CD4 9,
+CD8 12, monocytes 9; GitHub run 43814641740). Each library's islands error was set against its own meter, PHY-091's conversion failure plus
+the T-to-C slip (0.00046):
+- islands error vs meter: Theil-Sen slope 0.97 (95 % 0.52-1.27), intercept 0.0002; pooled islands 841 of 157,448 = 0.0053, meter median 0.0049;
+- writer error at islands (islands minus meter), median 0.0001, against 0.0138 genome-wide (ratio 0.006); the same in all four types.
+Reading: the writer leaves essentially no stray marks in the islands, so the islands read only the meter (an islands shield). Two uses:
+(1) an independent library-by-library check of the PHY-091 meter; (2) an in-sample meter readable from molecule files alone, without an
+aligned file. It also settles a question about the clock sites (PHY-094): CpG-dense territory does not amplify the meter, so the clock
+sites' excess over genome-wide is the writer's. Not assessed at this depth: island shores, other cell types, other laboratories.
+Amendment 4 (GSM5278470, coverage intake) and the reader fix (genome-wide sum) preceded the reading.
