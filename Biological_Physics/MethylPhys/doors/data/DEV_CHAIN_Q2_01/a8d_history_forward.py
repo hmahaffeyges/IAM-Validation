@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A8D (register A8, the history term), exploration, desk model; runs ON GITHUB (never the laptop). Version 4, 2026-11-16 ~3:05 AM Pacific.
+"""A8D (register A8, the history term), exploration, desk model; runs ON GITHUB (never the laptop). Version 5, 2026-11-16 ~3:35 AM Pacific (v4's solver capped the writer at 0.9; DEV_MINICELL_01 calibrates it at 0.95).
 v3's 'PASS' was empty: it compared the card with itself (0.638 vs 0.638); the law card's kinetic writer rate held_marked.d is still the
 assumed 0.05, not solved to the law's level. v4 anchors each class on a MEASURED or DERIVED level and only then runs forward:
 - held-marked: solve the writer d (m 0.9661 and e 0.10 as the card calibrates them) so the phase-averaged level equals 1 - eps from the
@@ -18,7 +18,7 @@ card = mc.law_card(); v = card.v; lag = v("lag")
 eps_law = float(mc.ledger(card)["eps_hold"])
 lvl = lambda q: q[2] + q[1] / 2
 def steady(m, d, e): return lvl(mc.class_state(m, d, e, lag))
-def solve_d(m, e, target, lo=1e-6, hi=0.9):
+def solve_d(m, e, target, lo=1e-6, hi=0.999):
     for _ in range(60):
         mid = (lo * hi) ** 0.5
         if steady(m, mid, e) < target: lo = mid
