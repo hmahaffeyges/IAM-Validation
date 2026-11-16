@@ -1,5 +1,7 @@
 # Test design checklist (canonical; read by CANON/design_check.py)
 
+**Question 7, every test and every step (author 2026-11-15): Am I using GitHub or Google machines and NOT the laptop?** Not on the laptop: gate checks (doc_audit, plan_md, manifest_fresh, design_check runs over the repository; the gate runs them), book-wide reads or clue passes, repeated private syncs (batch register edits, one sync per batch), PDF work, alignments, counts, readings, generators. The laptop only edits text and sends commits.
+
 ## LESSONS, read first (each enforced by design_check.py; newest first)
 
 **2026-11-15, 9:10 AM Pacific (author, restated as the standing order for every test and every derivation step).**

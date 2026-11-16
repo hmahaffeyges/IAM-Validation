@@ -72,6 +72,11 @@
      "date": "2026-11-08",
      "text": "A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most cells read about 1 percent below it, because the chain credits part of each blood to bone-marrow cells that are not there. We fix that first, then run the sealed test.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "This week the work went under the healthy line itself. In mature blood cells, the sorted healthy samples of two laboratories sit on the level computed from the cell's energy budget alone, with no measured correction. That is an exploration; a test sealed before new data are read comes next.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -125,6 +130,11 @@
      "date": "2026-11-08",
      "text": "Still paused. We are finishing the chain on arrays first, the cheapest and most common test; this instrument's turn comes after the array instruments are commissioned.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "Still paused while we finish deriving this instrument's healthy level from physics. The derivation now covers the healthy line in mature blood; the next step is a sealed prediction, then commissioning.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -166,6 +176,11 @@
      "date": "2026-11-08",
      "text": "Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "Still paused and still blind. Deriving the instruments from physics comes first, then the sequencing steps these neurons need.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -207,6 +222,11 @@
      "date": "2026-11-08",
      "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -241,6 +261,11 @@
      "date": "2026-11-08",
      "text": "Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "Still paused behind the per-cell readings and the derivation of each cell type's healthy level.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "why": "Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today."
@@ -281,6 +306,11 @@
     {
      "date": "2026-11-08",
      "text": "Still waiting its turn behind the chain.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "date": "2026-11-15",
+     "text": "Moving on the desk. The erasers' share of the losses is now measured cell type by cell type: about 14 % in stem cells, a few percent in blood progenitors, none in mature B cells.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ],

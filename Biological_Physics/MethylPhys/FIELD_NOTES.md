@@ -61,6 +61,10 @@ Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
+### · This week the work went under the healthy line itself. In mature blood cells, the sorted healthy samples of two laboratories sit on the level computed from the cell's energy budget alone, with no measured correction. That is an exploration; a test sealed before new data are read comes next.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
@@ -104,6 +108,10 @@ Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
+### · Still paused while we finish deriving this instrument's healthy level from physics. The derivation now covers the healthy line in mature blood; the next step is a sealed prediction, then commissioning.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
@@ -134,6 +142,10 @@ Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 ### · Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need.
 
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
+
+### · Still paused and still blind. Deriving the instruments from physics comes first, then the sequencing steps these neurons need.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
 <a id="lung"></a>
 ## Lung cancer: waiting for a better map of the lung
@@ -166,6 +178,10 @@ Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
 Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
+### · Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="blood-group"></a>
 ## Can a tube of blood tell us about a GROUP of people?
 
@@ -190,6 +206,10 @@ Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 ### · Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now.
 
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
+
+### · Still paused behind the per-cell readings and the derivation of each cell type's healthy level.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
 <a id="levers"></a>
 ## Testing the physics itself: the levers
@@ -219,5 +239,9 @@ Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
 
 ### · Still waiting its turn behind the chain.
+
+Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
+
+### · Moving on the desk. The erasers' share of the losses is now measured cell type by cell type: about 14 % in stem cells, a few percent in blood progenitors, none in mature B cells.
 
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
