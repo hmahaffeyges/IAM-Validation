@@ -8,6 +8,7 @@ name: gated-merge
 on:
   push:
     branches: ["gate/**"]
+  workflow_dispatch: {}   # 2026-11-15: edit.yml hands its gate/edit-* branch here (a push by the runner's own token starts no workflow)
 permissions:
   contents: write   # git push --dry-run must authenticate; main's ruleset still refuses any real push from this runner
 concurrency: {group: gated-merge, cancel-in-progress: false}
@@ -50,7 +51,11 @@ jobs:
           json.dump(out, open(os.environ["RUNNER_TEMP"] + "/handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
           EOF
             echo "GATED MERGE: PASSED" >> $RUNNER_TEMP/gate.log
-          else echo "GATED MERGE: REFUSED" | tee -a $RUNNER_TEMP/gate.log; fi
+            # 2026-11-15 (author: the laptop and the phone hotspot): the gated commit itself is kept on gated/<branch>, so the owner's session
+            # only moves main to it (one small request) instead of downloading the hand-back and uploading every file again
+            git push -q origin HEAD:refs/heads/gated/${BR#gate/} && echo "::notice::gated commit $(git rev-parse HEAD) on gated/${BR#gate/} (base $(git rev-parse origin/main))"
+          else echo "GATED MERGE: REFUSED" | tee -a $RUNNER_TEMP/gate.log
+            grep -v '^  ok' $RUNNER_TEMP/gate.log | grep -E 'REFUSED|FAILED|CONFLICT|^  \[|: ' | tail -25 | cut -c1-400 | sed 's/^/::error::/'; fi
           grep -v '^  ok' $RUNNER_TEMP/gate.log | tail -40
           grep -q "GATED MERGE: PASSED" $RUNNER_TEMP/gate.log
       - if: always()

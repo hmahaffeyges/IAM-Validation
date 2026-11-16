@@ -1,0 +1,37 @@
+name: edit
+# 2026-11-15 (author: "if the files you are updating are already on Github why are you using my laptop to update and push them back to Github?"):
+# public files are edited on GitHub's machines. A short Python edit script (base64; run from the repository root on a checkout of main) makes
+# the change here; the result is committed to gate/edit-<run id> and handed to the gated merge, which runs every check and keeps the gated
+# commit on gated/edit-<run id>. The owner's session then moves main to that commit (a fast-forward, one small request). The laptop sends only
+# the script; private files never come here.
+on:
+  workflow_dispatch:
+    inputs:
+      script_b64: {description: "base64 of the Python edit script, run from the repository root", required: true}
+      msg: {description: "commit message (add [register] to register the chain version)", required: true}
+permissions: {contents: write, actions: write}
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 1}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: apply the edit, commit, hand it to the gate
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", S: "${{ inputs.script_b64 }}", MSG: "${{ inputs.msg }}"}
+        run: |
+          set -eu
+          git config user.name "Heath W. Mahaffey"; git config user.email "hmahaffeyges@users.noreply.github.com"
+          printf '%s' "$S" | base64 -d > "$RUNNER_TEMP/edit.py"
+          python3 "$RUNNER_TEMP/edit.py"
+          find . -name __pycache__ -prune -exec rm -rf {} +
+          git add -A
+          if git diff --cached --quiet; then echo "::error::the edit script changed nothing"; exit 1; fi
+          git diff --cached --stat | tail -25
+          git commit -q -m "$MSG"
+          BR="gate/edit-${{ github.run_id }}"
+          git push -q origin "HEAD:refs/heads/$BR"
+          gh workflow run gated_merge.yml -R "$GITHUB_REPOSITORY" --ref "$BR"
+          echo "::notice::handed to the gate on $BR"
