@@ -170,7 +170,7 @@ def count_pat(lines, tiles):
                 _d = min(q, len(s) - 1 - q, 6); _qd = QD.setdefault(_d, [0, 0]); _qd[1] += n; _qd[0] += n * (s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
             _rl = 0
-            for _c in s + "C":
+            for _c in list(s) + ["C"]:
                 if _c == "T": _rl += 1
                 elif _rl: RL[min(_rl, 5) - 1] += n; _rl = 0
             if _t:
