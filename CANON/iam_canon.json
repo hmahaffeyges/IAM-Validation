@@ -107,6 +107,7 @@
     "E_of_a": {
       "value": "exp(1 - 1/a)",
       "units": "activation function",
+      "derivation": "SHAPE from the record constraint (a premise, book p1_02); COEFFICIENT c = 1 FITTED: the theory chapter's fit of exp(alpha - beta/a) to the cumulative record over a = 0.15-2 gives beta 1.02 (book p2_03 sec:numerics, tagged calc; p2_03 and p2_03a say so since 2026-11-15); valid range a = 0.15-2; the chains use E only up to today. Computed to the far future, the closed-loop cosmos simulator (Biological_Physics/MethylPhys/minicell/minicosmos_loop.py, 2026-11-15, exploration), which first reproduces the book's alpha 0.930 and beta 1.022, gives c about 0.33 for the book's D^(7/2) source and 0.18-0.31 for halo sources, so E(inf) = e is an extrapolation of the fit",
       "source": "IAM's Law paper"
     },
     "Met_A_floor_EPIC_neutrophil": {
@@ -179,17 +180,17 @@
     "eps0_candidate": {
       "value": 0.04454,
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds_restore); compare eps_healthy_pool"
+      "derivation": "DERIVED, one measured input (the coin, A10, through M_cell) (PHY-083; book p6_08 sec:middle_candidate, tagged derived: the first-passage hold and the two-coin SAM price are derived, and the one interpretive step, that the restore is a single methyl transfer, is backed by the measured hairpin coupling; blind test PHY-084 2026-11-13 on a laboratory never read: MET, CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3 (the seal's stricter wording, see amendment 4, is a footnote); residual: eraser-removed progenitors read 0.85-0.94 of the level, which points at the coin's value at the nucleus (A10), not at the derivation; tag set 2026-11-16 on the author's rule, what the evidence shows): 1/(1 + odds_restore); compare eps_healthy_pool"
     },
     "E_hold_candidate": {
       "value": 3.066,
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln(odds_restore); compare E_hold_meth"
+      "derivation": "DERIVED, one measured input (the coin, A10, through M_cell) (PHY-083; book p6_08 sec:middle_candidate, tagged derived: the first-passage hold and the two-coin SAM price are derived, and the one interpretive step, that the restore is a single methyl transfer, is backed by the measured hairpin coupling; blind test PHY-084 2026-11-13 on a laboratory never read: MET, CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3 (the seal's stricter wording, see amendment 4, is a footnote); residual: eraser-removed progenitors read 0.85-0.94 of the level, which points at the coin's value at the nucleus (A10), not at the derivation; tag set 2026-11-16 on the author's rule, what the evidence shows): ln(odds_restore); compare E_hold_meth"
     },
     "phi_candidate": {
       "value": 0.1464,
       "units": "fraction of one ATP per held bit",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): E_hold_candidate / M_cell; compare phi"
+      "derivation": "DERIVED, one measured input (the coin, A10, through M_cell) (PHY-083; book p6_08 sec:middle_candidate, tagged derived: the first-passage hold and the two-coin SAM price are derived, and the one interpretive step, that the restore is a single methyl transfer, is backed by the measured hairpin coupling; blind test PHY-084 2026-11-13 on a laboratory never read: MET, CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3 (the seal's stricter wording, see amendment 4, is a footnote); residual: eraser-removed progenitors read 0.85-0.94 of the level, which points at the coin's value at the nucleus (A10), not at the derivation; tag set 2026-11-16 on the author's rule, what the evidence shows): E_hold_candidate / M_cell; compare phi"
     },
     "eps0_candidate_SAM": {
       "value": [
@@ -197,7 +198,7 @@
         0.04524
       ],
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
+      "derivation": "DERIVED, one measured input (the coin, A10, through M_cell) (PHY-083; book p6_08 sec:middle_candidate, tagged derived: the first-passage hold and the two-coin SAM price are derived, and the one interpretive step, that the restore is a single methyl transfer, is backed by the measured hairpin coupling; blind test PHY-084 2026-11-13 on a laboratory never read: MET, CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3 (the seal's stricter wording, see amendment 4, is a footnote); residual: eraser-removed progenitors read 0.85-0.94 of the level, which points at the coin's value at the nucleus (A10), not at the derivation; tag set 2026-11-16 on the author's rule, what the evidence shows): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
     },
     "E_hold_candidate_SAM": {
       "value": [
@@ -205,7 +206,7 @@
         3.082
       ],
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate; blind test PHY-084 2026-11-13: MET (B cells on watch, pull -2.45; note: the seal's wording was stricter, see amendment 4)): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
+      "derivation": "DERIVED, one measured input (the coin, A10, through M_cell) (PHY-083; book p6_08 sec:middle_candidate, tagged derived: the first-passage hold and the two-coin SAM price are derived, and the one interpretive step, that the restore is a single methyl transfer, is backed by the measured hairpin coupling; blind test PHY-084 2026-11-13 on a laboratory never read: MET, CD4, CD8 and monocytes pass, B cells on watch (pull -2.45), none beyond 3 (the seal's stricter wording, see amendment 4, is a footnote); residual: eraser-removed progenitors read 0.85-0.94 of the level, which points at the coin's value at the nucleus (A10), not at the derivation; tag set 2026-11-16 on the author's rule, what the evidence shows): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
     },
     "strand_coupling_maintenance_only": {
       "value": [
