@@ -5616,3 +5616,11 @@ PHY-093's design said no molecule files were kept for the 58 referee libraries; 
 builds a molecule file keeps it in its artifact (erase_gh.sh copies it into eout/): PHY-084's runs of 2026-11-13 hold them (erase-<GSM>, 11-12 MB,
 until 2027-02-11), and PHY-093's own runs hold theirs (2.6-2.8 MB, 2 million pairs, until 2027-02-13). PHY-093 re-aligned what it could have
 counted with patfrom; no unseen data was spent. From now on the kept artifacts are checked before any re-alignment (design/PHY-093.json).
+
+### 2026-11-15 · PHY-094 designed and queued: the mitotic clock's sites, from kept molecule files (register C3)
+PHY-094 designed and queued (register C3, exploration; design/PHY-094.json). The writer's stray-mark level at the epiTOC2 mitotic clock's own
+sites (163 CpGs, Teschendorff 2020, Genome Medicine, doi:10.1186/s13073-020-00752-3; per-site tick and fetal level from the published data object
+dataETOC3, in Runtime Matrices/Clock_Sites/epitoc2_sites.csv) with 25 CpGs either side, in the referee laboratory's healthy blood. Counted from
+the molecule files PHY-084 kept (patfrom; no alignment, no unseen data), pooled by cell type, meter removed (PHY-091). The clock's tick over
+that level is the share of stray marks kept each round of writing and erasing. Chain: run_sample.py --dev-count-sites epitoc2 with its Decoder
+entry; synthetic (epitoc2_synthetic.py), canary rule (p094_canary.py) and reader (p094_read_gh.py) in DEV_ERASE_01/conv_01.

@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,634 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,638 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -116,7 +116,7 @@ Read from `run_sample.py`'s own option definitions at build time: **126 options*
 | `--dev-allow-partial-genome` | off |  | development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged |
 | `--dev-count-genome` | 'hg19' |  | --dev-count-only: the genome the .pat was made on (recorded) |
 | `--dev-count-only` | off |  | DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse) |
-| `--dev-count-sites` | None |  | DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites); CELL = islands (2026-11-15, register T1): the islands territory, both the loss and the stray-mark side |
+| `--dev-count-sites` | None |  | DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites); CELL = islands (2026-11-15, register T1): the islands territory, both the loss and the stray-mark side; CELL = epitoc2 (register C3): the mitotic clock's 163 CpGs and 25 CpGs either side |
 | `--dev-count-tiles` | None |  | DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules) |
 | `--dev-curve-cal` | off |  | DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal) |
 | `--dev-deconv-drop` | None |  | DEVELOPMENT, diagnosis only: hold these cells out of the Deconvolver's sequencing reference (the IAM Sequencing Atlas), so their share goes to the cells that remain; flagged in the bundle |
@@ -506,7 +506,7 @@ a mark: a T read as C on top-strand reads, an A read as G on bottom-strand reads
 is only an upper bound on the meter's sequencing false marks; `tc_err` is the measured one. Physics: none of IAM's Law; this is the meter. With `--lambda-bam` and `--lambda-fasta` (2026-11-15, PHY-091 amendment 3) it adds `lambda_meter`: the share of cytosines on the unmethylated lambda spike-in read as C, the meter alone, since genomic non-CpG sites also carry real CpH methylation in neurons and stem or progenitor cells (reads shorter than 50 aligned bases excluded; synthetic test `doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py`, GitHub). No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
 false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
 before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
-synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub). With `--dev-count-sites islands` (2026-11-15, register T1) the same count is also made at the islands territory (stage_metaa_atlas.territory_sets: the sites every healthy cell type in IAM-Atlas v2.1 keeps below 0.2), both sides, so the stray-mark rate there can be set against the writer's one-step error plus the laboratory's meter; any other value names a cell's Met-A identity sites.
+synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub). With `--dev-count-sites islands` (2026-11-15, register T1) the same count is also made at the islands territory (stage_metaa_atlas.territory_sets: the sites every healthy cell type in IAM-Atlas v2.1 keeps below 0.2), both sides, so the stray-mark rate there can be set against the writer's one-step error plus the laboratory's meter; any other value names a cell's Met-A identity sites. With `--dev-count-sites epitoc2` (2026-11-15, register C3) the count is made at the 163 CpGs of the epiTOC2 mitotic clock (Teschendorff 2020, Genome Medicine; Runtime Matrices/Clock_Sites/epitoc2_sites.csv) and 25 CpGs either side in genome order, so the writer's stray-mark rate there can be set against the clock's per-round gain (about 5e-5): their ratio is the share of stray marks kept each round of writing and erasing.
 
 *Code:* `MethylPhys_Interface/run_sample.py` line 202 (5 lines) · arguments: v · calls: array run 865, bam run 359
 
@@ -556,7 +556,7 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1054 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1058 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `epitoc2_sites.csv`
 
 ### `run_sample.py::main._panel`
 
@@ -577,7 +577,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1553 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1557 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 

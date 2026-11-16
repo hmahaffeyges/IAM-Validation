@@ -1,0 +1,117 @@
+{
+ "_written": "2026-11-15, 4:43 PM Pacific, before any library is read for it",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "register C3: the mitotic clock's sites (epiTOC2's 163 CpGs, island promoters bare in fetal tissue) are held bare by the writer's one selection step against thermal kicks, 1/(1+D) (A15, E3). The clock gains about 5e-5 methylation per site per round (Teschendorff 2020); the writer's stray-mark level there, meter removed, against that tick is the share of the writer's stray marks kept each round of writing and erasing",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "the referee laboratory's healthy blood libraries (GSE173787), all spent, counted from the molecule files PHY-084 kept in its run artifacts (erase-<GSM>, 2026-11-13, until 2027-02-11) with patfrom: no new alignment, no unseen data; each library's meter already measured (PHY-091)",
+  "protocol_read": "standard pre-bisulfite library, checked 2026-11-15 from GEO",
+  "spent_first": "yes: every library is spent; nothing reserved is touched",
+  "form": [
+   {
+    "form": "PHY-084's kept molecule files (patfrom=<run id>), counted by the one command with --dev-count-sites epitoc2",
+    "hours": 0.1,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "raw reads from SRA, re-aligned",
+    "hours": 0.6,
+    "adequate": true,
+    "chosen": false,
+    "why_not": "the molecule files of the same reads are kept (question 9)"
+   }
+  ],
+  "alternatives": "the IAM Sequencing Atlas's island counts per cell (terr_half_counts) are levels from another laboratory whose meter is not like for like (PHY-091 after-test check); kept as a later cross-check",
+  "needs": "paired reads, hg19, the molecule-file route with --dev-count-sites islands (added 2026-11-15, synthetic first)",
+  "preflight": {
+   "checked": "count_pat_sites counts both sides at a site set by Stage Q2's rules; erase_gh.sh writes the .pat and now passes COUNTSITES; the referee libraries' meters are in conv_01/a17_read.csv; no molecule file is kept for them",
+   "minutes": 20,
+   "result": "one chain option (islands as a site set) and one workflow input were needed; added with a Decoder entry; the synthetic tests the mapping on GitHub"
+  }
+ },
+ "kiss": {
+  "smallest": "the referee libraries the chain accepted, read pooled by cell type; the count only, from kept molecule files",
+  "samples_why": "the only blood set with each library's meter already measured; pooling by type gives enough island opportunities at 2 million pairs"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "most free (PHY-093 finishing)",
+  "s_per_pair": 0.0,
+  "pairs": 2000000,
+  "peak_mem_gb": "about 5",
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 0.15,
+  "time_limit_hours": 2,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "each library is its own run; a failed run is re-sent alone"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "the 54 library counts and p094-read completed"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 1,
+   "halves_corr_min": 0.85,
+   "hours_per_sample_max": 0.5,
+   "_meaning": "rows_min: the chain's report present with the clock-site count (count_sites.cell = epitoc2, at least 200 opportunities); halves_corr_min: min/max of the genome-wide stray-mark rate from this kept molecule file and PHY-091's aligned-file count of the same library (the null rehearsal on the eraser libraries gave 0.93-1.15); hours: per count",
+   "_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py"
+  }
+ },
+ "cosmologist": {
+  "method": "split the same detector's reading by sky region: the same molecule file and meter, read at the clock's sites and genome-wide",
+  "null_test": "the genome-wide stray-mark rate from the molecule file must agree with PHY-091's count of the same reads from the aligned file (like for like, within counting error)"
+ },
+ "value": {
+  "question": "what share of the writer's stray marks at the clock's own sites becomes permanent each round (clock tick over the writer's level there)?",
+  "adequate": "pooled by type at 2 million pairs: about 10,000-60,000 island opportunities per type, enough to see a 25 % difference from the genome-wide rate",
+  "options": [
+   {
+    "name": "58 spent libraries at 2 million pairs on GitHub, pooled by type",
+    "hours": 0.6,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "58 libraries at 10 million pairs",
+    "hours": 2.2,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   },
+   {
+    "name": "desk only, from the atlas laboratory's island levels",
+    "hours": 0.2,
+    "cost_usd": 0,
+    "adequate": false,
+    "chosen": false
+   }
+  ],
+  "why_this": "free, under an hour per library, the same reads and meter as PHY-091, and per-type pooling is enough to see a 25 % difference"
+ },
+ "explore": {
+  "done": "genome-wide writer and meter per library measured (PHY-091); islands count built and passed (PHY-093); clock sites added to the count route; synthetic first",
+  "rehearsal_pull": null
+ },
+ "prediction": {
+  "form": "none sealed: exploration",
+  "decided_by": {},
+  "reading": "per cell type: clock-site gain_err minus the meter against the genome-wide writer error and the clock's tick 5e-5; the ratio tick/writer is the kept share per round (C3); exploration"
+ },
+ "bars": {
+  "rule": "no seal: exploration; each type's islands rate reported with its counting uncertainty"
+ },
+ "synthetic": {
+  "script": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/epitoc2_synthetic.py",
+  "noise_from": "planted rates at the measured real levels (stray marks 0.004-0.015, PHY-091 blood 0.016-0.020 as read, meter 0.0049); counting noise is the same binomial noise as the real counts; about 4,000 island anchors as in a pooled type",
+  "null_rehearsed": "2026-11-15 on spent data: the molecule-file and aligned-file stray-mark rates of the 20 PHY-091 eraser libraries agree, median ratio 1.032 (0.929-1.151); the islands-versus-genome comparison is made inside the molecule-file route, so that offset cancels"
+ }
+}

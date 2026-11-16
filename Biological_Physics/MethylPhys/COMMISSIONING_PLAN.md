@@ -497,6 +497,7 @@ _Each branch names the step it came from and its next action, so no path is lost
 - 2027-04-12: the next atlas and lung-stroma source search (rule 19) (SCO-075)
 - : PHY-091 (derivation input, A17 -> A15): the meter's false marks in 77 spent libraries on GitHub, then the reading p091-read Amendment 2 (2026-11-15): the 20 eraser libraries re-counted with tc_err, then p091b-read. (PHY-091)
 - : PHY-093 (derivation input, register T1): the islands' unmarked side in the spent referee blood libraries on GitHub, then the reading p093-read on the libraries the chain accepted (amendment 1: two partial-coverage libraries refused by intake). (PHY-093)
+- : PHY-094 (derivation input, register C3): the writer's stray-mark level at the epiTOC2 clock sites in the referee blood libraries, counted from PHY-084's kept molecule files, then the reading p094-read. (PHY-094)
 
 ## Machines running now (machine ledger)
 

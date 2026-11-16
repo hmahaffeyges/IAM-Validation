@@ -28790,6 +28790,34 @@
    "cost": "github",
    "impact": 4,
    "design": "design/PHY-093.json"
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084",
+    "PHY-091",
+    "PHY-093"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-13 session (derivation register A8)"
+   ],
+   "notes": "2026-11-15: designed and queued; synthetic, canary, 54 counts from kept molecule files, reading",
+   "id": "PHY-094",
+   "title": "The mitotic clock's sites: the writer's stray-mark level where the epiTOC2 clock ticks (register C3, exploration)",
+   "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE173787 (WGBS, healthy blood cell types; PHY-084's kept molecule files)",
+    "Teschendorff 2020, Genome Med, doi:10.1186/s13073-020-00752-3 (epiTOC2 sites)"
+   ],
+   "data_status": "spent only: PHY-084's run list, counted from its kept molecule files (patfrom); no alignment",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_read_gh.py",
+   "status": "designed",
+   "next_step": "synthetic on GitHub, then the canary, the counts and the reading (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_read_gh.py, writing its summary in the run artifact)",
+   "cost": "github",
+   "impact": 4,
+   "design": "design/PHY-094.json"
   }
  ],
  "not_tests": {

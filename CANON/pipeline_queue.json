@@ -4188,6 +4188,1055 @@
    "after": [
     "p093-GSM5278426"
    ]
+  },
+  {
+   "id": "p094-synthetic",
+   "workflow": "explore.yml",
+   "inputs": {
+    "script": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/epitoc2_synthetic.py",
+    "args": ""
+   },
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278426",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278426",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43423919164",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "after": [
+    "p094-synthetic"
+   ],
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278427",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278427",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43423944910",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278428",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278428",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43423970329",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278429",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278429",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43423995263",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278430",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278430",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424021667",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278431",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278431",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424046416",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278432",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278432",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424071719",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278433",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278433",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424098444",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278434",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278434",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424123288",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278435",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278435",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424147508",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278436",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278436",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424173140",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278437",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278437",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424197480",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278438",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278438",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424221848",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278439",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278439",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424246503",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278440",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278440",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424275188",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278441",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278441",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424302842",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278442",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278442",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424328638",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278443",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278443",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424355250",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278444",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278444",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424380549",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278445",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278445",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424405764",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278447",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278447",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424457715",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278448",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278448",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424481993",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278449",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278449",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424508389",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278467",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278467",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424535522",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278468",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278468",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424561817",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278469",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278469",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424590396",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278471",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278471",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424671144",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278473",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278473",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424726172",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278474",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278474",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424751131",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278475",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278475",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424777025",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278477",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278477",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424832269",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278478",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278478",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424858677",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278496",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278496",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424883860",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278497",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278497",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424909714",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278498",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278498",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424935378",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278499",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278499",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424965225",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278500",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278500",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43424991517",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278501",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278501",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425016738",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278502",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278502",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425041514",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278503",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278503",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425066885",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278504",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278504",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425091620",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278505",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278505",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425117633",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278506",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278506",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425143081",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278507",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278507",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425168521",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278520",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278520",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425194354",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278521",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278521",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425222205",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278522",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278522",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425248079",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278523",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278523",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425273921",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278524",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278524",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425298611",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278525",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278525",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425321820",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278526",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278526",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425345729",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278527",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278527",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425369640",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278528",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278528",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425394426",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-GSM5278529",
+   "workflow": "erase_test.yml",
+   "inputs": {
+    "gsm": "GSM5278529",
+    "threads": "4",
+    "samples": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_runs.csv",
+    "full": "0",
+    "patfrom": "43425421761",
+    "maxpairs": "2000000",
+    "bamcount": "0",
+    "countsites": "epitoc2"
+   },
+   "canary": "p094-GSM5278426",
+   "canary_rule": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_canary.py",
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
+  },
+  {
+   "id": "p094-read",
+   "workflow": "explore.yml",
+   "after": [
+    "p094-GSM5278426",
+    "p094-GSM5278427",
+    "p094-GSM5278428",
+    "p094-GSM5278429",
+    "p094-GSM5278430",
+    "p094-GSM5278431",
+    "p094-GSM5278432",
+    "p094-GSM5278433",
+    "p094-GSM5278434",
+    "p094-GSM5278435",
+    "p094-GSM5278436",
+    "p094-GSM5278437",
+    "p094-GSM5278438",
+    "p094-GSM5278439",
+    "p094-GSM5278440",
+    "p094-GSM5278441",
+    "p094-GSM5278442",
+    "p094-GSM5278443",
+    "p094-GSM5278444",
+    "p094-GSM5278445",
+    "p094-GSM5278447",
+    "p094-GSM5278448",
+    "p094-GSM5278449",
+    "p094-GSM5278467",
+    "p094-GSM5278468",
+    "p094-GSM5278469",
+    "p094-GSM5278471",
+    "p094-GSM5278473",
+    "p094-GSM5278474",
+    "p094-GSM5278475",
+    "p094-GSM5278477",
+    "p094-GSM5278478",
+    "p094-GSM5278496",
+    "p094-GSM5278497",
+    "p094-GSM5278498",
+    "p094-GSM5278499",
+    "p094-GSM5278500",
+    "p094-GSM5278501",
+    "p094-GSM5278502",
+    "p094-GSM5278503",
+    "p094-GSM5278504",
+    "p094-GSM5278505",
+    "p094-GSM5278506",
+    "p094-GSM5278507",
+    "p094-GSM5278520",
+    "p094-GSM5278521",
+    "p094-GSM5278522",
+    "p094-GSM5278523",
+    "p094-GSM5278524",
+    "p094-GSM5278525",
+    "p094-GSM5278526",
+    "p094-GSM5278527",
+    "p094-GSM5278528",
+    "p094-GSM5278529"
+   ],
+   "inputs": {
+    "script": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/conv_01/p094_read_gh.py",
+    "args": ""
+   },
+   "row": "PHY-094",
+   "design": "design/PHY-094.json"
   }
  ]
 }
