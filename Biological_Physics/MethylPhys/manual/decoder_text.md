@@ -1024,6 +1024,20 @@ Stage Q2 as above: the refusals, the shape check, the reading A with its predict
 The reading's `count` also carries the nearest-neighbor coupling (`coupling`, `coupling_err_share`, `coupling_pairs`), recorded beside
 the held error, never used in A.
 
+It also carries the run-length spectrum of losses on the same held molecules (`loss_runs`: observed runs of 1, 2, 3, 4 and 5 or more
+consecutive losses, and their exact expectation when each molecule's own losses fall at random among its calls; `loss_run_ratio` =
+observed runs / expected runs: 1 for independent point losses, below 1 when losses come in stretches). Development, recorded only,
+never used in A (register CP1; book Part VI, 'Run-length spectrum of losses').
+
+### stage_q2_selfref.py::_runs_expected
+The expected number of runs of exactly 1, 2, 3, 4 and 5 or more consecutive losses when a molecule's own k losses fall at random among its
+L calls: a run inside the molecule needs both neighbours unlost, one at either end needs one; divided by the number of ways to place k
+losses. Exact (checked against every arrangement of small molecules); nothing fitted. Development, recorded only (register CP1).
+
+### stage_q2_selfref.py::_loss_runs
+The run-length spectrum of losses on held molecules: observed runs by length beside the expectation above, and loss_run_ratio = observed
+runs / expected runs (1 for independent losses, below 1 when losses come in stretches). Recorded only, never used in A (register CP1).
+
 ### stage_v4.py::_compress
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 

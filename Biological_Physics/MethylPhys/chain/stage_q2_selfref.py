@@ -148,6 +148,7 @@ def meter_end_damage(by_dist, limit=None):
 
 def count_pat(lines, tiles):
     tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}; QD = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
+    RL = [0, 0, 0, 0, 0]; RE = [0.0, 0.0, 0.0, 0.0, 0.0]   # 2026-11-16 (CP1, development, recorded only): runs of consecutive losses 1-4, 5+ on held molecules: observed, expected
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
@@ -168,9 +169,16 @@ def count_pat(lines, tiles):
             for q in range(1, len(s) - 1):   # 2026-11-10 (development, recorded only): the same held error by distance from the molecule's nearer end (1 = the second call in)
                 _d = min(q, len(s) - 1 - q, 6); _qd = QD.setdefault(_d, [0, 0]); _qd[1] += n; _qd[0] += n * (s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
+            _rl = 0
+            for _c in s + "C":
+                if _c == "T": _rl += 1
+                elif _rl: RL[min(_rl, 5) - 1] += n; _rl = 0
+            if _t:
+                _e = _runs_expected(len(s), _t)
+                for _r in range(5): RE[_r] += n * _e[_r]
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **_loss_runs(RL, RE), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
                    held_by_distance={str(k): v for k, v in sorted(QD.items())}, **meter_end_damage({str(k): v for k, v in QD.items()})), g_iso, g_opp)
 
 def _coupling(K):
@@ -182,6 +190,27 @@ def _coupling(K):
     which the held rule pulls to 0.87 under independence; disclosed.)"""
     q = K[0] / K[1] if K[1] else None
     return dict(coupling=(K[2] / K[3]) if K[3] else None, coupling_err_share=q, coupling_pair_share=K[2] / max(K[1], 1), coupling_pairs=int(K[2]), coupling_max=(K[4] / K[3]) if K[3] else None)
+
+_RUNS_CACHE = {}
+def _runs_expected(L, k):
+    """2026-11-16 (CP1, development, recorded only; book p6_06b 'Run-length spectrum of losses'): expected number of maximal runs of exactly r
+    consecutive losses (r = 1..4, and 5 or more pooled) when a molecule's own k losses fall at random among its L calls. A run of length r < L
+    starting inside the molecule needs both neighbours unlost (L - r - 1 starts; the other k - r losses among L - r - 2 calls); starting at either
+    end needs one neighbour unlost (2 starts; k - r losses among L - r - 1 calls); all divided by C(L, k). Exact, nothing fitted."""
+    key = (L, k)
+    if key in _RUNS_CACHE: return _RUNS_CACHE[key]
+    from math import comb
+    tot = comb(L, k); out = [0.0] * 5
+    for r in range(1, k + 1):
+        e = (1.0 if k == L else 0.0) if r == L else ((L - r - 1) * (comb(L - r - 2, k - r) if 0 <= k - r <= L - r - 2 else 0) + 2 * (comb(L - r - 1, k - r) if 0 <= k - r <= L - r - 1 else 0)) / tot
+        out[min(r, 5) - 1] += e
+    _RUNS_CACHE[key] = tuple(out); return _RUNS_CACHE[key]
+
+def _loss_runs(RL, RE):
+    """2026-11-16 (CP1): the run-length spectrum of losses on held molecules against random placement; loss_run_ratio = observed runs / expected
+    runs: 1 when losses fall independently, below 1 when they come in stretches (a processive or double-loss mechanism)."""
+    lab = ("1", "2", "3", "4", "5+"); o, e = sum(RL), sum(RE)
+    return dict(loss_runs=dict(obs={lab[i]: int(RL[i]) for i in range(5)}, exp={lab[i]: round(RE[i], 3) for i in range(5)}), loss_run_ratio=(o / e) if e else None)
 
 def count_pat_tile_errors(lines, tile=TILE):
     """2026-10-25 (DEV-ERASE-01, the graded maintenance test; plan 14.1): the held error tile by tile, in two independent halves. Held
