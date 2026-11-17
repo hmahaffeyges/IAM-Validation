@@ -6315,3 +6315,27 @@ _Written at midnight from a line-by-line walk of the whole day's chat (each entr
 - The spider's virial thread through every domain.
 - The six-paper and Koide audit, with the route from Einstein's equations to IAM's Law.
 - Test rows touched today that wait on these: PHY-035, PHY-036, ATL-028 and CAN-018 (the information sphere stays development until its null test); DEV-GROUP-01 (same-series rule for Group-A); PHY-050 and PHY-087 (the per-call and slope rows); PHY-091 (the meter); PROC-WORK-01 and PROC-CHANNEL-01 (working regions and channels, read against A8).
+
+**Every item worked, one line each:**
+- A4 (held error from M alone, 0.04454): read through the counter beside the measured line; the derived line now rides every IAM-A reading.
+- A6 (the intercept through the counter, blind test PHY-084): compared like for like; the atlas laboratory's measured intercept sits above the level from M alone, the blind laboratory near it.
+- A7 (the slope): wording corrected; 0.034625 is the chain's measured slope, and only its within-sample part is derived.
+- A9 (the Normal band): kept on the measured line until it is rebuilt from healthy libraries on the derived line.
+- A10 (the coin, 54 kJ/mol): carried as measured; a weaker coin at the nucleus is one of A8's candidates.
+- A15 and A17 (the unmarked side and the meter's false marks): the meter fields now reach every reading.
+- A18 (is the eraser proofreading?): read as one selection step; the eraser does not proofread the unmarked side.
+- A8C (same-donor T-cell re-read): the committed counts re-read by the chain's own functions; memory above naive as expected, smaller than the withheld ratios by 10-14 %.
+- A8D and A8D2 (per-division desk model, and its solver bound fix): closed on paper and folded into C3P.
+- A8H (5hmC by blood type, GSE70519): the public tables reproduced; 5hmC unlikely to set the blood levels.
+- A8I (which instrument reads which A8 candidate): one line per instrument written from the code headers.
+- A8L (lever sweep): energy levers ruled out; kinetic levers not yet assessed.
+- A8N (history in cells that do not divide): fixed type levels, no rise with age.
+- C3 and C3P (the mitotic clock): clock sites counted in every reading; the tick per round needs an age series of one type in one laboratory.
+- C4 (inception opens a new record): recorded as the author's lead; the biology is established, the IAM part untested.
+- CP1 (losses of neighbouring marks together): the run-length reading added to the chain; its synthetic met.
+- GL1 and GLB (the whole-genome globe): plans written; the per-region loose share is open.
+- GA1 (group comparison on arrays): marked as statistics, not IAM's Law.
+- F1 (the intercept at water temperature): the fish coin found; design held until the data can decide.
+- E1, E7, E25, E30, E31 (Hopfield and Ninio; England; Varriale and Bernardi; Penarroya et al.; Sanchez and Mackenzie): joined on IAM's web as established neighbours; Sanchez and Mackenzie confirmed already credited in the book.
+- CONS (repository inventory): duplicates found and merged; nothing public moved without review.
+- ISTATUS (instrument status table): rebuilt from the register's status lines and the code headers.
