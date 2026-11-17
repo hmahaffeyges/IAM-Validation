@@ -59,6 +59,9 @@ the chain reads comes from that one statement; everything else in the chain is s
   at the sample's own clustering (Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json), with the measured slope. A (the measured line) stays
   the default while the two laboratories disagree: the atlas laboratory reads 1.12 times the derived level, the blind-test laboratory
   0.96-1.03 times.
+- **Islands and clock sites in every reading.** Each sequencing reading also counts, by the same rules as the held error, the held and
+  absent sides at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own meter,
+  register T1) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side (register C3), written as iam_a.sites. No reading uses them yet.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
   Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
@@ -216,6 +219,12 @@ Everything else is read by the stages.
 
 **How to break it.** Give two sequencing inputs, a BAM without `--ref-fasta`, a specimen outside the list, an EPIC v2 array, a
 truncated IDAT: each must stop with a named reason, never a traceback. Release checks V1 to V10 run the one command end to end.
+
+### run_sample.py::_site_counts
+
+Register T1 and C3: in every sequencing reading, the held and absent sides counted by Stage Q2's own rules
+(count_pat_sites) at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own
+meter) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side. Written as iam_a.sites; it never changes a reading.
 
 ### run_sample.py::_bio_root
 Finds the `Biological_Physics` folder by walking up from this file until it finds a folder holding `MethylPhys`, rather than by

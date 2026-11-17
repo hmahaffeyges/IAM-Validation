@@ -6159,3 +6159,7 @@ Every IAM-A reading now carries A_derived, the held error over the line whose in
 the counter at the sample's own clustering (a forward table of planted molecules, no eraser input), with the measured slope. The measured
 line stays the default for now: the atlas laboratory's healthy samples read 1.12 times the derived level, the blind-test laboratory's
 0.96-1.03 times, and which is right is open. The test library reads A 0.8329 on the measured line.
+
+### 2026-11-16 · PHY-093, PHY-094: the islands meter and the clock sites counted in every sequencing reading
+Every sequencing reading now counts the islands territory (each library's own meter) and the epiTOC2 clock sites with their
+neighbours, by the held error's own rules, beside IAM-A. Before, they were counted only by a development option. No reading changes.

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1645,
+   "lines": 1669,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -305,12 +305,32 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_site_counts",
+     "name": "_site_counts",
+     "line": 579,
+     "end": 598,
+     "args": [
+      "pat"
+     ],
+     "lines": 20,
+     "doc": "Register T1 and C3 (PHY-093, PHY-094), in every sequencing reading: the held and absent sides counted by Stage Q2's own rules (count_pat_sites) at the islands territory (each library's own meter) and at the epiTOC2 clock CpGs with 25 CpGs either side. Recorded beside IAM-A; it never changes a reading. Returns {set: count} or {set: {\"error\": ...}}.",
+     "constants": [],
+     "data_files": [
+      "Runtime Matrices/Clock_Sites/epitoc2_sites.csv",
+      "epitoc2_sites.csv",
+      "pyarrow.parquet",
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 578,
-     "end": 1642,
+     "line": 600,
+     "end": 1666,
      "args": [],
-     "lines": 1065,
+     "lines": 1067,
      "doc": "",
      "constants": [
       "BIO",
@@ -342,8 +362,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 951,
-     "end": 955,
+     "line": 973,
+     "end": 977,
      "args": [
       "r"
      ],
@@ -359,8 +379,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1186,
-     "end": 1193,
+     "line": 1208,
+     "end": 1215,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +392,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1564,
-     "end": 1565,
+     "line": 1588,
+     "end": 1589,
      "args": [
       "b",
       "it",
@@ -10839,5 +10859,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 555
+ "n_functions": 556
 }

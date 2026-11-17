@@ -575,6 +575,28 @@ def _dev_run(a, o, beta, intake):
         except Exception as e: dev[k] = {"label": DV.DEV_LABEL, "status": "ERROR", "reason": f"{type(e).__name__}: {str(e)[:300]}", "tb": _tb.format_exc()[-600:]}
 
 
+
+def _site_counts(pat):
+    """Register T1 and C3 (PHY-093, PHY-094), in every sequencing reading: the held and absent sides counted by Stage Q2's own rules
+    (count_pat_sites) at the islands territory (each library's own meter) and at the epiTOC2 clock CpGs with 25 CpGs either side.
+    Recorded beside IAM-A; it never changes a reading. Returns {set: count} or {set: {"error": ...}}."""
+    import gzip as _gz, pyarrow.parquet as _pqs, pandas as _pdc, stage_q2_selfref as _Q2s, stage_metaa_atlas as _SAi
+    here = os.path.dirname(os.path.abspath(__file__))
+    K = _pqs.read_table(os.path.join(here, "..", "..", "atlas", "v2.1", "sites_sequencing_key.parquet")).to_pandas()
+    sets = {"islands": (list(_SAi.territory_sets()["islands"]), "the islands territory (stage_metaa_atlas.territory_sets, IAM-Atlas v2.1): each library's own meter (register T1)"),
+            "epitoc2": (_pdc.read_csv(os.path.join(here, "..", "Runtime Matrices", "Clock_Sites", "epitoc2_sites.csv"), comment="#").probe.tolist(),
+                        "the epiTOC2 mitotic-clock CpGs with 25 CpGs either side (Runtime Matrices/Clock_Sites/epitoc2_sites.csv; register C3)")}
+    out = {}
+    for name, (probes, what) in sets.items():
+        try:
+            idx = K[K.probe.isin(set(probes))].loyfer_cpg_index.dropna().astype(int).tolist()
+            if name == "epitoc2": idx = sorted({i + d for i in idx for d in range(-25, 26) if i + d >= 1})
+            with (_gz.open if str(pat).endswith(".gz") else open)(pat, "rt") as fh: c = _Q2s.count_pat_sites(fh, idx)
+            out[name] = dict(sites=what, n_probes=len(probes), n_with_cpg_index=len(idx), **c)
+        except Exception as e:
+            out[name] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
+    return out
+
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn", help="the array's green-channel raw file (IDAT, .gz allowed), with --red; Stage 1 calibrates it"); ap.add_argument("--red", help="the array's red-channel raw file (IDAT, .gz allowed), with --grn"); ap.add_argument("--betas", help="a per-site table of values (CSV: site id, value) read as an array; the Deconvolver and every reading run on it")
@@ -1522,6 +1544,7 @@ def main():
                 o["iam_a"].update({k: (round(float(x), 6) if isinstance(x, float) else x) for k, x in _Q2.derived_reading(_cnt).items()})   # 2026-11-16: the derived line beside
                 o["iam_a"]["counting"] = V4.counting_error(_cnt, _A, _B)
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
+            if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
         elif qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
         else:
@@ -1529,6 +1552,7 @@ def main():
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
             o["iam_a"] = V4.stage_q2(_cnt, a.seq_cell, chemistry=a.seq_chemistry, source=src)
             import stage_coupling as _CP; o["coupling_a"] = _CP.read(o["iam_a"], a.seq_cell)   # 2026-10-28: coupling-A, in development (plan 49.5)
+            if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
             if a.dev_genome_globe:   # 2026-10-22: the whole-genome globe, drawn by the one command (development)
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
     elif seq:   # Stage Q (v3, retired position reading): --site-table, or --pat with --dev-iama-position
