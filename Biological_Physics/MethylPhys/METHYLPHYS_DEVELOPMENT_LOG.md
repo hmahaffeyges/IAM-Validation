@@ -6232,3 +6232,8 @@ molecules carry most losses. Recorded only; A unchanged.
 The main README's cosmology part and its scripts and papers (80 files) had been retired to history when the README was rewritten.
 They are back, unchanged, in Cosmological_Physics/archive/ with that README and a row in the main README's Start here table. Where the
 archive and the book differ, the book is current.
+
+### 2026-11-16 · PHY-056: the cosmology archive states where it differs from the book
+Rechecked from the archived scripts: the old photon-coupling bound came from a sign error (the book's 0.008 stands), no chain
+sampled beta_m, and three table labels were wrong. Listed at the top of the archive; one growth-rate figure is being rechecked.
+The book's pointer to the full Boltzmann script follows the file (0 file(s)).

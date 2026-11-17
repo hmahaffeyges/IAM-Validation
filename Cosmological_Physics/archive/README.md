@@ -7,6 +7,20 @@ reproduction and for the record. Where it differs from the book (docs/book) or t
 
 ---
 
+## Where this record differs from the book
+
+Rechecked from the archived scripts and their inputs; the book (docs/book) carries the current values.
+
+- **Photon coupling bound.** The limit beta_gamma < 1.4e-6 (and beta_gamma/beta_m < 8.5e-6) comes from a sign error in `tests/mcmc_final_iam.py`: the sound-horizon angle was integrated over a reversed redshift array and came out negative, thousands of standard deviations from Planck. With the sign fixed, the angle alone gives beta_gamma < 0.008 (95 %), the book's value.
+- **"The chains converged to 0.157."** No chain samples beta_m. The Level 1 runs fix mu0 = -0.13495 (beta_m 0.1560) and the Level 2 code fixes beta_m = 0.15765. The CMB fit does not measure beta_m; the book says so.
+- **The mu(z) table.** At z = 0.5 the value 0.920 is the MGCAMB time shape used in Level 1; IAM's own form mu = H^2/(H^2 + beta_m E) gives 0.948.
+- **The S8 column in the Level 2 comparison.** The numbers 0.4547, 0.4500 and 0.4496 are sigma8 sqrt(Omega_m); S8 itself is 0.830, 0.822 and 0.821.
+- **Level 2 Run A's mu0.** The table shows -0.13495 (the Level 1 value); the Level 2 code uses beta_m 0.15765, mu0 -0.1362.
+- **Sigma = 1** is an input of every run (sigma0 = 0), not a test result.
+- **`tests/iam_validation.py`** prints fixed constants (beta_m 0.164, matter-sector H0 72.7) and draws its corner plot from synthetic samples; those lines are not test outputs.
+- **Level 1 delta chi-squared range.** The four tables give +1.34 to +2.32.
+- **Being rechecked:** the Level 2 Run D growth-rate penalty of +3.08. An independent recomputation (CAMB 2.0.4; the chains used 1.5.8) gives about +0.07 when the redshift orders of model and data are matched. Not settled.
+
 # Informational Actualization Model (IAM)
 ## GR's Own Thermodynamic Derivation, Completed
 ### Zero Free Parameters Beyond ΛCDM &nbsp;|&nbsp; 18 Independent Tests &nbsp;|&nbsp; µ(a) < 1, Σ(a) = 1
