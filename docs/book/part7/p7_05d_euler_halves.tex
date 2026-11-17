@@ -1,0 +1,110 @@
+% Chapter: one theorem behind every half (Euler's theorem for homogeneous functions)
+\chapter{One theorem behind every half}\label{ch:euler_halves}
+
+\section*{Overview}
+A factor of one half appears at almost every place in this book: the kinetic share of a bound atom, star or cluster
+(Chapter~\ref{ch:virial_law}), the share $T_HS$ of a black hole's mass (the Smarr relation), the coupling $\beta_m=\Omega_m/2$ at the cosmic horizon
+(Chapter~\ref{ch:virial}), the energy a transistor gate stores out of what it draws (Chapter~\ref{ch:synthesis}) and the equal channel weights of
+Koide's relation (Chapter~\ref{ch:koide}). This chapter shows that each of these exact halves is one theorem, Euler's theorem for homogeneous
+functions, applied at one of two degrees, and states what that settles and what it leaves open. \derived
+
+\section{The theorem}\label{sec:eh_theorem}
+A function is homogeneous of degree $k$ when scaling every argument by $\lambda$ scales the function by $\lambda^k$. Euler's
+theorem~\cite{Goldstein} then gives
+\begin{equation}
+f(\lambda\mathbf x)=\lambda^kf(\mathbf x)\quad\Longrightarrow\quad \mathbf x\cdot\nabla f=k\,f .\label{eq:eh_euler}
+\end{equation}
+\derived{} (standard). Every half below is this identity at a degree fixed by geometry, never by a fit.
+
+\section{Degree $-1$: bound systems and Einstein's equations}\label{sec:eh_branch1}
+A potential homogeneous of degree $k$ gives the virial theorem $2\langle K\rangle=k\langle V\rangle$ (Eq.~\eqref{eq:vl_euler}). Gravity and the
+Coulomb force have $k=-1$ because Gauss's law in three spatial dimensions makes the field of a point source fall as $1/r^2$, so
+$\langle K\rangle=\tfrac12|\langle V\rangle|$ for atoms (the quantum form by scaling, Fock~\cite{Fock1930}), stars and clusters of galaxies
+(Table~\ref{tab:virial_domains}). \derived{} General relativity carries the same branch: for a stationary system the Tolman mass equals the ADM mass,
+and that equality reduces to $2\langle K\rangle+\langle V\rangle=0$ in the weak field (Section~\ref{sec:vl_gr})~\cite{Tolman1930,GourgoulhonBonazzola1994}.
+\derived{} The three-way cluster test reads this branch directly: in general relativity the hydrostatic and lensing masses of a relaxed cluster are
+one mass, so a lensing-to-hydrostatic ratio that falls with redshift as $1/\mu(z)$ says that matter and light do not feel the same mass
+(Chapter~\ref{ch:threeway}). \interp
+
+\section{Degree 2: charge, horizons and modes}\label{sec:eh_branch2}
+\paragraph{The capacitor.} The energy stored on a capacitor, $U=Q^2/2C$, is homogeneous of degree 2 in the charge. Charging it from a supply at the
+final voltage $V=Q/C$ draws $QV=Q\,\partial U/\partial Q$, and Eq.~\eqref{eq:eh_euler} gives
+\begin{equation}
+Q\frac{\partial U}{\partial Q}=2U\quad\Longrightarrow\quad\frac{U}{QV}=\frac12 ,\label{eq:eh_cap}
+\end{equation}
+whatever the resistance. \derived{} This is the half that a transistor gate stores of what it draws (Chapter~\ref{ch:synthesis}).
+
+\paragraph{The horizons.} The Bekenstein--Hawking entropy is proportional to the horizon area~\cite{Bekenstein1973,Hawking1975}, and for a
+Schwarzschild black hole the area is proportional to $M^2$, so $S(M)$ is homogeneous of degree 2. With the first law $dMc^2=T_H\,dS$,
+\begin{equation}
+M\frac{dS}{dM}=2S\quad\Longrightarrow\quad T_HS=\frac{c^2}{dS/dM}\,S=\tfrac12Mc^2 ,\label{eq:eh_area}
+\end{equation}
+which is the Smarr relation and the Komar mass of Eq.~\eqref{eq:vl_komar} read as Euler's theorem. \derived{} At the cosmic horizon of radius $R$
+the energy inside, $E=c^4R/2G$, grows as $R$ and the entropy as $R^2$, so $S(E)$ is again homogeneous of degree 2: the first-law temperature is
+\begin{equation}
+\frac{dE}{dS}=\frac{T_{GH}}{2},\qquad \frac{dE}{dS}\,S=\tfrac12E,\qquad T_{GH}S=E ,\label{eq:eh_dS}
+\end{equation}
+with $T_{GH}=\hbar c/2\pi k_BR$. \derived{} The half of the cosmic horizon is the same degree-2 identity as the black hole's.
+
+\paragraph{Modes.} A mode whose energy is quadratic in its amplitude has $\langle K\rangle=\langle V\rangle$, and its orbit average keeps half its
+peak, $\langle(y\cos\phi)^2\rangle=y^2/2$ (Eq.~\eqref{eq:ko:k2}). \derived{} On Koide's charge orbit this identity gives the weight of the
+harmonic channel, $y^2/2$ (Eq.~\eqref{eq:ko:weights}). It does not give the equality of the two weights: Euler's theorem fixes degrees, not the
+ratio of two channels of the same degree, and Koide's ratio is homogeneous of degree 0 in $(x,y)$, $Q=\tfrac13+y^2/6x^2$, so no normalization set
+by the area law reaches it. \derived{} The equal split $x^2=y^2/2$, read in Section~\ref{sec:ko:virial} as equal power in the zero-sequence and
+balanced parts of the square-root masses, remains the conjecture of Step~5. \conjecture
+
+\section{What the shared root settles}\label{sec:eh_settles}
+\begin{table}[htbp]\centering\small
+\caption{Each exact half in the book as Euler's theorem, Eq.~\eqref{eq:eh_euler}. The degree is fixed by geometry: $-1$ by Gauss's law in three
+dimensions, 2 by an energy quadratic in charge or amplitude, or by an entropy quadratic in mass (the area law).}\label{tab:eh_halves}
+\begin{tabular}{@{}llcll@{}}\toprule
+place & homogeneous function & degree & the half & chapter\\\midrule
+atom, star, cluster & potential $V(\mathbf r)$ & $-1$ & $\langle K\rangle=\tfrac12|\langle V\rangle|$ & \ref{ch:virial_law}\\
+relativistic bound system & Tolman $=$ ADM mass & $-1$ (weak field) & $2\langle K\rangle+\langle V\rangle=0$ & \ref{ch:virial_law}\\
+black hole & $S(M)\propto M^2$ & 2 & $T_HS=\tfrac12Mc^2$ & \ref{ch:virial_law}\\
+cosmic horizon & $S(E)\propto E^2$ & 2 & $(dE/dS)\,S=\tfrac12E$ & \ref{ch:euler_halves}\\
+capacitor (transistor gate) & $U(Q)\propto Q^2$ & 2 & stored $=\tfrac12$ drawn & \ref{ch:synthesis}\\
+Koide's harmonic channel & mode energy $\propto y^2$ & 2 & $\langle(y\cos\phi)^2\rangle=\tfrac12y^2$ & \ref{ch:koide}\\\bottomrule
+\end{tabular}
+\end{table}
+Each entry of Table~\ref{tab:eh_halves} is Euler's theorem; none uses a fitted number. \derived{} Two consequences follow. First, the half of the
+capacitor and the half of a black hole are the same theorem at the same degree: energy quadratic in charge and entropy quadratic in mass. The
+conjecture of Chapter~\ref{ch:synthesis} that the transistor half and the virial half are one quantity is narrowed to this: they are one theorem
+at two degrees, which is derived; that they are one quantity is still a conjecture. \conjecture{} Second, the gravitational branch is not separate
+from the thermodynamic one. Jacobson derived Einstein's equations from $\delta Q=T\,\delta S$ on local horizons~\cite{Jacobson1995}, so the
+equations that carry the degree $-1$ half come from the same local first law that IAM's Law prices; read with IAM's Law, the half in each row is the
+share written on, or held by, the surface nearest the event. \interp
+
+\section{What it does not settle}\label{sec:eh_open}
+The root is shared; no number is transferred between rows, as Chapter~\ref{ch:synthesis} states. \interp{} The horizon's half is a
+four-dimensional fact. In $D$ spacetime dimensions the mass of a static black hole grows as $r^{D-3}$ and its entropy as $r^{D-2}$, so
+\begin{equation}
+\frac{T_HS}{Mc^2}=\frac{D-3}{D-2},\label{eq:eh_smarrD}
+\end{equation}
+which is $\tfrac12$ only for $D=4$ ($\tfrac23$ for $D=5$). \derived{} The half kept by a mode on a circle, $\langle\cos^2\phi\rangle=\tfrac12$, does not
+depend on $D$ (on a sphere it is $\tfrac13$). The horizon half and the orbit half therefore coincide in four dimensions, with no shared cause shown.
+\derived{} Three things stay open. The cell's floor
+$1/(1+e^M)$ is Boltzmann's two-state ratio, not one of these halves, and the cell's held share of its drive, $\varphi=0.1464$, is not a half; that its
+zero-drive limit equals Koide's $Q=2/3$ has no shared reason found. \openprob{} Koide's offset $\delta$ and scale $x$ are not fixed by the
+theorem (Section~\ref{sec:ko:offset}). \openprob{} The proportionality of entropy to area is taken from Bekenstein and Hawking, not derived here.
+\openprob
+
+\section{Tests}\label{sec:eh_tests}
+The degree $-1$ branch is tested in every bound system of Table~\ref{tab:virial_domains}, and across the sector split by the sign of the redshift
+slope of the lensing-to-hydrostatic ratio (Chapter~\ref{ch:threeway}). \prediction{} The degree 2 reading of Koide's relation keeps its test:
+$Q=2/3$ exactly fixes the $\tau$ mass (Section~\ref{sec:ko:tests}). \prediction
+
+\section{Status}\label{sec:eh_status}
+\begin{center}\small\begin{tabular}{p{0.66\textwidth}l}\toprule
+statement & label\\\midrule
+Euler's theorem, Eq.~\eqref{eq:eh_euler} & \derived\\
+the capacitor half, Eq.~\eqref{eq:eh_cap}; the horizon halves, Eqs.~\eqref{eq:eh_area}--\eqref{eq:eh_dS} & \derived\\
+the degree $-1$ half from Einstein's equations (Tolman $=$ ADM, weak field) & \derived\\
+the transistor half and the virial half as one theorem at two degrees & \derived\\
+the transistor half and the virial half as one quantity & \conjecture\\
+Koide's harmonic weight $y^2/2$ as the degree 2 half on the charge orbit & \derived\\
+Koide's equal split $x^2=y^2/2$ & \conjecture\\
+the horizon half four-dimensional, Eq.~\eqref{eq:eh_smarrD} & \derived\\
+the half as the share written on the nearest surface & \interp\\
+the cell's floor and held share on this thread; Koide's $\delta$ and $x$ & \openprob\\\bottomrule
+\end{tabular}\end{center}

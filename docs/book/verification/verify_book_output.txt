@@ -5859,4 +5859,11 @@ PASS  ch:koide:virial:F                  ch:koide:p4_15a_lepton_koide:0  printed
 PASS  eq:vl_komar                        ch:virial_law:p1_03_virial_law:0  printed (algebra)  recomputed True  [derived] Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2
 PASS  eq:vl_smarr_euler                  ch:virial_law:p1_03_virial_law:0  printed (algebra)  recomputed True  [derived] M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1)
 
-SUMMARY  PASS 4717  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 7: Thirty-Seven Orders of Magnitude and the Web that is IAM | ch:euler_halves (part7/p7_05d_euler_halves.tex)
+PASS  eq:eh_euler                        ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] Euler's theorem: f homogeneous of degree k gives x . grad f = k f
+PASS  eq:eh_cap                          ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance
+PASS  eq:eh_area                         ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2
+PASS  eq:eh_smarrD                       ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5
+PASS  eq:eh_dS                           ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E
+
+SUMMARY  PASS 4722  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

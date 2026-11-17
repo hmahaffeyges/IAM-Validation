@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4717 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4722 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -5099,6 +5099,16 @@ Totals: 4717 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 160 | ch:virial_decoherence:L160 | interp | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 IAM Level 2 chain value | PASS |
 | 175 | ch:virial_decoherence:L175 | prediction | `13.6` | numeric: coupling reduction today 1 - mu(1) | PASS |
 | 176 | ch:virial_decoherence:L176 | prediction | `4.25` | numeric: f sigma8 deficit at z = 0, same early amplitude | PASS |
+
+## Part 7 - ch:euler_halves - `docs/book/part7/p7_05d_euler_halves.tex`
+
+| line | label | status | printed | checked how | result |
+|---:|---|---|---|---|---|
+| 0 | eq:eh_euler | derived |  | sympy: Euler's theorem: f homogeneous of degree k gives x . grad f = k f | PASS |
+| 0 | eq:eh_cap | derived |  | sympy: capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance | PASS |
+| 0 | eq:eh_area | derived |  | sympy: S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2 | PASS |
+| 0 | eq:eh_smarrD | derived |  | sympy: D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5 | PASS |
+| 0 | eq:eh_dS | derived |  | sympy: cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E | PASS |
 
 ## Part 7 - ch:onegauge - `docs/book/part7/p7_08_one_gauge.tex`
 

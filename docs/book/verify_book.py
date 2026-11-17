@@ -42689,7 +42689,7 @@ def check_5040():
 
 
 # ---------------------------------------------------------------- items inventoried and not run: (part, chapter, file, line, label, status, printed, why)
-CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_S_saturation', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
+CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1_04_virial_identity', 'part2/p2_02_virial', 'part2/p2_02b_virial_tests', 'part2/p2_03_theory', 'part2/p2_03a_entropic_gravity', 'part2/p2_04_dualsector_chains', 'part2/p2_07_late_time_growth', 'part2/p2_06_dual_sector_perturbation', 'part2/p2_05_dual_sector_note', 'part2/p2_08_s8_trend', 'part2/p2_09_sector_tension', 'part2/p2_09b_phantom_crossing', 'part2/p2_10_dual_sector_validation', 'part2/p2_11_dark_energy', 'part2/p2_20_wz_far_future', 'part2/p2_12_lambda', 'part2/p2_12b_lambda_history', 'part2/p2_13_baryon', 'part2/p2_13b_baryon_chain', 'part2/p2_16_survey_predictions', 'part2/p2_17_lensing_dynamics', 'part2/p2_18_three_way_clusters', 'part2/p2_19_missing_satellites', 'part3/p3_01_blackholes', 'part3/p3_01a_bekenstein', 'part3/p3_01b_bh_information', 'part3/p3_07_saturation', 'part4/p4_14_quantum_records', 'part4/p4_21_entanglement_records', 'part4/p4_04_measurement', 'part4/p4_05_gravdec', 'part4/p4_06_nonlocality', 'part4/p4_22_electroweak', 'part4/p4_22b_higgs_record', 'part4/p4_15a_lepton_koide', 'part4/p4_15b_electron_mass', 'part5/p5_01_sc_primer', 'part5/p5_02_xqp', 'part5/p5_03_a_for_processors', 'part5/p5_04_thermal_n', 'part5/p5_05_coherence_optimum', 'part5/p5_10_qubit_platforms', 'part5/p5_06_cmos', 'part5/p5_11_chip_generations', 'part6/p6_01_bridge', 'part6/p6_00b_astrogenetics', 'part6/p6_02_landauer', 'part6/p6_03_surface', 'part6/p6_04_ledgers', 'part6/p6_05_floorbreach', 'part6/p6_06_gauge', 'part6/p6_07_meta', 'part6/p6_08_iama', 'part6/p6_09_cscore', 'part6/p6_10_temperature', 'part6/p6_11_translation', 'part6/p6_12_instrument', 'part6/p6_13_separation', 'part6/p6_14_atlas', 'part6/p6_15_identity', 'part6/p6_16a_skytools', 'part6/p6_16_sky', 'part6/p6_17_serial', 'part6/p6_18_discipline', 'part6/p6_19_chain', 'part6/p6_20_report', 'part6/p6_22_leukocyte', 'part6/p6_23_reach', 'part6/p6_24_status', 'part7/p7_01_interpretation', 'part7/p7_03_time', 'part7/p7_05b_virial_partners', 'part7/p7_05c_virial_decoherence', 'part7/p7_05d_euler_halves', 'part7/p7_08_one_gauge', 'part7/p7_08_synthesis', 'part7/p7_09_reach', 'part7/p7_07_predictions', 'part7/p7_09_open', 'part7/p7_02_exploratory', 'part7/p7_11_status_all', 'part7/p7_10_conclusion', 'appendices/app_A_canon', 'appendices/app_A2_frozen_values', 'appendices/app_N_notation', 'appendices/app_E_formulas', 'appendices/app_C3_derivations', 'appendices/app_S_saturation', 'appendices/app_F_glossary', 'appendices/app_C_reproduce_physics', 'appendices/app_C2_reproduce_cells', 'appendices/app_G_predictions_register', 'appendices/app_I_provenance']
 INVENTORY = [
     (0, 'ch:p0_preface', 'front/p0_preface', 53, '', 'none', '72.26', 'H0_matter canon locked result, input'),
     (0, 'ch:p0_preface', 'front/p0_preface', 54, '', 'none', '67.16', 'H0_photon canon locked result, input'),
@@ -44620,6 +44620,53 @@ def check_vlg_euler():
     hom = sp.simplify(M.subs({A: lam * A, J: lam * J}) - sp.sqrt(lam) * M) == 0
     ok = hom and sp.simplify(M / 2 - (A * sp.diff(M, A) + J * sp.diff(M, J))) == 0
     neg_ok = sp.simplify(M - (A * sp.diff(M, A) + J * sp.diff(M, J))) == 0
+    return locals()
+
+# ---------------------------------------------------------------- ch:euler_halves (edit 076)
+_EH = dict(chapter='ch:euler_halves', part=7, file='part7/p7_05d_euler_halves', kind='sym', printed='', tol=0, line=0, status='derived')
+@check(label='eq:eh_euler', title="Euler's theorem: f homogeneous of degree k gives x . grad f = k f", **_EH)
+def check_eh_euler():
+    'Eq. eq:eh_euler on two homogeneous functions (degree -1 and degree 2) and a non-homogeneous control.'
+    x, y, lam = sp.symbols('x y lambda', positive=True)
+    f1 = 1 / sp.sqrt(x**2 + y**2); f2 = x**2 + 3 * x * y; g = x**2 + x
+    e = lambda f: sp.simplify(x * sp.diff(f, x) + y * sp.diff(f, y))
+    ok = sp.simplify(f1.subs({x: lam * x, y: lam * y}, simultaneous=True) - f1 / lam) == 0 and sp.simplify(e(f1) + f1) == 0 and sp.simplify(e(f2) - 2 * f2) == 0
+    neg_ok = sp.simplify(e(g) - 2 * g) == 0
+    return locals()
+
+@check(label='eq:eh_cap', title='capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance', **_EH)
+def check_eh_cap():
+    'Eq. eq:eh_cap: U = Q^2/2C, drawn = Q V with V = Q/C; Q dU/dQ = 2U = drawn, U/(QV) = 1/2.'
+    Q, C = sp.symbols('Q C', positive=True); U_ = Q**2 / (2 * C)
+    ok = sp.simplify(Q * sp.diff(U_, Q) - 2 * U_) == 0 and sp.simplify(U_ / (Q * Q / C) - sp.Rational(1, 2)) == 0
+    neg_ok = sp.simplify(U_ / (Q * Q / C) - 1) == 0
+    return locals()
+
+@check(label='eq:eh_area', title='S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2', **_EH)
+def check_eh_area():
+    'Eq. eq:eh_area: S = 4 pi G k_B M^2/(hbar c); M dS/dM = 2S; T_H = c^2/(dS/dM) = hbar c^3/(8 pi G M k_B); T_H S = M c^2/2.'
+    G_, c_, hb, kB_, M_ = sp.symbols('G c hbar k_B M', positive=True)
+    S = 4 * sp.pi * G_ * kB_ * M_**2 / (hb * c_); T = c_**2 / sp.diff(S, M_)
+    ok = sp.simplify(M_ * sp.diff(S, M_) - 2 * S) == 0 and sp.simplify(T - hb * c_**3 / (8 * sp.pi * G_ * M_ * kB_)) == 0 and sp.simplify(T * S - M_ * c_**2 / 2) == 0
+    neg_ok = sp.simplify(T * S - M_ * c_**2) == 0
+    return locals()
+
+@check(label='eq:eh_smarrD', title='D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5', **_EH)
+def check_eh_smarrD():
+    'Eq. eq:eh_smarrD with T = dM/dS.'
+    r_, D_ = sp.symbols('r D', positive=True); M_ = r_**(D_ - 3); S_ = r_**(D_ - 2); T_ = sp.diff(M_, r_) / sp.diff(S_, r_)
+    q = sp.simplify(T_ * S_ / M_)
+    ok = sp.simplify(q - (D_ - 3) / (D_ - 2)) == 0 and q.subs(D_, 4) == sp.Rational(1, 2) and q.subs(D_, 5) == sp.Rational(2, 3)
+    neg_ok = q.subs(D_, 5) == sp.Rational(1, 2)
+    return locals()
+
+@check(label='eq:eh_dS', title='cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E', **_EH)
+def check_eh_dS():
+    'Eq. eq:eh_dS with T_GH = hbar c/(2 pi k_B R).'
+    G_, c_, hb, kB_, R = sp.symbols('G c hbar k_B R', positive=True)
+    E = c_**4 * R / (2 * G_); S = kB_ * sp.pi * c_**3 * R**2 / (G_ * hb); T = hb * c_ / (2 * sp.pi * kB_ * R); T1 = sp.diff(E, R) / sp.diff(S, R)
+    ok = sp.simplify(T1 - T / 2) == 0 and sp.simplify(T1 * S - E / 2) == 0 and sp.simplify(T * S - E) == 0
+    neg_ok = sp.simplify(T1 - T) == 0
     return locals()
 
 if __name__ == "__main__":
