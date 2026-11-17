@@ -1,3 +1,5 @@
+> FROZEN: lessons since its last entry live in CANON/TEST_DESIGN_CHECKLIST.md and the chain's gate rules.
+
 # MethylPhys — lessons learned (one index)
 
 Every lesson that cost time, a result or trust, once: what happened, the rule, and whether code now enforces it. A lesson that only lives in a

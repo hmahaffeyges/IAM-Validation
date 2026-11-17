@@ -6163,3 +6163,52 @@ line stays the default for now: the atlas laboratory's healthy samples read 1.12
 ### 2026-11-16 · PHY-093, PHY-094: the islands meter and the clock sites counted in every sequencing reading
 Every sequencing reading now counts the islands territory (each library's own meter) and the epiTOC2 clock sites with their
 neighbours, by the held error's own rules, beside IAM-A. Before, they were counted only by a development option. No reading changes.
+
+### 2026-11-16 · PHY-091: Register status lines brought up to their results (meter false marks, fish row)
+A propagation pass found two status lines behind their own recorded results (the meter's false marks, A17; the fish row, F1) and
+brought them up to date. No number changed.
+
+### 2026-11-16 · PHY-093, PHY-094: Islands writer error and two selection steps (a lead)
+The writer's error at CpG islands (0.0004, 0.0014, 0.0004, about 0 in four libraries) is within 2.4 standard deviations of two
+independent selection steps at the genome-wide discrimination D = 69, (1/70)^2 = 2.0e-4. Clock sites read as islands where the second
+check fails. A lead, found two steps out on IAM's web; not tested.
+
+### 2026-11-16 · PHY-078: Cell simulator lever sweep: energy does not set each cell type's level
+In the cell simulator, raising each type's level by the measured 1.39 through the energy levers (the coin, the temperature, the SAM
+price) needs each to change by about 1.42, far outside their measured ranges: energy is ruled out as the cause of the type levels. The
+kinetic levers were not assessed (their law-off point is not calibrated). A 5hmC blind spot would need 28 % of the reading in a neuron-like
+type.
+
+### 2026-11-16 · CAN-024: Run lengths of losses in the default count (synthetic met)
+The chain's default count now records how losses fall in runs along each molecule against the independent expectation. Its synthetic
+met both ways: independent losses ratio 0.999; planted pairs 0.538 with doubles seven times the independent rate. A first version crashed
+the count and was fixed before any sample was read; every chain edit now runs the count on planted molecules before it can commit.
+
+### 2026-11-16 · PHY-083: The cost of holding an unchanged mark
+England's bound (2013, from detailed balance) says keeping a mark at error eps costs at least kT ln(1/eps) per interval even when it never
+changes: 3.11 kT at the derived level, against the derived holding energy 3.066 kT (they differ by exactly ln(1/(1 - eps)), an identity),
+and exactly one coin at the floor. The repair crew restores lost marks; the cost is set by how often they fall.
+
+### 2026-11-16 · PHY-083: Neighbors of the M number in the literature
+Sanchez and Mackenzie, already credited in the book, put Landauer's bit price on methylation; they use neither M nor an error level.
+Kolchinsky (2024) argues dissipation bounds cannot link replicator growth and decay rates; the M-number paper answers it for a single
+mark's loss and restore.
+
+### 2026-11-16 · PHY-013: The line tested tile by tile inside one sample (synthetic met)
+The default count now pools the held error in tiles judged firm and loose by the other half of the sample, so the line can be tested
+inside one sample. Its synthetic met exactly (firm 0.027455 against 0.02745 planted; loose 0.061038 against 0.06104).
+
+### 2026-11-16 · PHY-078: 5hmC by blood cell type
+GSE70519 (TAB-seq, seven sorted blood types) read once on GitHub machines: the 5hmC shares reproduce the paper's Table 2 exactly (CD4 T
+cells 2.17 % highest, CD8 T cells 1.22 % lowest). The cell simulator carries them, with the share of 5hmC that is an erase in transit as
+an assumed-0 lever: for blood it cannot explain the type levels; a neuron-like type would need about 8.5 % of its 5hmC in transit.
+
+### 2026-11-16 · PHY-083, PHY-086: IAM-A: one line for every cell type; the slope is measured
+IAM-A has one line for every cell type, read against each sample's own loose share. In mature blood the eraser share drops out (a lead,
+after the fact); in stem and progenitor cells the measured eraser share is part of that type's own distance from the line, not a separate
+input. The slope the chain reads, 0.034625, is measured; only its within-sample part is derived.
+
+### 2026-11-16 · PHY-083, PHY-084: The level from M alone through the counter, with no eraser
+A forward table of planted molecules at the level derived from M, with no eraser input, read by the chain's counter at nine clusterings:
+0.0359 held error at the healthy clustering. The first laboratory's measured line sits 1.12 times this; the blind-test laboratory reads
+0.96 to 1.03 times it like for like. Every reading now gives A on both lines.

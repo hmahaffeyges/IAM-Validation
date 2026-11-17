@@ -1,3 +1,5 @@
+> AWS HISTORY: written for AWS launches, now suspended; machine rules live in CANON/TEST_DESIGN_CHECKLIST.md.
+
 # Before every paid launch
 
 Author rule (2026-10-18): *"Ignorance can be forgiven, but ONLY if we didn't already have the information the lesson teaches."*
