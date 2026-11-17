@@ -4,7 +4,7 @@ WHERE IAM'S LAW IS (physics first). IAM enters only through the entropy function
   the surface    the cosmic apparent horizon r_A = c/H: the nearest encoding surface for distributed structure       [IAM encoding_surface]
   the kick       the Gibbons-Hawking temperature T_H = hbar H / (2 pi k_B), the horizon's own temperature              [established]
   the bit price  dE_rec(a) = k_B T_H(a) ln2 per record written on the horizon (epoch-dependent; conjecture)         [IAM encoding_surface]
-  the record     E(a) = exp(1 - 1/a), the cumulative record on the horizon (conjecture; needs rate exponent n = 7/2) [IAM activation]
+  the record     E(a) = exp(1 - 1/a), the cumulative record, kept on the horizon ledger (conjecture; needs rate exponent n = 7/2) [IAM activation]
   the partition  beta_m = Omega_m / 2 (the virial half at the cosmic horizon)                                       [IAM virial_half]
   the ratio      R(a) = Omega_m a^-3 / (beta_m E(a)): the potential half against the record (kinetic) half          [IAM virial_half]
 Everything else (H(a) of the background with IAM off, Planck parameters, unit constants) is established or measured, labeled as such.
@@ -42,9 +42,16 @@ def ledger(a=1.0, H0_kms=67.16, iam=True):
     out["T_H"] = Sc.Reading(HBAR * H / (2 * math.pi * KB), "established", note="Gibbons-Hawking temperature, K")
     rA = C / H; out["horizon_bits"] = Sc.Reading(math.pi * rA ** 2 / (G * HBAR / C ** 3) / LN2, "established", note="area/(4 l_P^2 ln2)")
     if iam:
-        out["bit_price_J"] = Sc.Reading(KB * float(out["T_H"]) * LN2, "IAM", ["encoding_surface"], "k_B T_H ln2 per record on the horizon")
+        out["bit_price_J"] = Sc.Reading(KB * float(out["T_H"]) * LN2, "IAM", ["encoding_surface"], "k_B T_H ln2 per record, kept on the horizon ledger (writing is local)")
         out["E_record"] = Sc.Reading(E_act(a), "IAM", ["encoding_surface"], "cumulative record E(a) = exp(1 - 1/a) (conjecture)")
         out["R_ratio"] = Sc.Reading(OMEGA_M * a ** -3 / (BETA_M * E_act(a)), "IAM", ["virial_half"], "potential half over the record half")
+        H2 = OMEGA_M * a ** -3 + (1 - OMEGA_M)                       # (H/H0)^2 of the established background
+        out["mu_matter"] = Sc.Reading(H2 / (H2 + BETA_M * E_act(a)), "IAM", ["virial_half"], "matter's coupling mu = H^2/(H^2 + beta_m E(a) H0^2); "
+                                       "1 when the record is empty, falling as it accumulates (book ch:threeway)")
+        out["R_cluster"] = Sc.Reading(1 + BETA_M * E_act(a) / H2, "IAM", ["virial_half"], "lensing-to-hydrostatic mass ratio R = 1/mu: light "
+                                       "(Sigma = 1) against matter (mu); the deciding test is the sign of dR/dz (IAM negative)")
+        out["Sigma_light"] = Sc.Reading(1.0, "IAM", ["encoding_surface"], "light keeps Sigma = 1: the photon writes no record (unbroken U(1)); a free "
+                                       "wave holds equal electric and magnetic energy at 376.73 ohm, permanently at natural load")
         # 2026-11-15 (register X6, R13, X1; leads, checked in sympy 2026-11-14 night): the nearest-surface reading
         om_a = OMEGA_M * a ** -3 / (OMEGA_M * a ** -3 + (1 - OMEGA_M))
         M_H = C ** 3 / (2 * G * H)                                   # the mass of the Hubble sphere at the critical density, kg
@@ -65,6 +72,8 @@ def black_hole(M_kg):
     return dict(R_s=Sc.Reading(Rs, "established", note="m"), T_Hawking=Sc.Reading(T, "established", note="K"),
                 held_per_inside=Sc.Reading(KB * T * S / (M_kg * C ** 2), "IAM", ["settled_half"], "T S / M c^2 = kappa R/c^2 = 1/2 (Smarr)"),
                 kappa_R_c2=Sc.Reading(kappa * Rs / C ** 2, "established", note="surface gravity times radius over c^2"),
+                membrane_ohm=Sc.Reading(4e-7 * math.pi * C, "established", note="membrane paradigm (Damour; Znajek): the horizon's surface "
+                                        "resistivity equals the impedance of free space, 376.73 ohm, matched to infinity (register E38)"),
                 held_per_paid=Sc.Reading(0.5, "IAM", ["settled_half"], "1/2, as every settled surface"),
                 colder_than_CMB=Sc.Reading(T < 2.7255, "established", note="True: the hole is a net absorber today"))
 
@@ -87,10 +96,16 @@ def minicosmos_selftest():
     chk("E(1) = 1, E(1/2) inflection value e^-1", abs(E_act(1.0) - 1) < 1e-12 and abs(E_act(0.5) - math.exp(-1)) < 1e-12)
     chk("mu(1) = 1/(1 + beta_m) = 0.864 (four domains, reference)", abs(1 / (1 + BETA_M) - 0.864) < 0.0005)
     chk("IAM off: no IAM readings", all(v.origin != "IAM" for v in ledger(1.0, iam=False).values()))
+    for z, R in ((0.0, 1.1577), (0.3, 1.0848), (2.0, 1.0023)):
+        chk(f"R_cluster(z={z}) = {R} (three-way clusters)", abs(float(ledger(1 / (1 + z))["R_cluster"]) - R) < 0.0005)
+    _h = 1e-5; _d = (float(ledger(1 / 1.30001)["R_cluster"]) - float(ledger(1 / 1.29999)["R_cluster"])) / 2e-5
+    chk(f"dR/dz at z = 0.3 is negative, -0.183 (three-way clusters slope test): {_d:.4f}", abs(_d + 0.1832) < 0.002)
+    chk("mu(1) reading equals 1/(1 + beta_m)", abs(float(L["mu_matter"]) - 1 / (1 + BETA_M)) < 1e-12)
     chk("beta_m from matter's own black hole equals the canon beta_m today (X6 lead)", abs(float(L["beta_m_own_hole"]) - BETA_M) < 1e-9)
     chk("Lambda's own-horizon temperature ratio sqrt(Omega_L) = 0.8274 (Lambda chapter)", abs(float(L["lambda_T_ratio"]) - 0.8274) < 0.0005)
     B = black_hole(10 * 1.989e30)
     chk("black hole: T S / M c^2 = 1/2 and kappa R / c^2 = 1/2 (Smarr; X1)", abs(float(B["held_per_inside"]) - 0.5) < 1e-9 and abs(float(B["kappa_R_c2"]) - 0.5) < 1e-12)
+    chk("horizon membrane resistivity 376.73 ohm = free-space impedance (E38)", abs(float(B["membrane_ohm"]) - 376.73) < 0.01)
     chk("a 10 solar-mass hole is colder than the CMB", bool(B["colder_than_CMB"].value if hasattr(B["colder_than_CMB"], "value") else float(B["colder_than_CMB"])))
     chk("CMB balance mass about 4.5e22 kg (saturation chapter)", abs(M_CMB_BALANCE / 4.5e22 - 1) < 0.02)
     print("ALL PASS" if ok else "SOME FAILED"); return ok

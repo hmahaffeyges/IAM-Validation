@@ -6353,3 +6353,8 @@ _Written at midnight from a line-by-line walk of the whole day's chat (each entr
 - X19 (stable particles as records on their own surface): record mended.
 - R6, R13 and R17 (the black hole's half, the shared open step, the cluster of joined rows): R13 now carries the author's local-writing picture, in which writing is local and the horizon is the ledger.
 - R21, R22 and R23 (why local records migrate; Wheeler's bags of gold, parked; Einstein's equations to the virial theorem): R23's route recorded, through the general-relativistic virial identity.
+
+### 2026-11-17 · PHY-078: the cosmos simulator reads the three-way cluster test
+The cosmos simulator now carries matter's coupling mu(a), the lensing-to-hydrostatic cluster ratio R = 1/mu (1.158 today, 1.085 at z = 0.3,
+1.002 at z = 2; slope dR/dz = -0.183 at z = 0.3, negative as the book predicts) and light at Sigma = 1, beside the black hole's membrane
+resistivity (376.73 ohm, matched to infinity). Two notes now say the record is kept on the horizon ledger, written locally. No reading changed.
