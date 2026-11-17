@@ -1519,6 +1519,7 @@ def main():
             if _r is not None:
                 _A = float(_r["A"]); o["iam_a"].update(A=round(_A, 4), predicted=round(_r["predicted"], 6), held_err=round(_r["held_err"], 6), loose_share=round(_r["loose_share"], 4),
                                                        state="Normal" if _B["lo"] <= _A <= _B["hi"] else ("above Normal" if _A > _B["hi"] else "below Normal"), shape_check="not applied (mixed specimen)")
+                o["iam_a"].update({k: (round(float(x), 6) if isinstance(x, float) else x) for k, x in _Q2.derived_reading(_cnt).items()})   # 2026-11-16: the derived line beside
                 o["iam_a"]["counting"] = V4.counting_error(_cnt, _A, _B)
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
         elif qi.get("refusal_code"):

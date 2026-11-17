@@ -117,6 +117,8 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
                                "check the cell type given with --seq-cell; a sample outside the healthy shape is reported, not read")
         return out
     r = Q2.reading(rec); A = float(r["A"])
+    _d = Q2.derived_reading(rec)   # 2026-11-16: A on the derived line, beside A on the measured line
+    if _d: out.update({k: (round(float(x), 6) if isinstance(x, float) else x) for k, x in _d.items()})
     out.update(A=round(A, 4), predicted=round(r["predicted"], 6), held_err=round(r["held_err"], 6), loose_share=round(r["loose_share"], 4),
                state="Normal" if B["lo"] <= A <= B["hi"] else ("above Normal" if A > B["hi"] else "below Normal"))
     out["counting"] = counting_error(rec, A, B)   # 2026-10-22 (finding F38): the reading's own counting error; recorded, never a gate

@@ -54,6 +54,11 @@ the chain reads comes from that one statement; everything else in the chain is s
 - **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the
   independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion
   failure, the T-to-C slip, the lambda spike-in where present). An earlier version of the main path dropped them.
+- **The derived line in every reading.** Each IAM-A reading now also gives A_derived: the held error over the line whose
+  intercept is the held error from M alone ({{canon:eps0_candidate:.4f}}, no eraser input in mature blood, a lead) read through this counter
+  at the sample's own clustering (Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json), with the measured slope. A (the measured line) stays
+  the default while the two laboratories disagree: the atlas laboratory reads 1.12 times the derived level, the blind-test laboratory
+  0.96-1.03 times.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
   Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
@@ -1359,6 +1364,17 @@ Loads band v1 and refuses it if edited.
 ### stage_q2_selfref.py::grand_verdict
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
+
+### stage_q2_selfref.py::derived_line
+
+Loads the derived line (Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json): the intercept as a table over the
+sample's clustering (coupling), from the held error derived from M alone ({{canon:eps0_candidate:.4f}}, no eraser input) read through this
+counter on planted molecules, and the measured slope. Refuses the file if it was edited after the chain wrote it (its stamp).
+
+### stage_q2_selfref.py::derived_reading
+
+A on the derived line: held error / (intercept at the sample's own coupling, interpolated in the table, + measured
+slope x loose share). Never extrapolated: outside the table's coupling range it returns no A_derived and says why. Recorded beside A.
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 

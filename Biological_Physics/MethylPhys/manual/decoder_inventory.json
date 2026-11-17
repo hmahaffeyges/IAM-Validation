@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1644,
+   "lines": 1645,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 578,
-     "end": 1641,
+     "end": 1642,
      "args": [],
-     "lines": 1064,
+     "lines": 1065,
      "doc": "",
      "constants": [
       "BIO",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1563,
-     "end": 1564,
+     "line": 1564,
+     "end": 1565,
      "args": [
       "b",
       "it",
@@ -3587,7 +3587,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 188,
+   "lines": 190,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3714,14 +3714,14 @@
      "function": "stage_q2",
      "name": "stage_q2",
      "line": 99,
-     "end": 125,
+     "end": 127,
      "args": [
       "rec",
       "cell",
       "chemistry",
       "source"
      ],
-     "lines": 27,
+     "lines": 29,
      "doc": "",
      "constants": [
       "CD8_TYPES"
@@ -3737,8 +3737,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 133,
-     "end": 135,
+     "line": 135,
+     "end": 137,
      "args": [
       "v"
      ],
@@ -3754,8 +3754,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 136,
-     "end": 145,
+     "line": 138,
+     "end": 147,
      "args": [
       "nside",
       "ipix"
@@ -3775,8 +3775,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 147,
-     "end": 184,
+     "line": 149,
+     "end": 186,
      "args": [
       "z",
       "out_png",
@@ -3796,8 +3796,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 186,
-     "end": 187,
+     "line": 188,
+     "end": 189,
      "args": [
       "path"
      ],
@@ -3973,7 +3973,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 511,
+   "lines": 529,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4581,10 +4581,42 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "derived_line",
+     "name": "derived_line",
+     "line": 452,
+     "end": 457,
+     "args": [],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "LINE_DIR"
+     ],
+     "data_files": [
+      "derived_line_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
+     "function": "derived_reading",
+     "name": "derived_reading",
+     "line": 458,
+     "end": 467,
+     "args": [
+      "rec"
+     ],
+     "lines": 10,
+     "doc": "A on the derived line: held error / (derived intercept at the sample's own coupling + measured slope x loose share). The intercept is the held error from M alone through this counter (forward table); never extrapolated beyond the table. Returns {} if no derived line.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 456,
-     "end": 463,
+     "line": 474,
+     "end": 481,
      "args": [
       "records"
      ],
@@ -4600,8 +4632,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 464,
-     "end": 469,
+     "line": 482,
+     "end": 487,
      "args": [
       "version"
      ],
@@ -4619,8 +4651,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 470,
-     "end": 478,
+     "line": 488,
+     "end": 496,
      "args": [
       "rec",
       "cell",
@@ -4639,8 +4671,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 481,
-     "end": 484,
+     "line": 499,
+     "end": 502,
      "args": [
       "rec",
       "version"
@@ -4657,8 +4689,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 485,
-     "end": 490,
+     "line": 503,
+     "end": 508,
      "args": [
       "healthy",
       "version"
@@ -4673,8 +4705,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 495,
-     "end": 496,
+     "line": 513,
+     "end": 514,
      "args": [
       "version"
      ],
@@ -4692,8 +4724,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 499,
-     "end": 510,
+     "line": 517,
+     "end": 528,
      "args": [
       "records",
       "version",
@@ -10807,5 +10839,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 553
+ "n_functions": 555
 }

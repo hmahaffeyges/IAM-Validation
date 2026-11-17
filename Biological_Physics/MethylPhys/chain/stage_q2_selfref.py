@@ -448,6 +448,24 @@ def residual(rec, version=None):
     return dict(loose_share=rec["loose_share"], held_err=rec["held_err"], predicted=p, residual=rec["held_err"] - p,
                 line_version=J["version"], axis=J["axis"])
 
+# ---- the derived line (2026-11-16, register A4/A5/A6, F033): read beside the measured line on every sample
+def derived_line():
+    f = os.path.join(LINE_DIR, "derived_line_v1.json")
+    if not os.path.exists(f): return None
+    J = json.load(open(f, encoding="utf-8"))
+    if payload_sha(J) != J["chain_stamp"]["payload_sha256"]: raise RuntimeError("derived_line_v1.json has been edited after the chain wrote it")
+    return J
+def derived_reading(rec):
+    """A on the derived line: held error / (derived intercept at the sample's own coupling + measured slope x loose share). The intercept is
+    the held error from M alone through this counter (forward table); never extrapolated beyond the table. Returns {} if no derived line."""
+    J = derived_line()
+    if J is None: return {}
+    c = [float(x[0]) for x in J["firm_by_coupling"]]; v = [float(x[1]) for x in J["firm_by_coupling"]]; k = rec.get("coupling")
+    if k is None: return dict(A_derived=None, derived_note="no coupling in this count")
+    if not (c[0] <= float(k) <= c[-1]): return dict(A_derived=None, derived_note=f"coupling {float(k):.3f} outside the derived table ({c[0]:.3f}-{c[-1]:.3f}); not extrapolated")
+    f = float(np.interp(float(k), c, v)); p = f + J["slope"] * float(rec["loose_share"])
+    return dict(A_derived=rec["held_err"] / p, predicted_derived=p, firm_derived=f, derived_line="derived_line_v1 (intercept from M alone through the counter; slope measured)")
+
 # ---- sample-shape check (COM-IAMA-053; author: "Seal as drafted", 2026-10-15) --------------------------------------------------------------
 # A sample is read only if its tile 10th percentile is no more than MARGIN below the lowest healthy sample of its own cell type. MARGIN is the
 # 90th percentile, over cell types with at least 2 healthy samples, of the within-type spread (max - min) of the tile 10th percentile; it is

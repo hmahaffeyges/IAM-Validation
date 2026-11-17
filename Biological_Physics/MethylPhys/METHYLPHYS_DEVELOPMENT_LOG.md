@@ -6153,3 +6153,9 @@ _Rewritten 2026-11-16 from a line-by-line walk of the whole day's chat (818 entr
 Found on the joint run's test library: the main IAM-A path passed on an older list of count keys, so the run-length reading,
 the tile-by-tile line and the meter's own fields were counted but dropped before the bundle. Both key lists now carry them; no reading changes
 (the test library's A stays 0.8329).
+
+### 2026-11-16 · PHY-083, PHY-084: IAM-A: the derived line read beside the measured line in every reading
+Every IAM-A reading now carries A_derived, the held error over the line whose intercept is derived from M alone and read through
+the counter at the sample's own clustering (a forward table of planted molecules, no eraser input), with the measured slope. The measured
+line stays the default for now: the atlas laboratory's healthy samples read 1.12 times the derived level, the blind-test laboratory's
+0.96-1.03 times, and which is right is open. The test library reads A 0.8329 on the measured line.

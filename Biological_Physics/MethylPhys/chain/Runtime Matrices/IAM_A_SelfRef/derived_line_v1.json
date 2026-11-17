@@ -1,0 +1,71 @@
+{
+ "version": 1,
+ "kind": "IAM-A derived line",
+ "axis": "raw counter held error (no scale factor)",
+ "firm_by_coupling": [
+  [
+   0.9426,
+   0.036425
+  ],
+  [
+   1.2429,
+   0.03596
+  ],
+  [
+   1.4163,
+   0.035745
+  ],
+  [
+   1.5201,
+   0.035221
+  ],
+  [
+   1.7525,
+   0.034818
+  ],
+  [
+   1.8949,
+   0.034613
+  ],
+  [
+   2.1273,
+   0.034088
+  ],
+  [
+   2.1549,
+   0.033685
+  ],
+  [
+   2.2721,
+   0.033292
+  ]
+ ],
+ "slope": 0.034624511046330374,
+ "slope_kind": "measured (self-reference line v1; register A7 partly derived)",
+ "eps0": 0.04454,
+ "eraser_ratio": 1.0,
+ "derivation": "register A4 (held error from M alone), A5 (no eraser input in mature blood, lead), A6 (through the counter at the sample's own clustering)",
+ "forward_model": "doors/data/DEV_CHAIN_Q2_01/forward_line_synthetic.py seq X, 3 samples of 120,000 planted held molecules per point, read by run_sample.py's counter",
+ "forward_runs": [
+  43991012677,
+  43991027887,
+  43991042929,
+  43991058402,
+  43991090257,
+  43991107881,
+  43991124499,
+  43991141374,
+  43991157818
+ ],
+ "note": "read beside the measured line on every sample (2026-11-16); not the default line: the atlas laboratory reads 1.12 x this level, the blind-test laboratory 0.96-1.03 x (F033)",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "4064c7ecdc7bf39f4a7be988e76407bfaf63b59419ae135c30c64585ebd47dc5",
+  "payload_sha256": "c28a7b3621517736203839114e30ed329876ac061ec31214edf8efd559f244fa",
+  "inputs": [],
+  "manifest": [
+   "PHY-084"
+  ],
+  "utc": "2026-11-17T02:12:58Z"
+ }
+}
