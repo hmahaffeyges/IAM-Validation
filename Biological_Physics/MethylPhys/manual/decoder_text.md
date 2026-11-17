@@ -501,6 +501,412 @@ checks the atlases against their checksums before any reading (`reference_door.p
 
 **Status and open parts:** Calculated; nothing open.
 
+#### Input: Runtime Matrices/IAM_A_Positions/iama_positions_v*.json (v1, v2)
+
+**Kind:** development
+
+**Register:** none (retired)
+
+**What it is:** The retired position form of IAM-A (canon P_neutrophil_IAM_A).
+
+**Physics / equation:** None now.
+
+**How the chain uses it:** Read only by the retired Stage Q (`stage_q_iam_a.py`); `run_sample.py::_versions` records v2's hash in every bundle.
+
+**Reproduce it:** None.
+
+**Status and open parts:** Retired, kept so earlier records reproduce.
+
+#### Input: Runtime Matrices/Coupling/coupling_reference_v1.json
+
+**Kind:** measured
+
+**Register:** CP1
+
+**What it is:** Each cell type's healthy nearest-neighbor coupling and the Normal band of coupling-A.
+
+**Physics / equation:** Measured from IAM-Atlas v2.1's healthy sequencing inputs. The quantity: on held molecules, the adjacent pairs of unmethylated calls over what random placement gives each molecule from its own length L and its own number k of unmethylated calls, Σ k(k − 1)/L. Its null, 1 for independent losses, is counted exactly (statistics). Healthy values rise with differentiation: naive T 1.29 to 1.33, central memory 1.43 to 1.44, effector 1.52 to 1.58. IAM's Law is not yet in it; the candidate (a lead) is that the restore crew works along a stretch, so coupling = 1 + (mean skip length − 1) × (share of losses from skips).
+
+**How the chain uses it:** `stage_coupling.reference` loads it; `stage_coupling.read` gives coupling-A = coupling / healthy coupling of the sample's cell type, with floor 0 and ceiling coupling_max / healthy, both counted, and the state. Development, flagged.
+
+**Reproduce it:** Count the healthy inputs with `run_sample.py --dev-count-only` and take each type's coupling.
+
+**Status and open parts:** Development; IAM's Law not yet in it (CP1). If each type's level carries a history term, the healthy reference is to be split by history.
+
+#### Input: Runtime Matrices/Clock_Sites/epitoc2_sites.csv
+
+**Kind:** measured
+
+**Register:** C3; PHY-094
+
+**What it is:** The 163 CpGs of the epiTOC2 mitotic clock (Teschendorff, Genome Medicine 2020), the sites the count reads with 25 CpGs either side.
+
+**Physics / equation:** A published site list (Polycomb-target island CpGs unmethylated in fetal tissue that gain methylation with stem-cell divisions); epiTOC2's own model is β_t = 1 − (1 − δ/2)^t (1 − β_0). Measured, not derived. In IAM's terms these are islands where the shield against the writer fails, so the writer's one-step errors are kept there (C3, lead).
+
+**How the chain uses it:** `run_sample.py --dev-count-only --dev-count-sites epitoc2`: the held error and the stray-mark (gain) side counted at these sites only, by Stage Q2's own rules (`stage_q2_selfref.count_pat_sites`). Development.
+
+**Reproduce it:** Download the epiTOC2 site list from the paper's supplement.
+
+**Status and open parts:** Measured site list; the tick per round from the writer's error is open (C3).
+
+#### Input: Runtime Matrices/Info_Sphere/layout_v5.npz
+
+**Kind:** calculated
+
+**Register:** SP1
+
+**What it is:** The information sphere's frozen layout: every site's id, its point on the globe, the cell type it marks most, the sign and size of that departure and its margin over the next type, the cell list and families, and the atlas's SHA-256.
+
+**Physics / equation:** Established mathematics on the atlas's levels: u = (√b₁…√b_S, √(1−b₁)…√(1−b_S))/√S, a unit vector; distances are the Fisher–Rao (Bhattacharyya) angle arccos(u_i · u_j); construction v5 removes each site's own level (a flat profile at its mean) before projecting onto the three leading directions. IAM's Law is not yet in it.
+
+**How the chain uses it:** `stage_info_sphere.load_layout` (LAYOUT), `groups_of` (territories: each family's clearly marking sites, margin ≥ CLEAR = 0.10, by direction) and `sample_reading` (each territory's mean change t_g in the sample's own spread). Built by `run_sample.py --build info-sphere` (`stage_info_sphere.save_layout`).
+
+**Reproduce it:** `python3 MethylPhys_Interface/run_sample.py --build info-sphere --build-construction v5 --build-input MATRIX --build-out LAYOUT --bundle B.json`.
+
+**Status and open parts:** Development: construction test 7 passed; sample test 1 met on distance, not on territories (0 of 27); the null test ATL-028 is pending (SP1).
+
+### Met-A's and the array stages' files (Sections 2 to 5)
+
+#### Input: Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
+
+**Kind:** measured
+
+**Register:** M5; M4
+
+**What it is:** Met-A's commissioned reference: the 6,000 EPIC identity sites of the healthy neutrophil and the healthy reference H_ref (key `floor`, the middle mark) = {{canon:Met_A_floor_EPIC_neutrophil:.5f}} bits.
+
+**Physics / equation:** Measured: mean H(β) over the identity sites on 6 purified healthy neutrophil arrays (GSE110554; GSE167998 re-deposits the same arrays, each physical array counted once), calibrated by Stage 1. Met-A = mean_i H(β_i) / H_ref. It stays measured because identity sites are cell-type marks, not fully held sites; the law's derived height applies at fully held sites only (register M2).
+
+**How the chain uses it:** `stage_m_met_a._floors` (FLOORS) and `stage_m_met_a.read`; `conductor_v3.stage_m_isolated`; the site list also serves `run_sample.py --dev-count-sites` on sequencing.
+
+**Reproduce it:** `cd Biological_Physics/MethylPhys/chain` && `python3 stage_m_met_a.py BETAS.csv neutrophils` on a purified array's Stage 1 values (two columns, cpg_id, beta).
+
+**Status and open parts:** Measured; commissioned on isolated neutrophils, EPIC v1. Being re-commissioned with IAM-Atlas v2.1 as the only healthy reference.
+
+#### Input: Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv
+
+**Kind:** measured
+
+**Register:** M5
+
+**What it is:** The held-out precision of Met-A's reference: each of the 6 arrays read with the sites re-chosen on the other 5 (0.983 to 1.045, SD 0.020).
+
+**Physics / equation:** Measured; a leave-one-out check of the reference, printed with every isolated reading.
+
+**How the chain uses it:** `stage_m_met_a.precision` (LOO).
+
+**Reproduce it:** Re-choose the sites on 5 arrays by the site rule and read the sixth.
+
+**Status and open parts:** Measured.
+
+#### Input: Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_2.json
+
+**Kind:** measured
+
+**Register:** M4; C1
+
+**What it is:** The 6,000 neutrophil identity sites in genomic order, the healthy mean and shrunk SD of H at each, and the C-Score's block length (10) and healthy baseline 1.0103.
+
+**Physics / equation:** Measured on the purified neutrophil arrays. The departure map z_i = (H(β_i) − H(ref_i)) / s_i is built on it; the C-Score's baseline is statistics (register C1).
+
+**How the chain uses it:** `conductor_v3.ref`; the departure map of Stage M and the C-Score of Stage MC.
+
+**Reproduce it:** Recompute the per-site H means and SDs on the 6 arrays.
+
+**Status and open parts:** Measured.
+
+#### Input: Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json
+
+**Kind:** measured
+
+**Register:** none (standard method)
+
+**What it is:** Stage A's mix matrix: 963 marker sites and 8 blood groups' means at each, and the 8 groups' healthy means at the 6,000 identity sites.
+
+**Physics / equation:** Measured from 91 purified-cell EPIC arrays (GSE110554, GSE167998) through Stage 1. Standard method (non-negative least squares); no IAM physics. The expectation e_i = Σ_g f_g μ_g,i makes Met-A in whole blood independent of the person's mix.
+
+**How the chain uses it:** `conductor_v3._bc`, `stage_a_composition`, `stage_m_blood`.
+
+**Reproduce it:** `chain_tests/blood_comp.py`; the rebuild `metaa_rebuild` reproduced every group mean to 5 × 10⁻⁶.
+
+**Status and open parts:** Measured; standard method.
+
+#### Input: Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json and noise_gate_EPIC_v1.json
+
+**Kind:** calibrated
+
+**Register:** M3 (the array's own response)
+
+**What it is:** The array's own noise: 48,528 sites every purified blood group holds fixed (each group's mean ≤ 0.03 or ≥ 0.97 and SD ≤ 0.02), and the gate N_max = 0.149.
+
+**Physics / equation:** Calibrated: N is the mean entropy at sites where no blood cell has anything to say, so it measures the instrument, not the cells. N_max is the top of the reference arrays' range.
+
+**How the chain uses it:** `conductor_v3.noise_sites`, `noise_gate`, `noise_index`.
+
+**Reproduce it:** Apply the site rule to the 91 purified arrays; N_max from the reference arrays.
+
+**Status and open parts:** Calibrated; stays measured per array.
+
+#### Input: Runtime Matrices/Intake/intake_thresholds_v*.json (v1, v2)
+
+**Kind:** calibrated
+
+**Register:** none (standard method)
+
+**What it is:** Stage 0's limits: control-probe, detection p-value, bead count and call rate thresholds (v1), and the three control-probe limits of the QC hand-off (v2: bisulfite conversion, hybridization, extension).
+
+**Physics / equation:** Instrument limits, no IAM physics: each one states its measured value, its limit and the source of the limit.
+
+**How the chain uses it:** `stage_0_intake._intake_thresholds` loads v1 at import (Stage 0 refuses to start without it); the control-probe gates read v2. `run_sample.py::_versions` records v1's hash.
+
+**Reproduce it:** Read the file; each limit's source is printed with every stop (`run_sample._why`).
+
+**Status and open parts:** Calibrated; a bisulfite limit marked provisional in v2 records a failure without stopping the array.
+
+#### Input: Runtime Matrices/Gauge/cell_gauge_marks_v1.json
+
+**Kind:** derived
+
+**Register:** A1; M1
+
+**What it is:** The gauge's marks: the floor 1/(1 + e^M), the Normal band around healthy 1, and saturation (every identity site fully scrambled).
+
+**Physics / equation:** Floor and ceiling derived (A1, M1): floor H(1/(1 + e^M)) = {{canon:H_min_cell:.1e}} bits; ceiling one bit per site at β = 0.5. Healthy = 1 is measured (each reading's own reference).
+
+**How the chain uses it:** `report_figs_v4.gauge_png` draws every mark from it; nothing is typed in the drawing code.
+
+**Reproduce it:** Compute the floor from M (canon H_min_cell).
+
+**Status and open parts:** Derived; already in the chain.
+
+#### Input: Runtime Matrices/Met_A_Widths/donor_widths_v1.json
+
+**Kind:** measured
+
+**Register:** A9 (the same idea for Met-A); M4
+
+**What it is:** Each cell's healthy width on Met-A, measured on IAM-Atlas v2.1's own donors read by the one command.
+
+**Physics / equation:** Measured by nature: Normal is 1 ± k widths with k = t(0.975, n − 1) × √(1 + 1/n) for n donors, the prediction interval for one new reading.
+
+**How the chain uses it:** `stage_metaa_atlas.width_state` (arrays).
+
+**Reproduce it:** Read the atlas donors through `run_sample.py` and take each cell's SD about 1.
+
+**Status and open parts:** Measured; replaces the 0.95 to 1.05 tolerance as each cell's reading carries it.
+
+#### Input: Runtime Matrices/Atlas_V21/sequencing_term_v1.json
+
+**Kind:** calibrated
+
+**Register:** M3; S1 (the bridge between scales)
+
+**What it is:** The atlas's measured conversion of an array-scale level to sequencing units for the published sequencing atlas: sequencing = −0.0902 + 1.1026 × atlas level, clipped to 0 to 1.
+
+**Physics / equation:** Calibrated: arrays read unmarked sites near 0.055 where sequencing reads 0 (each array's offset, M3), so a sequencing sample is compared with the atlas only after this term.
+
+**How the chain uses it:** `stage_metaa_atlas.seq_units`: Met-A for a sorted cell, for each cell in a mix, and the territories, on sequencing.
+
+**Reproduce it:** Fit atlas level against the published sequencing atlas at the shared sites (the atlas's own build record).
+
+**Status and open parts:** Calibrated.
+
+#### Input: Runtime Matrices/CScore_Limits/cell_factors_v1.json and platform_term_450k.json
+
+**Kind:** measured
+
+**Register:** C1
+
+**What it is:** The C-Score's limits: each cell's factor over the derived limit (neutrophils 1.0314 from 57 donors in 7 laboratories; monocytes 1.0062 from 40 donors in 6), and the 450K platform term.
+
+**Physics / equation:** The derived limit is statistics, not IAM's Law: for scattered departures the block statistic is 1 with a band from independence (0.894 to 1.111 over 6,000 sites in blocks of 10). Healthy neutrophils carry a little real clustering in every laboratory, which the measured factor carries.
+
+**How the chain uses it:** `stage_metaa_atlas._cs_cell_factor` and `cscore_limits`.
+
+**Reproduce it:** One-sided 95 % prediction limit of C over the derived limit on the atlas's donors.
+
+**Status and open parts:** Measured; statistics.
+
+### The IAM Sequencing Atlas's files (Section 21) and the sequenced sample's references
+
+#### Input: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet (and .json)
+
+**Kind:** measured
+
+**Register:** M4; S1; Part I (Met-A sequencing)
+
+**What it is:** Met-A's healthy reference on sequencing: per cell and identity site (cell, probe, cpg), the healthy level and the two sealed halves' values.
+
+**Physics / equation:** Counted, not fitted, from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`), each with its sealed donor half. Measured: the healthy level at a cell's identity sites is the atlas's per-type level. At fully held sites the law predicts 1 − ε0 in sequencing units (register S1, derived as A6); identity sites are not all fully held, so the reference stays the measured level.
+
+**How the chain uses it:** `stage_seq_atlas.metaa_reference_of` (METAA_REF), `noise_check`, `noise_at_identity`, `beta_vs_pat`, `identity_side_table`; `run_sample.py --dev-seq-ref auto`, on by default for sequencing input ('the IAM Sequencing Atlas as ruler').
+
+**Reproduce it:** `run_sample.py --build seq-metaa-ref` on the atlas pieces (the build named in the file's .json).
+
+**Status and open parts:** Measured. Using the derived held level where a reading is at fully held sites, recorded beside the atlas level, is a chain item still to check.
+
+#### Input: Runtime Matrices/Seq_Atlas/deconv_reference_v1.parquet and deconv_reference_mk_dev.parquet (and .json)
+
+**Kind:** measured
+
+**Register:** D1
+
+**What it is:** The IAM-Deconvolver's reference for sequenced samples: per site and cell, μ and sd (spread 'full'), without (v1) and with (mk_dev) the provisional megakaryocyte column.
+
+**Physics / equation:** Counted, not fitted, from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`), each with its sealed donor half. Standard method (weighted non-negative least squares); not a law quantity.
+
+**How the chain uses it:** `stage_seq_atlas.deconv_reference_of` (DECONV_REF) as `stage_v4.stage_d21` takes it; `run_sample.py` reads with `deconv_reference_mk_dev.parquet` by default (`--dev-deconv-ref`), or a rebuilt atlas's `deconv_reference_v1.parquet` with `--dev-seq-atlas-dir`.
+
+**Reproduce it:** `run_sample.py --build seq-deconv-ref` (`--build-with-mk` keeps the megakaryocyte column).
+
+**Status and open parts:** Measured; commissioned on arrays for four blood cells (share error 0.016); sequencing shares are development.
+
+#### Input: Runtime Matrices/Seq_Atlas/array_sites/ (meth, reads, donor_sd and mu _part1-3.parquet, array_sites.json)
+
+**Kind:** measured
+
+**Register:** M4; T2
+
+**What it is:** The IAM Sequencing Atlas at IAM-Atlas v2.1's sites, in three parts per column: methylated reads, reads, the donors' spread, and the pooled level.
+
+**Physics / equation:** Counted, not fitted, from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`), each with its sealed donor half. Levels are uint16 × 10,000, 65535 blank, nothing filled; the pooled level is meth / reads with its exact 95 % range.
+
+**How the chain uses it:** `stage_seq_atlas` (ARRAY_COLS): the in-mix readings on sequencing, `domain_disorder` (each cell's level, disorder and donor spread at the domains), and `sphere_columns`, which turns these counts into the sphere columns below.
+
+**Reproduce it:** `run_sample.py --build seq-array-cols` on the atlas pieces.
+
+**Status and open parts:** Measured. The domains' healthy level is derivable as IAM-A's held error at each site's loose share (T2, a lead); today it is read against the atlas.
+
+#### Input: Runtime Matrices/Seq_Atlas/sphere_cols/ (mu, mu_lo, mu_hi, mu_se, donor_sd _part1-3.parquet, sites.parquet, sphere_cols.json, sphere_cols_build.json)
+
+**Kind:** calculated
+
+**Register:** SP1; M4
+
+**What it is:** The sky sphere's input in IAM-Atlas v2.1's layout: each cell's pooled level, the 95 % range of its average, its standard error and the donors' spread.
+
+**Physics / equation:** Calculated from the array_sites counts (`range_of_average`); nothing fitted. A site measured by fewer of a cell's donors is not told apart.
+
+**How the chain uses it:** `stage_seq_atlas.bridge` (SPHERE_DIR) and the report globe; `sphere_columns` writes it.
+
+**Reproduce it:** `run_sample.py --build seq-sphere-cols`.
+
+**Status and open parts:** Calculated, development.
+
+#### Input: Runtime Matrices/Seq_Atlas/noise_cols/
+
+**Kind:** calculated
+
+**Register:** none (noise maps, statistics)
+
+**What it is:** The IAM Sequencing Atlas's two noise maps at IAM-Atlas v2.1's sites: halfA, halfB (the sealed donor halves) and readA, readB (two random halves of every donor's reads, seed 20261029). The chain folder holds the README only; the columns are built with `--build seq-noise-cols`.
+
+**Physics / equation:** Map 1 = donor half A − half B (donor difference plus counting); map 2 = read half A − read half B (counting only); their mean squares' difference is the healthy donor-to-donor part, measured.
+
+**How the chain uses it:** `stage_seq_atlas.noise_maps`, `noise_check`, `noise_minkowski`, `noise_null` (NOISE_DIR).
+
+**Reproduce it:** `run_sample.py --build seq-noise-cols`.
+
+**Status and open parts:** Calculated, development.
+
+#### Input: Runtime Matrices/Seq_Atlas/held_reference_v1.parquet (and .json)
+
+**Kind:** measured
+
+**Register:** A6; S1; A8
+
+**What it is:** Each healthy cell's held error tile by tile (2,000-CpG tiles), as counts: lone errors and their chances, all donors and each sealed half.
+
+**Physics / equation:** Counted, not fitted, from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`), each with its sealed donor half. Counts by Stage Q2's own rules (`count_pat_tile_errors`, even and odd lines). Measured: the per-type rates carry each type's own level (A8), which is not derived yet.
+
+**How the chain uses it:** `stage_seq_atlas.iama_in_mix` (HELD_REF): IAM-A for a mixed sample, A = Σ_tiles held errors / Σ_tiles (opportunities × Σ_cells share × the cell's healthy held-error rate there); healthy reads 1. Built by `held_reference`.
+
+**Reproduce it:** `run_sample.py --dev-count-only --dev-count-tiles` on each input, then `run_sample.py --build seq-held` (`stage_seq_atlas.held_reference(samples, out)`).
+
+**Status and open parts:** Measured, development. The one-line reading of Section 9 needs no atlas; this reference serves the reading in a mix.
+
+#### Input: Runtime Matrices/Seq_Atlas/floor_sites_v1.parquet and input_floors_v1.parquet (and .json)
+
+**Kind:** measured
+
+**Register:** A15; A17; T1; S2
+
+**What it is:** The library floor: the sites where every cell of the IAM Sequencing Atlas has at least 20 reads and a pooled level ≤ 0.05 (unmarked) or ≥ 0.95 (marked), and every atlas input's own floor there.
+
+**Physics / equation:** Measured. An opposite call at these sites (methylated at an unmarked site, unmethylated at a marked one) is counted as the library's own. Physics on each side: at unmarked sites it is the writer's one selection step, 1/(1 + D) with D 47.4 to 80 (0.0123 to 0.0207, A15), plus the meter (conv_fail + tc_err, A17); at marked sites a held loss also reads as an opposite call, so the marked side carries the held error.
+
+**How the chain uses it:** `stage_seq_atlas.library_floor`, `floor_by_position`, `identity_side_table` (FLOOR_SITES); `input_floors`, `floors_of`, `half_floor` (INPUT_FLOORS). Development, flagged.
+
+**Reproduce it:** `run_sample.py --build seq-floor`, then `--build seq-input-floors`.
+
+**Status and open parts:** Measured; the common and class library floors failed their own tests and stay off by default.
+
+#### Input: Runtime Matrices/Seq_Atlas/metaa_half_counts/, metaa_donor_counts/, metaa_inner_reference/ and terr_half_counts/ (*_v1.parquet, metaa_inner_reference_t3)
+
+**Kind:** measured
+
+**Register:** M4; S2; T1
+
+**What it is:** Counts behind Met-A and the territories on sequencing: each cell's methylated and total reads at its identity sites per sealed half (metaa_half_counts) and per donor (metaa_donor_counts), the same without the molecules' end calls (metaa_inner_reference; t3 trims three), and the island probes' reads per half (terr_half_counts).
+
+**Physics / equation:** Counted, not fitted, from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`), each with its sealed donor half. Counts, never ratios. The end calls are the library's own chemistry, the end meter calibrated per library (S2).
+
+**How the chain uses it:** `stage_seq_atlas.metaa_half_counts` and `metaa_reference_of` (METAA_COUNTS_DIR), `metaa_donors_of` (METAA_DONORS_DIR), `metaa_inner_of` and `ref_compare` (METAA_INNER), `terr_counts_of` (TERR_DIR; the counted island expectation, on by default).
+
+**Reproduce it:** `run_sample.py --build seq-metaa-counts`, `--build seq-metaa-donors`, `--build seq-metaa-inner`, `--build seq-terr-halves`.
+
+**Status and open parts:** Measured, development.
+
+#### Input: Runtime Matrices/Provisional_References/megakaryocytes_v*.json and .parquet (v1, v2)
+
+**Kind:** development
+
+**Register:** D1
+
+**What it is:** A provisional megakaryocyte column for the Deconvolver, beside IAM-Atlas v2.1 (which has none).
+
+**Physics / equation:** Measured from megakaryocyte sequencing reads: version 2 takes the level from the shrunk proportion (m + 1/2)/(n + 1), carries the counting spread through the atlas's inverse transfer, and keeps sites with at least 5 reads. Not a law quantity.
+
+**How the chain uses it:** `stage_v4.stage_d21_provisional` (`stage_provisional.with_provisional`), on by default as `--dev-provisional megakaryocytes`; `run_sample._id_collides` reads the column names so a typed id cannot erase a cell's name.
+
+**Reproduce it:** `stage_provisional.column_v2`.
+
+**Status and open parts:** Development; recorded beside the atlas's shares, never in place of them.
+
+#### Input: doors/data/DEV_ATLAS_V21_01/transfer_v21_smooth.json (outside Runtime Matrices)
+
+**Kind:** calibrated
+
+**Register:** M2; M3
+
+**What it is:** The smooth transfer curve between sequencing levels and the array scale with which IAM-Atlas v2.1 was built.
+
+**Physics / equation:** Calibrated: measured once on cells both platforms measured. Through it, the law's held level 1 − ε0 = 0.95546 maps to about 0.9545 array units (the bounded table `transfer_bounded_v21.json`), 0.0044 below saturation 0.959.
+
+**How the chain uses it:** `stage_m_met_a.derived_baseline` (TRANSFER): the PCHIP curve through its knots, inverted on a grid of 200,001 points. Development. (The Deconvolver's laboratory spread comes from `transfer_v21_final.json` in the same folder, Section 7.)
+
+**Reproduce it:** Interpolate its knots.
+
+**Status and open parts:** Calibrated; it lives in a test-record folder and belongs in `Runtime Matrices`.
+
+### Every other file under Runtime Matrices
+
+#### Input: Runtime Matrices: every other file (no IAM quantity rides on it)
+
+**Kind:** development
+
+**Register:** none
+
+**What it is:** Atlas_V21/sex_chromosome_sites_v21.json, sky_order_v21.npz, territories_seq_band_v1.json; Celltype_Marker/ (README.md, detection_panel_v3.json, iamatlas_celltype_markers_v0_2.json, iamatlas_celltype_markers_v0_3_TRIAL.json, percell_exclusivity_v0.json, twin_family_thresholds_v1.json); Development/ (dev_foreign_placenta_EPIC_v1.json, dev_metA_450K_neutrophils_v0.json, dev_selftare_450K_v0.json); Directional Panel/ (bidirectional_decomposition.py, directional_panels_v1_0.json); Met_A_Floors/README.md, metA_floors_v1_2_ALLCELLS_development.json, neutrophil_reference_v1_1.json; Patient_CMB/ (README.md, build_healpix_mapping.py, iamatlas_cpg_to_healpix_nside128.npz, presence_floors_v1.json); Report/report_text.json; Stage_T/atlas_ruler_v1.json, selftare_typeII_EPIC_v1.json; trace_detection_panel_v1.json; the README files of the Seq_Atlas folders.
+
+**Physics / equation:** None of these carries a number derived from IAM's Law. They are site lists, display orders, report text, retired references and development panels, read by other modules (`reference_globes.py`, `report_v4.py`, `stage_metaa_atlas.py`, `dev_stages.py`, `stage_t_selftare.py` and others), each described in the Decoder entry of the function that loads it.
+
+**How the chain uses it:** Recorded by size and hash in every bundle (`run_sample.py::_versions`). `metA_floors_v1_2_ALLCELLS_development.json` is named by `stage_m_met_a.py` as kept for development and not read there.
+
+**Reproduce it:** Each file's builder is named in its own Decoder entry.
+
+**Status and open parts:** Each is described where it is loaded; none needs a derivation.
+
 ## The Deconvolver decides what is in a sample, in every instrument
 
 **The rule.** A specimen's words (whole blood, plasma, tissue, "sorted CD4 T cells") choose only the route a sample takes: array or sequencing,
