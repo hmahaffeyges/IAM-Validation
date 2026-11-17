@@ -475,7 +475,15 @@ def derived_reading(rec):
     if k is None: return dict(A_derived=None, derived_note="no coupling in this count")
     if not (c[0] <= float(k) <= c[-1]): return dict(A_derived=None, derived_note=f"coupling {float(k):.3f} outside the derived table ({c[0]:.3f}-{c[-1]:.3f}); not extrapolated")
     f = float(np.interp(float(k), c, v)); p = f + J["slope"] * float(rec["loose_share"])
-    return dict(A_derived=rec["held_err"] / p, predicted_derived=p, firm_derived=f, derived_line="derived_line_v1 (intercept from M alone through the counter; slope measured)")
+    ad = rec["held_err"] / p
+    out = dict(A_derived=ad, predicted_derived=p, firm_derived=f, derived_line="derived_line_v1 (intercept from M alone through the counter; slope measured)")
+    fb = os.path.join(LINE_DIR, "band_v2.json")
+    if os.path.exists(fb):
+        B2 = json.load(open(fb, encoding="utf-8"))
+        if payload_sha(B2) != B2["chain_stamp"]["payload_sha256"]: raise RuntimeError("band_v2.json has been edited after the chain wrote it")
+        out.update(state_derived="Normal" if B2["lo"] <= ad <= B2["hi"] else ("above Normal" if ad > B2["hi"] else "below Normal"),
+                   band_derived=dict(lo=B2["lo"], hi=B2["hi"], version=2, status="in commissioning"))
+    return out
 
 # ---- sample-shape check (COM-IAMA-053; author: "Seal as drafted", 2026-10-15) --------------------------------------------------------------
 # A sample is read only if its tile 10th percentile is no more than MARGIN below the lowest healthy sample of its own cell type. MARGIN is the

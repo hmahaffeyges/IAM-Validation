@@ -6358,3 +6358,8 @@ _Written at midnight from a line-by-line walk of the whole day's chat (each entr
 The cosmos simulator now carries matter's coupling mu(a), the lensing-to-hydrostatic cluster ratio R = 1/mu (1.158 today, 1.085 at z = 0.3,
 1.002 at z = 2; slope dR/dz = -0.183 at z = 0.3, negative as the book predicts) and light at Sigma = 1, beside the black hole's membrane
 resistivity (376.73 ohm, matched to infinity). Two notes now say the record is kept on the horizon ledger, written locally. No reading changed.
+
+### 2026-11-17 · COM-IAMA-054, PHY-084: IAM-A's healthy band on the derived line
+The sealed band rule applied to A on the derived line over the 150 healthy atlas libraries the one-button joint run read gives band v2
+0.8744-1.1783, median 1.0621. The measured line on the same readings reproduces band v1 (0.7833-1.0558 against 0.7787-1.0551).
+Every reading now reports its state on band v2 beside band v1. Band v1 stays the default with its commissioning record; band v2 is in commissioning.

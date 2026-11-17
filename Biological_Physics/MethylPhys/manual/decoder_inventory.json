@@ -3993,7 +3993,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 540,
+   "lines": 548,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4636,22 +4636,26 @@
      "function": "derived_reading",
      "name": "derived_reading",
      "line": 469,
-     "end": 478,
+     "end": 486,
      "args": [
       "rec"
      ],
-     "lines": 10,
+     "lines": 18,
      "doc": "A on the derived line: held error / (derived intercept at the sample's own coupling + measured slope x loose share). The intercept is the held error from M alone through this counter (forward table); never extrapolated beyond the table. Returns {} if no derived line.",
-     "constants": [],
-     "data_files": [],
+     "constants": [
+      "LINE_DIR"
+     ],
+     "data_files": [
+      "band_v2.json"
+     ],
      "traced_calls": {}
     },
     {
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 485,
-     "end": 492,
+     "line": 493,
+     "end": 500,
      "args": [
       "records"
      ],
@@ -4667,8 +4671,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 493,
-     "end": 498,
+     "line": 501,
+     "end": 506,
      "args": [
       "version"
      ],
@@ -4686,8 +4690,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 499,
-     "end": 507,
+     "line": 507,
+     "end": 515,
      "args": [
       "rec",
       "cell",
@@ -4706,8 +4710,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 510,
-     "end": 513,
+     "line": 518,
+     "end": 521,
      "args": [
       "rec",
       "version"
@@ -4724,8 +4728,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 514,
-     "end": 519,
+     "line": 522,
+     "end": 527,
      "args": [
       "healthy",
       "version"
@@ -4740,8 +4744,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 524,
-     "end": 525,
+     "line": 532,
+     "end": 533,
      "args": [
       "version"
      ],
@@ -4759,8 +4763,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 528,
-     "end": 539,
+     "line": 536,
+     "end": 547,
      "args": [
       "records",
       "version",

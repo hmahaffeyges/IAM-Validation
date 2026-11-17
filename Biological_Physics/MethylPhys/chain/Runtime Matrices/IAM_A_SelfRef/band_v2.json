@@ -1,0 +1,775 @@
+{
+ "lo": 0.8744415,
+ "hi": 1.178255125,
+ "median": 1.0621085,
+ "n": 150,
+ "labs": {
+  "Loyfer 2023 (GSE186458), one-button joint run": 150
+ },
+ "rule": "2.5th to 97.5th percentile of pooled healthy readings (COM-IAMA-054), on the derived line",
+ "line": "derived_line_v1 (intercept from M alone through the counter; slope measured)",
+ "version": 2,
+ "status": "in commissioning: built from the spent atlas libraries that also built the line (a rehearsal reference)",
+ "check_v1": "the measured line on the same 150 readings gives 0.7833-1.0558, median 0.9518 (band v1 on 156: 0.7787-1.0551, median 0.9488)",
+ "chain_stamp": {
+  "stage": "Q2 self-reference",
+  "chain_sha": "e95b136462196287b83b2d2b305fa93c783af4037b27522906c8fbe834b6ffd8",
+  "payload_sha256": "2809e506ea8b9531e555dc134fe0aa037458be522b463d5e557bfacc7e9b908c",
+  "inputs": [
+   {
+    "name": "GSM5652176",
+    "run": "44025270992",
+    "cell": "adipocytes"
+   },
+   {
+    "name": "GSM5652177",
+    "run": "44025389058",
+    "cell": "adipocytes"
+   },
+   {
+    "name": "GSM5652178",
+    "run": "44025504407",
+    "cell": "adipocytes"
+   },
+   {
+    "name": "GSM5652179",
+    "run": "44025619659",
+    "cell": "aorta endothelium"
+   },
+   {
+    "name": "GSM5652180",
+    "run": "44025737860",
+    "cell": "aorta endothelium"
+   },
+   {
+    "name": "GSM5652181",
+    "run": "44025856493",
+    "cell": "vascular saphenous endothelium"
+   },
+   {
+    "name": "GSM5652182",
+    "run": "44025975935",
+    "cell": "vascular saphenous endothelium"
+   },
+   {
+    "name": "GSM5652183",
+    "run": "44026093003",
+    "cell": "vascular saphenous endothelium"
+   },
+   {
+    "name": "GSM5652184",
+    "run": "44027651329",
+    "cell": "kidney glomerular endothelium"
+   },
+   {
+    "name": "GSM5652185",
+    "run": "44026557445",
+    "cell": "kidney glomerular endothelium"
+   },
+   {
+    "name": "GSM5652186",
+    "run": "44027704068",
+    "cell": "kidney glomerular endothelium"
+   },
+   {
+    "name": "GSM5652187",
+    "run": "44027819051",
+    "cell": "kidney tubular endothelium"
+   },
+   {
+    "name": "GSM5652188",
+    "run": "44027934510",
+    "cell": "kidney tubular endothelium"
+   },
+   {
+    "name": "GSM5652189",
+    "run": "44028063935",
+    "cell": "kidney tubular endothelium"
+   },
+   {
+    "name": "GSM5652191",
+    "run": "44028197239",
+    "cell": "lung alveolar endothelium"
+   },
+   {
+    "name": "GSM5652192",
+    "run": "44028317327",
+    "cell": "lung alveolar endothelium"
+   },
+   {
+    "name": "GSM5652193",
+    "run": "44028443207",
+    "cell": "lung alveolar endothelium"
+   },
+   {
+    "name": "GSM5652194",
+    "run": "44030295580",
+    "cell": "pancreas endothelium"
+   },
+   {
+    "name": "GSM5652195",
+    "run": "44028934009",
+    "cell": "pancreas endothelium"
+   },
+   {
+    "name": "GSM5652196",
+    "run": "44029058222",
+    "cell": "pancreas endothelium"
+   },
+   {
+    "name": "GSM5652198",
+    "run": "44030296033",
+    "cell": "colon fibroblasts"
+   },
+   {
+    "name": "GSM5652199",
+    "run": "44030416228",
+    "cell": "colon fibroblasts"
+   },
+   {
+    "name": "GSM5652201",
+    "run": "44030549956",
+    "cell": "heart fibroblasts"
+   },
+   {
+    "name": "GSM5652202",
+    "run": "44030674704",
+    "cell": "heart fibroblasts"
+   },
+   {
+    "name": "GSM5652203",
+    "run": "44030862758",
+    "cell": "heart fibroblasts"
+   },
+   {
+    "name": "GSM5652205",
+    "run": "44030998833",
+    "cell": "striated muscle"
+   },
+   {
+    "name": "GSM5652206",
+    "run": "44031129405",
+    "cell": "striated muscle"
+   },
+   {
+    "name": "GSM5652207",
+    "run": "44031255791",
+    "cell": "smooth muscle"
+   },
+   {
+    "name": "GSM5652208",
+    "run": "44031378085",
+    "cell": "smooth muscle"
+   },
+   {
+    "name": "GSM5652209",
+    "run": "44031507255",
+    "cell": "smooth muscle"
+   },
+   {
+    "name": "GSM5652212",
+    "run": "44032754628",
+    "cell": "cardiomyocyte"
+   },
+   {
+    "name": "GSM5652213",
+    "run": "44032876997",
+    "cell": "cardiomyocyte"
+   },
+   {
+    "name": "GSM5652216",
+    "run": "44042020854",
+    "cell": "cardiomyocyte"
+   },
+   {
+    "name": "GSM5652219",
+    "run": "44042153537",
+    "cell": "oligodendrocytes"
+   },
+   {
+    "name": "GSM5652220",
+    "run": "44033761840",
+    "cell": "oligodendrocytes"
+   },
+   {
+    "name": "GSM5652221",
+    "run": "44033891975",
+    "cell": "oligodendrocytes"
+   },
+   {
+    "name": "GSM5652223",
+    "run": "44034057152",
+    "cell": "cortical neurons"
+   },
+   {
+    "name": "GSM5652224",
+    "run": "44034354733",
+    "cell": "cortical neurons"
+   },
+   {
+    "name": "GSM5652225",
+    "run": "44034544669",
+    "cell": "cortical neurons"
+   },
+   {
+    "name": "GSM5652233",
+    "run": "44034727011",
+    "cell": "hepatocyte"
+   },
+   {
+    "name": "GSM5652234",
+    "run": "44035951877",
+    "cell": "hepatocyte"
+   },
+   {
+    "name": "GSM5652235",
+    "run": "44036088551",
+    "cell": "hepatocyte"
+   },
+   {
+    "name": "GSM5652239",
+    "run": "44036218201",
+    "cell": "pancreatic duct"
+   },
+   {
+    "name": "GSM5652240",
+    "run": "44042288650",
+    "cell": "pancreatic duct"
+   },
+   {
+    "name": "GSM5652241",
+    "run": "44036839334",
+    "cell": "pancreatic duct"
+   },
+   {
+    "name": "GSM5652243",
+    "run": "44042424420",
+    "cell": "pancreatic acinar"
+   },
+   {
+    "name": "GSM5652244",
+    "run": "44041989118",
+    "cell": "pancreatic acinar"
+   },
+   {
+    "name": "GSM5652245",
+    "run": "44042558061",
+    "cell": "pancreatic acinar"
+   },
+   {
+    "name": "GSM5652247",
+    "run": "44042688675",
+    "cell": "pancreatic delta"
+   },
+   {
+    "name": "GSM5652248",
+    "run": "44042819279",
+    "cell": "pancreatic delta"
+   },
+   {
+    "name": "GSM5652249",
+    "run": "44042949286",
+    "cell": "pancreatic delta"
+   },
+   {
+    "name": "GSM5652250",
+    "run": "44055531343",
+    "cell": "pancreatic beta"
+   },
+   {
+    "name": "GSM5652251",
+    "run": "44055687068",
+    "cell": "pancreatic beta"
+   },
+   {
+    "name": "GSM5652252",
+    "run": "44055845122",
+    "cell": "pancreatic beta"
+   },
+   {
+    "name": "GSM5652253",
+    "run": "44055997265",
+    "cell": "pancreatic alpha"
+   },
+   {
+    "name": "GSM5652254",
+    "run": "44056147516",
+    "cell": "pancreatic alpha"
+   },
+   {
+    "name": "GSM5652255",
+    "run": "44056308431",
+    "cell": "pancreatic alpha"
+   },
+   {
+    "name": "GSM5652256",
+    "run": "44056466570",
+    "cell": "kidney glomerular epithelium"
+   },
+   {
+    "name": "GSM5652257",
+    "run": "44056622570",
+    "cell": "kidney glomerular epithelium"
+   },
+   {
+    "name": "GSM5652258",
+    "run": "44056785872",
+    "cell": "kidney tubular epithelium"
+   },
+   {
+    "name": "GSM5652259",
+    "run": "44056949249",
+    "cell": "kidney tubular epithelium"
+   },
+   {
+    "name": "GSM5652260",
+    "run": "44058489495",
+    "cell": "kidney tubular epithelium"
+   },
+   {
+    "name": "GSM5652264",
+    "run": "44058647952",
+    "cell": "thyroid epithelium"
+   },
+   {
+    "name": "GSM5652265",
+    "run": "44058807235",
+    "cell": "thyroid epithelium"
+   },
+   {
+    "name": "GSM5652266",
+    "run": "44058966357",
+    "cell": "thyroid epithelium"
+   },
+   {
+    "name": "GSM5652267",
+    "run": "44059124364",
+    "cell": "fallopien tubes epithelium"
+   },
+   {
+    "name": "GSM5652268",
+    "run": "44059288434",
+    "cell": "fallopien tubes epithelium"
+   },
+   {
+    "name": "GSM5652269",
+    "run": "44059443302",
+    "cell": "fallopien tubes epithelium"
+   },
+   {
+    "name": "GSM5652271",
+    "run": "44059604148",
+    "cell": "endometrium epithelium"
+   },
+   {
+    "name": "GSM5652272",
+    "run": "44059763030",
+    "cell": "endometrium epithelium"
+   },
+   {
+    "name": "GSM5652273",
+    "run": "44059925404",
+    "cell": "endometrium epithelium"
+   },
+   {
+    "name": "GSM5652274",
+    "run": "44061467555",
+    "cell": "erythrocyte progenitors"
+   },
+   {
+    "name": "GSM5652275",
+    "run": "44061632849",
+    "cell": "erythrocyte progenitors"
+   },
+   {
+    "name": "GSM5652276",
+    "run": "44061794203",
+    "cell": "erythrocyte progenitors"
+   },
+   {
+    "name": "GSM5652280",
+    "run": "44062119527",
+    "cell": "cd4 t cells"
+   },
+   {
+    "name": "GSM5652281",
+    "run": "44062280184",
+    "cell": "cd4 t cells"
+   },
+   {
+    "name": "GSM5652282",
+    "run": "44062445991",
+    "cell": "cd8 t cells"
+   },
+   {
+    "name": "GSM5652283",
+    "run": "44062605103",
+    "cell": "cd8 t cells"
+   },
+   {
+    "name": "GSM5652284",
+    "run": "44062767726",
+    "cell": "cd8 t cells"
+   },
+   {
+    "name": "GSM5652285",
+    "run": "44062937167",
+    "cell": "t central memory cd4"
+   },
+   {
+    "name": "GSM5652286",
+    "run": "44064517272",
+    "cell": "t central memory cd4"
+   },
+   {
+    "name": "GSM5652287",
+    "run": "44064681552",
+    "cell": "t central memory cd4"
+   },
+   {
+    "name": "GSM5652288",
+    "run": "44064838267",
+    "cell": "t effector cell cd8"
+   },
+   {
+    "name": "GSM5652289",
+    "run": "44064992541",
+    "cell": "t effector cell cd8"
+   },
+   {
+    "name": "GSM5652290",
+    "run": "44065146217",
+    "cell": "t effector cell cd8"
+   },
+   {
+    "name": "GSM5652291",
+    "run": "44065297335",
+    "cell": "t effector memory cd4"
+   },
+   {
+    "name": "GSM5652292",
+    "run": "44065461859",
+    "cell": "t effector memory cd4"
+   },
+   {
+    "name": "GSM5652293",
+    "run": "44065629726",
+    "cell": "t effector memory cd4"
+   },
+   {
+    "name": "GSM5652295",
+    "run": "44065789129",
+    "cell": "effector memory cd8 t cells"
+   },
+   {
+    "name": "GSM5652296",
+    "run": "44065956871",
+    "cell": "naive cd4 t cells"
+   },
+   {
+    "name": "GSM5652298",
+    "run": "44067494183",
+    "cell": "naive cd8 t cells"
+   },
+   {
+    "name": "GSM5652299",
+    "run": "44067649497",
+    "cell": "nk cells"
+   },
+   {
+    "name": "GSM5652300",
+    "run": "44067812854",
+    "cell": "nk cells"
+   },
+   {
+    "name": "GSM5652301",
+    "run": "44067970864",
+    "cell": "nk cells"
+   },
+   {
+    "name": "GSM5652302",
+    "run": "44068126554",
+    "cell": "monocytes"
+   },
+   {
+    "name": "GSM5652303",
+    "run": "44068284500",
+    "cell": "monocytes"
+   },
+   {
+    "name": "GSM5652304",
+    "run": "44068440135",
+    "cell": "monocytes"
+   },
+   {
+    "name": "GSM5652305",
+    "run": "44068599332",
+    "cell": "colon macrophages"
+   },
+   {
+    "name": "GSM5652306",
+    "run": "44068755689",
+    "cell": "colon macrophages"
+   },
+   {
+    "name": "GSM5652308",
+    "run": "44068913135",
+    "cell": "lung alveolar macrophages"
+   },
+   {
+    "name": "GSM5652310",
+    "run": "44070600959",
+    "cell": "lung interstitial macrophages"
+   },
+   {
+    "name": "GSM5652311",
+    "run": "44070764606",
+    "cell": "lung interstitial macrophages"
+   },
+   {
+    "name": "GSM5652312",
+    "run": "44070930660",
+    "cell": "lung interstitial macrophages"
+   },
+   {
+    "name": "GSM5652316",
+    "run": "44071095406",
+    "cell": "b cells"
+   },
+   {
+    "name": "GSM5652317",
+    "run": "44071256791",
+    "cell": "b cells"
+   },
+   {
+    "name": "GSM5652318",
+    "run": "44071416585",
+    "cell": "b cells"
+   },
+   {
+    "name": "GSM5652319",
+    "run": "44071581463",
+    "cell": "memory b cells"
+   },
+   {
+    "name": "GSM5652320",
+    "run": "44071744001",
+    "cell": "memory b cells"
+   },
+   {
+    "name": "GSM5652322",
+    "run": "44071905231",
+    "cell": "tonsil palatine epithelium"
+   },
+   {
+    "name": "GSM5652323",
+    "run": "44073445747",
+    "cell": "tonsil palatine epithelium"
+   },
+   {
+    "name": "GSM5652324",
+    "run": "44073600717",
+    "cell": "tonsil palatine epithelium"
+   },
+   {
+    "name": "GSM5652325",
+    "run": "44073756724",
+    "cell": "tonsil pharyngeal epithelium"
+   },
+   {
+    "name": "GSM5652326",
+    "run": "44073911155",
+    "cell": "tonsil pharyngeal epithelium"
+   },
+   {
+    "name": "GSM5652327",
+    "run": "44074064641",
+    "cell": "tongue epithelium"
+   },
+   {
+    "name": "GSM5652328",
+    "run": "44074217899",
+    "cell": "tongue epithelium"
+   },
+   {
+    "name": "GSM5652329",
+    "run": "44074368811",
+    "cell": "tongue epithelium"
+   },
+   {
+    "name": "GSM5652335",
+    "run": "44074519286",
+    "cell": "lung bronchus epithelium"
+   },
+   {
+    "name": "GSM5652336",
+    "run": "44074685896",
+    "cell": "lung bronchus epithelium"
+   },
+   {
+    "name": "GSM5652337",
+    "run": "44074845206",
+    "cell": "lung bronchus epithelium"
+   },
+   {
+    "name": "GSM5652338",
+    "run": "44076346417",
+    "cell": "prostate epithelium"
+   },
+   {
+    "name": "GSM5652339",
+    "run": "44076498007",
+    "cell": "prostate epithelium"
+   },
+   {
+    "name": "GSM5652340",
+    "run": "44076649704",
+    "cell": "prostate epithelium"
+   },
+   {
+    "name": "GSM5652342",
+    "run": "44076805353",
+    "cell": "bladder epithelium"
+   },
+   {
+    "name": "GSM5652343",
+    "run": "44076963800",
+    "cell": "bladder epithelium"
+   },
+   {
+    "name": "GSM5652344",
+    "run": "44077118374",
+    "cell": "bladder epithelium"
+   },
+   {
+    "name": "GSM5652347",
+    "run": "44077272268",
+    "cell": "breast luminal epithelium"
+   },
+   {
+    "name": "GSM5652349",
+    "run": "44077577907",
+    "cell": "breast luminal epithelium"
+   },
+   {
+    "name": "GSM5652350",
+    "run": "44077736487",
+    "cell": "breast basal epithelium"
+   },
+   {
+    "name": "GSM5652351",
+    "run": "44079241652",
+    "cell": "breast basal epithelium"
+   },
+   {
+    "name": "GSM5652352",
+    "run": "44079401878",
+    "cell": "breast basal epithelium"
+   },
+   {
+    "name": "GSM5652354",
+    "run": "44079561846",
+    "cell": "lung alveolar epithelium"
+   },
+   {
+    "name": "GSM5652355",
+    "run": "44079721526",
+    "cell": "lung alveolar epithelium"
+   },
+   {
+    "name": "GSM5652356",
+    "run": "44079886059",
+    "cell": "lung alveolar epithelium"
+   },
+   {
+    "name": "GSM5652359",
+    "run": "44080049780",
+    "cell": "gastric fundus epithelium"
+   },
+   {
+    "name": "GSM5652360",
+    "run": "44080210215",
+    "cell": "gastric fundus epithelium"
+   },
+   {
+    "name": "GSM5652361",
+    "run": "44080374010",
+    "cell": "gastric fundus epithelium"
+   },
+   {
+    "name": "GSM5652362",
+    "run": "44080527918",
+    "cell": "gastric body epithelium"
+   },
+   {
+    "name": "GSM5652363",
+    "run": "44080693481",
+    "cell": "gastric body epithelium"
+   },
+   {
+    "name": "GSM5652364",
+    "run": "44082253308",
+    "cell": "gastric body epithelium"
+   },
+   {
+    "name": "GSM5652365",
+    "run": "44082410098",
+    "cell": "gastric antrum epithelium"
+   },
+   {
+    "name": "GSM5652366",
+    "run": "44082572443",
+    "cell": "gastric antrum epithelium"
+   },
+   {
+    "name": "GSM5652367",
+    "run": "44082731984",
+    "cell": "gastric antrum epithelium"
+   },
+   {
+    "name": "GSM5652370",
+    "run": "44082896002",
+    "cell": "colon epithelium"
+   },
+   {
+    "name": "GSM5652371",
+    "run": "44083061407",
+    "cell": "colon epithelium"
+   },
+   {
+    "name": "GSM5652372",
+    "run": "44083220469",
+    "cell": "colon enteroendocrine"
+   },
+   {
+    "name": "GSM5652373",
+    "run": "44083377423",
+    "cell": "colon epithelium"
+   },
+   {
+    "name": "GSM5652375",
+    "run": "44083543242",
+    "cell": "colon enteroendocrine"
+   },
+   {
+    "name": "GSM5652379",
+    "run": "44083702458",
+    "cell": "small intestine epithelium"
+   },
+   {
+    "name": "GSM5652380",
+    "run": "44085293254",
+    "cell": "small intestine epithelium"
+   },
+   {
+    "name": "GSM5652381",
+    "run": "44085458435",
+    "cell": "small intestine epithelium"
+   }
+  ],
+  "manifest": [
+   "COM-IAMA-054"
+  ],
+  "utc": "2026-11-17T14:14:37Z"
+ }
+}

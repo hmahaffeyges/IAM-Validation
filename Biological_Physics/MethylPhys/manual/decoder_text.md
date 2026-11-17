@@ -66,6 +66,10 @@ the chain reads comes from that one statement; everything else in the chain is s
 - **Islands and clock sites in every reading.** Each sequencing reading also counts, by the same rules as the held error, the held and
   absent sides at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own meter,
   register T1) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side (register C3), written as iam_a.sites. No reading uses them yet.
+- **The healthy band on the derived line.** Every IAM-A reading also gives state_derived: A_derived against band v2
+  (Runtime Matrices/IAM_A_SelfRef/band_v2.json), the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by the one
+  button, by the same rule as band v1. Band v1 on the measured line stays the default and keeps its commissioning record; band v2 is in
+  commissioning, because the libraries that set it also set the line.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
   Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
@@ -2379,6 +2383,9 @@ counter on planted molecules, and the measured slope. Refuses the file if it was
 
 A on the derived line: held error / (intercept at the sample's own coupling, interpolated in the table, + measured
 slope x loose share). Never extrapolated: outside the table's coupling range it returns no A_derived and says why. Recorded beside A.
+
+When band_v2.json exists (refused if edited after the chain wrote it), the reading also carries state_derived (Normal, above Normal or
+below Normal on band v2) and the band it used, marked 'in commissioning'.
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 
