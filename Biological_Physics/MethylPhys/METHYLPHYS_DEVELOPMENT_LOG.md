@@ -6242,3 +6242,76 @@ The book's pointer to the full Boltzmann script follows the file (0 file(s)).
 The list added to the cosmology archive misstated the chain record (it said no chain sampled the coupling; the four Level 1
 floating runs do, and the fixed coupling was the prediction under test). It is replaced by the record's own summary: 17 converged
 chains plus the baryon chain; the book is the current record.
+
+### 2026-11-16 · Day summary
+_Written at midnight from a line-by-line walk of the whole day's chat (each entry mapped to one section of the fixed outline; work in the private domains is kept off this public page)._
+
+**Set out:**
+- Keep deriving the cell rows first: each cell type's own level (A8), then commissioning. Everything else explores through a roaming patrol of IAM's web.
+- Bring every newly derived input into the chain itself, so the instruments run the current physics, and confirm it end to end with the one command.
+- Consolidate the plan documents into the register and keep every document built from the canon.
+
+**Ran, and how each came out:**
+- One-command readings of 31 spent atlas libraries (T cells, neurons, heart muscle, liver, skeletal and smooth muscle, fat, oligodendrocytes). Each healthy cell type sits at its own fixed level, and none rises with donor age: the pooled within-type slope is -0.0055 per decade (95 % range -0.0135 to +0.0034). Spread between types 0.084. Memory and effector T cells read above naive cells from the same donors.
+- Traffic as open chromatin (A8S). Each type's level against its open regions in a public accessibility atlas, with the names table written before any number was read. Prediction not met: Spearman -0.09 (p 0.82). Neurons have the most open DNA and the lowest level.
+- Packing (A8P). Each type's level against its share of packed chromatin states from the Roadmap epigenomes. Prediction not met, and the naive/memory T pair went the other way.
+- Candidate fingerprints, synthetic, through the one command. Each candidate raised the true loss by 25 %. Held error read x1.18 for a slower restore crew, x1.13 for a damaged share of cells, x1.02 for losses in stretches, x1.00 for marks caught mid-erase (5hmC). The chain tells all four apart. Stretch losses and 5hmC barely move the reading, so the spread between types needs an even per-site rate or a damaged share of cells.
+- The 5hmC of seven sorted blood types was read once for the cell simulator's input; it reproduced the paper's own column.
+- Forward table: the held level derived from M alone, put through the counter on planted molecules, nine GitHub jobs. The atlas laboratory reads above it; the blind-test laboratory of PHY-084 reads near it.
+- End-to-end checks with the one command on a naive CD4 T library and an adipocyte library. Both met every expected value exactly (A 0.8329 and 1.0241), with every new reading present.
+- The sequencing train left: all 156 spent atlas libraries, one command each, in spaced waves. By midnight, 51 had gone out and 42 had read cleanly.
+
+**Successes:**
+- New readings now in every IAM-A reading on main: run lengths, the tile-by-tile line and the meter fields (CAN-024); the derived line read beside the measured one (PHY-083, PHY-084); the islands meter and the clock-site counts (PHY-093, PHY-094); the spread of losses across molecules. The GEO download now waits out NCBI's rate limit by itself (COM-IAMA-036).
+- The run-length option's synthetic met both expectations, and its item was closed. The line tested tile by tile inside one sample (PHY-013) met its synthetic and is carried in every reading.
+- The Decoder gained a section stating the physics of every input the chain reads, with physics blocks for each instrument, sent in four parts.
+- The earlier cosmology validation record came back to the repository as an archive folder (PHY-056): the old README's cosmology part, 52 scripts and 28 papers. It holds the 17 converged MCMC chains against the full Planck likelihood (12 at Level 1 through MGCAMB, 5 at Level 2 through modified CAMB) and the baryon chain.
+- Two patrols of IAM's web found the register's ring threads had never reached the web. They now do, and the register items that reach IAM's Law rose from about 90 to 116 of 131.
+
+**Learned:**
+- Each healthy cell type's level is a fixed property of the type, set by what it is, not by age. Energy, division, working regions, open-chromatin extent and packed-state share do not explain it at this depth. The size of the gap: the spread between types is about a third of one thermal kick in holding energy, about 30 % fewer restores per loss.
+- Mature blood: the eraser share drops out, and IAM-A's one line serves every type (A5 is a contributor to A8, not a separate item). The slope 0.034625 is the chain's measured slope; only its within-sample part is derived.
+- The gauge runs from the floor (derived, the least writing a cell can run on, past which it cannot keep its identity), through the healthy middle, to the coin flip at the far right.
+- Writing happens locally; the horizon is the ledger (the author's ATM picture).
+- The chains' own growth-rate likelihood is correct. The separate comparison script that scores LambdaCDM's growth points reads CAMB's output in the reverse redshift order; this is being checked with the chains' own CAMB version.
+
+**Errors (the agent's own), and what caught each:**
+- Edited the book's chapter text directly instead of through the canon; the author caught it ("nothing in the book is hand written"), and the book edit was pulled.
+- Told a helper that two chain edits had landed when they had not; the reviewer caught it, and the helper was corrected.
+- Wrote that A8 reduced to deriving "the floor"; the author caught it (the floor is derived). The lead was renamed the quiet-cell level, and a memory rule now guards the gauge's words.
+- Called a library a neuron library when it was adipocytes; the records caught it before the check ran.
+- Filed the cosmology and other domains as parked; the author corrected it (cell first is an order of work, not a ban).
+- Published a helper's unread claims about the cosmology chains in the archive note; the author and the reviewer caught it. The note was replaced the same hour by the record's own chain summary.
+- Ran two send queues at once twice; each time the older one was stopped.
+- Several edits were refused by the gate for a date in public text, a missing manifest row, a missing Decoder entry, a private word or British spelling; each was fixed and re-sent.
+
+**The author's instructions and corrections:**
+- Always the full chain and one button; the chain decides the cells, atlas, instruments and globe.
+- Every derived input goes into the chain. Every document is built from the canon. No new documents; plans live with the register.
+- Nothing unspent until A8 is derived. Plasma is read by the chain like anything else, and the Deconvolver says what is present.
+- Use the simulator and synthetic data to test the candidate levers. Send the spider out on the whole web, unrestricted.
+- The chains converged, all 17 of them; the book is the record.
+- Write the day summary from the chat at midnight, in the outline.
+
+**Path changes:**
+- The plans, the order of work and the commissioning draft were merged into the register.
+- Synthetic scripts now run through the one command.
+- The train leaves in waves, and the chain waits out NCBI refusals itself.
+
+**Data:**
+- Spent only: the atlas laboratory's libraries (one command each), PHY-084's kept files, and the seven-type 5hmC set (read once; recorded spent).
+- Public reference tables: the accessibility atlas and the Roadmap chromatin states.
+- Nothing unspent was read.
+
+**Machines:**
+- GitHub for every reading, synthetic, edit and the train.
+- The laptop for writing edits and private records only.
+- No Google machines today.
+
+**Open at turnover:**
+- The train's remaining 105 libraries, and the location test (A8L2) that rides it.
+- The order check of the growth-rate comparison script with the chains' CAMB version.
+- The book corrections routed through the canon.
+- The spider's virial thread through every domain.
+- The six-paper and Koide audit, with the route from Einstein's equations to IAM's Law.
+- Test rows touched today that wait on these: PHY-035, PHY-036, ATL-028 and CAN-018 (the information sphere stays development until its null test); DEV-GROUP-01 (same-series rule for Group-A); PHY-050 and PHY-087 (the per-call and slope rows); PHY-091 (the meter); PROC-WORK-01 and PROC-CHANNEL-01 (working regions and channels, read against A8).
