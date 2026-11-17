@@ -3132,72 +3132,72 @@ PASS  ch:blackholes:L142                 ch:blackholes:p3_01_blackholes:142  pri
 PASS  ch:blackholes:L142:4.3\times10^6   ch:blackholes:p3_01_blackholes:142  printed 4.3\times10^6  recomputed 4.310000e+06  tol 50000  [derived] Sgr A* mass (Gillessen 2009)
 PASS  ch:blackholes:L143                 ch:blackholes:p3_01_blackholes:143  printed 6.5\times10^9  recomputed 6.500000e+09  tol 5.000005e+07  [derived] M87* mass (EHT 2019)
 PASS  ch:blackholes:L148                 ch:blackholes:p3_01_blackholes:148  printed (algebra)  recomputed True  [derived] Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1)
-PASS  eq:bh_dMdt                         ch:blackholes:p3_01_blackholes:155  printed (algebra)  recomputed lhs-rhs=0  [none] dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)
-PASS  eq:bh_Mt                           ch:blackholes:p3_01_blackholes:159  printed (algebra)  recomputed True  [none] M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2)
-PASS  eq:bh_Str                          ch:blackholes:p3_01_blackholes:163  printed (algebra)  recomputed lhs-rhs=0  [none] Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)
-PASS  eq:bh_Str_closed                   ch:blackholes:p3_01_blackholes:168  printed (algebra)  recomputed lhs-rhs=0  [none] S_tr = S_BH,0 - S_BH(t) with S proportional to M^2
-PASS  ch:blackholes:L172                 ch:blackholes:p3_01_blackholes:172  printed (algebra)  recomputed True  [none] half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau
-PASS  ch:blackholes:L176                 ch:blackholes:p3_01_blackholes:176  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [derived] S_BH,0 in bits for one solar mass
-PASS  ch:blackholes:L177                 ch:blackholes:p3_01_blackholes:177  printed 152.5  recomputed 152.549  tol 0.0503251  [derived] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
-PASS  ch:blackholes:L182                 ch:blackholes:p3_01_blackholes:182  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] S_tr and S_BH cross at t = 0.646 tau (fig caption)
-PASS  ch:blackholes:L192                 ch:blackholes:p3_01_blackholes:192  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] min(S_tr, S_BH) turns over at 0.646 tau
-PASS  ch:blackholes:L194:64.6            ch:blackholes:p3_01_blackholes:194  printed 64.6  recomputed 64.6447  tol 0.05  [derived] black-body crossing at 64.6 % of tau
-PASS  ch:blackholes:L201                 ch:blackholes:p3_01_blackholes:201  printed 2.6\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-32  [calc] T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states
-PASS  ch:blackholes:L201:4.5\times10^{22} ch:blackholes:p3_01_blackholes:201  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] mass with T_BH = T_CMB, kg
-PASS  ch:blackholes:L201:2.3\times10^{22} ch:blackholes:p3_01_blackholes:201  printed 2.3\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+20  [calc] M_eq = c^3/(4 G H0), H0=67.4
-PASS  ch:blackholes:L201:2.1\times10^{67} ch:blackholes:p3_01_blackholes:201  printed 2.1\times10^{67}  recomputed 2.095682e+67  tol 5.000005e+65  [calc] evaporation time, 1 M_sun
-PASS  ch:blackholes:L201:5120            ch:blackholes:p3_01_blackholes:201  printed 5120  recomputed 5120  tol 0.5  [calc] 5120 in tau_evap (fig caption)
-PASS  eq:bh_TGH                          ch:blackholes:p3_01_blackholes:206  printed (algebra)  recomputed lhs-rhs=0  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L209                 ch:blackholes:p3_01_blackholes:209  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.4
-PASS  ch:blackholes:L209:2.65\times10^{-30} ch:blackholes:p3_01_blackholes:209  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.16
-PASS  ch:blackholes:L209:67.16           ch:blackholes:p3_01_blackholes:209  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+PASS  eq:bh_dMdt                         ch:blackholes:p3_01_blackholes:164  printed (algebra)  recomputed lhs-rhs=0  [none] dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)
+PASS  eq:bh_Mt                           ch:blackholes:p3_01_blackholes:168  printed (algebra)  recomputed True  [none] M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2)
+PASS  eq:bh_Str                          ch:blackholes:p3_01_blackholes:172  printed (algebra)  recomputed lhs-rhs=0  [none] Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)
+PASS  eq:bh_Str_closed                   ch:blackholes:p3_01_blackholes:177  printed (algebra)  recomputed lhs-rhs=0  [none] S_tr = S_BH,0 - S_BH(t) with S proportional to M^2
+PASS  ch:blackholes:L172                 ch:blackholes:p3_01_blackholes:181  printed (algebra)  recomputed True  [none] half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau
+PASS  ch:blackholes:L176                 ch:blackholes:p3_01_blackholes:185  printed 1.51\times10^{77}  recomputed 1.513322e+77  tol 5.000005e+74  [derived] S_BH,0 in bits for one solar mass
+PASS  ch:blackholes:L177                 ch:blackholes:p3_01_blackholes:186  printed 152.5  recomputed 152.549  tol 0.0503251  [derived] same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)
+PASS  ch:blackholes:L182                 ch:blackholes:p3_01_blackholes:191  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] S_tr and S_BH cross at t = 0.646 tau (fig caption)
+PASS  ch:blackholes:L192                 ch:blackholes:p3_01_blackholes:201  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] min(S_tr, S_BH) turns over at 0.646 tau
+PASS  ch:blackholes:L194:64.6            ch:blackholes:p3_01_blackholes:203  printed 64.6  recomputed 64.6447  tol 0.05  [derived] black-body crossing at 64.6 % of tau
+PASS  ch:blackholes:L201                 ch:blackholes:p3_01_blackholes:210  printed 2.6\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-32  [calc] T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states
+PASS  ch:blackholes:L201:4.5\times10^{22} ch:blackholes:p3_01_blackholes:210  printed 4.5\times10^{22}  recomputed 4.501562e+22  tol 5.000005e+20  [calc] mass with T_BH = T_CMB, kg
+PASS  ch:blackholes:L201:2.3\times10^{22} ch:blackholes:p3_01_blackholes:210  printed 2.3\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+20  [calc] M_eq = c^3/(4 G H0), H0=67.4
+PASS  ch:blackholes:L201:2.1\times10^{67} ch:blackholes:p3_01_blackholes:210  printed 2.1\times10^{67}  recomputed 2.095682e+67  tol 5.000005e+65  [calc] evaporation time, 1 M_sun
+PASS  ch:blackholes:L201:5120            ch:blackholes:p3_01_blackholes:210  printed 5120  recomputed 5120  tol 0.5  [calc] 5120 in tau_evap (fig caption)
+PASS  eq:bh_TGH                          ch:blackholes:p3_01_blackholes:215  printed (algebra)  recomputed lhs-rhs=0  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L209                 ch:blackholes:p3_01_blackholes:218  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.4
+PASS  ch:blackholes:L209:2.65\times10^{-30} ch:blackholes:p3_01_blackholes:218  printed 2.65\times10^{-30}  recomputed 2.645898e-30  tol 5.000005e-33  [calc] T_GH, H0 = 67.16
+PASS  ch:blackholes:L209:67.16           ch:blackholes:p3_01_blackholes:218  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:blackholes:L209:67.4            ch:blackholes:p3_01_blackholes:209  printed 67.4  recomputed 67.36  tol 0.05  [calc] H0 = 67.4 (Planck 2018)
-PASS  eq:bh_Pnet                         ch:blackholes:p3_01_blackholes:213  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
-PASS  eq:bh_Meq                          ch:blackholes:p3_01_blackholes:221  printed (algebra)  recomputed lhs-rhs=0  [derived] M_eq from T_BH = T_GH
-PASS  ch:blackholes:L224                 ch:blackholes:p3_01_blackholes:224  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
+PASS  ch:blackholes:L209:67.4            ch:blackholes:p3_01_blackholes:218  printed 67.4  recomputed 67.36  tol 0.05  [calc] H0 = 67.4 (Planck 2018)
+PASS  eq:bh_Pnet                         ch:blackholes:p3_01_blackholes:222  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
+PASS  eq:bh_Meq                          ch:blackholes:p3_01_blackholes:230  printed (algebra)  recomputed lhs-rhs=0  [derived] M_eq from T_BH = T_GH
+PASS  ch:blackholes:L224                 ch:blackholes:p3_01_blackholes:233  printed 67.16  recomputed 67.1611  tol 0.00500343  [calc] same value as p0_giants:41 (H0 photon sector matches Level2 chain value)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:blackholes:L224:2.33\times10^{22} ch:blackholes:p3_01_blackholes:224  printed 2.33\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+19  [calc] M_eq at H0 = 67.16
-PASS  ch:blackholes:L231                 ch:blackholes:p3_01_blackholes:231  printed 2.18\times10^{-18}  recomputed 2.184285e-18  tol 5.000005e-21  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L231:2.66\times10^{-30} ch:blackholes:p3_01_blackholes:231  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L231:2.32\times10^{22} ch:blackholes:p3_01_blackholes:231  printed 2.32\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L232                 ch:blackholes:p3_01_blackholes:232  printed 3.91\times10^{-18}  recomputed 3.911261e-18  tol 5.000005e-21  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L232:1.30\times10^{22} ch:blackholes:p3_01_blackholes:232  printed 1.30\times10^{22}  recomputed 1.297659e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L232:4.75\times10^{-30} ch:blackholes:p3_01_blackholes:232  printed 4.75\times10^{-30}  recomputed 4.754774e-30  tol 5.000005e-33  [calc] T_GH at z = 1
-PASS  ch:blackholes:L233                 ch:blackholes:p3_01_blackholes:233  printed 4.41\times10^{-14}  recomputed 4.413740e-14  tol 5.000005e-17  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L233:1.15\times10^{18} ch:blackholes:p3_01_blackholes:233  printed 1.15\times10^{18}  recomputed 1.149928e+18  tol 5.000005e+15  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L233:5.37\times10^{-26} ch:blackholes:p3_01_blackholes:233  printed 5.37\times10^{-26}  recomputed 5.365618e-26  tol 5.000005e-29  [calc] T_GH at z = 10^3
-PASS  ch:blackholes:L234                 ch:blackholes:p3_01_blackholes:234  printed 2.10\times10^{-8}  recomputed 2.098681e-08  tol 5.000005e-11  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L234:2.42\times10^{12} ch:blackholes:p3_01_blackholes:234  printed 2.42\times10^{12}  recomputed 2.418416e+12  tol 5.000005e+09  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L234:2.55\times10^{-20} ch:blackholes:p3_01_blackholes:234  printed 2.55\times10^{-20}  recomputed 2.551287e-20  tol 5.000005e-23  [calc] T_GH at z = 10^6
-PASS  ch:blackholes:L235                 ch:blackholes:p3_01_blackholes:235  printed 2.10\times10^{0}  recomputed 2.09509  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L235:2.42\times10^{4} ch:blackholes:p3_01_blackholes:235  printed 2.42\times10^{4}  recomputed 24225.6  tol 50  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L235:2.55\times10^{-12} ch:blackholes:p3_01_blackholes:235  printed 2.55\times10^{-12}  recomputed 2.546926e-12  tol 5.000005e-15  [calc] T_GH at z = 10^10
-PASS  ch:blackholes:L239                 ch:blackholes:p3_01_blackholes:239  printed 3.4\times10^{-90}  recomputed 3.422132e-90  tol 5.000005e-92  [calc] (T_GH/T_BH)^4 for one solar mass today
-PASS  ch:blackholes:L246                 ch:blackholes:p3_01_blackholes:246  printed (algebra)  recomputed True  [none] M_CMB = 4.5e22 kg = 0.6 lunar masses
-PASS  ch:blackholes:L248                 ch:blackholes:p3_01_blackholes:248  printed 4.4\times10^{7}  recomputed 4.418822e+07  tol 5.000005e+05  [calc] drafted check, screened (runs; negative control fails)
-PASS  ch:blackholes:L249                 ch:blackholes:p3_01_blackholes:249  printed 10^{67}  recomputed 2.095682e+67  tol 2.162278e+67  [calc] evaporation times of 10^67 yr and longer
-PASS  eq:bh_hoop                         ch:blackholes:p3_01_blackholes:271  printed (algebra)  recomputed lhs-rhs=0  [none] S/(k_B A) at the hoop radius = k_B/(4 l_P^2)
-PASS  eq:bh_seed                         ch:blackholes:p3_01_blackholes:295  printed (algebra)  recomputed lhs-rhs=0  [derived] M from S = 4 pi G M^2/(hbar c), in units of m_Pl
-PASS  ch:blackholes:L305                 ch:blackholes:p3_01_blackholes:305  printed 0.98  recomputed 0.976386  tol 0.00500001  [calc] seed mass for S = 1e77 nats
-PASS  ch:blackholes:L306                 ch:blackholes:p3_01_blackholes:306  printed 9.8\times10^{2}  recomputed 976.386  tol 5  [calc] seed mass for S = 1e83 nats
-PASS  ch:blackholes:L307                 ch:blackholes:p3_01_blackholes:307  printed 9.8\times10^{5}  recomputed 9.763861e+05  tol 5000  [calc] seed mass for S = 1e89 nats
-PASS  ch:blackholes:L308                 ch:blackholes:p3_01_blackholes:308  printed 9.8\times10^{8}  recomputed 9.763861e+08  tol 5.000005e+06  [calc] seed mass for S = 1e95 nats
-PASS  ch:blackholes:L316                 ch:blackholes:p3_01_blackholes:316  printed 1.456  recomputed found in file  [observed] measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt
+PASS  ch:blackholes:L224:2.33\times10^{22} ch:blackholes:p3_01_blackholes:233  printed 2.33\times10^{22}  recomputed 2.331939e+22  tol 5.000005e+19  [calc] M_eq at H0 = 67.16
+PASS  ch:blackholes:L231                 ch:blackholes:p3_01_blackholes:240  printed 2.18\times10^{-18}  recomputed 2.184285e-18  tol 5.000005e-21  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L231:2.66\times10^{-30} ch:blackholes:p3_01_blackholes:240  printed 2.66\times10^{-30}  recomputed 2.655354e-30  tol 5.000005e-33  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L231:2.32\times10^{22} ch:blackholes:p3_01_blackholes:240  printed 2.32\times10^{22}  recomputed 2.323635e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L232                 ch:blackholes:p3_01_blackholes:241  printed 3.91\times10^{-18}  recomputed 3.911261e-18  tol 5.000005e-21  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L232:1.30\times10^{22} ch:blackholes:p3_01_blackholes:241  printed 1.30\times10^{22}  recomputed 1.297659e+22  tol 5.000005e+19  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L232:4.75\times10^{-30} ch:blackholes:p3_01_blackholes:241  printed 4.75\times10^{-30}  recomputed 4.754774e-30  tol 5.000005e-33  [calc] T_GH at z = 1
+PASS  ch:blackholes:L233                 ch:blackholes:p3_01_blackholes:242  printed 4.41\times10^{-14}  recomputed 4.413740e-14  tol 5.000005e-17  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L233:1.15\times10^{18} ch:blackholes:p3_01_blackholes:242  printed 1.15\times10^{18}  recomputed 1.149928e+18  tol 5.000005e+15  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L233:5.37\times10^{-26} ch:blackholes:p3_01_blackholes:242  printed 5.37\times10^{-26}  recomputed 5.365618e-26  tol 5.000005e-29  [calc] T_GH at z = 10^3
+PASS  ch:blackholes:L234                 ch:blackholes:p3_01_blackholes:243  printed 2.10\times10^{-8}  recomputed 2.098681e-08  tol 5.000005e-11  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L234:2.42\times10^{12} ch:blackholes:p3_01_blackholes:243  printed 2.42\times10^{12}  recomputed 2.418416e+12  tol 5.000005e+09  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L234:2.55\times10^{-20} ch:blackholes:p3_01_blackholes:243  printed 2.55\times10^{-20}  recomputed 2.551287e-20  tol 5.000005e-23  [calc] T_GH at z = 10^6
+PASS  ch:blackholes:L235                 ch:blackholes:p3_01_blackholes:244  printed 2.10\times10^{0}  recomputed 2.09509  tol 0.00500001  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L235:2.42\times10^{4} ch:blackholes:p3_01_blackholes:244  printed 2.42\times10^{4}  recomputed 24225.6  tol 50  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L235:2.55\times10^{-12} ch:blackholes:p3_01_blackholes:244  printed 2.55\times10^{-12}  recomputed 2.546926e-12  tol 5.000005e-15  [calc] T_GH at z = 10^10
+PASS  ch:blackholes:L239                 ch:blackholes:p3_01_blackholes:248  printed 3.4\times10^{-90}  recomputed 3.422132e-90  tol 5.000005e-92  [calc] (T_GH/T_BH)^4 for one solar mass today
+PASS  ch:blackholes:L246                 ch:blackholes:p3_01_blackholes:255  printed (algebra)  recomputed True  [none] M_CMB = 4.5e22 kg = 0.6 lunar masses
+PASS  ch:blackholes:L248                 ch:blackholes:p3_01_blackholes:257  printed 4.4\times10^{7}  recomputed 4.418822e+07  tol 5.000005e+05  [calc] drafted check, screened (runs; negative control fails)
+PASS  ch:blackholes:L249                 ch:blackholes:p3_01_blackholes:258  printed 10^{67}  recomputed 2.095682e+67  tol 2.162278e+67  [calc] evaporation times of 10^67 yr and longer
+PASS  eq:bh_hoop                         ch:blackholes:p3_01_blackholes:280  printed (algebra)  recomputed lhs-rhs=0  [none] S/(k_B A) at the hoop radius = k_B/(4 l_P^2)
+PASS  eq:bh_seed                         ch:blackholes:p3_01_blackholes:304  printed (algebra)  recomputed lhs-rhs=0  [derived] M from S = 4 pi G M^2/(hbar c), in units of m_Pl
+PASS  ch:blackholes:L305                 ch:blackholes:p3_01_blackholes:314  printed 0.98  recomputed 0.976386  tol 0.00500001  [calc] seed mass for S = 1e77 nats
+PASS  ch:blackholes:L306                 ch:blackholes:p3_01_blackholes:315  printed 9.8\times10^{2}  recomputed 976.386  tol 5  [calc] seed mass for S = 1e83 nats
+PASS  ch:blackholes:L307                 ch:blackholes:p3_01_blackholes:316  printed 9.8\times10^{5}  recomputed 9.763861e+05  tol 5000  [calc] seed mass for S = 1e89 nats
+PASS  ch:blackholes:L308                 ch:blackholes:p3_01_blackholes:317  printed 9.8\times10^{8}  recomputed 9.763861e+08  tol 5.000005e+06  [calc] seed mass for S = 1e95 nats
+PASS  ch:blackholes:L316                 ch:blackholes:p3_01_blackholes:325  printed 1.456  recomputed found in file  [observed] measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names  file docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt
       heavy: python3 docs/verification/scripts/verify_virial_atoms_to_horizon.py > docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt
-PASS  ch:blackholes:L318                 ch:blackholes:p3_01_blackholes:318  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024)
-PASS  ch:blackholes:L318:0.07            ch:blackholes:p3_01_blackholes:318  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error (Fan et al. 2024)
-PASS  ch:blackholes:L319                 ch:blackholes:p3_01_blackholes:319  printed 0.6  recomputed 0.593  tol 0.05  [observed] typical white dwarf 0.6 M_sun from the DA mean 0.593
-PASS  ch:blackholes:L319:0.593           ch:blackholes:p3_01_blackholes:319  printed 0.593  recomputed 0.593  tol 5.000005e-04  [observed] mean DA white dwarf mass (Kepler et al. 2007)
-PASS  ch:blackholes:L333                 ch:blackholes:p3_01_blackholes:333  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024), restated
-PASS  ch:blackholes:L333:0.07            ch:blackholes:p3_01_blackholes:333  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error, restated
-PASS  ch:blackholes:L335                 ch:blackholes:p3_01_blackholes:335  printed 0.6  recomputed 0.593  tol 0.05  [calc] typical white dwarf 0.6 M_sun (fig caption)
-PASS  ch:blackholes:L336:2.40            ch:blackholes:p3_01_blackholes:336  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] A at the Chandrasekhar mass = 1.44/0.6
-PASS  ch:blackholes:L358                 ch:blackholes:p3_01_blackholes:358  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [derived] M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun
-PASS  ch:blackholes:L358:3.0\times10^{77} ch:blackholes:p3_01_blackholes:358  printed 3.0\times10^{77}  recomputed 3.026644e+77  tol 5.000005e+75  [derived] the same in Landauer units
-PASS  ch:blackholes:L369                 ch:blackholes:p3_01_blackholes:369  printed 10^{22}  recomputed 2.325015e+22  tol 2.162278e+22  [calc] M_eq > 10^22 M_sun at z = 0
-PASS  ch:blackholes:L372                 ch:blackholes:p3_01_blackholes:372  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] 1/mu(z=0) = 1 + beta_m
-PASS  ch:blackholes:L393                 ch:blackholes:p3_01_blackholes:393  printed (algebra)  recomputed lhs-rhs=0  [none] eta = c^3/(4 hbar G)
+PASS  ch:blackholes:L318                 ch:blackholes:p3_01_blackholes:327  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024)
+PASS  ch:blackholes:L318:0.07            ch:blackholes:p3_01_blackholes:327  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error (Fan et al. 2024)
+PASS  ch:blackholes:L319                 ch:blackholes:p3_01_blackholes:328  printed 0.6  recomputed 0.593  tol 0.05  [observed] typical white dwarf 0.6 M_sun from the DA mean 0.593
+PASS  ch:blackholes:L319:0.593           ch:blackholes:p3_01_blackholes:328  printed 0.593  recomputed 0.593  tol 5.000005e-04  [observed] mean DA white dwarf mass (Kepler et al. 2007)
+PASS  ch:blackholes:L333                 ch:blackholes:p3_01_blackholes:342  printed 2.25  recomputed 2.25  tol 0.00500001  [observed] TOV maximum mass (Fan et al. 2024), restated
+PASS  ch:blackholes:L333:0.07            ch:blackholes:p3_01_blackholes:342  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error, restated
+PASS  ch:blackholes:L335                 ch:blackholes:p3_01_blackholes:344  printed 0.6  recomputed 0.593  tol 0.05  [calc] typical white dwarf 0.6 M_sun (fig caption)
+PASS  ch:blackholes:L336:2.40            ch:blackholes:p3_01_blackholes:345  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] A at the Chandrasekhar mass = 1.44/0.6
+PASS  ch:blackholes:L358                 ch:blackholes:p3_01_blackholes:367  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [derived] M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun
+PASS  ch:blackholes:L358:3.0\times10^{77} ch:blackholes:p3_01_blackholes:367  printed 3.0\times10^{77}  recomputed 3.026644e+77  tol 5.000005e+75  [derived] the same in Landauer units
+PASS  ch:blackholes:L369                 ch:blackholes:p3_01_blackholes:378  printed 10^{22}  recomputed 2.325015e+22  tol 2.162278e+22  [calc] M_eq > 10^22 M_sun at z = 0
+PASS  ch:blackholes:L372                 ch:blackholes:p3_01_blackholes:381  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] 1/mu(z=0) = 1 + beta_m
+PASS  ch:blackholes:L393                 ch:blackholes:p3_01_blackholes:402  printed (algebra)  recomputed lhs-rhs=0  [none] eta = c^3/(4 hbar G)
 
 == Part 3: Black Holes and Horizons | ch:bekenstein (part3/p3_01a_bekenstein.tex)
 PASS  ch:bekenstein:L24                  ch:bekenstein:p3_01a_bekenstein:24  printed (algebra)  recomputed True  [none] 1/4 = 2pi/8pi
@@ -3620,45 +3620,45 @@ PASS  ch:koide:L212:0.25                 ch:koide:p4_15a_lepton_koide:219  print
 PASS  ch:koide:L213                      ch:koide:p4_15a_lepton_koide:220  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [derived] measured offset delta
 PASS  ch:koide:L213:0.975                ch:koide:p4_15a_lepton_koide:220  printed 0.975  recomputed 0.975415  tol 5.000005e-04  [derived] cos delta
 PASS  eq:ko:thm2                         ch:koide:p4_15a_lepton_koide:235  printed (algebra)  recomputed True  [derived] Q = 2/3 at y/x = sqrt2
-PASS  eq:ko:delta0                       ch:koide:p4_15a_lepton_koide:292  printed (algebra)  recomputed True  [calc] masses at delta = 0 with x^2 = 313.851 MeV
-PASS  ch:koide:L243                      ch:koide:p4_15a_lepton_koide:295  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [openprob] measured offset delta (restated)
-PASS  ch:koide:L246                      ch:koide:p4_15a_lepton_koide:298  printed 0.2618  recomputed 0.261799  tol 5.000005e-05  [calc] electron amplitude zero at delta = pi/12
-PASS  ch:koide:L247                      ch:koide:p4_15a_lepton_koide:299  printed 0.0396  recomputed 0.0395746  tol 5.000005e-05  [calc] measured delta inside the edge
-PASS  ch:koide:L253                      ch:koide:p4_15a_lepton_koide:305  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [calc] measured offset delta
-PASS  ch:koide:L254                      ch:koide:p4_15a_lepton_koide:306  printed 2.379  recomputed 2.37944  tol 5.000005e-04  [calc] tau amplitude
-PASS  ch:koide:L254:0.040                ch:koide:p4_15a_lepton_koide:306  printed 0.040  recomputed 0.0403473  tol 5.000005e-04  [calc] electron amplitude
-PASS  ch:koide:L255                      ch:koide:p4_15a_lepton_koide:307  printed 0.580  recomputed 0.580215  tol 5.000005e-04  [calc] muon amplitude
-PASS  ch:koide:L255:0.293                ch:koide:p4_15a_lepton_koide:307  printed 0.293  recomputed 0.292893  tol 5.000005e-04  [calc] e and mu amplitude at delta = 0
-PASS  ch:koide:L260                      ch:koide:p4_15a_lepton_koide:312  printed 313.85  recomputed 313.851  tol 0.00500001  [calc] x^2, MeV
-PASS  ch:koide:L260:0.2222               ch:koide:p4_15a_lepton_koide:312  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [calc] measured offset delta
-PASS  ch:koide:L263                      ch:koide:p4_15a_lepton_koide:315  printed 26.92  recomputed 26.9242  tol 0.00500001  [calc] m_e = m_mu at delta = 0, MeV
-PASS  ch:koide:L272                      ch:koide:p4_15a_lepton_koide:324  printed 17.71584  recomputed 17.7158  tol 5.000005e-06  [calc] x = sum sqrt(m)/3
-PASS  ch:koide:L272:313.851              ch:koide:p4_15a_lepton_koide:324  printed 313.851  recomputed 313.851  tol 5.000005e-04  [calc] x^2, MeV
-PASS  ch:koide:L273                      ch:koide:p4_15a_lepton_koide:325  printed 1.414209  recomputed 1.41421  tol 5.000005e-07  [calc] r from Q = (1 + r^2/2)/3
-PASS  ch:koide:L273:1.414214             ch:koide:p4_15a_lepton_koide:325  printed 1.414214  recomputed 1.41421  tol 5.000005e-07  [calc] sqrt 2
-PASS  ch:koide:L274                      ch:koide:p4_15a_lepton_koide:326  printed 0.222225  recomputed 0.222225  tol 5.000005e-07  [calc] offset delta, rad (tau at k=0)
-PASS  ch:koide:L275                      ch:koide:p4_15a_lepton_koide:327  printed 44.99991  recomputed 44.9999  tol 5.000005e-06  [calc] angle of the sqrt-mass vector to (1,1,1)
-PASS  ch:koide:L276                      ch:koide:p4_15a_lepton_koide:328  printed 26.92  recomputed 26.9242  tol 0.00500001  [calc] m_e = m_mu at delta = 0, MeV
-PASS  ch:koide:L276:1829.26              ch:koide:p4_15a_lepton_koide:328  printed 1829.26  recomputed 1829.26  tol 0.00500001  [calc] m_tau at delta = 0, MeV
-PASS  ch:koide:L277                      ch:koide:p4_15a_lepton_koide:329  printed 0.2618  recomputed 0.261799  tol 5.000005e-05  [calc] electron amplitude zero at delta = pi/12
-PASS  ch:koide:L277:0.0396               ch:koide:p4_15a_lepton_koide:329  printed 0.0396  recomputed 0.0395746  tol 5.000005e-05  [calc] measured delta inside the edge
-PASS  ch:koide:L278                      ch:koide:p4_15a_lepton_koide:330  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L279                      ch:koide:p4_15a_lepton_koide:331  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
-PASS  ch:koide:L283                      ch:koide:p4_15a_lepton_koide:335  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:336  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
-PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p4_15a_lepton_koide:336  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
-PASS  ch:koide:L285                      ch:koide:p4_15a_lepton_koide:337  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
-PASS  ch:koide:L295                      ch:koide:p4_15a_lepton_koide:347  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
-PASS  ch:koide:L296                      ch:koide:p4_15a_lepton_koide:348  printed -0.43  recomputed -0.433634  tol 0.00500001  [calc] pull of the 2024 average
-PASS  ch:koide:L296:-0.9                 ch:koide:p4_15a_lepton_koide:348  printed -0.9  recomputed -0.908559  tol 0.05  [calc] pull of the 2022 average
-PASS  ch:koide:L297                      ch:koide:p4_15a_lepton_koide:349  printed 3.9  recomputed 3.90272  tol 0.05  [prediction] separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV
-PASS  ch:koide:L299                      ch:koide:p4_15a_lepton_koide:351  printed 1776.969  recomputed 1776.97  tol 5.000005e-04  [calc] m_tau fixed by Q = 2/3, MeV
-PASS  ch:koide:L299:0.2222220            ch:koide:p4_15a_lepton_koide:351  printed 0.2222220  recomputed 0.222222  tol 5.000005e-08  [calc] delta at m_tau = 1776.969
-PASS  ch:koide:L315                      ch:koide:p4_15a_lepton_koide:367  printed 0.66666446  recomputed 0.666664  tol 5.000005e-09  [observed] same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)
-PASS  ch:koide:L315:0.43                 ch:koide:p4_15a_lepton_koide:367  printed 0.43  recomputed 0.43363  tol 0.00500001  [observed] 2/3 - Q in standard deviations (status table)
-PASS  ch:koide:L316                      ch:koide:p4_15a_lepton_koide:368  printed 45  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
-PASS  ch:koide:L322                      ch:koide:p4_15a_lepton_koide:376  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [openprob] offset delta in the status table
-PASS  ch:koide:L323                      ch:koide:p4_15a_lepton_koide:377  printed 1776.969  recomputed 1776.97  tol 5.000005e-04  [prediction] same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)
+PASS  eq:ko:delta0                       ch:koide:p4_15a_lepton_koide:295  printed (algebra)  recomputed True  [calc] masses at delta = 0 with x^2 = 313.851 MeV
+PASS  ch:koide:L243                      ch:koide:p4_15a_lepton_koide:298  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [openprob] measured offset delta (restated)
+PASS  ch:koide:L246                      ch:koide:p4_15a_lepton_koide:301  printed 0.2618  recomputed 0.261799  tol 5.000005e-05  [calc] electron amplitude zero at delta = pi/12
+PASS  ch:koide:L247                      ch:koide:p4_15a_lepton_koide:302  printed 0.0396  recomputed 0.0395746  tol 5.000005e-05  [calc] measured delta inside the edge
+PASS  ch:koide:L253                      ch:koide:p4_15a_lepton_koide:308  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [calc] measured offset delta
+PASS  ch:koide:L254                      ch:koide:p4_15a_lepton_koide:309  printed 2.379  recomputed 2.37944  tol 5.000005e-04  [calc] tau amplitude
+PASS  ch:koide:L254:0.040                ch:koide:p4_15a_lepton_koide:309  printed 0.040  recomputed 0.0403473  tol 5.000005e-04  [calc] electron amplitude
+PASS  ch:koide:L255                      ch:koide:p4_15a_lepton_koide:310  printed 0.580  recomputed 0.580215  tol 5.000005e-04  [calc] muon amplitude
+PASS  ch:koide:L255:0.293                ch:koide:p4_15a_lepton_koide:310  printed 0.293  recomputed 0.292893  tol 5.000005e-04  [calc] e and mu amplitude at delta = 0
+PASS  ch:koide:L260                      ch:koide:p4_15a_lepton_koide:315  printed 313.85  recomputed 313.851  tol 0.00500001  [calc] x^2, MeV
+PASS  ch:koide:L260:0.2222               ch:koide:p4_15a_lepton_koide:315  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [calc] measured offset delta
+PASS  ch:koide:L263                      ch:koide:p4_15a_lepton_koide:318  printed 26.92  recomputed 26.9242  tol 0.00500001  [calc] m_e = m_mu at delta = 0, MeV
+PASS  ch:koide:L272                      ch:koide:p4_15a_lepton_koide:327  printed 17.71584  recomputed 17.7158  tol 5.000005e-06  [calc] x = sum sqrt(m)/3
+PASS  ch:koide:L272:313.851              ch:koide:p4_15a_lepton_koide:327  printed 313.851  recomputed 313.851  tol 5.000005e-04  [calc] x^2, MeV
+PASS  ch:koide:L273                      ch:koide:p4_15a_lepton_koide:328  printed 1.414209  recomputed 1.41421  tol 5.000005e-07  [calc] r from Q = (1 + r^2/2)/3
+PASS  ch:koide:L273:1.414214             ch:koide:p4_15a_lepton_koide:328  printed 1.414214  recomputed 1.41421  tol 5.000005e-07  [calc] sqrt 2
+PASS  ch:koide:L274                      ch:koide:p4_15a_lepton_koide:329  printed 0.222225  recomputed 0.222225  tol 5.000005e-07  [calc] offset delta, rad (tau at k=0)
+PASS  ch:koide:L275                      ch:koide:p4_15a_lepton_koide:330  printed 44.99991  recomputed 44.9999  tol 5.000005e-06  [calc] angle of the sqrt-mass vector to (1,1,1)
+PASS  ch:koide:L276                      ch:koide:p4_15a_lepton_koide:331  printed 26.92  recomputed 26.9242  tol 0.00500001  [calc] m_e = m_mu at delta = 0, MeV
+PASS  ch:koide:L276:1829.26              ch:koide:p4_15a_lepton_koide:331  printed 1829.26  recomputed 1829.26  tol 0.00500001  [calc] m_tau at delta = 0, MeV
+PASS  ch:koide:L277                      ch:koide:p4_15a_lepton_koide:332  printed 0.2618  recomputed 0.261799  tol 5.000005e-05  [calc] electron amplitude zero at delta = pi/12
+PASS  ch:koide:L277:0.0396               ch:koide:p4_15a_lepton_koide:332  printed 0.0396  recomputed 0.0395746  tol 5.000005e-05  [calc] measured delta inside the edge
+PASS  ch:koide:L278                      ch:koide:p4_15a_lepton_koide:333  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
+PASS  ch:koide:L279                      ch:koide:p4_15a_lepton_koide:334  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
+PASS  ch:koide:L283                      ch:koide:p4_15a_lepton_koide:338  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
+PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:339  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p4_15a_lepton_koide:339  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
+PASS  ch:koide:L285                      ch:koide:p4_15a_lepton_koide:340  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
+PASS  ch:koide:L295                      ch:koide:p4_15a_lepton_koide:350  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
+PASS  ch:koide:L296                      ch:koide:p4_15a_lepton_koide:351  printed -0.43  recomputed -0.433634  tol 0.00500001  [calc] pull of the 2024 average
+PASS  ch:koide:L296:-0.9                 ch:koide:p4_15a_lepton_koide:351  printed -0.9  recomputed -0.908559  tol 0.05  [calc] pull of the 2022 average
+PASS  ch:koide:L297                      ch:koide:p4_15a_lepton_koide:352  printed 3.9  recomputed 3.90272  tol 0.05  [prediction] separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV
+PASS  ch:koide:L299                      ch:koide:p4_15a_lepton_koide:354  printed 1776.969  recomputed 1776.97  tol 5.000005e-04  [calc] m_tau fixed by Q = 2/3, MeV
+PASS  ch:koide:L299:0.2222220            ch:koide:p4_15a_lepton_koide:354  printed 0.2222220  recomputed 0.222222  tol 5.000005e-08  [calc] delta at m_tau = 1776.969
+PASS  ch:koide:L315                      ch:koide:p4_15a_lepton_koide:370  printed 0.66666446  recomputed 0.666664  tol 5.000005e-09  [observed] same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)
+PASS  ch:koide:L315:0.43                 ch:koide:p4_15a_lepton_koide:370  printed 0.43  recomputed 0.43363  tol 0.00500001  [observed] 2/3 - Q in standard deviations (status table)
+PASS  ch:koide:L316                      ch:koide:p4_15a_lepton_koide:371  printed 45  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
+PASS  ch:koide:L322                      ch:koide:p4_15a_lepton_koide:379  printed 0.2222  recomputed 0.222225  tol 5.000005e-05  [openprob] offset delta in the status table
+PASS  ch:koide:L323                      ch:koide:p4_15a_lepton_koide:380  printed 1776.969  recomputed 1776.97  tol 5.000005e-04  [prediction] same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)
 
 == Part 4: Particles and Quantum Records | ch:electronmass (part4/p4_15b_electron_mass.tex)
 PASS  eq:em:T                            ch:electronmass:p4_15b_electron_mass:17  printed (algebra)  recomputed lhs-rhs=0  [derived] Hawking temperature from T = hbar kappa/(2 pi k_B)
@@ -5852,8 +5852,8 @@ PASS  eq:ko:seq                          ch:koide:p4_15a_lepton_koide:263  print
 PASS  ch:koide:virial:x2                 ch:koide:p4_15a_lepton_koide:270  printed 313.851  recomputed 313.851  tol 5.000005e-04  [calc] zero-sequence power x^2 of the square-root masses, MeV
 PASS  ch:koide:virial:y2                 ch:koide:p4_15a_lepton_koide:270  printed 313.849  recomputed 313.849  tol 5.000005e-04  [calc] power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV
 PASS  ch:koide:virial:ratio              ch:koide:p4_15a_lepton_koide:270  printed 0.999993  recomputed 0.999993  tol 5.000005e-07  [calc] balanced-part power over zero-sequence power = 3Q - 1
-PASS  eq:ko:fid                          ch:koide:p4_15a_lepton_koide:278  printed (algebra)  recomputed True  [derived] fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)
-PASS  ch:koide:virial:F                  ch:koide:p4_15a_lepton_koide:280  printed 0.5000017  recomputed 0.500002  tol 5.000005e-08  [calc] fidelity of the charged-lepton mass shares with equal shares
+PASS  eq:ko:fid                          ch:koide:p4_15a_lepton_koide:281  printed (algebra)  recomputed True  [derived] fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)
+PASS  ch:koide:virial:F                  ch:koide:p4_15a_lepton_koide:283  printed 0.5000017  recomputed 0.500002  tol 5.000005e-08  [calc] fidelity of the charged-lepton mass shares with equal shares
 
 == Part 1: Introduction to IAM's Law and the Virial Theorem | ch:virial_law (part1/p1_03_virial_law.tex)
 PASS  eq:vl_komar                        ch:virial_law:p1_03_virial_law:151  printed (algebra)  recomputed True  [derived] Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2
@@ -5869,4 +5869,7 @@ PASS  eq:eh_dS                           ch:euler_halves:p7_05d_euler_halves:45 
 == Part 4: Particles and Quantum Records | ch:koide (part4/p4_15a_lepton_koide.tex)
 PASS  ch:koide:K3                        ch:koide:p4_15a_lepton_koide:172  printed (algebra)  recomputed True  [calc] K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3
 
-SUMMARY  PASS 4723  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 3: Black Holes and Horizons | ch:blackholes (part3/p3_01_blackholes.tex)
+PASS  ch:blackholes:membrane             ch:blackholes:p3_01_blackholes:155  printed 376.73  recomputed 376.73  tol 0.00500001  [derived] membrane paradigm: horizon surface resistivity 4 pi (Gaussian) = mu_0 c = 376.73 ohm, the impedance of free space
+
+SUMMARY  PASS 4724  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4724 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -3156,86 +3156,87 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 142 | ch:blackholes:L142:4.3\times10^6 | derived | `4.3\times10^6` | numeric: Sgr A* mass (Gillessen 2009) | PASS |
 | 143 | ch:blackholes:L143 | derived | `6.5\times10^9` | numeric: M87* mass (EHT 2019) | PASS |
 | 148 | ch:blackholes:L148 | derived |  | sympy: Kerr T S/(Mc^2) = sqrt(1-chi^2)/2 and its three values (G=c=hbar=k_B=1) | PASS |
-| 155 | eq:bh_dMdt | none |  | sympy: dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2) | PASS |
-| 159 | eq:bh_Mt | none |  | sympy: M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) | PASS |
-| 163 | eq:bh_Str | none |  | sympy: Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2) | PASS |
-| 168 | eq:bh_Str_closed | none |  | sympy: S_tr = S_BH,0 - S_BH(t) with S proportional to M^2 | PASS |
-| 172 | ch:blackholes:L172 | none |  | sympy: half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau | PASS |
-| 176 | ch:blackholes:L176 | derived | `1.51\times10^{77}` | numeric: S_BH,0 in bits for one solar mass | PASS |
-| 177 | ch:blackholes:L177 | derived | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
-| 182 | ch:blackholes:L182 | derived | `0.646` | numeric: S_tr and S_BH cross at t = 0.646 tau (fig caption) | PASS |
-| 192 | ch:blackholes:L192 | derived | `0.646` | numeric: min(S_tr, S_BH) turns over at 0.646 tau | PASS |
-| 194 | ch:blackholes:L194:64.6 | derived | `64.6` | numeric: black-body crossing at 64.6 % of tau | PASS |
+| 155 | ch:blackholes:membrane | derived | `376.73` | numeric: membrane paradigm: horizon surface resistivity 4 pi (Gaussian) = mu_0 c = 376.73 ohm, the impedance of free space | PASS |
+| 164 | eq:bh_dMdt | none |  | sympy: dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2) | PASS |
+| 168 | eq:bh_Mt | none |  | sympy: M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) | PASS |
+| 172 | eq:bh_Str | none |  | sympy: Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2) | PASS |
+| 177 | eq:bh_Str_closed | none |  | sympy: S_tr = S_BH,0 - S_BH(t) with S proportional to M^2 | PASS |
+| 181 | ch:blackholes:L172 | none |  | sympy: half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau | PASS |
+| 185 | ch:blackholes:L176 | derived | `1.51\times10^{77}` | numeric: S_BH,0 in bits for one solar mass | PASS |
+| 186 | ch:blackholes:L177 | derived | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
+| 191 | ch:blackholes:L182 | derived | `0.646` | numeric: S_tr and S_BH cross at t = 0.646 tau (fig caption) | PASS |
 | 194 |  | derived | `53.81` | not run: input: published value cited (Page 2013, doi 10.1088/1475-7516/2013/09/028: maximum of the fine-grained radiation entropy at 53.81 % of the evaporation time for photon and graviton emission), nothing to recompute in the book | - |
-| 201 | ch:blackholes:L201 | calc | `2.6\times10^{-30}` | numeric: T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states | PASS |
-| 201 | ch:blackholes:L201:4.5\times10^{22} | calc | `4.5\times10^{22}` | numeric: mass with T_BH = T_CMB, kg | PASS |
-| 201 | ch:blackholes:L201:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/(4 G H0), H0=67.4 | PASS |
-| 201 | ch:blackholes:L201:2.1\times10^{67} | calc | `2.1\times10^{67}` | numeric: evaporation time, 1 M_sun | PASS |
-| 201 | ch:blackholes:L201:5120 | calc | `5120` | numeric: 5120 in tau_evap (fig caption) | PASS |
+| 201 | ch:blackholes:L192 | derived | `0.646` | numeric: min(S_tr, S_BH) turns over at 0.646 tau | PASS |
 | 201 |  | calc | `67.4` | not run: not printed at this line in the current text: the fig:bh_temperature caption gives H0 = 67.16 (checked by ch:blackholes:L201); the Planck 2018 input 67.4 is at line 209 (ch:blackholes:L209:67.4) | - |
 | 201 |  | calc | `6.6\times10^{10}` | not run: input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute | - |
-| 206 | eq:bh_TGH | calc |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 209 | ch:blackholes:L209 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
-| 209 | ch:blackholes:L209:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
-| 209 | ch:blackholes:L209:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 209 | ch:blackholes:L209:67.4 | calc | `67.4` | numeric: H0 = 67.4 (Planck 2018) | PASS |
-| 213 | eq:bh_Pnet | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 221 | eq:bh_Meq | derived |  | sympy: M_eq from T_BH = T_GH | PASS |
-| 224 | ch:blackholes:L224 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
-| 224 | ch:blackholes:L224:2.33\times10^{22} | calc | `2.33\times10^{22}` | numeric: M_eq at H0 = 67.16 | PASS |
+| 203 | ch:blackholes:L194:64.6 | derived | `64.6` | numeric: black-body crossing at 64.6 % of tau | PASS |
+| 210 | ch:blackholes:L201 | calc | `2.6\times10^{-30}` | numeric: T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states | PASS |
+| 210 | ch:blackholes:L201:4.5\times10^{22} | calc | `4.5\times10^{22}` | numeric: mass with T_BH = T_CMB, kg | PASS |
+| 210 | ch:blackholes:L201:2.3\times10^{22} | calc | `2.3\times10^{22}` | numeric: M_eq = c^3/(4 G H0), H0=67.4 | PASS |
+| 210 | ch:blackholes:L201:2.1\times10^{67} | calc | `2.1\times10^{67}` | numeric: evaporation time, 1 M_sun | PASS |
+| 210 | ch:blackholes:L201:5120 | calc | `5120` | numeric: 5120 in tau_evap (fig caption) | PASS |
+| 215 | eq:bh_TGH | calc |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 218 | ch:blackholes:L209 | calc | `2.66\times10^{-30}` | numeric: T_GH, H0 = 67.4 | PASS |
+| 218 | ch:blackholes:L209:2.65\times10^{-30} | calc | `2.65\times10^{-30}` | numeric: T_GH, H0 = 67.16 | PASS |
+| 218 | ch:blackholes:L209:67.16 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 218 | ch:blackholes:L209:67.4 | calc | `67.4` | numeric: H0 = 67.4 (Planck 2018) | PASS |
+| 222 | eq:bh_Pnet | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 228 |  | calc | `6.6\times10^{10}` | not run: input: TON 618 mass 6.6e10 M_sun, an observed value from the cited Shemmer2004 (doi 10.1086/423607), nothing to recompute | - |
 | 228 |  | calc | `10` | not run: input: epoch z = 10^10 of the table row | - |
-| 231 | ch:blackholes:L231 | calc | `2.18\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 231 | ch:blackholes:L231:2.66\times10^{-30} | calc | `2.66\times10^{-30}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 231 | ch:blackholes:L231:2.32\times10^{22} | calc | `2.32\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 232 | ch:blackholes:L232 | calc | `3.91\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 232 | ch:blackholes:L232:1.30\times10^{22} | calc | `1.30\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 232 | ch:blackholes:L232:4.75\times10^{-30} | calc | `4.75\times10^{-30}` | numeric: T_GH at z = 1 | PASS |
-| 233 | ch:blackholes:L233 | calc | `4.41\times10^{-14}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 233 | ch:blackholes:L233:1.15\times10^{18} | calc | `1.15\times10^{18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 233 | ch:blackholes:L233:5.37\times10^{-26} | calc | `5.37\times10^{-26}` | numeric: T_GH at z = 10^3 | PASS |
+| 230 | eq:bh_Meq | derived |  | sympy: M_eq from T_BH = T_GH | PASS |
+| 233 | ch:blackholes:L224 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
+| 233 | ch:blackholes:L224:2.33\times10^{22} | calc | `2.33\times10^{22}` | numeric: M_eq at H0 = 67.16 | PASS |
 | 233 |  | calc | `10` | not run: input: epoch z = 10^3 of the table row | - |
-| 234 | ch:blackholes:L234 | calc | `2.10\times10^{-8}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 234 | ch:blackholes:L234:2.42\times10^{12} | calc | `2.42\times10^{12}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 234 | ch:blackholes:L234:2.55\times10^{-20} | calc | `2.55\times10^{-20}` | numeric: T_GH at z = 10^6 | PASS |
 | 234 |  | calc | `10` | not run: input: epoch z = 10^6 of the table row | - |
-| 235 | ch:blackholes:L235 | calc | `2.10\times10^{0}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 235 | ch:blackholes:L235:2.42\times10^{4} | calc | `2.42\times10^{4}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 235 | ch:blackholes:L235:2.55\times10^{-12} | calc | `2.55\times10^{-12}` | numeric: T_GH at z = 10^10 | PASS |
 | 235 |  | calc | `10` | not run: input: epoch z = 10^10 of the table row | - |
-| 239 | ch:blackholes:L239 | calc | `3.4\times10^{-90}` | numeric: (T_GH/T_BH)^4 for one solar mass today | PASS |
-| 246 | ch:blackholes:L246 | none |  | sympy: M_CMB = 4.5e22 kg = 0.6 lunar masses | PASS |
-| 248 | ch:blackholes:L248 | calc | `4.4\times10^{7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 249 | ch:blackholes:L249 | calc | `10^{67}` | numeric: evaporation times of 10^67 yr and longer | PASS |
+| 240 | ch:blackholes:L231 | calc | `2.18\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 240 | ch:blackholes:L231:2.66\times10^{-30} | calc | `2.66\times10^{-30}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 240 | ch:blackholes:L231:2.32\times10^{22} | calc | `2.32\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 241 | ch:blackholes:L232 | calc | `3.91\times10^{-18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 241 | ch:blackholes:L232:1.30\times10^{22} | calc | `1.30\times10^{22}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 241 | ch:blackholes:L232:4.75\times10^{-30} | calc | `4.75\times10^{-30}` | numeric: T_GH at z = 1 | PASS |
+| 242 | ch:blackholes:L233 | calc | `4.41\times10^{-14}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 242 | ch:blackholes:L233:1.15\times10^{18} | calc | `1.15\times10^{18}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 242 | ch:blackholes:L233:5.37\times10^{-26} | calc | `5.37\times10^{-26}` | numeric: T_GH at z = 10^3 | PASS |
+| 243 | ch:blackholes:L234 | calc | `2.10\times10^{-8}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 243 | ch:blackholes:L234:2.42\times10^{12} | calc | `2.42\times10^{12}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 243 | ch:blackholes:L234:2.55\times10^{-20} | calc | `2.55\times10^{-20}` | numeric: T_GH at z = 10^6 | PASS |
+| 244 | ch:blackholes:L235 | calc | `2.10\times10^{0}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 244 | ch:blackholes:L235:2.42\times10^{4} | calc | `2.42\times10^{4}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 244 | ch:blackholes:L235:2.55\times10^{-12} | calc | `2.55\times10^{-12}` | numeric: T_GH at z = 10^10 | PASS |
+| 248 | ch:blackholes:L239 | calc | `3.4\times10^{-90}` | numeric: (T_GH/T_BH)^4 for one solar mass today | PASS |
+| 255 | ch:blackholes:L246 | none |  | sympy: M_CMB = 4.5e22 kg = 0.6 lunar masses | PASS |
+| 257 | ch:blackholes:L248 | calc | `4.4\times10^{7}` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 258 | ch:blackholes:L249 | calc | `10^{67}` | numeric: evaporation times of 10^67 yr and longer | PASS |
 | 262 | eq:bh_saturation | conjecture |  | not run: conjecture: saturation criterion for black-hole formation, nothing to recompute (its equivalence to the hoop conjecture is checked by eq:bh_hoop) | - |
-| 271 | eq:bh_hoop | none |  | sympy: S/(k_B A) at the hoop radius = k_B/(4 l_P^2) | PASS |
-| 295 | eq:bh_seed | derived |  | sympy: M from S = 4 pi G M^2/(hbar c), in units of m_Pl | PASS |
-| 305 | ch:blackholes:L305 | calc | `0.98` | numeric: seed mass for S = 1e77 nats | PASS |
+| 280 | eq:bh_hoop | none |  | sympy: S/(k_B A) at the hoop radius = k_B/(4 l_P^2) | PASS |
+| 304 | eq:bh_seed | derived |  | sympy: M from S = 4 pi G M^2/(hbar c), in units of m_Pl | PASS |
 | 305 |  | calc | `10` | not run: input: S_collapse = 10^77 nats (table row label) | - |
-| 306 | ch:blackholes:L306 | calc | `9.8\times10^{2}` | numeric: seed mass for S = 1e83 nats | PASS |
 | 306 |  | calc | `10` | not run: input: S_collapse = 10^83 nats (table row label) | - |
-| 307 | ch:blackholes:L307 | calc | `9.8\times10^{5}` | numeric: seed mass for S = 1e89 nats | PASS |
 | 307 |  | calc | `10` | not run: input: S_collapse = 10^89 nats (table row label) | - |
-| 308 | ch:blackholes:L308 | calc | `9.8\times10^{8}` | numeric: seed mass for S = 1e95 nats | PASS |
 | 308 |  | calc | `10` | not run: input: S_collapse = 10^95 nats (table row label) | - |
-| 316 | ch:blackholes:L316 | observed | `1.456` | heavy file `docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt`: measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names | PASS |
+| 314 | ch:blackholes:L305 | calc | `0.98` | numeric: seed mass for S = 1e77 nats | PASS |
+| 315 | ch:blackholes:L306 | calc | `9.8\times10^{2}` | numeric: seed mass for S = 1e83 nats | PASS |
+| 316 | ch:blackholes:L307 | calc | `9.8\times10^{5}` | numeric: seed mass for S = 1e89 nats | PASS |
 | 316 |  | observed | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931, doi 10.1086/143324); the constants-only value 1.456 for mu_e = 2 printed beside it is checked by ch:blackholes:L316 | - |
-| 318 | ch:blackholes:L318 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024) | PASS |
-| 318 | ch:blackholes:L318:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error (Fan et al. 2024) | PASS |
-| 319 | ch:blackholes:L319 | observed | `0.6` | numeric: typical white dwarf 0.6 M_sun from the DA mean 0.593 | PASS |
-| 319 | ch:blackholes:L319:0.593 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
+| 317 | ch:blackholes:L308 | calc | `9.8\times10^{8}` | numeric: seed mass for S = 1e95 nats | PASS |
 | 319 |  | observed | `1.4` | not run: measured, source not named | - |
-| 333 | ch:blackholes:L333 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024), restated | PASS |
-| 333 | ch:blackholes:L333:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error, restated | PASS |
-| 335 | ch:blackholes:L335 | calc | `0.6` | numeric: typical white dwarf 0.6 M_sun (fig caption) | PASS |
+| 325 | ch:blackholes:L316 | observed | `1.456` | heavy file `docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt`: measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names | PASS |
+| 327 | ch:blackholes:L318 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024) | PASS |
+| 327 | ch:blackholes:L318:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error (Fan et al. 2024) | PASS |
+| 328 | ch:blackholes:L319 | observed | `0.6` | numeric: typical white dwarf 0.6 M_sun from the DA mean 0.593 | PASS |
+| 328 | ch:blackholes:L319:0.593 | observed | `0.593` | numeric: mean DA white dwarf mass (Kepler et al. 2007) | PASS |
 | 335 |  | calc | `1.4` | not run: measured, source not named | - |
-| 336 | ch:blackholes:L336:2.40 | calc | `2.40` | numeric: A at the Chandrasekhar mass = 1.44/0.6 | PASS |
 | 336 |  | calc | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316 | - |
-| 358 | ch:blackholes:L358 | derived | `2.1\times10^{77}` | numeric: M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun | PASS |
-| 358 | ch:blackholes:L358:3.0\times10^{77} | derived | `3.0\times10^{77}` | numeric: the same in Landauer units | PASS |
-| 369 | ch:blackholes:L369 | calc | `10^{22}` | numeric: M_eq > 10^22 M_sun at z = 0 | PASS |
-| 372 | ch:blackholes:L372 | prediction | `1.158` | numeric: 1/mu(z=0) = 1 + beta_m | PASS |
-| 393 | ch:blackholes:L393 | none |  | sympy: eta = c^3/(4 hbar G) | PASS |
+| 342 | ch:blackholes:L333 | observed | `2.25` | numeric: TOV maximum mass (Fan et al. 2024), restated | PASS |
+| 342 | ch:blackholes:L333:0.07 | observed | `0.07` | numeric: TOV maximum mass, lower error, restated | PASS |
+| 344 | ch:blackholes:L335 | calc | `0.6` | numeric: typical white dwarf 0.6 M_sun (fig caption) | PASS |
+| 345 | ch:blackholes:L336:2.40 | calc | `2.40` | numeric: A at the Chandrasekhar mass = 1.44/0.6 | PASS |
+| 367 | ch:blackholes:L358 | derived | `2.1\times10^{77}` | numeric: M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun | PASS |
+| 367 | ch:blackholes:L358:3.0\times10^{77} | derived | `3.0\times10^{77}` | numeric: the same in Landauer units | PASS |
+| 378 | ch:blackholes:L369 | calc | `10^{22}` | numeric: M_eq > 10^22 M_sun at z = 0 | PASS |
+| 381 | ch:blackholes:L372 | prediction | `1.158` | numeric: 1/mu(z=0) = 1 + beta_m | PASS |
+| 402 | ch:blackholes:L393 | none |  | sympy: eta = c^3/(4 hbar G) | PASS |
 
 ## Part 3 - ch:bekenstein - `docs/book/part3/p3_01a_bekenstein.tex`
 
@@ -3749,50 +3750,50 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 270 | ch:koide:virial:x2 | calc | `313.851` | numeric: zero-sequence power x^2 of the square-root masses, MeV | PASS |
 | 270 | ch:koide:virial:y2 | calc | `313.849` | numeric: power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV | PASS |
 | 270 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
-| 278 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
-| 280 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
-| 292 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
-| 295 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
+| 281 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
+| 283 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
+| 295 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
 | 295 |  | calc | `1776.93` | not run: input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31 | - |
 | 296 |  | calc | `1776.86` | not run: input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32 | - |
 | 297 |  | prediction | `1777.09` | not run: input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute | - |
-| 298 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 299 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 305 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 306 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
-| 306 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
-| 307 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
-| 307 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
-| 312 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
-| 312 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 315 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 324 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
-| 324 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
-| 325 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
-| 325 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
-| 326 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
-| 327 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
-| 328 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 328 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
-| 329 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 329 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 330 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 331 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 335 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 336 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
-| 336 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 337 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
-| 347 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 348 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
-| 348 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
-| 349 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
-| 351 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 351 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
-| 367 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 367 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
-| 368 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 376 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
-| 377 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
+| 298 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
+| 301 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 302 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 308 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 309 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
+| 309 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
+| 310 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
+| 310 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
+| 315 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
+| 315 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 318 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 327 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
+| 327 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
+| 328 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
+| 328 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
+| 329 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
+| 330 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
+| 331 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 331 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
+| 332 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 332 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 333 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 334 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 338 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 339 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
+| 339 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 340 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
+| 350 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 351 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
+| 351 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
+| 352 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
+| 354 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 354 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
+| 370 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 370 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
+| 371 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 379 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
+| 380 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
 
 ## Part 4 - ch:electronmass - `docs/book/part4/p4_15b_electron_mass.tex`
 

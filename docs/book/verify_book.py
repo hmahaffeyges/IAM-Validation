@@ -22804,7 +22804,7 @@ def check_1874():
     return locals()
 
 @check(label='eq:bh_dMdt', chapter='ch:blackholes', part=3, title='dM/dt = -sigma A T^4/c^2 = -hbar c^4/(15360 pi G^2 M^2)',
-       file='part3/p3_01_blackholes', line=155, status='none', kind='sym', printed='', tol=0.0)
+       file='part3/p3_01_blackholes', line=164, status='none', kind='sym', printed='', tol=0.0)
 def check_3011():
     'Eq. eq:bh_dMdt. Book line 155. The black-body luminosity sigma_SB A T_BH^4 (sigma derived from the Planck spectrum, A = 16 pi G^2 M^2/c^4, T_BH = hbar c^3/(8 pi G M k_B)) divided by -c^2 lands on -hbar c^4/(15360 pi G^2 M^2).'
     hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
@@ -22817,7 +22817,7 @@ def check_3011():
     return locals()
 
 @check(label='eq:bh_Mt', chapter='ch:blackholes', part=3, title='M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2)',
-       file='part3/p3_01_blackholes', line=159, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=168, status='none', kind='sym', printed='', tol=0)
 def check_1875():
     'M(t)^3 solves dM/dt = -hbar c^4/(15360 pi G^2 M^2) (Eq. eq:bh_Mt). Book line 159.'
     hb,c_,G_=sp.symbols('hbar c G',positive=True); t,M0=sp.symbols('t M0',positive=True); Mt=(M0**3-hb*c_**4*t/(5120*sp.pi*G_**2))**sp.Rational(1,3); ok=sp.simplify(sp.diff(Mt,t)+hb*c_**4/(15360*sp.pi*G_**2*Mt**2))==0
@@ -22825,7 +22825,7 @@ def check_1875():
     return locals()
 
 @check(label='eq:bh_Str', chapter='ch:blackholes', part=3, title='Int Gamma(M(t)) dt = (S_BH,0 - S_BH(t))/(k_B ln2)',
-       file='part3/p3_01_blackholes', line=163, status='none', kind='sym', printed='', tol=0.0)
+       file='part3/p3_01_blackholes', line=172, status='none', kind='sym', printed='', tol=0.0)
 def check_3012():
     'Eq. eq:bh_Str, S_tr(t) = Int_0^t c^3/(1920 G M(t\') ln2) dt\'. Book line 163. Integrates with M(t)^3 = M0^3 - hbar c^4 t/(5120 pi G^2) (Eq. eq:bh_Mt) and lands on the drop of the horizon entropy in bits, 4 pi G (M0^2 - M(t)^2)/(hbar c ln2) (Eq. eq:bh_Str_closed).'
     hb, c_, G_, kB_, M, H, a = _b05_bh_syms()
@@ -22839,14 +22839,14 @@ def check_3012():
     return locals()
 
 @check(label='eq:bh_Str_closed', chapter='ch:blackholes', part=3, title='S_tr = S_BH,0 - S_BH(t) with S proportional to M^2',
-       file='part3/p3_01_blackholes', line=168, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=177, status='none', kind='sym', printed='', tol=0)
 def check_1876():
     'S_tr = S_BH,0 - S_BH(t) with S proportional to M^2 (Eq. eq:bh_Str_closed). Book line 168.'
     t,tau,M0,S0=sp.symbols('t tau M0 S0',positive=True); Mt=M0*(1-t/tau)**sp.Rational(1,3); lhs=S0-S0*(Mt/M0)**2; rhs=S0*(1-(1-t/tau)**sp.Rational(2,3))
     return locals()
 
 @check(label='ch:blackholes:L172', chapter='ch:blackholes', part=3, title='half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau',
-       file='part3/p3_01_blackholes', line=172, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=181, status='none', kind='sym', printed='', tol=0)
 def check_1877():
     'half the entropy transferred at t = (1-2^-3/2) tau = 0.646 tau. Book line 172.'
     x=sp.symbols('x',positive=True); s=sp.solve(sp.Eq(1-(1-x)**sp.Rational(2,3),sp.Rational(1,2)),x); ok=any(sp.simplify(si-(1-2**sp.Rational(-3,2)))==0 for si in s) and abs(float(1-2**-1.5)-0.646)<5e-4
@@ -22854,28 +22854,28 @@ def check_1877():
     return locals()
 
 @check(label='ch:blackholes:L176', chapter='ch:blackholes', part=3, title='S_BH,0 in bits for one solar mass',
-       file='part3/p3_01_blackholes', line=176, status='derived', kind='num', printed='1.51\\times10^{77}', tol=0.0)
+       file='part3/p3_01_blackholes', line=185, status='derived', kind='num', printed='1.51\\times10^{77}', tol=0.0)
 def check_3013():
     'S_BH,0 = 4 pi G M^2/(hbar c ln2) bits for 1 M_sun. Book line 176, printed 1.51e77. Inputs: CODATA 2018 G, hbar, c; M_sun = 1.98847e30 kg (verify_book Msun).'
     value = 4 * math.pi * G * Msun**2 / (hbar * c) / LN2
     return locals()
 
 @check(label='ch:blackholes:L177', chapter='ch:blackholes', part=3, title='same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)',
-       file='part3/p3_01_blackholes', line=177, status='derived', kind='num', printed='152.5', tol=0.00033)
+       file='part3/p3_01_blackholes', line=186, status='derived', kind='num', printed='152.5', tol=0.00033)
 def check_1878():
     'same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass). Book line 177, printed 152.5.'
     value=c**3/(1920*G*Msun*LN2)
     return locals()
 
 @check(label='ch:blackholes:L182', chapter='ch:blackholes', part=3, title='S_tr and S_BH cross at t = 0.646 tau (fig caption)',
-       file='part3/p3_01_blackholes', line=182, status='derived', kind='num', printed='0.646', tol=0.0)
+       file='part3/p3_01_blackholes', line=191, status='derived', kind='num', printed='0.646', tol=0.0)
 def check_3014():
     'Crossing of the entropy carried off, 1-(1-t/tau)^(2/3), and the entropy left, (1-t/tau)^(2/3) (Eq. eq:bh_Str_closed). Book line 182, printed 0.646. Root found numerically.'
     value = _b05_half_transfer()
     return locals()
 
 @check(label='ch:blackholes:L192', chapter='ch:blackholes', part=3, title='min(S_tr, S_BH) turns over at 0.646 tau',
-       file='part3/p3_01_blackholes', line=192, status='derived', kind='num', printed='0.646', tol=0.0)
+       file='part3/p3_01_blackholes', line=201, status='derived', kind='num', printed='0.646', tol=0.0)
 def check_3015():
     'The envelope min[S_tr(t), S_BH(t)] turns over at 0.646 tau. Book line 192, printed 0.646. The maximum of the envelope found numerically on Eq. eq:bh_Str_closed.'
     env = lambda x: -min(1 - (1 - x)**(2 / 3), (1 - x)**(2 / 3))
@@ -22883,35 +22883,35 @@ def check_3015():
     return locals()
 
 @check(label='ch:blackholes:L194:64.6', chapter='ch:blackholes', part=3, title='black-body crossing at 64.6 % of tau',
-       file='part3/p3_01_blackholes', line=194, status='derived', kind='num', printed='64.6', tol=0.0)
+       file='part3/p3_01_blackholes', line=203, status='derived', kind='num', printed='64.6', tol=0.0)
 def check_3016():
     'Black-body crossing time in per cent of the evaporation time. Book line 194, printed 64.6 %. 100 x the root of 1-(1-x)^(2/3) = (1-x)^(2/3).'
     value = 100 * _b05_half_transfer()
     return locals()
 
 @check(label='ch:blackholes:L201', chapter='ch:blackholes', part=3, title='T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states',
-       file='part3/p3_01_blackholes', line=201, status='calc', kind='num', printed='2.6\\times10^{-30}', tol=0)
+       file='part3/p3_01_blackholes', line=210, status='calc', kind='num', printed='2.6\\times10^{-30}', tol=0)
 def check_1879():
     'T_GH = hbar H0/(2 pi k_B) at the photon-sector H0 = 67.16 the caption states. Book line 201, printed 2.6\\times10^{-30}.'
     value=hbar*Hsi(67.16)/(2*math.pi*kB)
     return locals()
 
 @check(label='ch:blackholes:L201:4.5\\times10^{22}', chapter='ch:blackholes', part=3, title='mass with T_BH = T_CMB, kg',
-       file='part3/p3_01_blackholes', line=201, status='calc', kind='num', printed='4.5\\times10^{22}', tol=0)
+       file='part3/p3_01_blackholes', line=210, status='calc', kind='num', printed='4.5\\times10^{22}', tol=0)
 def check_1880():
     'mass with T_BH = T_CMB, kg. Book line 201, printed 4.5\\times10^{22}.'
     value=hbar*c**3/(8*math.pi*G*kB*T_CMB)
     return locals()
 
 @check(label='ch:blackholes:L201:2.3\\times10^{22}', chapter='ch:blackholes', part=3, title='M_eq = c^3/(4 G H0), H0=67.4',
-       file='part3/p3_01_blackholes', line=201, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0)
+       file='part3/p3_01_blackholes', line=210, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0)
 def check_1881():
     'M_eq = c^3/(4 G H0), H0=67.4. Book line 201, printed 2.3\\times10^{22}.'
     value=c**3/(4*G*Hsi(67.4))/Msun
     return locals()
 
 @check(label='ch:blackholes:L201:2.1\\times10^{67}', chapter='ch:blackholes', part=3, title='evaporation time, 1 M_sun',
-       file='part3/p3_01_blackholes', line=201, status='calc', kind='num', printed='2.1\\times10^{67}', tol=0)
+       file='part3/p3_01_blackholes', line=210, status='calc', kind='num', printed='2.1\\times10^{67}', tol=0)
 def check_1882():
     'evaporation time, 1 M_sun. Book line 201, printed 2.1\\times10^{67}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -22922,7 +22922,7 @@ def check_1882():
     return locals()
 
 @check(label='ch:blackholes:L201:5120', chapter='ch:blackholes', part=3, title='5120 in tau_evap (fig caption)',
-       file='part3/p3_01_blackholes', line=201, status='calc', kind='num', printed='5120', tol=0.0)
+       file='part3/p3_01_blackholes', line=210, status='calc', kind='num', printed='5120', tol=0.0)
 def check_3017():
     'Coefficient 5120 of tau_evap in the caption of fig:bh_temperature. Book line 201, printed 5120. Time for dM/dt = -hbar c^4/(15360 pi G^2 M^2) to take M0 to zero, numerically in units hbar = c = G = M0 = 1, divided by pi.'
     sol = solve_ivp(lambda t, y: [-1 / (15360 * math.pi * max(y[0], 1e-9)**2)], (0, 20000 * math.pi), [1.0],
@@ -22931,7 +22931,7 @@ def check_3017():
     return locals()
 
 @check(label='eq:bh_TGH', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=206, status='calc', kind='sym', printed='', tol=0.0)
+       file='part3/p3_01_blackholes', line=215, status='calc', kind='sym', printed='', tol=0.0)
 def check_1883():
     'drafted check, screened (runs; negative control fails) (Eq. eq:bh_TGH). Book line 206.'
     hbar_sym, H_sym, kB_sym = sp.symbols('hbar H k_B', positive=True, real=True)
@@ -22941,21 +22941,21 @@ def check_1883():
     return locals()
 
 @check(label='ch:blackholes:L209', chapter='ch:blackholes', part=3, title='T_GH, H0 = 67.4',
-       file='part3/p3_01_blackholes', line=209, status='calc', kind='num', printed='2.66\\times10^{-30}', tol=0)
+       file='part3/p3_01_blackholes', line=218, status='calc', kind='num', printed='2.66\\times10^{-30}', tol=0)
 def check_1884():
     'T_GH, H0 = 67.4. Book line 209, printed 2.66\\times10^{-30}.'
     value=hbar*Hsi(67.4)/(2*math.pi*kB)
     return locals()
 
 @check(label='ch:blackholes:L209:2.65\\times10^{-30}', chapter='ch:blackholes', part=3, title='T_GH, H0 = 67.16',
-       file='part3/p3_01_blackholes', line=209, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0)
+       file='part3/p3_01_blackholes', line=218, status='calc', kind='num', printed='2.65\\times10^{-30}', tol=0)
 def check_1885():
     'T_GH, H0 = 67.16. Book line 209, printed 2.65\\times10^{-30}.'
     value=hbar*Hsi(H0_photon)/(2*math.pi*kB)
     return locals()
 
 @check(label='ch:blackholes:L209:67.16', chapter='ch:blackholes', part=3, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part3/p3_01_blackholes', line=209, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part3/p3_01_blackholes', line=218, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1886():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 209, printed 67.16.'
@@ -22963,14 +22963,14 @@ def check_1886():
     return locals()
 
 @check(label='ch:blackholes:L209:67.4', chapter='ch:blackholes', part=3, title='H0 = 67.4 (Planck 2018)',
-       file='part3/p3_01_blackholes', line=209, status='calc', kind='num', printed='67.4', tol=0.0)
+       file='part3/p3_01_blackholes', line=218, status='calc', kind='num', printed='67.4', tol=0.0)
 def check_3018():
     'H0 = 67.4 km/s/Mpc, Planck 2018. Book line 209, printed 67.4. Input: Planck 2018 VI (doi 10.1051/0004-6361/201833910) TT,TE,EE+lowE+lensing h = 0.6736 (verify_book h_pl), rounded.'
     value = 100 * h_pl
     return locals()
 
 @check(label='eq:bh_Pnet', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=213, status='derived', kind='sym', printed='', tol=0.0)
+       file='part3/p3_01_blackholes', line=222, status='derived', kind='sym', printed='', tol=0.0)
 def check_1887():
     'drafted check, screened (runs; negative control fails) (Eq. eq:bh_Pnet). Book line 213.'
     sigma_SB, A_BH, T_BH, T_GH = sp.symbols('sigma_SB A_BH T_BH T_GH', positive=True, real=True)
@@ -22980,14 +22980,14 @@ def check_1887():
     return locals()
 
 @check(label='eq:bh_Meq', chapter='ch:blackholes', part=3, title='M_eq from T_BH = T_GH',
-       file='part3/p3_01_blackholes', line=221, status='derived', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=230, status='derived', kind='sym', printed='', tol=0)
 def check_1888():
     'M_eq from T_BH = T_GH (Eq. eq:bh_Meq). Book line 221.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); lhs=sp.solve(sp.Eq(hb*c_**3/(8*sp.pi*G_*M*kB_),hb*H/(2*sp.pi*kB_)),M)[0]; rhs=c_**3/(4*G_*H)
     return locals()
 
 @check(label='ch:blackholes:L224', chapter='ch:blackholes', part=3, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='part3/p3_01_blackholes', line=224, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part3/p3_01_blackholes', line=233, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_1889():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 224, printed 67.16.'
@@ -22995,14 +22995,14 @@ def check_1889():
     return locals()
 
 @check(label='ch:blackholes:L224:2.33\\times10^{22}', chapter='ch:blackholes', part=3, title='M_eq at H0 = 67.16',
-       file='part3/p3_01_blackholes', line=224, status='calc', kind='num', printed='2.33\\times10^{22}', tol=0)
+       file='part3/p3_01_blackholes', line=233, status='calc', kind='num', printed='2.33\\times10^{22}', tol=0)
 def check_1890():
     'M_eq at H0 = 67.16. Book line 224, printed 2.33\\times10^{22}.'
     value=c**3/(4*G*Hsi(H0_photon))/Msun
     return locals()
 
 @check(label='ch:blackholes:L231', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=231, status='calc', kind='num', printed='2.18\\times10^{-18}', tol=0.0)
+       file='part3/p3_01_blackholes', line=240, status='calc', kind='num', printed='2.18\\times10^{-18}', tol=0.0)
 def check_1891():
     'drafted check, screened (runs; negative control fails). Book line 231, printed 2.18\\times10^{-18}.'
     H0_str = 67.4  # km/s/Mpc, Planck 2018
@@ -23011,7 +23011,7 @@ def check_1891():
     return locals()
 
 @check(label='ch:blackholes:L231:2.66\\times10^{-30}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=231, status='calc', kind='num', printed='2.66\\times10^{-30}', tol=0.0)
+       file='part3/p3_01_blackholes', line=240, status='calc', kind='num', printed='2.66\\times10^{-30}', tol=0.0)
 def check_1892():
     'drafted check, screened (runs; negative control fails). Book line 231, printed 2.66\\times10^{-30}.'
     H0_str = 67.4  # km/s/Mpc, Planck 2018
@@ -23021,7 +23021,7 @@ def check_1892():
     return locals()
 
 @check(label='ch:blackholes:L231:2.32\\times10^{22}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=231, status='calc', kind='num', printed='2.32\\times10^{22}', tol=0.0)
+       file='part3/p3_01_blackholes', line=240, status='calc', kind='num', printed='2.32\\times10^{22}', tol=0.0)
 def check_1893():
     'drafted check, screened (runs; negative control fails). Book line 231, printed 2.32\\times10^{22}.'
     H0_str = 67.4  # km/s/Mpc, Planck 2018
@@ -23032,7 +23032,7 @@ def check_1893():
     return locals()
 
 @check(label='ch:blackholes:L232', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=232, status='calc', kind='num', printed='3.91\\times10^{-18}', tol=0.0)
+       file='part3/p3_01_blackholes', line=241, status='calc', kind='num', printed='3.91\\times10^{-18}', tol=0.0)
 def check_1894():
     'drafted check, screened (runs; negative control fails). Book line 232, printed 3.91\\times10^{-18}.'
     # z=1, H from Hubble parameter formula with stated parameters
@@ -23047,7 +23047,7 @@ def check_1894():
     return locals()
 
 @check(label='ch:blackholes:L232:1.30\\times10^{22}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=232, status='calc', kind='num', printed='1.30\\times10^{22}', tol=0.0)
+       file='part3/p3_01_blackholes', line=241, status='calc', kind='num', printed='1.30\\times10^{22}', tol=0.0)
 def check_1895():
     'drafted check, screened (runs; negative control fails). Book line 232, printed 1.30\\times10^{22}.'
     # z=1, M_eq = c^3 / (4 G H)
@@ -23064,14 +23064,14 @@ def check_1895():
     return locals()
 
 @check(label='ch:blackholes:L232:4.75\\times10^{-30}', chapter='ch:blackholes', part=3, title='T_GH at z = 1',
-       file='part3/p3_01_blackholes', line=232, status='calc', kind='num', printed='4.75\\times10^{-30}', tol=0.0)
+       file='part3/p3_01_blackholes', line=241, status='calc', kind='num', printed='4.75\\times10^{-30}', tol=0.0)
 def check_3019():
     'T_GH = hbar H(z)/(2 pi k_B) at z = 1, H(z) with the parameters of the tab:bh_meq caption. Book line 232, printed 4.75e-30 K.'
     value = hbar * _b05_H_tab(1) / (2 * math.pi * kB)
     return locals()
 
 @check(label='ch:blackholes:L233', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=233, status='calc', kind='num', printed='4.41\\times10^{-14}', tol=0.0)
+       file='part3/p3_01_blackholes', line=242, status='calc', kind='num', printed='4.41\\times10^{-14}', tol=0.0)
 def check_1896():
     'drafted check, screened (runs; negative control fails). Book line 233, printed 4.41\\times10^{-14}.'
     # z=1000, H from Hubble parameter formula
@@ -23086,7 +23086,7 @@ def check_1896():
     return locals()
 
 @check(label='ch:blackholes:L233:1.15\\times10^{18}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=233, status='calc', kind='num', printed='1.15\\times10^{18}', tol=0.0)
+       file='part3/p3_01_blackholes', line=242, status='calc', kind='num', printed='1.15\\times10^{18}', tol=0.0)
 def check_1897():
     'drafted check, screened (runs; negative control fails). Book line 233, printed 1.15\\times10^{18}.'
     # z=1000, M_eq = c^3 / (4 G H)
@@ -23103,14 +23103,14 @@ def check_1897():
     return locals()
 
 @check(label='ch:blackholes:L233:5.37\\times10^{-26}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^3',
-       file='part3/p3_01_blackholes', line=233, status='calc', kind='num', printed='5.37\\times10^{-26}', tol=0.0)
+       file='part3/p3_01_blackholes', line=242, status='calc', kind='num', printed='5.37\\times10^{-26}', tol=0.0)
 def check_3020():
     'T_GH = hbar H(z)/(2 pi k_B) at z = 1e3, H(z) with the parameters of the tab:bh_meq caption. Book line 233, printed 5.37e-26 K.'
     value = hbar * _b05_H_tab(1e3) / (2 * math.pi * kB)
     return locals()
 
 @check(label='ch:blackholes:L234', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=234, status='calc', kind='num', printed='2.10\\times10^{-8}', tol=0.0)
+       file='part3/p3_01_blackholes', line=243, status='calc', kind='num', printed='2.10\\times10^{-8}', tol=0.0)
 def check_1898():
     'drafted check, screened (runs; negative control fails). Book line 234, printed 2.10\\times10^{-8}.'
     # Hubble parameter H(z) = H0 * sqrt(Om(1+z)^3 + OL + Or(1+z)^4)
@@ -23126,7 +23126,7 @@ def check_1898():
     return locals()
 
 @check(label='ch:blackholes:L234:2.42\\times10^{12}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=234, status='calc', kind='num', printed='2.42\\times10^{12}', tol=0.0)
+       file='part3/p3_01_blackholes', line=243, status='calc', kind='num', printed='2.42\\times10^{12}', tol=0.0)
 def check_1899():
     'drafted check, screened (runs; negative control fails). Book line 234, printed 2.42\\times10^{12}.'
     # ITEM 325: M_eq(z=10^6) in M_sun
@@ -23143,14 +23143,14 @@ def check_1899():
     return locals()
 
 @check(label='ch:blackholes:L234:2.55\\times10^{-20}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^6',
-       file='part3/p3_01_blackholes', line=234, status='calc', kind='num', printed='2.55\\times10^{-20}', tol=0.0)
+       file='part3/p3_01_blackholes', line=243, status='calc', kind='num', printed='2.55\\times10^{-20}', tol=0.0)
 def check_3021():
     'T_GH = hbar H(z)/(2 pi k_B) at z = 1e6, H(z) with the parameters of the tab:bh_meq caption. Book line 234, printed 2.55e-20 K.'
     value = hbar * _b05_H_tab(1e6) / (2 * math.pi * kB)
     return locals()
 
 @check(label='ch:blackholes:L235', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=235, status='calc', kind='num', printed='2.10\\times10^{0}', tol=0.0)
+       file='part3/p3_01_blackholes', line=244, status='calc', kind='num', printed='2.10\\times10^{0}', tol=0.0)
 def check_1900():
     'drafted check, screened (runs; negative control fails). Book line 235, printed 2.10\\times10^{0}.'
     # ITEM 327: H(z=10^10) in s^-1
@@ -23166,7 +23166,7 @@ def check_1900():
     return locals()
 
 @check(label='ch:blackholes:L235:2.42\\times10^{4}', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=235, status='calc', kind='num', printed='2.42\\times10^{4}', tol=0.0)
+       file='part3/p3_01_blackholes', line=244, status='calc', kind='num', printed='2.42\\times10^{4}', tol=0.0)
 def check_1901():
     'drafted check, screened (runs; negative control fails). Book line 235, printed 2.42\\times10^{4}.'
     # ITEM 329: M_eq(z=10^10) in M_sun
@@ -23183,14 +23183,14 @@ def check_1901():
     return locals()
 
 @check(label='ch:blackholes:L235:2.55\\times10^{-12}', chapter='ch:blackholes', part=3, title='T_GH at z = 10^10',
-       file='part3/p3_01_blackholes', line=235, status='calc', kind='num', printed='2.55\\times10^{-12}', tol=0.0)
+       file='part3/p3_01_blackholes', line=244, status='calc', kind='num', printed='2.55\\times10^{-12}', tol=0.0)
 def check_3022():
     'T_GH = hbar H(z)/(2 pi k_B) at z = 1e10, H(z) with the parameters of the tab:bh_meq caption. Book line 235, printed 2.55e-12 K.'
     value = hbar * _b05_H_tab(1e10) / (2 * math.pi * kB)
     return locals()
 
 @check(label='ch:blackholes:L239', chapter='ch:blackholes', part=3, title='(T_GH/T_BH)^4 for one solar mass today',
-       file='part3/p3_01_blackholes', line=239, status='calc', kind='num', printed='3.4\\times10^{-90}', tol=0.0)
+       file='part3/p3_01_blackholes', line=248, status='calc', kind='num', printed='3.4\\times10^{-90}', tol=0.0)
 def check_3023():
     'Cosmic-horizon bath correction (T_GH/T_BH)^4 for 1 M_sun at H0 = 67.4 (Planck 2018, as in Eq. eq:bh_TGH and line 209). Book line 239, printed 3.4e-90.'
     T_GH = hbar * Hsi(100 * h_pl) / (2 * math.pi * kB)
@@ -23199,7 +23199,7 @@ def check_3023():
     return locals()
 
 @check(label='ch:blackholes:L246', chapter='ch:blackholes', part=3, title='M_CMB = 4.5e22 kg = 0.6 lunar masses',
-       file='part3/p3_01_blackholes', line=246, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=255, status='none', kind='sym', printed='', tol=0)
 def check_1902():
     'M_CMB = 4.5e22 kg = 0.6 lunar masses. Book line 246.'
     M_=hbar*c**3/(8*math.pi*G*kB*T_CMB); ok=abs(M_/4.5e22-1)<0.012 and abs(M_/7.342e22-0.6)<0.05  # lunar mass 7.342e22 kg (NASA fact sheet)
@@ -23208,7 +23208,7 @@ def check_1902():
     return locals()
 
 @check(label='ch:blackholes:L248', chapter='ch:blackholes', part=3, title='drafted check, screened (runs; negative control fails)',
-       file='part3/p3_01_blackholes', line=248, status='calc', kind='num', printed='4.4\\times10^{7}', tol=0.0)
+       file='part3/p3_01_blackholes', line=257, status='calc', kind='num', printed='4.4\\times10^{7}', tol=0.0)
 def check_1903():
     'drafted check, screened (runs; negative control fails). Book line 248, printed 4.4\\times10^{7}.'
     # Line 248: scale factor growth for solar mass BH to reach T_CMB equilibrium
@@ -23225,56 +23225,56 @@ def check_1903():
     return locals()
 
 @check(label='ch:blackholes:L249', chapter='ch:blackholes', part=3, title='evaporation times of 10^67 yr and longer',
-       file='part3/p3_01_blackholes', line=249, status='calc', kind='num', printed='10^{67}', tol=0.0)
+       file='part3/p3_01_blackholes', line=258, status='calc', kind='num', printed='10^{67}', tol=0.0)
 def check_3024():
     'Order of magnitude of the evaporation time of the lightest (solar-mass) black hole, tau = 5120 pi G^2 M^3/(hbar c^4) in years. Book line 249, printed 10^{67} (bare power of ten: within half a decade).'
     value = 5120 * math.pi * G**2 * Msun**3 / (hbar * c**4) / yr
     return locals()
 
 @check(label='eq:bh_hoop', chapter='ch:blackholes', part=3, title='S/(k_B A) at the hoop radius = k_B/(4 l_P^2)',
-       file='part3/p3_01_blackholes', line=271, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=280, status='none', kind='sym', printed='', tol=0)
 def check_1904():
     'S/(k_B A) at the hoop radius = k_B/(4 l_P^2) (Eq. eq:bh_hoop). Book line 271.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); lhs=(4*sp.pi*G_*kB_*M**2/(hb*c_))/(4*sp.pi*(2*G_*M/c_**2)**2); rhs=kB_/(4*hb*G_/c_**3)
     return locals()
 
 @check(label='eq:bh_seed', chapter='ch:blackholes', part=3, title='M from S = 4 pi G M^2/(hbar c), in units of m_Pl',
-       file='part3/p3_01_blackholes', line=295, status='derived', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=304, status='derived', kind='sym', printed='', tol=0)
 def check_1905():
     'M from S = 4 pi G M^2/(hbar c), in units of m_Pl (Eq. eq:bh_seed). Book line 295.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); Sx=sp.symbols('S',positive=True); m=sp.solve(sp.Eq(Sx,4*sp.pi*G_*M**2/(hb*c_)),M)[0]; lhs=m; rhs=sp.sqrt(hb*c_/G_)/(2*sp.sqrt(sp.pi))*sp.sqrt(Sx)
     return locals()
 
 @check(label='ch:blackholes:L305', chapter='ch:blackholes', part=3, title='seed mass for S = 1e77 nats',
-       file='part3/p3_01_blackholes', line=305, status='calc', kind='num', printed='0.98', tol=0.0)
+       file='part3/p3_01_blackholes', line=314, status='calc', kind='num', printed='0.98', tol=0.0)
 def check_3025():
     'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e77 nats, in M_sun. Book line 305, printed 0.98.'
     value = _b05_seed_Msun(1e77)
     return locals()
 
 @check(label='ch:blackholes:L306', chapter='ch:blackholes', part=3, title='seed mass for S = 1e83 nats',
-       file='part3/p3_01_blackholes', line=306, status='calc', kind='num', printed='9.8\\times10^{2}', tol=0.0)
+       file='part3/p3_01_blackholes', line=315, status='calc', kind='num', printed='9.8\\times10^{2}', tol=0.0)
 def check_3026():
     'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e83 nats, in M_sun. Book line 306, printed 9.8e2.'
     value = _b05_seed_Msun(1e83)
     return locals()
 
 @check(label='ch:blackholes:L307', chapter='ch:blackholes', part=3, title='seed mass for S = 1e89 nats',
-       file='part3/p3_01_blackholes', line=307, status='calc', kind='num', printed='9.8\\times10^{5}', tol=0.0)
+       file='part3/p3_01_blackholes', line=316, status='calc', kind='num', printed='9.8\\times10^{5}', tol=0.0)
 def check_3027():
     'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e89 nats, in M_sun. Book line 307, printed 9.8e5.'
     value = _b05_seed_Msun(1e89)
     return locals()
 
 @check(label='ch:blackholes:L308', chapter='ch:blackholes', part=3, title='seed mass for S = 1e95 nats',
-       file='part3/p3_01_blackholes', line=308, status='calc', kind='num', printed='9.8\\times10^{8}', tol=0.0)
+       file='part3/p3_01_blackholes', line=317, status='calc', kind='num', printed='9.8\\times10^{8}', tol=0.0)
 def check_3028():
     'M_BH = m_Pl sqrt(S)/(2 sqrt(pi)) (Eq. eq:bh_seed) for S_collapse = 1e95 nats, in M_sun. Book line 308, printed 9.8e8.'
     value = _b05_seed_Msun(1e95)
     return locals()
 
 @check(label='ch:blackholes:L316', chapter='ch:blackholes', part=3, title='measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names',
-       file='part3/p3_01_blackholes', line=316, status='observed', kind='file', printed='1.456', tol=0.0, source='docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt',
+       file='part3/p3_01_blackholes', line=325, status='observed', kind='file', printed='1.456', tol=0.0, source='docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_virial_atoms_to_horizon.py > docs/verification/scripts/verify_virial_atoms_to_horizon_output.txt')
 def check_1906():
     'measured: printed value found in verify_virial_atoms_to_horizon_output.txt, a file the chapter names. Book line 316, printed 1.456.'
@@ -23282,7 +23282,7 @@ def check_1906():
     return locals()
 
 @check(label='ch:blackholes:L318', chapter='ch:blackholes', part=3, title='TOV maximum mass (Fan et al. 2024)',
-       file='part3/p3_01_blackholes', line=318, status='observed', kind='num', printed='2.25', tol=0.0)
+       file='part3/p3_01_blackholes', line=327, status='observed', kind='num', printed='2.25', tol=0.0)
 def check_3029():
     'Multimessenger inference of the TOV maximum mass. Book line 318, printed 2.25 M_sun. Published: Fan et al. 2024, Phys. Rev. D 109, 043052 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun (title of the paper).'
     M_TOV_Fan2024 = 2.25
@@ -23290,7 +23290,7 @@ def check_3029():
     return locals()
 
 @check(label='ch:blackholes:L318:0.07', chapter='ch:blackholes', part=3, title='TOV maximum mass, lower error (Fan et al. 2024)',
-       file='part3/p3_01_blackholes', line=318, status='observed', kind='num', printed='0.07', tol=0.0)
+       file='part3/p3_01_blackholes', line=327, status='observed', kind='num', printed='0.07', tol=0.0)
 def check_3030():
     'Lower error of M_TOV. Book line 318, printed 0.07 M_sun. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun (title of the paper).'
     err_lo_Fan2024 = 0.07
@@ -23298,7 +23298,7 @@ def check_3030():
     return locals()
 
 @check(label='ch:blackholes:L319', chapter='ch:blackholes', part=3, title='typical white dwarf 0.6 M_sun from the DA mean 0.593',
-       file='part3/p3_01_blackholes', line=319, status='observed', kind='num', printed='0.6', tol=0.0)
+       file='part3/p3_01_blackholes', line=328, status='observed', kind='num', printed='0.6', tol=0.0)
 def check_3031():
     'Typical white dwarf mass as built, 0.6 M_sun, the rounded measured mean of DA white dwarfs. Book line 319, printed 0.6. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x), mean DA mass 0.593 M_sun.'
     M_DA_Kepler2007 = 0.593
@@ -23306,7 +23306,7 @@ def check_3031():
     return locals()
 
 @check(label='ch:blackholes:L319:0.593', chapter='ch:blackholes', part=3, title='mean DA white dwarf mass (Kepler et al. 2007)',
-       file='part3/p3_01_blackholes', line=319, status='observed', kind='num', printed='0.593', tol=0.0)
+       file='part3/p3_01_blackholes', line=328, status='observed', kind='num', printed='0.593', tol=0.0)
 def check_3032():
     'Measured mean mass of DA white dwarfs. Book line 319, printed 0.593 M_sun. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x), <M_DA> = 0.593 +- 0.016 M_sun; also the value in docs/book/figscripts/fig_p2_star_gauge.py.'
     M_DA_Kepler2007 = 0.593
@@ -23314,7 +23314,7 @@ def check_3032():
     return locals()
 
 @check(label='ch:blackholes:L333', chapter='ch:blackholes', part=3, title='TOV maximum mass (Fan et al. 2024), restated',
-       file='part3/p3_01_blackholes', line=333, status='observed', kind='num', printed='2.25', tol=0.0)
+       file='part3/p3_01_blackholes', line=342, status='observed', kind='num', printed='2.25', tol=0.0)
 def check_3033():
     'M_TOV restated. Book line 333, printed 2.25 M_sun. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun.'
     M_TOV_Fan2024 = 2.25
@@ -23322,7 +23322,7 @@ def check_3033():
     return locals()
 
 @check(label='ch:blackholes:L333:0.07', chapter='ch:blackholes', part=3, title='TOV maximum mass, lower error, restated',
-       file='part3/p3_01_blackholes', line=333, status='observed', kind='num', printed='0.07', tol=0.0)
+       file='part3/p3_01_blackholes', line=342, status='observed', kind='num', printed='0.07', tol=0.0)
 def check_3034():
     'Lower error of M_TOV restated. Book line 333, printed 0.07. Published: Fan et al. 2024 (doi 10.1103/PhysRevD.109.043052), M_TOV = 2.25 +0.08 -0.07 M_sun.'
     err_lo_Fan2024 = 0.07
@@ -23330,7 +23330,7 @@ def check_3034():
     return locals()
 
 @check(label='ch:blackholes:L335', chapter='ch:blackholes', part=3, title='typical white dwarf 0.6 M_sun (fig caption)',
-       file='part3/p3_01_blackholes', line=335, status='calc', kind='num', printed='0.6', tol=0.0)
+       file='part3/p3_01_blackholes', line=344, status='calc', kind='num', printed='0.6', tol=0.0)
 def check_3035():
     'Typical white dwarf 0.6 M_sun in the caption of fig:stargauge. Book line 335, printed 0.6. Rounded measured DA mean, Kepler et al. 2007 (doi 10.1111/j.1365-2966.2006.11388.x), 0.593 M_sun.'
     M_DA_Kepler2007 = 0.593
@@ -23338,7 +23338,7 @@ def check_3035():
     return locals()
 
 @check(label='ch:blackholes:L336:2.40', chapter='ch:blackholes', part=3, title='A at the Chandrasekhar mass = 1.44/0.6',
-       file='part3/p3_01_blackholes', line=336, status='calc', kind='num', printed='2.40', tol=0.0)
+       file='part3/p3_01_blackholes', line=345, status='calc', kind='num', printed='2.40', tol=0.0)
 def check_3036():
     'Gauge value A = M/M_typical at the Chandrasekhar mass. Book line 336, printed 2.40. Inputs: M_Ch = 1.44 M_sun as quoted (Chandrasekhar 1931, doi 10.1086/143324); M_typical = the Kepler et al. 2007 DA mean 0.593 rounded to one decimal, as the chapter does.'
     M_Ch = 1.44
@@ -23347,21 +23347,21 @@ def check_3036():
     return locals()
 
 @check(label='ch:blackholes:L358', chapter='ch:blackholes', part=3, title='M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun',
-       file='part3/p3_01_blackholes', line=358, status='derived', kind='num', printed='2.1\\times10^{77}', tol=0)
+       file='part3/p3_01_blackholes', line=367, status='derived', kind='num', printed='2.1\\times10^{77}', tol=0)
 def check_1907():
     'M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun. Book line 358, printed 2.1\\times10^{77}.'
     value=8*math.pi*(Msun/mP)**2
     return locals()
 
 @check(label='ch:blackholes:L358:3.0\\times10^{77}', chapter='ch:blackholes', part=3, title='the same in Landauer units',
-       file='part3/p3_01_blackholes', line=358, status='derived', kind='num', printed='3.0\\times10^{77}', tol=0)
+       file='part3/p3_01_blackholes', line=367, status='derived', kind='num', printed='3.0\\times10^{77}', tol=0)
 def check_1908():
     'the same in Landauer units. Book line 358, printed 3.0\\times10^{77}.'
     value=8*math.pi*(Msun/mP)**2/LN2
     return locals()
 
 @check(label='ch:blackholes:L369', chapter='ch:blackholes', part=3, title='M_eq > 10^22 M_sun at z = 0',
-       file='part3/p3_01_blackholes', line=369, status='calc', kind='num', printed='10^{22}', tol=0.0)
+       file='part3/p3_01_blackholes', line=378, status='calc', kind='num', printed='10^{22}', tol=0.0)
 def check_3037():
     'M_eq = c^3/(4 G H0) at z = 0 is above 10^22 M_sun (tab:bh_tests, book line 369, printed M_eq > 10^{22}). H0 = 67.4 (Planck 2018, h_pl). value is M_eq if it exceeds 1e22 (else 0), judged as an order of magnitude.'
     M_eq = c**3 / (4 * G * Hsi(100 * h_pl)) / Msun
@@ -23369,14 +23369,14 @@ def check_3037():
     return locals()
 
 @check(label='ch:blackholes:L372', chapter='ch:blackholes', part=3, title='1/mu(z=0) = 1 + beta_m',
-       file='part3/p3_01_blackholes', line=372, status='prediction', kind='num', printed='1.158', tol=0)
+       file='part3/p3_01_blackholes', line=381, status='prediction', kind='num', printed='1.158', tol=0)
 def check_1909():
     '1/mu(z=0) = 1 + beta_m. Book line 372, printed 1.158.'
     value=1+beta_m
     return locals()
 
 @check(label='ch:blackholes:L393', chapter='ch:blackholes', part=3, title='eta = c^3/(4 hbar G)',
-       file='part3/p3_01_blackholes', line=393, status='none', kind='sym', printed='', tol=0)
+       file='part3/p3_01_blackholes', line=402, status='none', kind='sym', printed='', tol=0)
 def check_1910():
     'eta = c^3/(4 hbar G). Book line 393.'
     hb,c_,G_,kB_,eta,kap,M,H,lp,rho,T_,A=sp.symbols('hbar c G k_B eta kappa M H l_P rho T A',positive=True); lhs=sp.solve(sp.Eq(hb*eta/(2*sp.pi),c_**3/(8*sp.pi*G_)),eta)[0]; rhs=c_**3/(4*hb*G_)
@@ -26876,7 +26876,7 @@ def check_2165():
     return locals()
 
 @check(label='eq:ko:delta0', chapter='ch:koide', part=4, title='masses at delta = 0 with x^2 = 313.851 MeV',
-       file='part4/p4_15a_lepton_koide', line=292, status='calc', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=295, status='calc', kind='sym', printed='', tol=0)
 def check_2166():
     'masses at delta = 0 with x^2 = 313.851 MeV (Eq. eq:ko:delta0). Book line 240.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26890,21 +26890,21 @@ def check_2166():
     return locals()
 
 @check(label='ch:koide:L243', chapter='ch:koide', part=4, title='measured offset delta (restated)',
-       file='part4/p4_15a_lepton_koide', line=295, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=298, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3715():
     'The measured spectrum needs delta = 0.2222 rad: offset of the first harmonic of the three square roots, tau at k = 0. Book line 243 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L246', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=298, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=301, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2167():
     'electron amplitude zero at delta = pi/12. Book line 246, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L247', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=299, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=302, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2168():
     'measured delta inside the edge. Book line 247, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26920,7 +26920,7 @@ def check_2168():
     return locals()
 
 @check(label='ch:koide:L253', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=305, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=308, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2169():
     'measured offset delta. Book line 253, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26936,7 +26936,7 @@ def check_2169():
     return locals()
 
 @check(label='ch:koide:L254', chapter='ch:koide', part=4, title='tau amplitude',
-       file='part4/p4_15a_lepton_koide', line=306, status='calc', kind='num', printed='2.379', tol=0)
+       file='part4/p4_15a_lepton_koide', line=309, status='calc', kind='num', printed='2.379', tol=0)
 def check_2170():
     'tau amplitude. Book line 254, printed 2.379.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26952,7 +26952,7 @@ def check_2170():
     return locals()
 
 @check(label='ch:koide:L254:0.040', chapter='ch:koide', part=4, title='electron amplitude',
-       file='part4/p4_15a_lepton_koide', line=306, status='calc', kind='num', printed='0.040', tol=0)
+       file='part4/p4_15a_lepton_koide', line=309, status='calc', kind='num', printed='0.040', tol=0)
 def check_2171():
     'electron amplitude. Book line 254, printed 0.040.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26968,7 +26968,7 @@ def check_2171():
     return locals()
 
 @check(label='ch:koide:L255', chapter='ch:koide', part=4, title='muon amplitude',
-       file='part4/p4_15a_lepton_koide', line=307, status='calc', kind='num', printed='0.580', tol=0)
+       file='part4/p4_15a_lepton_koide', line=310, status='calc', kind='num', printed='0.580', tol=0)
 def check_2172():
     'muon amplitude. Book line 255, printed 0.580.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26984,14 +26984,14 @@ def check_2172():
     return locals()
 
 @check(label='ch:koide:L255:0.293', chapter='ch:koide', part=4, title='e and mu amplitude at delta = 0',
-       file='part4/p4_15a_lepton_koide', line=307, status='calc', kind='num', printed='0.293', tol=0)
+       file='part4/p4_15a_lepton_koide', line=310, status='calc', kind='num', printed='0.293', tol=0)
 def check_2173():
     'e and mu amplitude at delta = 0. Book line 255, printed 0.293.'
     value=1-math.sqrt(2)/2
     return locals()
 
 @check(label='ch:koide:L260', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=312, status='calc', kind='num', printed='313.85', tol=0)
+       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='313.85', tol=0)
 def check_2174():
     'x^2, MeV. Book line 260, printed 313.85.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27007,7 +27007,7 @@ def check_2174():
     return locals()
 
 @check(label='ch:koide:L260:0.2222', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=312, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2175():
     'measured offset delta. Book line 260, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27023,7 +27023,7 @@ def check_2175():
     return locals()
 
 @check(label='ch:koide:L263', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=318, status='calc', kind='num', printed='26.92', tol=0)
 def check_2176():
     'm_e = m_mu at delta = 0, MeV. Book line 263, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27039,7 +27039,7 @@ def check_2176():
     return locals()
 
 @check(label='ch:koide:L272', chapter='ch:koide', part=4, title='x = sum sqrt(m)/3',
-       file='part4/p4_15a_lepton_koide', line=324, status='calc', kind='num', printed='17.71584', tol=0)
+       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='17.71584', tol=0)
 def check_2177():
     'x = sum sqrt(m)/3. Book line 272, printed 17.71584.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27055,7 +27055,7 @@ def check_2177():
     return locals()
 
 @check(label='ch:koide:L272:313.851', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=324, status='calc', kind='num', printed='313.851', tol=0)
+       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='313.851', tol=0)
 def check_2178():
     'x^2, MeV. Book line 272, printed 313.851.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27071,7 +27071,7 @@ def check_2178():
     return locals()
 
 @check(label='ch:koide:L273', chapter='ch:koide', part=4, title='r from Q = (1 + r^2/2)/3',
-       file='part4/p4_15a_lepton_koide', line=325, status='calc', kind='num', printed='1.414209', tol=0)
+       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1.414209', tol=0)
 def check_2179():
     'r from Q = (1 + r^2/2)/3. Book line 273, printed 1.414209.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27087,14 +27087,14 @@ def check_2179():
     return locals()
 
 @check(label='ch:koide:L273:1.414214', chapter='ch:koide', part=4, title='sqrt 2',
-       file='part4/p4_15a_lepton_koide', line=325, status='calc', kind='num', printed='1.414214', tol=0)
+       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1.414214', tol=0)
 def check_2180():
     'sqrt 2. Book line 273, printed 1.414214.'
     value=math.sqrt(2)
     return locals()
 
 @check(label='ch:koide:L274', chapter='ch:koide', part=4, title='offset delta, rad (tau at k=0)',
-       file='part4/p4_15a_lepton_koide', line=326, status='calc', kind='num', printed='0.222225', tol=0)
+       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.222225', tol=0)
 def check_2181():
     'offset delta, rad (tau at k=0). Book line 274, printed 0.222225.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27110,7 +27110,7 @@ def check_2181():
     return locals()
 
 @check(label='ch:koide:L275', chapter='ch:koide', part=4, title='angle of the sqrt-mass vector to (1,1,1)',
-       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='44.99991', tol=0)
+       file='part4/p4_15a_lepton_koide', line=330, status='calc', kind='num', printed='44.99991', tol=0)
 def check_2182():
     'angle of the sqrt-mass vector to (1,1,1). Book line 275, printed 44.99991.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27126,7 +27126,7 @@ def check_2182():
     return locals()
 
 @check(label='ch:koide:L276', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='26.92', tol=0)
 def check_2183():
     'm_e = m_mu at delta = 0, MeV. Book line 276, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27142,7 +27142,7 @@ def check_2183():
     return locals()
 
 @check(label='ch:koide:L276:1829.26', chapter='ch:koide', part=4, title='m_tau at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1829.26', tol=0)
+       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='1829.26', tol=0)
 def check_2184():
     'm_tau at delta = 0, MeV. Book line 276, printed 1829.26.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27158,14 +27158,14 @@ def check_2184():
     return locals()
 
 @check(label='ch:koide:L277', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=332, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2185():
     'electron amplitude zero at delta = pi/12. Book line 277, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L277:0.0396', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=332, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2186():
     'measured delta inside the edge. Book line 277, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27181,7 +27181,7 @@ def check_2186():
     return locals()
 
 @check(label='ch:koide:L278', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=330, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=333, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2187():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 278, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27197,7 +27197,7 @@ def check_2187():
     return locals()
 
 @check(label='ch:koide:L279', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=334, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2188():
     '2/9 - delta at Q = 2/3. Book line 279, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27213,7 +27213,7 @@ def check_2188():
     return locals()
 
 @check(label='ch:koide:L283', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=335, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=338, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2189():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 283, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27229,7 +27229,7 @@ def check_2189():
     return locals()
 
 @check(label='ch:koide:L284', chapter='ch:koide', part=4, title='uncertainty of delta from m_mu',
-       file='part4/p4_15a_lepton_koide', line=336, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
 def check_2190():
     'uncertainty of delta from m_mu. Book line 284, printed 4\\times10^{-10}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27245,7 +27245,7 @@ def check_2190():
     return locals()
 
 @check(label='ch:koide:L284:1.75\\times10^{-7}', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=336, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2191():
     '2/9 - delta at Q = 2/3. Book line 284, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27261,7 +27261,7 @@ def check_2191():
     return locals()
 
 @check(label='ch:koide:L285', chapter='ch:koide', part=4, title='delta - 2/9 in sigma',
-       file='part4/p4_15a_lepton_koide', line=337, status='calc', kind='num', printed='0.4', tol=0)
+       file='part4/p4_15a_lepton_koide', line=340, status='calc', kind='num', printed='0.4', tol=0)
 def check_2192():
     'delta - 2/9 in sigma. Book line 285, printed 0.4.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27277,7 +27277,7 @@ def check_2192():
     return locals()
 
 @check(label='ch:koide:L295', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=347, status='calc', kind='num', printed='1776.9690', tol=0)
+       file='part4/p4_15a_lepton_koide', line=350, status='calc', kind='num', printed='1776.9690', tol=0)
 def check_2193():
     'm_tau fixed by Q = 2/3, MeV. Book line 295, printed 1776.9690.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27293,7 +27293,7 @@ def check_2193():
     return locals()
 
 @check(label='ch:koide:L296', chapter='ch:koide', part=4, title='pull of the 2024 average',
-       file='part4/p4_15a_lepton_koide', line=348, status='calc', kind='num', printed='-0.43', tol=0)
+       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='-0.43', tol=0)
 def check_2194():
     'pull of the 2024 average. Book line 296, printed -0.43.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27309,7 +27309,7 @@ def check_2194():
     return locals()
 
 @check(label='ch:koide:L296:-0.9', chapter='ch:koide', part=4, title='pull of the 2022 average',
-       file='part4/p4_15a_lepton_koide', line=348, status='calc', kind='num', printed='-0.9', tol=0)
+       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='-0.9', tol=0)
 def check_2195():
     'pull of the 2022 average. Book line 296, printed -0.9.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27325,14 +27325,14 @@ def check_2195():
     return locals()
 
 @check(label='ch:koide:L297', chapter='ch:koide', part=4, title='separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV',
-       file='part4/p4_15a_lepton_koide', line=349, status='prediction', kind='num', printed='3.9', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=352, status='prediction', kind='num', printed='3.9', tol=0.0)
 def check_3716():
     'A measurement at +-0.01 MeV with the present central value 1776.93 MeV would separate it from the Q = 2/3 value of m_tau (solved here from m_e, m_mu) at (m_tau(Q=2/3) - 1776.93)/0.01 sigma. Book line 297, printed 3.9. Inputs: m_e, m_mu CODATA 2018; m_tau 1776.93 (PDG 2024).'
     value = (_b07_mtau_exact() - _B07_MTAU24) / 0.01
     return locals()
 
 @check(label='ch:koide:L299', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=354, status='calc', kind='num', printed='1776.969', tol=0)
 def check_2196():
     'm_tau fixed by Q = 2/3, MeV. Book line 299, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27348,7 +27348,7 @@ def check_2196():
     return locals()
 
 @check(label='ch:koide:L299:0.2222220', chapter='ch:koide', part=4, title='delta at m_tau = 1776.969',
-       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='0.2222220', tol=0)
+       file='part4/p4_15a_lepton_koide', line=354, status='calc', kind='num', printed='0.2222220', tol=0)
 def check_2197():
     'delta at m_tau = 1776.969. Book line 299, printed 0.2222220.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27364,7 +27364,7 @@ def check_2197():
     return locals()
 
 @check(label='ch:koide:L315', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)',
-       file='part4/p4_15a_lepton_koide', line=367, status='observed', kind='num', printed='0.66666446', tol=0)
+       file='part4/p4_15a_lepton_koide', line=370, status='observed', kind='num', printed='0.66666446', tol=0)
 def check_2198():
     'same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses). Book line 315, printed 0.66666446.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27380,7 +27380,7 @@ def check_2198():
     return locals()
 
 @check(label='ch:koide:L315:0.43', chapter='ch:koide', part=4, title='2/3 - Q in standard deviations (status table)',
-       file='part4/p4_15a_lepton_koide', line=367, status='observed', kind='num', printed='0.43', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=370, status='observed', kind='num', printed='0.43', tol=0.0)
 def check_3717():
     '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV by a numerical derivative. Book line 315, printed 0.43 (restates ch:koide:L34:0.43). Inputs: table masses (CODATA 2018, PDG 2024).'
     dQ = (_b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 + 1e-4) - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 - 1e-4)) / 2e-4
@@ -27388,7 +27388,7 @@ def check_3717():
     return locals()
 
 @check(label='ch:koide:L316', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
-       file='part4/p4_15a_lepton_koide', line=368, status='derived', kind='sym', printed='45', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=371, status='derived', kind='sym', printed='45', tol=0.0)
 def check_2199():
     'drafted check, screened (runs; negative control fails). Book line 316, printed 45.'
     lhs = sp.atan2(1, 1) * 180 / sp.pi
@@ -27397,14 +27397,14 @@ def check_2199():
     return locals()
 
 @check(label='ch:koide:L322', chapter='ch:koide', part=4, title='offset delta in the status table',
-       file='part4/p4_15a_lepton_koide', line=376, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=379, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3718():
     'Status table: the offset delta = 0.2222. Book line 322 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L323', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)',
-       file='part4/p4_15a_lepton_koide', line=377, status='prediction', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=380, status='prediction', kind='num', printed='1776.969', tol=0)
 def check_2200():
     'same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV). Book line 323, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -44585,7 +44585,7 @@ def check_kov_ratio():
     assert abs(value - (3 * _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24) - 1)) < 1e-12
     return locals()
 
-@check(label='eq:ko:fid', title='fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)', status='derived', kind='sym', printed='', tol=0, line=278, **_KOV)
+@check(label='eq:ko:fid', title='fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)', status='derived', kind='sym', printed='', tol=0, line=281, **_KOV)
 def check_kov_fid():
     'Eq. eq:ko:fid: with p_k = m_k / sum m, (sum sqrt(p_k/3))^2 = 1/(3Q), Q = sum m / (sum sqrt m)^2.'
     a, b, c3 = sp.symbols('a b c', positive=True); S = a**2 + b**2 + c3**2
@@ -44594,7 +44594,7 @@ def check_kov_fid():
     neg_ok = sp.simplify(F - 1 / Q) == 0
     return locals()
 
-@check(label='ch:koide:virial:F', title='fidelity of the charged-lepton mass shares with equal shares', status='calc', kind='num', printed='0.5000017', tol=0, line=280, **_KOV)
+@check(label='ch:koide:virial:F', title='fidelity of the charged-lepton mass shares with equal shares', status='calc', kind='num', printed='0.5000017', tol=0, line=283, **_KOV)
 def check_kov_F():
     'F = 1/(3Q) for the measured masses (PDG 2024 m_tau). Printed 0.5000017.'
     m3 = [_B07_ME, _B07_MMU, _B07_MTAU24]; p3 = [mk / sum(m3) for mk in m3]
@@ -44679,6 +44679,17 @@ def check_ko_K3():
     Qm = (me + mmu + mt) / (me**0.5 + mmu**0.5 + mt**0.5)**2
     ok = Q.subs(y, 2 * x) == 1 and Q.subs(y, sp.sqrt(2) * x) == sp.Rational(2, 3) and abs(Qm - 2 / 3) < 1e-4 and abs(Qm - 1) > 0.3
     neg_ok = Q.subs(y, 2 * x) == sp.Rational(2, 3)
+    return locals()
+
+# ---------------------------------------------------------------- ch:blackholes matched horizon (edit 081)
+@check(label='ch:blackholes:membrane', chapter='ch:blackholes', part=3, file='part3/p3_01_blackholes', kind='num', printed='376.73', tol=0.0, line=155, status='derived',
+       title='membrane paradigm: horizon surface resistivity 4 pi (Gaussian) = mu_0 c = 376.73 ohm, the impedance of free space')
+def check_bh_membrane():
+    'sec:bh_membrane: mu_0 c with mu_0 = 4 pi 1e-7 (defined to 1e-10) and c exact.'
+    import math
+    value = 4e-7 * math.pi * 299792458.0
+    ok = abs(value - 376.73) < 0.005
+    neg_ok = abs(4e-7 * math.pi * 299792458.0 / 2 - 376.73) < 0.005
     return locals()
 
 if __name__ == "__main__":
