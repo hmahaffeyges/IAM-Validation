@@ -6217,3 +6217,8 @@ A forward table of planted molecules at the level derived from M, with no eraser
 GEO throttles requests by address and refused three fetches today for longer than the chain's five retries. The fetch now waits one minute,
 doubling to ten, over eight tries, and uses the server's Retry-After when given; its error names the address and the count. No reading
 changes.
+
+### 2026-11-16 · OTH-068: the Decoder states the physics of every input the chain reads
+The Decoder has a new section with one entry per input the chain reads (its kind, register row, equation, where the chain uses it,
+how to reproduce it, and what is open), and each instrument section has a step-by-step account from IAM's Law and M to its reading.
+The Decoder build now reports every chain input that has no complete entry.

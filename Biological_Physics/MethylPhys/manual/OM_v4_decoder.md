@@ -255,10 +255,14 @@ the chain reads comes from that one statement; everything else in the chain is s
 
 - **The floor (derived).** A mark held behind a wall of M thermal kicks is lost with odds 1/(1 + e^M): millions of times below any reading.
 - **The ceiling (derived).** One bit per site, every identity site scrambled: H(β) = 1 bit at β = 0.5 (Met-A's `_ceiling` caveat).
-- **The healthy level (derived, one measured input).** A mark kept by a constant push of two ATP per restore against thermal kicks (first
-  passage under a drive): held error 0.0445 per site and held share φ = E_hold/M = 0.1464 from M alone;
-  the eraser's measured share of the losses is added; through the counter it gives IAM-A's baseline intercept (Section 9) and, through H(β),
-  Met-A's healthy level at held sites (Section 5). The chain reads against the measured references; the derivation explains them.
+- **The healthy level (derived from M alone).** A mark kept by a constant push of two coins per restore (one S-adenosylmethionine) against
+  thermal kicks (first passage under a drive) has odds(w) = (w/2) / (1 − (1 − e^−w)/w) restores per loss at w = 2M: held error
+  0.0445 per site and held share φ = E_hold/M = 0.1464 from M alone. In mature blood no eraser share is
+  needed (a lead); in stem and progenitor types the measured eraser share is part of that type's distance from IAM-A's one line. Read through
+  the counter at the sample's own clustering it gives IAM-A's derived intercept, 0.0359 at the healthy clustering (Section 9), and through H(β)
+  the healthy level at fully held sites, which arrays cannot resolve (Section 5). The chain reads against the measured references; the
+  derivation explains them, and the measured IAM-A line sits 1.12 times the derived level in the atlas laboratory and 0.96 to 1.03 times it in
+  the blind-test laboratory.
 - **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the
   independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion
   failure, the T-to-C slip, the lambda spike-in where present). An earlier version of the main path dropped them.
@@ -276,7 +280,9 @@ the chain reads comes from that one statement; everything else in the chain is s
   from detailed balance says that holding a mark at error ε costs at least kT ln(1/ε) of heat per interval, about 3 kT at the
   derived level and one coin at the floor. Both rest on Landauer's price of a bit at kT.
 - **The eraser (measured, by cell type).** The share of losses the erasers cause is measured in eraser-removal libraries (PHY-085, PHY-086,
-  PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). A baseline per cell type is open.
+  PHY-090): 13.6 % in stem cells, about 5 % in hematopoietic progenitors, near zero in mature B cells; its price per erasure is calculated
+  (PHY-088). IAM-A has one line for every cell type: in mature blood the share drops out (a lead), and in stem and progenitor types it is one
+  contributor to that type's distance from the line, inside each type's own level, which is open (register A8).
 - **The bit.** Met-A reads disorder in bits, H(β); IAM-A reads the held error, the share of held sites wrong at any moment.
 
 ## Inputs: every number the chain reads, with its physics
@@ -1976,10 +1982,12 @@ Met-A; only a change in how well the cells hold their marks does.
 **The gauge.** Healthy is 1 (the healthy reference, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = 20.94) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy reference is measured
-once and never fitted to the sample. Its level is now derived from M with one measured input (PHY-083): a mark kept by a constant push
-of two ATP per restore (one S-adenosylmethionine) loses 0.0445 per site from M alone, and the eraser's measured share
-of the losses is added; it passed the blind test PHY-084 by the agreed standard. The chain still reads against the measured reference; the
-derivation explains it and does not replace it.
+once and never fitted to the sample. Its level at fully held sites follows from M alone: the paid hold of two ATP per restore (one S-adenosylmethionine) loses
+0.0445 per site, so a fully held site reads 1 − ε0 in sequencing units (derived, the same quantity as IAM-A's derived
+baseline; blind test PHY-084 met), and the atlas's measured transfer maps it to about 0.9545 on the array scale,
+0.0044 below the array's saturation 0.959 and inside the transfer's calibration error, so no array test can resolve it. Met-A's identity
+sites are cell-type marks, not fully held sites, and their healthy reference stays measured. The chain reads against the measured reference;
+the derivation explains it and does not replace it.
 
 **The ceiling caveat (`_ceiling`).** H(β) peaks at β = 0.5. Met-A rises with loss of the pattern only while the methylated sites stay
 above 0.5. Every reading records the mean β of the cell's methylated sites and flags `past_entropy_ceiling` when it has fallen below 0.5,
@@ -2100,7 +2108,7 @@ reference arrays' range, `noise_gate_EPIC_v1.json`), the state is shown only aft
 
 ### Stage MC, the C-Score
 
-**Label: from IAM's physics, read with a standard statistic.** Drift that comes from holding marks against noise is scattered: each site
+**Label: standard statistic (register C1: statistics, not IAM's Law), read on the departure map Met-A's physics makes.** Drift that comes from holding marks against noise is scattered: each site
 fails on its own. Loss that comes from a process acting on a region, such as a tumor's, is clustered along the genome.
 
 - **The statistic:** take the departure map z in genomic order, average blocks of 10 consecutive sites, and take the variance of the
@@ -2514,10 +2522,13 @@ Stage Q2 as above: the refusals, the shape check, the reading A with its predict
 The reading's `count` also carries the nearest-neighbor coupling (`coupling`, `coupling_err_share`, `coupling_pairs`), recorded beside
 the held error, never used in A.
 
-It also carries the run-length spectrum of losses on the same held molecules (`loss_runs`: observed runs of 1, 2, 3, 4 and 5 or more
+The count also holds the run-length spectrum of losses on the same held molecules (`loss_runs`: observed runs of 1, 2, 3, 4 and 5 or more
 consecutive losses, and their exact expectation when each molecule's own losses fall at random among its calls; `loss_run_ratio` =
-observed runs / expected runs: 1 for independent point losses, below 1 when losses come in stretches). Development, recorded only,
-never used in A (register CP1; book Part VI, 'Run-length spectrum of losses').
+observed runs / expected runs: 1 for independent point losses, below 1 when losses come in stretches), the tile-by-tile line
+(`held_err_firm_tiles`, `held_err_loose_tiles`, `tile_line_n`, `held_err_by_tile_call`) and the library's end damage (`end_damage`,
+`meter`), all from `stage_q2_selfref.count_pat`. This function's count list does not pass them on; they reach the bundle on the count-only
+route (`--dev-count-only`) and the mixed-specimen route of `run_sample.py`. Development, recorded only, never used in A (register CP1; book
+Part VI, 'Run-length spectrum of losses').
 
 *Code:* `stage_v4.py` line 99 (29 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
@@ -2764,11 +2775,14 @@ on 56 healthy cell types, E_hold is 3.08 kT per interior opportunity (`holding_e
 This line was measured once on 153 healthy samples of 56 cell types (a public whole-genome bisulfite atlas of purified human cells,
 GSE186458), counted by this same counter. A Theil–Sen fit was used, the median of pairwise slopes, which is robust to outlying cell types.
 The median distance of a cell type from the line is 0.0025. The line is stored on the raw axis this counter writes; there is no scale
-factor anywhere. What the intercept means physically is now derived (PHY-083): the counter's reading of a mark held by the paid hold of M alone
-(0.0445 per site), plus the eraser's measured share of the losses, pushed through this same counter (a per-site loss and
-the counter's lone-loss reading are different quantities, so the comparison is made like for like, through the counter). The eraser's share
-differs by cell type (PHY-085, PHY-086, PHY-090), the largest part of the spread of healthy cell types about this one line; a baseline per
-cell type is open (register A8). The reading still uses the measured constants.
+factor anywhere. What the intercept means physically is derived from M alone (PHY-083, register A4): the paid hold loses 0.0445 per site.
+A per-site loss and the counter's lone-loss reading are different quantities, so the comparison is made like for like: molecules planted at
+that loss are read by this same counter (the forward table, register A6), which gives 0.0359 at the healthy clustering 1.33 and 0.0364 to
+0.0333 over clustering 0.94 to 2.27, with no eraser input (in mature blood the eraser share drops out, register A5, a lead). The stored firm,
+measured in the atlas laboratory, is 1.12 times that level; the blind-test laboratory's healthy samples read 0.96 to 1.03 times it. The
+spread of healthy cell types about this one line, about 81 % of its healthy spread, is each type's own level, open (register A8); the
+measured eraser share of stem and progenitor types is one contributor to it. The slope 0.034625 is measured; the part of it that is mixing
+inside a sample, about 40 %, follows from the pump (register A7, partly derived). The reading still uses the measured constants.
 
 **The reading.** IAM-A = ε measured / ε predicted at the sample's own L. 1 is on IAM-A's baseline; above 1 is more holes than its own
 state predicts. **Band v1: 0.7787 to 1.0551**, the 2.5th to 97.5th percentile of 156 pooled healthy readings.
@@ -2874,7 +2888,9 @@ open, with the register row that decides it. Every number can be recomputed with
 **Nearest-neighbor coupling, a second reading on the same count.** Every count also records whether a molecule's lost marks fall one at a
 time or together: the pairs of neighboring CpGs unmethylated together on held molecules, over what each molecule's own length and error count
 give at random (`_coupling`); 1 is independent. It is written beside the held error because clustered errors lower the lone-error count IAM-A
-uses. In development: recorded and flagged, no gauge yet (INSTRUMENTS.md, In development).
+uses. In development: recorded and flagged. Its gauge, coupling-A (the sample's coupling over the healthy coupling of its cell type,
+`stage_coupling.read`, against `Runtime Matrices/Coupling/coupling_reference_v1.json`), is read and flagged; its null, 1, is counted exactly,
+and IAM's Law is not yet in it (register CP1).
 
 ### `stage_q2_selfref.py::qual_iso_expect`
 
@@ -3242,8 +3258,10 @@ and checksum; stops, with what GEO holds, when it cannot pick exactly one.
 **What it is for.** One person's whole-blood Met-A cannot show a 1 % change: healthy people differ by about 2 % after the tare. The
 average of a group can. Group-A compares two groups read in one series.
 
-**Label: standard method** (two tared means, Welch's standard error), applied to one physical reading per person, each against its own
-expected value for that person's cell mix.
+**Label: standard method** (two tared means, Welch's standard error; register GA1: statistics, not IAM's Law), applied to one physical
+reading per person, each against its own expected value for that person's cell mix. The physics is in the readings it compares (Met-A).
+Its commissioned rule tares each reading against same-run healthy arrays, a reference the atlas rule retires; Group-A is not yet
+re-commissioned on IAM-Atlas v2.1, and its development route (`compare-cells`) reads each cell against the atlas alone.
 
 **How it reads.** Each person is read by the one command, unchanged. Each reading is tared against healthy arrays run the same way: the
 median of the healthy references on the same slide when the slide holds at least 3, else of the same series. A sample is never its own

@@ -1,0 +1,34 @@
+[
+ {
+  "c": "CONDITIONAL-ON-E055",
+  "r": "(Section 9 block, step 17, replaces the whole step once edit 055 is on main.)\n17. **Where these fields are recorded now.** `stage_q2_selfref.count_pat` computes the coupling, the run lengths, the tile line, the end damage\n    and the distance tally on every `.pat` count; `count_bam` adds conv_fail, sub_err and tc_err, and `lambda_meter` the lambda spike-in. Every\n    IAM-A reading carries them: the main reading's count (`stage_v4.stage_q2`) lists end_damage, meter, tc_err, conv_fail, conv_fail_lambda,\n    coupling, coupling_err_share, coupling_pair_share, coupling_pairs, coupling_max, loss_runs, loss_run_ratio, held_err_firm_tiles,\n    held_err_loose_tiles, tile_line_n and held_err_by_tile_call, as the count-only and mixed-specimen routes of `run_sample.py` do. No\n    reading changes (the joint run's test library reads A 0.8329 before and after)."
+ },
+ {
+  "c": "CONDITIONAL-ON-E055",
+  "r": "(Replaces the `stage_v4.py::stage_q2` paragraph given in the main list, once edit 055 is on main.)\nThe count also carries the run-length spectrum of losses on the same held molecules (`loss_runs`, `loss_run_ratio`), the tile-by-tile line\n(`held_err_firm_tiles`, `held_err_loose_tiles`, `tile_line_n`, `held_err_by_tile_call`) and the meter's own fields (`end_damage`, `meter`,\n`tc_err`, `conv_fail`, `conv_fail_lambda`), from `stage_q2_selfref.count_pat` and `count_bam`. Development, recorded only, never used in A\n(register CP1, T2, A17)."
+ },
+ {
+  "c": "CONDITIONAL-ON-E055",
+  "r": "(Date-free replacement for the bullet edit 055 itself inserts before '- **The balance (derived form).**'; the inserted text carries a date\nin its head, which the Decoder build refuses.)\n- **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the independent\n  expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion failure, the\n  T-to-C slip, the lambda spike-in where present)."
+ },
+ {
+  "c": "CONDITIONAL-ON-E056",
+  "r": "(Section 9 block, step 10, replaces the whole step once edit 056 is on main.)\n10. **The reading (measured against the line), and A_derived beside it.** IAM-A = ε measured / ε predicted at the sample's own L\n    (`stage_q2_selfref.reading`), on the measured line v1, the default. Beside it every reading gives A_derived\n    (`stage_q2_selfref.derived_reading`): ε measured / (firm_derived + 0.034625 × L), where firm_derived is the forward table of step 8 read at\n    the sample's own coupling by linear interpolation (`Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json`, `firm_by_coupling`), with\n    predicted_derived and firm_derived recorded. A coupling outside the table (0.94 to 2.27) is not extrapolated: A_derived is withheld with\n    the reason, as it is when the count has no coupling. The file is stamped and refused if edited. The default switches to the derived line\n    together with band v2."
+ },
+ {
+  "c": "CONDITIONAL-ON-E056",
+  "r": "(New Inputs entry, placed after the `band_v1.json` entry, once edit 056 is on main.)\n#### Input: Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json\n\n**Kind:** derived\n\n**Register:** A4; A5; A6; A7; F033; PHY-084\n\n**What it is:** IAM-A's derived line: `firm_by_coupling`, nine pairs (coupling, intercept) from 0.9426 → 0.036425 to 2.2721 → 0.033292;\n`slope` 0.034625 (measured, from line v1); `eps0` {{canon:eps0_candidate:.4f}}; `eraser_ratio` 1.0 (no eraser input).\n\n**Physics / equation:** intercept(k) = the raw held error that molecules planted at ε0 = 1/(1 + odds(2M)) per site give when read by this\ncounter at clustering k (the forward table of Section 9, step 8; `doors/data/DEV_CHAIN_Q2_01/forward_line_synthetic.py`, 3 samples of\n120,000 planted held molecules per point, GitHub runs 43991012677 to 43991157818). No eraser share: in mature blood it drops out (A5, a\nlead). The slope is the measured one (A7, partly derived).\n\n**How the chain uses it:** `stage_q2_selfref.derived_line` loads it and refuses it if edited; `derived_reading` gives A_derived =\nheld_err / (interp(coupling) + slope × loose_share), within the table only; `stage_v4.stage_q2` and the mixed-specimen route of\n`run_sample.py` add A_derived, predicted_derived and firm_derived beside A.\n\n**Reproduce it:** run the forward model at each planted clustering and average the three samples' (coupling, held error); or check a\nreading by hand with `numpy.interp`.\n\n**Status and open parts:** derived and read beside A, not the default: the atlas laboratory reads 1.12 times this level, the blind-test\nlaboratory 0.96 to 1.03 times, and which is right is open (A5 lead, A8, the meter)."
+ },
+ {
+  "c": "CONDITIONAL-ON-E056",
+  "r": "(Date-free replacement for the bullet edit 056 itself inserts before '- **The balance (derived form).**'; the inserted text carries a date.)\n- **The derived line in every reading.** Each IAM-A reading also gives A_derived: the held error over the line whose intercept is the held\n  error from M alone ({{canon:eps0_candidate:.4f}}, no eraser input in mature blood, a lead) read through this counter at the sample's own\n  clustering (`Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json`), with the measured slope. A (the measured line) stays the default while\n  the two laboratories disagree: the atlas laboratory reads 1.12 times the derived level, the blind-test laboratory 0.96 to 1.03 times."
+ },
+ {
+  "c": "CONDITIONAL-ON-E056",
+  "r": "(Replaces the main-list replacement of '- **The healthy level ...**' in 'Where IAM's Law is in the chain', last sentence, once edit 056 is on main.)\nThe chain reads against the measured references and gives IAM-A's reading on the derived line beside the measured one (A_derived); the\nmeasured line sits 1.12 times the derived level in the atlas laboratory and 0.96 to 1.03 times it in the blind-test laboratory."
+ },
+ {
+  "c": "CONDITIONAL-ON-E056",
+  "r": "(Replaces the last two sentences of the selfref_line_v1.json entry's 'Status and open parts' once edit 056 is on main.)\nThe derived intercept is read beside it on every sample (`derived_line_v1.json`, A_derived). Making the derived line the default waits on the\n12 % between-laboratory offset (open: A5 lead, A8, the meter) and comes together with band v2."
+ }
+]

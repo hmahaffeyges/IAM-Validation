@@ -76,9 +76,69 @@ def build():
             if k in key: out += [f"### `{k}`", "", txt, "", facts(key[k]), ""]
     return "\n".join(out).rstrip() + "\n", missing, unknown, undoc
 
+# ---- 2026-11-16 (author: the Decoder 'IS the CANON document for the chain code ... a researcher can take it and work out the chain and math
+# on his own'; 'make the code demand it'). Every input the chain reads must have its own Decoder entry with its physics: each data file under
+# chain/Runtime Matrices or chain/FROZEN_INPUTS named in chain code (a family of per-type files counts once, by its folder), and every canon key
+# chain code reads. An entry is a '#### Input: <name>' block in decoder_text.md with all seven labeled lines filled. For a canon key the entry's
+# Kind must agree with the canon's own status for that key.
+INPUT_FIELDS = ("Kind:", "Register:", "What it is:", "Physics / equation:", "How the chain uses it:", "Reproduce it:", "Status and open parts:")
+KINDS = ("derived", "calculated", "measured", "calibrated", "development")
+def chain_inputs():
+    CHD = os.path.join(H, "..", "chain"); code = ""
+    for root, _, fs in os.walk(CHD):
+        if "archive" in root or "__pycache__" in root or "trace" in root: continue
+        for f in fs:
+            if f.endswith(".py"): code += open(os.path.join(root, f), encoding="utf-8", errors="replace").read() + "\n"
+    files = set()
+    for top in ("Runtime Matrices", "FROZEN_INPUTS"):
+        base = os.path.join(CHD, top)
+        if not os.path.isdir(base): continue
+        for root, _, fs in os.walk(base):
+            if "archive" in root: continue
+            for f in fs:
+                if f.endswith(".stamp.json") or f.startswith("."): continue
+                if f in code or os.path.splitext(f)[0] in code:
+                    files.add(f)
+                elif os.path.basename(root) in code and root != base:
+                    files.add(os.path.basename(root) + "/")      # a family read by folder
+    keys = set(re.findall(r"""\[["']constants["']\]\[["']([A-Za-z0-9_]+)["']\]|canon_value\(["']([A-Za-z0-9_]+)["']""", code))
+    keys = {a or b for a, b in keys}
+    return sorted(files), sorted(keys)
+def input_entries(src):
+    out = {}
+    for m in re.finditer(r"^#### Input: (.+?)\n(.*?)(?=^#### |^### |^## |\Z)", src, re.S | re.M):
+        out[m.group(1).strip().strip("`")] = m.group(2)
+    return out
+def check_inputs():
+    src = open(SRC, encoding="utf-8").read(); E = input_entries(src); bad = []
+    files, keys = chain_inputs()
+    try:
+        C = json.load(open(os.path.join(H, "..", "..", "..", "CANON", "iam_canon.json"), encoding="utf-8"))["constants"]
+    except Exception:
+        C = {}
+    def entry_for(name):
+        for k, body in E.items():
+            if name == k or name in [x.strip().strip("`") for x in re.split(r"[,;]| and ", k)] or (name.endswith("/") and k.rstrip("/").endswith(name.rstrip("/"))):
+                return body
+        return None
+    for name in files + keys:
+        body = entry_for(name)
+        if body is None: bad.append(f"no Decoder input entry for {name}"); continue
+        for fld in INPUT_FIELDS:
+            m = re.search(r"^\*?\*?" + re.escape(fld) + r"\*?\*?\s*(.+)$", body, re.M)
+            if not m or len(m.group(1).strip()) < 3: bad.append(f"{name}: '{fld}' missing or empty")
+        k = re.search(r"^\*?\*?Kind:\*?\*?\s*([a-z]+)", body, re.M)
+        if k and k.group(1) not in KINDS: bad.append(f"{name}: Kind '{k.group(1)}' is not one of {KINDS}")
+        if name in C and k:
+            st = str(C[name].get("status", "")).lower()
+            if ("derived" in st and k.group(1) == "measured") or (("measured" in st or "calibrated" in st) and "derived" not in st and k.group(1) == "derived"):
+                bad.append(f"{name}: Decoder says {k.group(1)}, canon status says '{st[:40]}'")
+    return bad, len(files), len(keys)
+
 if __name__ == "__main__":
     txt, missing, unknown, undoc = build()
     if "--check" in sys.argv:
+        _ib, _nf, _nk = check_inputs(); print(f"build_decoder: inputs: {_nf} input files or families, {_nk} canon keys; {len(_ib)} without a complete entry{(': ' + '; '.join(_ib[:8])) if _ib else ''}")
         bad = []
         if missing: bad.append(f"{len(missing)} chain function(s) have no Decoder entry, e.g. {missing[:4]}")
         if undoc: bad.append(f"{len(undoc)} option(s) of the one command have no description (help text): {undoc[:6]}")
