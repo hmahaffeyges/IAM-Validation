@@ -6237,3 +6237,8 @@ archive and the book differ, the book is current.
 Rechecked from the archived scripts: the old photon-coupling bound came from a sign error (the book's 0.008 stands), no chain
 sampled beta_m, and three table labels were wrong. Listed at the top of the archive; one growth-rate figure is being rechecked.
 The book's pointer to the full Boltzmann script follows the file (0 file(s)).
+
+### 2026-11-16 · PHY-056: the archive's chain summary corrected
+The list added to the cosmology archive misstated the chain record (it said no chain sampled the coupling; the four Level 1
+floating runs do, and the fixed coupling was the prediction under test). It is replaced by the record's own summary: 17 converged
+chains plus the baryon chain; the book is the current record.
