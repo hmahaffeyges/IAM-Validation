@@ -6339,3 +6339,17 @@ _Written at midnight from a line-by-line walk of the whole day's chat (each entr
 - E1, E7, E25, E30, E31 (Hopfield and Ninio; England; Varriale and Bernardi; Penarroya et al.; Sanchez and Mackenzie): joined on IAM's web as established neighbours; Sanchez and Mackenzie confirmed already credited in the book.
 - CONS (repository inventory): duplicates found and merged; nothing public moved without review.
 - ISTATUS (instrument status table): rebuilt from the register's status lines and the code headers.
+- JOINT (the one-command train over the spent atlas libraries): both end-to-end checks met; 51 libraries sent by midnight.
+- PROP (the propagation pass): each derived and measured number checked in every place it appears.
+- M2 (the array held-site level): record mended; not resolvable on arrays, so the atlas stays the array reference.
+- METER and METF (the meter in every reading, and the meters' classification): the islands meter and clock sites counted by default; the meters carry no physics by design.
+- T1, T2 and TERR (islands, domains and the tile-by-tile line): T1 slope 0.97 with intercept 0.0002; T2 and TERR synthetics met (firm 0.027455 against planted 0.02745).
+- SP1 (the information sphere): its geometry computed correctly in the chain's own test; IAM's Law not yet in it.
+- P4 (the held share of the drive): derived from M alone, 0.1464 against the measured 0.1473.
+- R3 (the array held-site label): corrected to row M2.
+- X1, X3 and X4 (held share by regime; the driven virial share; pump against barrier): records mended after the second web patrol.
+- X6 (the matter-sector coupling, the virial half Omega_m/2): record mended; the three-way cluster test reads it directly.
+- X8, X9 and X15 (the Lambda coefficient, its history weighting, the writing threshold): records mended; earlier rule branches removed.
+- X19 (stable particles as records on their own surface): record mended.
+- R6, R13 and R17 (the black hole's half, the shared open step, the cluster of joined rows): R13 now carries the author's local-writing picture, in which writing is local and the horizon is the ledger.
+- R21, R22 and R23 (why local records migrate; Wheeler's bags of gold, parked; Einstein's equations to the virial theorem): R23's route recorded, through the general-relativistic virial identity.
