@@ -1,0 +1,89 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-16",
+ "title": "Each cell type holds its own fixed level; the train left",
+ "set_out": "Derive each cell type's own level (A8) first; bring every derived input into the chain and confirm it end to end with one command; consolidate the plans into the register.",
+ "open_at_turnover": "The train's remaining libraries and the location test riding it; the growth-rate comparison order check; the book corrections through the canon; the virial thread on IAM's web; the six-paper and Koide audit.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Each cell type's own level, 31 atlas libraries by one command (A8)",
+     "status": "development",
+     "what": "Spent atlas libraries of T cells, neurons, heart and skeletal muscle, liver, smooth muscle, fat and oligodendrocytes, one command each on GitHub.",
+     "outcome": "Each healthy type sits at its own fixed level; no rise with donor age (pooled slope -0.0055 per decade, 95 % range -0.0135 to +0.0034).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Traffic and packing against each type's level (A8)",
+     "status": "development",
+     "what": "Open-chromatin extent (a public accessibility atlas) and packed-state share (Roadmap chromatin states), names tables written before reading.",
+     "outcome": "Neither prediction met (traffic Spearman -0.09, p 0.82).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Candidate fingerprints through the one command (A8, synthetic)",
+     "status": "development",
+     "what": "Planted molecules for a slower restore crew, a damaged share of cells, losses in stretches and marks caught mid-erase, each raising the true loss by 25 %.",
+     "outcome": "The chain tells all four apart; stretch losses and mid-erase marks barely move the reading.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The line tested tile by tile inside one sample (PHY-013)",
+     "status": "development",
+     "what": "The tile-by-tile line added to every IAM-A count, checked first on planted molecules.",
+     "outcome": "Synthetic met; now carried in every reading.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "End-to-end checks and the train (JOINT)",
+     "status": "development",
+     "what": "One command on a naive CD4 T and an adipocyte library, then all 156 spent atlas libraries in waves.",
+     "outcome": "Both checks met exactly (A 0.8329 and 1.0241); 51 libraries sent and 42 read cleanly by midnight.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "A cell type's level is fixed by what it is",
+     "what": "Energy, division, working regions, open-chromatin extent and packed-state share do not explain the spread at this depth; the spread is about a third of one thermal kick in holding energy.",
+     "status": "finding"
+    }
+   ]
+  },
+  {
+   "kind": "thinking",
+   "heading": "Coffee and a whiteboard",
+   "entries": [
+    {
+     "title": "\"The transaction happens locally\"",
+     "what": "The author's ATM picture: writing happens on the local surface; the horizon is the ledger, the balance on the screen.",
+     "status": "idea"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "A helper's claims about the chains published unread",
+     "status": "audit",
+     "what": "An archive note repeated a helper's unverified claims about the cosmology chains. The author and the reviewer caught it; the note was replaced within the hour by the record's own summary of the 17 converged chains."
+    }
+   ]
+  }
+ ]
+}
