@@ -6,7 +6,7 @@ simulator lever (the cell simulator's held_marked.d, assumed), labelled as such.
 Prediction written first: g in 0.3-1.5 per hour at held sites; nascent/bulk at 16 h >= 0.95 at held sites."""
 import subprocess, sys
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "scipy", "numpy", "requests"], check=True)
-import gzip, io, json, os, math, requests, numpy as np
+import gzip, io, json, os, math, re, requests, numpy as np
 from scipy.optimize import curve_fit
 G = "https://ftp.ncbi.nlm.nih.gov/geo/samples"
 def url(gsm, name): return f"{G}/{gsm[:-3]}nnn/{gsm}/suppl/{name}"
@@ -31,6 +31,10 @@ def layout(sample):
     """decide which columns give methylated and total reads from the first numeric data lines; refuse if unclear"""
     rows = [l.rstrip("\n").split("\t") for l in sample if l.strip() and not l.startswith(("track", "#", "browser"))][:2000]
     w = len(rows[0]); num = []
+    for j in range(3, w):   # Repli-BS processed beds: column 4 is the quoted string 'm/t' (methylated / total reads)
+        q = [r[j].strip("'\"") for r in rows]
+        if all(re.fullmatch(r"\d+/\d+", x) for x in q):
+            print("::notice::columns " + json.dumps(dict(width=w, first=rows[0], layout=f"m/t string in column {j}"))); return ("mt_str", j, j)
     for j in range(3, w):
         try: v = [float(r[j]) for r in rows]
         except ValueError: continue
@@ -48,7 +52,10 @@ def layout(sample):
         return ("pct_cov" if f[2] > 1.0 else "frac_cov", f[0], c[0])
     raise SystemExit("bed layout not recognised: " + json.dumps(desc))
 def mt(p, lay):
-    kind, i, j = lay; a, b = float(p[i]), float(p[j])
+    kind, i, j = lay
+    if kind == "mt_str":
+        m, t = p[i].strip("'\"").split("/"); return float(m), float(t)
+    a, b = float(p[i]), float(p[j])
     if kind == "meth_total": return a, b
     if kind == "meth_unmeth": return a, a + b
     if kind == "pct_cov": return a / 100 * b, b
