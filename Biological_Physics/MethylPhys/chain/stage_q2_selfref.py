@@ -150,6 +150,7 @@ def count_pat(lines, tiles):
     tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}; QD = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
     TE = {}   # 2026-11-16 (TERR/GLB, development, recorded only): held losses and opportunities by tile, from the held (odd) half
     RL = [0, 0, 0, 0, 0]; RE = [0.0, 0.0, 0.0, 0.0, 0.0]   # 2026-11-16 (CP1, development, recorded only): runs of consecutive losses 1-4, 5+ on held molecules: observed, expected
+    DV = [0, 0, 0, 0, 0, 0]   # loss spread across held molecules (A8): molecules, sum t, sum t^2, sum L, sum L t, sum L^2
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
@@ -173,6 +174,7 @@ def count_pat(lines, tiles):
                 if _j >= 0 and i <= _w[_j, 1]: _te = TE.setdefault((c, int(_j)), [0, 0]); _te[0] += n * _iso; _te[1] += n * (len(s) - 2)
             for q in range(1, len(s) - 1):   # 2026-11-10 (development, recorded only): the same held error by distance from the molecule's nearer end (1 = the second call in)
                 _d = min(q, len(s) - 1 - q, 6); _qd = QD.setdefault(_d, [0, 0]); _qd[1] += n; _qd[0] += n * (s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
+            _L = len(s); _tt = s.count("T"); DV[0] += n; DV[1] += n * _tt; DV[2] += n * _tt * _tt; DV[3] += n * _L; DV[4] += n * _L * _tt; DV[5] += n * _L * _L
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
             _rl = 0
             for _c in list(s) + ["C"]:
@@ -183,8 +185,17 @@ def count_pat(lines, tiles):
                 for _r in range(5): RE[_r] += n * _e[_r]
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **_loss_runs(RL, RE), **_tile_line(tile_calls, TE), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **_dispersion(DV), **_loss_runs(RL, RE), **_tile_line(tile_calls, TE), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
                    held_by_distance={str(k): v for k, v in sorted(QD.items())}, **meter_end_damage({str(k): v for k, v in QD.items()})), g_iso, g_opp)
+
+def _dispersion(DV):
+    """Register A8 (development, recorded only): how the held losses spread across held molecules. p = pooled loss share; index = observed
+    sum (t - L p)^2 over the binomial sum L p (1 - p). An even per-site rate keeps it near (a little below) 1 under the held rule's cut; a
+    damaged share of cells (a minority of molecules with many losses) raises it. Compared across cell types. Nothing fitted."""
+    n, S1, S2, SL, SLt, SL2 = DV
+    if not SL or not n: return dict(loss_dispersion=None)
+    q = S1 / SL; obs = S2 - 2 * q * SLt + q * q * SL2; exp = q * (1 - q) * SL
+    return dict(loss_dispersion=(obs / exp) if exp > 0 else None, loss_dispersion_molecules=int(n))
 
 def _coupling(K):
     """2026-10-25 (plan 49.5, development, recorded only; from the published information-theory study's nearest-neighbor coupling): whether held

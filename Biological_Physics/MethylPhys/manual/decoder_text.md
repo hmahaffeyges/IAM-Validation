@@ -2239,6 +2239,11 @@ The expected number of isolated losses on a qualifying molecule of L calls at a 
 ### stage_q2_selfref.py::held_err_length
 The held error with the qualifying rule's length bias removed (development, recorded only, plan 40.11). Short molecules carrying a second loss fail to qualify, so the raw held error falls with molecule length. From the qualifying molecules counted at each length, it finds the per-call loss at which their expected isolated losses equal those counted, and reports it as the held error a molecule shows with no qualifying rule, e (1 - e)^2.
 
+### stage_q2_selfref.py::_dispersion
+Register A8, development, recorded only: how the held losses spread across held molecules, as observed variance of each molecule's
+losses about L p over the binomial L p (1 - p). An even per-site rate keeps it near 1 (a little below, from the held rule's cut); a
+damaged share of cells raises it. Read across cell types; never changes A.
+
 ### stage_q2_selfref.py::_coupling
 Nearest-neighbor coupling on held molecules (development, recorded only, plan 49.5): the adjacent pairs of unmethylated calls, set against what random placement gives each molecule from its own length L and its own number k of unmethylated calls, k (k - 1) / L. 1 when errors fall independently, above 1 when they cluster along the molecule. Nothing fitted. Clustered errors lower the lone-error count IAM-A uses at the same error share, so the two are reported together.
 

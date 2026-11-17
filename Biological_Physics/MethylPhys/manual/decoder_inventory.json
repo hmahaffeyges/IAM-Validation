@@ -3993,7 +3993,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 529,
+   "lines": 540,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4242,12 +4242,12 @@
      "function": "count_pat",
      "name": "count_pat",
      "line": 149,
-     "end": 187,
+     "end": 189,
      "args": [
       "lines",
       "tiles"
      ],
-     "lines": 39,
+     "lines": 41,
      "doc": "",
      "constants": [
       "QUAL_MAX_METH"
@@ -4257,10 +4257,25 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "_dispersion",
+     "name": "_dispersion",
+     "line": 191,
+     "end": 198,
+     "args": [
+      "DV"
+     ],
+     "lines": 8,
+     "doc": "Register A8 (development, recorded only): how the held losses spread across held molecules. p = pooled loss share; index = observed sum (t - L p)^2 over the binomial sum L p (1 - p). An even per-site rate keeps it near (a little below) 1 under the held rule's cut; a damaged share of cells (a minority of molecules with many losses) raises it. Compared across cell types. Nothing fitted.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "_coupling",
      "name": "_coupling",
-     "line": 189,
-     "end": 197,
+     "line": 200,
+     "end": 208,
      "args": [
       "K"
      ],
@@ -4274,8 +4289,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_runs_expected",
      "name": "_runs_expected",
-     "line": 200,
-     "end": 212,
+     "line": 211,
+     "end": 223,
      "args": [
       "L",
       "k"
@@ -4292,8 +4307,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_loss_runs",
      "name": "_loss_runs",
-     "line": 214,
-     "end": 218,
+     "line": 225,
+     "end": 229,
      "args": [
       "RL",
       "RE"
@@ -4308,8 +4323,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_tile_line",
      "name": "_tile_line",
-     "line": 220,
-     "end": 235,
+     "line": 231,
+     "end": 246,
      "args": [
       "tile_calls",
       "TE"
@@ -4324,8 +4339,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_errors",
      "name": "count_pat_tile_errors",
-     "line": 237,
-     "end": 251,
+     "line": 248,
+     "end": 262,
      "args": [
       "lines",
       "tile"
@@ -4340,8 +4355,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_calls",
      "name": "count_pat_tile_calls",
-     "line": 253,
-     "end": 264,
+     "line": 264,
+     "end": 275,
      "args": [
       "lines",
       "tile"
@@ -4356,8 +4371,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_sites",
      "name": "count_pat_sites",
-     "line": 266,
-     "end": 285,
+     "line": 277,
+     "end": 296,
      "args": [
       "lines",
       "sites"
@@ -4374,8 +4389,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_site_classes",
      "name": "count_pat_site_classes",
-     "line": 287,
-     "end": 310,
+     "line": 298,
+     "end": 321,
      "args": [
       "lines",
       "groups"
@@ -4392,8 +4407,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 314,
-     "end": 315,
+     "line": 325,
+     "end": 326,
      "args": [
       "seq"
      ],
@@ -4407,8 +4422,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 316,
-     "end": 348,
+     "line": 327,
+     "end": 359,
      "args": [
       "r",
       "ref",
@@ -4425,8 +4440,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 349,
-     "end": 354,
+     "line": 360,
+     "end": 365,
      "args": [
       "a",
       "b"
@@ -4441,8 +4456,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 355,
-     "end": 390,
+     "line": 366,
+     "end": 401,
      "args": [
       "args"
      ],
@@ -4458,8 +4473,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 362,
-     "end": 377,
+     "line": 373,
+     "end": 388,
      "args": [
       "calls"
      ],
@@ -4475,8 +4490,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 391,
-     "end": 399,
+     "line": 402,
+     "end": 410,
      "args": [
       "parts",
       "assembly"
@@ -4493,8 +4508,8 @@
      "file": "stage_q2_selfref.py",
      "function": "lambda_meter",
      "name": "lambda_meter",
-     "line": 401,
-     "end": 418,
+     "line": 412,
+     "end": 429,
      "args": [
       "bam",
       "fa"
@@ -4511,8 +4526,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 420,
-     "end": 424,
+     "line": 431,
+     "end": 435,
      "args": [
       "bam",
       "fa",
@@ -4535,8 +4550,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 427,
-     "end": 436,
+     "line": 438,
+     "end": 447,
      "args": [
       "per_sample"
      ],
@@ -4550,8 +4565,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 437,
-     "end": 442,
+     "line": 448,
+     "end": 453,
      "args": [
       "version"
      ],
@@ -4569,8 +4584,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 443,
-     "end": 444,
+     "line": 454,
+     "end": 455,
      "args": [
       "loose_share",
       "version"
@@ -4585,8 +4600,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 445,
-     "end": 449,
+     "line": 456,
+     "end": 460,
      "args": [
       "rec",
       "version"
@@ -4603,8 +4618,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_line",
      "name": "derived_line",
-     "line": 452,
-     "end": 457,
+     "line": 463,
+     "end": 468,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -4620,8 +4635,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_reading",
      "name": "derived_reading",
-     "line": 458,
-     "end": 467,
+     "line": 469,
+     "end": 478,
      "args": [
       "rec"
      ],
@@ -4635,8 +4650,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 474,
-     "end": 481,
+     "line": 485,
+     "end": 492,
      "args": [
       "records"
      ],
@@ -4652,8 +4667,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 482,
-     "end": 487,
+     "line": 493,
+     "end": 498,
      "args": [
       "version"
      ],
@@ -4671,8 +4686,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 488,
-     "end": 496,
+     "line": 499,
+     "end": 507,
      "args": [
       "rec",
       "cell",
@@ -4691,8 +4706,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 499,
-     "end": 502,
+     "line": 510,
+     "end": 513,
      "args": [
       "rec",
       "version"
@@ -4709,8 +4724,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 503,
-     "end": 508,
+     "line": 514,
+     "end": 519,
      "args": [
       "healthy",
       "version"
@@ -4725,8 +4740,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 513,
-     "end": 514,
+     "line": 524,
+     "end": 525,
      "args": [
       "version"
      ],
@@ -4744,8 +4759,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 517,
-     "end": 528,
+     "line": 528,
+     "end": 539,
      "args": [
       "records",
       "version",
@@ -10875,5 +10890,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 557
+ "n_functions": 558
 }

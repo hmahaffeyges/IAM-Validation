@@ -6222,3 +6222,8 @@ changes.
 The Decoder has a new section with one entry per input the chain reads (its kind, register row, equation, where the chain uses it,
 how to reproduce it, and what is open), and each instrument section has a step-by-step account from IAM's Law and M to its reading.
 The Decoder build now reports every chain input that has no complete entry.
+
+### 2026-11-16 · CAN-024: the spread of losses across molecules in every IAM-A reading
+Every IAM-A reading now records how its held losses spread across molecules (register A8): an even per-site rate against a damaged
+share of cells. On planted molecules with the same mean loss the index reads 0.866 for an even rate and 0.927 when a tenth of the
+molecules carry most losses. Recorded only; A unchanged.

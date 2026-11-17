@@ -5941,7 +5941,7 @@
    "cost": "laptop",
    "impact": 3,
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
-   "notes": "Pasted candidate 5, L10, 'A third reading is now justified, not optional... Test 3's limit is its argument'. Instrument record points to DEV_IAMA_TRIM_01.md as the gate. | possible duplicate of CAN-008; run lengths now reach every IAM-A reading (the main path dropped them before); run-length synthetic met",
+   "notes": "Pasted candidate 5, L10, 'A third reading is now justified, not optional... Test 3's limit is its argument'. Instrument record points to DEV_IAMA_TRIM_01.md as the gate. | possible duplicate of CAN-008; run lengths now reach every IAM-A reading (the main path dropped them before); run-length synthetic met; loss spread across held molecules recorded in every reading (A8: even rate vs damaged share)",
    "legacy_ids": [
     "L10",
     "L4"
