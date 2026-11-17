@@ -611,7 +611,7 @@ DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_TUMOUR_01_OUTCOME.md'] = 'c
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/charr_readings.csv'] = 'committed data file'   # 10 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'] = 'committed data file'   # 17 kB
 DATA_FILES['Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'] = 'committed data file'   # 11 kB
-DATA_FILES['Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'] = 'committed data file'   # 36 kB
+DATA_FILES['Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md'] = 'committed data file'   # 36 kB
 DATA_FILES['Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'] = 'committed data file'   # 9 kB
 DATA_FILES['CANON/GLOSSARY.md'] = 'committed data file'   # 13 kB
 DATA_FILES['CANON/predictions_triage_2026-10-02.json'] = 'committed data file'   # 220 kB
@@ -2809,7 +2809,7 @@ DATA_FILES['docs/verification/observations/MISSING_SATELLITES_CHECK.md'] = 'miss
 
 # helpers of the appendices/app_F_glossary checks
 _B18_CH = 'Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv'
-_B18_SOP = 'Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'
+_B18_SOP = 'Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md'
 _B18_PC = 'Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md'
 _B18_PC_RERUN = ('methylation chain on Loyfer 2023 read-level .pat files (56 cell types); the measurement script of PROC-CHANNEL-01 is not '
                  'committed, the record is this file')
@@ -2897,7 +2897,7 @@ _F03_SALMON = 'Biological_Physics/MethylPhys/doors/data/salmon_readings.csv'
 _F03_CHARR = 'Biological_Physics/MethylPhys/doors/data/charr_readings.csv'
 _F03_RIMOUSKI = 'Biological_Physics/MethylPhys/doors/data/rimouski_readings.csv'
 _F03_COHO = 'Biological_Physics/Salmonid/DEV_COHO_CC_01/coho_cc_fish.csv'
-_F03_SOP = 'Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md'
+_F03_SOP = 'Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md'
 _F03_DNMT = 'Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB/dnmt_b_pairs.csv'
 _F03_IMR = 'Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.csv'
 _F03_PREREG = 'Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md'
@@ -40264,10 +40264,10 @@ def check_4783():
     return locals()
 
 @check(label='app:glossary:L58', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=58, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2853():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 58, printed 1.149.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.099')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '1.099')
     return locals()
 
 @check(label='app:glossary:L58:1.140', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
@@ -40278,10 +40278,10 @@ def check_2854():
     return locals()
 
 @check(label='app:glossary:L60', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=60, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=60, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2855():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 60, printed 450.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '450')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L68', chapter='app:glossary', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
@@ -40565,10 +40565,10 @@ def check_4814():
 # ---------------------------------------------------------------- L211-L262
 
 @check(label='app:glossary:L201', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=199, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=199, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2867():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 201, printed 963.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '963')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '963')
     return locals()
 
 @check(label='app:glossary:L211:0.776', title='DES Y3 S8', line=209, status='observed', kind='file', printed='0.776', tol=0.0,
@@ -40671,17 +40671,17 @@ def check_4829():
     return locals()
 
 @check(label='app:glossary:L251', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='7309', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='7309', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2872():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 251, printed 7309.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '7309')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '7309')
     return locals()
 
 @check(label='app:glossary:L251:738', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2873():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 251, printed 738.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '738')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '738')
     return locals()
 
 @check(label='app:glossary:L251:1056', title='E-MTAB-7309 arrays calibrated', line=251, status='observed', kind='file', printed='1{,}056', tol=0.0,
@@ -40815,10 +40815,10 @@ def check_4844():
     return locals()
 
 @check(label='app:glossary:L320', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=315, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=315, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2878():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 319, printed 100.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L320:106.75', title='g_*s of the standard model', line=315, status='observed', kind='num', printed='106.75', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -40865,10 +40865,10 @@ def check_4849():
     return locals()
 
 @check(label='app:glossary:L324', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=315, status='measured', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=315, status='measured', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2879():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 323, printed 100.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 
@@ -40907,10 +40907,10 @@ def check_4856():
     return locals()
 
 @check(label='app:glossary:L336', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2880():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 335, printed 0.330263.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
 @check(label='app:glossary:L338', chapter='app:glossary', part=8, title='held-out neutrophil reference arrays, lowest Met-A',
@@ -40921,10 +40921,10 @@ def check_2882():
     return locals()
 
 @check(label='app:glossary:L338:-1.045', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=330, status='observed', kind='file', printed='-1.045', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=330, status='observed', kind='file', printed='-1.045', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2883():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 337, printed -1.045.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-1.045')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '-1.045')
     return locals()
 
 @check(label='app:glossary:L341:28217448', title='CpGs of the hg19 index', line=333, status='observed', kind='file', printed='28{,}217{,}448', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -41018,17 +41018,17 @@ def check_4865():
     return locals()
 
 @check(label='app:glossary:L368', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=361, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=361, status='observed', kind='file', printed='1.149', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2887():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 367, printed 1.099.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '1.099')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '1.099')
     return locals()
 
 @check(label='app:glossary:L368:100', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=360, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=360, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2888():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 367, printed 100.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L368:-1.05', chapter='app:glossary', part=8, title='IAM-A: Normal band, upper edge (canon Normal_band)',
@@ -41114,10 +41114,10 @@ def check_2891():
     return locals()
 
 @check(label='app:glossary:L411:348', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=403, status='observed', kind='file', printed='348', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=403, status='observed', kind='file', printed='348', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2892():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 410, printed 348.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '348')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '348')
     return locals()
 
 @check(label='app:glossary:L411:3.33e-21', title='Landauer floor at 348 K', line=403, status='observed', kind='num', printed='3.33\\times10^{-21}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
@@ -41255,10 +41255,10 @@ def check_4887():
     return locals()
 
 @check(label='app:glossary:L457', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=448, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=448, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2899():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 456, printed 0.330263.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
 @check(label='app:glossary:L457:-1.05', chapter='app:glossary', part=8, title='Met-A: Normal band, upper edge (canon Normal_band)',
@@ -41323,17 +41323,17 @@ def check_4894():
     return locals()
 
 @check(label='app:glossary:L484', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='528', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='528', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2901():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 483, printed 528.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '528')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '528')
     return locals()
 
 @check(label='app:glossary:L484:-0.149', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='-0.149', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='-0.149', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2902():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 483, printed -0.149.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '-0.149')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '-0.149')
     return locals()
 
 @check(label='app:glossary:L484:48528', chapter='app:glossary', part=8, title='EPIC noise sites of the noise index',
@@ -41358,10 +41358,10 @@ def check_2903():
     return locals()
 
 @check(label='app:glossary:L501', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=491, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=491, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2904():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 500, printed 100.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L508:1701', chapter='app:glossary', part=8, title='Pantheon+ light curves',
@@ -41437,10 +41437,10 @@ def check_4905():
     return locals()
 
 @check(label='app:glossary:L530', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=520, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=520, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2905():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 529, printed 450.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '450')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L534', chapter='app:glossary', part=8, title='index-3 polytrope binding energy of the Sun, J',
@@ -41495,10 +41495,10 @@ def check_4911():
     return locals()
 
 @check(label='app:glossary:L553', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=544, status='observed', kind='file', printed='150', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=544, status='observed', kind='file', printed='150', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2906():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 552, printed 150.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '150')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '150')
     return locals()
 
 @check(label='app:glossary:L553:1e-5', chapter='app:glossary', part=8, title='age of the radiation era at QCD confinement, s',
@@ -41544,10 +41544,10 @@ def check_4916():
     return locals()
 
 @check(label='app:glossary:L588', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=583, status='measured', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=583, status='measured', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2908():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 587, printed 0.830.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
     return locals()
 
 @check(label='app:glossary:L588:67.16', chapter='app:glossary', part=8, title='H0 of Level 2 run A',
@@ -41583,10 +41583,10 @@ def check_4920():
     return locals()
 
 @check(label='app:glossary:L593', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2909():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 592, printed 0.830.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
     return locals()
 
 @check(label='app:glossary:L593:0.822', chapter='app:glossary', part=8, title='S8 of the Level 2 IAM chain',
@@ -41598,10 +41598,10 @@ def check_4921():
     return locals()
 
 @check(label='app:glossary:L599', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=588, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=588, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2910():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 598, printed 738.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '738')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '738')
     return locals()
 
 @check(label='app:glossary:L599:1056', chapter='app:glossary', part=8, title='SATSA raw arrays',
@@ -41683,31 +41683,31 @@ def check_4930():
     return locals()
 
 @check(label='app:glossary:L624', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=613, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=613, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2912():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 623, printed 450.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '450')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L637', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2913():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 636, printed 963.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '963')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '963')
     return locals()
 
 @check(label='app:glossary:L637:867', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='867', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='867', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2914():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 636, printed 867.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '867')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '867')
     return locals()
 
 @check(label='app:glossary:L640', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=629, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=629, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2915():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 639, printed 100.'
-    ok = file_has('Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md', '100')
+    ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L650', chapter='app:glossary', part=8, title='(k_B T/q) ln 10 at 300 K, mV/decade',
@@ -44537,6 +44537,90 @@ def check_r4_pull():
     value = (0.155 - Ob/2)/0.029
     return locals()
 
+
+# ---------------------------------------------------------------- ch:koide sec:ko:virial, ch:virial_law sec:vl_gr (edit 075)
+_KOV = dict(chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide')
+def _kov_seq():
+    s = [math.sqrt(_B07_MTAU24), math.sqrt(_B07_ME), math.sqrt(_B07_MMU)]
+    S0 = sum(s) / 3; S1 = sum(sk * complex(math.cos(2 * math.pi * k / 3), math.sin(2 * math.pi * k / 3)) for k, sk in enumerate(s)) / 3
+    return S0 * S0, (2 * abs(S1)) ** 2 / 2
+
+@check(label='eq:ko:k2', title='orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+def check_kov_k2():
+    'The quadratic branch of the virial theorem (Eq. eq:ko:k2): <(y cos phi)^2> = y^2/2 on the orbit, and 2K = kV with k = 2 gives K = V.'
+    y, ph, K, V = sp.symbols('y phi K V', positive=True)
+    avg = sp.integrate((y * sp.cos(ph))**2, (ph, 0, 2 * sp.pi)) / (2 * sp.pi)
+    ok = sp.simplify(avg - y**2 / 2) == 0 and sp.solve(sp.Eq(2 * K, 2 * V), K) == [V]
+    neg_ok = sp.simplify(avg - y**2) == 0
+    return locals()
+
+@check(label='eq:ko:seq', title='any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1)', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+def check_kov_seq():
+    'Eq. eq:ko:seq: three reals are exactly their zero-sequence part plus one balanced harmonic (the 3-point discrete Fourier transform); 200 random triples.'
+    rng = np.random.default_rng(75); err = 0.0
+    for _ in range(200):
+        s = rng.normal(size=3) * 3
+        S0 = s.mean(); S1 = np.sum(s * np.exp(2j * np.pi * np.arange(3) / 3)) / 3; d = -np.angle(S1)
+        err = max(err, float(np.max(np.abs(S0 + 2 * abs(S1) * np.cos(d + 2 * np.pi * np.arange(3) / 3) - s))))
+    S2 = np.sum(s * np.exp(-2j * np.pi * np.arange(3) / 3)) / 3
+    ok = err < 1e-12 and abs(S2 - np.conj(S1)) < 1e-12
+    return locals()
+
+@check(label='ch:koide:virial:x2', title='zero-sequence power x^2 of the square-root masses, MeV', status='calc', kind='num', printed='313.851', tol=0, line=0, **_KOV)
+def check_kov_x2():
+    'x^2 = S0^2 of sqrt(m_tau, m_e, m_mu) (m_e, m_mu CODATA 2018; m_tau PDG 2024 1776.93 MeV). Printed 313.851 MeV.'
+    value = _kov_seq()[0]
+    return locals()
+
+@check(label='ch:koide:virial:y2', title='power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV', status='calc', kind='num', printed='313.849', tol=0, line=0, **_KOV)
+def check_kov_y2():
+    'y^2/2 = 2|S1|^2 = mean of (s_k - S0)^2 of sqrt(m_tau, m_e, m_mu) (positive and negative sequence together, S2 = conj(S1)). Printed 313.849 MeV.'
+    value = _kov_seq()[1]
+    return locals()
+
+@check(label='ch:koide:virial:ratio', title='balanced-part power over zero-sequence power = 3Q - 1', status='calc', kind='num', printed='0.999993', tol=0, line=0, **_KOV)
+def check_kov_ratio():
+    'y^2/(2x^2) from the masses, and equal to 3Q - 1 to 1e-12. Printed 0.999993.'
+    x2, h2 = _kov_seq(); value = h2 / x2
+    assert abs(value - (3 * _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24) - 1)) < 1e-12
+    return locals()
+
+@check(label='eq:ko:fid', title='fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+def check_kov_fid():
+    'Eq. eq:ko:fid: with p_k = m_k / sum m, (sum sqrt(p_k/3))^2 = 1/(3Q), Q = sum m / (sum sqrt m)^2.'
+    a, b, c3 = sp.symbols('a b c', positive=True); S = a**2 + b**2 + c3**2
+    F = ((a + b + c3) / sp.sqrt(3 * S))**2; Q = S / (a + b + c3)**2
+    ok = sp.simplify(F - 1 / (3 * Q)) == 0
+    neg_ok = sp.simplify(F - 1 / Q) == 0
+    return locals()
+
+@check(label='ch:koide:virial:F', title='fidelity of the charged-lepton mass shares with equal shares', status='calc', kind='num', printed='0.5000017', tol=0, line=0, **_KOV)
+def check_kov_F():
+    'F = 1/(3Q) for the measured masses (PDG 2024 m_tau). Printed 0.5000017.'
+    m3 = [_B07_ME, _B07_MMU, _B07_MTAU24]; p3 = [mk / sum(m3) for mk in m3]
+    value = sum(math.sqrt(pk / 3) for pk in p3) ** 2
+    return locals()
+
+_VLG = dict(chapter='ch:virial_law', part=1, file='part1/p1_03_virial_law')
+@check(label='eq:vl_komar', title='Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2', status='derived', kind='sym', printed='', tol=0, line=0, **_VLG)
+def check_vlg_komar():
+    'Eq. eq:vl_komar: kappa = c^4/(4GM), A = 16 pi G^2 M^2/c^4; kappa A/(4 pi G) = M and 2 T_H S = M c^2 (T_H = hbar kappa/(2 pi k_B c), S = k_B c^3 A/(4 G hbar)).'
+    G_, c_, hb, kB_, M_ = sp.symbols('G c hbar k_B M', positive=True)
+    kap = c_**4 / (4 * G_ * M_); A = 16 * sp.pi * G_**2 * M_**2 / c_**4
+    T = hb * kap / (2 * sp.pi * kB_ * c_); S = kB_ * c_**3 * A / (4 * G_ * hb)
+    ok = sp.simplify(kap * A / (4 * sp.pi * G_) - M_) == 0 and sp.simplify(2 * T * S - M_ * c_**2) == 0
+    neg_ok = sp.simplify(T * S - M_ * c_**2) == 0
+    return locals()
+
+@check(label='eq:vl_smarr_euler', title='M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1)', status='derived', kind='sym', printed='', tol=0, line=0, **_VLG)
+def check_vlg_euler():
+    'Eq. eq:vl_smarr_euler with the Kerr mass M = sqrt(A/(16 pi) + 4 pi J^2/A) (G = c = 1); T S = (dM/dA) A with S = A/4, T = kappa/(2 pi), dM/dA = kappa/(8 pi).'
+    A, J, lam = sp.symbols('A J lambda', positive=True)
+    M = sp.sqrt(A / (16 * sp.pi) + 4 * sp.pi * J**2 / A)
+    hom = sp.simplify(M.subs({A: lam * A, J: lam * J}) - sp.sqrt(lam) * M) == 0
+    ok = hom and sp.simplify(M / 2 - (A * sp.diff(M, A) + J * sp.diff(M, J))) == 0
+    neg_ok = sp.simplify(M - (A * sp.diff(M, A) + J * sp.diff(M, J))) == 0
+    return locals()
 
 if __name__ == "__main__":
     sys.exit(main())

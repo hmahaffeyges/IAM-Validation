@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4717 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -106,6 +106,8 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 329 | ch:iams_law:L329 | derived | `-1` | sympy: record term gives phantom equation of state w<-1 | PASS |
 | 332 | eq:law_Sneed | derived |  | sympy: today's informational entropy rate per e-fold | PASS |
 | 335 | ch:iams_law:L335 | calc | `5.2\times10^{121}` | numeric: informational bits produced per e-fold today | PASS |
+| 336 | ch:iams_law:L336:neff | calc | `19/2+1/a` | sympy: exponent the rate accounting needs to match the first law (matter era) | PASS |
+| 336 | ch:iams_law:L336:balance | derived |  | sympy: record constraint as the balance law dlnE/dlna = 1 - lnE | PASS |
 | 344 | eq:Hm | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 353 | eq:rate | conjecture |  | not run: ansatz for information production rate, not derived | - |
 | 358 | eq:Sdot | none |  | not run: text changed at HEAD; definition: entropy rate from information flux | - |
@@ -280,6 +282,8 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
+| 0 | eq:vl_komar | derived |  | sympy: Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2 | PASS |
+| 0 | eq:vl_smarr_euler | derived |  | sympy: M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1) | PASS |
 | 33 | eq:vl_euler | derived |  | sympy: Euler homogeneous-function relation, virial degree | PASS |
 | 37 | eq:vl_virial | derived |  | sympy: virial relation 2K+V=0, E=-K for k=-1 | PASS |
 | 44 | eq:vl_n | derived |  | sympy: virial relation T=n/2|V| for V~-r^-n | PASS |
@@ -409,6 +413,9 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 19 | ch:virial:L19 | none | `0.15765` | numeric: beta_m preview value, Om/2 | PASS |
 | 39 | eq:vc_firstlaw | none |  | not run: definition: IAM horizon first law extension | - |
 | 49 | eq:vc_beta | prediction | `0.15765` | numeric: beta_m=Om/2, stated prediction | PASS |
+| 61 | ch:virial:L61:lo | calc | `2.6\times10^{-8}` | numeric: halo kinetic energy over critical energy, sigma 100 km/s | PASS |
+| 61 | ch:virial:L61:hi | calc | `2.6\times10^{-6}` | numeric: halo kinetic energy over critical energy, sigma 1000 km/s | PASS |
+| 61 | ch:virial:L61:GMRc2 | derived | `1/2` | sympy: G M_H/(R_H c^2) = 1/2 for the flat Hubble sphere | PASS |
 | 64 | ch:virial:L64 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 posterior Om_m mean | PASS |
 | 64 | ch:virial:L64:0.498 | calc | `0.498` | numeric: beta_m/Om_m ratio for fixed beta_m | PASS |
 | 65 | ch:virial:L65 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: chi2_min excess of IAM vs LCDM, L2 chains | PASS |
@@ -2063,6 +2070,8 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 94 | eq:lam_nmax:3.268\times10^{122} | calc | `3.268\times10^{122}` | numeric: max horizon info, bits | PASS |
 | 120 | ch:lambda:L120 | calc |  | sympy: asymptotic limit of E(a) | PASS |
 | 138 | ch:lambda:L138 | calc | `12` | numeric: rounded geometric-term residual factor | PASS |
+| 139 | ch:lambda:L139:ob2 | calc | `0.025` | numeric: baryons-only coupling Omega_b/2 | PASS |
+| 139 | ch:lambda:L139:pull | calc | `4.5` | numeric: baryons-only coupling against the free fit 0.155 +/- 0.029 | PASS |
 | 146 | eq:lam_fgeo | derived |  | not run: restatement of the expression on the preceding line (substitution or rearrangement only); nothing independent to compute | - |
 | 152 | eq:lam_fb | conjecture |  | not run: assumed baryon writing fraction | - |
 | 157 | eq:base | openprob |  | not run: formula, coefficient 2/pi unresolved | - |
@@ -3679,6 +3688,13 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
+| 0 | eq:ko:k2 | derived |  | sympy: orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V | PASS |
+| 0 | eq:ko:seq | derived |  | sympy: any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1) | PASS |
+| 0 | ch:koide:virial:x2 | calc | `313.851` | numeric: zero-sequence power x^2 of the square-root masses, MeV | PASS |
+| 0 | ch:koide:virial:y2 | calc | `313.849` | numeric: power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV | PASS |
+| 0 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
+| 0 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
+| 0 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
 | 18 | eq:ko:Q | derived |  | sympy: Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) | PASS |
 | 29 | ch:koide:L29 | observed | `0.51099895000` | numeric: electron mass, MeV (CODATA 2018) | PASS |
 | 30 | ch:koide:L30 | observed | `105.6583755` | numeric: muon mass, MeV (CODATA 2018 ratio) | PASS |
@@ -4590,24 +4606,33 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 100 | ch:iama:mc:sam_hi | measured | `2.14` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, highest of four cell types | PASS |
 | 100 | ch:iama:mc:ak_eps_lo | conjecture | `0.04386` | numeric: held error at the highest SAM price in range | PASS |
 | 100 | ch:iama:mc:ak_eps_hi | conjecture | `0.04524` | numeric: held error at the lowest SAM price in range | PASS |
-| 105 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
-| 105 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
-| 106 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
-| 106 | ch:iama:L53:1.025 | measured | `1.025` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, highest | PASS |
-| 109 | ch:iama:L55 | measured | `1.273` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, lowest | PASS |
-| 109 | ch:iama:L55:1.313 | measured | `1.313` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, highest | PASS |
-| 119 | ch:iama:L75 | calc | `0.3` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: a 2 % rise in held error moves the reading by about 0.3 | PASS |
-| 128 | ch:iama:L74 | calc | `1.149` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
-| 134 | ch:iama:L90 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error across 56 healthy cell types, lowest | PASS |
-| 134 | ch:iama:L90:0.042 | measured | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error across 56 healthy cell types, highest | PASS |
-| 134 | ch:iama:L90:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types, mean | PASS |
-| 135 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
-| 135 | ch:iama:L91:1.23 | measured | `1.18` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, highest | PASS |
-| 135 | ch:iama:L91:1.01 | measured | `1.02` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, median | PASS |
-| 138 | ch:iama:L94 | measured | `1.66` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error on the common sites, highest over lowest | PASS |
-| 139 | ch:iama:L95 | measured | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: intraclass correlation of the common-site held error across donors | PASS |
-| 140 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
-| 141 | ch:iama:L97 | measured | `0.042` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error of colon epithelium and cardiomyocytes | PASS |
+| 106 | ch:iama:ref:n_total | measured | `54` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: libraries read in the blind test | PASS |
+| 107 | ch:iama:ref:n_b | measured | `23` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: B-cell libraries | PASS |
+| 107 | ch:iama:ref:n_cd4 | measured | `9` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: CD4 libraries | PASS |
+| 107 | ch:iama:ref:n_cd8 | measured | `12` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: CD8 libraries | PASS |
+| 107 | ch:iama:ref:n_mono | measured | `10` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: monocyte libraries | PASS |
+| 110 | ch:iama:ref:p_cd4 | measured | `-0.45` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: CD4 pull | PASS |
+| 110 | ch:iama:ref:p_cd8 | measured | `-1.72` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: CD8 pull | PASS |
+| 110 | ch:iama:ref:p_mono | measured | `-0.54` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: monocyte pull | PASS |
+| 110 | ch:iama:ref:p_b | measured | `-2.45` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt`: B-cell pull | PASS |
+| 116 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
+| 116 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
+| 117 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
+| 117 | ch:iama:L53:1.025 | measured | `1.025` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, highest | PASS |
+| 120 | ch:iama:L55 | measured | `1.273` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, lowest | PASS |
+| 120 | ch:iama:L55:1.313 | measured | `1.313` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, highest | PASS |
+| 130 | ch:iama:L75 | calc | `0.3` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: a 2 % rise in held error moves the reading by about 0.3 | PASS |
+| 139 | ch:iama:L74 | calc | `1.149` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
+| 145 | ch:iama:L90 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error across 56 healthy cell types, lowest | PASS |
+| 145 | ch:iama:L90:0.042 | measured | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error across 56 healthy cell types, highest | PASS |
+| 145 | ch:iama:L90:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types, mean | PASS |
+| 146 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
+| 146 | ch:iama:L91:1.23 | measured | `1.18` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, highest | PASS |
+| 146 | ch:iama:L91:1.01 | measured | `1.02` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, median | PASS |
+| 149 | ch:iama:L94 | measured | `1.66` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error on the common sites, highest over lowest | PASS |
+| 150 | ch:iama:L95 | measured | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: intraclass correlation of the common-site held error across donors | PASS |
+| 151 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
+| 152 | ch:iama:L97 | measured | `0.042` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error of colon epithelium and cardiomyocytes | PASS |
 
 ## Part 6 - ch:cscore - `docs/book/part6/p6_09_cscore.tex`
 
@@ -5968,9 +5993,9 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 48 | app:glossary:L50:10 | observed | `10` | file `Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md`: AML diagnosis blood: patients read | PASS |
 | 48 |  | observed | `9950` | not run: not a number: part of the processor name (Ryzen 9 9950X) | - |
 | 48 |  | observed | `20` | not run: input: transistor count (20.0-20.6) x 10^9 from die-level reports (no maker figure); the readings it gives are checked at app:glossary:L48:576 and L48:593 | - |
-| 58 | app:glossary:L58 | observed | `1.149` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 58 | app:glossary:L58 | observed | `1.149` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 58 | app:glossary:L58:1.140 | observed | `1.140` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 60 | app:glossary:L60 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 60 | app:glossary:L60 | observed | `450` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 68 | app:glossary:L68 | calc | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: same value as p0_giants:41 (H0 photon sector matches Level2 chain value) | PASS |
 | 68 | app:glossary:L68:55.57 | calc | `55.57` | numeric: same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains) | PASS |
 | 68 | app:glossary:L68:70.86 | calc | `70.86` | numeric: same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector) | PASS |
@@ -6023,7 +6048,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 189 |  | observed | `50` | not run: definition: block size of the C-score, 50 consecutive sites | - |
 | 191 | app:glossary:L193:84.4 | observed | `84.4` | numeric: dark-matter share of beta_m, per cent | PASS |
 | 196 | app:glossary:L198:55.57 | observed | `55.57` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector de Sitter rate H_infinity | PASS |
-| 199 | app:glossary:L201 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 199 | app:glossary:L201 | observed | `963` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 209 | app:glossary:L211:0.776 | observed | `0.776` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: DES Y3 S8 | PASS |
 | 214 |  | observed | `0.93` | not run: definition: Stage 0 call-rate quarantine threshold 0.93 (chain setting) | - |
 | 214 |  | observed | `-0.98` | not run: definition: upper edge 0.98 of the Stage 0 call-rate flag band (chain setting) | - |
@@ -6044,8 +6069,8 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 243 |  | observed | `0.3` | not run: printed value 0.3 % has one significant digit: a 5 % change cannot be told from rounding (recomputed 0.320 %; the precise 0.32 % is checked at ch:electronmass:L188) | - |
 | 247 |  | conjecture | `1.05` | not run: definition: upper edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
 | 247 |  | conjecture | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
-| 248 | app:glossary:L251 | observed | `7309` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 248 | app:glossary:L251:738 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 248 | app:glossary:L251 | observed | `7309` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 248 | app:glossary:L251:738 | observed | `738` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 251 | app:glossary:L251:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md`: E-MTAB-7309 arrays calibrated | PASS |
 | 251 | app:glossary:L254 | calc | `152.5` | numeric: same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass) | PASS |
 | 258 |  | observed | `1.00` | not run: definition: an atlas cell reads 1.00 on its own profile by construction (entry rule); nothing to compute, and the number is not in MethylPhys_CPG_SOP_v3.md (the earlier match was an unrelated number) | - |
@@ -6073,10 +6098,10 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 314 | app:glossary:L319:0.55 | observed | `0.55` | numeric: growth index of general relativity (LambdaCDM) | PASS |
 | 314 | app:glossary:L319:0.585 | observed | `0.585` | numeric: growth index under IAM today | PASS |
 | 314 | app:glossary:L319:0.633 | observed | `0.633` | heavy file `docs/verification/scripts/verify_s8_trend_output.txt`: measured growth index (Nguyen et al. 2023) | PASS |
-| 315 | app:glossary:L320 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 315 | app:glossary:L320 | observed | `100` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 315 | app:glossary:L320:106.75 | observed | `106.75` | numeric: g_*s of the standard model | PASS |
 | 315 | app:glossary:L320:7.8e-16 | observed | `7.8\times10^{-16}` | numeric: scale factor at 100 GeV | PASS |
-| 315 | app:glossary:L324 | measured | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 315 | app:glossary:L324 | measured | `100` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 316 | app:glossary:L312:105 | observed | `105` | numeric: qubits of the Willow processor | PASS |
 | 317 | app:glossary:L323:64 | observed | `64` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556 arrays | PASS |
 | 317 | app:glossary:L323:0.30 | observed | `0.30` | file `Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv`: GSE250556: lowest neutrophil fraction | PASS |
@@ -6090,9 +6115,9 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 326 | app:glossary:L334:6.17e-8 | observed | `6.17\times10^{-8}` | numeric: Hawking temperature of one solar mass | PASS |
 | 327 |  | observed | `0.90` | not run: measured, source not named | - |
 | 327 |  | observed | `-0.98` | not run: measured, source not named | - |
-| 328 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 328 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 330 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference arrays, lowest Met-A | PASS |
-| 330 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 330 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 333 | app:glossary:L341:28217448 | observed | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs of the hg19 index | PASS |
 | 334 | app:glossary:L342:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid genome (hg19 count) | PASS |
 | 334 |  | observed | `12` | not run: definition: HEALPix divides the sphere into 12 N_side^2 pixels (Gorski2005) | - |
@@ -6110,10 +6135,10 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 352 | app:glossary:L360:1588 | observed | `1588` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_data.json`: Pantheon+ supernovae in the Hubble flow | PASS |
 | 353 | app:glossary:L361:1.4e26 | observed | `1.4\times10^{26}` | numeric: Hubble radius c/H0, m | PASS |
 | 353 |  | calc | `150` | not run: input: temperature T = 150 MeV (QCD scale) at which the horizon capacity is evaluated (used in app:glossary:L354:2.9e78) | - |
-| 360 | app:glossary:L368:100 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 360 | app:glossary:L368:100 | observed | `100` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 360 | app:glossary:L368:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: IAM-A: Normal band, upper edge (canon Normal_band) | PASS |
 | 360 | app:glossary:L368:0.032 | observed | `0.044` | numeric: held-error floor eps0 (IAM-A entry) | PASS |
-| 361 | app:glossary:L368 | observed | `1.149` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 361 | app:glossary:L368 | observed | `1.149` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 362 | app:glossary:L370:0.80 | observed | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: ICC of cell-type held-error differences across donors | PASS |
 | 367 |  | observed | `000` | not run: definition: at least 100,000 opportunities per IAM-A reading (chain setting); thousands group | - |
 | 367 |  | observed | `0.95` | not run: definition: lower edge of the Normal band 0.95-1.05 (canon Normal_band) | - |
@@ -6134,7 +6159,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 399 |  | observed | `1000` | not run: not a number: part of the survey name KiDS-1000 | - |
 | 403 | app:glossary:L411 | observed | `2.968\times10^{-21}` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 403 | app:glossary:L411:310.15 | observed | `310.15` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 403 | app:glossary:L411:348 | observed | `348` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 403 | app:glossary:L411:348 | observed | `348` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 403 | app:glossary:L411:3.33e-21 | observed | `3.33\times10^{-21}` | numeric: Landauer floor at 348 K | PASS |
 | 405 | app:glossary:L413 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 405 | app:glossary:L413:30.2 | observed | `30.2` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
@@ -6160,7 +6185,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 437 |  | observed | `-0.98` | not run: measured, source not named | - |
 | 442 | app:glossary:L451 | observed | `36.8` | numeric: maturity E(1)/e today, per cent | PASS |
 | 444 |  | observed | `30` | not run: definition: masking threshold of the held-error statistic (more than 30 % of qualifying molecules in error), a chain rule | - |
-| 448 | app:glossary:L457 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 448 | app:glossary:L457 | observed | `0.330263` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 448 | app:glossary:L457:-1.05 | observed | `1.05` | file `CANON/iam_canon.json`: Met-A: Normal band, upper edge (canon Normal_band) | PASS |
 | 448 | app:glossary:L457:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: lower edge of the Normal band (CANON) | PASS |
 | 454 | app:glossary:L464 | observed | `-1.5` | numeric: MICROSCOPE Eotvos parameter Ti-Pt, central value | PASS |
@@ -6170,14 +6195,14 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 464 | app:glossary:L474 | observed | `-0.136` | numeric: mu0 = -beta_m/(1+beta_m) | PASS |
 | 464 | app:glossary:L474:-0.13495 | observed | `-0.13495` | file `Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml`: mu0 fixed in the MGCAMB runs | PASS |
 | 464 | app:glossary:L474:4.25 | observed | `4.25` | numeric: f sigma8 deficit today, per cent | PASS |
-| 474 | app:glossary:L484 | observed | `528` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 474 | app:glossary:L484:-0.149 | observed | `-0.149` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 474 | app:glossary:L484 | observed | `528` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 474 | app:glossary:L484:-0.149 | observed | `-0.149` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 476 | app:glossary:L486:0.95 | observed | `0.95` | file `CANON/iam_canon.json`: Normal band lower edge (CANON) | PASS |
 | 478 |  | observed | `10` | not run: measured, source not named | - |
 | 479 |  | observed | `1.4` | not run: input: canonical neutron-star mass 1.4 M_sun, nothing to recompute | - |
-| 483 | app:glossary:L484:48528 | observed | `48{,}528` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: EPIC noise sites of the noise index | PASS |
+| 483 | app:glossary:L484:48528 | observed | `48{,}528` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: EPIC noise sites of the noise index | PASS |
 | 488 | app:glossary:L498 | observed | `0.3153` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
-| 491 | app:glossary:L501 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 491 | app:glossary:L501 | observed | `100` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 498 | app:glossary:L508:1701 | observed | `1701` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ light curves | PASS |
 | 498 | app:glossary:L508:0.001 | observed | `0.001` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ lowest redshift | PASS |
 | 498 | app:glossary:L508:2.26 | observed | `2.26` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Pantheon+ highest redshift | PASS |
@@ -6193,7 +6218,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 516 | app:glossary:L526:2.176e-8 | observed | `2.176\times10^{-8}` | numeric: Planck mass sqrt(hbar c/G), kg | PASS |
 | 518 | app:glossary:L528 | observed | `5.4\times10^{-44}` | numeric: Planck time sqrt(hbar G/c^5), s | PASS |
 | 519 |  | observed | `1550` | not run: input: photon wavelength 1550 nm; used in app:glossary:L520 | - |
-| 520 | app:glossary:L530 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 520 | app:glossary:L530 | observed | `450` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 524 | app:glossary:L534 | observed | `-5.69\times10^{41}` | numeric: index-3 polytrope binding energy of the Sun, J | PASS |
 | 524 | app:glossary:L534:23.6 | observed | `23.6` | numeric: Kelvin-Helmholtz time of the Sun, Myr | PASS |
 | 529 | app:glossary:L539 | observed | `92.7` | file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out 90 % interval coverage, per cent | PASS |
@@ -6204,7 +6229,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 538 |  | observed | `90` | not run: definition: nominal 90 % coverage of the predictive interval (the interval level itself) | - |
 | 543 | app:glossary:L553:1e-5 | observed | `10^{-5}` | numeric: age of the radiation era at QCD confinement, s | PASS |
 | 543 |  | observed | `01` | not run: not a number: part of the identifier PROC-CHANNEL-01 | - |
-| 544 | app:glossary:L553 | observed | `150` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 544 | app:glossary:L553 | observed | `150` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 546 | app:glossary:L556:12.7 | observed | `12.7` | numeric: surface-code threshold on the Helios gauge | PASS |
 | 554 |  | observed | `80` | not run: definition: qualifying-molecule rule, at least 80 % of calls methylated (chain rule) | - |
 | 555 |  | observed | `98` | not run: measured, source not named | - |
@@ -6219,13 +6244,13 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 578 | app:glossary:L588:0.7998 | measured | `0.7998` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 of Level 2 run A | PASS |
 | 578 | app:glossary:L588:0.821 | measured | `0.821` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run D | PASS |
 | 583 | app:glossary:L583:0.83 | observed | `0.83` | file `Biological_Physics/MethylPhys/doors/data/noise_index.csv`: rho of Met-A and noise index, second laboratory, 54 y | PASS |
-| 583 | app:glossary:L588 | measured | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 583 | app:glossary:L588 | measured | `0.830` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 583 | app:glossary:L588:0.822 | measured | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of Level 2 run A | PASS |
-| 583 | app:glossary:L593 | observed | `0.830` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 583 | app:glossary:L593 | observed | `0.830` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 583 | app:glossary:L593:0.822 | observed | `0.822` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: S8 of the Level 2 IAM chain | PASS |
-| 588 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 588 | app:glossary:L599 | observed | `738` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 596 | app:glossary:L607:0.020 | observed | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: SD of the held-out reference readings, sites re-chosen | PASS |
-| 598 | app:glossary:L599:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: SATSA raw arrays | PASS |
+| 598 | app:glossary:L599:1056 | observed | `1{,}056` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: SATSA raw arrays | PASS |
 | 598 |  | observed | `0.93` | not run: definition: intake call-rate line 0.93 restated (quarantine rule); the count 1,056 is checked at app:glossary:L599:1056 | - |
 | 603 | app:glossary:L614 | observed | `73.04` | numeric: SH0ES H0 | PASS |
 | 606 |  | observed | `1.00` | not run: definition: 1.00 is the reading a reference sample should give by construction; nothing to compute; the selection-noise SDs (0.020, 0.006) are the measured part, and the earlier match in MethylPhys_CPG_SOP_v3.md was an unrelated number | - |
@@ -6236,13 +6261,13 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 611 | app:glossary:L622:509 | calc | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
 | 611 | app:glossary:L622:7.5 | calc | `7.5` | numeric: tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us | PASS |
 | 612 |  | observed | `4.3\times10^6` | not run: input: Sgr A* mass 4.3e6 M_sun (Gillessen 2009), as taken in Chapter ch:iams_law; nothing to recompute | - |
-| 613 | app:glossary:L624 | observed | `450` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 613 | app:glossary:L624 | observed | `450` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 621 |  | calc | `10` | not run: input: test mass 1e-12 kg of the worked example (the 10 is the base of a printed power); tau values checked at app:glossary:L622:509 and L622:7.5 | - |
 | 621 |  | observed | `2200` | not run: input: fused-silica density 2200 kg/m^3 (published material constant), used in app:glossary:L622:509 | - |
 | 622 |  | observed | `000` | not run: definition: 6,000 neutrophil identity sites of chain v3 (design of the site set; the 000 is the tail of 6,000) | - |
-| 626 | app:glossary:L637 | observed | `963` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 626 | app:glossary:L637:867 | observed | `867` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 629 | app:glossary:L640 | observed | `100` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 626 | app:glossary:L637 | observed | `963` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 626 | app:glossary:L637:867 | observed | `867` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
+| 629 | app:glossary:L640 | observed | `100` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 637 |  | observed | `000` | not run: definition: 6,000 identity sites of Stage M restated (the 000 is the tail of 6,000) | - |
 | 637 |  | observed | `90` | not run: definition: Stage M needs at least 90 % of identity sites measured (chain rule) | - |
 | 639 | app:glossary:L650 | observed | `60` | numeric: (k_B T/q) ln 10 at 300 K, mV/decade | PASS |
@@ -6262,7 +6287,7 @@ Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 667 |  | observed | `0.20` | not run: definition: read line 0.20 restated (chain rule) | - |
 | 670 | app:glossary:L681 | observed | `4.6\times10^{-25}` | numeric: top-quark lifetime hbar/Gamma_t, s | PASS |
 | 670 |  | observed | `300` | not run: input: temperature 300 K of the worked example; used in app:glossary:L671 | - |
-| 671 | app:glossary:L668 | observed | `64` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: whole-blood technical-replicate arrays (GSE250556) | PASS |
+| 671 | app:glossary:L668 | observed | `64` | file `Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md`: whole-blood technical-replicate arrays (GSE250556) | PASS |
 | 681 |  | observed | `2.3` | not run: input: TOV limit of about 2.3 M_sun (published approximate value), nothing to recompute | - |
 | 692 |  | observed | `0.20` | not run: definition: twin-test separation of 0.20 in beta (atlas entry rule) | - |
 | 696 | app:glossary:L707 | observed | `4.63\times10^{113}` | numeric: Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3 | PASS |

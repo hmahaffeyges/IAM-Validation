@@ -187,8 +187,9 @@ The identification of information weight with mean squared amplitude is what car
 x^2=\frac{y^2}{2}\quad\Longrightarrow\quad\frac yx=\sqrt2.\label{eq:ko:ratio}
 \end{equation}
 \derived{} (given Steps 1--7). No parameter is adjusted to the masses. The same ratio follows from a different identification: the constant
-part and the modulation as the two halves of the virial partition of a $1/r$ potential, $2x^2=y^2$ (Chapter~\ref{ch:virial}). That route is an
-analogy, not a derivation. \analogy
+part and the modulation as the two halves of the virial partition of a $1/r$ potential, $2x^2=y^2$ (Chapter~\ref{ch:virial}). That $1/r$ route is an
+analogy, not a derivation. \analogy{} The reading in which the same equality is the virial partition of a quadratic mode ($k=2$) is set out in
+Section~\ref{sec:ko:virial}.
 
 \section{The number of generations}\label{sec:ko:count}
 Place $n$ generations at equally spaced phases on the orbit, $\phi_k=\delta+2\pi k/n$, with $m_k=(x+y\cos\phi_k)^2$. The condition imposed on the
@@ -233,6 +234,51 @@ $\square$ \derived
 The two theorems form the algebraic layer. Given the two-channel form and $y/x=\sqrt2$, they are exact, and a reader can check them without the
 holographic steps. The model layer is Steps 1--7: the charge orbit, the boundary record, the area law, equipartition by maximum entropy, the
 two-mode ground state and the Parseval identification. Every step of that layer is an assumption or a conjecture.
+
+\section{Koide as the virial partition in three phases}\label{sec:ko:virial}
+\paragraph{The quadratic branch of the virial theorem.} Step~7 sets the two channel weights equal. The weights are orbit averages of squared
+amplitudes, $w_{\rm DC}=x^2$ and $w_{\rm harm}=y^2/2$ (Eq.~\eqref{eq:ko:weights}). A mode whose energy is quadratic in its amplitude has an energy
+homogeneous of degree $k=2$, and the virial theorem, Eq.~\eqref{eq:vl_euler}, gives $\langle K\rangle=\langle V\rangle$ for it: the average of
+$(y\cos\phi)^2$ over the orbit is half its peak value,
+\begin{equation}
+\frac1{2\pi}\int_0^{2\pi}(y\cos\phi)^2\,d\phi=\frac{y^2}{2},\qquad 2\langle K\rangle=k\langle V\rangle\big|_{k=2}\;\Rightarrow\;\langle K\rangle=\langle V\rangle .\label{eq:ko:k2}
+\end{equation}
+\derived{} (standard). Read with IAM's Law, the equality $x^2=y^2/2$ says that the harmonic channel keeps the virial half of what it carries at its
+peak, and that this kept half equals the constant channel. \interp{} This is the quadratic branch ($k=2$) of the theorem whose $1/r$ branch
+($k=-1$) gives the half of Chapter~\ref{ch:virial_law}; Euler's theorem for homogeneous functions is the root of both (Section~\ref{sec:vl_gr}).
+\derived{} That the two channel weights are the energies of two quadratic modes of one record is IAM's identification, and the equality of the
+weights rests on Step~5, which remains a conjecture. \conjecture
+
+\paragraph{Three phases: symmetrical components.} At three equally spaced phases the harmonic channel is a balanced three-phase set. For every
+offset, $\sum_k\cos\phi_k=0$ and $\sum_k\cos^2\phi_k=3/2$ (Eq.~\eqref{eq:ko:Z3}), the identities that make the total instantaneous power of a balanced
+three-phase supply constant. \derived{} Any three real numbers $s_k$ can be written in this form: for three phases the discrete Fourier transform has
+only the constant term and one harmonic,
+\begin{equation}
+s_k=S_0+2|S_1|\cos\!\Big(\delta+\frac{2\pi k}{3}\Big),\qquad S_0=\frac13\sum_ks_k,\qquad S_1=\frac13\sum_ks_k\,e^{2\pi ik/3},\label{eq:ko:seq}
+\end{equation}
+the same decomposition as Fortescue's method of symmetrical components~\cite{Fortescue1918}. $S_0$ is the zero-sequence part; for three real
+values the negative-sequence component is the complex conjugate of the positive-sequence one, $S_2=\overline{S_1}$, so the harmonic
+$2|S_1|\cos(\cdot)$ is the two together, the balanced part of the set. \derived{} With $s_k=\sqrt{m_k}$, $x=S_0$ and $y=2|S_1|$, the mean square of
+the balanced part is $\tfrac13\sum_k(s_k-S_0)^2=2|S_1|^2=y^2/2$, and Koide's relation is the statement that the power of the zero-sequence part of
+the square-root masses equals the power of their balanced part: $y^2/(2x^2)=3Q-1=1$. For the measured masses
+$x^2=313.851$\,MeV and $y^2/2=313.849$\,MeV, a ratio of $0.999993$. \calc{} Mass positivity, which admits three phases and no more (Theorem~1), is
+the condition that no phase of the set swings below zero. \derived
+
+\paragraph{The same equality on the sphere of distributions.} With shares $p_k=m_k/\sum_jm_j$, the vector $(\sqrt{p_k})$ has unit length:
+probability distributions lie on a sphere, the overlap of two of them is the Bhattacharyya coefficient $\sum_k\sqrt{p_kq_k}$~\cite{Bhattacharyya1943},
+and the angle it fixes is the statistical distance between them (Wootters~\cite{Wootters1981}). \derived{} Against equal shares $q_k=1/3$, the
+squared overlap, the fidelity, is
+\begin{equation}
+F=\Big(\sum_k\sqrt{p_k/3}\Big)^2=\frac{1}{3Q},\label{eq:ko:fid}
+\end{equation}
+so $Q=2/3$ is $F=1/2$, the $45^\circ$ of Eq.~\eqref{eq:ko:angle}. For the measured masses $F=0.5000017$. \calc{} On the sphere of distributions
+the charged-lepton masses sit where their overlap with equal shares, squared, is one half. \interp
+
+\paragraph{What the reading adds.} It adds no parameter and changes no number in this chapter. It places the equal-weight step in the family of
+virial halves: the half kept by every settled horizon (Chapter~\ref{ch:blackholes}), the kinetic half of bound $1/r$ systems
+(Chapter~\ref{ch:virial_law}) and the half of a quadratic mode. \interp{} It does not supply the offset $\delta$ or the scale $x$
+(Section~\ref{sec:ko:offset}), and it does not derive the conjectures of Steps~1 and~5. The test is unchanged: $Q=2/3$ exactly fixes the $\tau$ mass
+of Section~\ref{sec:ko:tests}. \prediction
 
 \section{The offset}\label{sec:ko:offset}
 Step~6 fixes the phase origin by the reflection symmetry $\phi\to-\phi$, with the maximum of $\sqrt{m(\phi)}$ at $\phi=0$ and a generation there.
@@ -318,7 +364,9 @@ Theorems 1 and 2 (count and value), given $y/x=\sqrt2$ and positive amplitudes &
 $\eta=1/4\lP^2$ from the Euclidean period and the Einstein normalization; one nat per $4\lP^2$ & \derived\\
 charge-orbit reduction; boundary record and $S\propto A$; maximum-entropy equipartition; two-mode ground state; Parseval identification & \conjecture\\
 $y/x=\sqrt2$ from equal channel weights & \derived{} (given the conjectures)\\
-the virial reading $2x^2=y^2$ & \analogy\\
+the $1/r$ virial reading $2x^2=y^2$ & \analogy\\
+equal channel weights as the virial half of a quadratic mode ($k=2$, Section~\ref{sec:ko:virial}) & \interp\\
+Koide as equal power in the zero-sequence and balanced parts of $\sqrt{m_k}$; $F=1/(3Q)$ on the sphere of distributions & \derived\\
 the offset $\delta=0.2222$ and the scale $x$; why pole masses; $\delta\approx2/9$ & \openprob\\
 $m_\tau=1776.969$\,MeV from $Q=2/3$ & \prediction\\\bottomrule
 \end{tabular}\end{center}
