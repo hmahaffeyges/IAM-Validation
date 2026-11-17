@@ -282,8 +282,6 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 0 | eq:vl_komar | derived |  | sympy: Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2 | PASS |
-| 0 | eq:vl_smarr_euler | derived |  | sympy: M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1) | PASS |
 | 33 | eq:vl_euler | derived |  | sympy: Euler homogeneous-function relation, virial degree | PASS |
 | 37 | eq:vl_virial | derived |  | sympy: virial relation 2K+V=0, E=-K for k=-1 | PASS |
 | 44 | eq:vl_n | derived |  | sympy: virial relation T=n/2|V| for V~-r^-n | PASS |
@@ -334,40 +332,42 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 136 | ch:virial_law:L136:0.800 | measured | `0.800` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 posterior mean, IAM Level2 chain | PASS |
 | 137 | ch:virial_law:L137 | calc | `0.864` | numeric: mu(z=0) growth coupling from mu0 | PASS |
 | 137 |  | none | `-0.136` | not run: input: IAM locked mu0 result, restated | - |
-| 144 | ch:virial_law:L144 | derived | `13.606` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
-| 144 | ch:virial_law:L144:27.211 | derived | `27.211` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
-| 144 | ch:virial_law:L144:0.5000000000 | calc | `0.5000000000` | sympy: Smarr ratio, caption repeat | PASS |
-| 144 | ch:virial_law:L144:0.15765 | prediction | `0.15765` | numeric: beta_m prediction, caption repeat | PASS |
-| 144 | ch:virial_law:L144:0.3166 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m mean | PASS |
-| 144 | ch:virial_law:L144:0.0065 | measured | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m sd | PASS |
-| 144 | ch:virial_law:L144:0.498 | calc | `0.498` | numeric: beta_m/Omega_m at Level2 posterior mean | PASS |
-| 144 | ch:virial_law:L144:0.010 | calc | `0.010` | numeric: propagated sd of beta_m/Omega_m ratio | PASS |
 | 144 |  | none | `1.1` | not run: published virial ratio lower bound, repeat | - |
 | 144 |  | none | `1.3` | not run: published virial ratio upper bound, repeat | - |
 | 144 |  | none | `1.02` | not run: surface-pressure ratio lower bound, repeat | - |
 | 144 |  | none | `1.17` | not run: surface-pressure ratio upper bound, repeat | - |
 | 144 |  | none | `1/2` | not run: trivial beta_m/Omega_m ratio by definition | - |
+| 151 | eq:vl_komar | derived |  | sympy: Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2 | PASS |
+| 155 | eq:vl_smarr_euler | derived |  | sympy: M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1) | PASS |
 | 156 |  | conjecture | `0.3\%` | not run: conjecture: electron Compton-scale deviation | - |
-| 157 | ch:virial_law:L157 | derived | `13.6057` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
-| 157 | ch:virial_law:L157:27.2114 | derived | `27.2114` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
 | 157 |  | none | `1/2` | not run: trivial ratio restatement, table row | - |
-| 158 | ch:virial_law:L158 | calc | `1.0000000000` | sympy: virial ratio identity, table repeat | PASS |
 | 158 |  | none | `1/2` | not run: trivial T/|V| ratio restatement | - |
-| 160 | ch:virial_law:L160 | derived | `1.456` | numeric: Chandrasekhar mass, table repeat | PASS |
 | 160 |  | none | `2` | not run: input: mu_e, table repeat | - |
 | 160 |  | none | `1.33` | not run: measured white-dwarf mass lower bound, repeat | - |
 | 160 |  | none | `1.37` | not run: measured white-dwarf mass upper bound, rounded repeat | - |
-| 161 | ch:virial_law:L161 | calc | `24` | numeric: Sun contraction timescale, table repeat | PASS |
 | 163 |  | none | `1.1` | not run: published virial ratio lower bound, table repeat | - |
 | 163 |  | none | `1.3` | not run: published virial ratio upper bound, table repeat | - |
 | 163 |  | none | `1.02` | not run: surface-pressure ratio lower bound, table repeat | - |
 | 163 |  | none | `1.17` | not run: surface-pressure ratio upper bound, table repeat | - |
-| 164 | ch:virial_law:L164 | calc | `1/2` | sympy: Smarr relation, table repeat | PASS |
-| 165 | ch:virial_law:L165 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, table repeat | PASS |
 | 165 |  | none | `1/2` | not run: trivial beta_m/Omega_m ratio, table repeat | - |
-| 173 | ch:virial_law:L173 | calc | `33` | numeric: orders of magnitude, atom to cluster | PASS |
-| 173 | ch:virial_law:L173:thirty-seven | calc | `thirty-seven` | numeric: decades, atom to cosmic horizon | PASS |
-| 173 | ch:virial_law:L173:36.4 | calc | `36.4` | numeric: decades, Bohr radius to c/H0 | PASS |
+| 169 | ch:virial_law:L144 | derived | `13.606` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
+| 169 | ch:virial_law:L144:27.211 | derived | `27.211` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
+| 169 | ch:virial_law:L144:0.5000000000 | calc | `0.5000000000` | sympy: Smarr ratio, caption repeat | PASS |
+| 169 | ch:virial_law:L144:0.15765 | prediction | `0.15765` | numeric: beta_m prediction, caption repeat | PASS |
+| 169 | ch:virial_law:L144:0.3166 | measured | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m mean | PASS |
+| 169 | ch:virial_law:L144:0.0065 | measured | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level2 Planck posterior Omega_m sd | PASS |
+| 169 | ch:virial_law:L144:0.498 | calc | `0.498` | numeric: beta_m/Omega_m at Level2 posterior mean | PASS |
+| 169 | ch:virial_law:L144:0.010 | calc | `0.010` | numeric: propagated sd of beta_m/Omega_m ratio | PASS |
+| 182 | ch:virial_law:L157 | derived | `13.6057` | numeric: hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg) | PASS |
+| 182 | ch:virial_law:L157:27.2114 | derived | `27.2114` | numeric: hydrogen |V| = alpha^2 m_e c^2 | PASS |
+| 183 | ch:virial_law:L158 | calc | `1.0000000000` | sympy: virial ratio identity, table repeat | PASS |
+| 185 | ch:virial_law:L160 | derived | `1.456` | numeric: Chandrasekhar mass, table repeat | PASS |
+| 186 | ch:virial_law:L161 | calc | `24` | numeric: Sun contraction timescale, table repeat | PASS |
+| 189 | ch:virial_law:L164 | calc | `1/2` | sympy: Smarr relation, table repeat | PASS |
+| 190 | ch:virial_law:L165 | measured | `0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Delta chi2, table repeat | PASS |
+| 198 | ch:virial_law:L173 | calc | `33` | numeric: orders of magnitude, atom to cluster | PASS |
+| 198 | ch:virial_law:L173:thirty-seven | calc | `thirty-seven` | numeric: decades, atom to cosmic horizon | PASS |
+| 198 | ch:virial_law:L173:36.4 | calc | `36.4` | numeric: decades, Bohr radius to c/H0 | PASS |
 
 ## Part 1 - ch:virial_identity - `docs/book/part1/p1_04_virial_identity.tex`
 
@@ -2892,130 +2892,130 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 98 | eq:tw_R | derived |  | sympy: M_lens/M_hydro = 1/mu with Sigma = 1 | PASS |
 | 103 | eq:tw_szx | none |  | sympy: M_SZ/M_hydro = mu/mu = 1 | PASS |
 | 107 | eq:tw_order | calc |  | sympy: M_lens > M_SZ = M_hydro for mu(z) < 1, 0 <= z <= 2 | PASS |
-| 116 | ch:threeway:L116 | calc | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 116 | ch:threeway:L116:0.6847 | calc | `0.6847` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 116 | ch:threeway:L116:67.36 | calc | `67.36` | numeric: drafted check, screened (runs; negative control fails) | PASS |
-| 117 | ch:threeway:L117 | calc | `1.158` | numeric: same value as p2_17_lensing_dynamics:98 (1/mu at z=0.0) | PASS |
-| 117 | ch:threeway:L117:1.002 | calc | `1.002` | numeric: R at z=2 | PASS |
-| 117 | ch:threeway:L117:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
-| 117 | ch:threeway:L117:1.07 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
 | 117 |  | calc | `0.4` | not run: input: redshift range z ~ 0.2-0.4 of eROSITA cluster samples; R at 0.2 and 0.4 is checked by ch:threeway:L117:1.10 and ch:threeway:L117:1.07 | - |
-| 118 | ch:threeway:L118 | calc | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
-| 122 | ch:threeway:L122 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
-| 125 | ch:threeway:L125 | calc | `1.000` | numeric: a at z=0.0 | PASS |
-| 125 | ch:threeway:L125:0.8638 | calc | `0.8638` | numeric: mu at z=0.0 | PASS |
-| 125 | ch:threeway:L125:1.158 | calc | `1.158` | numeric: R = 1/mu at z=0.0 | PASS |
+| 124 | ch:threeway:L116 | calc | `0.3153` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 124 | ch:threeway:L116:0.6847 | calc | `0.6847` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 124 | ch:threeway:L116:67.36 | calc | `67.36` | numeric: drafted check, screened (runs; negative control fails) | PASS |
+| 125 | ch:threeway:L117 | calc | `1.158` | numeric: same value as p2_17_lensing_dynamics:98 (1/mu at z=0.0) | PASS |
+| 125 | ch:threeway:L117:1.002 | calc | `1.002` | numeric: R at z=2 | PASS |
+| 125 | ch:threeway:L117:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
+| 125 | ch:threeway:L117:1.07 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
 | 125 |  | calc | `0.0` | not run: input: redshift z = 0.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 126 | ch:threeway:L126 | calc | `0.909` | numeric: a at z=0.1 | PASS |
-| 126 | ch:threeway:L126:0.8856 | calc | `0.8856` | numeric: mu at z=0.1 | PASS |
-| 126 | ch:threeway:L126:1.129 | calc | `1.129` | numeric: R = 1/mu at z=0.1 | PASS |
+| 126 | ch:threeway:L118 | calc | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
 | 126 |  | calc | `0.1` | not run: input: redshift z = 0.1 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 127 | ch:threeway:L127 | calc | `0.833` | numeric: a at z=0.2 | PASS |
-| 127 | ch:threeway:L127:0.9050 | calc | `0.9050` | numeric: mu at z=0.2 | PASS |
-| 127 | ch:threeway:L127:1.105 | calc | `1.105` | numeric: R = 1/mu at z=0.2 | PASS |
 | 127 |  | calc | `0.2` | not run: input: redshift z = 0.2 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 128 | ch:threeway:L128 | calc | `0.769` | numeric: a at z=0.3 | PASS |
-| 128 | ch:threeway:L128:0.9218 | calc | `0.9218` | numeric: mu at z=0.3 | PASS |
-| 128 | ch:threeway:L128:1.085 | calc | `1.085` | numeric: R = 1/mu at z=0.3 | PASS |
 | 128 |  | calc | `0.3` | not run: input: redshift z = 0.3 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 129 | ch:threeway:L129 | calc | `0.714` | numeric: a at z=0.4 | PASS |
-| 129 | ch:threeway:L129:0.9362 | calc | `0.9362` | numeric: mu at z=0.4 | PASS |
-| 129 | ch:threeway:L129:1.068 | calc | `1.068` | numeric: R = 1/mu at z=0.4 | PASS |
 | 129 |  | calc | `0.4` | not run: input: redshift z = 0.4 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 130 | ch:threeway:L130 | calc | `0.667` | numeric: a at z=0.5 | PASS |
-| 130 | ch:threeway:L130:0.9482 | calc | `0.9482` | numeric: mu at z=0.5 | PASS |
-| 130 | ch:threeway:L130:1.055 | calc | `1.055` | numeric: R = 1/mu at z=0.5 | PASS |
+| 130 | ch:threeway:L122 | calc | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 130 |  | calc | `0.5` | not run: input: redshift z = 0.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 131 | ch:threeway:L131 | calc | `0.588` | numeric: a at z=0.7 | PASS |
-| 131 | ch:threeway:L131:0.9661 | calc | `0.9661` | numeric: mu at z=0.7 | PASS |
-| 131 | ch:threeway:L131:1.035 | calc | `1.035` | numeric: R = 1/mu at z=0.7 | PASS |
 | 131 |  | calc | `0.7` | not run: input: redshift z = 0.7 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 132 | ch:threeway:L132 | calc | `0.500` | numeric: a at z=1.0 | PASS |
-| 132 | ch:threeway:L132:0.9822 | calc | `0.9822` | numeric: mu at z=1.0 | PASS |
-| 132 | ch:threeway:L132:1.018 | calc | `1.018` | numeric: R = 1/mu at z=1.0 | PASS |
 | 132 |  | calc | `1.0` | not run: input: redshift z = 1.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 133 | ch:threeway:L133 | calc | `0.400` | numeric: a at z=1.5 | PASS |
-| 133 | ch:threeway:L133:0.9938 | calc | `0.9938` | numeric: mu at z=1.5 | PASS |
-| 133 | ch:threeway:L133:1.006 | calc | `1.006` | numeric: R = 1/mu at z=1.5 | PASS |
+| 133 | ch:threeway:L125 | calc | `1.000` | numeric: a at z=0.0 | PASS |
+| 133 | ch:threeway:L125:0.8638 | calc | `0.8638` | numeric: mu at z=0.0 | PASS |
+| 133 | ch:threeway:L125:1.158 | calc | `1.158` | numeric: R = 1/mu at z=0.0 | PASS |
 | 133 |  | calc | `1.5` | not run: input: redshift z = 1.5 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 134 | ch:threeway:L134 | calc | `0.333` | numeric: a at z=2.0 | PASS |
-| 134 | ch:threeway:L134:0.9977 | calc | `0.9977` | numeric: mu at z=2.0 | PASS |
-| 134 | ch:threeway:L134:1.002 | calc | `1.002` | numeric: R = 1/mu at z=2.0 | PASS |
+| 134 | ch:threeway:L126 | calc | `0.909` | numeric: a at z=0.1 | PASS |
+| 134 | ch:threeway:L126:0.8856 | calc | `0.8856` | numeric: mu at z=0.1 | PASS |
+| 134 | ch:threeway:L126:1.129 | calc | `1.129` | numeric: R = 1/mu at z=0.1 | PASS |
 | 134 |  | calc | `2.0` | not run: input: redshift z = 2.0 of the tab:tw_R row; the row's a, mu and R are checked (ch:threeway:L125 ff.) | - |
-| 139 | ch:threeway:L139 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
-| 139 | ch:threeway:L139:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
-| 145 | ch:threeway:L145 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
-| 145 | ch:threeway:L145:-0.31 | calc | `-0.31` | numeric: dR/dz at z=0 | PASS |
-| 145 | ch:threeway:L145:-0.12 | calc | `-0.12` | numeric: dR/dz at z=0.5 | PASS |
+| 135 | ch:threeway:L127 | calc | `0.833` | numeric: a at z=0.2 | PASS |
+| 135 | ch:threeway:L127:0.9050 | calc | `0.9050` | numeric: mu at z=0.2 | PASS |
+| 135 | ch:threeway:L127:1.105 | calc | `1.105` | numeric: R = 1/mu at z=0.2 | PASS |
+| 136 | ch:threeway:L128 | calc | `0.769` | numeric: a at z=0.3 | PASS |
+| 136 | ch:threeway:L128:0.9218 | calc | `0.9218` | numeric: mu at z=0.3 | PASS |
+| 136 | ch:threeway:L128:1.085 | calc | `1.085` | numeric: R = 1/mu at z=0.3 | PASS |
+| 137 | ch:threeway:L129 | calc | `0.714` | numeric: a at z=0.4 | PASS |
+| 137 | ch:threeway:L129:0.9362 | calc | `0.9362` | numeric: mu at z=0.4 | PASS |
+| 137 | ch:threeway:L129:1.068 | calc | `1.068` | numeric: R = 1/mu at z=0.4 | PASS |
+| 138 | ch:threeway:L130 | calc | `0.667` | numeric: a at z=0.5 | PASS |
+| 138 | ch:threeway:L130:0.9482 | calc | `0.9482` | numeric: mu at z=0.5 | PASS |
+| 138 | ch:threeway:L130:1.055 | calc | `1.055` | numeric: R = 1/mu at z=0.5 | PASS |
+| 139 | ch:threeway:L131 | calc | `0.588` | numeric: a at z=0.7 | PASS |
+| 139 | ch:threeway:L131:0.9661 | calc | `0.9661` | numeric: mu at z=0.7 | PASS |
+| 139 | ch:threeway:L131:1.035 | calc | `1.035` | numeric: R = 1/mu at z=0.7 | PASS |
+| 140 | ch:threeway:L132 | calc | `0.500` | numeric: a at z=1.0 | PASS |
+| 140 | ch:threeway:L132:0.9822 | calc | `0.9822` | numeric: mu at z=1.0 | PASS |
+| 140 | ch:threeway:L132:1.018 | calc | `1.018` | numeric: R = 1/mu at z=1.0 | PASS |
+| 141 | ch:threeway:L133 | calc | `0.400` | numeric: a at z=1.5 | PASS |
+| 141 | ch:threeway:L133:0.9938 | calc | `0.9938` | numeric: mu at z=1.5 | PASS |
+| 141 | ch:threeway:L133:1.006 | calc | `1.006` | numeric: R = 1/mu at z=1.5 | PASS |
+| 142 | ch:threeway:L134 | calc | `0.333` | numeric: a at z=2.0 | PASS |
+| 142 | ch:threeway:L134:0.9977 | calc | `0.9977` | numeric: mu at z=2.0 | PASS |
+| 142 | ch:threeway:L134:1.002 | calc | `1.002` | numeric: R = 1/mu at z=2.0 | PASS |
 | 145 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which dR/dz is evaluated (slope checked by ch:threeway:L145) | - |
 | 145 |  | calc | `0.5` | not run: input: redshift z = 0.5 at which dR/dz is evaluated (slope checked by ch:threeway:L145:-0.12) | - |
-| 152 | eq:tw_bias | derived |  | sympy: 1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order | PASS |
-| 155 | ch:threeway:L155 | derived | `0.014` | numeric: cross term b_NT b_IAM at z=0.3 | PASS |
+| 147 | ch:threeway:L139 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
+| 147 | ch:threeway:L139:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
+| 153 | ch:threeway:L145 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
+| 153 | ch:threeway:L145:-0.31 | calc | `-0.31` | numeric: dR/dz at z=0 | PASS |
+| 153 | ch:threeway:L145:-0.12 | calc | `-0.12` | numeric: dR/dz at z=0.5 | PASS |
 | 155 |  | derived | `0.3` | not run: input: redshift z = 0.3 at which the cross term is evaluated (0.014 checked by ch:threeway:L155) | - |
-| 159 | ch:threeway:L159 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
-| 159 | ch:threeway:L159:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
 | 159 |  | calc | `0.20` | not run: input: assumed normalisation 0.20 of the illustrative non-thermal factor C_NT = 1+0.20(1+z)^0.2 (the chapter states the form is assumed) | - |
 | 159 |  | calc | `0.15` | not run: input: lowest bin centre z = 0.15 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159:+0.036) | - |
 | 159 |  | calc | `0.65` | not run: input: highest bin centre z = 0.65 of the range over which dC_NT/dz is quoted (slope checked by ch:threeway:L159) | - |
+| 160 | eq:tw_bias | derived |  | sympy: 1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order | PASS |
 | 160 |  | openprob | `+0.02` | not run: input: lower end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute | - |
 | 160 |  | openprob | `+0.04` | not run: input: upper end of the non-thermal slope range suggested by the cited simulations (Nelson2014, ShiKomatsu2014), quoted, nothing to recompute | - |
-| 161 | ch:threeway:L161 | calc | `-0.187` | numeric: slope of R C_NT at z=0.3 | PASS |
-| 161 | ch:threeway:L161:-0.025 | calc | `-0.025` | numeric: slope at z=1 | PASS |
-| 161 | ch:threeway:L161:1.40 | calc | `1.40` | numeric: turnover of R C_NT | PASS |
 | 161 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which the slope of R x C_NT is evaluated (-0.187 checked by ch:threeway:L161) | - |
-| 170 | ch:threeway:L170 | calc | `1.117` | numeric: R at bin centre 0.15 | PASS |
-| 170 | ch:threeway:L170:1.206 | calc | `1.206` | numeric: C_NT at 0.15 | PASS |
-| 170 | ch:threeway:L170:1.346 | calc | `1.346` | numeric: R C_NT at 0.15 | PASS |
+| 163 | ch:threeway:L155 | derived | `0.014` | numeric: cross term b_NT b_IAM at z=0.3 | PASS |
+| 167 | ch:threeway:L159 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
+| 167 | ch:threeway:L159:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
+| 169 | ch:threeway:L161 | calc | `-0.187` | numeric: slope of R C_NT at z=0.3 | PASS |
+| 169 | ch:threeway:L161:-0.025 | calc | `-0.025` | numeric: slope at z=1 | PASS |
+| 169 | ch:threeway:L161:1.40 | calc | `1.40` | numeric: turnover of R C_NT | PASS |
 | 170 |  | calc | `0.1` | not run: input: lower edge z = 0.1 of the first bin of tab:tw_bins | - |
 | 170 |  | calc | `0.2` | not run: input: upper edge z = 0.2 of the first bin of tab:tw_bins | - |
 | 170 |  | calc | `0.150` | not run: definition: bin centre 0.150 = midpoint of the bin edges 0.1 and 0.2 (R, C_NT and R x C_NT at this centre are checked by ch:threeway:L170 ff.) | - |
-| 171 | ch:threeway:L171 | calc | `1.094` | numeric: R at bin centre 0.25 | PASS |
-| 171 | ch:threeway:L171:1.209 | calc | `1.209` | numeric: C_NT at 0.25 | PASS |
-| 171 | ch:threeway:L171:1.323 | calc | `1.323` | numeric: R C_NT at 0.25 | PASS |
 | 171 |  | calc | `0.2` | not run: input: lower edge z = 0.2 of the second bin of tab:tw_bins | - |
 | 171 |  | calc | `0.3` | not run: input: upper edge z = 0.3 of the second bin of tab:tw_bins | - |
 | 171 |  | calc | `0.250` | not run: definition: bin centre 0.250 = midpoint of the bin edges 0.2 and 0.3 (values at this centre checked by ch:threeway:L171 ff.) | - |
-| 172 | ch:threeway:L172 | calc | `1.068` | numeric: R at bin centre 0.4 | PASS |
-| 172 | ch:threeway:L172:1.214 | calc | `1.214` | numeric: C_NT at 0.4 | PASS |
-| 172 | ch:threeway:L172:1.297 | calc | `1.297` | numeric: R C_NT at 0.4 | PASS |
 | 172 |  | calc | `0.3` | not run: input: lower edge z = 0.3 of the third bin of tab:tw_bins | - |
 | 172 |  | calc | `0.5` | not run: input: upper edge z = 0.5 of the third bin of tab:tw_bins | - |
 | 172 |  | calc | `0.400` | not run: definition: bin centre 0.400 = midpoint of the bin edges 0.3 and 0.5 (values at this centre checked by ch:threeway:L172 ff.) | - |
-| 173 | ch:threeway:L173 | calc | `1.039` | numeric: R at bin centre 0.65 | PASS |
-| 173 | ch:threeway:L173:1.221 | calc | `1.221` | numeric: C_NT at 0.65 | PASS |
-| 173 | ch:threeway:L173:1.269 | calc | `1.269` | numeric: R C_NT at 0.65 | PASS |
 | 173 |  | calc | `0.5` | not run: input: lower edge z = 0.5 of the fourth bin of tab:tw_bins | - |
 | 173 |  | calc | `0.8` | not run: input: upper edge z = 0.8 of the fourth bin of tab:tw_bins | - |
 | 173 |  | calc | `0.650` | not run: definition: bin centre 0.650 = midpoint of the bin edges 0.5 and 0.8 (values at this centre checked by ch:threeway:L173 ff.) | - |
-| 178 | ch:threeway:L178 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
-| 178 | ch:threeway:L178:+0.027 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
-| 178 | ch:threeway:L178:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
+| 178 | ch:threeway:L170 | calc | `1.117` | numeric: R at bin centre 0.15 | PASS |
+| 178 | ch:threeway:L170:1.206 | calc | `1.206` | numeric: C_NT at 0.15 | PASS |
+| 178 | ch:threeway:L170:1.346 | calc | `1.346` | numeric: R C_NT at 0.15 | PASS |
 | 178 |  | calc | `0.20` | not run: input: assumed normalisation 0.20 of the illustrative C_NT (figure caption restates the form of line 159) | - |
 | 178 |  | calc | `0.3` | not run: input: redshift z = 0.3 at which dR/dz is quoted (-0.183 checked by ch:threeway:L178) | - |
-| 182 | ch:threeway:L182 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
-| 182 | ch:threeway:L182:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
+| 179 | ch:threeway:L171 | calc | `1.094` | numeric: R at bin centre 0.25 | PASS |
+| 179 | ch:threeway:L171:1.209 | calc | `1.209` | numeric: C_NT at 0.25 | PASS |
+| 179 | ch:threeway:L171:1.323 | calc | `1.323` | numeric: R C_NT at 0.25 | PASS |
+| 180 | ch:threeway:L172 | calc | `1.068` | numeric: R at bin centre 0.4 | PASS |
+| 180 | ch:threeway:L172:1.214 | calc | `1.214` | numeric: C_NT at 0.4 | PASS |
+| 180 | ch:threeway:L172:1.297 | calc | `1.297` | numeric: R C_NT at 0.4 | PASS |
+| 181 | ch:threeway:L173 | calc | `1.039` | numeric: R at bin centre 0.65 | PASS |
+| 181 | ch:threeway:L173:1.221 | calc | `1.221` | numeric: C_NT at 0.65 | PASS |
+| 181 | ch:threeway:L173:1.269 | calc | `1.269` | numeric: R C_NT at 0.65 | PASS |
 | 183 |  | calc | `0.1` | not run: input: lower end z = 0.1 of the redshift range of the proposed cross-matched sample | - |
 | 183 |  | calc | `0.6` | not run: input: upper end z = 0.6 of the redshift range of the proposed cross-matched sample | - |
-| 184 | ch:threeway:L184 | calc | `-0.18` | numeric: slope -0.18 at z = 0.3, restated | PASS |
 | 185 |  | calc | `+0.02` | not run: input: lower end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160 | - |
 | 185 |  | calc | `+0.04` | not run: input: upper end of the non-thermal slope range of the cited simulations (Nelson2014, ShiKomatsu2014), restated from line 160 | - |
-| 189 | ch:threeway:L189 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
-| 189 | ch:threeway:L189:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
-| 189 | ch:threeway:L189:1.27 | calc | `1.27` | numeric: total at the last bin | PASS |
-| 189 | ch:threeway:L189:1.35 | calc | `1.35` | numeric: total at the first bin | PASS |
-| 190 | ch:threeway:L190 | calc | `1.28` | numeric: CCCP Planck-prior calibration 1/(1-b) | PASS |
-| 190 | ch:threeway:L190:1.45 | calc | `1.45` | numeric: WtG Planck-prior calibration 1/(1-b) | PASS |
-| 191 | ch:threeway:L191 | calc | `1.05` | numeric: LoCuSS like-for-like M_WL/M_X = 1/beta_X | PASS |
+| 186 | ch:threeway:L178 | calc | `-0.183` | numeric: dR/dz at z=0.3 | PASS |
+| 186 | ch:threeway:L178:+0.027 | calc | `+0.027` | numeric: dC_NT/dz at z=0.65 | PASS |
+| 186 | ch:threeway:L178:+0.036 | calc | `+0.036` | numeric: dC_NT/dz at z=0.15 | PASS |
+| 190 | ch:threeway:L182 | calc | `-0.152` | numeric: straight-line slope over the four bin centres | PASS |
+| 190 | ch:threeway:L182:1.5 | calc | `1.5` | numeric: fractional error per bin for a 3 sigma slope | PASS |
 | 191 |  | calc | `0.15` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary | - |
 | 191 |  | calc | `0.3` | not run: input: redshift range 0.15<z<0.3 of the LoCuSS sample (Smith2016LoCuSS), a sample boundary | - |
+| 192 | ch:threeway:L184 | calc | `-0.18` | numeric: slope -0.18 at z = 0.3, restated | PASS |
 | 192 |  | openprob | `0.3` | not run: input: redshift z = 0.3 at which the cited reanalysis splits its sample (Smith2016LoCuSS), nothing to recompute | - |
-| 201 | eq:tw_test1 | calibrated |  | sympy: three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1) | PASS |
-| 211 | ch:threeway:L211 | interp | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
+| 197 | ch:threeway:L189 | calc | `1.07` | numeric: R at z=0.4 ('approx') | PASS |
+| 197 | ch:threeway:L189:1.10 | calc | `1.10` | numeric: R at z=0.2 ('approx') | PASS |
+| 197 | ch:threeway:L189:1.27 | calc | `1.27` | numeric: total at the last bin | PASS |
+| 197 | ch:threeway:L189:1.35 | calc | `1.35` | numeric: total at the first bin | PASS |
+| 198 | ch:threeway:L190 | calc | `1.28` | numeric: CCCP Planck-prior calibration 1/(1-b) | PASS |
+| 198 | ch:threeway:L190:1.45 | calc | `1.45` | numeric: WtG Planck-prior calibration 1/(1-b) | PASS |
+| 199 | ch:threeway:L191 | calc | `1.05` | numeric: LoCuSS like-for-like M_WL/M_X = 1/beta_X | PASS |
+| 209 | eq:tw_test1 | calibrated |  | sympy: three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1) | PASS |
 | 211 |  | interp | `0.2` | not run: input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211) | - |
 | 211 |  | interp | `0.4` | not run: input: redshift range z = 0.2-0.4 of the samples (the signal there is checked by ch:threeway:L211) | - |
 | 212 |  | interp | `0.02` | not run: input: published shape-measurement bound |m| < 0.02 for DES Y3 quoted from the cited MacCrann2022, nothing to recompute | - |
-| 220 | ch:threeway:L220 | interp | `-0.18` | numeric: Level 1 slope -0.18, restated | PASS |
-| 237 | ch:threeway:L237 | prediction |  | sympy: R = M_lens/M_hydro = 1/mu (what would test it) | PASS |
+| 219 | ch:threeway:L211 | interp | `10` | sympy: the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded | PASS |
+| 228 | ch:threeway:L220 | interp | `-0.18` | numeric: Level 1 slope -0.18, restated | PASS |
+| 245 | ch:threeway:L237 | prediction |  | sympy: R = M_lens/M_hydro = 1/mu (what would test it) | PASS |
 
 ## Part 2 - ch:satellites - `docs/book/part2/p2_19_missing_satellites.tex`
 
@@ -3688,14 +3688,6 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 0 | eq:ko:k2 | derived |  | sympy: orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V | PASS |
-| 0 | eq:ko:seq | derived |  | sympy: any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1) | PASS |
-| 0 | ch:koide:virial:x2 | calc | `313.851` | numeric: zero-sequence power x^2 of the square-root masses, MeV | PASS |
-| 0 | ch:koide:virial:y2 | calc | `313.849` | numeric: power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV | PASS |
-| 0 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
-| 0 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
-| 0 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
-| 0 | ch:koide:K3 | calc |  | sympy: K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3 | PASS |
 | 18 | eq:ko:Q | derived |  | sympy: Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) | PASS |
 | 29 | ch:koide:L29 | observed | `0.51099895000` | numeric: electron mass, MeV (CODATA 2018) | PASS |
 | 30 | ch:koide:L30 | observed | `105.6583755` | numeric: muon mass, MeV (CODATA 2018 ratio) | PASS |
@@ -3731,68 +3723,76 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 92 | ch:koide:L92:0.222222 | calc | `0.222222` | numeric: 2/9 | PASS |
 | 93 | ch:koide:L93 | calc | `2.5\times10^{-6}` | numeric: delta - 2/9 | PASS |
 | 93 | ch:koide:L93:0.41 | calc | `0.41` | numeric: (delta - 2/9)/sigma(delta) | PASS |
-| 120 | eq:ko:TU | none |  | sympy: Unruh temperature from regularity of the Euclidean Rindler plane | PASS |
-| 125 | eq:ko:eta | derived |  | sympy: eta = c^3/(4 hbar G) = 1/(4 l_P^2) | PASS |
-| 133 | eq:ko:onebit | derived |  | sympy: eta dA_min = 1, dA_min = 4 l_P^2 | PASS |
-| 143 | eq:ko:maxent | derived |  | sympy: maximum entropy over K states gives p_k = 1/K (K=3) | PASS |
+| 121 | eq:ko:TU | none |  | sympy: Unruh temperature from regularity of the Euclidean Rindler plane | PASS |
+| 126 | eq:ko:eta | derived |  | sympy: eta = c^3/(4 hbar G) = 1/(4 l_P^2) | PASS |
+| 134 | eq:ko:onebit | derived |  | sympy: eta dA_min = 1, dA_min = 4 l_P^2 | PASS |
+| 144 | eq:ko:maxent | derived |  | sympy: maximum entropy over K states gives p_k = 1/K (K=3) | PASS |
 | 152 | eq:ko:fourier | none |  | not run: definition: the general Fourier series of sqrt(m) on the orbit S^1 | - |
-| 156 | eq:ko:grad | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 161 | eq:ko:boltz | conjecture |  | sympy: Boltzmann suppression of mode n relative to mode 1 | PASS |
-| 166 | eq:ko:two | conjecture |  | sympy: reflection symmetry removes sin(phi): sqrt m = x + y cos(phi) | PASS |
-| 174 | ch:koide:L174 | calc | `0.67` | numeric: largest shift of Q per unit a_2/y from a cos(2 phi) admixture | PASS |
-| 181 | eq:ko:weights | conjecture |  | sympy: Parseval weights of the constant and first-harmonic channels | PASS |
-| 186 | eq:ko:ratio | conjecture |  | sympy: equal weights x^2 = y^2/2 give y/x = sqrt2 | PASS |
-| 196 | eq:ko:pos | derived |  | sympy: 1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 | PASS |
-| 206 | ch:koide:L206 | derived | `0.2222` | numeric: measured offset delta | PASS |
-| 212 | ch:koide:L212 | derived | `0.50` | numeric: fraction of offsets admitting n=2 | PASS |
-| 212 | ch:koide:L212:0.25 | derived | `0.25` | numeric: fraction of offsets admitting n=3 | PASS |
-| 213 | ch:koide:L213 | derived | `0.2222` | numeric: measured offset delta | PASS |
-| 213 | ch:koide:L213:0.975 | derived | `0.975` | numeric: cos delta | PASS |
-| 228 | eq:ko:thm2 | derived |  | sympy: Q = 2/3 at y/x = sqrt2 | PASS |
-| 240 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
-| 243 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
-| 246 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 247 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 253 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 254 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
-| 254 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
-| 255 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
-| 255 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
-| 260 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
-| 260 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 157 | eq:ko:grad | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 162 | eq:ko:boltz | conjecture |  | sympy: Boltzmann suppression of mode n relative to mode 1 | PASS |
+| 167 | eq:ko:two | conjecture |  | sympy: reflection symmetry removes sin(phi): sqrt m = x + y cos(phi) | PASS |
+| 172 | ch:koide:K3 | calc |  | sympy: K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3 | PASS |
+| 180 | ch:koide:L174 | calc | `0.67` | numeric: largest shift of Q per unit a_2/y from a cos(2 phi) admixture | PASS |
+| 187 | eq:ko:weights | conjecture |  | sympy: Parseval weights of the constant and first-harmonic channels | PASS |
+| 192 | eq:ko:ratio | conjecture |  | sympy: equal weights x^2 = y^2/2 give y/x = sqrt2 | PASS |
+| 203 | eq:ko:pos | derived |  | sympy: 1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 | PASS |
+| 213 | ch:koide:L206 | derived | `0.2222` | numeric: measured offset delta | PASS |
+| 219 | ch:koide:L212 | derived | `0.50` | numeric: fraction of offsets admitting n=2 | PASS |
+| 219 | ch:koide:L212:0.25 | derived | `0.25` | numeric: fraction of offsets admitting n=3 | PASS |
+| 220 | ch:koide:L213 | derived | `0.2222` | numeric: measured offset delta | PASS |
+| 220 | ch:koide:L213:0.975 | derived | `0.975` | numeric: cos delta | PASS |
+| 235 | eq:ko:thm2 | derived |  | sympy: Q = 2/3 at y/x = sqrt2 | PASS |
+| 250 | eq:ko:k2 | derived |  | sympy: orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V | PASS |
 | 260 |  | calc | `0.10` | not run: input: delta = 0.10, an offset chosen for the sweep figure, nothing to recompute | - |
 | 261 |  | calc | `0.40` | not run: input: delta = 0.40, an offset chosen for the sweep figure, nothing to recompute | - |
-| 263 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 272 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
-| 272 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
-| 273 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
-| 273 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
-| 274 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
-| 275 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
-| 276 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 276 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
-| 277 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 277 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 278 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 279 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 283 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 284 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
-| 284 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 285 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
-| 295 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 263 | eq:ko:seq | derived |  | sympy: any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1) | PASS |
+| 270 | ch:koide:virial:x2 | calc | `313.851` | numeric: zero-sequence power x^2 of the square-root masses, MeV | PASS |
+| 270 | ch:koide:virial:y2 | calc | `313.849` | numeric: power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV | PASS |
+| 270 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
+| 278 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
+| 280 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
+| 292 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
+| 295 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
 | 295 |  | calc | `1776.93` | not run: input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31 | - |
-| 296 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
-| 296 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
 | 296 |  | calc | `1776.86` | not run: input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32 | - |
-| 297 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
 | 297 |  | prediction | `1777.09` | not run: input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute | - |
-| 299 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 299 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
-| 315 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 315 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
-| 316 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 322 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
-| 323 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
+| 298 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 299 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 305 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 306 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
+| 306 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
+| 307 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
+| 307 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
+| 312 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
+| 312 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 315 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 324 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
+| 324 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
+| 325 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
+| 325 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
+| 326 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
+| 327 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
+| 328 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 328 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
+| 329 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 329 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 330 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 331 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 335 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 336 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
+| 336 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 337 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
+| 347 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 348 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
+| 348 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
+| 349 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
+| 351 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 351 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
+| 367 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 367 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
+| 368 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 376 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
+| 377 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
 
 ## Part 4 - ch:electronmass - `docs/book/part4/p4_15b_electron_mass.tex`
 
@@ -5105,11 +5105,11 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 0 | eq:eh_euler | derived |  | sympy: Euler's theorem: f homogeneous of degree k gives x . grad f = k f | PASS |
-| 0 | eq:eh_cap | derived |  | sympy: capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance | PASS |
-| 0 | eq:eh_area | derived |  | sympy: S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2 | PASS |
-| 0 | eq:eh_smarrD | derived |  | sympy: D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5 | PASS |
-| 0 | eq:eh_dS | derived |  | sympy: cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E | PASS |
+| 15 | eq:eh_euler | derived |  | sympy: Euler's theorem: f homogeneous of degree k gives x . grad f = k f | PASS |
+| 33 | eq:eh_cap | derived |  | sympy: capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance | PASS |
+| 40 | eq:eh_area | derived |  | sympy: S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2 | PASS |
+| 45 | eq:eh_dS | derived |  | sympy: cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E | PASS |
+| 82 | eq:eh_smarrD | derived |  | sympy: D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5 | PASS |
 
 ## Part 7 - ch:onegauge - `docs/book/part7/p7_08_one_gauge.tex`
 
@@ -5178,14 +5178,14 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 64 |  | derived | `10` | not run: input: the resistance range 10^-2 to 10^2 ohm over which the capacitor ratio is computed (checked as ch:synthesis:L64) | - |
 | 69 | ch:synthesis:L69 | derived | `-0.136` | numeric: mu0 from beta_m = Omega_m/2 | PASS |
 | 77 |  | measured | `1.8` | not run: measured, source not named | - |
-| 79 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
-| 80 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
-| 80 | ch:synthesis:L80:4.25 | fitted | `4.25` | numeric: f sigma8 deficit at z = 0 | PASS |
-| 80 | ch:synthesis:L80:0.41 | fitted | `0.41` | numeric: f sigma8 deficit at z = 1 | PASS |
-| 87 | ch:synthesis:L87 | derived | `6.2\times10^{-7}` | numeric: transmon per-gate thermal floor p_eq t_g/T1 | PASS |
+| 80 | ch:synthesis:L79 | fitted | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2 Delta chi2, IAM minus LCDM | PASS |
+| 81 | ch:synthesis:L80 | fitted | `0.8087` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: sigma8 LCDM Level 2 chain (Run C) | PASS |
+| 81 | ch:synthesis:L80:4.25 | fitted | `4.25` | numeric: f sigma8 deficit at z = 0 | PASS |
+| 81 | ch:synthesis:L80:0.41 | fitted | `0.41` | numeric: f sigma8 deficit at z = 1 | PASS |
 | 87 |  | derived | `68` | not run: input: T_1 = 68 microseconds, a published device value (\cite{GoogleWillow2025} in ch:onegauge); used by ch:synthesis:L87 | - |
+| 88 | ch:synthesis:L87 | derived | `6.2\times10^{-7}` | numeric: transmon per-gate thermal floor p_eq t_g/T1 | PASS |
 | 88 |  | derived | `10` | not run: input: the base 10 of a two-qubit error near 10^-3, an illustrative device value stated in the sentence; nothing to recompute | - |
-| 93 | ch:synthesis:L93 | calibrated | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
+| 94 | ch:synthesis:L93 | calibrated | `0.020` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
 
 ## Part 7 - ch:reach - `docs/book/part7/p7_09_reach.tex`
 
@@ -5464,59 +5464,59 @@ Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 70 | ch:statusall:L71 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
 | 70 | ch:statusall:L71:0.43 | observed | `0.43` | numeric: Koide Q from 2/3, sigma | PASS |
 | 71 | ch:statusall:L72 | derived | `0.2222` | numeric: same value as p4_15a_lepton_koide:206 (measured offset delta) | PASS |
-| 72 | ch:statusall:L73 | calc | `-0.02` | numeric: electron fixed point at H0 = 67.36, per cent | PASS |
 | 72 |  | calc | `67.36` | not run: input: Planck 2018 H0 = 67.36 (Aghanim et al. 2020), the rate at which the electron-mass relation is evaluated; the -0.02 % is checked in ch:statusall:L73 | - |
-| 75 | ch:statusall:L76:60 | calc | `60` | numeric: active fluctuators for x_qp = 1e-7, 1e3 um^3 island | PASS |
-| 75 | ch:statusall:L76:600 | calc | `600` | numeric: active fluctuators, 1e4 um^3 island | PASS |
-| 75 | ch:statusall:L76:6000 | calc | `6000` | numeric: active fluctuators, 1e5 um^3 island | PASS |
+| 75 | ch:statusall:L73 | calc | `-0.02` | numeric: electron fixed point at H0 = 67.36, per cent | PASS |
 | 75 |  | derived | `10` | not run: input: base of the island volumes 10^3-10^5 cubic micrometres; the fluctuator counts are checked in ch:statusall:L76:60/600/6000 | - |
 | 76 |  | observed | `10` | not run: observed: measured quasiparticle background band 10^-8 to 10^-6 cited in ch:xqp; the inventoried 10 is the base of the power of ten, no committed file holds the band | - |
 | 77 |  | calc | `10` | not run: input: x_qp = 10^-7, the quasiparticle fraction at which T_1 is evaluated (the inventoried 10 is the base of the power of ten) | - |
-| 78 | ch:statusall:L79 | calc | `6.2\times10^{-4}` | numeric: transmon floor on its gauge | PASS |
-| 78 | ch:statusall:L79:10 | calc | `10` | numeric: surface-code threshold on the qubit gauge | PASS |
-| 80 | ch:statusall:L81 | calc | `6.2\times10^{-7}` | numeric: per-gate thermal floor | PASS |
+| 78 | ch:statusall:L76:60 | calc | `60` | numeric: active fluctuators for x_qp = 1e-7, 1e3 um^3 island | PASS |
+| 78 | ch:statusall:L76:600 | calc | `600` | numeric: active fluctuators, 1e4 um^3 island | PASS |
+| 78 | ch:statusall:L76:6000 | calc | `6000` | numeric: active fluctuators, 1e5 um^3 island | PASS |
 | 80 |  | calc | `68` | not run: input: T_1 = 68 microseconds (GoogleWillow2025, as cited in ch:ascoreqc); the floor is checked in ch:statusall:L81 | - |
 | 80 |  | calc | `10` | not run: input: illustrative two-qubit gate error 10^-3 (the inventoried 10 is the base of the power of ten) | - |
 | 80 |  | calc | `35` | not run: input: device temperature 35 mK (Jin2015, as cited in ch:ascoreqc) | - |
 | 80 |  | calc | `40` | not run: input: illustrative 40 ns gate time | - |
 | 80 |  | calc | `6\times10^{-4}` | not run: printed value 6x10^-4 has one significant digit: a 5 % change cannot be told from rounding (recomputed 6.19e-4); the precise per-gate floor is checked at ch:statusall:L81 (6.2x10^-7) | - |
-| 81 | ch:statusall:L82 | calc | `6.85` | numeric: slope at 35 mK | PASS |
-| 81 | ch:statusall:L82:16.0 | calc | `16.0` | numeric: slope at 15 mK | PASS |
+| 81 | ch:statusall:L79 | calc | `6.2\times10^{-4}` | numeric: transmon floor on its gauge | PASS |
+| 81 | ch:statusall:L79:10 | calc | `10` | numeric: surface-code threshold on the qubit gauge | PASS |
 | 81 |  | calc | `35` | not run: input: temperature 35 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82 | - |
 | 81 |  | calc | `15` | not run: input: temperature 15 mK at which the slope is evaluated; the slope is checked in ch:statusall:L82:16.0 | - |
-| 84 | ch:statusall:L85 | calc | `576` | numeric: E_sw/(k_B T_j ln2) | PASS |
-| 84 | ch:statusall:L85:593 | calc | `593` | numeric: E_sw/(k_B T_j ln2) | PASS |
+| 83 | ch:statusall:L81 | calc | `6.2\times10^{-7}` | numeric: per-gate thermal floor | PASS |
+| 84 | ch:statusall:L82 | calc | `6.85` | numeric: slope at 35 mK | PASS |
+| 84 | ch:statusall:L82:16.0 | calc | `16.0` | numeric: slope at 15 mK | PASS |
 | 84 |  | calc | `9950` | not run: input: processor model designation (a name, not a quantity); the switching energy is checked in ch:statusall:L85 and L85:593 | - |
-| 85 | ch:statusall:L86 | calc | `3.33\times10^{-21}` | numeric: Landauer floor at 75 C | PASS |
-| 85 | ch:statusall:L86:8.6 | calc | `8.6` | numeric: 105 C vs 75 C | PASS |
 | 85 |  | calc | `75` | not run: input: junction temperature 75 C; the Landauer floor is checked in ch:statusall:L86 | - |
 | 85 |  | calc | `105` | not run: input: junction temperature 105 C; the 8.6 % is checked in ch:statusall:L86:8.6 | - |
-| 87 | ch:statusall:L88:1.9 | calc | `1.9` | numeric: Hopfield gap, lowest published DNMT1 preference | PASS |
-| 87 | ch:statusall:L88:4.4 | calc | `4.4` | numeric: Hopfield gap, highest published DNMT1 preference | PASS |
-| 87 | ch:statusall:L88:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured holding energy, k_B T | PASS |
-| 89 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
+| 87 | ch:statusall:L85 | calc | `576` | numeric: E_sw/(k_B T_j ln2) | PASS |
+| 87 | ch:statusall:L85:593 | calc | `593` | numeric: E_sw/(k_B T_j ln2) | PASS |
+| 88 | ch:statusall:L86 | calc | `3.33\times10^{-21}` | numeric: Landauer floor at 75 C | PASS |
+| 88 | ch:statusall:L86:8.6 | calc | `8.6` | numeric: 105 C vs 75 C | PASS |
 | 89 |  | calc | `37` | not run: input: body temperature 37 C (T_cell = 310.15 K, canon); the Landauer cost is checked in ch:statusall:L90 | - |
-| 90 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
-| 90 | ch:statusall:L91:30.2 | calc | `30.2` | numeric: M/ln2 | PASS |
-| 91 | ch:statusall:L92 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy of a methylated site | PASS |
-| 91 | ch:statusall:L92:0.032 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held-error floor eps0 | PASS |
-| 91 | ch:statusall:L92:0.163 | measured | `0.147` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: phi = E_hold / M | PASS |
-| 93 | ch:statusall:L94 | calibrated | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Met-A neutrophil reference floor, bits | PASS |
-| 93 | ch:statusall:L94:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the neutrophil reference | PASS |
-| 94 | ch:statusall:L95 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
-| 95 | ch:statusall:L96:Hmin | calc | `1e-7` | file `CANON/iam_canon.json`: the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0)) | PASS |
-| 95 | ch:statusall:L96:3.03 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full | PASS |
-| 97 | ch:statusall:L98 | calc | `0.81` | numeric: floor at 10 C | PASS |
-| 97 | ch:statusall:L98:1.012 | calc | `1.011` | numeric: same value as p6_10_temperature:17 (floor at 38.5 C) | PASS |
+| 90 | ch:statusall:L88:1.9 | calc | `1.9` | numeric: Hopfield gap, lowest published DNMT1 preference | PASS |
+| 90 | ch:statusall:L88:4.4 | calc | `4.4` | numeric: Hopfield gap, highest published DNMT1 preference | PASS |
+| 90 | ch:statusall:L88:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured holding energy, k_B T | PASS |
+| 92 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
+| 93 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
+| 93 | ch:statusall:L91:30.2 | calc | `30.2` | numeric: M/ln2 | PASS |
+| 94 | ch:statusall:L92 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy of a methylated site | PASS |
+| 94 | ch:statusall:L92:0.032 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held-error floor eps0 | PASS |
+| 94 | ch:statusall:L92:0.163 | measured | `0.147` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: phi = E_hold / M | PASS |
+| 96 | ch:statusall:L94 | calibrated | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: Met-A neutrophil reference floor, bits | PASS |
+| 96 | ch:statusall:L94:6000 | calibrated | `6000` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: identity sites of the neutrophil reference | PASS |
+| 97 | ch:statusall:L95 | measured | `0.020` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out SD of the six reference arrays | PASS |
 | 97 | ch:statusall:L98:1.012' | calc | `1.011` | numeric: floor at 38.5 C | PASS |
 | 97 |  | calc | `10` | not run: input: temperature 10 C at which the floor is evaluated; checked in ch:statusall:L98 | - |
 | 97 |  | calc | `38.5` | not run: input: temperature 38.5 C at which the floor is evaluated; checked in ch:statusall:L98:1.012 | - |
-| 98 | ch:statusall:L99 | measured | `92.7` | heavy file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out interval coverage, per cent | PASS |
-| 105 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
-| 107 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
-| 109 | ch:statusall:L110:509 | prediction | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
-| 109 | ch:statusall:L110:7.5 | prediction | `7.5` | numeric: tau_DP of the same sphere, microseconds | PASS |
+| 98 | ch:statusall:L96:Hmin | calc | `1e-7` | file `CANON/iam_canon.json`: the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0)) | PASS |
+| 98 | ch:statusall:L96:3.03 | calc | `3.03` | file `CANON/iam_canon.json`: Met-A full | PASS |
+| 100 | ch:statusall:L98 | calc | `0.81` | numeric: floor at 10 C | PASS |
+| 100 | ch:statusall:L98:1.012 | calc | `1.011` | numeric: same value as p6_10_temperature:17 (floor at 38.5 C) | PASS |
+| 101 | ch:statusall:L99 | measured | `92.7` | heavy file `Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md`: atlas v2 held-out interval coverage, per cent | PASS |
+| 108 | ch:statusall:L106 | calc | `2.3\times10^{22}` | numeric: M_eq today | PASS |
 | 109 |  | prediction | `10` | not run: input: temperature 10 mK of the gravitational-decoherence prediction; tau values checked in ch:statusall:L110:509 and L110:7.5 | - |
+| 110 | ch:statusall:L108 | conjecture | `0.0179` | numeric: Q_L = k_B T ln 2 at room temperature, eV | PASS |
+| 112 | ch:statusall:L110:509 | prediction | `509` | numeric: tau_IAM of a 1e-12 kg silica sphere at 10 mK, s | PASS |
+| 112 | ch:statusall:L110:7.5 | prediction | `7.5` | numeric: tau_DP of the same sphere, microseconds | PASS |
 
 ## Part 7 - ch:conclusion - `docs/book/part7/p7_10_conclusion.tex`
 

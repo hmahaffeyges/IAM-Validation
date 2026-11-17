@@ -4500,21 +4500,21 @@ def check_0216():
     return locals()
 
 @check(label='ch:virial_law:L144', chapter='ch:virial_law', part=1, title='hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg)',
-       file='part1/p1_03_virial_law', line=144, status='derived', kind='num', printed='13.606', tol=3.676e-05)
+       file='part1/p1_03_virial_law', line=169, status='derived', kind='num', printed='13.606', tol=3.676e-05)
 def check_0217():
     'hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg). Book line 144, printed 13.606.'
     value=0.5*alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:virial_law:L144:27.211', chapter='ch:virial_law', part=1, title='hydrogen |V| = alpha^2 m_e c^2',
-       file='part1/p1_03_virial_law', line=144, status='derived', kind='num', printed='27.211', tol=1.837e-05)
+       file='part1/p1_03_virial_law', line=169, status='derived', kind='num', printed='27.211', tol=1.837e-05)
 def check_0218():
     'hydrogen |V| = alpha^2 m_e c^2. Book line 144, printed 27.211.'
     value=1*alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:virial_law:L144:0.5000000000', chapter='ch:virial_law', part=1, title='Smarr ratio, caption repeat',
-       file='part1/p1_03_virial_law', line=144, status='calc', kind='sym', printed='0.5000000000', tol=0.0)
+       file='part1/p1_03_virial_law', line=169, status='calc', kind='sym', printed='0.5000000000', tol=0.0)
 def check_0219():
     'Smarr ratio, caption repeat. Book line 144, printed 0.5000000000. Control: the ratio must not equal 0.525.'
     G_,c_,kB_,hbar_,M=sp.symbols('G c kB hbar M',positive=True); S=4*sp.pi*G_*kB_*M**2/(hbar_*c_); T_H=hbar_*c_**3/(8*sp.pi*G_*kB_*M); ok=sp.simplify(T_H*S-sp.Rational(1,2)*M*c_**2)==0
@@ -4522,14 +4522,14 @@ def check_0219():
     return locals()
 
 @check(label='ch:virial_law:L144:0.15765', chapter='ch:virial_law', part=1, title='beta_m prediction, caption repeat',
-       file='part1/p1_03_virial_law', line=144, status='prediction', kind='num', printed='0.15765', tol=3.17e-05)
+       file='part1/p1_03_virial_law', line=169, status='prediction', kind='num', printed='0.15765', tol=3.17e-05)
 def check_0220():
     'beta_m prediction, caption repeat. Book line 144, printed 0.15765.'
     value=Om/2
     return locals()
 
 @check(label='ch:virial_law:L144:0.3166', chapter='ch:virial_law', part=1, title='Level2 Planck posterior Omega_m mean',
-       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.3166', tol=0.0001579, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part1/p1_03_virial_law', line=169, status='measured', kind='file', printed='0.3166', tol=0.0001579, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0221():
     'Level2 Planck posterior Omega_m mean. Book line 144, printed 0.3166.'
@@ -4537,7 +4537,7 @@ def check_0221():
     return locals()
 
 @check(label='ch:virial_law:L144:0.0065', chapter='ch:virial_law', part=1, title='Level2 Planck posterior Omega_m sd',
-       file='part1/p1_03_virial_law', line=144, status='measured', kind='file', printed='0.0065', tol=0.007692, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part1/p1_03_virial_law', line=169, status='measured', kind='file', printed='0.0065', tol=0.007692, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0222():
     'Level2 Planck posterior Omega_m sd. Book line 144, printed 0.0065.'
@@ -4545,35 +4545,35 @@ def check_0222():
     return locals()
 
 @check(label='ch:virial_law:L144:0.498', chapter='ch:virial_law', part=1, title='beta_m/Omega_m at Level2 posterior mean',
-       file='part1/p1_03_virial_law', line=144, status='calc', kind='num', printed='0.498', tol=0.001004)
+       file='part1/p1_03_virial_law', line=169, status='calc', kind='num', printed='0.498', tol=0.001004)
 def check_0223():
     'beta_m/Omega_m at Level2 posterior mean. Book line 144, printed 0.498.'
     om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); value=(Om/2)/om
     return locals()
 
 @check(label='ch:virial_law:L144:0.010', chapter='ch:virial_law', part=1, title='propagated sd of beta_m/Omega_m ratio',
-       file='part1/p1_03_virial_law', line=144, status='calc', kind='num', printed='0.010', tol=0.05)
+       file='part1/p1_03_virial_law', line=169, status='calc', kind='num', printed='0.010', tol=0.05)
 def check_0224():
     'propagated sd of beta_m/Omega_m ratio. Book line 144, printed 0.010.'
     om=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam'); om_sd=csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv','iam_level2_runA','omegam_sd'); value=(Om/2)/om**2*om_sd
     return locals()
 
 @check(label='ch:virial_law:L157', chapter='ch:virial_law', part=1, title='hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg)',
-       file='part1/p1_03_virial_law', line=157, status='derived', kind='num', printed='13.6057', tol=3.67e-06)
+       file='part1/p1_03_virial_law', line=182, status='derived', kind='num', printed='13.6057', tol=3.67e-06)
 def check_0225():
     'hydrogen |E| = alpha^2 m_e c^2/2 (infinite-mass Rydberg). Book line 157, printed 13.6057.'
     value=0.5*alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:virial_law:L157:27.2114', chapter='ch:virial_law', part=1, title='hydrogen |V| = alpha^2 m_e c^2',
-       file='part1/p1_03_virial_law', line=157, status='derived', kind='num', printed='27.2114', tol=1.84e-06)
+       file='part1/p1_03_virial_law', line=182, status='derived', kind='num', printed='27.2114', tol=1.84e-06)
 def check_0226():
     'hydrogen |V| = alpha^2 m_e c^2. Book line 157, printed 27.2114.'
     value=1*alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:virial_law:L158', chapter='ch:virial_law', part=1, title='virial ratio identity, table repeat',
-       file='part1/p1_03_virial_law', line=158, status='calc', kind='sym', printed='1.0000000000', tol=0.0)
+       file='part1/p1_03_virial_law', line=183, status='calc', kind='sym', printed='1.0000000000', tol=0.0)
 def check_0227():
     'virial ratio identity, table repeat. Book line 158, printed 1.0000000000. Control: eta must not equal 1.05.'
     K,E=sp.symbols('K E'); V=-2*K; Eexpr=K+V; eta=-K/Eexpr; ok=sp.simplify(eta-1)==0
@@ -4581,21 +4581,21 @@ def check_0227():
     return locals()
 
 @check(label='ch:virial_law:L160', chapter='ch:virial_law', part=1, title='Chandrasekhar mass, table repeat',
-       file='part1/p1_03_virial_law', line=160, status='derived', kind='num', printed='1.456', tol=0.000343)
+       file='part1/p1_03_virial_law', line=185, status='derived', kind='num', printed='1.456', tol=0.000343)
 def check_0228():
     'Chandrasekhar mass, table repeat. Book line 160, printed 1.456.'
     m_u=1.66053906660e-27; omega3=2.01824; mu_e=2; M_ch=omega3*math.sqrt(3*math.pi)/2*(hbar*c/G)**1.5/(mu_e*m_u)**2; value=M_ch/Msun
     return locals()
 
 @check(label='ch:virial_law:L161', chapter='ch:virial_law', part=1, title='Sun contraction timescale, table repeat',
-       file='part1/p1_03_virial_law', line=161, status='calc', kind='num', printed='24', tol=0.0208)
+       file='part1/p1_03_virial_law', line=186, status='calc', kind='num', printed='24', tol=0.0208)
 def check_0229():
     'Sun contraction timescale, table repeat. Book line 161, printed 24.'
     R_sun=6.957e8; L_sun=3.828e26; U=-1.5*G*Msun**2/R_sun; value=abs(U)/(2*L_sun)/yr/1e6
     return locals()
 
 @check(label='ch:virial_law:L164', chapter='ch:virial_law', part=1, title='Smarr relation, table repeat',
-       file='part1/p1_03_virial_law', line=164, status='calc', kind='sym', printed='1/2', tol=0.0)
+       file='part1/p1_03_virial_law', line=189, status='calc', kind='sym', printed='1/2', tol=0.0)
 def check_0230():
     'Smarr relation, table repeat. Book line 164, printed 1/2. Control: the ratio must not equal 0.525.'
     G_,c_,kB_,hbar_,M=sp.symbols('G c kB hbar M',positive=True); S=4*sp.pi*G_*kB_*M**2/(hbar_*c_); T_H=hbar_*c_**3/(8*sp.pi*G_*kB_*M); ok=sp.simplify(T_H*S-sp.Rational(1,2)*M*c_**2)==0
@@ -4603,7 +4603,7 @@ def check_0230():
     return locals()
 
 @check(label='ch:virial_law:L165', chapter='ch:virial_law', part=1, title='Delta chi2, table repeat',
-       file='part1/p1_03_virial_law', line=165, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part1/p1_03_virial_law', line=190, status='measured', kind='file', printed='0.54', tol=0.00926, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0231():
     'Delta chi2, table repeat. Book line 165, printed 0.54.'
@@ -4611,21 +4611,21 @@ def check_0231():
     return locals()
 
 @check(label='ch:virial_law:L173', chapter='ch:virial_law', part=1, title='orders of magnitude, atom to cluster',
-       file='part1/p1_03_virial_law', line=173, status='calc', kind='num', printed='33', tol=0.01515)
+       file='part1/p1_03_virial_law', line=198, status='calc', kind='num', printed='33', tol=0.01515)
 def check_0232():
     'orders of magnitude, atom to cluster. Book line 173, printed 33.'
     value=23-(-10)
     return locals()
 
 @check(label='ch:virial_law:L173:thirty-seven', chapter='ch:virial_law', part=1, title='decades, atom to cosmic horizon',
-       file='part1/p1_03_virial_law', line=173, status='calc', kind='num', printed='thirty-seven', tol=0.013514)
+       file='part1/p1_03_virial_law', line=198, status='calc', kind='num', printed='thirty-seven', tol=0.013514)
 def check_0233():
     'decades, atom to cosmic horizon. Book line 173, printed thirty-seven.'
     value=26-(-11)
     return locals()
 
 @check(label='ch:virial_law:L173:36.4', chapter='ch:virial_law', part=1, title='decades, Bohr radius to c/H0',
-       file='part1/p1_03_virial_law', line=173, status='calc', kind='num', printed='36.4', tol=0.001374)
+       file='part1/p1_03_virial_law', line=198, status='calc', kind='num', printed='36.4', tol=0.001374)
 def check_0234():
     'decades, Bohr radius to c/H0. Book line 173, printed 36.4.'
     a0=hbar/(m_e*c*alpha_em); H0=h_pl*100; H0si=Hsi(H0); value=math.log10((c/H0si)/a0)
@@ -21015,7 +21015,7 @@ def check_2961():
     return locals()
 
 @check(label='ch:threeway:L116', chapter='ch:threeway', part=2, title='drafted check, screened (runs; negative control fails)',
-       file='part2/p2_18_three_way_clusters', line=116, status='calc', kind='num', printed='0.3153', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=124, status='calc', kind='num', printed='0.3153', tol=0.0)
 def check_1731():
     'drafted check, screened (runs; negative control fails). Book line 116, printed 0.3153.'
     # This is the stated Planck 2018 parameter, already in the namespace as Om.
@@ -21023,7 +21023,7 @@ def check_1731():
     return locals()
 
 @check(label='ch:threeway:L116:0.6847', chapter='ch:threeway', part=2, title='drafted check, screened (runs; negative control fails)',
-       file='part2/p2_18_three_way_clusters', line=116, status='calc', kind='num', printed='0.6847', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=124, status='calc', kind='num', printed='0.6847', tol=0.0)
 def check_1732():
     'drafted check, screened (runs; negative control fails). Book line 116, printed 0.6847.'
     # Ω_Λ = 1 - Ω_m with Planck 2018 Ω_m = 0.3153.
@@ -21031,7 +21031,7 @@ def check_1732():
     return locals()
 
 @check(label='ch:threeway:L116:67.36', chapter='ch:threeway', part=2, title='drafted check, screened (runs; negative control fails)',
-       file='part2/p2_18_three_way_clusters', line=116, status='calc', kind='num', printed='67.36', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=124, status='calc', kind='num', printed='67.36', tol=0.0)
 def check_1733():
     'drafted check, screened (runs; negative control fails). Book line 116, printed 67.36.'
     # This is the stated Planck 2018 parameter.
@@ -21040,7 +21040,7 @@ def check_1733():
     return locals()
 
 @check(label='ch:threeway:L117', chapter='ch:threeway', part=2, title='same value as p2_17_lensing_dynamics:98 (1/mu at z=0.0)',
-       file='part2/p2_18_three_way_clusters', line=117, status='calc', kind='num', printed='1.158', tol=0)
+       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.158', tol=0)
 def check_1734():
     'same value as p2_17_lensing_dynamics:98 (1/mu at z=0.0). Book line 117, printed 1.158.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21051,7 +21051,7 @@ def check_1734():
     return locals()
 
 @check(label='ch:threeway:L117:1.002', chapter='ch:threeway', part=2, title='R at z=2',
-       file='part2/p2_18_three_way_clusters', line=117, status='calc', kind='num', printed='1.002', tol=0)
+       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.002', tol=0)
 def check_1735():
     'R at z=2. Book line 117, printed 1.002.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21062,7 +21062,7 @@ def check_1735():
     return locals()
 
 @check(label='ch:threeway:L117:1.10', chapter='ch:threeway', part=2, title="R at z=0.2 ('approx')",
-       file='part2/p2_18_three_way_clusters', line=117, status='calc', kind='num', printed='1.10', tol=0.01)
+       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.10', tol=0.01)
 def check_1736():
     "R at z=0.2 ('approx'). Book line 117, printed 1.10."
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21073,7 +21073,7 @@ def check_1736():
     return locals()
 
 @check(label='ch:threeway:L117:1.07', chapter='ch:threeway', part=2, title="R at z=0.4 ('approx')",
-       file='part2/p2_18_three_way_clusters', line=117, status='calc', kind='num', printed='1.07', tol=0.01)
+       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.07', tol=0.01)
 def check_1737():
     "R at z=0.4 ('approx'). Book line 117, printed 1.07."
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21084,7 +21084,7 @@ def check_1737():
     return locals()
 
 @check(label='ch:threeway:L118', chapter='ch:threeway', part=2, title='the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded',
-       file='part2/p2_18_three_way_clusters', line=118, status='calc', kind='sym', printed='10', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=126, status='calc', kind='sym', printed='10', tol=0.0)
 def check_2962():
     'The "7-10 %" excess of lensing over hydrostatic mass at z = 0.2-0.4. Book line 118, printed 10 (and 7). 100 (R - 1) with R = 1/mu (Eq. eq:tw_mu) is 10.50 at z = 0.2 and 6.82 at z = 0.4; the check asks that they round to the printed whole per cents. The upper end sits on a rounding edge (10.498), so a numeric 5 % control cannot resolve it; the control moves the excess by 5 % instead, which must break the rounding.'
     hi = 100 * (_b05_tw_R(0.2) - 1); lo = 100 * (_b05_tw_R(0.4) - 1)
@@ -21093,21 +21093,21 @@ def check_2962():
     return locals()
 
 @check(label='ch:threeway:L122', chapter='ch:threeway', part=2, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='part2/p2_18_three_way_clusters', line=122, status='calc', kind='num', printed='0.15765', tol=3.2e-05)
+       file='part2/p2_18_three_way_clusters', line=130, status='calc', kind='num', printed='0.15765', tol=3.2e-05)
 def check_1738():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 122, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='ch:threeway:L125', chapter='ch:threeway', part=2, title='a at z=0.0',
-       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.000', tol=0)
+       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='1.000', tol=0)
 def check_1739():
     'a at z=0.0. Book line 125, printed 1.000.'
     value=1/(1+0.0)
     return locals()
 
 @check(label='ch:threeway:L125:0.8638', chapter='ch:threeway', part=2, title='mu at z=0.0',
-       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='0.8638', tol=0)
+       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='0.8638', tol=0)
 def check_1740():
     'mu at z=0.0. Book line 125, printed 0.8638.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21118,7 +21118,7 @@ def check_1740():
     return locals()
 
 @check(label='ch:threeway:L125:1.158', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.0',
-       file='part2/p2_18_three_way_clusters', line=125, status='calc', kind='num', printed='1.158', tol=0)
+       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='1.158', tol=0)
 def check_1741():
     'R = 1/mu at z=0.0. Book line 125, printed 1.158.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21129,14 +21129,14 @@ def check_1741():
     return locals()
 
 @check(label='ch:threeway:L126', chapter='ch:threeway', part=2, title='a at z=0.1',
-       file='part2/p2_18_three_way_clusters', line=126, status='calc', kind='num', printed='0.909', tol=0)
+       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='0.909', tol=0)
 def check_1742():
     'a at z=0.1. Book line 126, printed 0.909.'
     value=1/(1+0.1)
     return locals()
 
 @check(label='ch:threeway:L126:0.8856', chapter='ch:threeway', part=2, title='mu at z=0.1',
-       file='part2/p2_18_three_way_clusters', line=126, status='calc', kind='num', printed='0.8856', tol=0)
+       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='0.8856', tol=0)
 def check_1743():
     'mu at z=0.1. Book line 126, printed 0.8856.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21147,7 +21147,7 @@ def check_1743():
     return locals()
 
 @check(label='ch:threeway:L126:1.129', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.1',
-       file='part2/p2_18_three_way_clusters', line=126, status='calc', kind='num', printed='1.129', tol=0)
+       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='1.129', tol=0)
 def check_1744():
     'R = 1/mu at z=0.1. Book line 126, printed 1.129.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21158,14 +21158,14 @@ def check_1744():
     return locals()
 
 @check(label='ch:threeway:L127', chapter='ch:threeway', part=2, title='a at z=0.2',
-       file='part2/p2_18_three_way_clusters', line=127, status='calc', kind='num', printed='0.833', tol=0)
+       file='part2/p2_18_three_way_clusters', line=135, status='calc', kind='num', printed='0.833', tol=0)
 def check_1745():
     'a at z=0.2. Book line 127, printed 0.833.'
     value=1/(1+0.2)
     return locals()
 
 @check(label='ch:threeway:L127:0.9050', chapter='ch:threeway', part=2, title='mu at z=0.2',
-       file='part2/p2_18_three_way_clusters', line=127, status='calc', kind='num', printed='0.9050', tol=0)
+       file='part2/p2_18_three_way_clusters', line=135, status='calc', kind='num', printed='0.9050', tol=0)
 def check_1746():
     'mu at z=0.2. Book line 127, printed 0.9050.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21176,7 +21176,7 @@ def check_1746():
     return locals()
 
 @check(label='ch:threeway:L127:1.105', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.2',
-       file='part2/p2_18_three_way_clusters', line=127, status='calc', kind='num', printed='1.105', tol=0)
+       file='part2/p2_18_three_way_clusters', line=135, status='calc', kind='num', printed='1.105', tol=0)
 def check_1747():
     'R = 1/mu at z=0.2. Book line 127, printed 1.105.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21187,14 +21187,14 @@ def check_1747():
     return locals()
 
 @check(label='ch:threeway:L128', chapter='ch:threeway', part=2, title='a at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=128, status='calc', kind='num', printed='0.769', tol=0)
+       file='part2/p2_18_three_way_clusters', line=136, status='calc', kind='num', printed='0.769', tol=0)
 def check_1748():
     'a at z=0.3. Book line 128, printed 0.769.'
     value=1/(1+0.3)
     return locals()
 
 @check(label='ch:threeway:L128:0.9218', chapter='ch:threeway', part=2, title='mu at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=128, status='calc', kind='num', printed='0.9218', tol=0)
+       file='part2/p2_18_three_way_clusters', line=136, status='calc', kind='num', printed='0.9218', tol=0)
 def check_1749():
     'mu at z=0.3. Book line 128, printed 0.9218.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21205,7 +21205,7 @@ def check_1749():
     return locals()
 
 @check(label='ch:threeway:L128:1.085', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=128, status='calc', kind='num', printed='1.085', tol=0)
+       file='part2/p2_18_three_way_clusters', line=136, status='calc', kind='num', printed='1.085', tol=0)
 def check_1750():
     'R = 1/mu at z=0.3. Book line 128, printed 1.085.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21216,14 +21216,14 @@ def check_1750():
     return locals()
 
 @check(label='ch:threeway:L129', chapter='ch:threeway', part=2, title='a at z=0.4',
-       file='part2/p2_18_three_way_clusters', line=129, status='calc', kind='num', printed='0.714', tol=0)
+       file='part2/p2_18_three_way_clusters', line=137, status='calc', kind='num', printed='0.714', tol=0)
 def check_1751():
     'a at z=0.4. Book line 129, printed 0.714.'
     value=1/(1+0.4)
     return locals()
 
 @check(label='ch:threeway:L129:0.9362', chapter='ch:threeway', part=2, title='mu at z=0.4',
-       file='part2/p2_18_three_way_clusters', line=129, status='calc', kind='num', printed='0.9362', tol=0)
+       file='part2/p2_18_three_way_clusters', line=137, status='calc', kind='num', printed='0.9362', tol=0)
 def check_1752():
     'mu at z=0.4. Book line 129, printed 0.9362.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21234,7 +21234,7 @@ def check_1752():
     return locals()
 
 @check(label='ch:threeway:L129:1.068', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.4',
-       file='part2/p2_18_three_way_clusters', line=129, status='calc', kind='num', printed='1.068', tol=0)
+       file='part2/p2_18_three_way_clusters', line=137, status='calc', kind='num', printed='1.068', tol=0)
 def check_1753():
     'R = 1/mu at z=0.4. Book line 129, printed 1.068.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21245,14 +21245,14 @@ def check_1753():
     return locals()
 
 @check(label='ch:threeway:L130', chapter='ch:threeway', part=2, title='a at z=0.5',
-       file='part2/p2_18_three_way_clusters', line=130, status='calc', kind='num', printed='0.667', tol=0)
+       file='part2/p2_18_three_way_clusters', line=138, status='calc', kind='num', printed='0.667', tol=0)
 def check_1754():
     'a at z=0.5. Book line 130, printed 0.667.'
     value=1/(1+0.5)
     return locals()
 
 @check(label='ch:threeway:L130:0.9482', chapter='ch:threeway', part=2, title='mu at z=0.5',
-       file='part2/p2_18_three_way_clusters', line=130, status='calc', kind='num', printed='0.9482', tol=0)
+       file='part2/p2_18_three_way_clusters', line=138, status='calc', kind='num', printed='0.9482', tol=0)
 def check_1755():
     'mu at z=0.5. Book line 130, printed 0.9482.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21263,7 +21263,7 @@ def check_1755():
     return locals()
 
 @check(label='ch:threeway:L130:1.055', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.5',
-       file='part2/p2_18_three_way_clusters', line=130, status='calc', kind='num', printed='1.055', tol=0)
+       file='part2/p2_18_three_way_clusters', line=138, status='calc', kind='num', printed='1.055', tol=0)
 def check_1756():
     'R = 1/mu at z=0.5. Book line 130, printed 1.055.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21274,14 +21274,14 @@ def check_1756():
     return locals()
 
 @check(label='ch:threeway:L131', chapter='ch:threeway', part=2, title='a at z=0.7',
-       file='part2/p2_18_three_way_clusters', line=131, status='calc', kind='num', printed='0.588', tol=0)
+       file='part2/p2_18_three_way_clusters', line=139, status='calc', kind='num', printed='0.588', tol=0)
 def check_1757():
     'a at z=0.7. Book line 131, printed 0.588.'
     value=1/(1+0.7)
     return locals()
 
 @check(label='ch:threeway:L131:0.9661', chapter='ch:threeway', part=2, title='mu at z=0.7',
-       file='part2/p2_18_three_way_clusters', line=131, status='calc', kind='num', printed='0.9661', tol=0)
+       file='part2/p2_18_three_way_clusters', line=139, status='calc', kind='num', printed='0.9661', tol=0)
 def check_1758():
     'mu at z=0.7. Book line 131, printed 0.9661.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21292,7 +21292,7 @@ def check_1758():
     return locals()
 
 @check(label='ch:threeway:L131:1.035', chapter='ch:threeway', part=2, title='R = 1/mu at z=0.7',
-       file='part2/p2_18_three_way_clusters', line=131, status='calc', kind='num', printed='1.035', tol=0)
+       file='part2/p2_18_three_way_clusters', line=139, status='calc', kind='num', printed='1.035', tol=0)
 def check_1759():
     'R = 1/mu at z=0.7. Book line 131, printed 1.035.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21303,14 +21303,14 @@ def check_1759():
     return locals()
 
 @check(label='ch:threeway:L132', chapter='ch:threeway', part=2, title='a at z=1.0',
-       file='part2/p2_18_three_way_clusters', line=132, status='calc', kind='num', printed='0.500', tol=0)
+       file='part2/p2_18_three_way_clusters', line=140, status='calc', kind='num', printed='0.500', tol=0)
 def check_1760():
     'a at z=1.0. Book line 132, printed 0.500.'
     value=1/(1+1.0)
     return locals()
 
 @check(label='ch:threeway:L132:0.9822', chapter='ch:threeway', part=2, title='mu at z=1.0',
-       file='part2/p2_18_three_way_clusters', line=132, status='calc', kind='num', printed='0.9822', tol=0)
+       file='part2/p2_18_three_way_clusters', line=140, status='calc', kind='num', printed='0.9822', tol=0)
 def check_1761():
     'mu at z=1.0. Book line 132, printed 0.9822.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21321,7 +21321,7 @@ def check_1761():
     return locals()
 
 @check(label='ch:threeway:L132:1.018', chapter='ch:threeway', part=2, title='R = 1/mu at z=1.0',
-       file='part2/p2_18_three_way_clusters', line=132, status='calc', kind='num', printed='1.018', tol=0)
+       file='part2/p2_18_three_way_clusters', line=140, status='calc', kind='num', printed='1.018', tol=0)
 def check_1762():
     'R = 1/mu at z=1.0. Book line 132, printed 1.018.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21332,14 +21332,14 @@ def check_1762():
     return locals()
 
 @check(label='ch:threeway:L133', chapter='ch:threeway', part=2, title='a at z=1.5',
-       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='0.400', tol=0)
+       file='part2/p2_18_three_way_clusters', line=141, status='calc', kind='num', printed='0.400', tol=0)
 def check_1763():
     'a at z=1.5. Book line 133, printed 0.400.'
     value=1/(1+1.5)
     return locals()
 
 @check(label='ch:threeway:L133:0.9938', chapter='ch:threeway', part=2, title='mu at z=1.5',
-       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='0.9938', tol=0)
+       file='part2/p2_18_three_way_clusters', line=141, status='calc', kind='num', printed='0.9938', tol=0)
 def check_1764():
     'mu at z=1.5. Book line 133, printed 0.9938.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21350,7 +21350,7 @@ def check_1764():
     return locals()
 
 @check(label='ch:threeway:L133:1.006', chapter='ch:threeway', part=2, title='R = 1/mu at z=1.5',
-       file='part2/p2_18_three_way_clusters', line=133, status='calc', kind='num', printed='1.006', tol=0)
+       file='part2/p2_18_three_way_clusters', line=141, status='calc', kind='num', printed='1.006', tol=0)
 def check_1765():
     'R = 1/mu at z=1.5. Book line 133, printed 1.006.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21361,14 +21361,14 @@ def check_1765():
     return locals()
 
 @check(label='ch:threeway:L134', chapter='ch:threeway', part=2, title='a at z=2.0',
-       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='0.333', tol=0)
+       file='part2/p2_18_three_way_clusters', line=142, status='calc', kind='num', printed='0.333', tol=0)
 def check_1766():
     'a at z=2.0. Book line 134, printed 0.333.'
     value=1/(1+2.0)
     return locals()
 
 @check(label='ch:threeway:L134:0.9977', chapter='ch:threeway', part=2, title='mu at z=2.0',
-       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='0.9977', tol=0)
+       file='part2/p2_18_three_way_clusters', line=142, status='calc', kind='num', printed='0.9977', tol=0)
 def check_1767():
     'mu at z=2.0. Book line 134, printed 0.9977.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21379,7 +21379,7 @@ def check_1767():
     return locals()
 
 @check(label='ch:threeway:L134:1.002', chapter='ch:threeway', part=2, title='R = 1/mu at z=2.0',
-       file='part2/p2_18_three_way_clusters', line=134, status='calc', kind='num', printed='1.002', tol=0)
+       file='part2/p2_18_three_way_clusters', line=142, status='calc', kind='num', printed='1.002', tol=0)
 def check_1768():
     'R = 1/mu at z=2.0. Book line 134, printed 1.002.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21390,7 +21390,7 @@ def check_1768():
     return locals()
 
 @check(label='ch:threeway:L139', chapter='ch:threeway', part=2, title='straight-line slope over the four bin centres',
-       file='part2/p2_18_three_way_clusters', line=139, status='calc', kind='num', printed='-0.152', tol=0)
+       file='part2/p2_18_three_way_clusters', line=147, status='calc', kind='num', printed='-0.152', tol=0)
 def check_1769():
     'straight-line slope over the four bin centres. Book line 139, printed -0.152.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21402,7 +21402,7 @@ def check_1769():
     return locals()
 
 @check(label='ch:threeway:L139:1.5', chapter='ch:threeway', part=2, title='fractional error per bin for a 3 sigma slope',
-       file='part2/p2_18_three_way_clusters', line=139, status='calc', kind='num', printed='1.5', tol=0)
+       file='part2/p2_18_three_way_clusters', line=147, status='calc', kind='num', printed='1.5', tol=0)
 def check_1770():
     'fractional error per bin for a 3 sigma slope. Book line 139, printed 1.5.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21414,7 +21414,7 @@ def check_1770():
     return locals()
 
 @check(label='ch:threeway:L145', chapter='ch:threeway', part=2, title='dR/dz at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=145, status='calc', kind='num', printed='-0.183', tol=0)
+       file='part2/p2_18_three_way_clusters', line=153, status='calc', kind='num', printed='-0.183', tol=0)
 def check_1771():
     'dR/dz at z=0.3. Book line 145, printed -0.183.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21425,7 +21425,7 @@ def check_1771():
     return locals()
 
 @check(label='ch:threeway:L145:-0.31', chapter='ch:threeway', part=2, title='dR/dz at z=0',
-       file='part2/p2_18_three_way_clusters', line=145, status='calc', kind='num', printed='-0.31', tol=0)
+       file='part2/p2_18_three_way_clusters', line=153, status='calc', kind='num', printed='-0.31', tol=0)
 def check_1772():
     'dR/dz at z=0. Book line 145, printed -0.31.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21436,7 +21436,7 @@ def check_1772():
     return locals()
 
 @check(label='ch:threeway:L145:-0.12', chapter='ch:threeway', part=2, title='dR/dz at z=0.5',
-       file='part2/p2_18_three_way_clusters', line=145, status='calc', kind='num', printed='-0.12', tol=0)
+       file='part2/p2_18_three_way_clusters', line=153, status='calc', kind='num', printed='-0.12', tol=0)
 def check_1773():
     'dR/dz at z=0.5. Book line 145, printed -0.12.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21447,7 +21447,7 @@ def check_1773():
     return locals()
 
 @check(label='eq:tw_bias', chapter='ch:threeway', part=2, title='1 - b_hydro = (1 - b_NT)(1 - b_IAM); biases add at first order',
-       file='part2/p2_18_three_way_clusters', line=152, status='derived', kind='sym', printed='', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=160, status='derived', kind='sym', printed='', tol=0.0)
 def check_2963():
     'Eq. eq:tw_bias. Book line 152. Total pressure balances mu G M_true rho/r^2; the thermal part is (1 - b_NT) of it; the observer reads G M_hydro rho/r^2 from the thermal gradient. Solving gives 1 - b_hydro = M_hydro/M_true = (1 - b_NT)(1 - b_IAM) with b_IAM = 1 - mu; to first order in the biases b_hydro = b_NT + b_IAM.'
     G_, r, rho, Mt, Mh, mu, bNT, bI, eps = sp.symbols('G r rho M_true M_hydro mu b_NT b_IAM epsilon', positive=True)
@@ -21463,7 +21463,7 @@ def check_2963():
     return locals()
 
 @check(label='ch:threeway:L155', chapter='ch:threeway', part=2, title='cross term b_NT b_IAM at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=155, status='derived', kind='num', printed='0.014', tol=0)
+       file='part2/p2_18_three_way_clusters', line=163, status='derived', kind='num', printed='0.014', tol=0)
 def check_1774():
     'cross term b_NT b_IAM at z=0.3. Book line 155, printed 0.014.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21474,7 +21474,7 @@ def check_1774():
     return locals()
 
 @check(label='ch:threeway:L159', chapter='ch:threeway', part=2, title='dC_NT/dz at z=0.65',
-       file='part2/p2_18_three_way_clusters', line=159, status='calc', kind='num', printed='+0.027', tol=0)
+       file='part2/p2_18_three_way_clusters', line=167, status='calc', kind='num', printed='+0.027', tol=0)
 def check_1775():
     'dC_NT/dz at z=0.65. Book line 159, printed +0.027.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21485,7 +21485,7 @@ def check_1775():
     return locals()
 
 @check(label='ch:threeway:L159:+0.036', chapter='ch:threeway', part=2, title='dC_NT/dz at z=0.15',
-       file='part2/p2_18_three_way_clusters', line=159, status='calc', kind='num', printed='+0.036', tol=0)
+       file='part2/p2_18_three_way_clusters', line=167, status='calc', kind='num', printed='+0.036', tol=0)
 def check_1776():
     'dC_NT/dz at z=0.15. Book line 159, printed +0.036.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21496,7 +21496,7 @@ def check_1776():
     return locals()
 
 @check(label='ch:threeway:L161', chapter='ch:threeway', part=2, title='slope of R C_NT at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=161, status='calc', kind='num', printed='-0.187', tol=0)
+       file='part2/p2_18_three_way_clusters', line=169, status='calc', kind='num', printed='-0.187', tol=0)
 def check_1777():
     'slope of R C_NT at z=0.3. Book line 161, printed -0.187.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21507,7 +21507,7 @@ def check_1777():
     return locals()
 
 @check(label='ch:threeway:L161:-0.025', chapter='ch:threeway', part=2, title='slope at z=1',
-       file='part2/p2_18_three_way_clusters', line=161, status='calc', kind='num', printed='-0.025', tol=0)
+       file='part2/p2_18_three_way_clusters', line=169, status='calc', kind='num', printed='-0.025', tol=0)
 def check_1778():
     'slope at z=1. Book line 161, printed -0.025.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21518,7 +21518,7 @@ def check_1778():
     return locals()
 
 @check(label='ch:threeway:L161:1.40', chapter='ch:threeway', part=2, title='turnover of R C_NT',
-       file='part2/p2_18_three_way_clusters', line=161, status='calc', kind='num', printed='1.40', tol=0)
+       file='part2/p2_18_three_way_clusters', line=169, status='calc', kind='num', printed='1.40', tol=0)
 def check_1779():
     'turnover of R C_NT. Book line 161, printed 1.40.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21529,7 +21529,7 @@ def check_1779():
     return locals()
 
 @check(label='ch:threeway:L170', chapter='ch:threeway', part=2, title='R at bin centre 0.15',
-       file='part2/p2_18_three_way_clusters', line=170, status='calc', kind='num', printed='1.117', tol=0)
+       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='1.117', tol=0)
 def check_1780():
     'R at bin centre 0.15. Book line 170, printed 1.117.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21540,7 +21540,7 @@ def check_1780():
     return locals()
 
 @check(label='ch:threeway:L170:1.206', chapter='ch:threeway', part=2, title='C_NT at 0.15',
-       file='part2/p2_18_three_way_clusters', line=170, status='calc', kind='num', printed='1.206', tol=0)
+       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='1.206', tol=0)
 def check_1781():
     'C_NT at 0.15. Book line 170, printed 1.206.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21551,7 +21551,7 @@ def check_1781():
     return locals()
 
 @check(label='ch:threeway:L170:1.346', chapter='ch:threeway', part=2, title='R C_NT at 0.15',
-       file='part2/p2_18_three_way_clusters', line=170, status='calc', kind='num', printed='1.346', tol=0)
+       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='1.346', tol=0)
 def check_1782():
     'R C_NT at 0.15. Book line 170, printed 1.346.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21562,7 +21562,7 @@ def check_1782():
     return locals()
 
 @check(label='ch:threeway:L171', chapter='ch:threeway', part=2, title='R at bin centre 0.25',
-       file='part2/p2_18_three_way_clusters', line=171, status='calc', kind='num', printed='1.094', tol=0)
+       file='part2/p2_18_three_way_clusters', line=179, status='calc', kind='num', printed='1.094', tol=0)
 def check_1783():
     'R at bin centre 0.25. Book line 171, printed 1.094.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21573,7 +21573,7 @@ def check_1783():
     return locals()
 
 @check(label='ch:threeway:L171:1.209', chapter='ch:threeway', part=2, title='C_NT at 0.25',
-       file='part2/p2_18_three_way_clusters', line=171, status='calc', kind='num', printed='1.209', tol=0)
+       file='part2/p2_18_three_way_clusters', line=179, status='calc', kind='num', printed='1.209', tol=0)
 def check_1784():
     'C_NT at 0.25. Book line 171, printed 1.209.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21584,7 +21584,7 @@ def check_1784():
     return locals()
 
 @check(label='ch:threeway:L171:1.323', chapter='ch:threeway', part=2, title='R C_NT at 0.25',
-       file='part2/p2_18_three_way_clusters', line=171, status='calc', kind='num', printed='1.323', tol=0)
+       file='part2/p2_18_three_way_clusters', line=179, status='calc', kind='num', printed='1.323', tol=0)
 def check_1785():
     'R C_NT at 0.25. Book line 171, printed 1.323.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21595,7 +21595,7 @@ def check_1785():
     return locals()
 
 @check(label='ch:threeway:L172', chapter='ch:threeway', part=2, title='R at bin centre 0.4',
-       file='part2/p2_18_three_way_clusters', line=172, status='calc', kind='num', printed='1.068', tol=0)
+       file='part2/p2_18_three_way_clusters', line=180, status='calc', kind='num', printed='1.068', tol=0)
 def check_1786():
     'R at bin centre 0.4. Book line 172, printed 1.068.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21606,7 +21606,7 @@ def check_1786():
     return locals()
 
 @check(label='ch:threeway:L172:1.214', chapter='ch:threeway', part=2, title='C_NT at 0.4',
-       file='part2/p2_18_three_way_clusters', line=172, status='calc', kind='num', printed='1.214', tol=0)
+       file='part2/p2_18_three_way_clusters', line=180, status='calc', kind='num', printed='1.214', tol=0)
 def check_1787():
     'C_NT at 0.4. Book line 172, printed 1.214.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21617,7 +21617,7 @@ def check_1787():
     return locals()
 
 @check(label='ch:threeway:L172:1.297', chapter='ch:threeway', part=2, title='R C_NT at 0.4',
-       file='part2/p2_18_three_way_clusters', line=172, status='calc', kind='num', printed='1.297', tol=0)
+       file='part2/p2_18_three_way_clusters', line=180, status='calc', kind='num', printed='1.297', tol=0)
 def check_1788():
     'R C_NT at 0.4. Book line 172, printed 1.297.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21628,7 +21628,7 @@ def check_1788():
     return locals()
 
 @check(label='ch:threeway:L173', chapter='ch:threeway', part=2, title='R at bin centre 0.65',
-       file='part2/p2_18_three_way_clusters', line=173, status='calc', kind='num', printed='1.039', tol=0)
+       file='part2/p2_18_three_way_clusters', line=181, status='calc', kind='num', printed='1.039', tol=0)
 def check_1789():
     'R at bin centre 0.65. Book line 173, printed 1.039.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21639,7 +21639,7 @@ def check_1789():
     return locals()
 
 @check(label='ch:threeway:L173:1.221', chapter='ch:threeway', part=2, title='C_NT at 0.65',
-       file='part2/p2_18_three_way_clusters', line=173, status='calc', kind='num', printed='1.221', tol=0)
+       file='part2/p2_18_three_way_clusters', line=181, status='calc', kind='num', printed='1.221', tol=0)
 def check_1790():
     'C_NT at 0.65. Book line 173, printed 1.221.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21650,7 +21650,7 @@ def check_1790():
     return locals()
 
 @check(label='ch:threeway:L173:1.269', chapter='ch:threeway', part=2, title='R C_NT at 0.65',
-       file='part2/p2_18_three_way_clusters', line=173, status='calc', kind='num', printed='1.269', tol=0)
+       file='part2/p2_18_three_way_clusters', line=181, status='calc', kind='num', printed='1.269', tol=0)
 def check_1791():
     'R C_NT at 0.65. Book line 173, printed 1.269.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21661,7 +21661,7 @@ def check_1791():
     return locals()
 
 @check(label='ch:threeway:L178', chapter='ch:threeway', part=2, title='dR/dz at z=0.3',
-       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='-0.183', tol=0)
+       file='part2/p2_18_three_way_clusters', line=186, status='calc', kind='num', printed='-0.183', tol=0)
 def check_1792():
     'dR/dz at z=0.3. Book line 178, printed -0.183.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21672,7 +21672,7 @@ def check_1792():
     return locals()
 
 @check(label='ch:threeway:L178:+0.027', chapter='ch:threeway', part=2, title='dC_NT/dz at z=0.65',
-       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='+0.027', tol=0)
+       file='part2/p2_18_three_way_clusters', line=186, status='calc', kind='num', printed='+0.027', tol=0)
 def check_1793():
     'dC_NT/dz at z=0.65. Book line 178, printed +0.027.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21683,7 +21683,7 @@ def check_1793():
     return locals()
 
 @check(label='ch:threeway:L178:+0.036', chapter='ch:threeway', part=2, title='dC_NT/dz at z=0.15',
-       file='part2/p2_18_three_way_clusters', line=178, status='calc', kind='num', printed='+0.036', tol=0)
+       file='part2/p2_18_three_way_clusters', line=186, status='calc', kind='num', printed='+0.036', tol=0)
 def check_1794():
     'dC_NT/dz at z=0.15. Book line 178, printed +0.036.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21694,7 +21694,7 @@ def check_1794():
     return locals()
 
 @check(label='ch:threeway:L182', chapter='ch:threeway', part=2, title='straight-line slope over the four bin centres',
-       file='part2/p2_18_three_way_clusters', line=182, status='calc', kind='num', printed='-0.152', tol=0)
+       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='-0.152', tol=0)
 def check_1795():
     'straight-line slope over the four bin centres. Book line 182, printed -0.152.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21706,7 +21706,7 @@ def check_1795():
     return locals()
 
 @check(label='ch:threeway:L182:1.5', chapter='ch:threeway', part=2, title='fractional error per bin for a 3 sigma slope',
-       file='part2/p2_18_three_way_clusters', line=182, status='calc', kind='num', printed='1.5', tol=0)
+       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='1.5', tol=0)
 def check_1796():
     'fractional error per bin for a 3 sigma slope. Book line 182, printed 1.5.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21718,14 +21718,14 @@ def check_1796():
     return locals()
 
 @check(label='ch:threeway:L184', chapter='ch:threeway', part=2, title='slope -0.18 at z = 0.3, restated',
-       file='part2/p2_18_three_way_clusters', line=184, status='calc', kind='num', printed='-0.18', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=192, status='calc', kind='num', printed='-0.18', tol=0.0)
 def check_2964():
     'dR/dz at z = 0.3 restated to two digits ("the slope -0.18"). Book line 184, printed -0.18. Central difference of R = 1/mu (Eq. eq:tw_mu).'
     value = _b05_tw_dR(0.3)
     return locals()
 
 @check(label='ch:threeway:L189', chapter='ch:threeway', part=2, title="R at z=0.4 ('approx')",
-       file='part2/p2_18_three_way_clusters', line=189, status='calc', kind='num', printed='1.07', tol=0.01)
+       file='part2/p2_18_three_way_clusters', line=197, status='calc', kind='num', printed='1.07', tol=0.01)
 def check_1797():
     "R at z=0.4 ('approx'). Book line 189, printed 1.07."
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21736,7 +21736,7 @@ def check_1797():
     return locals()
 
 @check(label='ch:threeway:L189:1.10', chapter='ch:threeway', part=2, title="R at z=0.2 ('approx')",
-       file='part2/p2_18_three_way_clusters', line=189, status='calc', kind='num', printed='1.10', tol=0.01)
+       file='part2/p2_18_three_way_clusters', line=197, status='calc', kind='num', printed='1.10', tol=0.01)
 def check_1798():
     "R at z=0.2 ('approx'). Book line 189, printed 1.10."
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21747,7 +21747,7 @@ def check_1798():
     return locals()
 
 @check(label='ch:threeway:L189:1.27', chapter='ch:threeway', part=2, title='total at the last bin',
-       file='part2/p2_18_three_way_clusters', line=189, status='calc', kind='num', printed='1.27', tol=0.004)
+       file='part2/p2_18_three_way_clusters', line=197, status='calc', kind='num', printed='1.27', tol=0.004)
 def check_1799():
     'total at the last bin. Book line 189, printed 1.27.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21758,7 +21758,7 @@ def check_1799():
     return locals()
 
 @check(label='ch:threeway:L189:1.35', chapter='ch:threeway', part=2, title='total at the first bin',
-       file='part2/p2_18_three_way_clusters', line=189, status='calc', kind='num', printed='1.35', tol=0.004)
+       file='part2/p2_18_three_way_clusters', line=197, status='calc', kind='num', printed='1.35', tol=0.004)
 def check_1800():
     'total at the first bin. Book line 189, printed 1.35.'
     mu=lambda z: float(mu_iam(1/(1+z)))
@@ -21769,7 +21769,7 @@ def check_1800():
     return locals()
 
 @check(label='ch:threeway:L190', chapter='ch:threeway', part=2, title='CCCP Planck-prior calibration 1/(1-b)',
-       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='1.28', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=198, status='calc', kind='num', printed='1.28', tol=0.0)
 def check_2965():
     'CCCP calibration with the Planck prior, 1/(1-b). Book line 190, printed 1.28. Input: 1-b = 0.780 +- 0.092 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833; tab:ld_published, p2_17 line 201).'
     one_minus_b_CCCP = 0.780
@@ -21777,7 +21777,7 @@ def check_2965():
     return locals()
 
 @check(label='ch:threeway:L190:1.45', chapter='ch:threeway', part=2, title='WtG Planck-prior calibration 1/(1-b)',
-       file='part2/p2_18_three_way_clusters', line=190, status='calc', kind='num', printed='1.45', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=198, status='calc', kind='num', printed='1.45', tol=0.0)
 def check_2966():
     'WtG calibration with the Planck prior, 1/(1-b). Book line 190, printed 1.45. Input: 1-b = 0.688 +- 0.072 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833; tab:ld_published, p2_17 line 200).'
     one_minus_b_WtG = 0.688
@@ -21785,7 +21785,7 @@ def check_2966():
     return locals()
 
 @check(label='ch:threeway:L191', chapter='ch:threeway', part=2, title='LoCuSS like-for-like M_WL/M_X = 1/beta_X',
-       file='part2/p2_18_three_way_clusters', line=191, status='calc', kind='num', printed='1.05', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=199, status='calc', kind='num', printed='1.05', tol=0.0)
 def check_2967():
     'LoCuSS like-for-like M_WL/M_X at 0.15 < z < 0.3. Book line 191, printed 1.05. Input: beta_X = M_X/M_WL = 0.95 +- 0.05 (Smith et al. 2016, doi 10.1093/mnrasl/slv175; tab:ld_published, p2_17 line 204).'
     beta_X_LoCuSS = 0.95
@@ -21793,7 +21793,7 @@ def check_2967():
     return locals()
 
 @check(label='eq:tw_test1', chapter='ch:threeway', part=2, title='three conditions: SZ/hydro = 1, lens/hydro > 1, slope < 0 (Level 1)',
-       file='part2/p2_18_three_way_clusters', line=201, status='calibrated', kind='sym', printed='', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=209, status='calibrated', kind='sym', printed='', tol=0.0)
 def check_2968():
     'Eqs. eq:tw_test1-3. Book line 201. In the Level 1 form: M_SZ/M_hydro = 1 from the derived estimators; M_lens/M_hydro = 1/mu > 1 and d(1/mu)/dz < 0 on 0 <= z <= 2 with mu from Eq. eq:tw_mu. Control: an SZ estimator 5 % off the hydrostatic one breaks condition 1.'
     d = _b05_tw_masses()
@@ -21806,7 +21806,7 @@ def check_2968():
     return locals()
 
 @check(label='ch:threeway:L211', chapter='ch:threeway', part=2, title='the 7-10 % range is 100(R-1) at z = 0.4 and 0.2, rounded',
-       file='part2/p2_18_three_way_clusters', line=211, status='interp', kind='sym', printed='10', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=219, status='interp', kind='sym', printed='10', tol=0.0)
 def check_2969():
     'The "~7-10 %" Level 1 signal at z = 0.2-0.4. Book line 211, printed 10 (and 7). 100 (R - 1) with R = 1/mu (Eq. eq:tw_mu) is 10.50 at z = 0.2 and 6.82 at z = 0.4; the check asks that they round to the printed whole per cents. The upper end sits on a rounding edge (10.498), so a numeric 5 % control cannot resolve it; the control moves the excess by 5 % instead, which must break the rounding.'
     hi = 100 * (_b05_tw_R(0.2) - 1); lo = 100 * (_b05_tw_R(0.4) - 1)
@@ -21815,14 +21815,14 @@ def check_2969():
     return locals()
 
 @check(label='ch:threeway:L220', chapter='ch:threeway', part=2, title='Level 1 slope -0.18, restated',
-       file='part2/p2_18_three_way_clusters', line=220, status='interp', kind='num', printed='-0.18', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=228, status='interp', kind='num', printed='-0.18', tol=0.0)
 def check_2970():
     'Level 1 slope dR/dz at z = 0.3 restated ("opposite to the Level 1 slope of -0.18"). Book line 220, printed -0.18. Central difference of R = 1/mu.'
     value = _b05_tw_dR(0.3)
     return locals()
 
 @check(label='ch:threeway:L237', chapter='ch:threeway', part=2, title='R = M_lens/M_hydro = 1/mu (what would test it)',
-       file='part2/p2_18_three_way_clusters', line=237, status='prediction', kind='sym', printed='', tol=0.0)
+       file='part2/p2_18_three_way_clusters', line=245, status='prediction', kind='sym', printed='', tol=0.0)
 def check_2971():
     'Unnumbered equation R(z) = M_lens/M_hydro = 1/mu(z). Book line 237. Ratio of the derived lensing estimator (Sigma = 1) to the derived hydrostatic estimator.'
     d = _b05_tw_masses()
@@ -26674,7 +26674,7 @@ def check_2155():
     return locals()
 
 @check(label='eq:ko:TU', chapter='ch:koide', part=4, title='Unruh temperature from regularity of the Euclidean Rindler plane',
-       file='part4/p4_15a_lepton_koide', line=120, status='none', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=121, status='none', kind='sym')
 def check_3708():
     'Eq. eq:ko:TU, T = hbar kappa/(2 pi k_B). Derived: in the Euclidean Rindler metric ds^2 = kappa^2 rho^2 dtau^2 + drho^2 a circle of radius rho has circumference kappa rho beta; regularity at rho = 0 requires dC/drho = 2 pi, which is solved for the period beta; T = hbar/(k_B beta). Book line 120.'
     rho, kappa, beta, hb, kb = sp.symbols('rho kappa beta hbar k_B', positive=True)
@@ -26686,14 +26686,14 @@ def check_3708():
     return locals()
 
 @check(label='eq:ko:eta', chapter='ch:koide', part=4, title='eta = c^3/(4 hbar G) = 1/(4 l_P^2)',
-       file='part4/p4_15a_lepton_koide', line=125, status='derived', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=126, status='derived', kind='sym', printed='', tol=0)
 def check_2156():
     'eta = c^3/(4 hbar G) = 1/(4 l_P^2) (Eq. eq:ko:eta). Book line 125.'
     hb,c_,G_,eta=sp.symbols('hbar c G eta',positive=True); lhs=sp.solve(sp.Eq(hb*eta/(2*sp.pi),c_**3/(8*sp.pi*G_)),eta)[0]; rhs=1/(4*hb*G_/c_**3)
     return locals()
 
 @check(label='eq:ko:onebit', chapter='ch:koide', part=4, title='eta dA_min = 1, dA_min = 4 l_P^2',
-       file='part4/p4_15a_lepton_koide', line=133, status='derived', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=134, status='derived', kind='sym')
 def check_3709():
     'Eq. eq:ko:onebit. Derived: absorbing dE = k_B T at temperature T gives dS = dE/T = k_B (first law), i.e. one unit; with S = k_B eta A and eta = c^3/(4 hbar G) (eq:ko:eta) the area step is solved for and is 4 l_P^2 = 4 hbar G/c^3, so eta dA_min = 1. Book line 133.'
     T, kb, hb, G_, c_, dA = sp.symbols('T k_B hbar G c dA', positive=True)
@@ -26709,7 +26709,7 @@ def check_3709():
     return locals()
 
 @check(label='eq:ko:maxent', chapter='ch:koide', part=4, title='maximum entropy over K states gives p_k = 1/K (K=3)',
-       file='part4/p4_15a_lepton_koide', line=143, status='derived', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=144, status='derived', kind='sym', printed='', tol=0)
 def check_2157():
     'maximum entropy over K states gives p_k = 1/K (K=3) (Eq. eq:ko:maxent). Book line 143.'
     K=3; p=sp.symbols('p0:3',positive=True); lam=sp.symbols('lambda'); H=-sum(pi*sp.log(pi) for pi in p); sol=sp.solve([sp.diff(H-lam*sum(p),pi) for pi in p]+[sum(p)-1],list(p)+[lam],dict=True)[0]; ok=all(sp.simplify(sol[pi]-sp.Rational(1,K))==0 for pi in p)
@@ -26717,7 +26717,7 @@ def check_2157():
     return locals()
 
 @check(label='eq:ko:grad', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
-       file='part4/p4_15a_lepton_koide', line=156, status='derived', kind='sym', printed='', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=157, status='derived', kind='sym', printed='', tol=0.0)
 def check_2158():
     'drafted check, screened (runs; negative control fails) (Eq. eq:ko:grad). Book line 156.'
     # Line 156: E^grad_n = (n²/2) ω₀²
@@ -26744,7 +26744,7 @@ def check_2158():
     return locals()
 
 @check(label='eq:ko:boltz', chapter='ch:koide', part=4, title='Boltzmann suppression of mode n relative to mode 1',
-       file='part4/p4_15a_lepton_koide', line=161, status='conjecture', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=162, status='conjecture', kind='sym')
 def check_3710():
     'Eq. eq:ko:boltz: with the gradient cost E_n = n^2 omega_0^2/2 (eq:ko:grad, computed here from the orbit average of |d/dphi cos n phi|^2), the Boltzmann ratio exp[-(E_n - E_1)/(k_B T_enc)] is exp[-(n^2 - 1) omega_0^2/(2 k_B T_enc)]. Book line 161. The occupation by a Boltzmann factor is the conjecture; the exponent is checked.'
     n = sp.symbols('n', positive=True, integer=True)
@@ -26757,7 +26757,7 @@ def check_3710():
     return locals()
 
 @check(label='eq:ko:two', chapter='ch:koide', part=4, title='reflection symmetry removes sin(phi): sqrt m = x + y cos(phi)',
-       file='part4/p4_15a_lepton_koide', line=166, status='conjecture', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=167, status='conjecture', kind='sym')
 def check_3711():
     'Eq. eq:ko:two: the two lowest modes a_0 + a_1 cos(phi) + b_1 sin(phi); imposing the reflection symmetry f(phi) = f(-phi) at all phi is solved for b_1 (= 0), leaving x + y cos(phi) with x = a_0, y = a_1. Book line 166. The truncation to two modes is the conjecture.'
     phi, a0, a1, b1 = sp.symbols('phi a0 a1 b1', real=True)
@@ -26770,7 +26770,7 @@ def check_3711():
     return locals()
 
 @check(label='ch:koide:L174', chapter='ch:koide', part=4, title='largest shift of Q per unit a_2/y from a cos(2 phi) admixture',
-       file='part4/p4_15a_lepton_koide', line=174, status='calc', kind='num', printed='0.67', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=180, status='calc', kind='num', printed='0.67', tol=0.0)
 def check_3712():
     'A cos(2 phi) admixture of amplitude a_2 on the three Z3 samples x + y cos(phi_k) (y = sqrt2 x) shifts Q by (dQ/d(a_2/y)) a_2/y; the slope is computed numerically at small a_2 and maximised over the offset delta. Book line 174, printed 0.67 (K15).'
     x = 1.0; y = math.sqrt(2) * x; eps = 1e-7
@@ -26783,7 +26783,7 @@ def check_3712():
     return locals()
 
 @check(label='eq:ko:weights', chapter='ch:koide', part=4, title='Parseval weights of the constant and first-harmonic channels',
-       file='part4/p4_15a_lepton_koide', line=181, status='conjecture', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=187, status='conjecture', kind='sym')
 def check_3713():
     'Eq. eq:ko:weights: the orbit averages (1/2pi) int x^2 dphi = x^2 and (1/2pi) int (y cos phi)^2 dphi = y^2/2, integrated with sympy; both combined with a bookkeeping symbol t. Book line 181. Identifying weight with mean squared amplitude is the conjecture.'
     phi, x, y, t = sp.symbols('phi x y t', positive=True)
@@ -26794,7 +26794,7 @@ def check_3713():
     return locals()
 
 @check(label='eq:ko:ratio', chapter='ch:koide', part=4, title='equal weights x^2 = y^2/2 give y/x = sqrt2',
-       file='part4/p4_15a_lepton_koide', line=186, status='conjecture', kind='sym')
+       file='part4/p4_15a_lepton_koide', line=192, status='conjecture', kind='sym')
 def check_3714():
     'Eq. eq:ko:ratio: equal channel weights w_DC = w_harm (eq:ko:weights, eq:ko:maxent with K = 2) are solved for y > 0; y/x = sqrt2, and inserted in Q = (1 + r^2/2)/3 it gives 2/3. Book line 186.'
     x, y = sp.symbols('x y', positive=True)
@@ -26806,7 +26806,7 @@ def check_3714():
     return locals()
 
 @check(label='eq:ko:pos', chapter='ch:koide', part=4, title='1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4',
-       file='part4/p4_15a_lepton_koide', line=196, status='derived', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=203, status='derived', kind='sym', printed='', tol=0)
 def check_2159():
     '1 + sqrt2 cos(phi) > 0 iff |phi - pi| > pi/4 (Eq. eq:ko:pos). Book line 196.'
     PH=np.linspace(0.001,2*math.pi-0.001,997)
@@ -26815,7 +26815,7 @@ def check_2159():
     return locals()
 
 @check(label='ch:koide:L206', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=206, status='derived', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=213, status='derived', kind='num', printed='0.2222', tol=0)
 def check_2160():
     'measured offset delta. Book line 206, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26831,21 +26831,21 @@ def check_2160():
     return locals()
 
 @check(label='ch:koide:L212', chapter='ch:koide', part=4, title='fraction of offsets admitting n=2',
-       file='part4/p4_15a_lepton_koide', line=212, status='derived', kind='num', printed='0.50', tol=0)
+       file='part4/p4_15a_lepton_koide', line=219, status='derived', kind='num', printed='0.50', tol=0)
 def check_2161():
     'fraction of offsets admitting n=2. Book line 212, printed 0.50.'
     value=max(0,1-2/4)
     return locals()
 
 @check(label='ch:koide:L212:0.25', chapter='ch:koide', part=4, title='fraction of offsets admitting n=3',
-       file='part4/p4_15a_lepton_koide', line=212, status='derived', kind='num', printed='0.25', tol=0)
+       file='part4/p4_15a_lepton_koide', line=219, status='derived', kind='num', printed='0.25', tol=0)
 def check_2162():
     'fraction of offsets admitting n=3. Book line 212, printed 0.25.'
     value=max(0,1-3/4)
     return locals()
 
 @check(label='ch:koide:L213', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=213, status='derived', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=220, status='derived', kind='num', printed='0.2222', tol=0)
 def check_2163():
     'measured offset delta. Book line 213, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26861,14 +26861,14 @@ def check_2163():
     return locals()
 
 @check(label='ch:koide:L213:0.975', chapter='ch:koide', part=4, title='cos delta',
-       file='part4/p4_15a_lepton_koide', line=213, status='derived', kind='num', printed='0.975', tol=0)
+       file='part4/p4_15a_lepton_koide', line=220, status='derived', kind='num', printed='0.975', tol=0)
 def check_2164():
     'cos delta. Book line 213, printed 0.975.'
     value=math.cos(0.2222)
     return locals()
 
 @check(label='eq:ko:thm2', chapter='ch:koide', part=4, title='Q = 2/3 at y/x = sqrt2',
-       file='part4/p4_15a_lepton_koide', line=228, status='derived', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=235, status='derived', kind='sym', printed='', tol=0)
 def check_2165():
     'Q = 2/3 at y/x = sqrt2 (Eq. eq:ko:thm2). Book line 228.'
     x,y=sp.symbols('x y',positive=True); lhs=(3*x**2+sp.Rational(3,2)*y**2)/(3*x)**2; ok=sp.simplify(lhs.subs(y,sp.sqrt(2)*x)-sp.Rational(2,3))==0
@@ -26876,7 +26876,7 @@ def check_2165():
     return locals()
 
 @check(label='eq:ko:delta0', chapter='ch:koide', part=4, title='masses at delta = 0 with x^2 = 313.851 MeV',
-       file='part4/p4_15a_lepton_koide', line=240, status='calc', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=292, status='calc', kind='sym', printed='', tol=0)
 def check_2166():
     'masses at delta = 0 with x^2 = 313.851 MeV (Eq. eq:ko:delta0). Book line 240.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26890,21 +26890,21 @@ def check_2166():
     return locals()
 
 @check(label='ch:koide:L243', chapter='ch:koide', part=4, title='measured offset delta (restated)',
-       file='part4/p4_15a_lepton_koide', line=243, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=295, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3715():
     'The measured spectrum needs delta = 0.2222 rad: offset of the first harmonic of the three square roots, tau at k = 0. Book line 243 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L246', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=246, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=298, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2167():
     'electron amplitude zero at delta = pi/12. Book line 246, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L247', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=247, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=299, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2168():
     'measured delta inside the edge. Book line 247, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26920,7 +26920,7 @@ def check_2168():
     return locals()
 
 @check(label='ch:koide:L253', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=253, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=305, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2169():
     'measured offset delta. Book line 253, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26936,7 +26936,7 @@ def check_2169():
     return locals()
 
 @check(label='ch:koide:L254', chapter='ch:koide', part=4, title='tau amplitude',
-       file='part4/p4_15a_lepton_koide', line=254, status='calc', kind='num', printed='2.379', tol=0)
+       file='part4/p4_15a_lepton_koide', line=306, status='calc', kind='num', printed='2.379', tol=0)
 def check_2170():
     'tau amplitude. Book line 254, printed 2.379.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26952,7 +26952,7 @@ def check_2170():
     return locals()
 
 @check(label='ch:koide:L254:0.040', chapter='ch:koide', part=4, title='electron amplitude',
-       file='part4/p4_15a_lepton_koide', line=254, status='calc', kind='num', printed='0.040', tol=0)
+       file='part4/p4_15a_lepton_koide', line=306, status='calc', kind='num', printed='0.040', tol=0)
 def check_2171():
     'electron amplitude. Book line 254, printed 0.040.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26968,7 +26968,7 @@ def check_2171():
     return locals()
 
 @check(label='ch:koide:L255', chapter='ch:koide', part=4, title='muon amplitude',
-       file='part4/p4_15a_lepton_koide', line=255, status='calc', kind='num', printed='0.580', tol=0)
+       file='part4/p4_15a_lepton_koide', line=307, status='calc', kind='num', printed='0.580', tol=0)
 def check_2172():
     'muon amplitude. Book line 255, printed 0.580.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26984,14 +26984,14 @@ def check_2172():
     return locals()
 
 @check(label='ch:koide:L255:0.293', chapter='ch:koide', part=4, title='e and mu amplitude at delta = 0',
-       file='part4/p4_15a_lepton_koide', line=255, status='calc', kind='num', printed='0.293', tol=0)
+       file='part4/p4_15a_lepton_koide', line=307, status='calc', kind='num', printed='0.293', tol=0)
 def check_2173():
     'e and mu amplitude at delta = 0. Book line 255, printed 0.293.'
     value=1-math.sqrt(2)/2
     return locals()
 
 @check(label='ch:koide:L260', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=260, status='calc', kind='num', printed='313.85', tol=0)
+       file='part4/p4_15a_lepton_koide', line=312, status='calc', kind='num', printed='313.85', tol=0)
 def check_2174():
     'x^2, MeV. Book line 260, printed 313.85.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27007,7 +27007,7 @@ def check_2174():
     return locals()
 
 @check(label='ch:koide:L260:0.2222', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=260, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=312, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2175():
     'measured offset delta. Book line 260, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27023,7 +27023,7 @@ def check_2175():
     return locals()
 
 @check(label='ch:koide:L263', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=263, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='26.92', tol=0)
 def check_2176():
     'm_e = m_mu at delta = 0, MeV. Book line 263, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27039,7 +27039,7 @@ def check_2176():
     return locals()
 
 @check(label='ch:koide:L272', chapter='ch:koide', part=4, title='x = sum sqrt(m)/3',
-       file='part4/p4_15a_lepton_koide', line=272, status='calc', kind='num', printed='17.71584', tol=0)
+       file='part4/p4_15a_lepton_koide', line=324, status='calc', kind='num', printed='17.71584', tol=0)
 def check_2177():
     'x = sum sqrt(m)/3. Book line 272, printed 17.71584.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27055,7 +27055,7 @@ def check_2177():
     return locals()
 
 @check(label='ch:koide:L272:313.851', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=272, status='calc', kind='num', printed='313.851', tol=0)
+       file='part4/p4_15a_lepton_koide', line=324, status='calc', kind='num', printed='313.851', tol=0)
 def check_2178():
     'x^2, MeV. Book line 272, printed 313.851.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27071,7 +27071,7 @@ def check_2178():
     return locals()
 
 @check(label='ch:koide:L273', chapter='ch:koide', part=4, title='r from Q = (1 + r^2/2)/3',
-       file='part4/p4_15a_lepton_koide', line=273, status='calc', kind='num', printed='1.414209', tol=0)
+       file='part4/p4_15a_lepton_koide', line=325, status='calc', kind='num', printed='1.414209', tol=0)
 def check_2179():
     'r from Q = (1 + r^2/2)/3. Book line 273, printed 1.414209.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27087,14 +27087,14 @@ def check_2179():
     return locals()
 
 @check(label='ch:koide:L273:1.414214', chapter='ch:koide', part=4, title='sqrt 2',
-       file='part4/p4_15a_lepton_koide', line=273, status='calc', kind='num', printed='1.414214', tol=0)
+       file='part4/p4_15a_lepton_koide', line=325, status='calc', kind='num', printed='1.414214', tol=0)
 def check_2180():
     'sqrt 2. Book line 273, printed 1.414214.'
     value=math.sqrt(2)
     return locals()
 
 @check(label='ch:koide:L274', chapter='ch:koide', part=4, title='offset delta, rad (tau at k=0)',
-       file='part4/p4_15a_lepton_koide', line=274, status='calc', kind='num', printed='0.222225', tol=0)
+       file='part4/p4_15a_lepton_koide', line=326, status='calc', kind='num', printed='0.222225', tol=0)
 def check_2181():
     'offset delta, rad (tau at k=0). Book line 274, printed 0.222225.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27110,7 +27110,7 @@ def check_2181():
     return locals()
 
 @check(label='ch:koide:L275', chapter='ch:koide', part=4, title='angle of the sqrt-mass vector to (1,1,1)',
-       file='part4/p4_15a_lepton_koide', line=275, status='calc', kind='num', printed='44.99991', tol=0)
+       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='44.99991', tol=0)
 def check_2182():
     'angle of the sqrt-mass vector to (1,1,1). Book line 275, printed 44.99991.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27126,7 +27126,7 @@ def check_2182():
     return locals()
 
 @check(label='ch:koide:L276', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=276, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='26.92', tol=0)
 def check_2183():
     'm_e = m_mu at delta = 0, MeV. Book line 276, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27142,7 +27142,7 @@ def check_2183():
     return locals()
 
 @check(label='ch:koide:L276:1829.26', chapter='ch:koide', part=4, title='m_tau at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=276, status='calc', kind='num', printed='1829.26', tol=0)
+       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1829.26', tol=0)
 def check_2184():
     'm_tau at delta = 0, MeV. Book line 276, printed 1829.26.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27158,14 +27158,14 @@ def check_2184():
     return locals()
 
 @check(label='ch:koide:L277', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=277, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2185():
     'electron amplitude zero at delta = pi/12. Book line 277, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L277:0.0396', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=277, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2186():
     'measured delta inside the edge. Book line 277, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27181,7 +27181,7 @@ def check_2186():
     return locals()
 
 @check(label='ch:koide:L278', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=278, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=330, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2187():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 278, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27197,7 +27197,7 @@ def check_2187():
     return locals()
 
 @check(label='ch:koide:L279', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=279, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2188():
     '2/9 - delta at Q = 2/3. Book line 279, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27213,7 +27213,7 @@ def check_2188():
     return locals()
 
 @check(label='ch:koide:L283', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=283, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=335, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2189():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 283, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27229,7 +27229,7 @@ def check_2189():
     return locals()
 
 @check(label='ch:koide:L284', chapter='ch:koide', part=4, title='uncertainty of delta from m_mu',
-       file='part4/p4_15a_lepton_koide', line=284, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=336, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
 def check_2190():
     'uncertainty of delta from m_mu. Book line 284, printed 4\\times10^{-10}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27245,7 +27245,7 @@ def check_2190():
     return locals()
 
 @check(label='ch:koide:L284:1.75\\times10^{-7}', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=284, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=336, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2191():
     '2/9 - delta at Q = 2/3. Book line 284, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27261,7 +27261,7 @@ def check_2191():
     return locals()
 
 @check(label='ch:koide:L285', chapter='ch:koide', part=4, title='delta - 2/9 in sigma',
-       file='part4/p4_15a_lepton_koide', line=285, status='calc', kind='num', printed='0.4', tol=0)
+       file='part4/p4_15a_lepton_koide', line=337, status='calc', kind='num', printed='0.4', tol=0)
 def check_2192():
     'delta - 2/9 in sigma. Book line 285, printed 0.4.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27277,7 +27277,7 @@ def check_2192():
     return locals()
 
 @check(label='ch:koide:L295', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=295, status='calc', kind='num', printed='1776.9690', tol=0)
+       file='part4/p4_15a_lepton_koide', line=347, status='calc', kind='num', printed='1776.9690', tol=0)
 def check_2193():
     'm_tau fixed by Q = 2/3, MeV. Book line 295, printed 1776.9690.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27293,7 +27293,7 @@ def check_2193():
     return locals()
 
 @check(label='ch:koide:L296', chapter='ch:koide', part=4, title='pull of the 2024 average',
-       file='part4/p4_15a_lepton_koide', line=296, status='calc', kind='num', printed='-0.43', tol=0)
+       file='part4/p4_15a_lepton_koide', line=348, status='calc', kind='num', printed='-0.43', tol=0)
 def check_2194():
     'pull of the 2024 average. Book line 296, printed -0.43.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27309,7 +27309,7 @@ def check_2194():
     return locals()
 
 @check(label='ch:koide:L296:-0.9', chapter='ch:koide', part=4, title='pull of the 2022 average',
-       file='part4/p4_15a_lepton_koide', line=296, status='calc', kind='num', printed='-0.9', tol=0)
+       file='part4/p4_15a_lepton_koide', line=348, status='calc', kind='num', printed='-0.9', tol=0)
 def check_2195():
     'pull of the 2022 average. Book line 296, printed -0.9.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27325,14 +27325,14 @@ def check_2195():
     return locals()
 
 @check(label='ch:koide:L297', chapter='ch:koide', part=4, title='separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV',
-       file='part4/p4_15a_lepton_koide', line=297, status='prediction', kind='num', printed='3.9', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=349, status='prediction', kind='num', printed='3.9', tol=0.0)
 def check_3716():
     'A measurement at +-0.01 MeV with the present central value 1776.93 MeV would separate it from the Q = 2/3 value of m_tau (solved here from m_e, m_mu) at (m_tau(Q=2/3) - 1776.93)/0.01 sigma. Book line 297, printed 3.9. Inputs: m_e, m_mu CODATA 2018; m_tau 1776.93 (PDG 2024).'
     value = (_b07_mtau_exact() - _B07_MTAU24) / 0.01
     return locals()
 
 @check(label='ch:koide:L299', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=299, status='calc', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='1776.969', tol=0)
 def check_2196():
     'm_tau fixed by Q = 2/3, MeV. Book line 299, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27348,7 +27348,7 @@ def check_2196():
     return locals()
 
 @check(label='ch:koide:L299:0.2222220', chapter='ch:koide', part=4, title='delta at m_tau = 1776.969',
-       file='part4/p4_15a_lepton_koide', line=299, status='calc', kind='num', printed='0.2222220', tol=0)
+       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='0.2222220', tol=0)
 def check_2197():
     'delta at m_tau = 1776.969. Book line 299, printed 0.2222220.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27364,7 +27364,7 @@ def check_2197():
     return locals()
 
 @check(label='ch:koide:L315', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)',
-       file='part4/p4_15a_lepton_koide', line=315, status='observed', kind='num', printed='0.66666446', tol=0)
+       file='part4/p4_15a_lepton_koide', line=367, status='observed', kind='num', printed='0.66666446', tol=0)
 def check_2198():
     'same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses). Book line 315, printed 0.66666446.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27380,7 +27380,7 @@ def check_2198():
     return locals()
 
 @check(label='ch:koide:L315:0.43', chapter='ch:koide', part=4, title='2/3 - Q in standard deviations (status table)',
-       file='part4/p4_15a_lepton_koide', line=315, status='observed', kind='num', printed='0.43', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=367, status='observed', kind='num', printed='0.43', tol=0.0)
 def check_3717():
     '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV by a numerical derivative. Book line 315, printed 0.43 (restates ch:koide:L34:0.43). Inputs: table masses (CODATA 2018, PDG 2024).'
     dQ = (_b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 + 1e-4) - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 - 1e-4)) / 2e-4
@@ -27388,7 +27388,7 @@ def check_3717():
     return locals()
 
 @check(label='ch:koide:L316', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
-       file='part4/p4_15a_lepton_koide', line=316, status='derived', kind='sym', printed='45', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=368, status='derived', kind='sym', printed='45', tol=0.0)
 def check_2199():
     'drafted check, screened (runs; negative control fails). Book line 316, printed 45.'
     lhs = sp.atan2(1, 1) * 180 / sp.pi
@@ -27397,14 +27397,14 @@ def check_2199():
     return locals()
 
 @check(label='ch:koide:L322', chapter='ch:koide', part=4, title='offset delta in the status table',
-       file='part4/p4_15a_lepton_koide', line=322, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=376, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3718():
     'Status table: the offset delta = 0.2222. Book line 322 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L323', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)',
-       file='part4/p4_15a_lepton_koide', line=323, status='prediction', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=377, status='prediction', kind='num', printed='1776.969', tol=0)
 def check_2200():
     'same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV). Book line 323, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -35172,7 +35172,7 @@ def check_4439():
 
 
 @check(label='ch:synthesis:L79', chapter='ch:synthesis', part=7, title='Level 2 Delta chi2, IAM minus LCDM',
-       file='part7/p7_08_synthesis', line=79, status='fitted', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part7/p7_08_synthesis', line=80, status='fitted', kind='file', printed='+0.54', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4441():
     'chi2_min(iam_level2_runA) - chi2_min(iam_level2_runC_lcdm). Book line 79, printed +0.54.'
@@ -35181,7 +35181,7 @@ def check_4441():
     return locals()
 
 @check(label='ch:synthesis:L80', chapter='ch:synthesis', part=7, title='sigma8 LCDM Level 2 chain (Run C)',
-       file='part7/p7_08_synthesis', line=80, status='fitted', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part7/p7_08_synthesis', line=81, status='fitted', kind='file', printed='0.8087', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4442():
     'sigma8 posterior mean of iam_level2_runC_lcdm. Book line 80, printed 0.8087.'
@@ -35189,21 +35189,21 @@ def check_4442():
     return locals()
 
 @check(label='ch:synthesis:L80:4.25', chapter='ch:synthesis', part=7, title='f sigma8 deficit at z = 0',
-       file='part7/p7_08_synthesis', line=80, status='fitted', kind='num', printed='4.25', tol=0.0)
+       file='part7/p7_08_synthesis', line=81, status='fitted', kind='num', printed='4.25', tol=0.0)
 def check_4443():
     'f sigma8 of IAM below LambdaCDM at z = 0, same early amplitude (fs8_deficit), per cent. Book line 80, printed 4.25 %.'
     value = fs8_deficit(0.0, which='iam')
     return locals()
 
 @check(label='ch:synthesis:L80:0.41', chapter='ch:synthesis', part=7, title='f sigma8 deficit at z = 1',
-       file='part7/p7_08_synthesis', line=80, status='fitted', kind='num', printed='0.41', tol=0.0)
+       file='part7/p7_08_synthesis', line=81, status='fitted', kind='num', printed='0.41', tol=0.0)
 def check_4444():
     'f sigma8 deficit at z = 1, same growth equation, per cent. Book line 80, printed 0.41 %.'
     value = fs8_deficit(1.0, which='iam')
     return locals()
 
 @check(label='ch:synthesis:L87', chapter='ch:synthesis', part=7, title='transmon per-gate thermal floor p_eq t_g/T1',
-       file='part7/p7_08_synthesis', line=87, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
+       file='part7/p7_08_synthesis', line=88, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
 def check_4445():
     'p_eq t_g/T1 with p_eq = 1/(1 + e^{hf/k_B T}) (line 31 of this chapter), f = 5 GHz, own temperature 35 mK, T1 = 68 microseconds, t_g = 40 ns (inputs the book states). Book line 87, printed 6.2e-7.'
     f_q, T_own, T1, t_g = 5e9, 35e-3, 68e-6, 40e-9
@@ -35212,7 +35212,7 @@ def check_4445():
     return locals()
 
 @check(label='ch:synthesis:L93', chapter='ch:synthesis', part=7, title='held-out SD of the six reference arrays',
-       file='part7/p7_08_synthesis', line=93, status='calibrated', kind='file', printed='0.020', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+       file='part7/p7_08_synthesis', line=94, status='calibrated', kind='file', printed='0.020', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
 def check_4446():
     'Sample SD (ddof 1) of the leave-one-out Met-A of the 6 purified healthy EPIC neutrophil arrays (A_loo, metA_floors_v1_3_loo.csv). Book line 93, printed 0.020.'
     A = [float(r['A_loo']) for r in load_csv_rows('Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv') if r['cell'] == 'neutrophils']
@@ -36928,7 +36928,7 @@ def check_2660():
     return locals()
 
 @check(label='ch:statusall:L73', chapter='ch:statusall', part=7, title='electron fixed point at H0 = 67.36, per cent',
-       file='part7/p7_11_status_all', line=72, status='calc', kind='num', printed='-0.02', tol=0)
+       file='part7/p7_11_status_all', line=75, status='calc', kind='num', printed='-0.02', tol=0)
 def check_2661():
     'electron fixed point at H0 = 67.36, per cent. Book line 72, printed -0.02.'
     EM_=lambda H0: (hbar*Hsi(H0)*LN2*mP**1.5/(alpha_em**2.5*c**2))**0.4
@@ -36936,7 +36936,7 @@ def check_2661():
     return locals()
 
 @check(label='ch:statusall:L76:60', chapter='ch:statusall', part=7, title='active fluctuators for x_qp = 1e-7, 1e3 um^3 island',
-       file='part7/p7_11_status_all', line=75, status='calc', kind='num', printed='60', tol=0.0)
+       file='part7/p7_11_status_all', line=78, status='calc', kind='num', printed='60', tol=0.0)
 def check_4600():
     'N = x_qp tau_TLS n_cp V / (2 tau_qp) from Eq. xqp, x_qp 1e-7, tau_TLS 30 us, tau_qp 100 us, n_cp 4e6 um^-3, V 1e3 um^3 (ch:xqp Fig. xqp_sites). Book line 75, printed 60.'
     N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
@@ -36944,7 +36944,7 @@ def check_4600():
     return locals()
 
 @check(label='ch:statusall:L76:600', chapter='ch:statusall', part=7, title='active fluctuators, 1e4 um^3 island',
-       file='part7/p7_11_status_all', line=75, status='calc', kind='num', printed='600', tol=0.0)
+       file='part7/p7_11_status_all', line=78, status='calc', kind='num', printed='600', tol=0.0)
 def check_4601():
     'N from Eq. xqp at V = 1e4 um^3, other inputs as above. Book line 75, printed 600.'
     N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
@@ -36952,7 +36952,7 @@ def check_4601():
     return locals()
 
 @check(label='ch:statusall:L76:6000', chapter='ch:statusall', part=7, title='active fluctuators, 1e5 um^3 island',
-       file='part7/p7_11_status_all', line=75, status='calc', kind='num', printed='6000', tol=0.0)
+       file='part7/p7_11_status_all', line=78, status='calc', kind='num', printed='6000', tol=0.0)
 def check_4602():
     'N from Eq. xqp at V = 1e5 um^3, other inputs as above. Book line 75, printed 6,000.'
     N = lambda V: 1e-7 * 30e-6 * 4e6 * V / (2 * 100e-6)
@@ -36960,14 +36960,14 @@ def check_4602():
     return locals()
 
 @check(label='ch:statusall:L79', chapter='ch:statusall', part=7, title='transmon floor on its gauge',
-       file='part7/p7_11_status_all', line=78, status='calc', kind='num', printed='6.2\\times10^{-4}', tol=0)
+       file='part7/p7_11_status_all', line=81, status='calc', kind='num', printed='6.2\\times10^{-4}', tol=0)
 def check_2662():
     'transmon floor on its gauge. Book line 78, printed 6.2\\times10^{-4}.'
     peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6/1e-3
     return locals()
 
 @check(label='ch:statusall:L79:10', chapter='ch:statusall', part=7, title='surface-code threshold on the qubit gauge',
-       file='part7/p7_11_status_all', line=78, status='calc', kind='num', printed='10', tol=0.0)
+       file='part7/p7_11_status_all', line=81, status='calc', kind='num', printed='10', tol=0.0)
 def check_4603():
     'Threshold mark 1e-2/epsilon, epsilon = -ln(1 - p) the gate error in nats of the as-built p = 1e-3 (ch:ascoreqc Fig. qubit_gauge). Book line 78, printed 10.'
     eps = -math.log(1 - 1e-3)
@@ -36977,14 +36977,14 @@ def check_4603():
 # ---------------------------------------------------------------- line 88: DNMT1 discrimination
 
 @check(label='ch:statusall:L81', chapter='ch:statusall', part=7, title='per-gate thermal floor',
-       file='part7/p7_11_status_all', line=80, status='calc', kind='num', printed='6.2\\times10^{-7}', tol=0)
+       file='part7/p7_11_status_all', line=83, status='calc', kind='num', printed='6.2\\times10^{-7}', tol=0)
 def check_2663():
     'per-gate thermal floor. Book line 80, printed 6.2\\times10^{-7}.'
     peq=1/(1+math.exp(h*5e9/(kB*0.035))); value=peq*40e-9/68e-6
     return locals()
 
 @check(label='ch:statusall:L82', chapter='ch:statusall', part=7, title='slope at 35 mK',
-       file='part7/p7_11_status_all', line=81, status='calc', kind='num', printed='6.85', tol=0)
+       file='part7/p7_11_status_all', line=84, status='calc', kind='num', printed='6.85', tol=0)
 def check_2665():
     'slope at 35 mK. Book line 81, printed 6.85.'
     def slope(f,T): M=h*f/(kB*T); p=1/(1+math.exp(M)); return M*(1-p)
@@ -36992,7 +36992,7 @@ def check_2665():
     return locals()
 
 @check(label='ch:statusall:L82:16.0', chapter='ch:statusall', part=7, title='slope at 15 mK',
-       file='part7/p7_11_status_all', line=81, status='calc', kind='num', printed='16.0', tol=0)
+       file='part7/p7_11_status_all', line=84, status='calc', kind='num', printed='16.0', tol=0)
 def check_2666():
     'slope at 15 mK. Book line 81, printed 16.0.'
     def slope(f,T): M=h*f/(kB*T); p=1/(1+math.exp(M)); return M*(1-p)
@@ -37000,7 +37000,7 @@ def check_2666():
     return locals()
 
 @check(label='ch:statusall:L85', chapter='ch:statusall', part=7, title='E_sw/(k_B T_j ln2)',
-       file='part7/p7_11_status_all', line=84, status='calc', kind='num', printed='576', tol=0)
+       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='576', tol=0)
 def check_2667():
     'E_sw/(k_B T_j ln2). Book line 84, printed 576.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -37008,7 +37008,7 @@ def check_2667():
     return locals()
 
 @check(label='ch:statusall:L85:593', chapter='ch:statusall', part=7, title='E_sw/(k_B T_j ln2)',
-       file='part7/p7_11_status_all', line=84, status='calc', kind='num', printed='593', tol=0)
+       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='593', tol=0)
 def check_2668():
     'E_sw/(k_B T_j ln2). Book line 84, printed 593.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -37016,35 +37016,35 @@ def check_2668():
     return locals()
 
 @check(label='ch:statusall:L86', chapter='ch:statusall', part=7, title='Landauer floor at 75 C',
-       file='part7/p7_11_status_all', line=85, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0)
+       file='part7/p7_11_status_all', line=88, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0)
 def check_2669():
     'Landauer floor at 75 C. Book line 85, printed 3.33\\times10^{-21}.'
     value=kB*348.15*LN2
     return locals()
 
 @check(label='ch:statusall:L86:8.6', chapter='ch:statusall', part=7, title='105 C vs 75 C',
-       file='part7/p7_11_status_all', line=85, status='calc', kind='num', printed='8.6', tol=0)
+       file='part7/p7_11_status_all', line=88, status='calc', kind='num', printed='8.6', tol=0)
 def check_2670():
     '105 C vs 75 C. Book line 85, printed 8.6.'
     value=100*(378.15/348.15-1)
     return locals()
 
 @check(label='ch:statusall:L88:1.9', chapter='ch:statusall', part=7, title='Hopfield gap, lowest published DNMT1 preference',
-       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='1.9', tol=0.0)
+       file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='1.9', tol=0.0)
 def check_4604():
     'Hopfield energy gap ln(selectivity) in k_B T for the lowest published DNMT1 preference for hemimethylated CpG, 7x (Pradhan1999, as quoted in ch:onegauge). Book line 87, printed 1.9.'
     value = math.log(7)
     return locals()
 
 @check(label='ch:statusall:L88:4.4', chapter='ch:statusall', part=7, title='Hopfield gap, highest published DNMT1 preference',
-       file='part7/p7_11_status_all', line=87, status='calc', kind='num', printed='4.4', tol=0.0)
+       file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='4.4', tol=0.0)
 def check_4605():
     'ln(selectivity) for the highest published preference, 80x (Adam2023, as quoted in ch:onegauge). Book line 87, printed 1.9--4.4 (upper end 4.4).'
     value = math.log(80)
     return locals()
 
 @check(label='ch:statusall:L88:3.41', chapter='ch:statusall', part=7, title='measured holding energy, k_B T',
-       file='part7/p7_11_status_all', line=87, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part7/p7_11_status_all', line=90, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4606():
     'measured holding energy, k_B T (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 87, printed 3.08.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -37054,28 +37054,28 @@ def check_4606():
 # ---------------------------------------------------------------- lines 92-95: the cell gauge
 
 @check(label='ch:statusall:L90', chapter='ch:statusall', part=7, title='Landauer bit-cost energy at body temperature',
-       file='part7/p7_11_status_all', line=89, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
+       file='part7/p7_11_status_all', line=92, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.00017)
 def check_2671():
     'Landauer bit-cost energy at body temperature. Book line 89, printed 2.968\\times10^{-21}.'
     value = kB*T_cell*LN2
     return locals()
 
 @check(label='ch:statusall:L91', chapter='ch:statusall', part=7, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
-       file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='20.94', tol=0.000239)
+       file='part7/p7_11_status_all', line=93, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2672():
     'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 90, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='ch:statusall:L91:30.2', chapter='ch:statusall', part=7, title='M/ln2',
-       file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='30.2', tol=0)
+       file='part7/p7_11_status_all', line=93, status='calc', kind='num', printed='30.2', tol=0)
 def check_2673():
     'M/ln2. Book line 90, printed 30.2.'
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
 
 @check(label='ch:statusall:L92', chapter='ch:statusall', part=7, title='holding energy of a methylated site',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part7/p7_11_status_all', line=94, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4607():
     'holding energy of a methylated site (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 3.08.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -37083,7 +37083,7 @@ def check_4607():
     return locals()
 
 @check(label='ch:statusall:L92:0.032', chapter='ch:statusall', part=7, title='held-error floor eps0',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.044', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part7/p7_11_status_all', line=94, status='measured', kind='file', printed='0.044', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4608():
     'held-error floor eps0 (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 0.044.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -37091,7 +37091,7 @@ def check_4608():
     return locals()
 
 @check(label='ch:statusall:L92:0.163', chapter='ch:statusall', part=7, title='phi = E_hold / M',
-       file='part7/p7_11_status_all', line=91, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part7/p7_11_status_all', line=94, status='measured', kind='file', printed='0.147', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_4609():
     'phi = E_hold / M (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 0.147.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -37102,14 +37102,14 @@ _B15_IAMA = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_Position
 _B15_METAF = 'Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json'
 
 @check(label='ch:statusall:L94', chapter='ch:statusall', part=7, title='Met-A neutrophil reference floor, bits',
-       file='part7/p7_11_status_all', line=93, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
+       file='part7/p7_11_status_all', line=96, status='calibrated', kind='file', printed='0.330263', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
 def check_4612():
     'Floor of EPIC neutrophils in the frozen Met-A floors v1.3 (mean over 6 purified arrays). Book line 93, printed 0.330263.'
     value = load_json(_B15_METAF)['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
 @check(label='ch:statusall:L94:6000', chapter='ch:statusall', part=7, title='identity sites of the neutrophil reference',
-       file='part7/p7_11_status_all', line=93, status='calibrated', kind='file', printed='6000', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
+       file='part7/p7_11_status_all', line=96, status='calibrated', kind='file', printed='6000', tol=0.0, source=_B15_METAF, heavy=True, rerun=_B15_METH_RERUN)
 def check_4613():
     'n_sites of the EPIC neutrophil floor in the frozen Met-A floors v1.3, checked against the length of its site list. Book line 93, printed 6,000.'
     d = load_json(_B15_METAF)['platforms']['EPIC']['neutrophils']
@@ -37117,7 +37117,7 @@ def check_4613():
     return locals()
 
 @check(label='ch:statusall:L95', chapter='ch:statusall', part=7, title='held-out SD of the six reference arrays',
-       file='part7/p7_11_status_all', line=94, status='measured', kind='file', printed='0.020', tol=0.0,
+       file='part7/p7_11_status_all', line=97, status='measured', kind='file', printed='0.020', tol=0.0,
        source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv', heavy=True, rerun=_B15_METH_RERUN)
 def check_4614():
     'Sample SD of the leave-one-out readings A_loo of the six purified neutrophil arrays. Book line 94, printed 0.020.'
@@ -37128,7 +37128,7 @@ def check_4614():
 # ---------------------------------------------------------------- lines 99-102: readings
 
 @check(label='ch:statusall:L96:Hmin', chapter='ch:statusall', part=7, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',
-       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
+       file='part7/p7_11_status_all', line=98, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')
 def check_2674():
     'The floor: thermal kicks win against one ATP per site, held error 1/(1+e^M); on the neutrophil IAM-A gauge. Book line 95, printed 1x10^-7.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
@@ -37138,7 +37138,7 @@ def check_2674():
     return locals()
 
 @check(label='ch:statusall:L96:3.03', chapter='ch:statusall', part=7, title='Met-A full',
-       file='part7/p7_11_status_all', line=95, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
+       file='part7/p7_11_status_all', line=98, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
 def check_2675():
     'Met-A full. Book line 95, printed 3.03.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
@@ -37148,7 +37148,7 @@ def check_2675():
     return locals()
 
 @check(label='ch:statusall:L98', chapter='ch:statusall', part=7, title='floor at 10 C',
-       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='0.81', tol=0)
+       file='part7/p7_11_status_all', line=100, status='calc', kind='num', printed='0.81', tol=0)
 def check_2677():
     'floor at 10 C. Book line 97, printed 0.81.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
@@ -37160,7 +37160,7 @@ def check_2677():
     return locals()
 
 @check(label='ch:statusall:L98:1.012', chapter='ch:statusall', part=7, title='same value as p6_10_temperature:17 (floor at 38.5 C)',
-       file='part7/p7_11_status_all', line=97, status='calc', kind='num', printed='1.011', tol=0)
+       file='part7/p7_11_status_all', line=100, status='calc', kind='num', printed='1.011', tol=0)
 def check_2678():
     'same value as p6_10_temperature:17 (floor at 38.5 C). Book line 97, printed 1.011.'
     Mt=lambda TC: dG_ATP/(R_gas*(TC+273.15))
@@ -37184,7 +37184,7 @@ def check_2679():
     return locals()
 
 @check(label='ch:statusall:L99', chapter='ch:statusall', part=7, title='atlas v2 held-out interval coverage, per cent',
-       file='part7/p7_11_status_all', line=98, status='measured', kind='file', printed='92.7', tol=0.0,
+       file='part7/p7_11_status_all', line=101, status='measured', kind='file', printed='92.7', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md', heavy=True, rerun=_B15_METH_RERUN)
 def check_4615():
     'Coverage of the 90 % interval on the held-out observations, bar B1 of PROC-V5-HELDOUT (342,716 observations). Book line 98, printed 92.7.'
@@ -37221,21 +37221,21 @@ def _b15_dnmt_b():
 # ---------------------------------------------------------------- lines 108-110
 
 @check(label='ch:statusall:L106', chapter='ch:statusall', part=7, title='M_eq today',
-       file='part7/p7_11_status_all', line=105, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0)
+       file='part7/p7_11_status_all', line=108, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0)
 def check_2680():
     'M_eq today. Book line 105, printed 2.3\\times10^{22}.'
     value=c**3/(4*G*Hsi(67.4))/Msun
     return locals()
 
 @check(label='ch:statusall:L108', chapter='ch:statusall', part=7, title='Q_L = k_B T ln 2 at room temperature, eV',
-       file='part7/p7_11_status_all', line=107, status='conjecture', kind='num', printed='0.0179', tol=0.0)
+       file='part7/p7_11_status_all', line=110, status='conjecture', kind='num', printed='0.0179', tol=0.0)
 def check_4626():
     'Q_L = k_B T_D ln 2 at room temperature, T = 300 K (as ch:measurement), in eV. Book line 107, printed 0.0179.'
     value = kB * 300 * LN2 / eV
     return locals()
 
 @check(label='ch:statusall:L110:509', chapter='ch:statusall', part=7, title='tau_IAM of a 1e-12 kg silica sphere at 10 mK, s',
-       file='part7/p7_11_status_all', line=109, status='prediction', kind='num', printed='509', tol=0.0)
+       file='part7/p7_11_status_all', line=112, status='prediction', kind='num', printed='509', tol=0.0)
 def check_4627():
     'tau_IAM = hbar (k_B T)^2 ln 2 / E_G^3, E_G = G m^2 / R, m 1e-12 kg, silica density 2200 kg/m^3, T 10 mK (ch:gravdec, ch:quantumrecords). Book line 109, printed 509.'
     m, rho, T = 1e-12, 2200.0, 0.010
@@ -37245,7 +37245,7 @@ def check_4627():
     return locals()
 
 @check(label='ch:statusall:L110:7.5', chapter='ch:statusall', part=7, title='tau_DP of the same sphere, microseconds',
-       file='part7/p7_11_status_all', line=109, status='prediction', kind='num', printed='7.5', tol=0.0)
+       file='part7/p7_11_status_all', line=112, status='prediction', kind='num', printed='7.5', tol=0.0)
 def check_4628():
     'tau_DP = hbar / E_G for the same 1e-12 kg silica sphere, in microseconds. Book line 109, printed 7.5.'
     m, rho = 1e-12, 2200.0
@@ -44545,7 +44545,7 @@ def _kov_seq():
     S0 = sum(s) / 3; S1 = sum(sk * complex(math.cos(2 * math.pi * k / 3), math.sin(2 * math.pi * k / 3)) for k, sk in enumerate(s)) / 3
     return S0 * S0, (2 * abs(S1)) ** 2 / 2
 
-@check(label='eq:ko:k2', title='orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+@check(label='eq:ko:k2', title='orbit average of (y cos phi)^2 is y^2/2; 2K = kV at k = 2 gives K = V', status='derived', kind='sym', printed='', tol=0, line=250, **_KOV)
 def check_kov_k2():
     'The quadratic branch of the virial theorem (Eq. eq:ko:k2): <(y cos phi)^2> = y^2/2 on the orbit, and 2K = kV with k = 2 gives K = V.'
     y, ph, K, V = sp.symbols('y phi K V', positive=True)
@@ -44554,7 +44554,7 @@ def check_kov_k2():
     neg_ok = sp.simplify(avg - y**2) == 0
     return locals()
 
-@check(label='eq:ko:seq', title='any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1)', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+@check(label='eq:ko:seq', title='any three reals = S0 + 2|S1| cos(delta + 2 pi k/3); S2 = conj(S1)', status='derived', kind='sym', printed='', tol=0, line=263, **_KOV)
 def check_kov_seq():
     'Eq. eq:ko:seq: three reals are exactly their zero-sequence part plus one balanced harmonic (the 3-point discrete Fourier transform); 200 random triples.'
     rng = np.random.default_rng(75); err = 0.0
@@ -44566,26 +44566,26 @@ def check_kov_seq():
     ok = err < 1e-12 and abs(S2 - np.conj(S1)) < 1e-12
     return locals()
 
-@check(label='ch:koide:virial:x2', title='zero-sequence power x^2 of the square-root masses, MeV', status='calc', kind='num', printed='313.851', tol=0, line=0, **_KOV)
+@check(label='ch:koide:virial:x2', title='zero-sequence power x^2 of the square-root masses, MeV', status='calc', kind='num', printed='313.851', tol=0, line=270, **_KOV)
 def check_kov_x2():
     'x^2 = S0^2 of sqrt(m_tau, m_e, m_mu) (m_e, m_mu CODATA 2018; m_tau PDG 2024 1776.93 MeV). Printed 313.851 MeV.'
     value = _kov_seq()[0]
     return locals()
 
-@check(label='ch:koide:virial:y2', title='power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV', status='calc', kind='num', printed='313.849', tol=0, line=0, **_KOV)
+@check(label='ch:koide:virial:y2', title='power of the balanced part y^2/2 = mean of (s_k - S0)^2, MeV', status='calc', kind='num', printed='313.849', tol=0, line=270, **_KOV)
 def check_kov_y2():
     'y^2/2 = 2|S1|^2 = mean of (s_k - S0)^2 of sqrt(m_tau, m_e, m_mu) (positive and negative sequence together, S2 = conj(S1)). Printed 313.849 MeV.'
     value = _kov_seq()[1]
     return locals()
 
-@check(label='ch:koide:virial:ratio', title='balanced-part power over zero-sequence power = 3Q - 1', status='calc', kind='num', printed='0.999993', tol=0, line=0, **_KOV)
+@check(label='ch:koide:virial:ratio', title='balanced-part power over zero-sequence power = 3Q - 1', status='calc', kind='num', printed='0.999993', tol=0, line=270, **_KOV)
 def check_kov_ratio():
     'y^2/(2x^2) from the masses, and equal to 3Q - 1 to 1e-12. Printed 0.999993.'
     x2, h2 = _kov_seq(); value = h2 / x2
     assert abs(value - (3 * _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24) - 1)) < 1e-12
     return locals()
 
-@check(label='eq:ko:fid', title='fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)', status='derived', kind='sym', printed='', tol=0, line=0, **_KOV)
+@check(label='eq:ko:fid', title='fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q)', status='derived', kind='sym', printed='', tol=0, line=278, **_KOV)
 def check_kov_fid():
     'Eq. eq:ko:fid: with p_k = m_k / sum m, (sum sqrt(p_k/3))^2 = 1/(3Q), Q = sum m / (sum sqrt m)^2.'
     a, b, c3 = sp.symbols('a b c', positive=True); S = a**2 + b**2 + c3**2
@@ -44594,7 +44594,7 @@ def check_kov_fid():
     neg_ok = sp.simplify(F - 1 / Q) == 0
     return locals()
 
-@check(label='ch:koide:virial:F', title='fidelity of the charged-lepton mass shares with equal shares', status='calc', kind='num', printed='0.5000017', tol=0, line=0, **_KOV)
+@check(label='ch:koide:virial:F', title='fidelity of the charged-lepton mass shares with equal shares', status='calc', kind='num', printed='0.5000017', tol=0, line=280, **_KOV)
 def check_kov_F():
     'F = 1/(3Q) for the measured masses (PDG 2024 m_tau). Printed 0.5000017.'
     m3 = [_B07_ME, _B07_MMU, _B07_MTAU24]; p3 = [mk / sum(m3) for mk in m3]
@@ -44602,7 +44602,7 @@ def check_kov_F():
     return locals()
 
 _VLG = dict(chapter='ch:virial_law', part=1, file='part1/p1_03_virial_law')
-@check(label='eq:vl_komar', title='Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2', status='derived', kind='sym', printed='', tol=0, line=0, **_VLG)
+@check(label='eq:vl_komar', title='Komar mass kappa A/(4 pi G) of the Schwarzschild horizon = M = 2 T_H S / c^2', status='derived', kind='sym', printed='', tol=0, line=151, **_VLG)
 def check_vlg_komar():
     'Eq. eq:vl_komar: kappa = c^4/(4GM), A = 16 pi G^2 M^2/c^4; kappa A/(4 pi G) = M and 2 T_H S = M c^2 (T_H = hbar kappa/(2 pi k_B c), S = k_B c^3 A/(4 G hbar)).'
     G_, c_, hb, kB_, M_ = sp.symbols('G c hbar k_B M', positive=True)
@@ -44612,7 +44612,7 @@ def check_vlg_komar():
     neg_ok = sp.simplify(T * S - M_ * c_**2) == 0
     return locals()
 
-@check(label='eq:vl_smarr_euler', title='M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1)', status='derived', kind='sym', printed='', tol=0, line=0, **_VLG)
+@check(label='eq:vl_smarr_euler', title='M(A,J) homogeneous of degree 1/2: M/2 = A dM/dA + J dM/dJ, i.e. M = 2TS + 2 Omega J (G = c = 1)', status='derived', kind='sym', printed='', tol=0, line=155, **_VLG)
 def check_vlg_euler():
     'Eq. eq:vl_smarr_euler with the Kerr mass M = sqrt(A/(16 pi) + 4 pi J^2/A) (G = c = 1); T S = (dM/dA) A with S = A/4, T = kappa/(2 pi), dM/dA = kappa/(8 pi).'
     A, J, lam = sp.symbols('A J lambda', positive=True)
@@ -44623,8 +44623,8 @@ def check_vlg_euler():
     return locals()
 
 # ---------------------------------------------------------------- ch:euler_halves (edit 076)
-_EH = dict(chapter='ch:euler_halves', part=7, file='part7/p7_05d_euler_halves', kind='sym', printed='', tol=0, line=0, status='derived')
-@check(label='eq:eh_euler', title="Euler's theorem: f homogeneous of degree k gives x . grad f = k f", **_EH)
+_EH = dict(chapter='ch:euler_halves', part=7, file='part7/p7_05d_euler_halves', kind='sym', printed='', tol=0, status='derived')
+@check(label='eq:eh_euler', title="Euler's theorem: f homogeneous of degree k gives x . grad f = k f", line=15, **_EH)
 def check_eh_euler():
     'Eq. eq:eh_euler on two homogeneous functions (degree -1 and degree 2) and a non-homogeneous control.'
     x, y, lam = sp.symbols('x y lambda', positive=True)
@@ -44634,7 +44634,7 @@ def check_eh_euler():
     neg_ok = sp.simplify(e(g) - 2 * g) == 0
     return locals()
 
-@check(label='eq:eh_cap', title='capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance', **_EH)
+@check(label='eq:eh_cap', title='capacitor: Q dU/dQ = 2U; stored / drawn = 1/2 for any resistance', line=33, **_EH)
 def check_eh_cap():
     'Eq. eq:eh_cap: U = Q^2/2C, drawn = Q V with V = Q/C; Q dU/dQ = 2U = drawn, U/(QV) = 1/2.'
     Q, C = sp.symbols('Q C', positive=True); U_ = Q**2 / (2 * C)
@@ -44642,7 +44642,7 @@ def check_eh_cap():
     neg_ok = sp.simplify(U_ / (Q * Q / C) - 1) == 0
     return locals()
 
-@check(label='eq:eh_area', title='S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2', **_EH)
+@check(label='eq:eh_area', title='S(M) of degree 2 (Schwarzschild area law) gives T_H S = M c^2 / 2', line=40, **_EH)
 def check_eh_area():
     'Eq. eq:eh_area: S = 4 pi G k_B M^2/(hbar c); M dS/dM = 2S; T_H = c^2/(dS/dM) = hbar c^3/(8 pi G M k_B); T_H S = M c^2/2.'
     G_, c_, hb, kB_, M_ = sp.symbols('G c hbar k_B M', positive=True)
@@ -44651,7 +44651,7 @@ def check_eh_area():
     neg_ok = sp.simplify(T * S - M_ * c_**2) == 0
     return locals()
 
-@check(label='eq:eh_smarrD', title='D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5', **_EH)
+@check(label='eq:eh_smarrD', title='D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5', line=82, **_EH)
 def check_eh_smarrD():
     'Eq. eq:eh_smarrD with T = dM/dS.'
     r_, D_ = sp.symbols('r D', positive=True); M_ = r_**(D_ - 3); S_ = r_**(D_ - 2); T_ = sp.diff(M_, r_) / sp.diff(S_, r_)
@@ -44660,7 +44660,7 @@ def check_eh_smarrD():
     neg_ok = q.subs(D_, 5) == sp.Rational(1, 2)
     return locals()
 
-@check(label='eq:eh_dS', title='cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E', **_EH)
+@check(label='eq:eh_dS', title='cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E', line=45, **_EH)
 def check_eh_dS():
     'Eq. eq:eh_dS with T_GH = hbar c/(2 pi k_B R).'
     G_, c_, hb, kB_, R = sp.symbols('G c hbar k_B R', positive=True)
@@ -44670,7 +44670,7 @@ def check_eh_dS():
     return locals()
 
 # ---------------------------------------------------------------- ch:koide channel count (edit 078)
-@check(label='ch:koide:K3', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=0, status='calc',
+@check(label='ch:koide:K3', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=172, status='calc',
        title='K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3')
 def check_ko_K3():
     'Step 6: with K = 3 equal weights x^2 = a^2/2 = b^2/2, harmonic weight (a^2+b^2)/2 = 2x^2, Q = 1/3 + y^2/(6x^2) = 1; measured Q = 0.66666.'
