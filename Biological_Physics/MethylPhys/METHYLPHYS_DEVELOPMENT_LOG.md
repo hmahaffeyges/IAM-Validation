@@ -6149,3 +6149,7 @@ _Rewritten 2026-11-16 from a line-by-line walk of the whole day's chat (818 entr
 - GitHub's machines have no credentials for the storage bucket; whether to grant write access is the author's decision. Molecule files stay in each run's GitHub artifact until then.
 - The author's question just before midnight, whether the IAM Theory and IAM's Law derivations (Jacobson, Bekenstein, Cai-Kim, the gravity chain, the virial theorem, Landauer) are on IAM's web as its backbone, was answered after midnight (see 2026-11-16).
 
+### 2026-11-16 · IAM-A readings now carry the run lengths, the tile-by-tile line and the meter fields
+Found on the joint run's test library: the main IAM-A path passed on an older list of count keys, so the run-length reading,
+the tile-by-tile line and the meter's own fields were counted but dropped before the bundle. Both key lists now carry them; no reading changes
+(the test library's A stays 0.8329).
