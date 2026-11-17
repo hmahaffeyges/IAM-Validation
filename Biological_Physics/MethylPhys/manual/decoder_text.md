@@ -71,6 +71,436 @@ the chain reads comes from that one statement; everything else in the chain is s
   PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). A baseline per cell type is open.
 - **The bit.** Met-A reads disorder in bits, H(β); IAM-A reads the held error, the share of held sites wrong at any moment.
 
+## Inputs: every number the chain reads, with its physics
+
+This section lists every number the chain reads, so that a researcher can rebuild the chain's arithmetic, or write a new chain, from the
+Decoder alone. One entry per input: a file under `chain/Runtime Matrices` that the stage files open, or a constant of the canon
+(`CANON/iam_canon.json`). Each entry says what kind of number it is, which register rows decide its status, what it is, its physics (step
+by step for the derived and calculated ones, enough to recompute it; for the measured ones, how it was measured and why it stays measured),
+which function and stage read it, the command or calculation that reproduces it, and what is still open.
+
+**The five kinds.**
+
+- **Derived**: follows from IAM's Law at the DNA (M = ΔG_ATP / RT) and established physics, with no measured input beyond the coin and the
+  temperature.
+- **Calculated**: arithmetic or established mathematics on stated inputs (a genome's CpG table, a geometry, a published bound, a count's null).
+- **Measured**: counted from healthy cells, or taken from the literature, and kept measured: nature sets it and no derivation is claimed.
+- **Calibrated**: the instrument's own response (the meter), measured once on references or on each array and library, never derived.
+- **Development**: a reference or rule that is read and flagged but not commissioned, or retired and kept for earlier records.
+
+**How the canon reaches the chain.** The chain's stage files do not open `CANON/iam_canon.json` while they run. Every number a reading uses
+is in a stamped file under `Runtime Matrices` (or in the atlas folders), and the canon holds the same numbers with their derivation so that
+`CANON/canon_check.py` can refuse any file that disagrees. Each canon entry below names the file through which its value reaches a reading,
+or says that it reaches none and is printed by the Decoder and the report only.
+
+**Where the files sit.** Paths are relative to `Biological_Physics/MethylPhys/chain`. Every run records the size and a SHA-256 prefix of
+every file under `Runtime Matrices` in its bundle (`run_sample.py::_versions`), whether or not that run reads it, and the reference door
+checks the atlases against their checksums before any reading (`reference_door.py`).
+
+### The canon's constants: IAM's Law at the DNA, and what it is compared with
+
+#### Input: dG_ATP (canon)
+
+**Kind:** measured
+
+**Register:** A10; A16 (each type's own coin, open)
+
+**What it is:** The free energy one ATP hydrolysis delivers in the cell, the coin: {{canon:dG_ATP:.0f}} J/mol.
+
+**Physics / equation:** Measured, not derived: the nameplate value of cellular ATP hydrolysis (Nelson and Cox, Lehninger). Tissue measurements by 31P-NMR and magnetic resonance spectroscopy span 53.5 to 61.7 kJ/mol (the canon's band). It stays measured because it is set by the cell's own concentrations of ATP, ADP and phosphate; free ADP is not measured in blood cells, so a coin per cell type is not yet an input (register A16).
+
+**How the chain uses it:** Reaches every reading only through M (below). No stage file reads it directly.
+
+**Reproduce it:** Read the canon's `band_note` and the cited sources; M follows as below.
+
+**Status and open parts:** Stays measured. Each cell type's own coin is open (A16); the lever sweep of the cell simulator finds that the coin would have to change 1.42 times to make the spread of healthy types, against 1.15 across tissues, so the coin does not set each type's level (A8).
+
+#### Input: T_cell (canon)
+
+**Kind:** measured
+
+**Register:** A11
+
+**What it is:** The temperature of the surface that holds the record, the nucleus at body temperature: {{canon:T_cell:.2f}} K.
+
+**Physics / equation:** Measured (37 °C). It stays measured: IAM's Law prices the hold at the holding surface's own temperature, and that temperature is a fact of the body. Through the derived passage (odds about M + 1/2) a nucleus 1 K warmer raises the held error by a factor 1.003, so temperature differences between cells cannot make the spread of healthy types (register A8).
+
+**How the chain uses it:** Reaches every reading only through M.
+
+**Reproduce it:** None to compute.
+
+**Status and open parts:** Stays measured.
+
+#### Input: R and k_B (canon)
+
+**Kind:** calculated
+
+**Register:** none (SI constants)
+
+**What it is:** The gas constant R = {{canon:R:.9f}} J/(mol K) and Boltzmann's constant k_B = {{canon:k_B:.6e}} J/K, exact in SI since the 2019 redefinition.
+
+**Physics / equation:** R = N_A k_B. A kT is one thermal kick: {{canon:Landauer_floor_cell:.4e}} J is k_B T ln 2, Landauer's price of one bit at 310.15 K.
+
+**How the chain uses it:** Reach the chain only through M.
+
+**Reproduce it:** `python3 -c "print(6.02214076e23*1.380649e-23)"` gives R.
+
+**Status and open parts:** Exact by definition.
+
+#### Input: M_cell (canon)
+
+**Kind:** derived
+
+**Register:** A1 (uses M); A4; A10; A11
+
+**What it is:** IAM's Law at the DNA: the drive ratio of the cell's memory, M = {{canon:M_cell:.2f}} thermal kicks per coin ({{canon:M_cell_Landauer:.1f}} in Landauer units, M / ln 2).
+
+**Physics / equation:** M = ΔG_ATP / (R T) = 54000 / (8.314462618 × 310.15) = 20.94. The moles cancel: one ATP carries 20.94 kT. Every IAM quantity the chain uses below comes from this one number; the rest of the chain is standard method.
+
+**How the chain uses it:** No stage file reads it; it is built into the derived files below (the gauge's floor, the forward table behind IAM-A's derived intercept) and printed by the Decoder and the report.
+
+**Reproduce it:** `python3 -c "print(54000/(8.314462618*310.15))"` → 20.9405.
+
+**Status and open parts:** Derived from two measured inputs (coin and temperature), which stay measured.
+
+#### Input: H_min_cell (canon): the floor
+
+**Kind:** derived
+
+**Register:** A1; M1
+
+**What it is:** The gauge's floor: the least disorder a held mark can carry, {{canon:H_min_cell:.1e}} bits, at held error 1/(1 + e^M) = 8.05 × 10⁻¹⁰.
+
+**Physics / equation:** A mark held behind a wall of M kicks, one coin per copy, is lost with probability ε_min = 1/(1 + e^M) = 1/(1 + e^20.94) = 8.05 × 10⁻¹⁰. Its disorder is H(ε_min) = −ε log₂ ε − (1 − ε) log₂(1 − ε) = 2.5 × 10⁻⁸ bits. Established neighbor: the one-step copy limit of Sartori and Pigolotti (2013), lowest error 1/(1 + e^x) for discrimination x kT (register E3).
+
+**How the chain uses it:** Read as the gauge's left end from `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` by `report_figs_v4.gauge_png`; no reading divides by it.
+
+**Reproduce it:** `python3 -c "import math; M=54000/(8.314462618*310.15); e=1/(1+math.exp(M)); print(e, -(e*math.log2(e)+(1-e)*math.log2(1-e)))"`.
+
+**Status and open parts:** Derived; nothing open.
+
+#### Input: SAM_cost_ATP (canon): the price of one restore
+
+**Kind:** derived
+
+**Register:** A2
+
+**What it is:** The coins spent to make one S-adenosylmethionine, the methyl donor of each restore: {{canon:SAM_cost_ATP:.1f}} (range 1.967 to 2.033).
+
+**Physics / equation:** Making SAM spends ATP → AMP + 2 Pi = (ATP → ADP + Pi) + (ADP → AMP + Pi). Adenylate kinase (ATP + AMP ⇌ 2 ADP) links the two bonds, so SAM / coin = 2 − ΔG_AK / coin, exactly 2 at adenylate-kinase equilibrium whatever the concentrations; the range allows adenylate kinase within a factor two of equilibrium. Counts only the ATP spent making SAM. The textbook standard free energies give 2.12 (canon SAM_cost_ATP_textbook), kept as a check.
+
+**How the chain uses it:** Built into the drive w = 2M of the paid hold (below); no stage file reads it.
+
+**Reproduce it:** `Biological_Physics/MethylPhys/minicell/sam_cost_ak.py`.
+
+**Status and open parts:** Derived, given adenylate kinase at equilibrium.
+
+#### Input: W_restore and odds_restore (canon): the paid hold
+
+**Kind:** derived
+
+**Register:** A3; A4; PHY-083; blind test PHY-084
+
+**What it is:** The push behind each restore, W = 2M = {{canon:W_restore:.2f}} kT, and the odds it buys, {{canon:odds_restore:.2f}} restores per loss.
+
+**Physics / equation:** A lost mark is restored by a constant push of two coins (register A3: a constant push is the best of 2,000 push profiles two coins can buy). The restore is a driven first passage: with the push w = W/kT = 2M = 41.88 across the step and the Einstein relation fixing the noise, the ratio of restores to losses is odds(w) = (w/2) / (1 − (1 − e^−w)/w) = 20.94 / (1 − 1/41.88) = 21.45. For a strong push odds ≈ M + 1/2, which is why the result depends only weakly on the coin and the temperature.
+
+**How the chain uses it:** Built into eps0_candidate and so into the forward table behind IAM-A's derived intercept; no stage file reads it.
+
+**Reproduce it:** `python3 -c "import math; M=54000/(8.314462618*310.15); w=2*M; print(w, (w/2)/(1-(1-math.exp(-w))/w))"` → 41.881, 21.4528.
+
+**Status and open parts:** Derived. The identification of a mark's loss with the reverse step of the push is the physics claim the blind test checked (PHY-084 met, B cells on watch).
+
+#### Input: eps0_candidate (canon): the held error from M alone
+
+**Kind:** derived
+
+**Register:** A4; A6; S1; PHY-083; PHY-084; F033
+
+**What it is:** The share of held sites lost at any moment when the hold is paid by M alone: {{canon:eps0_candidate:.4f}} per site (0.04386 to 0.04524 over the SAM price's range, canon eps0_candidate_SAM).
+
+**Physics / equation:** Each interval a held mark is lost with probability f and restored with g; the balance settles at ε = f/(f + g) = 1/(1 + g/f) = 1/(1 + odds(2M)) = 1/22.45 = 0.04454. The balance is set by the ratio, not by how often the cell divides; division only sets how fast it is reached. This is a per-site loss. The counter reads a lone-loss share on qualifying molecules, a different quantity, so it is compared with a measurement only after planting molecules at this loss and reading them with the same counter (the forward table, Section 9).
+
+**How the chain uses it:** Not read by any stage file at run time. It is the planted loss of the forward table (`doors/data/DEV_CHAIN_Q2_01/forward_line_synthetic.py`) that gives IAM-A's derived intercept, and the held level 1 − ε0 behind Met-A's derived height (register M2).
+
+**Reproduce it:** `python3 -c "import math; M=54000/(8.314462618*310.15); w=2*M; o=(w/2)/(1-(1-math.exp(-w))/w); print(1/(1+o))"` → 0.044538.
+
+**Status and open parts:** Derived. Blind test PHY-084 (an unseen laboratory, GSE173787, 54 libraries) met by the standard written before the seal, B cells on watch (pull −2.45), none beyond 3. Compare the measured healthy pool, canon eps_healthy_pool.
+
+#### Input: E_hold_candidate and phi_candidate (canon): the holding energy and the held share
+
+**Kind:** derived
+
+**Register:** A4; P4; E7
+
+**What it is:** The energy that holds one mark, E_hold = {{canon:E_hold_candidate:.3f}} kT, and the share of one coin it is, φ = E_hold / M = {{canon:phi_candidate:.4f}}.
+
+**Physics / equation:** E_hold = kT ln[(1 − ε0)/ε0] = kT ln(odds) = ln 21.45 = 3.066 kT. φ(M) = ln(odds(2M)) / M = 0.1464; for a strong push φ ≈ ln(M)/M, within 1 % at the cell's M. Measured on 56 healthy cell types: 3.084 kT and 0.1473 (canon E_hold_meth, phi). In plain words: the cell pays in coins worth 20.94 kicks each, and each mark is held at about 3 kicks' worth.
+
+**How the chain uses it:** Printed by the Decoder and the report; no stage file reads it.
+
+**Reproduce it:** `python3 -c "import math; print(math.log(21.4528), math.log(21.4528)/20.9405)"`.
+
+**Status and open parts:** Derived.
+
+#### Input: England_hold_heat_kT (canon): England's bound, the established neighbor
+
+**Kind:** calculated
+
+**Register:** E7; A4
+
+**What it is:** The least heat that holding a mark at error ε costs per hold interval, by England's bound: {{canon:England_hold_heat_kT:.2f}} kT at ε0.
+
+**Physics / equation:** England (2013, J. Chem. Phys. 139, 121923, eq. 6), from microscopic reversibility: β⟨ΔQ⟩ + ln π(reverse) + ΔS_int ≥ 0, so holding a mark at error ε costs at least kT ln(1/ε) per interval even when nothing changes. At ε0: ln(1/0.04454) = 3.111 kT, which is E_hold plus ln(1/(1 − ε0)) = 3.066 + 0.046 kT: an identity on the same ε0, not a second estimate. At the floor ε = 1/(1 + e^M): ln(1 + e^M) = M, exactly one coin. England supplies the inequality (no M, no ATP, no methylation); IAM supplies M → odds → ε0.
+
+**How the chain uses it:** Printed only; no stage file reads it.
+
+**Reproduce it:** `python3 -c "import math; e=0.0445379; print(math.log(1/e), math.log(1/(1-e)))"`.
+
+**Status and open parts:** Calculated (an established bound applied). Still to check: that a held mark's loss is England's reverse transition, and the internal entropy term of a marked against a bare site.
+
+#### Input: E_hold_meth, phi, eps0_meth and H_ref_cell (canon): the measured holding energy
+
+**Kind:** measured
+
+**Register:** A4 (comparison); M2 (H_ref_cell caution)
+
+**What it is:** What 56 healthy cell types actually hold, from the chain's own counts of 153 healthy samples (GSE186458): E_hold = {{canon:E_hold_meth:.3f}} kT per interior opportunity (SD 0.12 across types), φ = {{canon:phi:.4f}}, held error {{canon:eps0_meth:.5f}}, and its disorder H_ref = {{canon:H_ref_cell:.4f}} bits.
+
+**Physics / equation:** ε measured by the counter (Section 9); E_hold = ln[(1 − ε)/ε]; φ = E_hold / M; H_ref = H(ε). Measured: this is the healthy reference height as read, and it stays measured because it carries each type's own level (register A8). H_ref_cell is in sequencing units per interior opportunity, not an array level: it is compared with the derived height only through the same counter.
+
+**How the chain uses it:** Printed by the Decoder in Section 9; no stage file reads it. The file is `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json` (`holding_energy_q2.py`).
+
+**Reproduce it:** `python3 doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.py` from `Biological_Physics/MethylPhys`.
+
+**Status and open parts:** Measured. The earlier instrument-corrected 3.77 kT was made on an older counter and is not carried.
+
+#### Input: eps_healthy_pool (canon)
+
+**Kind:** measured
+
+**Register:** A4; A6
+
+**What it is:** The healthy lone-loss intercept pooled over 197 samples (153 + 54 atlas samples, neurons out): {{canon:eps_healthy_pool:.5f}} (95 % range 0.04375 to 0.04657).
+
+**Physics / equation:** Measured: the intercept of the lone-loss reading at zero loose share across the pooled healthy samples. It is the measured quantity the derived ε0 is compared with on the lone-loss axis, not an input of any reading.
+
+**How the chain uses it:** Not read by the chain.
+
+**Reproduce it:** `doors/data/PHY_050_PERCALL/m_or_m_plus_1.py` (summary `m_or_m_plus_1_summary.txt`).
+
+**Status and open parts:** Measured.
+
+#### Input: A_healthy_type_range (canon)
+
+**Kind:** measured
+
+**Register:** A8
+
+**What it is:** Where healthy cell types sit on IAM-A, read by the one command on 31 atlas libraries: A from 0.77 (cortical neurons) to 1.07 (striated muscle).
+
+**Physics / equation:** Measured: each type sits at its own fixed A, with no rise over donor age in any non-dividing type; T-cell memory sits above naive inside the same donors. This spread, about 81 % of IAM-A's healthy spread, is each type's own level, the open item of the cell's derivation.
+
+**How the chain uses it:** Not read by the chain. It is why IAM-A is commissioned for CD8 T cells only and every other type is labeled development.
+
+**Reproduce it:** `run_sample.py` on the 31 libraries (GSE186458) with its defaults.
+
+**Status and open parts:** Measured. Deriving each type's level is register A8 (open); ruled out so far: the coin, the temperature, the SAM price (energy levers), division rate, a duty-cycle crew form, cooperativity.
+
+#### Input: strand_coupling_maintenance_only and strand_coupling_wild_type (canon)
+
+**Kind:** measured
+
+**Register:** A12
+
+**What it is:** Hairpin (both-strand) counts: fully lost pairs over independent strands, 5.08 to 8.21 with maintenance only and 5.43 to 5.56 in wild type (GSE116482).
+
+**Physics / equation:** Measured; in the three-state balance the ratio equals the restore-rate ratio (half-lost over fully lost pair), which supports one SAM per restore (register A2). The reading is interpretation. Distinct from nearest-neighbor coupling along one strand (register CP1).
+
+**How the chain uses it:** Not read by the chain.
+
+**Reproduce it:** `doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs.py`.
+
+**Status and open parts:** Measured.
+
+#### Input: Met_A_floor_EPIC_neutrophil and Met_A_floor_450K_neutrophil (canon)
+
+**Kind:** measured
+
+**Register:** M5
+
+**What it is:** Met-A's healthy reference for neutrophils on EPIC v1: H_ref = {{canon:Met_A_floor_EPIC_neutrophil:.5f}} bits; the 450K value is pending (a rebuild from purified 450K neutrophils, GSE88824).
+
+**Physics / equation:** The mean over 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554) of the mean H(β) over the 6,000 identity sites, calibrated by this chain's Stage 1. It stays measured: identity sites are not fully held (healthy levels 0.75 to 0.95 or 0.05 to 0.25), so their healthy disorder is a fact of the cell type, not a consequence of M alone. The key name 'floor' is older than the gauge's marks: it is the middle mark, healthy = 1.
+
+**How the chain uses it:** Reaches the chain through `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json` (key `floor`), read by `stage_m_met_a.read`.
+
+**Reproduce it:** See that file's entry.
+
+**Status and open parts:** Measured; the 6-array base is noted. Held-out precision SD 0.020, 0.983 to 1.045.
+
+#### Input: Met_A_site_rule (canon)
+
+**Kind:** measured
+
+**Register:** M4
+
+**What it is:** Met-A's site rule: across-array SD at most 0.05; own mean β 0.75 to 0.95 (methylated) or 0.05 to 0.25 (unmethylated); at most 3,000 per side, most stable first.
+
+**Physics / equation:** The held sides follow from the physics (a loss moves a held site toward 0.5, where H is largest); the small spread from the reading itself; the window's ends and the count are operational and stated (Section 5, 'Why these sites').
+
+**How the chain uses it:** Applied when the identity sites were chosen; the chosen sites are in `metA_floors_v1_3.json` and, for every atlas cell, by `stage_metaa_atlas.identity_sites`.
+
+**Reproduce it:** Apply the rule to the 6 purified arrays' Stage 1 values.
+
+**Status and open parts:** Measured per cell type on the atlas (M4); partly derivable through A8.
+
+#### Input: MetA_array_held_height (canon)
+
+**Kind:** derived
+
+**Register:** M2; S1; A4
+
+**What it is:** Met-A's healthy level at fully held sites on the array scale, from M alone: {{canon:MetA_array_held_height:.4f}} array units.
+
+**Physics / equation:** Step 1: the held level in sequencing units is 1 − ε0 = 1 − 0.04454 = 0.95546 (S1, derived as A6). Step 2: arrays read sequencing levels through the atlas's measured transfer (`doors/data/DEV_ATLAS_V21_01/transfer_bounded_v21.json`: monotone, 42 knots, range 0.0089 to 0.9590, worst checked bin 0.018); between its knots 0.955 → 0.9543 and 0.9638 → 0.9590 it maps 0.95546 to about 0.9545. Step 3: that is 0.0044 below the array's saturation 0.959 and inside the transfer's own calibration error, so no array test can resolve it. The strong test is on sequencing (S1, PHY-084 met).
+
+**How the chain uses it:** Not read by any stage file. Met-A on arrays keeps the atlas's measured reference; the derived height is recorded in the canon and the register beside it, flagged not resolvable on arrays.
+
+**Reproduce it:** Interpolate the transfer's knots at 0.95546.
+
+**Status and open parts:** Derived; not resolvable on arrays (register M2). Printing it beside each array reading is a chain item not yet in the code.
+
+#### Input: Normal_band (canon)
+
+**Kind:** development
+
+**Register:** A9 (IAM-A's band); OTH-059
+
+**What it is:** The first commissioning's design tolerance for Met-A, 0.95 to 1.05, superseded as the definition of Normal and kept so that earlier readings reproduce.
+
+**Physics / equation:** None: a tolerance set by hand and confirmed on healthy arrays. Normal is now each cell's measured healthy width (the atlas's own donors), with 1 the middle. IAM-A has its own measured band and never borrows this one.
+
+**How the chain uses it:** Still printed by `stage_m_met_a.read` (constant `NORMAL`) and `conductor_v3._state` until the measured widths (`Runtime Matrices/Met_A_Widths/donor_widths_v1.json`, read by `stage_metaa_atlas.width_state`) replace it.
+
+**Reproduce it:** None.
+
+**Status and open parts:** Superseded; to be removed from the printed state when every reading carries its measured width.
+
+#### Input: islands_meter_slope, islands_meter_intercept and islands_writer_error_range (canon)
+
+**Kind:** measured
+
+**Register:** T1; A17; PHY-093
+
+**What it is:** The islands as each library's own meter: islands stray-mark error = {{canon:islands_meter_slope:.2f}} × meter + {{canon:islands_meter_intercept:.4f}} (slope 0.69 to 1.22), and the writer's error at the islands with the meter removed, −0.0002 to 0.0014 per opportunity.
+
+**Physics / equation:** Measured on 53 healthy blood libraries (GSE173787): ordinary least squares of each library's islands error on its meter (conv_fail + tc_err), 2,000 bootstrap resamples. The islands, sites every healthy cell type keeps unmarked, read the meter one for one: the writer leaves essentially no stray marks there, so the islands are an in-sample meter readable from molecule files alone.
+
+**How the chain uses it:** Not subtracted from any reading. The islands count is made by `run_sample.py` (every sequencing reading counts the islands by default, `_site_counts`) (sites from `stage_metaa_atlas.territory_sets`).
+
+**Reproduce it:** `doors/data/DEV_ERASE_01/conv_01/p093_islands_slope.py` on `p093_read.csv`.
+
+**Status and open parts:** Measured (exploration). Reading every library's meter from its islands is a chain item not yet in the code.
+
+#### Input: clock_sites_writer_range (canon)
+
+**Kind:** measured
+
+**Register:** C3; PHY-094
+
+**What it is:** The writer's stray-mark level at the epiTOC2 mitotic-clock sites with the meter removed: 0.0164 (monocytes) to 0.0311 (CD8 T) per opportunity, about twice the genome-wide writer level (0.0112 to 0.0147).
+
+**Physics / equation:** Measured on 54 healthy blood libraries: the clock sites are islands where the shield fails, so they carry the writer's error and an accumulated part. The tick per round needs an age series of one type in one laboratory.
+
+**How the chain uses it:** Not read by any reading. The count at these sites is made by `run_sample.py` (every sequencing reading counts the clock sites by default, `_site_counts`) (`Runtime Matrices/Clock_Sites/epitoc2_sites.csv`).
+
+**Reproduce it:** `doors/data/DEV_ERASE_01/conv_01/` (PHY-094 reading, `p094_read.csv`).
+
+**Status and open parts:** Measured; the clock tick from the writer's error is register C3 (open, lead).
+
+#### Input: P_neutrophil_IAM_A (canon)
+
+**Kind:** development
+
+**Register:** none (retired position form)
+
+**What it is:** The retired position form of IAM-A: 1.1492, H(ε of the other donors)/H(ε0) over 3 granulocyte donors of the published sequencing atlas, valid for that atlas's own pipeline only.
+
+**Physics / equation:** None now: superseded by the self-reference reading (Section 9).
+
+**How the chain uses it:** Read only by the retired Stage Q (`stage_q_iam_a.py`, a development flag) from `Runtime Matrices/IAM_A_Positions/iama_positions_v2.json`.
+
+**Reproduce it:** None.
+
+**Status and open parts:** Retired; kept so earlier records reproduce.
+
+### IAM-A's files (Section 9)
+
+#### Input: Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json
+
+**Kind:** measured
+
+**Register:** A4; A6; A7; A8; F033
+
+**What it is:** IAM-A's line, ε_predicted = firm + slope × L, on the raw held-error axis this counter writes: firm 0.040265 and slope 0.034625 (the Decoder prints them as 0.04026 and 0.03462). No scale factor anywhere.
+
+**Physics / equation:** Measured once on 153 healthy samples of 56 cell types (GSE186458), counted by this same counter. Per cell type: the median loose share L and the opportunity-weighted held error; across cell types a Theil–Sen line (the median of pairwise slopes). Median distance of a type from the line 0.0025. What the numbers mean: the intercept is derived from M alone through the counter (register A4, A6): 0.0359 at the healthy clustering 1.33, so the stored firm is 1.12 times the derived level in this, the atlas laboratory, while the blind-test laboratory reads 0.96 to 1.03 times it (F033). The slope is measured; about 40 % of it is mixing inside a sample and follows from the pump (A7, partly derived), and the rest is cell type, the same open item as each type's own level (A8).
+
+**How the chain uses it:** `stage_q2_selfref.line` loads the newest `selfref_line_v*.json` (or the version asked for) and refuses it if its payload no longer matches its chain stamp; `predict`, `residual` and `reading` use it; `stage_v4.stage_q2` reads every sample through it, and so does the mixed-specimen path of `run_sample.py`.
+
+**Reproduce it:** `cd Biological_Physics/MethylPhys/chain` && `python3 -c "import stage_q2_selfref as Q; J=Q.line(1); print(J['firm'], J['slope'])"`. To rebuild it: `stage_q2_selfref.build_line(per_sample)` on the 153 healthy counts named in the file's stamp (`chain_stamp.inputs`). Check one reading by hand: the test library's held error 0.034412 at loose share 0.0304 gives 0.034412 / (0.040265 + 0.034625 × 0.0304) = 0.8329.
+
+**Status and open parts:** Measured; the chain's default line. The derived intercept is computed (forward table, Section 9) and is not yet read by the chain. Making a derived line the default waits on the 12 % between-laboratory offset (open: A5 lead, A8, the meter) and comes together with band v2.
+
+#### Input: Runtime Matrices/IAM_A_SelfRef/band_v1.json
+
+**Kind:** measured
+
+**Register:** A9; COM-IAMA-054
+
+**What it is:** IAM-A's Normal band v1: 0.7787 to 1.0551.
+
+**Physics / equation:** Measured by nature: the 2.5th to 97.5th percentile of 156 pooled healthy readings A = held error / line prediction (153 from GSE186458, 3 from GSE49627), each through the shape check first. It describes the healthy spread inside the set the line was measured on; it would narrow (from about 0.86 to 1.16 toward 0.94 to 1.07) once each type's own level is derived (A8).
+
+**How the chain uses it:** `stage_q2_selfref.band` loads it and asserts its chain stamp; `stage_v4.stage_q2` gives the state (Normal, above, below) and `stage_v4.counting_error` the counting range's share of its width.
+
+**Reproduce it:** `cd Biological_Physics/MethylPhys/chain` && `python3 -c "import stage_q2_selfref as Q; B=Q.band(1); print(B['lo'], B['hi'], B['n'])"`; rebuild with `stage_q2_selfref.build_band(healthy)`.
+
+**Status and open parts:** Commissioned on healthy CD8 T cells with line v1 (sealed grand test: 7 of 8 read inside). Band v2 is to be rebuilt on the derived line from the joint run's healthy atlas libraries; until then v1 is shown.
+
+#### Input: Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json
+
+**Kind:** measured
+
+**Register:** COM-IAMA-053 (a gate; no derivation row)
+
+**What it is:** The sample-shape gate: per healthy cell type the lowest 10th percentile of tile means, and the margin 0.0543.
+
+**Physics / equation:** Measured from the reference, never typed: the margin is the 90th percentile (SHAPE_Q), over the 53 cell types with at least 2 healthy samples, of the within-type spread (max − min) of the tile 10th percentile. The physics reason: a sample whose genome has let go more than any healthy sample of its type is not in a healthy state the line can be read from.
+
+**How the chain uses it:** `stage_q2_selfref.shape_reference` (stamp checked) and `shape_check`: a sample is read only if tile_p10 ≥ min_p10 − margin; `stage_v4.stage_q2` refuses otherwise, with the five-part explanation. Not applied to a mixed specimen.
+
+**Reproduce it:** `stage_q2_selfref.build_shape_reference(records)` on the healthy counts.
+
+**Status and open parts:** Measured; a cell type with no healthy reference is not read.
+
+#### Input: Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json
+
+**Kind:** calculated
+
+**Register:** none (genome table)
+
+**What it is:** Each autosome's range of CpG indices in the hg19 CpG dictionary (wgbstools init_genome hg19).
+
+**Physics / equation:** Calculated from the genome sequence: no physics. The counter's tiles are 2,000 consecutive CpG indices, so the tile grid depends only on this numbering; a partial last tile is dropped.
+
+**How the chain uses it:** `stage_q2_selfref.hg19_tiles` with TILE_SOURCE "dictionary" (`run_sample.py --dev-tiles dictionary`, development; the default uses the table HG19_CPGS in the code); Stage Q0 check Q0.2 refuses a `.pat` line outside its chromosome's range.
+
+**Reproduce it:** `wgbstools init_genome hg19`, then read the ranges.
+
+**Status and open parts:** Calculated; nothing open.
+
 ## The Deconvolver decides what is in a sample, in every instrument
 
 **The rule.** A specimen's words (whole blood, plasma, tissue, "sorted CD4 T cells") choose only the route a sample takes: array or sequencing,
