@@ -6363,3 +6363,8 @@ resistivity (376.73 ohm, matched to infinity). Two notes now say the record is k
 The sealed band rule applied to A on the derived line over the 150 healthy atlas libraries the one-button joint run read gives band v2
 0.8744-1.1783, median 1.0621. The measured line on the same readings reproduces band v1 (0.7833-1.0558 against 0.7787-1.0551).
 Every reading now reports its state on band v2 beside band v1. Band v1 stays the default with its commissioning record; band v2 is in commissioning.
+
+### 2026-11-17 · PHY-084: Met-A sequencing reads its held sites against the level from M alone
+Each sequencing Met-A reading now also gives A_derived_held: the disorder at the cell's held identity sites over the disorder expected
+at 1 - eps0, the held level derived from M alone, at each site's own read count. It is recorded beside A; the per-type reference stays the
+atlas's measured levels until each type's own position is derived. A planted library at the derived level reads 1.

@@ -542,6 +542,24 @@ def reach_read(cells, shares, sites, side_level, x_all, counts, sc, n_unmarked):
     x_in = pd.Series(np.where(ok, m_in / np.where(n_in > 0, n_in, 1), np.nan), index=sites)
     return (x_in[ok], n_in[ok].astype("int64"), pd.Series(e_in, index=sites)[ok]), None
 
+HELD_MIN = 0.80   # a held identity site: the cell's own atlas level at least this (the held side of identity_side_table)
+def derived_held(x, n, mu):
+    """Met-A at held identity sites against the level derived from M alone (register S1 = A6; written before any sample is read). x: the library's
+    level at the cell's identity sites, n: its read counts there, mu: the cell's own atlas level there. Sites with mu >= HELD_MIN are held; the
+    expectation at each is the disorder of 1 - eps0 measured at that site's own read count (expected_H_counts); eps0 is the held error derived
+    from M alone, read from derived_line_v1.json (never typed here). Returns A_derived_held = mean H(x) / mean expected H over those sites, the site
+    count, and eps0; None where the derived line is absent or fewer than 200 held sites were read."""
+    f = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "IAM_A_SelfRef", "derived_line_v1.json")
+    if not os.path.exists(f): return dict(A_derived_held=None, derived_held_note="no derived line in the chain")
+    eps0 = float(json.load(open(f, encoding="utf-8"))["eps0"])
+    x = np.asarray(x, dtype="float64"); n = np.asarray(n, dtype="int64"); mu = np.asarray(mu, dtype="float64")
+    k = np.isfinite(x) & np.isfinite(mu) & (mu >= HELD_MIN) & (n > 0)
+    if k.sum() < 200: return dict(A_derived_held=None, derived_held_note=f"only {int(k.sum())} held identity sites read (at least 200 needed)", eps0=eps0)
+    he = float(np.nanmean(expected_H_counts(np.full(int(k.sum()), 1.0 - eps0), n[k])))
+    hx = float(np.asarray(_H(pd.Series(x[k])), dtype="float64").mean())
+    return dict(A_derived_held=round(hx / he, 5), derived_held_sites=int(k.sum()), eps0=eps0,
+                derived_held_rule="held identity sites (the cell's atlas level >= 0.80); expectation: the disorder of 1 - eps0 (M alone) at each site's own read count")
+
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -642,6 +660,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         if counts is None: r["ceiling"] = {k: v for k, v in ceiling_reading(x[ok].to_numpy(), e[ok].to_numpy()).items() if k != "A"}   # 2026-10-23
         else: r["ceiling"] = ceiling_counted(A, float(np.nanmean(expected_H_counts(np.full(len(_n), 0.5), _n)) / he), x[ok].to_numpy(), e[ok].to_numpy())   # 2026-11-02 (B8)
+        if counts is not None:   # derived held-site reading beside A (register S1 = A6)
+            try: r.update(derived_held(x[ok].to_numpy(), _n, mu[ok].to_numpy()))
+            except Exception as _e: r["derived_held_note"] = f"{type(_e).__name__}: {str(_e)[:120]}"
         if counts is not None:   # 2026-11-02 (sequencing atlas checklist D7, the cell-count floor): copies of this cell behind the reading
             _cp = float(shares[c]) * float(np.median(_n)); r["copies_per_site"] = round(_cp, 3); r["copies_behind_reading"] = round(float(shares[c]) * float(_n.sum()), 1)
             if _cp < COPY_FLOOR: r["below_cell_count_floor"] = (f"about {_cp:.2f} copies of this cell per site (its share {float(shares[c]):.3f} of {float(np.median(_n)):g} "

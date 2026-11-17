@@ -70,6 +70,10 @@ the chain reads comes from that one statement; everything else in the chain is s
   (Runtime Matrices/IAM_A_SelfRef/band_v2.json), the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by the one
   button, by the same rule as band v1. Band v1 on the measured line stays the default and keeps its commissioning record; band v2 is in
   commissioning, because the libraries that set it also set the line.
+- **Met-A sequencing at held sites, against the derived level.** Each sequencing Met-A reading also gives A_derived_held: the library's
+  disorder over the cell's held identity sites (atlas level at least 0.80) over the disorder of 1 - eps0 ({{canon:eps0_candidate:.4f}}, the held
+  error from M alone) at each site's own read count. It sits beside A; the per-type reference stays measured, because each type's own
+  position (A8) is not yet derived.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
   Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
@@ -2386,6 +2390,12 @@ slope x loose share). Never extrapolated: outside the table's coupling range it 
 
 When band_v2.json exists (refused if edited after the chain wrote it), the reading also carries state_derived (Normal, above Normal or
 below Normal on band v2) and the band it used, marked 'in commissioning'.
+
+### stage_metaa_atlas.py::derived_held
+
+Met-A at a cell's held identity sites against the level derived from M alone: held sites are those where the
+cell's own atlas level is at least 0.80; the expectation at each is the disorder of 1 - eps0 at that site's read count (expected_H_counts),
+eps0 read from derived_line_v1.json. Returns A_derived_held with its site count, or None with the reason (no derived line; under 200 sites).
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 
