@@ -44669,5 +44669,17 @@ def check_eh_dS():
     neg_ok = sp.simplify(T1 - T) == 0
     return locals()
 
+# ---------------------------------------------------------------- ch:koide channel count (edit 078)
+@check(label='ch:koide:K3', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=0, status='calc',
+       title='K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3')
+def check_ko_K3():
+    'Step 6: with K = 3 equal weights x^2 = a^2/2 = b^2/2, harmonic weight (a^2+b^2)/2 = 2x^2, Q = 1/3 + y^2/(6x^2) = 1; measured Q = 0.66666.'
+    x, y = sp.symbols('x y', positive=True); Q = sp.Rational(1, 3) + y**2 / (6 * x**2)
+    me, mmu, mt = 0.51099895000, 105.6583755, 1776.93
+    Qm = (me + mmu + mt) / (me**0.5 + mmu**0.5 + mt**0.5)**2
+    ok = Q.subs(y, 2 * x) == 1 and Q.subs(y, sp.sqrt(2) * x) == sp.Rational(2, 3) and abs(Qm - 2 / 3) < 1e-4 and abs(Qm - 1) > 0.3
+    neg_ok = Q.subs(y, 2 * x) == sp.Rational(2, 3)
+    return locals()
+
 if __name__ == "__main__":
     sys.exit(main())

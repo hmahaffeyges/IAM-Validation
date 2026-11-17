@@ -5866,4 +5866,7 @@ PASS  eq:eh_area                         ch:euler_halves:p7_05d_euler_halves:0  
 PASS  eq:eh_smarrD                       ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] D-dimensional Smarr: M ~ r^(D-3), S ~ r^(D-2) give T S / M = (D-3)/(D-2); 1/2 at D = 4, 2/3 at D = 5
 PASS  eq:eh_dS                           ch:euler_halves:p7_05d_euler_halves:0  printed (algebra)  recomputed True  [derived] cosmic horizon: E = c^4 R/2G, S = k_B pi c^3 R^2/(G hbar): dE/dS = T_GH/2, (dE/dS) S = E/2, T_GH S = E
 
-SUMMARY  PASS 4722  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 4: Particles and Quantum Records | ch:koide (part4/p4_15a_lepton_koide.tex)
+PASS  ch:koide:K3                        ch:koide:p4_15a_lepton_koide:0  printed (algebra)  recomputed True  [calc] K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3
+
+SUMMARY  PASS 4723  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4722 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4723 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -3695,6 +3695,7 @@ Totals: 4722 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 0 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
 | 0 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
 | 0 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
+| 0 | ch:koide:K3 | calc |  | sympy: K = 3 (constant, cos, sin as separate channels) gives y^2/2 = 2x^2 and Q = 1; K = 2 gives Q = 2/3; measured Q excludes K = 3 | PASS |
 | 18 | eq:ko:Q | derived |  | sympy: Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) | PASS |
 | 29 | ch:koide:L29 | observed | `0.51099895000` | numeric: electron mass, MeV (CODATA 2018) | PASS |
 | 30 | ch:koide:L30 | observed | `105.6583755` | numeric: muon mass, MeV (CODATA 2018 ratio) | PASS |
