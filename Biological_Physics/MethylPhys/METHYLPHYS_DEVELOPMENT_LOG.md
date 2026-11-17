@@ -6227,3 +6227,8 @@ The Decoder build now reports every chain input that has no complete entry.
 Every IAM-A reading now records how its held losses spread across molecules (register A8): an even per-site rate against a damaged
 share of cells. On planted molecules with the same mean loss the index reads 0.866 for an even rate and 0.927 when a tenth of the
 molecules carry most losses. Recorded only; A unchanged.
+
+### 2026-11-16 · PHY-056: the cosmology record restored as an archive folder
+The main README's cosmology part and its scripts and papers (80 files) had been retired to history when the README was rewritten.
+They are back, unchanged, in Cosmological_Physics/archive/ with that README and a row in the main README's Start here table. Where the
+archive and the book differ, the book is current.

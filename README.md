@@ -39,6 +39,7 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 | **The instruments** | [Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md): what each one reads, how it works, where it stands |
 | **One law, four applications** | [FOUR_DOMAINS.md](FOUR_DOMAINS.md): the same slots in the cosmos, qubits, chips and cells, each with its source and status |
 | **IAM in bits** | [FOUR_DOMAINS.md, IAM in bits](FOUR_DOMAINS.md#iam-in-bits-a-guidebook-to-computational-reality): the four applications in computer language, one term per row |
+| **The cosmology tests** | [Cosmological_Physics/archive/](Cosmological_Physics/archive/README.md): the earlier cosmology validation record (Planck MCMC through MGCAMB and CAMB, the Boltzmann validation, Pantheon+, SH0ES, BAO, cosmic chronometers), every script restored; where it differs, the book is current |
 | **Every test, numbered** | [MANIFEST.md](MANIFEST.md), the Master Testing Manifest (generated; a push is refused if it drifts) |
 | **The book** | [read online](https://hmahaffeyges.github.io/IAM-Validation/read/) or open [`docs/book/main.tex`](docs/book/) |
 | **Everything else** | [REFERENCE.md](REFERENCE.md): the law in full, results by domain, the folder map, the papers, how to reproduce |
