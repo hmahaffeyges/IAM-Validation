@@ -116,8 +116,10 @@ kicks each and holds each mark at about 3 kicks' worth. M sets the gauge's floor
 1/(1 + e^M) = 8.0e-10; healthy cells sit far above it, at about 4.4 errors in a hundred. That level is now derived from M: a restore costs two ATP (one
 S-adenosylmethionine, exactly two where adenylate kinase is at equilibrium), and a mark kept by a constant push of that size against
 thermal kicks is lost 0.04454 of the time, with nothing fitted; a constant push is the best hold two coins can buy. The share it holds
-is φ = 0.146, close to ln(M)/M = 0.145. With one independently measured input, the share of losses the TET erasers cause on purpose,
-it passed a blind test on another laboratory's healthy blood cells (three cell types pass, B cells on watch).
+is φ = 0.146, close to ln(M)/M = 0.145. With the share of losses the TET erasers cause on purpose
+added, it passed a blind test on another laboratory's healthy blood cells (three cell types pass, B cells on watch). Read after the fact (a lead),
+the erasers' share drops out in mature blood: with no eraser input, the eight cell-type readings of two laboratories sit 0.96 to 1.17 of the level
+from M alone. IAM-A keeps one line for every cell type; in stem and progenitor cells the erasers' measured share is part of that type's own level.
 M is IAM's Law in dimensionless form: the drive available for keeping a record over the thermal noise of the surface that keeps it. The same
 ratio is computed for a chip (energy per switching event against its temperature), a qubit (its energy gap against its temperature) and a
 black hole (its mass-energy against its Hawking temperature, which gives twice its entropy). Because the kick grows with temperature, M is
@@ -125,7 +127,9 @@ larger in the cold: 23.35 at 5 °C and 22.54 at 15 °C for the same energy per A
 Evidence: the book, [IAM's Law](https://hmahaffeyges.github.io/IAM-Validation/book/ch_iams_law.html) (the M number) and
 [Landauer's bound in the cell](https://hmahaffeyges.github.io/IAM-Validation/book/ch_landauer.html); the values in `CANON/iam_canon.json` and
 `CANON/foundation.json`; the derivation in the book's IAM-A chapter. The number itself is familiar to every biochemist, the free energy
-of ATP in units of kT; what is new is its use as the drive of a held record. **Open question:** each cell type's own eraser share.
+of ATP in units of kT; what is new is its use as the drive of a held record. **Open question:** why each cell type sits at its own level on IAM-A's one line. Healthy types read at fixed levels
+(about 0.77 to 1.07) with no rise over donor age, and in T cells the level follows the cell's activation history; the erasers' share is one
+contributor in stem and progenitor cells.
 
 **And the middle mark, where healthy sits?**
 For Met-A it is measured: the median of healthy reference arrays run beside the sample. For IAM-A it comes from the sample itself. A cell's
@@ -133,7 +137,10 @@ design holds part of its genome firmly and leaves a share L loosely held; the sa
 ε_pred(L) = firm rate + slope × L, and that is the healthy 1 on its gauge. The form of that line comes from the physics of a design that
 holds firm only what it uses (the reasoning is in the [coffee and whiteboard session](whiteboard/2026-10-14_coffee_and_whiteboard.md)); its two
 constants were counted once on 56 healthy cell types and are frozen ([selfref_line_v1.json](chain/Runtime%20Matrices/IAM_A_SelfRef/selfref_line_v1.json)).
-An attempt to derive the firm rate from the copying enzyme's own error did not hold on the commissioned counter, so it stays measured. This is
+An attempt to derive the firm rate from the copying enzyme's own error did not hold on the commissioned counter, so it stays measured.
+The chain reads the two measured constants by design. Their physics: the firm rate is derived from M alone (0.04454 per site through the
+same counter, above), and the slope is partly derived, its within-sample part from the restore pump (replicated in a second laboratory);
+since every reading also gives A on the derived line (A_derived), beside A on the measured line, which stays the default while the two laboratories differ (the atlas laboratory reads 1.12 times the level from M alone, the blind-test laboratory 0.96 to 1.03 times). This is
 what lets each person be read against their own sample.
 
 **Where do the gauge's ends come from? Are they fitted?**
@@ -269,7 +276,9 @@ The chain measures each library's own floor before any reading: the rate of "met
 Physics sets the cell's floor; the chemistry adds the library's. The chain reads the library's floor as a property of the library, not of
 the cell. In healthy plasma it falls almost entirely on the islands (slope 0.939), and read at a common floor the islands come to 0.9272.
 Inside one laboratory's healthy libraries, only part of the floor rate reaches the islands, so the common floor is a development setting,
-off by default. **Open question:** how the floor reaches each kind of site, library by library.
+off by default. Measured since in 53 healthy blood libraries of one laboratory (PHY-093, exploration): at the islands the stray-mark rate equals each library's
+own meter (conversion failure plus the T to C slip) one for one (slope 1.01, 0.69 to 1.22), so the islands are each library's in-sample meter.
+**Open question:** how the floor reaches each kind of site, library by library, in other laboratories and other cell types.
 Evidence: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md),
 [plasma_band_03_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt).
 
@@ -365,7 +374,10 @@ cells and of cell-free DNA (2024 to 2026).
 Published entropy measures are statistical: they summarize how disordered a sample's pattern is and compare it with a cohort. IAM puts the
 measurement on a physical scale. The gauge's ends are derived (the floor from Landauer's bound and the cost of holding a mark, the
 saturation end from every identity site fully scrambled), and healthy is read from the sample's own reference or same-run references, not
-from a cohort average. The two can be compared site for site; that comparison has not been done.
+from a cohort average. The two can be compared site for site; that comparison has not been done. The nearest prior work, Sanchez and
+Mackenzie (MethylIT; Sci. Rep. 2023), already applies Landauer's k_B T ln 2 per bit to methylation and estimates entropy and free energy from
+methylome data; its origin is a control group's centroid, set again in each study. IAM fixes the origin by physics and by the healthy cell of
+the same kind, so one specimen is read alone, and derives the healthy held level from the ATP coin (the book's Landauer chapter).
 
 **How is this different from an epigenetic clock?**
 
@@ -380,7 +392,10 @@ pattern has moved from its own healthy state, at sites chosen so that cell mix c
 distinction between change scattered across the genome, as aging leaves it, and change clustered along it.
 
 **Much age-related change tracks cell division. Is the signal just proliferation?**
-**Open question.** IAM has not separated how often a cell divides from how well it holds its marks at each division. The mouse prediction
+**Partly answered, as leads from public data.** Across the atlas's cell types the distance above the level from M does not follow division
+(MKI67, rho -0.23); types that divide little (neurons, cardiomyocytes, hepatocytes) sit at fixed levels with no rise over donor age; in the
+same donors central memory T cells carry the largest held rise with no rise at the mitotic clock's sites, while those sites do follow
+divisions. So the held error follows the cell's history, not its division count; the controlled test is still to run. The mouse prediction
 changed the methyl supply, not the division rate. A test that varies division at a fixed supply is the next experiment, and needs
 controlled samples.
 
@@ -417,7 +432,9 @@ holds on real plasma, where fragments from different cells break differently. Th
 IAM-A exposed to that?**
 Yes, in principle: held error is a within-read quantity, so chemistry matters. IAM-A is commissioned on whole-genome bisulfite
 sequencing. The meter's own error has been measured in a second laboratory's data (sequencing error 0.002 to 0.006, conversion failure
-1.8 to 5.1 %). **Open question:** enzymatic conversion, single-stranded libraries and urine, each of which needs its own check.
+1.8 to 5.1 %). In 58 healthy blood libraries of one laboratory the meter's false marks (conversion failure plus the T to C slip) are a quarter to
+a third of the stray marks read at unmarked sites, and the islands read each library's meter one for one (PHY-091, PHY-093). **Open question:**
+enzymatic conversion, single-stranded libraries and urine, each of which needs its own check.
 
 **Is one person steady enough over time to be their own reference?**
 A recent study that followed healthy people's plasma over time found each person's cell-of-origin profile stable, which its authors

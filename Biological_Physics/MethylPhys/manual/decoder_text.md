@@ -47,10 +47,13 @@ the chain reads comes from that one statement; everything else in the chain is s
 
 - **The floor (derived).** A mark held behind a wall of M thermal kicks is lost with odds 1/(1 + e^M): millions of times below any reading.
 - **The ceiling (derived).** One bit per site, every identity site scrambled: H(β) = 1 bit at β = 0.5 (Met-A's `_ceiling` caveat).
-- **The healthy level (derived, one measured input).** A mark kept by a constant push of two ATP per restore against thermal kicks (first
+- **The healthy level (derived from M alone).** A mark kept by a constant push of two ATP per restore against thermal kicks (first
   passage under a drive): held error {{canon:eps0_candidate:.4f}} per site and held share φ = E_hold/M = {{canon:phi_candidate:.4f}} from M alone;
-  the eraser's measured share of the losses is added; through the counter it gives IAM-A's baseline intercept (Section 9) and, through H(β),
-  Met-A's healthy level at held sites (Section 5). The chain reads against the measured references; the derivation explains them.
+  through the counter it gives IAM-A's baseline intercept (Section 9) and, through H(β), Met-A's healthy level at held sites (Section 5).
+  The sealed blind test (PHY-084) added the erasers' measured share; read after the fact (lead, register A5), the share drops out in mature
+  blood: along the chain's measured slope the eight type readings of two laboratories sit 0.96 to 1.17 of the level from M alone. IAM-A has
+  one line for every cell type; in stem and progenitor cells the measured eraser share (about 10 to 14 %) is part of that type's own distance
+  from the line (register A8), not a separate input. The chain reads against the measured references; the derivation explains them.
 - **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the
   independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion
   failure, the T-to-C slip, the lambda spike-in where present). An earlier version of the main path dropped them.
@@ -65,7 +68,9 @@ the chain reads comes from that one statement; everything else in the chain is s
   from detailed balance says that holding a mark at error ε costs at least kT ln(1/ε) of heat per interval, about 3 kT at the
   derived level and one coin at the floor. Both rest on Landauer's price of a bit at kT.
 - **The eraser (measured, by cell type).** The share of losses the erasers cause is measured in eraser-removal libraries (PHY-085, PHY-086,
-  PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). A baseline per cell type is open.
+  PHY-090) and differs by cell type; its price per erasure is calculated (PHY-088). In mature blood its share is near 0 (mature B cells, PHY-086)
+  and drops out of the healthy level (lead, register A5); in stem and progenitor cells it is one contributor to each type's own level about
+  IAM-A's one line, which is open (register A8).
 - **The bit.** Met-A reads disorder in bits, H(β); IAM-A reads the held error, the share of held sites wrong at any moment.
 
 ## The Deconvolver decides what is in a sample, in every instrument
@@ -273,7 +278,11 @@ a mark: a T read as C on top-strand reads, an A read as G on bottom-strand reads
 is only an upper bound on the meter's sequencing false marks; `tc_err` is the measured one. Physics: none of IAM's Law; this is the meter. With `--lambda-bam` and `--lambda-fasta` (2026-11-15, PHY-091 amendment 3) it adds `lambda_meter`: the share of cytosines on the unmethylated lambda spike-in read as C, the meter alone, since genomic non-CpG sites also carry real CpH methylation in neurons and stem or progenitor cells (reads shorter than 50 aligned bases excluded; synthetic test `doors/data/DEV_ERASE_01/conv_01/lambda_synthetic.py`, GitHub). No IAM-A reading is made. A stray mark (a lone methylated call on a molecule held unmarked) minus the
 false marks of the same library is the unmarked side's write error (register A17). The strand of each read comes from Bismark's XM/XG, or XB, or bwa-meth's YD:Z:f/r (`stage_q2_selfref._calls_of`; YD added 2026-11-14:
 before that every bwa-meth read was skipped on the BAM route, found while designing PHY-091). Synthetic test, through the one command on a
-synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub). With `--dev-count-sites islands` (2026-11-15, register T1) the same count is also made at the islands territory (stage_metaa_atlas.territory_sets: the sites every healthy cell type in IAM-Atlas v2.1 keeps below 0.2), both sides, so the stray-mark rate there can be set against the writer's one-step error plus the laboratory's meter; any other value names a cell's Met-A identity sites. Since 2026-11-16 the option takes a comma list (for example `islands,epitoc2`): each set is counted from the same file, the first set still fills `count_sites`, and every set is kept under `count_sites_all`, so the mitotic clock and its islands meter come from one reading (synthetic: `doors/data/DEV_ERASE_01/conv_01/multi_sites_synthetic.py`, GitHub: the islands count of a two-set run must equal the islands-only run exactly). With `--dev-count-sites epitoc2` (2026-11-15, register C3) the count is made at the 163 CpGs of the epiTOC2 mitotic clock (Teschendorff 2020, Genome Medicine; Runtime Matrices/Clock_Sites/epitoc2_sites.csv) and 25 CpGs either side in genome order, so the writer's stray-mark rate there can be set against the clock's per-round gain (about 5e-5): their ratio is the share of stray marks kept each round of writing and erasing.
+synthetic bwa-meth BAM with planted conversion failure: `doors/data/DEV_ERASE_01/conv_01/conv_synthetic.py` (GitHub); for `tc_err`, planted T->C with a low-quality share to be excluded: `doors/data/DEV_ERASE_01/conv_01/tc_synthetic.py` (GitHub). With `--dev-count-sites islands` (2026-11-15, register T1) the same count is also made at the islands territory (stage_metaa_atlas.territory_sets: the sites every healthy cell type in IAM-Atlas v2.1 keeps below 0.2), both sides; read on 53 healthy blood libraries (PHY-093), the islands carry only the meter (slope 1.01 on each library's meter, writer about
+0.0001), so they are each library's in-sample meter (register T1, A17); any other value names a cell's Met-A identity sites. Since 2026-11-16 the option takes a comma list (for example `islands,epitoc2`): each set is counted from the same file, the first set still fills `count_sites`, and every set is kept under `count_sites_all`, so the mitotic clock and its islands meter come from one reading (synthetic: `doors/data/DEV_ERASE_01/conv_01/multi_sites_synthetic.py`, GitHub: the islands count of a two-set run must equal the islands-only run exactly). With `--dev-count-sites epitoc2` (2026-11-15, register C3) the count is made at the 163 CpGs of the epiTOC2 mitotic clock (Teschendorff 2020, Genome Medicine; Runtime Matrices/Clock_Sites/epitoc2_sites.csv) and 25 CpGs either side in genome order, so the writer's stray-mark rate there can be set against the clock's gain, about 5e-5 per division in epiTOC2's own calibrated unit (about 35 a
+year in blood; not a counted division: per counted division the same-donor T-cell pairs give about 5e-4 to 9e-4, lead): their ratio is the share
+of stray marks kept each round of writing and erasing. Read on 54 healthy blood libraries (PHY-094) with the meter removed, the clock sites carry
+0.016 to 0.031, about twice the genome-wide writer: islands where the shield fails (register C3, lead).
 
 ### run_sample.py::_metaa_atlas
 `--dev-metaa-atlas CELL` (development, not commissioned): maps the values by Stage T step 1 (the self-tare the commissioned Met-A reads), refuses
@@ -683,9 +692,9 @@ Met-A; only a change in how well the cells hold their marks does.
 **The gauge.** Healthy is 1 (the healthy reference, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = {{canon:M_cell:.2f}}) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy reference is measured
-once and never fitted to the sample. Its level is now derived from M with one measured input (PHY-083): a mark kept by a constant push
-of two ATP per restore (one S-adenosylmethionine) loses {{canon:eps0_candidate:.4f}} per site from M alone, and the eraser's measured share
-of the losses is added; it passed the blind test PHY-084 by the agreed standard. The chain still reads against the measured reference; the
+once and never fitted to the sample. Its level is now derived from M alone (PHY-083): a mark kept by a constant push
+of two ATP per restore (one S-adenosylmethionine) loses {{canon:eps0_candidate:.4f}} per site. The blind test PHY-084 added the erasers'
+measured share and passed by the agreed standard; read after the fact (lead, register A5), that share drops out in mature blood. The chain still reads against the measured reference; the
 derivation explains it and does not replace it.
 
 **The ceiling caveat (`_ceiling`).** H(β) peaks at β = 0.5. Met-A rises with loss of the pattern only while the methylated sites stay
@@ -954,7 +963,7 @@ recorded and returns the maps' anchors and slopes. Moved unchanged from `dev_sta
 both names for older scripts.
 
 ### stage_m_met_a.py::derived_baseline
-Met-A's healthy mark derived from the cell's own held errors (development, DEV-METAA-HEALTHY-01 step 3): at each identity site the healthy level is 1 - eps_loss where the cell holds the mark and eps_gain where it is held absent, put on the array scale through IAM-Atlas v2.1's measured transfer, and the mark is the mean entropy over the sites. Nothing is fitted; the array's own measurement blur is not included.
+Met-A's healthy mark derived from the cell's own held errors (development, DEV-METAA-HEALTHY-01 step 3): at each identity site the healthy level is 1 - eps_loss where the cell holds the mark and eps_gain where it is held absent, put on the array scale through IAM-Atlas v2.1's measured transfer, and the mark is the mean entropy over the sites. Nothing is fitted; the array's own measurement blur is not included. At fully held sites the derived level 1 - {{canon:eps0_candidate:.4f}} maps to {{canon:MetA_array_held_height:.4f}} array units, 0.0045 below the arrays' ceiling 0.959 and inside the transfer's calibration error, so no array test resolves it; its test is on sequencing (register M2, S1).
 
 ### stage_m_met_a.py::_floors
 Loads `metA_floors_v1_3.json` (the 6,000 identity sites and the healthy reference H_ref) once.
@@ -1204,10 +1213,16 @@ This line was measured once on 153 healthy samples of 56 cell types (a public wh
 GSE186458), counted by this same counter. A Theil–Sen fit was used, the median of pairwise slopes, which is robust to outlying cell types.
 The median distance of a cell type from the line is 0.0025. The line is stored on the raw axis this counter writes; there is no scale
 factor anywhere. What the intercept means physically is now derived (PHY-083): the counter's reading of a mark held by the paid hold of M alone
-({{canon:eps0_candidate:.4f}} per site), plus the eraser's measured share of the losses, pushed through this same counter (a per-site loss and
-the counter's lone-loss reading are different quantities, so the comparison is made like for like, through the counter). The eraser's share
-differs by cell type (PHY-085, PHY-086, PHY-090), the largest part of the spread of healthy cell types about this one line; a baseline per
-cell type is open (register A8). The reading still uses the measured constants.
+({{canon:eps0_candidate:.4f}} per site), pushed through this same counter (a per-site loss and the counter's lone-loss reading are different
+quantities, so the comparison is made like for like, through the counter). The sealed blind test (PHY-084) added the erasers' measured share;
+read after the fact (lead, register A5), that share drops out in mature blood: along this line's measured slope the eight type readings of two
+laboratories sit 0.96 to 1.17 of the level from M alone. The slope is the line's measured constant; its within-sample part is derived from
+the restore pump (replicated in a second laboratory, median ratio 1.03) and the rest completes with each type's own level (register A7).
+Each type's own level is the open deciding item (register A8): read by the one command (31 atlas libraries, exploration), healthy types sit
+at fixed levels of this one line (cortical neurons 0.77 to 0.85, naive T 0.80 to 0.83, cardiomyocytes 0.95, striated muscle 1.04 to 1.07),
+no type that divides little rises with donor age, and in the same donors memory and effector T cells read 0.91 to 1.06 against naive 0.80 to
+0.83: the rise follows activation history (lead). In stem and progenitor cells the erasers' measured share is one contributor to that level.
+The reading still uses the measured constants; a derived line enters only as a pre-registered line in a sealed test.
 
 **The reading.** IAM-A = ε measured / ε predicted at the sample's own L. 1 is on IAM-A's baseline; above 1 is more holes than its own
 state predicts. **Band v1: 0.7787 to 1.0551**, the 2.5th to 97.5th percentile of 156 pooled healthy readings.
@@ -1231,7 +1246,9 @@ the one command). Hand it a cell type with no healthy reference: it must not rea
 **Nearest-neighbor coupling, a second reading on the same count.** Every count also records whether a molecule's lost marks fall one at a
 time or together: the pairs of neighboring CpGs unmethylated together on held molecules, over what each molecule's own length and error count
 give at random (`_coupling`); 1 is independent. It is written beside the held error because clustered errors lower the lone-error count IAM-A
-uses. In development: recorded and flagged, no gauge yet (INSTRUMENTS.md, In development).
+uses. In development: recorded and flagged, no gauge yet (INSTRUMENTS.md, In development). Where IAM's Law is: not yet in it; its null is
+counted statistics (register CP1). In the same donors it rises with the cell's history (naive 1.29 to 1.33, central memory 1.43 to 1.44,
+effector 1.52 to 1.58); a candidate physics, the restore crew's reach along the DNA, is a lead.
 
 
 ### stage_q2_selfref.py::qual_iso_expect
@@ -2120,7 +2137,8 @@ measured. The tare (a median of at least 3 same-run healthy references, as Stage
 **The territories, read on every run.** Besides each cell's identity sites, this stage reads two fixed site sets the identity readings do not
 reach (`territory_sets`, `territory_reading`): the islands, sites every healthy cell type keeps unmarked, and the domains, marked sites some
 healthy cell types hold loosely, each on the A gauge (a reading over its healthy reference) against IAM-Atlas v2.1 at each site's own read count. In development: read and
-flagged on arrays and sequencing (INSTRUMENTS.md, In development).
+flagged on arrays and sequencing (INSTRUMENTS.md, In development). Where IAM's Law is: on sequencing the islands carry only the library's meter
+(PHY-093, register T1), and the domains' healthy level is a lead, IAM-A's held error at the site's loose share (register T2).
 
 
 ### report_v4.py::_fam_of
@@ -2430,7 +2448,8 @@ against its own predicted held error, and against a second reading. Run by the o
 (`--prior-pat` for the second reading). Development: written under `development.genome_globe`.
 
 **Label: from IAM's physics.** The held error is counted exactly as Stage Q2 counts it (Section 9): on molecules that hold their marks, how
-often one unmethylated call sits between two methylated ones. The prediction is the sample's own: IAM-A's baseline at its loose share.
+often one unmethylated call sits between two methylated ones. The prediction is the sample's own: IAM-A's baseline at its loose share. Where IAM's Law is: in that line (its form derived, its intercept
+from M); the prediction uses the sample's single loose share, and each region's own loose share is open (register GL1).
 
 **Layout.** hg19's autosomal CpGs in the .pat files' own index order (chr1 to chr22; the X and Y are left off, as the loose share leaves them,
 so a difference of sex is never drawn), cut into regions of 1,000 CpGs; region i of n at NESTED pixel floor(i × NPIX / n), NSIDE 256, and every
@@ -2488,7 +2507,8 @@ Built by the one command: `run_sample.py --build info-sphere` (Section 1, `_buil
 
 **Label: established mathematics.** Each site's levels b in S cell types become u = (√b₁…√b_S, √(1−b₁)…√(1−b_S))/√S, a point on a unit sphere;
 the distance between two sites is the Fisher-Rao (Bhattacharyya) angle arccos(u_i · u_j). The globe keeps the three leading principal
-directions of those points, scaled to length 1 (construction v1, the one that kept distances); nothing is tuned. The sky the sites do not
+directions of those points, scaled to length 1 (construction v1, the one that kept distances); nothing is tuned. Where IAM's Law is: not yet in
+it (register SP1). Sample test 1: the distance met; the territories did not (0 of 27); the null test is pending. The sky the sites do not
 cover is masked, as the microwave sky masks the galaxy.
 
 ### stage_info_sphere.py::info_vectors
