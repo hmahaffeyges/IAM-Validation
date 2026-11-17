@@ -5941,7 +5941,7 @@
    "cost": "laptop",
    "impact": 3,
    "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md",
-   "notes": "Pasted candidate 5, L10, 'A third reading is now justified, not optional... Test 3's limit is its argument'. Instrument record points to DEV_IAMA_TRIM_01.md as the gate. | possible duplicate of CAN-008",
+   "notes": "Pasted candidate 5, L10, 'A third reading is now justified, not optional... Test 3's limit is its argument'. Instrument record points to DEV_IAMA_TRIM_01.md as the gate. | possible duplicate of CAN-008; run lengths now reach every IAM-A reading (the main path dropped them before)",
    "legacy_ids": [
     "L10",
     "L4"
@@ -28726,7 +28726,7 @@
    "sources_of_row": [
     "2026-11-13 session (derivation register A8)"
    ],
-   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "2026-11-14: designed (design/PHY-091.json), synthetic passed, chain BAM count-only route added: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md; meter fields (conv_fail, tc_err, lambda) now reach every IAM-A reading",
    "id": "PHY-091",
    "title": "The meter's false marks in each spent library (bisulfite conversion failure at non-CpG cytosines), for the unmarked side's write error (register A17, then A15)",
    "purpose": "Where IAM's Law is: the derived hold is the floor; the eraser (TET) adds a measured share on top, which this measures in LSK progenitors from the laboratory of P4 and P5, as the input for each cell type's baseline (register A5, A8)",

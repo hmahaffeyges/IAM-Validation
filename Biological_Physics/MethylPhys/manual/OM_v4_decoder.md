@@ -259,6 +259,9 @@ the chain reads comes from that one statement; everything else in the chain is s
   passage under a drive): held error 0.0445 per site and held share φ = E_hold/M = 0.1464 from M alone;
   the eraser's measured share of the losses is added; through the counter it gives IAM-A's baseline intercept (Section 9) and, through H(β),
   Met-A's healthy level at held sites (Section 5). The chain reads against the measured references; the derivation explains them.
+- **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the
+  independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion
+  failure, the T-to-C slip, the lambda spike-in where present). An earlier version of the main path dropped them.
 - **The balance (derived form).** Lost with probability f and restored with g, the held error settles at ε = f/(f + g), E_hold = kT ln[(1 − ε)/ε]
   (Section 9).
   Established neighbours: the floor 1/(1 + e^M) is the one-step copy limit of Sartori and Pigolotti (2013); England's (2013) bound
