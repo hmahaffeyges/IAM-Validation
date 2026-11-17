@@ -3204,7 +3204,7 @@
    "next_step": "none (conversion rule C1 decided in the commissioning run)",
    "cost": "none",
    "impact": 3,
-   "notes": "Also DEV_Q0_HEALTHY_01.md.",
+   "notes": "Also DEV_Q0_HEALTHY_01.md.; the GEO fetch waits 1-10 minutes over eight tries and honours Retry-After (GEO throttles by address)",
    "depends_on": [],
    "legacy_ids": [],
    "id": "COM-IAMA-036",

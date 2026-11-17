@@ -6212,3 +6212,8 @@ input. The slope the chain reads, 0.034625, is measured; only its within-sample 
 A forward table of planted molecules at the level derived from M, with no eraser input, read by the chain's counter at nine clusterings:
 0.0359 held error at the healthy clustering. The first laboratory's measured line sits 1.12 times this; the blind-test laboratory reads
 0.96 to 1.03 times it like for like. Every reading now gives A on both lines.
+
+### 2026-11-16 · COM-IAMA-036: the GEO fetch waits longer when the server refuses
+GEO throttles requests by address and refused three fetches today for longer than the chain's five retries. The fetch now waits one minute,
+doubling to ten, over eight tries, and uses the server's Retry-After when given; its error names the address and the count. No reading
+changes.

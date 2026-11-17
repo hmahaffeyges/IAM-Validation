@@ -84,7 +84,16 @@ def build_named(path):
     n = os.path.basename(str(path)).lower()
     return next((b.strip("._-") for b in OTHER_BUILDS if b in n), None)
 
-def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
+def _geo_wait(t, err):
+    """Seconds to wait before GEO retry t (0-based): the server's own Retry-After when it sends one, else 60 s doubling to a 10-minute cap.
+    GEO throttles by request rate per address (HTTP 403/429), and the refusal lasts longer than a few minutes."""
+    try:
+        ra = int(getattr(err, "headers", {}).get("Retry-After") or 0)
+    except Exception:
+        ra = 0
+    return ra if ra > 0 else min(600, 60 * 2 ** t)
+
+def geo_pat(gsm, dest, build=GEO_BUILD, retries=8):
     """A sequencing sample's .pat file from GEO, on the build the chain reads (2026-10-22, lesson C34: a download that took the first file name
     in alphabetical order got the hg38 file, which sorts before hg19). Lists the sample's supplementary files and keeps the .pat.gz names that
     declare no other build; if more than one remain, the one naming hg19. Refuses, with what GEO holds, when none or several remain.
@@ -96,9 +105,9 @@ def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
             names = sorted(set(re.findall(rf"{gsm}_[^\"<>/]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode())))
             if names or t == retries - 1: break   # 2026-11-09: GEO sometimes sends an empty folder page; it is fetched again before 'no files' is believed
             time.sleep(30 * (t + 1))
-        except Exception:
-            if t == retries - 1: raise
-            time.sleep(30 * (t + 1))
+        except Exception as _e:
+            if t == retries - 1: raise RuntimeError(f"{gsm}: GEO refused the folder listing {retries} times ({_e}); address {base}") from _e
+            time.sleep(_geo_wait(t, _e))
     keep = [n for n in names if build_named(n) is None]
     if len(keep) > 1: keep = [n for n in keep if build in n.lower()] or keep
     if len(keep) != 1:
@@ -113,9 +122,9 @@ def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
             got = os.path.getsize(f)   # 2026-11-09: GEO sometimes sends an empty or short body with no error; a short file is fetched again, never read
             if got == 0 or (want >= 0 and got != want): raise IOError(f"{n}: got {got:,} of {want:,} bytes")
             break
-        except Exception:
-            if t == retries - 1: raise
-            h = hashlib.sha256(); time.sleep(60 * (t + 1))
+        except Exception as _e:
+            if t == retries - 1: raise RuntimeError(f"{gsm}: GEO refused the file {retries} times ({_e}); address {u}") from _e
+            h = hashlib.sha256(); time.sleep(_geo_wait(t, _e))
     return dict(path=f, name=n, url=u, build=build, other_files=[x for x in names if x != n], sha256=h.hexdigest(), size=os.path.getsize(f))
 
 def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=None):

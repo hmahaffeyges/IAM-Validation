@@ -6076,7 +6076,7 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 180,
+   "lines": 189,
    "functions": [
     {
      "file": "stage_q0_intake.py",
@@ -6148,10 +6148,26 @@
     },
     {
      "file": "stage_q0_intake.py",
+     "function": "_geo_wait",
+     "name": "_geo_wait",
+     "line": 87,
+     "end": 94,
+     "args": [
+      "t",
+      "err"
+     ],
+     "lines": 8,
+     "doc": "Seconds to wait before GEO retry t (0-based): the server's own Retry-After when it sends one, else 60 s doubling to a 10-minute cap. GEO throttles by request rate per address (HTTP 403/429), and the refusal lasts longer than a few minutes.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q0_intake.py",
      "function": "geo_pat",
      "name": "geo_pat",
-     "line": 87,
-     "end": 119,
+     "line": 96,
+     "end": 128,
      "args": [
       "gsm",
       "dest",
@@ -6170,8 +6186,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake",
      "name": "intake",
-     "line": 121,
-     "end": 179,
+     "line": 130,
+     "end": 188,
      "args": [
       "path",
       "specimen",
@@ -6195,8 +6211,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake.chk",
      "name": "chk",
-     "line": 135,
-     "end": 144,
+     "line": 144,
+     "end": 153,
      "args": [
       "step",
       "ok",
@@ -10859,5 +10875,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 556
+ "n_functions": 557
 }

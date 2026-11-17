@@ -1452,6 +1452,10 @@ own probe names and have no build question.
 ### stage_q0_intake.py::build_named
 The build a file's name declares when it is not hg19 (hg38, GRCh38, hg18, mm9, mm10, GRCm38, GRCm39), else nothing; read from the name alone.
 
+### stage_q0_intake.py::_geo_wait
+How long the chain waits before asking GEO again for a sample's file: the server's own Retry-After when it sends one, otherwise one
+minute doubling to a ten-minute cap, over eight tries. GEO refuses by request rate per address, for longer than a few minutes.
+
 ### stage_q0_intake.py::geo_pat
 A GEO sample's .pat file on the build the chain reads, as described above, with its name, address, the other files GEO holds, its size
 and checksum; stops, with what GEO holds, when it cannot pick exactly one.

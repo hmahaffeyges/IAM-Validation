@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **556 functions** (nested ones included); 556 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **557 functions** (nested ones included); 557 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -62,7 +62,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
-| `stage_q0_intake.py` | 180 | 7 | 0 | 0 |
+| `stage_q0_intake.py` | 189 | 8 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
@@ -2212,13 +2212,13 @@ Parses and counts one line.
 Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
 refusal, or proceed.
 
-*Code:* `stage_q0_intake.py` line 121 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
+*Code:* `stage_q0_intake.py` line 130 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
 
 ### `stage_q0_intake.py::intake.chk`
 
 Records one check and, when it stops the file, the first refusal's code and reason, with its five-part explanation.
 
-*Code:* `stage_q0_intake.py` line 135 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+*Code:* `stage_q0_intake.py` line 144 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
 
 ## 10b. Genome builds: which genome each reading counts on, and how the chain keeps them apart (2026-10-22, lesson C34)
 
@@ -2251,12 +2251,19 @@ The build a file's name declares when it is not hg19 (hg38, GRCh38, hg18, mm9, m
 
 *Code:* `stage_q0_intake.py` line 81 (5 lines) · arguments: path · calls: not called on the traced runs · constants read: `OTHER_BUILDS`
 
+### `stage_q0_intake.py::_geo_wait`
+
+How long the chain waits before asking GEO again for a sample's file: the server's own Retry-After when it sends one, otherwise one
+minute doubling to a ten-minute cap, over eight tries. GEO refuses by request rate per address, for longer than a few minutes.
+
+*Code:* `stage_q0_intake.py` line 87 (8 lines) · arguments: t, err · calls: not called on the traced runs
+
 ### `stage_q0_intake.py::geo_pat`
 
 A GEO sample's .pat file on the build the chain reads, as described above, with its name, address, the other files GEO holds, its size
 and checksum; stops, with what GEO holds, when it cannot pick exactly one.
 
-*Code:* `stage_q0_intake.py` line 87 (33 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
+*Code:* `stage_q0_intake.py` line 96 (33 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
 
 ## 11. Group-A, has a whole group moved: `stage_groupa.py`
 
