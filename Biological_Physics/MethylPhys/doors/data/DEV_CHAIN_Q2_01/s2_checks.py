@@ -1,5 +1,7 @@
 import subprocess as _sp, sys as _sy
 _sp.run([_sy.executable, '-m', 'pip', 'install', '-q', 'sympy', 'numpy', 'scipy', 'mpmath'], check=True)
+import numpy as _np
+if not hasattr(_np, 'trapezoid'): _np.trapezoid = _np.trapz   # numpy < 2 on the runner (the chain pins numpy)
 #!/usr/bin/env python3
 """SPIDER S2 checks, 2026-11-18 (private; proposals only).
 Closes the gaps declared by the long-form pass (IAM_LAW_LONG_FORM_2026-11-18.md).
