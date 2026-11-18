@@ -1,0 +1,118 @@
+{
+ "_written": "2026-11-18, 3:41 AM Pacific, before any library is read for A8L2",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "register A8 (each cell type's own healthy IAM-A level), LOCATION LEAD: the held error is set by the balance of thermal loss against the restore crew paid in M = 20.94 thermal kicks per coin (A1, A4); a held mark copied late in S phase waits longer for the crew (late-S DNA is remethylated more slowly, Charlton 2018; loss concentrates in late-replicating, lamina-associated DNA, Zhou 2018, Ming 2020). If location sets each type's level, the between-type spread of held error sits in late-copied DNA and early-copied (open) DNA reads near the line M alone gives in every type.",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "12 spent IAM Sequencing Atlas libraries (GSE186458), one per cell type spanning the joint run's A range (0.73 erythrocyte progenitors to 1.05 striated muscle): GSM5652275 erythrocyte progenitors, GSM5652311 lung interstitial macrophages, GSM5652305 colon macrophages, GSM5652295 effector memory cd8 t cells, GSM5652221 oligodendrocytes, GSM5652381 small intestine epithelium, GSM5652355 lung alveolar epithelium, GSM5652193 lung alveolar endothelium, GSM5652323 tonsil palatine epithelium, GSM5652337 lung bronchus epithelium, GSM5652189 kidney tubular endothelium, GSM5652206 striated muscle; all read in the joint run (train_readings.json); no unseen data",
+  "protocol_read": "standard pre-bisulfite WGBS (Loyfer et al. 2023), molecule files from GEO as the joint run used them",
+  "spent_first": "yes: every library is spent; nothing reserved is touched",
+  "form": [
+   {
+    "form": "the libraries' GEO molecule files (.pat.gz), read by the one command, then split by timing with lag_split.py and each third read by the one command",
+    "hours": 3.0,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "raw reads from SRA, re-aligned and split",
+    "hours": 12.0,
+    "adequate": true,
+    "chosen": false,
+    "why_not": "the molecule files of the same reads are on GEO (question 9)"
+   }
+  ],
+  "alternatives": "the joint run's bundles carry only tile summaries (firm/loose, by tile call), not held error by location; per-tile coordinates were never stored, so the split needs the molecule files",
+  "preflight": {
+   "checked": "lag_split.py's numbering check and timing thirds ran on two control libraries in the copier-lag study (DEV_METHIONINE_01, 2026-11-12, score_lag_summary.txt); the 12 GSMs resolved in train_readings.json with their joint-run A",
+   "minutes": 10,
+   "result": "splitter numbering matched the chain's index ranges; all 12 libraries were read by the one command in the joint run"
+  },
+  "needs": "molecule-level reads (adjacent CpGs on one molecule) for IAM-A's held error, sorted single-type libraries so each third is one cell type, and genome-wide coverage so every timing third holds enough molecules; the atlas's GEO molecule files have all three"
+ },
+ "kiss": {
+  "smallest": "one library per type for 12 types spread evenly across the measured A range",
+  "samples_why": "the prediction is about the BETWEEN-type spread, so types, not replicates, carry the test; 12 types give a spread with a bootstrap interval"
+ },
+ "machines": {
+  "platform": "google",
+  "why_not_github": "all 20 GitHub machines are aligning the second laboratory (about 3 h) and the GitHub queue holds the history test and 15 check reruns behind it; Google spot n2-standard-4 at $0.0192/h (today's price check) runs the 12 libraries in parallel now",
+  "github_free_at_design": "none (20 of 20 busy: second-lab alignment)",
+  "s_per_pair": 0.0,
+  "pairs": 0,
+  "peak_mem_gb": "about 6 (run_sample on an atlas molecule file; the joint run's GitHub jobs fit in 7)",
+  "machine_mem_gb": 16,
+  "parallel_per_machine": 1,
+  "expected_hours": 3.0,
+  "time_limit_hours": 5,
+  "cost": "about $1.20 (12 machines x 5 h x $0.0192)"
+ },
+ "save": {
+  "resume": "each library's result a8l2_<GSM>.json is uploaded to the bucket when it finishes; a relaunched machine skips any library already read"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "all 12 a8l2_<GSM>.json in the bucket or each machine's log shows it gave up"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 4,
+   "halves_corr_min": 0.95,
+   "hours_per_sample_max": 4.5,
+   "_meaning": "rows_min: whole + three thirds read by the chain (or the third's partial-genome re-read) for the canary library; halves_corr_min: min/max of the whole-library held error and the mean of the three thirds' held errors; hours: per library",
+   "_rule": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/a8l2_synthetic.py (the synthetic must PASS first; then the first library is the canary)"
+  }
+ },
+ "cosmologist": {
+  "method": "split the same detector's reading by sky region: each library's own molecules divided by replication timing and read by the same chain, so lab, donor, depth and instrument cancel between the thirds",
+  "null_test": "planted uniform loss through the same splitter and count must give late/early 1.00 within 0.03 (synthetic NULL), and the thirds' mean must match the whole library within 5 % on real data"
+ },
+ "value": {
+  "question": "does the between-type spread of IAM-A's held error sit in late-copied DNA (location sets each type's level, A8L2) or equally in early and late (location is out)?",
+  "adequate": "12 types with whole-library A from 0.73 to 1.05: a late/early spread ratio's bootstrap interval over types decides whether late carries more of the spread",
+  "options": [
+   {
+    "name": "12 spent atlas libraries on 12 Google machines in parallel, one per type",
+    "hours": 3.5,
+    "cost_usd": 1.2,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "the same 12 on GitHub after the second lab and the queue",
+    "hours": 9.0,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   },
+   {
+    "name": "desk only, from the copier-lag study's two control libraries",
+    "hours": 0.2,
+    "cost_usd": 0,
+    "adequate": false,
+    "chosen": false
+   }
+  ],
+  "why_this": "GitHub is full for the next several hours; Google runs it now for about a dollar"
+ },
+ "explore": {
+  "done": "copier-lag study (two control libraries, early/mid/late, 2026-11-12: 'not lag'); joint run of 152 libraries with whole-library A per type; cross-domain spider 2026-11-18 named this the deciding cell test of the non-uniform-writer parallel",
+  "rehearsal_pull": null
+ },
+ "prediction": {
+  "form": "none sealed: exploration",
+  "decided_by": {},
+  "reading": "written 2026-11-16 (register A8L2 plan, before the train): across types, the between-type spread of held error is larger in late-copied than in early-copied DNA; early DNA reads nearly alike in every type. Reported: SD across types of log held error and of A in each third, the late/early SD ratio with a bootstrap 95 % interval over the 12 types; met if the interval lies above 1, not met if it includes 1 or lies below"
+ },
+ "bars": {
+  "rule": "no seal: exploration; the late/early spread ratio with its bootstrap interval over types; each third's counting uncertainty reported"
+ },
+ "synthetic": {
+  "script": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/a8l2_synthetic.py",
+  "noise_from": "planted per-CpG losses at the measured real levels (0.040-0.050, IAM-A's firm line 0.040), binomial counting noise as in real counts, 300,000 molecules of 14 CpGs on chr1-chr3",
+  "null_rehearsed": "NULL file (uniform 0.045) in the same synthetic: late/early must be 1.00 within 0.03 before any library is read"
+ }
+}
