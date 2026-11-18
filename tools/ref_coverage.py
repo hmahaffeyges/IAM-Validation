@@ -41,7 +41,11 @@ DEC = {k: v for k, v in T.items() if "deconv" in k.lower() or "atlas_reference" 
 print("::notice::Deconvolver references: " + json.dumps({k: len(v) for k, v in DEC.items()}))
 names = set().union(*DEC.values()) if DEC else set()
 print(f"::notice::cells the Deconvolvers can name: {len(names)}")
-INSTR = {k: v for k, v in T.items() if k not in DEC}
+INSTR = collections.defaultdict(set)
+for k, v in T.items():
+    if k in DEC: continue
+    INSTR[re.sub(r"_part\d+(\.parquet)$", r"_parts\1", k)] |= v   # tables split by cell column into parts are one table
+INSTR = dict(INSTR)
 groups = collections.defaultdict(dict)
 for k, v in INSTR.items():
     g = k.split("/")[0]; groups[g][k] = v
@@ -51,8 +55,12 @@ missing = {}
 for c in sorted(names):
     lack = [k for k, v in INSTR.items() if c not in v and len(v & names) >= 0.5 * len(v)]
     if lack: missing[c] = lack
+by_table = collections.defaultdict(list)
 for c, lack in missing.items():
-    print(f"::notice::MISSING {c}: " + "; ".join(lack)[:900])
+    for t in lack: by_table[t].append(c)
+print(f"::notice::cells the Deconvolvers name that lack at least one table: {len(missing)} of {len(names)}")
+for t, cs in sorted(by_table.items(), key=lambda kv: -len(kv[1])):
+    print(f"::notice::TABLE {t} ({len(INSTR[t])} cells) lacks {len(cs)}: " + ", ".join(sorted(cs))[:1200])
 in_dec = {c: [k for k, v in DEC.items() if c in v] for c in names}
 odd = {c: v for c, v in in_dec.items() if len(v) < len(DEC)}
 print("::notice::cells only in some Deconvolver versions: " + json.dumps(odd)[:1500])
