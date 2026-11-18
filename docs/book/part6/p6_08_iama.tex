@@ -42,7 +42,7 @@ $\varepsilon=1/(1+e^{E/\kB T})$. \derived{} Three energies mark the gauge, each 
 \begin{tabular}{@{}llllll@{}}\toprule
 mark & where & energy holding each site & thermal kicks win & entropy per site & set by \\\midrule
 floor $\Hmin$ & left & one full ATP, $M=20.94\,\kB T$ & 1 in $1.24\times10^{9}$ & $2.5\times10^{-8}$ bits & $M$ alone \calc \\
-healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured; derived from $M$ and the SAM price, one measured input (Section~\ref{sec:middle_candidate}) \derived \\
+healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured; derived from $M$ and the SAM price (Section~\ref{sec:middle_candidate}); each type's own position, Section~\ref{sec:iama_positions} \derived \\
 ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & physics \derived \\\bottomrule
 \end{tabular}\end{center}
 The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
@@ -154,7 +154,7 @@ machine (158 of 158). Other cell types and chemistries are development.
 
 \subsection*{The earlier form: a frozen position (retired to a development flag)}
 
-Its numbers are kept as they were measured, on the earlier counter (superseded). Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
+Its numbers are kept as they were measured, on the earlier counter (superseded). The joint run brings the per-type position back on the derived line (Section~\ref{sec:iama_positions}). Before the self-reference line, each healthy cell type was given its own position $P$ relative to the healthy reference, measured once
 per cell type and per read pipeline, and frozen. This form is kept in the chain behind a development flag only:
 \begin{equation}
   \text{IAM-A}_{\rm position}=\frac{H(\varepsilon)}{P_{\rm cell}\,H(\varepsilon_0)},\qquad P_{\rm neutrophil}=1.149 .
@@ -216,6 +216,48 @@ Read for 153 samples of 56 healthy cell types by chain Stage Q2 on whole files (
       held error, 0.042 and 0.043.
 \end{itemize}
 \measured{} for all four. The architecture of each cell's maintenance, not how often it is replaced, sets its position.
+
+\section{Each cell type's own healthy position}\label{sec:iama_positions}
+
+The one line, Eq.~\eqref{eq:iama}, reads a sample against its own loose share; it does not by itself place every healthy cell type at 1.
+To see why, the full chain was run, one button and one library per machine, on 150 spent healthy libraries of 56 cell types of the public atlas~\cite{Loyfer2023}
+(\texttt{joint\_train/JOINT\_TRAIN\_READINGS.json}; every row keeps the job that read it). Each reading also reports IAM-A against the line whose
+intercept is derived from $M$ alone (Section~\ref{sec:middle_candidate}), with the measured slope. \measured
+
+\paragraph{Where the healthy types sit.} On that derived line the healthy cell types sit at their own positions:
+the lowest is 0.80 (erythrocyte progenitors),
+cortical neurons sit at 0.90,
+naive CD4 T cells at 0.93,
+and the highest is 1.17 (CD4 central memory T cells). \measured{} Since $E_{\rm hold}=\kB T\ln[(1-\varepsilon)/\varepsilon]$, the spread is a difference of about
+0.38~$\kB T$ in the energy holding each site, from the lowest type to the highest. \calc
+
+\paragraph{What kind of difference it is.} Four readings of the same molecules, each predicted before the run, show how the extra loss is laid out. \measured
+\begin{itemize}
+\item Neighboring held sites are not lost together more often than chance: observed over expected runs of losses has median
+  0.994 across the libraries.
+\item Across the types, the clustering of losses falls as the position rises (Spearman -0.32),
+  and so does the spread of losses between molecules (-0.36): a type higher on the line is evenly worse on every molecule, not a damaged minority of its cells.
+\item The rise sits in the firmly held tiles too (Spearman 0.45 between the position and the firm-tile held error).
+\item The held error of loose tiles over that of firm tiles has median 1.19: the line is mostly a whole-sample law, not a region-by-region one.
+\end{itemize}
+Each type's position therefore comes from an even, independent change in the hold per site; losses in stretches, both strands lost together and a
+damaged minority of cells do not set it. \interp
+
+\paragraph{What one strand cannot say.} At the balance $\varepsilon=f/(f+g)$ a one-strand reading fixes only $g/f$: a slower restore and an even
+rise in losses read the same. \derived{} Separating them needs a rate. In human embryonic stem cells the open time course of nascent-strand
+methylation~\cite{Charlton2018}, read at held sites, gives a restore rate
+$g=0.443\pm0.120$ per hour, a half-time of 1.6 hours; \measured{} with the stem-cell held error it fixes the loss rate in that one type.
+Comparing types needs rates measured type by type, which no open data provide yet. \openprob
+
+\paragraph{The per-type position, back on the derived line.} The earlier form gave each type a frozen position $P$ (below). The joint run brings
+it back on the derived line: a healthy sample is read against the position of its own type, which the Deconvolver names, inside a band built from
+measured uncertainty (GUM, $k=2$): the spread between donors of a type (3.5~\%), the uncertainty of the type's position, the forward model,
+copier lag and counting, about $\pm8.5$~\% for a type with three libraries. \calc{} Left out one at a time,
+119 of 126 libraries fall inside the band of their own type built from the others, against 95~\% expected;
+2 of 2 libraries read later, not used to build the bands, fall inside theirs. \measured{} The bands rest on one laboratory: the spread
+between laboratories must be added before they read another laboratory's data, and each type's position must be derived before one band can
+serve every type. A feature that disease does not move and that predicts the position is being looked for; the islands meter does not (Spearman
+-0.06). \openprob
 
 \section{Tumors}
 
