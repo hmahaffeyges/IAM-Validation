@@ -1,0 +1,79 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-17",
+ "title": "No identity feature sets a type's level; the chain overhaul began",
+ "set_out": "Finish each cell type's own level (A8) and test the identity pattern and islands meter; bring the book up to date at a high level; overhaul the chain so it acts as one instrument; carry IAM's Law forward on IAM's web.",
+ "open_at_turnover": "The second laboratory at full depth; the full-depth mixture; the Met-A held-site check; routing (overhaul 2b); each type's position in the chain; the rehearsal; the location test and rates by type.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Identity pattern and islands meter against each type's level (A8)",
+     "status": "development",
+     "what": "The chain's own per-type atlas tables, and the islands meter, against each type's position on the derived line.",
+     "outcome": "Neither predicts position (closest p 0.065).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (spent libraries)"
+    },
+    {
+     "title": "Chain overhaul steps 1 and 2a (no reading changes)",
+     "status": "development",
+     "what": "Line and shape reference pinned to version 1; commissioned label tied to file checksums; the derived reading and the losses layout printed.",
+     "outcome": "A planted CD8 count reads the same A before and after.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM-A (commissioned on CD8 T cells)"
+    },
+    {
+     "title": "Planted blood mixture (overhaul test T1)",
+     "status": "development",
+     "what": "Five spent atlas libraries mixed in known shares, read by the one button.",
+     "outcome": "The headline reads the mixture as one cell type: routing to be fixed. The 10 M plant was too thin to judge shares.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (spent libraries)"
+    },
+    {
+     "title": "Restore rate (A8R)",
+     "status": "development",
+     "what": "Open Repli-BS time course in human stem cells.",
+     "outcome": "0.443 per hour, against a prediction written first.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "GSE82045 (open)"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "A type's level is an even change in the hold",
+     "what": "No identity feature or islands reading carries it; the open step is a restore and loss rate by type.",
+     "status": "finding",
+     "outcome": "",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "Seven errors, each caught",
+     "what": "Listed in the day summary with what caught each.",
+     "status": "record",
+     "outcome": "",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}
