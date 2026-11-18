@@ -37,12 +37,12 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **562 functions** (nested ones included); 562 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **563 functions** (nested ones included); 563 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,669 | 20 | 11 | 10 |
-| `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
+| `MethylPhys_Interface/run_sample.py` | 1,672 | 20 | 11 | 10 |
+| `stage_0_intake.py` | 1,271 | 47 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 321 | 20 | 18 | 0 |
@@ -1453,7 +1453,7 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 600 (1067 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `epitoc2_sites.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 600 (1070 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `epitoc2_sites.csv`
 
 ### `run_sample.py::main._panel`
 
@@ -1474,7 +1474,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1588 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1591 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1554,7 +1554,7 @@ reading uses (rule 23b-h).
 
 A sample of isolated, sorted or purified cells, of a named cell or none ('sorted cells'), routed to the atlas readings like whole blood: the IAM-Deconvolver decides which cells it holds and each cell found is read against its own atlas reference. The label picks this route and never the cell. Isolated neutrophils keep the commissioned neutrophil route. Added when a constructed 'sorted cells' sample got no atlas readings at all.
 
-*Code:* `stage_0_intake.py` line 161 (7 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `ACCEPTED_SPECIMENS`, `ATLAS_CELL_WORDS`
+*Code:* `stage_0_intake.py` line 191 (7 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `ACCEPTED_SPECIMENS`, `ATLAS_CELL_WORDS`
 
 ### `stage_0_intake.py::cells_found`
 
@@ -1567,7 +1567,17 @@ The cells the IAM-Deconvolver found in the sample, largest share first, each at 
 The cell the Deconvolver found most of, or nothing when it did not run. The only source of a single-cell reading's cell when the operator set
 none.
 
-*Code:* `stage_0_intake.py` line 122 (4 lines) · arguments: cell_shares · calls: not called on the traced runs
+*Code:* `stage_0_intake.py` line 152 (4 lines) · arguments: cell_shares · calls: not called on the traced runs
+
+### `stage_0_intake.py::mixture_check`
+
+One cell type or a mixture? The cells found are pooled into lineage groups (`LINEAGE`: the T-cell subsets, the B cells, monocytes with the
+macrophages, neurons with oligodendrocytes, and the sibling kidney, stomach, islet, breast and tonsil types; any other cell is its own group),
+and the sample is a mixture when a second group holds more than 0.12 (`MIX_FLOOR`). The floor is measured: in 154 sorted atlas libraries the
+largest second share was 0.112, always a sibling type. A planted 100-million-molecule blood mixture is recovered within 0.02 per group.
+Written to the bundle as `mixture_check`.
+
+*Code:* `stage_0_intake.py` line 138 (13 lines) · arguments: cell_shares, floor · calls: not called on the traced runs · constants read: `LINEAGE_OF`, `MIX_FLOOR`
 
 ### `stage_0_intake.py::label_check`
 
@@ -1579,7 +1589,7 @@ neutrophil reference; `conductor_v3.platform_refusal`), but `run_sample.py` stil
 v2.1: the IAM-Deconvolver's shares, Met-A for each cell and the globe, each flagged development and each reporting how many of its sites the
 array measured. The bundle records this under `atlas_readers_on_450k`.
 
-*Code:* `stage_0_intake.py` line 127 (12 lines) · arguments: specimen, cell_shares · calls: not called on the traced runs · constants read: `LABEL_RULE`
+*Code:* `stage_0_intake.py` line 157 (12 lines) · arguments: specimen, cell_shares · calls: not called on the traced runs · constants read: `LABEL_RULE`
 
 ### `stage_0_intake.py::is_plasma`
 
@@ -1588,33 +1598,33 @@ IAM-Deconvolver splits it on IAM-Atlas v2.1's full panel (every cell and tissue 
 the body) and Met-A reads each source it finds against the atlas in the sample's own shares; the commissioned Met-A and C-Score read whole
 blood and are not applied.
 
-*Code:* `stage_0_intake.py` line 143 (3 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `PLASMA_WORDS`
+*Code:* `stage_0_intake.py` line 173 (3 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `PLASMA_WORDS`
 
 ### `stage_0_intake.py::is_tissue`
 
 True for a solid tissue, a tumor, a biopsy, or a specimen not named ('unknown', for blind runs). Such a sample is read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what it is made of, and Met-A reads each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied. Bone marrow, a marrow aspirate and a blood-and-marrow mix are read on this route too, with the marrow progenitors kept in the mix (read and flag; it was refused at intake before).
 
-*Code:* `stage_0_intake.py` line 148 (12 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `TISSUE_WORDS`
+*Code:* `stage_0_intake.py` line 178 (12 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `TISSUE_WORDS`
 
 ### `stage_0_intake.py::specimen_refusal`
 
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
 and what is accepted. Called by `run_sample.py` before any file is read.
 
-*Code:* `stage_0_intake.py` line 169 (9 lines) · arguments: specimen · calls: array run 2 · constants read: `ACCEPTED_SPECIMENS`, `REFUSED_SPECIMEN_REASONS`
+*Code:* `stage_0_intake.py` line 199 (9 lines) · arguments: specimen · calls: array run 2 · constants read: `ACCEPTED_SPECIMENS`, `REFUSED_SPECIMEN_REASONS`
 
 ### `stage_0_intake.py::_infer_platform`
 
 Turns the IDAT header's address count into a platform: below 800,000 is 450K, below 1,080,000 EPIC v1, otherwise EPIC v2.
 
-*Code:* `stage_0_intake.py` line 190 (8 lines) · arguments: nsnps · calls: array run 2
+*Code:* `stage_0_intake.py` line 220 (8 lines) · arguments: nsnps · calls: array run 2
 
 ### `stage_0_intake.py::read_idat_nsnps`
 
 Reads only the start of the green IDAT: the four-byte `IDAT` mark, the field table, and field 1000 (the number of addresses). It never
 decodes intensities. Returns the count and a status (OK, NOT_IDAT, NO_NSNPS_FIELD, FILE_NOT_FOUND or a read error).
 
-*Code:* `stage_0_intake.py` line 202 (24 lines) · arguments: path · calls: array run 2
+*Code:* `stage_0_intake.py` line 232 (24 lines) · arguments: path · calls: array run 2
 
 ### `stage_0_intake.py::step_0_1_idat_arrival`
 
@@ -1622,39 +1632,39 @@ Step 0.1: checks the manifest's required fields and array type, that both channe
 header's platform family agrees with the declared one; warns on a repeat intake within 24 hours. Stamps a run identifier and the
 arrival time, and logs the result.
 
-*Code:* `stage_0_intake.py` line 230 (89 lines) · arguments: manifest_entry, grn_path, red_path, intake_log_path · calls: array run 1 · constants read: `MIN_PLAUSIBLE_IDAT_BYTES`, `REQUIRED_MANIFEST_FIELDS`, `VALID_ARRAY_TYPES`
+*Code:* `stage_0_intake.py` line 260 (89 lines) · arguments: manifest_entry, grn_path, red_path, intake_log_path · calls: array run 1 · constants read: `MIN_PLAUSIBLE_IDAT_BYTES`, `REQUIRED_MANIFEST_FIELDS`, `VALID_ARRAY_TYPES`
 
 ### `stage_0_intake.py::_log_intake`
 
 Appends one row per intake step to the intake log, when one is given: time, run identifier, Sentrix ID, declared and detected array
 type, specimen, declared sex and age, status and flags.
 
-*Code:* `stage_0_intake.py` line 323 (10 lines) · arguments: intake_log_path, result · calls: array run 1
+*Code:* `stage_0_intake.py` line 353 (10 lines) · arguments: intake_log_path, result · calls: array run 1
 
 ### `stage_0_intake.py::_is_duplicate_within_24h`
 
 True when the intake log already holds the same Sentrix ID from the last 24 hours. Only a warning; the array still advances.
 
-*Code:* `stage_0_intake.py` line 335 (21 lines) · arguments: intake_log_path, sentrix_id · calls: array run 1
+*Code:* `stage_0_intake.py` line 365 (21 lines) · arguments: intake_log_path, sentrix_id · calls: array run 1
 
 ### `stage_0_intake.py::_is_null_answer`
 
 For storing questionnaire answers: a blank or "prefer not to say" becomes no answer; "No" is kept as a real answer.
 
-*Code:* `stage_0_intake.py` line 418 (3 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NULL_FOR_STORAGE`
+*Code:* `stage_0_intake.py` line 448 (3 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NULL_FOR_STORAGE`
 
 ### `stage_0_intake.py::_answer_present`
 
 For the questionnaire's context modes: true only for an affirmative answer (not blank, not "prefer not to say", not No, none or not
 applicable).
 
-*Code:* `stage_0_intake.py` line 423 (5 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NEGATIVE`, `_NULL_FOR_STORAGE`
+*Code:* `stage_0_intake.py` line 453 (5 lines) · arguments: v · calls: not called on the traced runs · constants read: `_NEGATIVE`, `_NULL_FOR_STORAGE`
 
 ### `stage_0_intake.py::_age_from_dob`
 
 Age in decimal years from a date of birth and the intake date, rounded to 0.1.
 
-*Code:* `stage_0_intake.py` line 430 (8 lines) · arguments: dob, on_date · calls: not called on the traced runs
+*Code:* `stage_0_intake.py` line 460 (8 lines) · arguments: dob, on_date · calls: not called on the traced runs
 
 ### `stage_0_intake.py::parse_questionnaire`
 
@@ -1662,59 +1672,59 @@ Maps a digital questionnaire's answers to the stored covariate record: each fiel
 a list of context modes. The record is stored with the manifest. No stage of the current chain reads these covariates or modes; the
 stage names in its field table belong to an earlier engine.
 
-*Code:* `stage_0_intake.py` line 440 (18 lines) · arguments: answers, intake_date · calls: not called on the traced runs · constants read: `COVARIATE_FIELDS`, `_CONTEXT_MODE_TRIGGERS`
+*Code:* `stage_0_intake.py` line 470 (18 lines) · arguments: answers, intake_date · calls: not called on the traced runs · constants read: `COVARIATE_FIELDS`, `_CONTEXT_MODE_TRIGGERS`
 
 ### `stage_0_intake.py::_looks_like_cleartext_pii`
 
 True when an identifier looks like a name rather than a hash: empty, containing a space or an @, shorter than 16 characters once
 dashes and underscores are removed, or not purely letters and digits.
 
-*Code:* `stage_0_intake.py` line 460 (9 lines) · arguments: patient_id · calls: array run 1
+*Code:* `stage_0_intake.py` line 490 (9 lines) · arguments: patient_id · calls: array run 1
 
 ### `stage_0_intake.py::_write_manifest`
 
 Writes the per-sample manifest as `patient_manifest_<run id>.json` in the manifest folder, when one is given.
 
-*Code:* `stage_0_intake.py` line 471 (8 lines) · arguments: manifest_dir, record · calls: array run 1 · files named: `Write the immutable per-sample patient_manifest.json`
+*Code:* `stage_0_intake.py` line 501 (8 lines) · arguments: manifest_dir, record · calls: array run 1 · files named: `Write the immutable per-sample patient_manifest.json`
 
 ### `stage_0_intake.py::step_0_2_manifest_creation`
 
 Step 0.2: builds the immutable manifest from the 0.1 record (and questionnaire answers, when given), quarantines a cleartext
 identifier or a missing core field, and writes the file.
 
-*Code:* `stage_0_intake.py` line 481 (40 lines) · arguments: step_0_1_result, questionnaire_answers, manifest_dir, intake_date · calls: array run 1
+*Code:* `stage_0_intake.py` line 511 (40 lines) · arguments: step_0_1_result, questionnaire_answers, manifest_dir, intake_date · calls: array run 1
 
 ### `stage_0_intake.py::_sha256_file`
 
 The SHA-256 of a whole file, read in 1 MB pieces.
 
-*Code:* `stage_0_intake.py` line 529 (6 lines) · arguments: path · calls: array run 2
+*Code:* `stage_0_intake.py` line 559 (6 lines) · arguments: path · calls: array run 2
 
 ### `stage_0_intake.py::_prior_hashes_for_sentrix`
 
 The pairs of file hashes earlier intakes recorded for the same Sentrix ID in the integrity log.
 
-*Code:* `stage_0_intake.py` line 537 (14 lines) · arguments: integrity_log_path, sentrix_id · calls: array run 1
+*Code:* `stage_0_intake.py` line 567 (14 lines) · arguments: integrity_log_path, sentrix_id · calls: array run 1
 
 ### `stage_0_intake.py::_log_integrity`
 
 Appends one row to the integrity log (also used for the decision gate's verdict row).
 
-*Code:* `stage_0_intake.py` line 553 (6 lines) · arguments: integrity_log_path, row · calls: array run 1
+*Code:* `stage_0_intake.py` line 583 (6 lines) · arguments: integrity_log_path, row · calls: array run 1
 
 ### `stage_0_intake.py::step_0_3_integrity_hash`
 
 Step 0.3: hashes both files and compares them with earlier intakes of the same Sentrix ID. Identical bytes again is a re-transmission
 and stops the run; the same Sentrix ID with different bytes is flagged as a fresh re-run and advances.
 
-*Code:* `stage_0_intake.py` line 561 (37 lines) · arguments: record, grn_path, red_path, integrity_log_path · calls: array run 1
+*Code:* `stage_0_intake.py` line 591 (37 lines) · arguments: record, grn_path, red_path, integrity_log_path · calls: array run 1
 
 ### `stage_0_intake.py::extract_control_probes`
 
 Gets the control-probe medians by class from the IDAT pair through the QC hand-off (`stage_0_1_qc_handoff.decode_qc_inputs`), the
 same decoder Stage 1 uses. The array's own controls only.
 
-*Code:* `stage_0_intake.py` line 619 (7 lines) · arguments: grn_path, red_path, array_type · calls: not called on the traced runs
+*Code:* `stage_0_intake.py` line 649 (7 lines) · arguments: grn_path, red_path, array_type · calls: not called on the traced runs
 
 ### `stage_0_intake.py::validate_control_probes`
 
@@ -1728,107 +1738,107 @@ the record calls these "meth" and "unmeth", which they are not. The three limits
 limit is marked provisional in that file, a bisulfite failure alone is recorded and the array advances (the rule before 2026-10-21). Records the
 raw medians the gates tested.
 
-*Code:* `stage_0_intake.py` line 628 (53 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`
+*Code:* `stage_0_intake.py` line 658 (53 lines) · arguments: control_summary · calls: array run 2 · constants read: `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `EXTENSION_BALANCE_RANGE`, `HYB_HIGH_LOW_MIN_RATIO`
 
 ### `stage_0_intake.py::step_0_4_control_probe_validation`
 
 Step 0.4: runs `validate_control_probes` on the hand-off's control summary and stamps the verdict and its numbers. With no decoder
 available it marks the check deferred rather than inventing a pass.
 
-*Code:* `stage_0_intake.py` line 683 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1
+*Code:* `stage_0_intake.py` line 713 (20 lines) · arguments: record, grn_path, red_path, control_summary · calls: array run 1
 
 ### `stage_0_intake.py::_normal_sf`
 
 The normal survival function, 1 − Φ(z), from scipy when it is installed, otherwise from the complementary error function.
 
-*Code:* `stage_0_intake.py` line 722 (9 lines) · arguments: z · calls: array run 2
+*Code:* `stage_0_intake.py` line 752 (9 lines) · arguments: z · calls: array run 2
 
 ### `stage_0_intake.py::compute_detection_p`
 
 Per probe, the detection p-value 1 − Φ((I − μ_bg)/σ_bg), with μ_bg and σ_bg this array's negative-control background.
 
-*Code:* `stage_0_intake.py` line 733 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2
+*Code:* `stage_0_intake.py` line 763 (6 lines) · arguments: probe_intensities, mu_bg, sigma_bg · calls: array run 2
 
 ### `stage_0_intake.py::validate_detection_p`
 
 The share of probes with detection p ≤ 0.01, graded against the thresholds file: above 0.99 PASS, from 0.93 BORDERLINE, below FAIL.
 
-*Code:* `stage_0_intake.py` line 741 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`
+*Code:* `stage_0_intake.py` line 771 (15 lines) · arguments: detection_p_array · calls: array run 2 · constants read: `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `DETECTION_P_THRESHOLD` · files named: `intake_thresholds_v1.json`
 
 ### `stage_0_intake.py::step_0_5_detection_pvalue_qc`
 
 Step 0.5: computes and grades detection. Without intensities the check is deferred, and a deferred detection never advances.
 
-*Code:* `stage_0_intake.py` line 758 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1
+*Code:* `stage_0_intake.py` line 788 (22 lines) · arguments: record, probe_intensities, neg_control_stats · calls: array run 1
 
 ### `stage_0_intake.py::validate_bead_count`
 
 The share of probes with at least 3 beads: 0.995 or more PASS, otherwise a warning. Never stops an array.
 
-*Code:* `stage_0_intake.py` line 790 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`
+*Code:* `stage_0_intake.py` line 820 (8 lines) · arguments: bead_counts, min_beads · calls: array run 1 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`
 
 ### `stage_0_intake.py::step_0_6_bead_count_qc`
 
 Step 0.6: grades the bead counts and flags a low count. Always advances.
 
-*Code:* `stage_0_intake.py` line 800 (14 lines) · arguments: record, bead_counts · calls: array run 1
+*Code:* `stage_0_intake.py` line 830 (14 lines) · arguments: record, bead_counts · calls: array run 1
 
 ### `stage_0_intake.py::validate_call_rate`
 
 The share of probes passing both detection and bead count, graded: 0.98 or more PASS, from 0.93 BORDERLINE, below FAIL.
 
-*Code:* `stage_0_intake.py` line 824 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`
+*Code:* `stage_0_intake.py` line 854 (9 lines) · arguments: n_passing_both, n_total · calls: array run 2 · constants read: `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`
 
 ### `stage_0_intake.py::step_0_7_call_rate`
 
 Step 0.7: combines the detection and bead masks probe by probe and grades the call rate. Without masks the check is deferred, and a
 deferred call rate never advances.
 
-*Code:* `stage_0_intake.py` line 835 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1
+*Code:* `stage_0_intake.py` line 865 (22 lines) · arguments: record, detection_pass_mask, bead_pass_mask · calls: array run 1
 
 ### `stage_0_intake.py::step_0_7b_platform_coverage`
 
 Step 0.7b: stamps the platform tag. On a 450K array it stops below 80 % of the reference sites; on EPIC it records `NA_EPIC` and passes.
 
-*Code:* `stage_0_intake.py` line 866 (25 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`
+*Code:* `stage_0_intake.py` line 896 (25 lines) · arguments: record, reference_cpg_coverage · calls: array run 2 · constants read: `HM450_COVERAGE_MIN`
 
 ### `stage_0_intake.py::predict_sex`
 
 Female when the median log2 Y intensity minus the median log2 X intensity is below −2, otherwise male (minfi's getSex rule).
 
-*Code:* `stage_0_intake.py` line 900 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`
+*Code:* `stage_0_intake.py` line 930 (2 lines) · arguments: log2_x_median, log2_y_median, cutoff · calls: array run 1 · constants read: `SEX_GETSEX_CUTOFF`
 
 ### `stage_0_intake.py::validate_sex`
 
 Compares the predicted sex with a declared one. No declared sex: the array's sex is recorded and nothing is compared. A mismatch stops
 the array.
 
-*Code:* `stage_0_intake.py` line 904 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1
+*Code:* `stage_0_intake.py` line 934 (7 lines) · arguments: log2_x_median, log2_y_median, declared_sex · calls: array run 1
 
 ### `stage_0_intake.py::step_0_8_sex_check`
 
 Step 0.8: runs the sex check on the hand-off's X and Y medians and stamps the result.
 
-*Code:* `stage_0_intake.py` line 913 (15 lines) · arguments: record, sex_intensities · calls: array run 1
+*Code:* `stage_0_intake.py` line 943 (15 lines) · arguments: record, sex_intensities · calls: array run 1
 
 ### `stage_0_intake.py::_fmt`
 
 Formats a measured number for an explanation, or says "not measured".
 
-*Code:* `stage_0_intake.py` line 942 (2 lines) · arguments: x, nd · calls: array run 2
+*Code:* `stage_0_intake.py` line 972 (2 lines) · arguments: x, nd · calls: array run 2
 
 ### `stage_0_intake.py::explain_stage0`
 
 Builds the five-part explanation of every check that stopped, penalized or deferred the array (measured on this array, the limit, the
 limit's source and whether it is provisional, what it means, what to do). Changes no decision.
 
-*Code:* `stage_0_intake.py` line 944 (60 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HM450_COVERAGE_MIN`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC` · files named: `Runtime Matrices/Intake/intake_thresholds_v2.json`
+*Code:* `stage_0_intake.py` line 974 (60 lines) · arguments: record, hard_fail, borderline, deferred · calls: array run 2 · constants read: `BEAD_COUNT_MIN`, `BEAD_PASS_FRACTION`, `BS_CONVERSION_MIN`, `BS_THRESHOLD_CALIBRATED`, `CALL_RATE_BORDERLINE`, `CALL_RATE_PASS`, `DETECTION_BORDERLINE_FRACTION`, `DETECTION_PASS_FRACTION`, `EXTENSION_BALANCE_RANGE`, `HM450_COVERAGE_MIN`, `HYB_HIGH_LOW_MIN_RATIO`, `SEX_GETSEX_CUTOFF`, `_TH_SRC` · files named: `Runtime Matrices/Intake/intake_thresholds_v2.json`
 
 ### `stage_0_intake.py::explain_stage0.add`
 
 Adds one explanation to the list.
 
-*Code:* `stage_0_intake.py` line 946 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2
+*Code:* `stage_0_intake.py` line 976 (2 lines) · arguments: check, outcome, measured, limit, source, provisional, means, todo · calls: array run 2
 
 ### `stage_0_intake.py::step_0_9_decision_gate`
 
@@ -1836,7 +1846,7 @@ Step 0.9: sorts every step's outcome into hard failures, penalties and deferrals
 or PROCEED). A deferred detection or call rate is a hard failure; a deferred bead count is recorded.
 Attaches the explanations and logs the verdict.
 
-*Code:* `stage_0_intake.py` line 1006 (80 lines) · arguments: record, verdict_log_path · calls: array run 2
+*Code:* `stage_0_intake.py` line 1036 (80 lines) · arguments: record, verdict_log_path · calls: array run 2
 
 ## 3. The QC hand-off: `stage_0_1_qc_handoff.py`
 
@@ -3209,6 +3219,12 @@ eps0 read from derived_line_v1.json. Returns A_derived_held with its site count,
 True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (their payload
 checksums are kept in IAMA_COMMISSIONING['files']); otherwise False with the files that differ. `stage_v4.stage_q2` gives the commissioned
 label only when it is True, and says which file changed when it is not.
+
+### run_sample.py: refusal MIXED_SAMPLE
+
+When no cell was named and the Deconvolver finds a mixture (`mixture_check`), IAM-A is not read: it reads one cell type, and reading a mixture
+as its largest cell would mix several types' levels into one A. The record lists the groups found. A named cell (`--seq-cell`) is read as
+before. IAM-A in a mixture (`iam_a_mix`) is in development.
 
 ### run_sample.py: refusal NO_CHAIN_CELL
 

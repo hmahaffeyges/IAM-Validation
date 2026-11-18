@@ -1439,15 +1439,18 @@ def main():
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2
         cells = set(_Q2.shape_reference()["cells"])
-        _noq2 = None
+        _noq2 = None; _noq2c = "NO_CHAIN_CELL"; _auto = a.seq_cell is None
         if a.seq_cell is None:   # 2026-11-07: the cell the Deconvolver found most of among those IAM-A holds a reference for; never the specimen's words
             import stage_0_intake as _S0; _fq = [c for c, _ in _S0.cells_found(o.get("cell_shares"))]
             a.seq_cell = next((c for c in _fq if c in cells), None)
             if a.seq_cell: print(f"Stage Q2: the sequenced cell is {a.seq_cell} (the Deconvolver's; found: {', '.join(_fq[:4])})", flush=True)
             else: _noq2 = ("the Deconvolver found no cell in this sample that IAM-A holds a reference for (found: " + (", ".join(_fq[:4]) or "none")
                            + "); no cell is read from the specimen's words")
+        if _auto and not _noq2:   # 2026-11-18 overhaul E2b: a mixture is not read as its largest cell
+            import stage_0_intake as _S0m; _mx = _S0m.mixture_check(o.get("cell_shares")); o["mixture_check"] = _mx
+            if _mx.get("mixed"): _noq2 = _mx["refusal"]; _noq2c = "MIXED_SAMPLE"; print("Stage Q2: " + _noq2, flush=True)
         src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
-        if _noq2: o["iam_a_intake"] = {"stage": "Q0", "status": "refused", "refusal_code": "NO_CHAIN_CELL", "refusal": _noq2}
+        if _noq2: o["iam_a_intake"] = {"stage": "Q0", "status": "refused", "refusal_code": _noq2c, "refusal": _noq2}
         elif a.pat:
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
@@ -1546,7 +1549,7 @@ def main():
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
             if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
         elif qi.get("refusal_code"):
-            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') == 'NO_CHAIN_CELL' else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
+            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') in ('NO_CHAIN_CELL', 'MIXED_SAMPLE') else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
@@ -1571,7 +1574,7 @@ def main():
         qi = o.get("iam_a_intake") or {}
         if qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"],
-                          "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') == 'NO_CHAIN_CELL' else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
+                          "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') in ('NO_CHAIN_CELL', 'MIXED_SAMPLE') else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:
             o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=bool(getattr(a, "dev_allow_partial", False))); o["iam_a"]["input"] = src
             if getattr(a, "iama_ref_table", None):

@@ -6477,3 +6477,10 @@ _Written at midnight from the day's record (the chat, the checklist forms and th
 - X6 (three-way clusters): in the cosmos simulator.
 - X7 (the rate exponent): carried in the record-rate checks.
 - X11 (Koide): the entropy form and the canonical-pair reading.
+
+### 2026-11-18 · PHY-084, COM-IAMA-054: chain overhaul step E2b (a mixture is not read as its largest cell)
+The chain audit found that a whole-blood molecule file was read by IAM-A as one cell. Stage 0 now pools sibling types into lineage groups
+and calls a file a mixture when a second group holds more than 0.12: the floor is the largest second share in 154 sorted atlas libraries
+(0.112, GitHub run 44274975547), and a planted 100-million-molecule blood mixture is recovered within 0.02 per group (run 44275835821).
+When no cell was named and the file is a mixture, IAM-A is not read (MIXED_SAMPLE). Readings with a named cell, and IAM-A's arithmetic, are
+unchanged; no sorted library of the purity check crosses the floor.

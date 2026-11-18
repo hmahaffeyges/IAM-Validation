@@ -119,6 +119,36 @@ def cells_found(cell_shares, floor=CELL_FLOOR):
     rows = (cell_shares or {}).get("cells") or [] if isinstance(cell_shares, dict) else []
     return sorted(((r["cell"], float(r["share"])) for r in rows if r.get("share") is not None and float(r["share"]) >= floor), key=lambda x: -x[1])
 
+LINEAGE = {   # 2026-11-18 (overhaul E2b): sibling types pooled before the mixture test (the purity check's largest second shares were siblings)
+    "T cells": ("cd4 t cells", "cd8 t cells", "naive cd4 t cells", "naive cd8 t cells", "effector memory cd8 t cells", "t central memory cd4",
+                "t effector cell cd8", "t effector memory cd4"),
+    "B cells": ("b cells", "memory b cells"),
+    "monocytes and macrophages": ("monocytes", "colon macrophages", "lung alveolar macrophages", "lung interstitial macrophages"),
+    "neural": ("cortical neurons", "oligodendrocytes"),
+    "kidney endothelium": ("kidney glomerular endothelium", "kidney tubular endothelium"),
+    "kidney epithelium": ("kidney glomerular epithelium", "kidney tubular epithelium"),
+    "stomach epithelium": ("gastric antrum epithelium", "gastric body epithelium", "gastric fundus epithelium"),
+    "pancreatic islet": ("pancreatic alpha", "pancreatic beta", "pancreatic delta"),
+    "breast epithelium": ("breast basal epithelium", "breast luminal epithelium"),
+    "tonsil epithelium": ("tonsil palatine epithelium", "tonsil pharyngeal epithelium"),
+}
+LINEAGE_OF = {c: g for g, cs in LINEAGE.items() for c in cs}
+MIX_FLOOR = 0.12   # measured: the largest second share in 154 sorted atlas libraries was 0.112 (purity check, GitHub run 44274975547), rounded up
+
+def mixture_check(cell_shares, floor=MIX_FLOOR):
+    """Is the sample one cell type or a mixture? Sibling types are pooled into lineage groups (LINEAGE; any other cell is its own group); the
+    sample is a mixture when a second group holds more than `floor`. Returns the groups, largest first, and a refusal text when mixed."""
+    g = {}
+    for c, x in cells_found(cell_shares):
+        k = LINEAGE_OF.get(c, c); g[k] = g.get(k, 0.0) + x
+    G = sorted(g.items(), key=lambda kv: -kv[1])
+    rec = dict(rule=f"siblings pooled; a mixture when a second lineage group holds more than {floor} (the sorted maximum 0.112)", floor=floor,
+               groups=[dict(group=k, share=round(v, 4)) for k, v in G[:6]], mixed=bool(len(G) >= 2 and G[1][1] > floor))
+    if rec["mixed"]:
+        rec["refusal"] = ("the sample is a mixture of cell types (" + ", ".join(f"{k} {v:.1%}" for k, v in G[:4]) + "); IAM-A reads one cell type, "
+                          "so it is not read without a named cell (--seq-cell); IAM-A in a mixture is in development (iam_a_mix)")
+    return rec
+
 def chain_cell(cell_shares):
     """The cell the Deconvolver found most of, or None. The only source of a single-cell reading's cell (IAM-A, coupling-A, the sorted-cell
     Met-A) when the operator did not set one."""
