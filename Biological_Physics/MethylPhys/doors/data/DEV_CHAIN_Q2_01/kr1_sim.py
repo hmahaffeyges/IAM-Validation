@@ -78,6 +78,10 @@ for name, (fwd, bwd, x0) in objs.items():
     Kr = [koide(vec(x)) for x in Xr]; recKr = [(q(r, rlo, rhi), q(Qv, 1 / 3, 1)) for r, Qv, _ in Kr]
     sym = float(np.mean([a == b for a, b in zip(recKr, recK[::-1])]))
     sym_state = float(np.mean([np.allclose(x, y, atol=1e-9) for x, y in zip(Xr, X[::-1])]))   # the rewind itself, at full precision
+    _mm = [i for i, (u, w) in enumerate(zip(recKr, recK[::-1])) if u != w]   # 2026-11-18 diagnostic: the first mismatching ticks, with what differs
+    if _mm:
+        _i = _mm[0]; print(f"::notice::KR1 DIAG {name}: {len(_mm)} of {len(recKr)} mismatch; lengths X {len(X)} Xr {len(Xr)}; first i {_i}: rev rec {recKr[_i]} fwd rec {recK[::-1][_i]}; "
+              f"rev K {tuple(round(float(z), 9) for z in Kr[_i])} fwd K {tuple(round(float(z), 9) for z in K[::-1][_i])}; state diff {float(np.max(np.abs(np.asarray(Xr[_i]) - np.asarray(X[::-1][_i])))):.2e}")
     # (d) finite tile: one record kept, overwritten each tick; H(R_t-1 | R_t) over an ensemble of 20,000 random starts, records at 4 bits per number
     from collections import Counter, defaultdict
     B4 = 4; qq = lambda x, lo, hi: int(np.clip((x - lo) / (hi - lo) * 2 ** B4, 0, 2 ** B4 - 1)); pairs = defaultdict(Counter)
