@@ -5877,4 +5877,7 @@ PASS  ch:iama:pos:n_types                ch:iama:p6_08_iama:223  printed 56  rec
 PASS  ch:iama:pos:min_val                ch:iama:p6_08_iama:223  printed 0.80  recomputed 0.804265  tol 0.00500001  [measured] lowest type position on the derived line
 PASS  ch:iama:pos:max_val                ch:iama:p6_08_iama:223  printed 1.17  recomputed 1.17132  tol 0.00500001  [measured] highest type position
 
-SUMMARY  PASS 4727  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 4: Particles and Quantum Records | ch:koide (part4/p4_15a_lepton_koide.tex)
+PASS  ch:koide:SW                        ch:koide:p4_15a_lepton_koide:0  printed (algebra)  recomputed True  [derived] sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1
+
+SUMMARY  PASS 4728  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

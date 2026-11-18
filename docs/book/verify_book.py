@@ -44758,5 +44758,23 @@ def check_iama_pos_max_val():
     value = float(_jt94()['max_val'])
     return locals()
 
+# ---------------------------------------------------------------- ch:koide equal split from a sudden write (edit 150)
+@check(label='ch:koide:SW', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=0, status='derived',
+       title='sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1')
+def check_ko_SW():
+    'A step force F on a spring k: new rest point d = F/k; work F d = 2U, held (1/2) k d^2 = U, ringing amplitude d, energy (1/2) k d^2 = U. Q = |s|^2/(3|s_par|^2).'
+    k, F, t, w = sp.symbols('k F t omega', positive=True); d = F / k
+    xt = d * (1 - sp.cos(w * t))
+    held = sp.Rational(1, 2) * k * d**2; ring = sp.Rational(1, 2) * k * (xt - d)**2 + sp.Rational(1, 2) * (k / w**2) * sp.diff(xt, t)**2
+    ok1 = sp.simplify(ring - held) == 0 and sp.simplify(F * d - 2 * held) == 0
+    a, b = sp.symbols('a b', positive=True); Q = (a**2 + b**2) / (3 * a**2)
+    ok2 = sp.simplify(Q.subs(b, a)) == sp.Rational(2, 3)
+    Jz = sp.diag(1, 0, -1); Jp = sp.sqrt(2) * sp.Matrix([[0, 1, 0], [0, 0, 1], [0, 0, 0]]); Jx = (Jp + Jp.T) / 2; Jy = (Jp - Jp.T) / (2 * sp.I)
+    psi = sp.Matrix([1, 0, 0]); ex = lambda A: (psi.H * A * psi)[0]
+    ok3 = sp.simplify(ex(Jz)**2 - 1) == 0 and sp.simplify(ex(Jx * Jx + Jy * Jy) - 1) == 0
+    ok = ok1 and ok2 and ok3
+    neg_ok = sp.simplify(Q.subs(b, 2 * a)) == sp.Rational(2, 3)
+    return locals()
+
 if __name__ == "__main__":
     sys.exit(main())
