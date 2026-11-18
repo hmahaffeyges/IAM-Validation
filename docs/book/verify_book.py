@@ -2920,14 +2920,14 @@ def _f03_register(verdict, domain=None):
 
 # ======== Part 0 | ch:p0_preface | docs/book/front/p0_preface.tex
 @check(label='ch:p0_preface:L59', chapter='ch:p0_preface', part=0, title='Planck 2018 H0 (published)',
-       file='front/p0_preface', line=59, status='observed', kind='num', printed='67.36', tol=0.0)
+       file='front/p0_preface', line=56, status='observed', kind='num', printed='67.36', tol=0.0)
 def check_3122():
     'Planck 2018 H0 from the CMB, the photon-sector measurement. Book line 59, printed 67.36. Input: Planck 2018 VI (TT,TE,EE+lowE+lensing), Table 2, H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910); h_pl is that value / 100.'
     value = 100 * h_pl
     return locals()
 
 @check(label='ch:p0_preface:L59:0.54', chapter='ch:p0_preface', part=0, title='Planck 2018 H0 error (published)',
-       file='front/p0_preface', line=59, status='observed', kind='num', printed='0.54', tol=0.0)
+       file='front/p0_preface', line=56, status='observed', kind='num', printed='0.54', tol=0.0)
 def check_3123():
     'One-sigma error of the Planck 2018 H0. Book line 59, printed 0.54. Input: Planck 2018 VI Table 2 (TT,TE,EE+lowE+lensing), H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910).'
     H0_planck, sd_planck = 67.36, 0.54     # Planck 2018 VI Table 2
@@ -2935,7 +2935,7 @@ def check_3123():
     return locals()
 
 @check(label='ch:p0_preface:L60', chapter='ch:p0_preface', part=0, title='SH0ES distance-ladder H0 (published)',
-       file='front/p0_preface', line=60, status='observed', kind='num', printed='73.04', tol=0.0)
+       file='front/p0_preface', line=57, status='observed', kind='num', printed='73.04', tol=0.0)
 def check_3124():
     'SH0ES distance-ladder H0, the matter-sector measurement. Book line 60, printed 73.04. Input: Riess et al. 2022, ApJL 934 L7, H0 = 73.04 +- 1.04 (doi 10.3847/2041-8213/ac5c5b).'
     H0_shoes, sd_shoes = 73.04, 1.04       # Riess et al. 2022 abstract
@@ -2943,7 +2943,7 @@ def check_3124():
     return locals()
 
 @check(label='ch:p0_preface:L60:1.04', chapter='ch:p0_preface', part=0, title='SH0ES H0 error (published)',
-       file='front/p0_preface', line=60, status='observed', kind='num', printed='1.04', tol=0.0)
+       file='front/p0_preface', line=57, status='observed', kind='num', printed='1.04', tol=0.0)
 def check_3125():
     'One-sigma error of the SH0ES H0. Book line 60, printed 1.04. Input: Riess et al. 2022, ApJL 934 L7, H0 = 73.04 +- 1.04 (doi 10.3847/2041-8213/ac5c5b).'
     H0_shoes, sd_shoes = 73.04, 1.04       # Riess et al. 2022 abstract
@@ -2951,7 +2951,7 @@ def check_3125():
     return locals()
 
 @check(label='ch:p0_preface:L60:67.16', chapter='ch:p0_preface', part=0, title='photon-sector H0, Level 2 chain Run A posterior mean',
-       file='front/p0_preface', line=60, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='front/p0_preface', line=57, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun=_B00_CHAIN_RERUN)
 def check_3126():
     'Photon-sector H0 with the record term: posterior mean of the Level 2 IAM chain (Run A). Book line 60, printed 67.16. Source: Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv, row iam_level2_runA, column H0.'
@@ -2959,7 +2959,7 @@ def check_3126():
     return locals()
 
 @check(label='ch:p0_preface:L61', chapter='ch:p0_preface', part=0, title='sigma deviation of IAM photon H0 from Planck',
-       file='front/p0_preface', line=61, status='calc', kind='num', printed='0.37', tol=0.0135)
+       file='front/p0_preface', line=58, status='calc', kind='num', printed='0.37', tol=0.0135)
 def check_0000():
     'sigma deviation of IAM photon H0 from Planck. Book line 61, printed 0.37.'
     H0_photon=67.16
@@ -2969,7 +2969,7 @@ def check_0000():
     return locals()
 
 @check(label='ch:p0_preface:L61:0.75', chapter='ch:p0_preface', part=0, title='sigma deviation of IAM matter H0 from Riess22',
-       file='front/p0_preface', line=61, status='calc', kind='num', printed='0.75', tol=0.0067)
+       file='front/p0_preface', line=58, status='calc', kind='num', printed='0.75', tol=0.0067)
 def check_0001():
     'sigma deviation of IAM matter H0 from Riess22. Book line 61, printed 0.75.'
     H0_matter=72.26
@@ -2979,7 +2979,7 @@ def check_0001():
     return locals()
 
 @check(label='ch:p0_preface:L61:72.26', chapter='ch:p0_preface', part=0, title='matter-sector H0 = chain H0 x sqrt(1+beta_m)',
-       file='front/p0_preface', line=61, status='calc', kind='num', printed='72.26', tol=0.0)
+       file='front/p0_preface', line=58, status='calc', kind='num', printed='72.26', tol=0.0)
 def check_3127():
     'Matter-sector H0 from the same posterior: the Run A photon-sector H0 times sqrt(1+beta_m), beta_m = Omega_m/2 from the canon. Book line 61, printed 72.26. Inputs: H0 from Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (iam_level2_runA); beta_m from CANON.'
     H0_ph = csv_val('Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv', 'iam_level2_runA', 'H0')
@@ -2987,7 +2987,7 @@ def check_3127():
     return locals()
 
 @check(label='ch:p0_preface:L62', chapter='ch:p0_preface', part=0, title='sigma8 LCDM-sector level-2 chain result',
-       file='front/p0_preface', line=62, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='front/p0_preface', line=59, status='measured', kind='file', printed='0.809', tol=0.000618, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0002():
     'sigma8 LCDM-sector level-2 chain result. Book line 62, printed 0.809.'
@@ -2995,7 +2995,7 @@ def check_0002():
     return locals()
 
 @check(label='ch:p0_preface:L62:0.800', chapter='ch:p0_preface', part=0, title='sigma8 IAM matter-sector level-2 chain result',
-       file='front/p0_preface', line=62, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='front/p0_preface', line=59, status='measured', kind='file', printed='0.800', tol=0.000625, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_0003():
     'sigma8 IAM matter-sector level-2 chain result. Book line 62, printed 0.800.'
@@ -3003,7 +3003,7 @@ def check_0003():
     return locals()
 
 @check(label='ch:p0_preface:L65', chapter='ch:p0_preface', part=0, title='half Delta-chi2 exponent for likelihood ratio',
-       file='front/p0_preface', line=65, status='calc', kind='num', printed='-0.27', tol=0.0185)
+       file='front/p0_preface', line=62, status='calc', kind='num', printed='-0.27', tol=0.0185)
 def check_0004():
     'half Delta-chi2 exponent for likelihood ratio. Book line 65, printed -0.27.'
     dchi2=0.54
@@ -3011,7 +3011,7 @@ def check_0004():
     return locals()
 
 @check(label='ch:p0_preface:L65:0.76', chapter='ch:p0_preface', part=0, title='likelihood ratio exp(-Delta-chi2/2)',
-       file='front/p0_preface', line=65, status='calc', kind='num', printed='0.76', tol=0.0066)
+       file='front/p0_preface', line=62, status='calc', kind='num', printed='0.76', tol=0.0066)
 def check_0005():
     'likelihood ratio exp(-Delta-chi2/2). Book line 65, printed 0.76.'
     import math
@@ -14069,91 +14069,91 @@ def check_1151():
     return locals()
 
 @check(label='ch:darkenergy:L172', chapter='ch:darkenergy', part=2, title='H_m(1) matter-sector rate today',
-       file='part2/p2_11_dark_energy', line=172, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='part2/p2_11_dark_energy', line=174, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_1152():
     'H_m(1) matter-sector rate today. Book line 172, printed 72.26.'
     H0=67.16; pass; value=H0*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:darkenergy:L172:55.57', chapter='ch:darkenergy', part=2, title='repeat of H_infinity in caption',
-       file='part2/p2_11_dark_energy', line=172, status='calc', kind='num', printed='55.57', tol=9e-05)
+       file='part2/p2_11_dark_energy', line=174, status='calc', kind='num', printed='55.57', tol=9e-05)
 def check_1153():
     'repeat of H_infinity in caption. Book line 172, printed 55.57.'
     H0=67.16; pass; value=H0*math.sqrt(1-Om)
     return locals()
 
 @check(label='ch:darkenergy:L173', chapter='ch:darkenergy', part=2, title='H_m asymptote, matter-sector',
-       file='part2/p2_11_dark_energy', line=173, status='calc', kind='num', printed='70.86', tol=7e-05)
+       file='part2/p2_11_dark_energy', line=175, status='calc', kind='num', printed='70.86', tol=7e-05)
 def check_1154():
     'H_m asymptote, matter-sector. Book line 173, printed 70.86.'
     H0=67.16; pass; OL=0.6847; value=H0*math.sqrt(OL+beta_m*math.e)
     return locals()
 
 @check(label='ch:darkenergy:L173:1.076', chapter='ch:darkenergy', part=2, title='H_m/H ratio at a=1',
-       file='part2/p2_11_dark_energy', line=173, status='calc', kind='num', printed='1.076', tol=0.000465)
+       file='part2/p2_11_dark_energy', line=175, status='calc', kind='num', printed='1.076', tol=0.000465)
 def check_1155():
     'H_m/H ratio at a=1. Book line 173, printed 1.076.'
     pass; value=math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:darkenergy:L173:1.166', chapter='ch:darkenergy', part=2, title='H_m/H ratio at a=2',
-       file='part2/p2_11_dark_energy', line=173, status='calc', kind='num', printed='1.166', tol=0.000429)
+       file='part2/p2_11_dark_energy', line=175, status='calc', kind='num', printed='1.166', tol=0.000429)
 def check_1156():
     'H_m/H ratio at a=2. Book line 173, printed 1.166.'
     pass; OL=0.6847; pass; a=2; Ea=math.exp(1-1/a); value=math.sqrt((Om*a**-3+OL+beta_m*Ea)/(Om*a**-3+OL))
     return locals()
 
 @check(label='ch:darkenergy:L173:1.251', chapter='ch:darkenergy', part=2, title='H_m/H ratio at a=10',
-       file='part2/p2_11_dark_energy', line=173, status='calc', kind='num', printed='1.251', tol=0.0004)
+       file='part2/p2_11_dark_energy', line=175, status='calc', kind='num', printed='1.251', tol=0.0004)
 def check_1157():
     'H_m/H ratio at a=10. Book line 173, printed 1.251.'
     pass; OL=0.6847; pass; a=10; Ea=math.exp(1-1/a); value=math.sqrt((Om*a**-3+OL+beta_m*Ea)/(Om*a**-3+OL))
     return locals()
 
 @check(label='ch:darkenergy:L174', chapter='ch:darkenergy', part=2, title='H_m/H ratio limit a->infinity',
-       file='part2/p2_11_dark_energy', line=174, status='calc', kind='num', printed='1.275', tol=0.000392)
+       file='part2/p2_11_dark_energy', line=176, status='calc', kind='num', printed='1.275', tol=0.000392)
 def check_1158():
     'H_m/H ratio limit a->infinity. Book line 174, printed 1.275.'
     pass; OL=0.6847; pass; value=math.sqrt((OL+beta_m*math.e)/OL)
     return locals()
 
 @check(label='ch:darkenergy:L181', chapter='ch:darkenergy', part=2, title='table: H_m at a=1',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_1159():
     'table: H_m at a=1. Book line 181, printed 72.26.'
     H0=67.16; pass; value=H0*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:darkenergy:L181:1.076', chapter='ch:darkenergy', part=2, title='table: ratio at a=1',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='1.076', tol=0.000465)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='1.076', tol=0.000465)
 def check_1160():
     'table: ratio at a=1. Book line 181, printed 1.076.'
     pass; value=math.sqrt(1+beta_m)
     return locals()
 
 @check(label='ch:darkenergy:L181:57.15', chapter='ch:darkenergy', part=2, title='table: photon rate H at a=2',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='57.15', tol=8.75e-05)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='57.15', tol=8.75e-05)
 def check_1161():
     'table: photon rate H at a=2. Book line 181, printed 57.15.'
     H0=67.16; pass; OL=0.6847; a=2; value=H0*math.sqrt(Om*a**-3+OL)
     return locals()
 
 @check(label='ch:darkenergy:L181:66.62', chapter='ch:darkenergy', part=2, title='table: matter rate H_m at a=2',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='66.62', tol=7.5e-05)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='66.62', tol=7.5e-05)
 def check_1162():
     'table: matter rate H_m at a=2. Book line 181, printed 66.62.'
     H0=67.16; pass; OL=0.6847; pass; a=2; Ea=math.exp(1-1/a); value=H0*math.sqrt(Om*a**-3+OL+beta_m*Ea)
     return locals()
 
 @check(label='ch:darkenergy:L181:1.166', chapter='ch:darkenergy', part=2, title='table: ratio at a=2',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='1.166', tol=0.000429)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='1.166', tol=0.000429)
 def check_1163():
     'table: ratio at a=2. Book line 181, printed 1.166.'
     pass; OL=0.6847; pass; a=2; Ea=math.exp(1-1/a); value=math.sqrt((Om*a**-3+OL+beta_m*Ea)/(Om*a**-3+OL))
     return locals()
 
 @check(label='ch:darkenergy:L181:55.59', chapter='ch:darkenergy', part=2, title='table: photon rate H at a=10',
-       file='part2/p2_11_dark_energy', line=181, status='calc', kind='num', printed='55.59', tol=9e-05)
+       file='part2/p2_11_dark_energy', line=183, status='calc', kind='num', printed='55.59', tol=9e-05)
 def check_1164():
     'table: photon rate H at a=10. Book line 181, printed 55.59.'
     H0=67.16; pass; OL=0.6847; a=10; value=H0*math.sqrt(Om*a**-3+OL)
@@ -14167,7 +14167,7 @@ def check_1165():
     return locals()
 
 @check(label='eq:de_maturity_today:0.36788', chapter='ch:darkenergy', part=2, title='maturity fraction today, 1/e',
-       file='part2/p2_11_dark_energy', line=202, status='derived', kind='num', printed='0.36788', tol=1.36e-05)
+       file='part2/p2_11_dark_energy', line=204, status='derived', kind='num', printed='0.36788', tol=1.36e-05)
 def check_1166():
     'maturity fraction today, 1/e (Eq. eq:de_maturity_today). Book line 202, printed 0.36788.'
     value=1/math.e
@@ -14188,14 +14188,14 @@ def check_1168():
     return locals()
 
 @check(label='ch:darkenergy:L206', chapter='ch:darkenergy', part=2, title='rate da at a=1 equals 1/e',
-       file='part2/p2_11_dark_energy', line=206, status='derived', kind='num', printed='0.368', tol=0.00136)
+       file='part2/p2_11_dark_energy', line=208, status='derived', kind='num', printed='0.368', tol=0.00136)
 def check_1169():
     'rate da at a=1 equals 1/e. Book line 206, printed 0.368.'
     value=1/math.e
     return locals()
 
 @check(label='ch:darkenergy:L206:0.541', chapter='ch:darkenergy', part=2, title='max of rate da value',
-       file='part2/p2_11_dark_energy', line=206, status='derived', kind='num', printed='0.541', tol=0.000924)
+       file='part2/p2_11_dark_energy', line=208, status='derived', kind='num', printed='0.541', tol=0.000924)
 def check_1170():
     'max of rate da value. Book line 206, printed 0.541.'
     value=4/math.e**2
@@ -14233,119 +14233,119 @@ def check_1174():
     return locals()
 
 @check(label='ch:darkenergy:L223', chapter='ch:darkenergy', part=2, title='scale factor at 1% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='0.217', tol=0.0023)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='0.217', tol=0.0023)
 def check_1175():
     'scale factor at 1% maturity. Book line 223, printed 0.217.'
     value=-1/math.log(0.01)
     return locals()
 
 @check(label='ch:darkenergy:L223:3.61', chapter='ch:darkenergy', part=2, title='redshift at 1% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='3.61', tol=0.00139)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='3.61', tol=0.00139)
 def check_1176():
     'redshift at 1% maturity. Book line 223, printed 3.61.'
     a=-1/math.log(0.01);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L223:1.7', chapter='ch:darkenergy', part=2, title='age of universe at 1% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='1.7', tol=0.0294)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='1.7', tol=0.0294)
 def check_1177():
     'age of universe at 1% maturity. Book line 223, printed 1.7.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.01);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L223:-12.1', chapter='ch:darkenergy', part=2, title='time from now at 1% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='-12.1', tol=0.00413)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-12.1', tol=0.00413)
 def check_1178():
     'time from now at 1% maturity. Book line 223, printed -12.1.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.01);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L223:0.334', chapter='ch:darkenergy', part=2, title='scale factor at 5% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='0.334', tol=0.0015)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='0.334', tol=0.0015)
 def check_1179():
     'scale factor at 5% maturity. Book line 223, printed 0.334.'
     value=-1/math.log(0.05)
     return locals()
 
 @check(label='ch:darkenergy:L223:2.00', chapter='ch:darkenergy', part=2, title='redshift at 5% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='2.00', tol=0.0025)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='2.00', tol=0.0025)
 def check_1180():
     'redshift at 5% maturity. Book line 223, printed 2.00.'
     a=-1/math.log(0.05);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L223:3.3', chapter='ch:darkenergy', part=2, title='age at 5% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='3.3', tol=0.0152)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='3.3', tol=0.0152)
 def check_1181():
     'age at 5% maturity. Book line 223, printed 3.3.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.05);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L223:-10.5', chapter='ch:darkenergy', part=2, title='time from now at 5% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='-10.5', tol=0.00476)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-10.5', tol=0.00476)
 def check_1182():
     'time from now at 5% maturity. Book line 223, printed -10.5.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.05);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L223:0.434', chapter='ch:darkenergy', part=2, title='scale factor at 10% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='0.434', tol=0.00115)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='0.434', tol=0.00115)
 def check_1183():
     'scale factor at 10% maturity. Book line 223, printed 0.434.'
     value=-1/math.log(0.10)
     return locals()
 
 @check(label='ch:darkenergy:L223:1.30', chapter='ch:darkenergy', part=2, title='redshift at 10% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='1.30', tol=0.00385)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='1.30', tol=0.00385)
 def check_1184():
     'redshift at 10% maturity. Book line 223, printed 1.30.'
     a=-1/math.log(0.10);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L223:4.8', chapter='ch:darkenergy', part=2, title='age at 10% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='4.8', tol=0.0104)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='4.8', tol=0.0104)
 def check_1185():
     'age at 10% maturity. Book line 223, printed 4.8.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.10);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L223:-9.0', chapter='ch:darkenergy', part=2, title='time from now at 10% maturity',
-       file='part2/p2_11_dark_energy', line=223, status='calc', kind='num', printed='-9.0', tol=0.00556)
+       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-9.0', tol=0.00556)
 def check_1186():
     'time from now at 10% maturity. Book line 223, printed -9.0.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.10);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L224', chapter='ch:darkenergy', part=2, title='scale factor at 20% maturity',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0.621', tol=0.000805)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='0.621', tol=0.000805)
 def check_1187():
     'scale factor at 20% maturity. Book line 224, printed 0.621.'
     value=-1/math.log(0.20)
     return locals()
 
 @check(label='ch:darkenergy:L224:0.61', chapter='ch:darkenergy', part=2, title='redshift at 20% maturity',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0.61', tol=0.0082)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='0.61', tol=0.0082)
 def check_1188():
     'redshift at 20% maturity. Book line 224, printed 0.61.'
     a=-1/math.log(0.20);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L224:7.8', chapter='ch:darkenergy', part=2, title='age at 20% maturity',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='7.8', tol=0.00641)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='7.8', tol=0.00641)
 def check_1189():
     'age at 20% maturity. Book line 224, printed 7.8.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.20);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L224:-6.0', chapter='ch:darkenergy', part=2, title='time from now at 20% maturity',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='-6.0', tol=0.00833)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='-6.0', tol=0.00833)
 def check_1190():
     'time from now at 20% maturity. Book line 224, printed -6.0.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.20);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L224:13.8', chapter='ch:darkenergy', part=2, title='age of universe today',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='13.8', tol=0.00362)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='13.8', tol=0.00362)
 def check_1191():
     'age of universe today. Book line 224, printed 13.8.'
     H0=67.4;Om=0.315;OL=0.685;value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,1.0)[0]/Gyr
@@ -14359,7 +14359,7 @@ def check_1192():
     return locals()
 
 @check(label='ch:darkenergy:L224:1.000', chapter='ch:darkenergy', part=2, title='scale factor at 36.8 % maturity (today)',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='1.000', tol=0.0)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='1.000', tol=0.0)
 def check_3478():
     'Scale factor at maturity f = E(1)/e (today) from Eq. de_af, a(f) = -1/ln f, with E(1) = exp(1 - 1/1). Book line 224, printed 1.000.'
     f = float(E_act(1.0)) / math.e
@@ -14367,7 +14367,7 @@ def check_3478():
     return locals()
 
 @check(label='ch:darkenergy:L224:0.00', chapter='ch:darkenergy', part=2, title='redshift at 36.8 % maturity (today)',
-       file='part2/p2_11_dark_energy', line=224, status='calc', kind='num', printed='0.00', tol=0.0)
+       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='0.00', tol=0.0)
 def check_3479():
     'Redshift z = 1/a - 1 at maturity f = E(1)/e from Eq. de_af. Book line 224, printed 0.00.'
     f = float(E_act(1.0)) / math.e
@@ -14376,147 +14376,147 @@ def check_3479():
     return locals()
 
 @check(label='ch:darkenergy:L225', chapter='ch:darkenergy', part=2, title='scale factor at 50% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='1.443', tol=0.000347)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='1.443', tol=0.000347)
 def check_1193():
     'scale factor at 50% maturity. Book line 225, printed 1.443.'
     value=-1/math.log(0.50)
     return locals()
 
 @check(label='ch:darkenergy:L225:-0.31', chapter='ch:darkenergy', part=2, title='redshift at 50% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-0.31', tol=0.0161)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='-0.31', tol=0.0161)
 def check_1194():
     'redshift at 50% maturity. Book line 225, printed -0.31.'
     a=-1/math.log(0.50);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L225:19.5', chapter='ch:darkenergy', part=2, title='age at 50% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='19.5', tol=0.00256)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='19.5', tol=0.00256)
 def check_1195():
     'age at 50% maturity. Book line 225, printed 19.5.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.50);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L225:5.7', chapter='ch:darkenergy', part=2, title='time from now at 50% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='5.7', tol=0.00877)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='5.7', tol=0.00877)
 def check_1196():
     'time from now at 50% maturity. Book line 225, printed 5.7.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.50);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L225:3.476', chapter='ch:darkenergy', part=2, title='scale factor at 75% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='3.476', tol=0.000144)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='3.476', tol=0.000144)
 def check_1197():
     'scale factor at 75% maturity. Book line 225, printed 3.476.'
     value=-1/math.log(0.75)
     return locals()
 
 @check(label='ch:darkenergy:L225:-0.71', chapter='ch:darkenergy', part=2, title='redshift at 75% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-0.71', tol=0.00704)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='-0.71', tol=0.00704)
 def check_1198():
     'redshift at 75% maturity. Book line 225, printed -0.71.'
     a=-1/math.log(0.75);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L225:34.5', chapter='ch:darkenergy', part=2, title='age at 75% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='34.5', tol=0.00145)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='34.5', tol=0.00145)
 def check_1199():
     'age at 75% maturity. Book line 225, printed 34.5.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.75);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L225:20.7', chapter='ch:darkenergy', part=2, title='time from now at 75% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='20.7', tol=0.00242)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='20.7', tol=0.00242)
 def check_1200():
     'time from now at 75% maturity. Book line 225, printed 20.7.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.75);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L225:9.491', chapter='ch:darkenergy', part=2, title='scale factor at 90% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='9.491', tol=5.27e-05)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='9.491', tol=5.27e-05)
 def check_1201():
     'scale factor at 90% maturity. Book line 225, printed 9.491.'
     value=-1/math.log(0.90)
     return locals()
 
 @check(label='ch:darkenergy:L225:-0.89', chapter='ch:darkenergy', part=2, title='redshift at 90% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='-0.89', tol=0.00562)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='-0.89', tol=0.00562)
 def check_1202():
     'redshift at 90% maturity. Book line 225, printed -0.89.'
     a=-1/math.log(0.90);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L225:52.1', chapter='ch:darkenergy', part=2, title='age at 90% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='52.1', tol=0.00096)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='52.1', tol=0.00096)
 def check_1203():
     'age at 90% maturity. Book line 225, printed 52.1.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.90);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L225:38.3', chapter='ch:darkenergy', part=2, title='time from now at 90% maturity',
-       file='part2/p2_11_dark_energy', line=225, status='calc', kind='num', printed='38.3', tol=0.00131)
+       file='part2/p2_11_dark_energy', line=227, status='calc', kind='num', printed='38.3', tol=0.00131)
 def check_1204():
     'time from now at 90% maturity. Book line 225, printed 38.3.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.90);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L226', chapter='ch:darkenergy', part=2, title='scale factor at 95% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='19.50', tol=0.000256)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='19.50', tol=0.000256)
 def check_1205():
     'scale factor at 95% maturity. Book line 226, printed 19.50.'
     value=-1/math.log(0.95)
     return locals()
 
 @check(label='ch:darkenergy:L226:-0.95', chapter='ch:darkenergy', part=2, title='redshift at 95% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='-0.95', tol=0.00526)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='-0.95', tol=0.00526)
 def check_1206():
     'redshift at 95% maturity. Book line 226, printed -0.95.'
     a=-1/math.log(0.95);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L226:64.7', chapter='ch:darkenergy', part=2, title='age at 95% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='64.7', tol=0.000773)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='64.7', tol=0.000773)
 def check_1207():
     'age at 95% maturity. Book line 226, printed 64.7.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.95);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L226:50.9', chapter='ch:darkenergy', part=2, title='time from now at 95% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='50.9', tol=0.000982)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='50.9', tol=0.000982)
 def check_1208():
     'time from now at 95% maturity. Book line 226, printed 50.9.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.95);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L226:99.50', chapter='ch:darkenergy', part=2, title='scale factor at 99% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='99.50', tol=5.03e-05)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='99.50', tol=5.03e-05)
 def check_1209():
     'scale factor at 99% maturity. Book line 226, printed 99.50.'
     value=-1/math.log(0.99)
     return locals()
 
 @check(label='ch:darkenergy:L226:-0.99', chapter='ch:darkenergy', part=2, title='redshift at 99% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='-0.99', tol=0.00505)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='-0.99', tol=0.00505)
 def check_1210():
     'redshift at 99% maturity. Book line 226, printed -0.99.'
     a=-1/math.log(0.99);value=1/a-1
     return locals()
 
 @check(label='ch:darkenergy:L226:93.3', chapter='ch:darkenergy', part=2, title='age at 99% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='93.3', tol=0.000536)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='93.3', tol=0.000536)
 def check_1211():
     'age at 99% maturity. Book line 226, printed 93.3.'
     H0=67.4;Om=0.315;OL=0.685;a=-1/math.log(0.99);value=quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr
     return locals()
 
 @check(label='ch:darkenergy:L226:79.5', chapter='ch:darkenergy', part=2, title='time from now at 99% maturity',
-       file='part2/p2_11_dark_energy', line=226, status='calc', kind='num', printed='79.5', tol=0.000629)
+       file='part2/p2_11_dark_energy', line=228, status='calc', kind='num', printed='79.5', tol=0.000629)
 def check_1212():
     'time from now at 99% maturity. Book line 226, printed 79.5.'
     H0=67.4;Om=0.315;OL=0.685;age=lambda x:quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,x)[0]/Gyr;a=-1/math.log(0.99);value=age(a)-age(1.0)
     return locals()
 
 @check(label='ch:darkenergy:L228', chapter='ch:darkenergy', part=2, title='Level 2 background H0',
-       file='part2/p2_11_dark_energy', line=228, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part2/p2_11_dark_energy', line=230, status='calc', kind='file', printed='67.16', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_3481():
     'H0 of the Level 2 background (book line 228, printed 67.16): the Level 2 Run A posterior mean H0 in the committed chain record.'
@@ -14524,7 +14524,7 @@ def check_3481():
     return locals()
 
 @check(label='ch:darkenergy:L229', chapter='ch:darkenergy', part=2, title='max age increase under Level2 params',
-       file='part2/p2_11_dark_energy', line=229, status='calc', kind='num', printed='0.3', tol=0.167)
+       file='part2/p2_11_dark_energy', line=231, status='calc', kind='num', printed='0.3', tol=0.167)
 def check_1213():
     'max age increase under Level2 params. Book line 229, printed 0.3.'
     age=lambda a,H0,Om,OL: quad(lambda ap:1.0/(ap*Hsi(H0)*math.sqrt(Om/ap**3+OL)),1e-6,a)[0]/Gyr;f=0.99;a=-1/math.log(f);value=age(a,67.16,Om,1-Om)-age(a,67.4,0.315,0.685)
@@ -29800,7 +29800,7 @@ def check_3785():
     return locals()
 
 @check(label='ch:bridge:L60', chapter='ch:bridge', part=6, title='cell nucleus temperature 310.15 K',
-       file='part6/p6_01_bridge', line=60, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_01_bridge', line=59, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_3786():
     'Temperature of the cell nucleus at which the Landauer cost is evaluated, 37 C. Book line 60, printed 310.15. Source: CANON '\
     'T_cell (37 C, mammalian body temperature).'
@@ -29808,7 +29808,7 @@ def check_3786():
     return locals()
 
 @check(label='ch:bridge:L175', chapter='ch:bridge', part=6, title='cell surface temperature, 310 K',
-       file='part6/p6_01_bridge', line=175, status='conjecture', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_01_bridge', line=171, status='conjecture', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
 def check_3787():
     'Table tab:p4_twoledgers: the cell pays k_B T ln 2 at 310 K, the body temperature rounded to the kelvin. Book line 175, printed 310. '\
     'Source: CANON T_cell.'
@@ -29816,14 +29816,14 @@ def check_3787():
     return locals()
 
 @check(label='ch:bridge:L222', chapter='ch:bridge', part=6, title='decades from 1e-10 m to c/H0 (H0 = 67.4, ch:bridge line 66)',
-       file='part6/p6_01_bridge', line=222, status='calc', kind='num', printed='36.1', tol=0)
+       file='part6/p6_01_bridge', line=217, status='calc', kind='num', printed='36.1', tol=0)
 def check_2416():
     'decades from 1e-10 m to c/H0 (H0 = 67.4, ch:bridge line 66). Book line 222, printed 36.1.'
     value=math.log10(c/Hsi(67.4)/1e-10)
     return locals()
 
 @check(label='ch:bridge:L235', chapter='ch:bridge', part=6, title='T_BH, 1 M_sun',
-       file='part6/p6_01_bridge', line=235, status='calc', kind='num', printed='6.2\\times10^{-8}', tol=0)
+       file='part6/p6_01_bridge', line=230, status='calc', kind='num', printed='6.2\\times10^{-8}', tol=0)
 def check_2417():
     'T_BH, 1 M_sun. Book line 235, printed 6.2\\times10^{-8}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29834,7 +29834,7 @@ def check_2417():
     return locals()
 
 @check(label='ch:bridge:L235:5.9\\times10^{-31}', chapter='ch:bridge', part=6, title='k_B T ln2 at the horizon, J',
-       file='part6/p6_01_bridge', line=235, status='calc', kind='num', printed='5.9\\times10^{-31}', tol=0)
+       file='part6/p6_01_bridge', line=230, status='calc', kind='num', printed='5.9\\times10^{-31}', tol=0)
 def check_2418():
     'k_B T ln2 at the horizon, J. Book line 235, printed 5.9\\times10^{-31}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29845,7 +29845,7 @@ def check_2418():
     return locals()
 
 @check(label='ch:bridge:L235:1.5\\times10^{77}', chapter='ch:bridge', part=6, title='bits on the horizon',
-       file='part6/p6_01_bridge', line=235, status='calc', kind='num', printed='1.5\\times10^{77}', tol=0)
+       file='part6/p6_01_bridge', line=230, status='calc', kind='num', printed='1.5\\times10^{77}', tol=0)
 def check_2419():
     'bits on the horizon. Book line 235, printed 1.5\\times10^{77}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29856,7 +29856,7 @@ def check_2419():
     return locals()
 
 @check(label='ch:bridge:L235:8.9\\times10^{46}', chapter='ch:bridge', part=6, title='N k_B T ln2 = Mc^2/2, J',
-       file='part6/p6_01_bridge', line=235, status='calc', kind='num', printed='8.9\\times10^{46}', tol=0)
+       file='part6/p6_01_bridge', line=230, status='calc', kind='num', printed='8.9\\times10^{46}', tol=0)
 def check_2420():
     'N k_B T ln2 = Mc^2/2, J. Book line 235, printed 8.9\\times10^{46}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29867,7 +29867,7 @@ def check_2420():
     return locals()
 
 @check(label='ch:bridge:L236', chapter='ch:bridge', part=6, title='T_BH, 1e+06 M_sun',
-       file='part6/p6_01_bridge', line=236, status='calc', kind='num', printed='6.2\\times10^{-14}', tol=0)
+       file='part6/p6_01_bridge', line=231, status='calc', kind='num', printed='6.2\\times10^{-14}', tol=0)
 def check_2421():
     'T_BH, 1e+06 M_sun. Book line 236, printed 6.2\\times10^{-14}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29878,7 +29878,7 @@ def check_2421():
     return locals()
 
 @check(label='ch:bridge:L236:5.9\\times10^{-37}', chapter='ch:bridge', part=6, title='k_B T ln2 at the horizon, J',
-       file='part6/p6_01_bridge', line=236, status='calc', kind='num', printed='5.9\\times10^{-37}', tol=0)
+       file='part6/p6_01_bridge', line=231, status='calc', kind='num', printed='5.9\\times10^{-37}', tol=0)
 def check_2422():
     'k_B T ln2 at the horizon, J. Book line 236, printed 5.9\\times10^{-37}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29889,7 +29889,7 @@ def check_2422():
     return locals()
 
 @check(label='ch:bridge:L236:1.5\\times10^{89}', chapter='ch:bridge', part=6, title='bits on the horizon',
-       file='part6/p6_01_bridge', line=236, status='calc', kind='num', printed='1.5\\times10^{89}', tol=0)
+       file='part6/p6_01_bridge', line=231, status='calc', kind='num', printed='1.5\\times10^{89}', tol=0)
 def check_2423():
     'bits on the horizon. Book line 236, printed 1.5\\times10^{89}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29900,7 +29900,7 @@ def check_2423():
     return locals()
 
 @check(label='ch:bridge:L236:8.9\\times10^{52}', chapter='ch:bridge', part=6, title='N k_B T ln2 = Mc^2/2, J',
-       file='part6/p6_01_bridge', line=236, status='calc', kind='num', printed='8.9\\times10^{52}', tol=0)
+       file='part6/p6_01_bridge', line=231, status='calc', kind='num', printed='8.9\\times10^{52}', tol=0)
 def check_2424():
     'N k_B T ln2 = Mc^2/2, J. Book line 236, printed 8.9\\times10^{52}.'
     def T_BH(Ms): return hbar*c**3/(8*math.pi*G*Ms*Msun*kB)
@@ -29911,49 +29911,49 @@ def check_2424():
     return locals()
 
 @check(label='ch:bridge:L237', chapter='ch:bridge', part=6, title='20 mK in K',
-       file='part6/p6_01_bridge', line=237, status='calc', kind='num', printed='2.0\\times10^{-2}', tol=0)
+       file='part6/p6_01_bridge', line=232, status='calc', kind='num', printed='2.0\\times10^{-2}', tol=0)
 def check_2425():
     '20 mK in K. Book line 237, printed 2.0\\times10^{-2}.'
     value=0.020
     return locals()
 
 @check(label='ch:bridge:L237:1.9\\times10^{-25}', chapter='ch:bridge', part=6, title='k_B T ln2 at 20 mK',
-       file='part6/p6_01_bridge', line=237, status='calc', kind='num', printed='1.9\\times10^{-25}', tol=0)
+       file='part6/p6_01_bridge', line=232, status='calc', kind='num', printed='1.9\\times10^{-25}', tol=0)
 def check_2426():
     'k_B T ln2 at 20 mK. Book line 237, printed 1.9\\times10^{-25}.'
     value=kB*0.020*LN2
     return locals()
 
 @check(label='ch:bridge:L238', chapter='ch:bridge', part=6, title='310.15 K',
-       file='part6/p6_01_bridge', line=238, status='calc', kind='num', printed='3.1\\times10^{2}', tol=0)
+       file='part6/p6_01_bridge', line=233, status='calc', kind='num', printed='3.1\\times10^{2}', tol=0)
 def check_2427():
     '310.15 K. Book line 238, printed 3.1\\times10^{2}.'
     value=T_cell
     return locals()
 
 @check(label='ch:bridge:L238:3.0\\times10^{-21}', chapter='ch:bridge', part=6, title='k_B T ln2 at 310.15 K',
-       file='part6/p6_01_bridge', line=238, status='calc', kind='num', printed='3.0\\times10^{-21}', tol=0)
+       file='part6/p6_01_bridge', line=233, status='calc', kind='num', printed='3.0\\times10^{-21}', tol=0)
 def check_2428():
     'k_B T ln2 at 310.15 K. Book line 238, printed 3.0\\times10^{-21}.'
     value=kB*T_cell*LN2
     return locals()
 
 @check(label='ch:bridge:L238:2.8\\times10^{7}', chapter='ch:bridge', part=6, title='CpG sites (ch:landauer)',
-       file='part6/p6_01_bridge', line=238, status='calc', kind='num', printed='2.8\\times10^{7}', tol=0)
+       file='part6/p6_01_bridge', line=233, status='calc', kind='num', printed='2.8\\times10^{7}', tol=0)
 def check_2429():
     'CpG sites (ch:landauer). Book line 238, printed 2.8\\times10^{7}.'
     value=28217448
     return locals()
 
 @check(label='ch:bridge:L238:8.4\\times10^{-14}', chapter='ch:bridge', part=6, title='N k_B T ln2',
-       file='part6/p6_01_bridge', line=238, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
+       file='part6/p6_01_bridge', line=233, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
 def check_2430():
     'N k_B T ln2. Book line 238, printed 8.4\\times10^{-14}.'
     value=28217448*kB*T_cell*LN2
     return locals()
 
 @check(label='ch:bridge:L238:310.15', chapter='ch:bridge', part=6, title='cell nucleus row, T = 310.15 K',
-       file='part6/p6_01_bridge', line=238, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_01_bridge', line=233, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_3788():
     'Table tab:p4_surfaces, cell nucleus row: T = 310.15 K. Book line 238, printed 310.15. Source: CANON T_cell, the same temperature '\
     'used for k_B T ln 2 = 3.0e-21 J in ch:bridge:L238:3.0\\times10^{-21}.'
@@ -29978,7 +29978,7 @@ def check_2432():
     return locals()
 
 @check(label='ch:astrogenetics:L63', chapter='ch:astrogenetics', part=6, title='Met-A at a coin flip: 1/0.330263 (canon floor)',
-       file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_00b_astrogenetics', line=130, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
 def check_2433():
     'Met-A at a coin flip: 1/0.330263 (canon floor). Book line 63, printed 3.03.'
     value=1/load_json('CANON/iam_canon.json')['constants']['Met_A_floor_EPIC_neutrophil']['value']
@@ -30192,7 +30192,7 @@ def check_2456():
     return locals()
 
 @check(label='ch:landauer:L70', chapter='ch:landauer', part=6, title='ln 2',
-       file='part6/p6_02_landauer', line=70, status='calc', kind='num', printed='0.69', tol=0)
+       file='part6/p6_02_landauer', line=68, status='calc', kind='num', printed='0.69', tol=0)
 def check_2457():
     'ln 2. Book line 70, printed 0.69.'
     value=LN2
@@ -30207,7 +30207,7 @@ def check_3798():
     return locals()
 
 @check(label='ch:landauer:L71:20.94', chapter='ch:landauer', part=6, title='M = dG_ATP/(R T) per ATP (figure caption)',
-       file='part6/p6_02_landauer', line=71, status='calc', kind='num', printed='20.94', tol=0.0)
+       file='part6/p6_02_landauer', line=69, status='calc', kind='num', printed='20.94', tol=0.0)
 def check_3799():
     'One ATP hydrolysis under cytosolic conditions in units of k_B T, M = dG_ATP/(R T_cell). Book line 71, printed 20.94. Inputs: CANON '\
     'dG_ATP (54 kJ/mol), R, T_cell (310.15 K).'
@@ -30215,7 +30215,7 @@ def check_3799():
     return locals()
 
 @check(label='ch:landauer:L72', chapter='ch:landauer', part=6, title='Landauer floor in Landauer units',
-       file='part6/p6_02_landauer', line=72, status='calc', kind='num', printed='1.00', tol=0)
+       file='part6/p6_02_landauer', line=70, status='calc', kind='num', printed='1.00', tol=0)
 def check_2458():
     'Landauer floor in Landauer units. Book line 72, printed 1.00.'
     value=LN2/LN2
@@ -30229,14 +30229,14 @@ def check_2459():
     return locals()
 
 @check(label='ch:landauer:L72:30.21', chapter='ch:landauer', part=6, title='M/ln2',
-       file='part6/p6_02_landauer', line=72, status='calc', kind='num', printed='30.21', tol=0)
+       file='part6/p6_02_landauer', line=70, status='calc', kind='num', printed='30.21', tol=0)
 def check_2460():
     'M/ln2. Book line 72, printed 30.21.'
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
 
 @check(label='ch:landauer:L88', chapter='ch:landauer', part=6, title='M = E_sw/k_B T_j, upper count',
-       file='part6/p6_02_landauer', line=88, status='calc', kind='num', printed='399', tol=0)
+       file='part6/p6_02_landauer', line=86, status='calc', kind='num', printed='399', tol=0)
 def check_2461():
     'M = E_sw/k_B T_j, upper count. Book line 88, printed 399.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30244,7 +30244,7 @@ def check_2461():
     return locals()
 
 @check(label='ch:landauer:L88:411', chapter='ch:landauer', part=6, title='9950X upper end of the range',
-       file='part6/p6_02_landauer', line=88, status='calc', kind='num', printed='411', tol=0)
+       file='part6/p6_02_landauer', line=86, status='calc', kind='num', printed='411', tol=0)
 def check_2462():
     '9950X upper end of the range. Book line 88, printed 411.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30252,7 +30252,7 @@ def check_2462():
     return locals()
 
 @check(label='ch:landauer:L88:576', chapter='ch:landauer', part=6, title='E_sw/(k_B T_j ln2), upper count',
-       file='part6/p6_02_landauer', line=88, status='calc', kind='num', printed='576', tol=0)
+       file='part6/p6_02_landauer', line=86, status='calc', kind='num', printed='576', tol=0)
 def check_2463():
     'E_sw/(k_B T_j ln2), upper count. Book line 88, printed 576.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30260,7 +30260,7 @@ def check_2463():
     return locals()
 
 @check(label='ch:landauer:L88:593', chapter='ch:landauer', part=6, title='9950X upper end of the range',
-       file='part6/p6_02_landauer', line=88, status='calc', kind='num', printed='593', tol=0)
+       file='part6/p6_02_landauer', line=86, status='calc', kind='num', printed='593', tol=0)
 def check_2464():
     '9950X upper end of the range. Book line 88, printed 593.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30268,28 +30268,28 @@ def check_2464():
     return locals()
 
 @check(label='ch:landauer:L89', chapter='ch:landauer', part=6, title='M',
-       file='part6/p6_02_landauer', line=89, status='calc', kind='num', printed='20.94', tol=0)
+       file='part6/p6_02_landauer', line=87, status='calc', kind='num', printed='20.94', tol=0)
 def check_2465():
     'M. Book line 89, printed 20.94.'
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='ch:landauer:L89:30.21', chapter='ch:landauer', part=6, title='M/ln2',
-       file='part6/p6_02_landauer', line=89, status='calc', kind='num', printed='30.21', tol=0)
+       file='part6/p6_02_landauer', line=87, status='calc', kind='num', printed='30.21', tol=0)
 def check_2466():
     'M/ln2. Book line 89, printed 30.21.'
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
 
 @check(label='ch:landauer:L89:310', chapter='ch:landauer', part=6, title='cell nucleus at 310 K (table tab:p4operating)',
-       file='part6/p6_02_landauer', line=89, status='calc', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_02_landauer', line=87, status='calc', kind='file', printed='310', tol=0.0, source='CANON/iam_canon.json')
 def check_3800():
     'Table tab:p4operating, human cell nucleus row: T = 310 K, the cell temperature to the kelvin. Book line 89, printed 310. Source: CANON T_cell.'
     value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
     return locals()
 
 @check(label='ch:landauer:L90', chapter='ch:landauer', part=6, title='ln 2',
-       file='part6/p6_02_landauer', line=90, status='calc', kind='num', printed='0.693', tol=0)
+       file='part6/p6_02_landauer', line=88, status='calc', kind='num', printed='0.693', tol=0)
 def check_2467():
     'ln 2. Book line 90, printed 0.693.'
     value=LN2
@@ -30303,14 +30303,14 @@ def check_2468():
     return locals()
 
 @check(label='ch:landauer:L100', chapter='ch:landauer', part=6, title='M',
-       file='part6/p6_02_landauer', line=100, status='calc', kind='num', printed='20.94', tol=0)
+       file='part6/p6_02_landauer', line=98, status='calc', kind='num', printed='20.94', tol=0)
 def check_2469():
     'M. Book line 100, printed 20.94.'
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='ch:landauer:L100:30.2', chapter='ch:landauer', part=6, title='M/ln2',
-       file='part6/p6_02_landauer', line=100, status='calc', kind='num', printed='30.2', tol=0)
+       file='part6/p6_02_landauer', line=98, status='calc', kind='num', printed='30.2', tol=0)
 def check_2470():
     'M/ln2. Book line 100, printed 30.2.'
     value=dG_ATP/(R_gas*T_cell)/LN2
@@ -30331,35 +30331,35 @@ def check_2472():
     return locals()
 
 @check(label='ch:landauer:L143', chapter='ch:landauer', part=6, title='floor in ATP at 54 kJ/mol',
-       file='part6/p6_02_landauer', line=143, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
+       file='part6/p6_02_landauer', line=141, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
 def check_2473():
     'floor in ATP at 54 kJ/mol. Book line 143, printed 9.3\\times10^5.'
     value=28217448*kB*T_cell*LN2/(dG_ATP/N_A)
     return locals()
 
 @check(label='ch:landauer:L143:1.0\\times10^6', chapter='ch:landauer', part=6, title='floor in ATP at 50 kJ/mol',
-       file='part6/p6_02_landauer', line=143, status='calc', kind='num', printed='1.0\\times10^6', tol=0)
+       file='part6/p6_02_landauer', line=141, status='calc', kind='num', printed='1.0\\times10^6', tol=0)
 def check_2474():
     'floor in ATP at 50 kJ/mol. Book line 143, printed 1.0\\times10^6.'
     value=28217448*kB*T_cell*LN2/(50000/N_A)
     return locals()
 
 @check(label='ch:landauer:L149', chapter='ch:landauer', part=6, title='dG_ATP = 54 kJ/mol in the figure caption',
-       file='part6/p6_02_landauer', line=149, status='calc', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_02_landauer', line=147, status='calc', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json')
 def check_3801():
     'Free energy of ATP hydrolysis used for the ATP equivalents of Figure fig:divfloor, kJ/mol. Book line 149, printed 54. Source: CANON dG_ATP.'
     value = load_json('CANON/iam_canon.json')['constants']['dG_ATP']['value'] / 1000
     return locals()
 
 @check(label='ch:landauer:L150', chapter='ch:landauer', part=6, title='floor in ATP',
-       file='part6/p6_02_landauer', line=150, status='calc', kind='num', printed='9.34\\times10^5', tol=0)
+       file='part6/p6_02_landauer', line=148, status='calc', kind='num', printed='9.34\\times10^5', tol=0)
 def check_2475():
     'floor in ATP. Book line 150, printed 9.34\\times10^5.'
     value=28217448*kB*T_cell*LN2/(dG_ATP/N_A)
     return locals()
 
 @check(label='ch:landauer:L156', chapter='ch:landauer', part=6, title='ATP over a 24-hour cycle, order 1e14',
-       file='part6/p6_02_landauer', line=156, status='calc', kind='num', printed='10^{14}', tol=0.0)
+       file='part6/p6_02_landauer', line=154, status='calc', kind='num', printed='10^{14}', tol=0.0)
 def check_3802():
     'ATP turned over in a 24-hour cycle at a rate of order 1e9 per second. Book line 156, printed 10^{14} (order of magnitude). Input: '\
     'ATP turnover of order 1e9 per second for a growing mammalian cell of about 3000 um^3 (Milo2015, book line 155).'
@@ -30368,14 +30368,14 @@ def check_3802():
     return locals()
 
 @check(label='ch:landauer:L157', chapter='ch:landauer', part=6, title='70 % of CpGs methylated',
-       file='part6/p6_02_landauer', line=157, status='calc', kind='num', printed='2.0\\times10^7', tol=0)
+       file='part6/p6_02_landauer', line=155, status='calc', kind='num', printed='2.0\\times10^7', tol=0)
 def check_2476():
     '70 % of CpGs methylated. Book line 157, printed 2.0\\times10^7.'
     value=0.70*28217448
     return locals()
 
 @check(label='ch:landauer:L157:10^{-7}', chapter='ch:landauer', part=6, title='methyl writing as a fraction of the daily ATP budget, order 1e-7',
-       file='part6/p6_02_landauer', line=157, status='calc', kind='num', printed='10^{-7}', tol=0.0)
+       file='part6/p6_02_landauer', line=155, status='calc', kind='num', printed='10^{-7}', tol=0.0)
 def check_3803():
     'Fraction of the 24-hour ATP budget spent writing methyl groups at one ATP each, for one copy. Book line 157, printed 10^{-7} (order of '\
     'magnitude). Inputs: 70 % of the 28,217,448 CpGs of one haploid genome methylated (book lines 150, 156); ATP turnover of order 1e9 per '\
@@ -30386,28 +30386,28 @@ def check_3803():
     return locals()
 
 @check(label='ch:landauer:L158', chapter='ch:landauer', part=6, title='floor in ATP at 54 kJ/mol',
-       file='part6/p6_02_landauer', line=158, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
+       file='part6/p6_02_landauer', line=155, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
 def check_2477():
     'floor in ATP at 54 kJ/mol. Book line 158, printed 9.3\\times10^5.'
     value=28217448*kB*T_cell*LN2/(dG_ATP/N_A)
     return locals()
 
 @check(label='ch:landauer:L176', chapter='ch:landauer', part=6, title='ln(1/0.10)',
-       file='part6/p6_02_landauer', line=176, status='calc', kind='num', printed='2.3', tol=0)
+       file='part6/p6_02_landauer', line=173, status='calc', kind='num', printed='2.3', tol=0)
 def check_2478():
     'ln(1/0.10). Book line 176, printed 2.3.'
     value=math.log(1/0.10)
     return locals()
 
 @check(label='ch:landauer:L176:3.9', chapter='ch:landauer', part=6, title='ln(1/0.02)',
-       file='part6/p6_02_landauer', line=176, status='calc', kind='num', printed='3.9', tol=0)
+       file='part6/p6_02_landauer', line=173, status='calc', kind='num', printed='3.9', tol=0)
 def check_2479():
     'ln(1/0.02). Book line 176, printed 3.9.'
     value=math.log(1/0.02)
     return locals()
 
 @check(label='ch:landauer:L178', chapter='ch:landauer', part=6, title='kT per ATP',
-       file='part6/p6_02_landauer', line=178, status='calc', kind='num', printed='21', tol=0)
+       file='part6/p6_02_landauer', line=175, status='calc', kind='num', printed='21', tol=0)
 def check_2480():
     'kT per ATP. Book line 178, printed 21.'
     value=dG_ATP/(R_gas*T_cell)
@@ -30453,7 +30453,7 @@ def check_2485():
     return locals()
 
 @check(label='ch:landauer:L194', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(7) from the enzyme selectivity',
-       file='part6/p6_02_landauer', line=194, status='calc', kind='num', printed='1.9', tol=0.0)
+       file='part6/p6_02_landauer', line=191, status='calc', kind='num', printed='1.9', tol=0.0)
 def check_3804():
     'k_B T ln(selectivity) at the low end, the 7-fold hemimethylated preference of the purified human DNMT1, in k_B T. Book line 194, '\
     'printed 1.9. Input: 7-fold (Pradhan1999, book line 193), Hopfield 1974 relation.'
@@ -30461,7 +30461,7 @@ def check_3804():
     return locals()
 
 @check(label='ch:landauer:L194:4.4', chapter='ch:landauer', part=6, title='Hopfield discrimination ln(80) from the enzyme selectivity',
-       file='part6/p6_02_landauer', line=194, status='calc', kind='num', printed='4.4', tol=0.0)
+       file='part6/p6_02_landauer', line=191, status='calc', kind='num', printed='4.4', tol=0.0)
 def check_3805():
     'k_B T ln(selectivity) at the high end, the 80-fold average preference across flanking sequences, in k_B T. Book line 194, printed 4.4. '\
     'Input: 80-fold (Adam2023, book line 194), Hopfield 1974 relation.'
@@ -30484,7 +30484,7 @@ def check_3806():
     return locals()
 
 @check(label='ch:landauer:L249', chapter='ch:landauer', part=6, title='pipeline offset in beta on the immune identity sites, 450K',
-       file='part6/p6_02_landauer', line=249, status='measured', kind='file', printed='0.075', tol=0.01,
+       file='part6/p6_02_landauer', line=278, status='measured', kind='file', printed='0.075', tol=0.01,
        source='Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
 def check_3807():
     'Offset in beta between raw-IDAT noob processing and the processed reference methylomes on the immune identity sites of 450K arrays, '\
@@ -30499,35 +30499,35 @@ def check_3807():
     return locals()
 
 @check(label='ch:landauer:L259', chapter='ch:landauer', part=6, title='k_B T_body ln2',
-       file='part6/p6_02_landauer', line=259, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0)
+       file='part6/p6_02_landauer', line=287, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0)
 def check_2486():
     'k_B T_body ln2. Book line 259, printed 2.968\\times10^{-21}.'
     value=kB*T_cell*LN2
     return locals()
 
 @check(label='ch:landauer:L260', chapter='ch:landauer', part=6, title='M',
-       file='part6/p6_02_landauer', line=260, status='calc', kind='num', printed='20.94', tol=0)
+       file='part6/p6_02_landauer', line=288, status='calc', kind='num', printed='20.94', tol=0)
 def check_2487():
     'M. Book line 260, printed 20.94.'
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='ch:landauer:L261', chapter='ch:landauer', part=6, title='M/ln2',
-       file='part6/p6_02_landauer', line=261, status='calc', kind='num', printed='30.21', tol=0)
+       file='part6/p6_02_landauer', line=289, status='calc', kind='num', printed='30.21', tol=0)
 def check_2488():
     'M/ln2. Book line 261, printed 30.21.'
     value=dG_ATP/(R_gas*T_cell)/LN2
     return locals()
 
 @check(label='ch:landauer:L262', chapter='ch:landauer', part=6, title='ln 2',
-       file='part6/p6_02_landauer', line=262, status='derived', kind='num', printed='0.693', tol=0)
+       file='part6/p6_02_landauer', line=290, status='derived', kind='num', printed='0.693', tol=0)
 def check_2489():
     'ln 2. Book line 262, printed 0.693.'
     value=LN2
     return locals()
 
 @check(label='ch:landauer:L263', chapter='ch:landauer', part=6, title='M = E_sw/k_B T_j, upper count',
-       file='part6/p6_02_landauer', line=263, status='calc', kind='num', printed='399', tol=0)
+       file='part6/p6_02_landauer', line=291, status='calc', kind='num', printed='399', tol=0)
 def check_2490():
     'M = E_sw/k_B T_j, upper count. Book line 263, printed 399.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30535,7 +30535,7 @@ def check_2490():
     return locals()
 
 @check(label='ch:landauer:L263:411', chapter='ch:landauer', part=6, title='M, lower count',
-       file='part6/p6_02_landauer', line=263, status='calc', kind='num', printed='411', tol=0)
+       file='part6/p6_02_landauer', line=291, status='calc', kind='num', printed='411', tol=0)
 def check_2491():
     'M, lower count. Book line 263, printed 411.'
     TDP=170.0; f=4.3e9; Nlo,Nhi=20.0e9,20.6e9; Tj=348.15  # AMD Ryzen 9 9950X (ch:cmos)
@@ -30543,14 +30543,14 @@ def check_2491():
     return locals()
 
 @check(label='ch:landauer:L264', chapter='ch:landauer', part=6, title='floor for all CpGs, J',
-       file='part6/p6_02_landauer', line=264, status='calc', kind='num', printed='8.38\\times10^{-14}', tol=0)
+       file='part6/p6_02_landauer', line=292, status='calc', kind='num', printed='8.38\\times10^{-14}', tol=0)
 def check_2492():
     'floor for all CpGs, J. Book line 264, printed 8.38\\times10^{-14}.'
     value=28217448*kB*T_cell*LN2
     return locals()
 
 @check(label='ch:landauer:L264:9.3\\times10^5', chapter='ch:landauer', part=6, title='floor in ATP at 54 kJ/mol',
-       file='part6/p6_02_landauer', line=264, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
+       file='part6/p6_02_landauer', line=292, status='calc', kind='num', printed='9.3\\times10^5', tol=0)
 def check_2493():
     'floor in ATP at 54 kJ/mol. Book line 264, printed 9.3\\times10^5.'
     value=28217448*kB*T_cell*LN2/(dG_ATP/N_A)
@@ -30565,7 +30565,7 @@ def check_2494():
     return locals()
 
 @check(label='ch:landauer:L267:56', chapter='ch:landauer', part=6, title='holding energy read in 56 cell types',
-       file='part6/p6_02_landauer', line=267, status='calc', kind='file', printed='56', tol=0.0, source=_B08_PC,
+       file='part6/p6_02_landauer', line=295, status='calc', kind='file', printed='56', tol=0.0, source=_B08_PC,
        heavy=True, rerun=_B08_PC_RERUN)
 def check_3808():
     'Number of cell types in which the holding energy was read on single molecules (summary table). Book line 267, printed 56. Source: '\
@@ -30828,70 +30828,70 @@ def check_3823():
     return locals()
 
 @check(label='ch:ledgers:L104', chapter='ch:ledgers', part=6, title='cell entry N k_B T ln2, J',
-       file='part6/p6_04_ledgers', line=104, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
+       file='part6/p6_04_ledgers', line=102, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
 def check_2508():
     'cell entry N k_B T ln2, J. Book line 104, printed 8.4\\times10^{-14}.'
     value=28217448*kB*T_cell*LN2
     return locals()
 
 @check(label='ch:ledgers:L109', chapter='ch:ledgers', part=6, title='cell entry N k_B T ln2, J',
-       file='part6/p6_04_ledgers', line=109, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
+       file='part6/p6_04_ledgers', line=107, status='calc', kind='num', printed='8.4\\times10^{-14}', tol=0)
 def check_2509():
     'cell entry N k_B T ln2, J. Book line 109, printed 8.4\\times10^{-14}.'
     value=28217448*kB*T_cell*LN2
     return locals()
 
 @check(label='ch:ledgers:L114', chapter='ch:ledgers', part=6, title='T_H S = Mc^2/2 for 1 M_sun, J',
-       file='part6/p6_04_ledgers', line=114, status='calc', kind='num', printed='8.94\\times10^{46}', tol=0)
+       file='part6/p6_04_ledgers', line=112, status='calc', kind='num', printed='8.94\\times10^{46}', tol=0)
 def check_2510():
     'T_H S = Mc^2/2 for 1 M_sun, J. Book line 114, printed 8.94\\times10^{46}.'
     value=Msun*c**2/2
     return locals()
 
 @check(label='ch:ledgers:L114:2.8\\times10^7', chapter='ch:ledgers', part=6, title='CpG bits',
-       file='part6/p6_04_ledgers', line=114, status='calc', kind='num', printed='2.8\\times10^7', tol=0)
+       file='part6/p6_04_ledgers', line=112, status='calc', kind='num', printed='2.8\\times10^7', tol=0)
 def check_2511():
     'CpG bits. Book line 114, printed 2.8\\times10^7.'
     value=28217448
     return locals()
 
 @check(label='ch:ledgers:L114:310.15', chapter='ch:ledgers', part=6, title='cell at 310.15 K (figure caption)',
-       file='part6/p6_04_ledgers', line=114, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_04_ledgers', line=112, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_3824():
     'Figure fig:p4_ledger caption: the cell entry is taken at 310.15 K. Book line 114, printed 310.15. Source: CANON T_cell (37 C).'
     value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
     return locals()
 
 @check(label='ch:ledgers:L122', chapter='ch:ledgers', part=6, title='<K> hydrogen, eV',
-       file='part6/p6_04_ledgers', line=122, status='derived', kind='num', printed='13.61', tol=0)
+       file='part6/p6_04_ledgers', line=120, status='derived', kind='num', printed='13.61', tol=0)
 def check_2512():
     '<K> hydrogen, eV. Book line 122, printed 13.61.'
     value=0.5*alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:ledgers:L122:-27.21', chapter='ch:ledgers', part=6, title='<V> hydrogen, eV',
-       file='part6/p6_04_ledgers', line=122, status='derived', kind='num', printed='-27.21', tol=0)
+       file='part6/p6_04_ledgers', line=120, status='derived', kind='num', printed='-27.21', tol=0)
 def check_2513():
     '<V> hydrogen, eV. Book line 122, printed -27.21.'
     value=-alpha_em**2*m_e_MeV*1e6
     return locals()
 
 @check(label='ch:ledgers:L125', chapter='ch:ledgers', part=6, title='T_H S = Mc^2/2 for 1 M_sun, J',
-       file='part6/p6_04_ledgers', line=125, status='calc', kind='num', printed='8.94\\times10^{46}', tol=0)
+       file='part6/p6_04_ledgers', line=123, status='calc', kind='num', printed='8.94\\times10^{46}', tol=0)
 def check_2514():
     'T_H S = Mc^2/2 for 1 M_sun, J. Book line 125, printed 8.94\\times10^{46}.'
     value=Msun*c**2/2
     return locals()
 
 @check(label='ch:ledgers:L126', chapter='ch:ledgers', part=6, title='k_B T/2 at 310.15 K',
-       file='part6/p6_04_ledgers', line=126, status='derived', kind='num', printed='2.14\\times10^{-21}', tol=0)
+       file='part6/p6_04_ledgers', line=124, status='derived', kind='num', printed='2.14\\times10^{-21}', tol=0)
 def check_2515():
     'k_B T/2 at 310.15 K. Book line 126, printed 2.14\\times10^{-21}.'
     value=0.5*kB*T_cell
     return locals()
 
 @check(label='ch:ledgers:L126:310.15', chapter='ch:ledgers', part=6, title='equipartition row at 310.15 K',
-       file='part6/p6_04_ledgers', line=126, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='part6/p6_04_ledgers', line=124, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_3825():
     'Table tab:p4_halves, equipartition row: 310.15 K. Book line 126, printed 310.15. Source: CANON T_cell (37 C).'
     value = load_json('CANON/iam_canon.json')['constants']['T_cell']['value']
@@ -30942,7 +30942,7 @@ def check_2519():
     return locals()
 
 @check(label='ch:floorbreach:L80', chapter='ch:floorbreach', part=6, title='methylation maintenance share of the cell ATP, order 1e-7',
-       file='part6/p6_05_floorbreach', line=80, status='conjecture', kind='num', printed='10^{-7}', tol=0.0)
+       file='part6/p6_05_floorbreach', line=78, status='conjecture', kind='num', printed='10^{-7}', tol=0.0)
 def check_3830():
     'Methylation maintenance uses of order 1e-7 of the cell ATP (Chapter ch:landauer): 70 % of 28,217,448 CpGs written at one ATP each '\
     'per copy, against an ATP turnover of order 1e9 per second over 24 h (Milo2015). Book line 80, printed 10^{-7} (order of magnitude).'
@@ -30950,7 +30950,7 @@ def check_3830():
     return locals()
 
 @check(label='ch:floorbreach:L96', chapter='ch:floorbreach', part=6, title='senescent IMR90 unmethylated channel, upper end',
-       file='part6/p6_05_floorbreach', line=96, status='measured', kind='file', printed='0.695', tol=0.0, source=_B08_IMR,
+       file='part6/p6_05_floorbreach', line=94, status='measured', kind='file', printed='0.695', tol=0.0, source=_B08_IMR,
        heavy=True, rerun='python3 Biological_Physics/MethylPhys/doors/PROC_LINES_02_channels/imr90_channels.py (needs the cached GSE48580 WGBS parquets of PROC-LINES-02)')
 def check_3831():
     'Senescent IMR90 cultures on the unmethylated channel, upper end of the range 0.685-0.695 (Chapter ch:gauge). Book line 96, printed '\
@@ -30972,7 +30972,7 @@ def check_2523():
     return locals()
 
 @check(label='ch:gauge:L24', chapter='ch:gauge', part=6, title='Met-A full surface',
-       file='part6/p6_06_gauge', line=24, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_06_gauge', line=25, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
 def check_2524():
     'Met-A full surface. Book line 24, printed 3.03.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
@@ -30992,7 +30992,7 @@ def check_2526():
     return locals()
 
 @check(label='ch:gauge:L38', chapter='ch:gauge', part=6, title='Met-A full surface',
-       file='part6/p6_06_gauge', line=38, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
+       file='part6/p6_06_gauge', line=40, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')
 def check_2527():
     'Met-A full surface. Book line 38, printed 3.03.'
     Hb=lambda e: -(e*math.log2(e)+(1-e)*math.log2(1-e))
@@ -31002,21 +31002,21 @@ def check_2527():
     return locals()
 
 @check(label='ch:gauge:L39', chapter='ch:gauge', part=6, title='C-score far end: var ratio 50 over the baseline',
-       file='part6/p6_06_gauge', line=39, status='calc', kind='num', printed='45', tol=0)
+       file='part6/p6_06_gauge', line=41, status='calc', kind='num', printed='45', tol=0)
 def check_2529():
     'C-score far end: var ratio 50 over the baseline. Book line 39, printed 45.'
     value=50/1.1104  # block size 50, healthy baseline 1.1104 (book input)
     return locals()
 
 @check(label='ch:gauge:L39:50', chapter='ch:gauge', part=6, title='C-score block size, read from the frozen reference',
-       file='part6/p6_06_gauge', line=39, status='derived', kind='file', printed='50', tol=0.0, source=_B09_NR)
+       file='part6/p6_06_gauge', line=41, status='derived', kind='file', printed='50', tol=0.0, source=_B09_NR)
 def check_3832():
     'C-score block size: the far end of the C-score is reached when every block of this many sites moves as one. Book line 39, printed 50. Inputs: clustering_block of the frozen chain v3 neutrophil reference (neutrophil_reference_v1_1.json).'
     value = load_json(_B09_NR)['clustering_block']
     return locals()
 
 @check(label='ch:gauge:L39:1.1104', chapter='ch:gauge', part=6, title='C-score healthy baseline: median of the six leave-one-out clustering values',
-       file='part6/p6_06_gauge', line=39, status='derived', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
+       file='part6/p6_06_gauge', line=41, status='derived', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
 def check_3833():
     'Healthy C-score baseline c_healthy: the median of the six reference arrays\' clustering statistic, each read against the other five. Book line 39, printed 1.1104. Inputs: healthy_clustering_LOO of neutrophil_reference_v1_1.json (median recomputed here).'
     loo = load_json(_B09_NR)['healthy_clustering_LOO']
@@ -31035,49 +31035,49 @@ def check_3834():
     return locals()
 
 @check(label='ch:gauge:L101', chapter='ch:gauge', part=6, title='IMR90 senescent, unmethylated channel, lowest culture',
-       file='part6/p6_06_gauge', line=101, status='measured', kind='file', printed='0.685', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=127, status='measured', kind='file', printed='0.685', tol=0.0, source=_B09_IMR)
 def check_3835():
     'Senescent IMR90 cultures on the unmethylated channel, lower end of the range (WGBS GSE48580, Cruickshanks 2013). Book line 101, printed 0.685. Inputs: A_unmeth of the three Senescent rows of imr90_channels.csv.'
     value = min(_b09_imr('Senescent', 'A_unmeth'))
     return locals()
 
 @check(label='ch:gauge:L101:0.695', chapter='ch:gauge', part=6, title='IMR90 senescent, unmethylated channel, highest culture',
-       file='part6/p6_06_gauge', line=101, status='measured', kind='file', printed='0.695', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=127, status='measured', kind='file', printed='0.695', tol=0.0, source=_B09_IMR)
 def check_3836():
     'Senescent IMR90 cultures on the unmethylated channel, upper end of the range. Book line 101, printed 0.695. Inputs: A_unmeth of the Senescent rows of imr90_channels.csv.'
     value = max(_b09_imr('Senescent', 'A_unmeth'))
     return locals()
 
 @check(label='ch:gauge:L102', chapter='ch:gauge', part=6, title='IMR90 SV40, methylated channel, lowest culture',
-       file='part6/p6_06_gauge', line=102, status='measured', kind='file', printed='1.077', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=128, status='measured', kind='file', printed='1.077', tol=0.0, source=_B09_IMR)
 def check_3837():
     'SV40-immortalised IMR90 cultures on the methylated channel, lower end (1.077496 in the file; the README beside it prints 1.078). Book line 102, printed 1.077. Inputs: A_meth of the SV40 rows of imr90_channels.csv.'
     value = min(_b09_imr('SV40', 'A_meth'))
     return locals()
 
 @check(label='ch:gauge:L102:1.120', chapter='ch:gauge', part=6, title='IMR90 SV40, methylated channel, highest culture',
-       file='part6/p6_06_gauge', line=102, status='measured', kind='file', printed='1.120', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=128, status='measured', kind='file', printed='1.120', tol=0.0, source=_B09_IMR)
 def check_3838():
     'SV40-immortalised IMR90 cultures on the methylated channel, upper end. Book line 102, printed 1.120. Inputs: A_meth of the SV40 rows of imr90_channels.csv.'
     value = max(_b09_imr('SV40', 'A_meth'))
     return locals()
 
 @check(label='ch:gauge:L102:0.965', chapter='ch:gauge', part=6, title='IMR90 SV40, both channels, lowest culture',
-       file='part6/p6_06_gauge', line=102, status='measured', kind='file', printed='0.965', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=128, status='measured', kind='file', printed='0.965', tol=0.0, source=_B09_IMR)
 def check_3839():
     'SV40-immortalised IMR90 cultures read over both channels together, lower end. Book line 102, printed 0.965. Inputs: A_both of the SV40 rows of imr90_channels.csv.'
     value = min(_b09_imr('SV40', 'A_both'))
     return locals()
 
 @check(label='ch:gauge:L102:0.975', chapter='ch:gauge', part=6, title='IMR90 SV40, both channels, highest culture',
-       file='part6/p6_06_gauge', line=102, status='measured', kind='file', printed='0.975', tol=0.0, source=_B09_IMR)
+       file='part6/p6_06_gauge', line=128, status='measured', kind='file', printed='0.975', tol=0.0, source=_B09_IMR)
 def check_3840():
     'SV40-immortalised IMR90 cultures read over both channels together, upper end. Book line 102, printed 0.975. Inputs: A_both of the SV40 rows of imr90_channels.csv.'
     value = max(_b09_imr('SV40', 'A_both'))
     return locals()
 
 @check(label='ch:gauge:L112', chapter='ch:gauge', part=6, title='tared Met-A shift of a simulated 2 % neutrophil pattern loss',
-       file='part6/p6_06_gauge', line=112, status='measured', kind='file', printed='+0.06', tol=0.0, source=_B09_SC)
+       file='part6/p6_06_gauge', line=183, status='measured', kind='file', printed='+0.06', tol=0.0, source=_B09_SC)
 def check_3841():
     'How far a simulated 2 % loss of the neutrophil pattern moves tared Met-A on the six Salas DNA mixtures with >= 50 % neutrophils: median over the mixtures of (damaged - healthy), each tared by the median of the other five healthy readings (0.061, as WHOLE_BLOOD_COMPOSITION_DEV.md states). Book line 112, printed +0.06 ("about"). Inputs: A_nnls, A_nnls_damaged, f_true of selfconsist.csv.'
     a, ad = _b09_tared()
@@ -31085,7 +31085,7 @@ def check_3841():
     return locals()
 
 @check(label='ch:gauge:L112:1.090', chapter='ch:gauge', part=6, title='tared Met-A of the damaged mixtures, highest',
-       file='part6/p6_06_gauge', line=112, status='measured', kind='file', printed='1.090', tol=0.0, source=_B09_SC)
+       file='part6/p6_06_gauge', line=183, status='measured', kind='file', printed='1.090', tol=0.0, source=_B09_SC)
 def check_3842():
     'Upper end of tared Met-A on the six constructed mixtures with a simulated 2 % neutrophil pattern loss (the lower end, 1.052, comes out of the same computation). Book line 112, printed 1.090. Inputs: selfconsist.csv, mixtures with f_true >= 0.5, tare = median of the other five healthy readings.'
     a, ad = _b09_tared()
@@ -31094,21 +31094,21 @@ def check_3842():
     return locals()
 
 @check(label='ch:gauge:L113', chapter='ch:gauge', part=6, title='2 % blur shift at 40-50 % neutrophils',
-       file='part6/p6_06_gauge', line=113, status='measured', kind='file', printed='0.033', tol=0.0, source=_B09_LF)
+       file='part6/p6_06_gauge', line=184, status='measured', kind='file', printed='0.033', tol=0.0, source=_B09_LF)
 def check_3843():
     'Shift of whole-blood Met-A from a known 2 % neutrophil blur, neutrophil fraction 0.40-0.50: median over the 18 healthy (NEGATIVE) adults of A_dmg - A_raw (DEV_LOWFRAC_01_OUTCOME.md table). Book line 113, printed 0.033. Inputs: lowfrac_readings.csv.'
     value, n = _b09_lowfrac_shift(0.40, 0.50)
     return locals()
 
 @check(label='ch:gauge:L113:0.064', chapter='ch:gauge', part=6, title='2 % blur shift above 70 % neutrophils',
-       file='part6/p6_06_gauge', line=113, status='measured', kind='file', printed='0.064', tol=0.0, source=_B09_LF)
+       file='part6/p6_06_gauge', line=184, status='measured', kind='file', printed='0.064', tol=0.0, source=_B09_LF)
 def check_3844():
     'Shift of whole-blood Met-A from a known 2 % neutrophil blur, neutrophil fraction 0.70-1.00: median over the 40 healthy (NEGATIVE) adults of A_dmg - A_raw. Book line 113, printed 0.064. Inputs: lowfrac_readings.csv.'
     value, n = _b09_lowfrac_shift(0.70, 1.0000001)
     return locals()
 
 @check(label='ch:gauge:L114', chapter='ch:gauge', part=6, title='IAM-A of healthy granulocyte donors, mean',
-       file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.00', tol=0.0, source=_B09_IG)
+       file='part6/p6_06_gauge', line=185, status='measured', kind='file', printed='1.00', tol=0.0, source=_B09_IG)
 def check_3845():
     'IAM-A of the three healthy granulocyte donors (Loyfer 2023), each against the pooled held error of the other two, recomputed from the isolated-error and opportunity counts; mean. Book line 114, printed 1.00 ("about"). Inputs: iso, opp of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
@@ -31116,7 +31116,7 @@ def check_3845():
     return locals()
 
 @check(label='ch:gauge:L114:1.29', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in held error, lowest donor',
-       file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.29', tol=0.0, source=_B09_IG)
+       file='part6/p6_06_gauge', line=185, status='measured', kind='file', printed='1.29', tol=0.0, source=_B09_IG)
 def check_3846():
     'IAM-A of the same molecules with 2 % held error added, lowest of the three donors, H(eps_damaged)/H(pooled eps of the other two). Book line 114, printed 1.29. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
@@ -31124,7 +31124,7 @@ def check_3846():
     return locals()
 
 @check(label='ch:gauge:L114:1.35', chapter='ch:gauge', part=6, title='IAM-A after a simulated 2 % rise in held error, highest donor',
-       file='part6/p6_06_gauge', line=114, status='measured', kind='file', printed='1.35', tol=0.0, source=_B09_IG)
+       file='part6/p6_06_gauge', line=185, status='measured', kind='file', printed='1.35', tol=0.0, source=_B09_IG)
 def check_3847():
     'IAM-A of the same molecules with 2 % held error added, highest of the three donors. Book line 114, printed 1.35. Inputs: iso, opp, eps_damaged of iama_floor_granulocytes.csv.'
     a, ad = _b09_iama_own()
@@ -31132,7 +31132,7 @@ def check_3847():
     return locals()
 
 @check(label='ch:gauge:L120', chapter='ch:gauge', part=6, title='SD of the six held-out reference arrays',
-       file='part6/p6_06_gauge', line=120, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
+       file='part6/p6_06_gauge', line=191, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
 def check_3848():
     'Standard deviation (n - 1) of Met-A of the six purified neutrophil arrays, each read against a reference rebuilt from the other five with the identity sites re-chosen. Book line 120, printed 0.020. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
     a = np.array([float(r['A_loo']) for r in load_csv_rows(_B09_LOO)])
@@ -31280,56 +31280,56 @@ def check_3849():
     return locals()
 
 @check(label='ch:meta:L25', chapter='ch:meta', part=6, title='the frozen Met-A floor of EPIC neutrophils',
-       file='part6/p6_07_meta', line=25, status='measured', kind='file', printed='0.330263', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=37, status='measured', kind='file', printed='0.330263', tol=0.0, source=_B09_MF)
 def check_3850():
     'The value of the neutrophil reference as frozen in the chain\'s floor file (0.33026279581...). Book line 25, printed 0.330263 bits. Inputs: platforms/EPIC/neutrophils/floor of metA_floors_v1_3.json.'
     value = load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['floor']
     return locals()
 
 @check(label='ch:meta:L27', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, lowest',
-       file='part6/p6_07_meta', line=27, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=39, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
 def check_3851():
     'Each reference array read against a reference rebuilt from the other five, sites re-chosen on those five: lowest. Book line 27, printed 0.983. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
     value = float(_b09_loo('A_loo').min())
     return locals()
 
 @check(label='ch:meta:L27:1.045', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, highest',
-       file='part6/p6_07_meta', line=27, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=39, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
 def check_3852():
     'Held-out Met-A of the six reference arrays, highest. Book line 27, printed 1.045. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
     value = float(_b09_loo('A_loo').max())
     return locals()
 
 @check(label='ch:meta:L27:0.020', chapter='ch:meta', part=6, title='held-out Met-A of the six reference arrays, SD',
-       file='part6/p6_07_meta', line=27, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=39, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_LOO)
 def check_3853():
     'Standard deviation (n - 1) of the six held-out readings (the floor file stores 0.019756). Book line 27, printed 0.020. Inputs: A_loo of metA_floors_v1_3_loo.csv.'
     value = float(_b09_loo('A_loo').std(ddof=1))
     return locals()
 
 @check(label='ch:meta:L28', chapter='ch:meta', part=6, title='held-out Met-A on the frozen sites, lowest',
-       file='part6/p6_07_meta', line=28, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=40, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
 def check_3854():
     'Each reference array on the frozen sites, floor from the other five: lowest. Book line 28, printed 0.993. Inputs: A_loo_frozen_sites of metA_floors_v1_3_loo.csv.'
     value = float(_b09_loo('A_loo_frozen_sites').min())
     return locals()
 
 @check(label='ch:meta:L28:1.008', chapter='ch:meta', part=6, title='held-out Met-A on the frozen sites, highest',
-       file='part6/p6_07_meta', line=28, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=40, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
 def check_3855():
     'Reference arrays on the frozen sites, floor from the other five: highest. Book line 28, printed 1.008. Inputs: A_loo_frozen_sites of metA_floors_v1_3_loo.csv.'
     value = float(_b09_loo('A_loo_frozen_sites').max())
     return locals()
 
 @check(label='ch:meta:L41', chapter='ch:meta', part=6, title='SD of the held-out readings (figure caption)',
-       file='part6/p6_07_meta', line=41, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=56, status='measured', kind='file', printed='0.020', tol=0.0, source=_B09_MF)
 def check_3856():
     'SD of the six held-out readings with sites re-chosen, as stored in the floor file (precision_heldout.sd). Book line 41, printed 0.020. Inputs: metA_floors_v1_3.json.'
     value = load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['precision_heldout']['sd']
     return locals()
 
 @check(label='ch:meta:L50', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998021',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
 def check_3878():
     'Sentrix chip number of reference array GSM2998021, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 50, printed 201868500150.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998021_')][0]
@@ -31337,42 +31337,42 @@ def check_3878():
     return locals()
 
 @check(label='ch:meta:L50:1.0032', chapter='ch:meta', part=6, title='GSM2998021 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='1.0032', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='1.0032', tol=0.0, source=_B09_CA)
 def check_3879():
     'Met-A of reference array GSM2998021 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998021. Book line 50, printed 1.0032.'
     value = _b09_row(_B09_CA, 'GSM2998021', 'A')
     return locals()
 
 @check(label='ch:meta:L50:1.011', chapter='ch:meta', part=6, title='GSM2998021 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='1.011', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='1.011', tol=0.0, source=_B09_LOO)
 def check_3880():
     'Met-A of reference array GSM2998021 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998021. Book line 50, printed 1.011.'
     value = _b09_row(_B09_LOO, 'GSM2998021', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L50:1.004', chapter='ch:meta', part=6, title='GSM2998021 held out, frozen sites',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='1.004', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='1.004', tol=0.0, source=_B09_LOO)
 def check_3881():
     'Met-A of reference array GSM2998021 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998021. Book line 50, printed 1.004.'
     value = _b09_row(_B09_LOO, 'GSM2998021', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L50:0.1418', chapter='ch:meta', part=6, title='noise index N of GSM2998021',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='0.1418', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='0.1418', tol=0.0, source=_B09_NI)
 def check_3882():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998021, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998021. Book line 50, printed 0.1418.'
     value = _b09_row(_B09_NI, 'GSM2998021', 'N')
     return locals()
 
 @check(label='ch:meta:L50:0.83', chapter='ch:meta', part=6, title='C-score of GSM2998021 (acceptance run)',
-       file='part6/p6_07_meta', line=50, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=65, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_CA)
 def check_3883():
     'Met-A C-score of reference array GSM2998021 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998021. Book line 50, printed 0.83.'
     value = _b09_row(_B09_CA, 'GSM2998021', 'C')
     return locals()
 
 @check(label='ch:meta:L51', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998057',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='201868590243', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='201868590243', tol=0.0, source=_B09_MF)
 def check_3884():
     'Sentrix chip number of reference array GSM2998057, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 51, printed 201868590243.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998057_')][0]
@@ -31380,42 +31380,42 @@ def check_3884():
     return locals()
 
 @check(label='ch:meta:L51:0.9945', chapter='ch:meta', part=6, title='GSM2998057 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='0.9945', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='0.9945', tol=0.0, source=_B09_CA)
 def check_3885():
     'Met-A of reference array GSM2998057 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998057. Book line 51, printed 0.9945.'
     value = _b09_row(_B09_CA, 'GSM2998057', 'A')
     return locals()
 
 @check(label='ch:meta:L51:1.010', chapter='ch:meta', part=6, title='GSM2998057 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='1.010', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='1.010', tol=0.0, source=_B09_LOO)
 def check_3886():
     'Met-A of reference array GSM2998057 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998057. Book line 51, printed 1.010.'
     value = _b09_row(_B09_LOO, 'GSM2998057', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L51:0.993', chapter='ch:meta', part=6, title='GSM2998057 held out, frozen sites',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
 def check_3887():
     'Met-A of reference array GSM2998057 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998057. Book line 51, printed 0.993.'
     value = _b09_row(_B09_LOO, 'GSM2998057', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L51:0.1223', chapter='ch:meta', part=6, title='noise index N of GSM2998057',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='0.1223', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='0.1223', tol=0.0, source=_B09_NI)
 def check_3888():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998057, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998057. Book line 51, printed 0.1223.'
     value = _b09_row(_B09_NI, 'GSM2998057', 'N')
     return locals()
 
 @check(label='ch:meta:L51:0.95', chapter='ch:meta', part=6, title='C-score of GSM2998057 (acceptance run)',
-       file='part6/p6_07_meta', line=51, status='measured', kind='file', printed='0.95', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=66, status='measured', kind='file', printed='0.95', tol=0.0, source=_B09_CA)
 def check_3889():
     'Met-A C-score of reference array GSM2998057 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998057. Book line 51, printed 0.95.'
     value = _b09_row(_B09_CA, 'GSM2998057', 'C')
     return locals()
 
 @check(label='ch:meta:L52', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998116',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='201870610056', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='201870610056', tol=0.0, source=_B09_MF)
 def check_3890():
     'Sentrix chip number of reference array GSM2998116, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 52, printed 201870610056.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998116_')][0]
@@ -31423,42 +31423,42 @@ def check_3890():
     return locals()
 
 @check(label='ch:meta:L52:0.9989', chapter='ch:meta', part=6, title='GSM2998116 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='0.9989', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='0.9989', tol=0.0, source=_B09_CA)
 def check_3891():
     'Met-A of reference array GSM2998116 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998116. Book line 52, printed 0.9989.'
     value = _b09_row(_B09_CA, 'GSM2998116', 'A')
     return locals()
 
 @check(label='ch:meta:L52:1.012', chapter='ch:meta', part=6, title='GSM2998116 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='1.012', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='1.012', tol=0.0, source=_B09_LOO)
 def check_3892():
     'Met-A of reference array GSM2998116 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998116. Book line 52, printed 1.012.'
     value = _b09_row(_B09_LOO, 'GSM2998116', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L52:0.999', chapter='ch:meta', part=6, title='GSM2998116 held out, frozen sites',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='0.999', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='0.999', tol=0.0, source=_B09_LOO)
 def check_3893():
     'Met-A of reference array GSM2998116 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998116. Book line 52, printed 0.999.'
     value = _b09_row(_B09_LOO, 'GSM2998116', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L52:0.1244', chapter='ch:meta', part=6, title='noise index N of GSM2998116',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='0.1244', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='0.1244', tol=0.0, source=_B09_NI)
 def check_3894():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998116, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998116. Book line 52, printed 0.1244.'
     value = _b09_row(_B09_NI, 'GSM2998116', 'N')
     return locals()
 
 @check(label='ch:meta:L52:1.21', chapter='ch:meta', part=6, title='C-score of GSM2998116 (acceptance run)',
-       file='part6/p6_07_meta', line=52, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=67, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
 def check_3895():
     'Met-A C-score of reference array GSM2998116 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998116. Book line 52, printed 1.21.'
     value = _b09_row(_B09_CA, 'GSM2998116', 'C')
     return locals()
 
 @check(label='ch:meta:L53', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998023',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='201868500150', tol=0.0, source=_B09_MF)
 def check_3896():
     'Sentrix chip number of reference array GSM2998023, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 53, printed 201868500150.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998023_')][0]
@@ -31466,42 +31466,42 @@ def check_3896():
     return locals()
 
 @check(label='ch:meta:L53:0.9942', chapter='ch:meta', part=6, title='GSM2998023 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='0.9942', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='0.9942', tol=0.0, source=_B09_CA)
 def check_3897():
     'Met-A of reference array GSM2998023 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998023. Book line 53, printed 0.9942.'
     value = _b09_row(_B09_CA, 'GSM2998023', 'A')
     return locals()
 
 @check(label='ch:meta:L53:0.983', chapter='ch:meta', part=6, title='GSM2998023 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='0.983', tol=0.0, source=_B09_LOO)
 def check_3898():
     'Met-A of reference array GSM2998023 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998023. Book line 53, printed 0.983.'
     value = _b09_row(_B09_LOO, 'GSM2998023', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L53:0.993', chapter='ch:meta', part=6, title='GSM2998023 held out, frozen sites',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='0.993', tol=0.0, source=_B09_LOO)
 def check_3899():
     'Met-A of reference array GSM2998023 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998023. Book line 53, printed 0.993.'
     value = _b09_row(_B09_LOO, 'GSM2998023', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L53:0.1286', chapter='ch:meta', part=6, title='noise index N of GSM2998023',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='0.1286', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='0.1286', tol=0.0, source=_B09_NI)
 def check_3900():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998023, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998023. Book line 53, printed 0.1286.'
     value = _b09_row(_B09_NI, 'GSM2998023', 'N')
     return locals()
 
 @check(label='ch:meta:L53:1.05', chapter='ch:meta', part=6, title='C-score of GSM2998023 (acceptance run)',
-       file='part6/p6_07_meta', line=53, status='measured', kind='file', printed='1.05', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=68, status='measured', kind='file', printed='1.05', tol=0.0, source=_B09_CA)
 def check_3901():
     'Met-A C-score of reference array GSM2998023 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998023. Book line 53, printed 1.05.'
     value = _b09_row(_B09_CA, 'GSM2998023', 'C')
     return locals()
 
 @check(label='ch:meta:L54', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998143',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='201870610111', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='201870610111', tol=0.0, source=_B09_MF)
 def check_3902():
     'Sentrix chip number of reference array GSM2998143, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 54, printed 201870610111.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998143_')][0]
@@ -31509,42 +31509,42 @@ def check_3902():
     return locals()
 
 @check(label='ch:meta:L54:1.0028', chapter='ch:meta', part=6, title='GSM2998143 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='1.0028', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='1.0028', tol=0.0, source=_B09_CA)
 def check_3903():
     'Met-A of reference array GSM2998143 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998143. Book line 54, printed 1.0028.'
     value = _b09_row(_B09_CA, 'GSM2998143', 'A')
     return locals()
 
 @check(label='ch:meta:L54:1.016', chapter='ch:meta', part=6, title='GSM2998143 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_LOO)
 def check_3904():
     'Met-A of reference array GSM2998143 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998143. Book line 54, printed 1.016.'
     value = _b09_row(_B09_LOO, 'GSM2998143', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L54:1.003', chapter='ch:meta', part=6, title='GSM2998143 held out, frozen sites',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='1.003', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='1.003', tol=0.0, source=_B09_LOO)
 def check_3905():
     'Met-A of reference array GSM2998143 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998143. Book line 54, printed 1.003.'
     value = _b09_row(_B09_LOO, 'GSM2998143', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L54:0.1284', chapter='ch:meta', part=6, title='noise index N of GSM2998143',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='0.1284', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='0.1284', tol=0.0, source=_B09_NI)
 def check_3906():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998143, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998143. Book line 54, printed 0.1284.'
     value = _b09_row(_B09_NI, 'GSM2998143', 'N')
     return locals()
 
 @check(label='ch:meta:L54:0.69', chapter='ch:meta', part=6, title='C-score of GSM2998143 (acceptance run)',
-       file='part6/p6_07_meta', line=54, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=69, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
 def check_3907():
     'Met-A C-score of reference array GSM2998143 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998143. Book line 54, printed 0.69.'
     value = _b09_row(_B09_CA, 'GSM2998143', 'C')
     return locals()
 
 @check(label='ch:meta:L55', chapter='ch:meta', part=6, title='Sentrix chip of reference array GSM2998030',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='201868590206', tol=0.0, source=_B09_MF)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='201868590206', tol=0.0, source=_B09_MF)
 def check_3908():
     'Sentrix chip number of reference array GSM2998030, as frozen in the floor file (refs entry <gsm>_<chip>_<position>). Inputs: metA_floors_v1_3.json platforms/EPIC/neutrophils/refs. Book line 55, printed 201868590206.'
     ref = [s for s in load_json(_B09_MF)['platforms']['EPIC']['neutrophils']['refs'] if s.startswith('GSM2998030_')][0]
@@ -31552,133 +31552,133 @@ def check_3908():
     return locals()
 
 @check(label='ch:meta:L55:1.0064', chapter='ch:meta', part=6, title='GSM2998030 read in the floor (acceptance run)',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='1.0064', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='1.0064', tol=0.0, source=_B09_CA)
 def check_3909():
     'Met-A of reference array GSM2998030 read in the floor, as printed by the chain v3 acceptance run. Inputs: column A of chain_acceptance.csv, row GSM2998030. Book line 55, printed 1.0064.'
     value = _b09_row(_B09_CA, 'GSM2998030', 'A')
     return locals()
 
 @check(label='ch:meta:L55:1.045', chapter='ch:meta', part=6, title='GSM2998030 held out, sites re-chosen',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='1.045', tol=0.0, source=_B09_LOO)
 def check_3910():
     'Met-A of reference array GSM2998030 against a reference rebuilt from the other five, identity sites re-chosen on those five. Inputs: column A_loo of metA_floors_v1_3_loo.csv, row GSM2998030. Book line 55, printed 1.045.'
     value = _b09_row(_B09_LOO, 'GSM2998030', 'A_loo', key='ref')
     return locals()
 
 @check(label='ch:meta:L55:1.008', chapter='ch:meta', part=6, title='GSM2998030 held out, frozen sites',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='1.008', tol=0.0, source=_B09_LOO)
 def check_3911():
     'Met-A of reference array GSM2998030 on the frozen sites, floor from the other five. Inputs: column A_loo_frozen_sites of metA_floors_v1_3_loo.csv, row GSM2998030. Book line 55, printed 1.008.'
     value = _b09_row(_B09_LOO, 'GSM2998030', 'A_loo_frozen_sites', key='ref')
     return locals()
 
 @check(label='ch:meta:L55:0.1489', chapter='ch:meta', part=6, title='noise index N of GSM2998030',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='0.1489', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='0.1489', tol=0.0, source=_B09_NI)
 def check_3912():
     'Noise index N (mean H at the EPIC sites every purified blood group holds fixed) of reference array GSM2998030, GSE110554 deposit. Inputs: column N of noise_index.csv, row GSM2998030. Book line 55, printed 0.1489.'
     value = _b09_row(_B09_NI, 'GSM2998030', 'N')
     return locals()
 
 @check(label='ch:meta:L55:1.08', chapter='ch:meta', part=6, title='C-score of GSM2998030 (acceptance run)',
-       file='part6/p6_07_meta', line=55, status='measured', kind='file', printed='1.08', tol=0.0, source=_B09_CA)
+       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='1.08', tol=0.0, source=_B09_CA)
 def check_3913():
     'Met-A C-score of reference array GSM2998030 as printed by the chain v3 acceptance run. Inputs: column C of chain_acceptance.csv, row GSM2998030. Book line 55, printed 1.08.'
     value = _b09_row(_B09_CA, 'GSM2998030', 'C')
     return locals()
 
 @check(label='ch:meta:L70', chapter='ch:meta', part=6, title='450K purified neutrophils on EPIC references, median A',
-       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='0.932', tol=0.0, source=_B09_D450)
+       file='part6/p6_07_meta', line=104, status='measured', kind='file', printed='0.932', tol=0.0, source=_B09_D450)
 def check_3857():
     'Purified 450K neutrophils (GSE88824, 8 donors) read on the EPIC references: median A, from the outcome record\'s table row. Book line 70, printed 0.932. Inputs: DIAG_450K_01_OUTCOME.md, row "neutrophils".'
     value = _b09_nums(_b09_md_line(_B09_D450, '| neutrophils |'))[0]
     return locals()
 
 @check(label='ch:meta:L70:0.916', chapter='ch:meta', part=6, title='450K purified monocytes on EPIC references, median A',
-       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='0.916', tol=0.0, source=_B09_D450)
+       file='part6/p6_07_meta', line=104, status='measured', kind='file', printed='0.916', tol=0.0, source=_B09_D450)
 def check_3858():
     'Purified 450K monocytes on the EPIC references: median A. Book line 70, printed 0.916. Inputs: DIAG_450K_01_OUTCOME.md, row "monocytes".'
     value = _b09_nums(_b09_md_line(_B09_D450, '| monocytes |'))[0]
     return locals()
 
 @check(label='ch:meta:L70:0.904', chapter='ch:meta', part=6, title='450K purified NK cells on EPIC references, median A',
-       file='part6/p6_07_meta', line=70, status='measured', kind='file', printed='0.904', tol=0.0, source=_B09_D450)
+       file='part6/p6_07_meta', line=104, status='measured', kind='file', printed='0.904', tol=0.0, source=_B09_D450)
 def check_3859():
     'Purified 450K NK cells on the EPIC references: median A. Book line 70, printed 0.904. Inputs: DIAG_450K_01_OUTCOME.md, row "NK cells".'
     value = _b09_nums(_b09_md_line(_B09_D450, '| NK cells |'))[0]
     return locals()
 
 @check(label='ch:meta:L86', chapter='ch:meta', part=6, title='known-fraction expectation on six DNA mixtures, lowest',
-       file='part6/p6_07_meta', line=86, status='measured', kind='file', printed='0.982', tol=0.0, source=_B09_WB)
+       file='part6/p6_07_meta', line=120, status='measured', kind='file', printed='0.982', tol=0.0, source=_B09_WB)
 def check_3860():
     'Whole-blood Met-A with the expectation built from the true fractions, six Salas mixtures with >= 50 % neutrophils: lower end, from the W1 row of the outcome record. Book line 86, printed 0.982. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
     value = _b09_nums(_b09_md_line(_B09_WB, '| W1'))[0]
     return locals()
 
 @check(label='ch:meta:L86:1.016', chapter='ch:meta', part=6, title='known-fraction expectation on six DNA mixtures, highest',
-       file='part6/p6_07_meta', line=86, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_WB)
+       file='part6/p6_07_meta', line=120, status='measured', kind='file', printed='1.016', tol=0.0, source=_B09_WB)
 def check_3861():
     'Whole-blood Met-A with the true-fraction expectation: upper end, W1 row. Book line 86, printed 1.016. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
     value = _b09_nums(_b09_md_line(_B09_WB, '| W1'))[1]
     return locals()
 
 @check(label='ch:meta:L86:1.062', chapter='ch:meta', part=6, title='same mixtures on the neutrophil reference alone, lowest',
-       file='part6/p6_07_meta', line=86, status='measured', kind='file', printed='1.062', tol=0.0, source=_B09_WB)
+       file='part6/p6_07_meta', line=120, status='measured', kind='file', printed='1.062', tol=0.0, source=_B09_WB)
 def check_3862():
     'The same healthy mixtures read on the neutrophil floor alone (no expectation): lower end, from the record\'s sentence "Without the expectation ... read a-b". Book line 86, printed 1.062. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
     value = _b09_nums(_b09_md_line(_B09_WB, 'Without the expectation'))[0]
     return locals()
 
 @check(label='ch:meta:L86:1.118', chapter='ch:meta', part=6, title='same mixtures on the neutrophil reference alone, highest',
-       file='part6/p6_07_meta', line=86, status='measured', kind='file', printed='1.118', tol=0.0, source=_B09_WB)
+       file='part6/p6_07_meta', line=120, status='measured', kind='file', printed='1.118', tol=0.0, source=_B09_WB)
 def check_3863():
     'The same healthy mixtures on the neutrophil floor alone: upper end. Book line 86, printed 1.118. Inputs: PROC_WB_NEUT_01_OUTCOME.md.'
     value = _b09_nums(_b09_md_line(_B09_WB, 'Without the expectation'))[1]
     return locals()
 
 @check(label='ch:meta:L91', chapter='ch:meta', part=6, title='second-laboratory isolated neutrophils on the reference, lowest',
-       file='part6/p6_07_meta', line=91, status='measured', kind='file', printed='0.86', tol=0.0, source=_B09_T2)
+       file='part6/p6_07_meta', line=125, status='measured', kind='file', printed='0.86', tol=0.0, source=_B09_T2)
 def check_3864():
     'Second-laboratory isolated neutrophils (GSE247193, GSE247195; the 33 arrays of the pre-registered T2 run) read against the reference: lower end, from the T2a row of the outcome record. Book line 91, printed 0.86. Inputs: PROC_NEUT_TEST_01_T2_OUTCOME.md.'
     value = _b09_nums(_b09_md_line(_B09_T2, '| T2a'))[0]
     return locals()
 
 @check(label='ch:meta:L91:1.26', chapter='ch:meta', part=6, title='second-laboratory isolated neutrophils on the reference, highest',
-       file='part6/p6_07_meta', line=91, status='measured', kind='file', printed='1.26', tol=0.0, source=_B09_T2)
+       file='part6/p6_07_meta', line=125, status='measured', kind='file', printed='1.26', tol=0.0, source=_B09_T2)
 def check_3865():
     'Second-laboratory isolated neutrophils read against the reference: upper end on the 33 arrays of the T2 run (the later diagnostic of all 48 arrays, t2_diag.csv, reaches 1.286). Book line 91, printed 1.26. Inputs: PROC_NEUT_TEST_01_T2_OUTCOME.md, T2a row.'
     value = _b09_nums(_b09_md_line(_B09_T2, '| T2a'))[-1]
     return locals()
 
 @check(label='ch:meta:L94', chapter='ch:meta', part=6, title='noise index of the reference arrays, lowest',
-       file='part6/p6_07_meta', line=94, status='measured', kind='file', printed='0.122', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=128, status='measured', kind='file', printed='0.122', tol=0.0, source=_B09_NI)
 def check_3866():
     'Noise index N of the reference (Salas floor) arrays: lowest. Book line 94, printed 0.122. Inputs: N of the "Salas floor neutrophils" rows of noise_index.csv.'
     value = min(_b09_noise('Salas'))
     return locals()
 
 @check(label='ch:meta:L94:0.149', chapter='ch:meta', part=6, title='noise index of the reference arrays, highest',
-       file='part6/p6_07_meta', line=94, status='measured', kind='file', printed='0.149', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=128, status='measured', kind='file', printed='0.149', tol=0.0, source=_B09_NI)
 def check_3867():
     'Noise index N of the reference arrays: highest. Book line 94, printed 0.149. Inputs: noise_index.csv.'
     value = max(_b09_noise('Salas'))
     return locals()
 
 @check(label='ch:meta:L95', chapter='ch:meta', part=6, title='noise index of second-laboratory arrays, highest',
-       file='part6/p6_07_meta', line=95, status='measured', kind='file', printed='0.243', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=129, status='measured', kind='file', printed='0.243', tol=0.0, source=_B09_NI)
 def check_3868():
     'Noise index N of the second-laboratory arrays (GSE247193, GSE247195): highest. Book line 95, printed 0.243. Inputs: noise_index.csv.'
     value = max(_b09_noise('GSE'))
     return locals()
 
 @check(label='ch:meta:L95:0.79', chapter='ch:meta', part=6, title='Spearman rho of Met-A with N, second laboratory (30 y donor)',
-       file='part6/p6_07_meta', line=95, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=129, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_NI)
 def check_3869():
     'Spearman correlation of Met-A with the noise index within the GSE247193 arrays (30-year-old donor, arrays with a reading). Book line 95, printed 0.79. Inputs: N, A_own of noise_index.csv.'
     value = _b09_noise_rho('GSE247193')
     return locals()
 
 @check(label='ch:meta:L95:0.83', chapter='ch:meta', part=6, title='Spearman rho of Met-A with N, second laboratory (54 y donor)',
-       file='part6/p6_07_meta', line=95, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_NI)
+       file='part6/p6_07_meta', line=129, status='measured', kind='file', printed='0.83', tol=0.0, source=_B09_NI)
 def check_3870():
     'Spearman correlation of Met-A with the noise index within the GSE247195 arrays (54-year-old donor). Book line 95, printed 0.83. Inputs: N, A_own of noise_index.csv.'
     value = _b09_noise_rho('GSE247195')
@@ -32016,7 +32016,7 @@ def check_3944():
     return locals()
 
 @check(label='ch:cscore:L39', chapter='ch:cscore', part=6, title='healthy baseline used in the construction figure',
-       file='part6/p6_09_cscore', line=39, status='calc', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
+       file='part6/p6_09_cscore', line=42, status='calc', kind='file', printed='1.1104', tol=0.0, source=_B09_NR)
 def check_3945():
     'The healthy baseline the construction figure divides by: median of the six leave-one-out clustering values (as eq:C). Book line 39, printed 1.1104. Inputs: neutrophil_reference_v1_1.json.'
     loo, C = _b09_c_healthy()
@@ -32052,7 +32052,7 @@ def check_3949():
     return locals()
 
 @check(label='ch:cscore:L63', chapter='ch:cscore', part=6, title='table: healthy reference arrays, lowest C',
-       file='part6/p6_09_cscore', line=63, status='calibrated', kind='file', printed='0.70', tol=0.0, source=_B09_NR)
+       file='part6/p6_09_cscore', line=69, status='calibrated', kind='file', printed='0.70', tol=0.0, source=_B09_NR)
 def check_3950():
     'Table row "healthy reference arrays, each against the other five", n = 6: lowest C. Book line 63, printed 0.70. Inputs: neutrophil_reference_v1_1.json.'
     loo, C = _b09_c_healthy()
@@ -32061,7 +32061,7 @@ def check_3950():
     return locals()
 
 @check(label='ch:cscore:L63:1.23', chapter='ch:cscore', part=6, title='table: healthy reference arrays, highest C',
-       file='part6/p6_09_cscore', line=63, status='calibrated', kind='file', printed='1.23', tol=0.0, source=_B09_NR)
+       file='part6/p6_09_cscore', line=69, status='calibrated', kind='file', printed='1.23', tol=0.0, source=_B09_NR)
 def check_3951():
     'Table row healthy reference arrays: highest C (the inventory read the range "0.70--1.23" as -1.23). Book line 63, printed 1.23. Inputs: neutrophil_reference_v1_1.json.'
     loo, C = _b09_c_healthy()
@@ -32069,7 +32069,7 @@ def check_3951():
     return locals()
 
 @check(label='ch:cscore:L64', chapter='ch:cscore', part=6, title='table: isolated reference neutrophils, lowest C',
-       file='part6/p6_09_cscore', line=64, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=70, status='measured', kind='file', printed='0.69', tol=0.0, source=_B09_CA)
 def check_3952():
     'Table row "isolated reference neutrophils, acceptance run", n = 6: lowest C. Book line 64, printed 0.69. Inputs: chain_acceptance.csv.'
     c = _b09_accC('healthy purified neutrophil'); n = len(c)
@@ -32077,14 +32077,14 @@ def check_3952():
     return locals()
 
 @check(label='ch:cscore:L64:1.21', chapter='ch:cscore', part=6, title='table: isolated reference neutrophils, highest C',
-       file='part6/p6_09_cscore', line=64, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=70, status='measured', kind='file', printed='1.21', tol=0.0, source=_B09_CA)
 def check_3953():
     'Table row isolated reference neutrophils: highest C (inventory printed -1.21 from the range dash). Book line 64, printed 1.21. Inputs: chain_acceptance.csv.'
     value = max(_b09_accC('healthy purified neutrophil'))
     return locals()
 
 @check(label='ch:cscore:L65', chapter='ch:cscore', part=6, title='table: DNA mixtures, lowest C',
-       file='part6/p6_09_cscore', line=65, status='measured', kind='file', printed='0.91', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=71, status='measured', kind='file', printed='0.91', tol=0.0, source=_B09_CA)
 def check_3954():
     'Table row "DNA mixtures, acceptance run", n = 6: lowest C. Book line 65, printed 0.91. Inputs: C of the "known mixture" rows of chain_acceptance.csv.'
     c = _b09_accC('known mixture'); n = len(c)
@@ -32092,14 +32092,14 @@ def check_3954():
     return locals()
 
 @check(label='ch:cscore:L65:1.49', chapter='ch:cscore', part=6, title='table: DNA mixtures, highest C',
-       file='part6/p6_09_cscore', line=65, status='measured', kind='file', printed='1.49', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=71, status='measured', kind='file', printed='1.49', tol=0.0, source=_B09_CA)
 def check_3955():
     'Table row DNA mixtures: highest C (inventory printed -1.49 from the range dash). Book line 65, printed 1.49. Inputs: chain_acceptance.csv.'
     value = max(_b09_accC('known mixture'))
     return locals()
 
 @check(label='ch:cscore:L66', chapter='ch:cscore', part=6, title='table: remission bloods, lowest C',
-       file='part6/p6_09_cscore', line=66, status='measured', kind='file', printed='0.78', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=72, status='measured', kind='file', printed='0.78', tol=0.0, source=_B09_CA)
 def check_3956():
     'Table row "remission bloods, another laboratory", the 5 bloods with a reading: lowest C. Book line 66, printed 0.78. Inputs: C of the "AML second remission" rows of chain_acceptance.csv.'
     c = _b09_accC('AML second remission'); n = len(c)
@@ -32107,21 +32107,21 @@ def check_3956():
     return locals()
 
 @check(label='ch:cscore:L66:1.32', chapter='ch:cscore', part=6, title='table: remission bloods, highest C',
-       file='part6/p6_09_cscore', line=66, status='measured', kind='file', printed='1.32', tol=0.0, source=_B09_CA)
+       file='part6/p6_09_cscore', line=72, status='measured', kind='file', printed='1.32', tol=0.0, source=_B09_CA)
 def check_3957():
     'Table row remission bloods: highest C (inventory printed -1.32 from the range dash). Book line 66, printed 1.32. Inputs: chain_acceptance.csv.'
     value = max(_b09_accC('AML second remission'))
     return locals()
 
 @check(label='ch:cscore:L67', chapter='ch:cscore', part=6, title='C far end',
-       file='part6/p6_09_cscore', line=67, status='calc', kind='num', printed='45', tol=0)
+       file='part6/p6_09_cscore', line=73, status='calc', kind='num', printed='45', tol=0)
 def check_2533():
     'C far end. Book line 67, printed 45.'
     value=50/1.1104  # block size 50, baseline 1.1104 (book input)
     return locals()
 
 @check(label='ch:cscore:L67:50', chapter='ch:cscore', part=6, title='C-score block size',
-       file='part6/p6_09_cscore', line=67, status='calibrated', kind='file', printed='50', tol=0.0, source=_B09_NR)
+       file='part6/p6_09_cscore', line=73, status='calibrated', kind='file', printed='50', tol=0.0, source=_B09_NR)
 def check_3958():
     'The block size of the C-score, 50 sites (the far end: every 50-site block moving as one). Book line 67, printed 50. Inputs: clustering_block of neutrophil_reference_v1_1.json.'
     value = load_json(_B09_NR)['clustering_block']
@@ -32290,14 +32290,14 @@ def check_2546():
     return locals()
 
 @check(label='ch:temperature:L36', chapter='ch:temperature', part=6, title='7-fold selectivity at 15 C',
-       file='part6/p6_10_temperature', line=36, status='calc', kind='num', printed='8.1', tol=0)
+       file='part6/p6_10_temperature', line=35, status='calc', kind='num', printed='8.1', tol=0)
 def check_2547():
     '7-fold selectivity at 15 C. Book line 36, printed 8.1.'
     value=7**(310.15/288.15)
     return locals()
 
 @check(label='ch:temperature:L36:6.8', chapter='ch:temperature', part=6, title='at 42 C',
-       file='part6/p6_10_temperature', line=36, status='calc', kind='num', printed='6.8', tol=0)
+       file='part6/p6_10_temperature', line=35, status='calc', kind='num', printed='6.8', tol=0)
 def check_2548():
     'at 42 C. Book line 36, printed 6.8.'
     value=7**(310.15/315.15)
@@ -32317,7 +32317,7 @@ def check_3965():
     return locals()
 
 @check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
-       file='part6/p6_10_temperature', line=87, status='prediction', kind='num', printed='20.84', tol=0.0)
+       file='part6/p6_10_temperature', line=86, status='prediction', kind='num', printed='20.84', tol=0.0)
 def check_3969():
     'The M number for a dog, M = dG_ATP/(R T) at a body temperature of 38.5 C with dG_ATP held fixed. Book line 111, printed 20.84. Inputs: dG_ATP, R (CANON); 38.5 C (book).'
     T_dog = 38.5 + 273.15
@@ -32327,7 +32327,7 @@ def check_3969():
 
 # ======== Part 6 | ch:translation | docs/book/part6/p6_11_translation.tex
 @check(label='ch:translation:L110', chapter='ch:translation', part=6, title='neutron-star saturation mass at the upper edge of the TOV bound',
-       file='part6/p6_11_translation', line=110, status='calc', kind='num', printed='2.3', tol=0.0)
+       file='part6/p6_11_translation', line=111, status='calc', kind='num', printed='2.3', tol=0.0)
 def check_3970():
     'Figure fig:compact caption: the neutron-star saturation mass of about 2.3 M_sun sits at the upper edge of the '\
     'gravitational-wave bound M_TOV <~ 2.16 (+0.17, -0.15) M_sun. Recomputed as central value plus upper error. Book line 110, printed 2.3. '\
@@ -32337,7 +32337,7 @@ def check_3970():
     return locals()
 
 @check(label='ch:translation:L111:0.2', chapter='ch:translation', part=6, title='TOV mass not fixed to better than about 0.2 M_sun',
-       file='part6/p6_11_translation', line=111, status='calc', kind='num', printed='0.2', tol=0.0)
+       file='part6/p6_11_translation', line=112, status='calc', kind='num', printed='0.2', tol=0.0)
 def check_3971():
     'Figure fig:compact caption: the TOV limit is not fixed to better than about 0.2 M_sun. Recomputed as the larger one-sided error of '\
     'the bound, rounded to the one printed digit. Book line 111, printed 0.2. Inputs: M_TOV = 2.16 +0.17 -0.15 M_sun (Rezzolla, Most and '\
@@ -32349,21 +32349,21 @@ def check_3971():
 
 # ======== Part 6 | ch:instrument | docs/book/part6/p6_12_instrument.tex
 
-@check(label='ch:instrument:L31:0.979', title='intake call rate, first laboratory minimum', line=31, status='measured', printed='0.979', tol=0.0,
+@check(label='ch:instrument:L31:0.979', title='intake call rate, first laboratory minimum', line=35, status='measured', printed='0.979', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3973():
     'Call rate of the 48-array intake measurement, first laboratory, minimum. Book line 31, printed 0.979. Read from the intake outcome record.'
     value = _b10_intake(1)
     return locals()
 
-@check(label='ch:instrument:L31:0.975', title='intake call rate, second laboratory median', line=31, status='measured', printed='0.975', tol=0.0,
+@check(label='ch:instrument:L31:0.975', title='intake call rate, second laboratory median', line=35, status='measured', printed='0.975', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3974():
     'Call rate of the 48-array intake measurement, second laboratory, median. Book line 31, printed 0.975. Read from the intake outcome record.'
     value = _b10_intake(2)
     return locals()
 
-@check(label='ch:instrument:L31:0.891', title='intake call rate, second laboratory minimum', line=31, status='measured', printed='0.891', tol=0.0,
+@check(label='ch:instrument:L31:0.891', title='intake call rate, second laboratory minimum', line=35, status='measured', printed='0.891', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3975():
     'Call rate of the 48-array intake measurement, second laboratory, minimum (the one array below the line). Book line 31, printed 0.891. '\
@@ -32371,28 +32371,28 @@ def check_3975():
     value = _b10_intake(3)
     return locals()
 
-@check(label='ch:instrument:L31:0.953', title='intake call rate, third laboratory median', line=31, status='measured', printed='0.953', tol=0.0,
+@check(label='ch:instrument:L31:0.953', title='intake call rate, third laboratory median', line=35, status='measured', printed='0.953', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3976():
     'Call rate of the 48-array intake measurement, third laboratory, median. Book line 31, printed 0.953. Read from the intake outcome record.'
     value = _b10_intake(4)
     return locals()
 
-@check(label='ch:instrument:L32:0.932', title='intake call rate, third laboratory minimum', line=32, status='measured', printed='0.932', tol=0.0,
+@check(label='ch:instrument:L32:0.932', title='intake call rate, third laboratory minimum', line=36, status='measured', printed='0.932', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3977():
     'Call rate of the 48-array intake measurement, third laboratory, minimum. Book line 32, printed 0.932. Read from the intake outcome record.'
     value = _b10_intake(5)
     return locals()
 
-@check(label='ch:instrument:L32:0.878', title='intake call rate, fourth laboratory median', line=32, status='measured', printed='0.878', tol=0.0,
+@check(label='ch:instrument:L32:0.878', title='intake call rate, fourth laboratory median', line=36, status='measured', printed='0.878', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3978():
     'Call rate of the 48-array intake measurement, fourth laboratory, median. Book line 32, printed 0.878. Read from the intake outcome record.'
     value = _b10_intake(6)
     return locals()
 
-@check(label='ch:instrument:L32:0.928', title='intake call rate, fourth laboratory maximum', line=32, status='measured', printed='0.928', tol=0.0,
+@check(label='ch:instrument:L32:0.928', title='intake call rate, fourth laboratory maximum', line=36, status='measured', printed='0.928', tol=0.0,
        source=_B10_INTAKE, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3979():
     'Call rate of the 48-array intake measurement, fourth laboratory, maximum (its best array). Book line 32, printed 0.928. Read from the '\
@@ -32516,7 +32516,7 @@ def check_3993():
 
 _B10_DEV3 = 'Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv'
 
-@check(label='ch:instrument:L112:0.205', title='noise fit: slope on neutrophil fraction', line=112, status='fitted', printed='0.205', tol=0.0,
+@check(label='ch:instrument:L112:0.205', title='noise fit: slope on neutrophil fraction', line=118, status='fitted', printed='0.205', tol=0.0,
        source=_B10_DEV3, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3994():
     'Linear fit A ~ 0.60 + 0.205 f_neu + 2.51 N on one laboratory\'s 76 healthy-control whole bloods. Refitted by least squares on the '\
@@ -32526,7 +32526,7 @@ def check_3994():
     value = coef[1]
     return locals()
 
-@check(label='ch:instrument:L112:+2.51', title='noise fit: slope on noise index', line=112, status='fitted', printed='+2.51', tol=0.0,
+@check(label='ch:instrument:L112:+2.51', title='noise fit: slope on noise index', line=118, status='fitted', printed='+2.51', tol=0.0,
        source=_B10_DEV3, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3995():
     'Same refit on the 76 healthy whole bloods; coefficient of the noise index N. Book line 112, printed +2.51. Input: chain_v3_dev3_readings.csv.'
@@ -32534,7 +32534,7 @@ def check_3995():
     value = coef[2]
     return locals()
 
-@check(label='ch:instrument:L112:0.85', title='noise fit: R^2', line=112, status='fitted', printed='0.85', tol=0.0,
+@check(label='ch:instrument:L112:0.85', title='noise fit: R^2', line=118, status='fitted', printed='0.85', tol=0.0,
        source=_B10_DEV3, chapter='ch:instrument', part=6, file='part6/p6_12_instrument', kind='file')
 def check_3996():
     'Same refit on the 76 healthy whole bloods; coefficient of determination R^2. Book line 112, printed 0.85. Input: chain_v3_dev3_readings.csv.'
@@ -32645,7 +32645,7 @@ def check_4012():
 
 
 # ======== Part 6 | ch:atlas | docs/book/part6/p6_14_atlas.tex
-@check(label='ch:atlas:L34:0.983', title='held-out neutrophil reference, lowest A', line=34, status='measured', printed='0.983', tol=0.0,
+@check(label='ch:atlas:L34:0.983', title='held-out neutrophil reference, lowest A', line=38, status='measured', printed='0.983', tol=0.0,
        source=_B10_LOO, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4013():
     'Each of the six physical reference arrays read against the other five, sites re-chosen on those five, gives A = 0.983-1.045; '\
@@ -32655,14 +32655,14 @@ def check_4013():
     value = a.min()
     return locals()
 
-@check(label='ch:atlas:L34:1.045', title='held-out neutrophil reference, highest A', line=34, status='measured', printed='1.045', tol=0.0,
+@check(label='ch:atlas:L34:1.045', title='held-out neutrophil reference, highest A', line=38, status='measured', printed='1.045', tol=0.0,
        source=_B10_LOO, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4014():
     'Upper end of A = 0.983-1.045 of the six held-out reference arrays. Book line 34, printed 1.045. Input: metA_floors_v1_3_loo.csv.'
     value = _b10_loo().max()
     return locals()
 
-@check(label='ch:atlas:L34:0.020', title='held-out neutrophil reference, SD', line=34, status='measured', printed='0.020', tol=0.0,
+@check(label='ch:atlas:L34:0.020', title='held-out neutrophil reference, SD', line=38, status='measured', printed='0.020', tol=0.0,
        source=_B10_LOO, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4015():
     'Standard deviation (n-1) of the six held-out readings A_loo. Book line 34, printed 0.020. Input: metA_floors_v1_3_loo.csv.'
@@ -32673,7 +32673,7 @@ def _b10_450k():
     rows = re.findall(r"^\| (neutrophils|monocytes|NK cells) \| ([\d.]+) \|", file_text('Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md'), re.M)
     return [float(v) for _, v in rows]
 
-@check(label='ch:atlas:L42:0.904', title='450K purified cells on another platform\'s reference, lowest median', line=42, status='measured',
+@check(label='ch:atlas:L42:0.904', title='450K purified cells on another platform\'s reference, lowest median', line=46, status='measured',
        printed='0.904', tol=0.0, source='Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md', chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4016():
     'Purified neutrophils, monocytes and NK cells on 450K arrays read median 0.904-0.932 against references built on another platform; '\
@@ -32683,7 +32683,7 @@ def check_4016():
     value = min(v)
     return locals()
 
-@check(label='ch:atlas:L42:0.932', title='450K purified cells on another platform\'s reference, highest median', line=42, status='measured',
+@check(label='ch:atlas:L42:0.932', title='450K purified cells on another platform\'s reference, highest median', line=46, status='measured',
        printed='0.932', tol=0.0, source='Biological_Physics/MethylPhys/doors/DIAG_450K_01_OUTCOME.md', chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4017():
     'Upper end of 0.904-0.932: largest of the neutrophil, monocyte and NK-cell medians of table D1 of the 450K diagnosis record. '\
@@ -32697,7 +32697,7 @@ def _b10_wb_floor(k):
 def _b10_wb_expect(k):
     return _b10_nums(_B10_WB, 'all in Normal | 6/6 (A ', 2)[k]
 
-@check(label='ch:atlas:L64:1.062', title='six DNA mixtures against the neutrophil floor alone, lowest', line=64, status='measured', printed='1.062', tol=0.0,
+@check(label='ch:atlas:L64:1.062', title='six DNA mixtures against the neutrophil floor alone, lowest', line=68, status='measured', printed='1.062', tol=0.0,
        source=_B10_WB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4018():
     'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, lowest. Book line 64, printed 1.062. Read from the committed '\
@@ -32705,7 +32705,7 @@ def check_4018():
     value = _b10_wb_floor(0)
     return locals()
 
-@check(label='ch:atlas:L64:1.118', title='six DNA mixtures against the neutrophil floor alone, highest', line=64, status='measured', printed='1.118', tol=0.0,
+@check(label='ch:atlas:L64:1.118', title='six DNA mixtures against the neutrophil floor alone, highest', line=68, status='measured', printed='1.118', tol=0.0,
        source=_B10_WB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4019():
     'Six healthy DNA mixtures (neutrophils 63-75 %) read against the neutrophil floor alone, highest. Book line 64, printed 1.118. Read from the committed '\
@@ -32713,7 +32713,7 @@ def check_4019():
     value = _b10_wb_floor(1)
     return locals()
 
-@check(label='ch:atlas:L64:0.982', title='six DNA mixtures against the expectation from their own composition, lowest', line=64, status='measured', printed='0.982', tol=0.0,
+@check(label='ch:atlas:L64:0.982', title='six DNA mixtures against the expectation from their own composition, lowest', line=68, status='measured', printed='0.982', tol=0.0,
        source=_B10_WB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4020():
     'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, lowest. Book line 64, printed 0.982. Read from the committed '\
@@ -32721,7 +32721,7 @@ def check_4020():
     value = _b10_wb_expect(0)
     return locals()
 
-@check(label='ch:atlas:L64:1.016', title='six DNA mixtures against the expectation from their own composition, highest', line=64, status='measured', printed='1.016', tol=0.0,
+@check(label='ch:atlas:L64:1.016', title='six DNA mixtures against the expectation from their own composition, highest', line=68, status='measured', printed='1.016', tol=0.0,
        source=_B10_WB, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4021():
     'Six healthy DNA mixtures (neutrophils 63-75 %) read against the expectation from their own composition, highest. Book line 64, printed 1.016. Read from the committed '\
@@ -32734,7 +32734,7 @@ _B10_XP = 'Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_chec
 def _b10_xp(col):
     return [float(r[col]) for r in load_csv_rows(_B10_XP)]
 
-@check(label='ch:atlas:L140:1.03', title='array-sequencing transfer, lowest slope', line=140, status='measured', printed='1.03', tol=0.0,
+@check(label='ch:atlas:L140:1.03', title='array-sequencing transfer, lowest slope', line=196, status='measured', printed='1.03', tol=0.0,
        source=_B10_XP, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4022():
     'A first cross-platform measurement on ten cell types measured both ways gave slopes of 1.03-1.09; lower end = smallest slope of the '\
@@ -32744,14 +32744,14 @@ def check_4022():
     value = min(s)
     return locals()
 
-@check(label='ch:atlas:L140:1.09', title='array-sequencing transfer, highest slope', line=140, status='measured', printed='1.09', tol=0.0,
+@check(label='ch:atlas:L140:1.09', title='array-sequencing transfer, highest slope', line=196, status='measured', printed='1.09', tol=0.0,
        source=_B10_XP, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4023():
     'Upper end of the slopes 1.03-1.09 over the ten cell types. Book line 140, printed 1.09. Input: 03b_crossplatform_check.csv.'
     value = max(_b10_xp('slope'))
     return locals()
 
-@check(label='ch:atlas:L140:-0.04', title='array-sequencing transfer, intercept nearest zero', line=140, status='measured', printed='-0.04', tol=0.0,
+@check(label='ch:atlas:L140:-0.04', title='array-sequencing transfer, intercept nearest zero', line=196, status='measured', printed='-0.04', tol=0.0,
        source=_B10_XP, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4024():
     'Intercepts of -0.04 to -0.07 for every cell type; the end nearest zero = largest intercept. Book line 140, printed -0.04. '\
@@ -32759,7 +32759,7 @@ def check_4024():
     value = max(_b10_xp('intercept'))
     return locals()
 
-@check(label='ch:atlas:L140:-0.07', title='array-sequencing transfer, most negative intercept', line=140, status='measured', printed='-0.07', tol=0.0,
+@check(label='ch:atlas:L140:-0.07', title='array-sequencing transfer, most negative intercept', line=196, status='measured', printed='-0.07', tol=0.0,
        source=_B10_XP, chapter='ch:atlas', part=6, file='part6/p6_14_atlas', kind='file')
 def check_4025():
     'Intercepts of -0.04 to -0.07; the most negative intercept over the ten cell types. Book line 140, printed -0.07. '\
@@ -32887,7 +32887,7 @@ def check_4042():
 
 
 # ======== Part 6 | ch:identity | docs/book/part6/p6_15_identity.tex
-@check(label='ch:identity:L20:0.95', title='identity sites: upper edge of the methylated window', line=20, status='calibrated', printed='0.95', tol=0.0,
+@check(label='ch:identity:L20:0.95', title='identity sites: upper edge of the methylated window', line=26, status='calibrated', printed='0.95', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4043():
     'Site rule: mean beta in 0.75-0.95 (methylated channel). The frozen 6,000-site set reaches the upper edge: largest neutrophil mean beta '\
@@ -32897,7 +32897,7 @@ def check_4043():
     value = float(nb.max())
     return locals()
 
-@check(label='ch:identity:L20:0.05', title='identity sites: lower edge of the unmethylated window', line=20, status='calibrated', printed='0.05', tol=0.0,
+@check(label='ch:identity:L20:0.05', title='identity sites: lower edge of the unmethylated window', line=26, status='calibrated', printed='0.05', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4044():
     'Site rule: mean beta in 0.05-0.25 (unmethylated channel). The frozen 6,000-site set reaches the lower edge: smallest neutrophil mean '\
@@ -32906,14 +32906,14 @@ def check_4044():
     value = float(nb.min())
     return locals()
 
-@check(label='ch:identity:L25', title='dH/dbeta at beta = 0.25', line=25, status='calc', printed='1.58', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part6/p6_15_identity')
+@check(label='ch:identity:L25', title='dH/dbeta at beta = 0.25', line=31, status='calc', printed='1.58', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4045():
     'dH/dbeta = log2[(1-beta)/beta] is 1.58 bits per unit beta at beta = 0.25. Recomputed by differentiating the binary entropy with sympy '\
     'and evaluating at beta = 0.25 (book). Book line 25, printed 1.58.'
     value = _b10_dHdb()(0.25)
     return locals()
 
-@check(label='ch:identity:L26:4.25', title='dH/dbeta at beta = 0.05', line=26, status='calc', printed='4.25', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part6/p6_15_identity')
+@check(label='ch:identity:L26:4.25', title='dH/dbeta at beta = 0.05', line=32, status='calc', printed='4.25', tol=0.0, kind='num', chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4046():
     'dH/dbeta is 4.25 bits per unit beta at beta = 0.05. Same derivative, evaluated at beta = 0.05 (book). Book line 26, printed 4.25.'
     value = _b10_dHdb()(0.05)
@@ -32940,7 +32940,7 @@ def check_4048():
 def _b10_sdH():
     return np.array(load_json(_B10_NREF)['neutrophil_H_sd_shrunk'], float)
 
-@check(label='ch:identity:L34:0.0114', title='shrunk SD of H at the identity sites, median', line=34, status='calibrated', printed='0.0114', tol=0.0,
+@check(label='ch:identity:L34:0.0114', title='shrunk SD of H at the identity sites, median', line=40, status='calibrated', printed='0.0114', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4049():
     'Figure fig:p4_window caption: healthy spread of H at each site across the six reference arrays (shrunk SD), median 0.0114 bits. '\
@@ -32948,7 +32948,7 @@ def check_4049():
     value = float(np.median(_b10_sdH()))
     return locals()
 
-@check(label='ch:identity:L34:0.0094', title='shrunk SD of H at the identity sites, smallest', line=34, status='calibrated', printed='0.0094', tol=0.0,
+@check(label='ch:identity:L34:0.0094', title='shrunk SD of H at the identity sites, smallest', line=40, status='calibrated', printed='0.0094', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4050():
     'Shrunk SD of H, range 0.0094-0.0137 bits; lower end = minimum over the 6,000 sites. Book line 34, printed 0.0094. '\
@@ -32956,14 +32956,14 @@ def check_4050():
     value = float(_b10_sdH().min())
     return locals()
 
-@check(label='ch:identity:L34:0.0137', title='shrunk SD of H at the identity sites, largest', line=34, status='calibrated', printed='0.0137', tol=0.0,
+@check(label='ch:identity:L34:0.0137', title='shrunk SD of H at the identity sites, largest', line=40, status='calibrated', printed='0.0137', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4051():
     'Shrunk SD of H, upper end = maximum over the 6,000 sites. Book line 34, printed 0.0137. Input: neutrophil_reference_v1_1.json.'
     value = float(_b10_sdH().max())
     return locals()
 
-@check(label='ch:identity:L57:98.7', title='identity sites shared by monocytes', line=57, status='calc', printed='98.7', tol=0.0,
+@check(label='ch:identity:L57:98.7', title='identity sites shared by monocytes', line=63, status='calc', printed='98.7', tol=0.0,
        kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4052():
     'Most neutrophil identity sites are held within 0.05 in beta by the other blood cells: 98.7 % for monocytes. Recomputed from the frozen '\
@@ -32972,7 +32972,7 @@ def check_4052():
     value = _b10_shared('MONO')
     return locals()
 
-@check(label='ch:identity:L57:75.6', title='identity sites shared by CD4 T cells', line=57, status='calc', printed='75.6', tol=0.0,
+@check(label='ch:identity:L57:75.6', title='identity sites shared by CD4 T cells', line=63, status='calc', printed='75.6', tol=0.0,
        kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4053():
     'Share of the 6,000 neutrophil identity sites with |beta_CD4T - beta_NEU| <= 0.05 (sites where the CD4 profile is missing count as not '\
@@ -32980,7 +32980,7 @@ def check_4053():
     value = _b10_shared('CD4T')
     return locals()
 
-@check(label='ch:identity:L66:98.7', title='monocytes within 0.05 (figure)', line=66, status='calc', printed='98.7', tol=0.0,
+@check(label='ch:identity:L66:98.7', title='monocytes within 0.05 (figure)', line=72, status='calc', printed='98.7', tol=0.0,
        kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4054():
     'Figure fig:p4_shared caption: monocytes hold 98.7 % of the sites within 0.05; recomputed from the frozen composition profiles. '\
@@ -32988,7 +32988,7 @@ def check_4054():
     value = _b10_shared('MONO')
     return locals()
 
-@check(label='ch:identity:L66:75.6', title='CD4 T cells within 0.05 (figure)', line=66, status='calc', printed='75.6', tol=0.0,
+@check(label='ch:identity:L66:75.6', title='CD4 T cells within 0.05 (figure)', line=72, status='calc', printed='75.6', tol=0.0,
        kind='file', source=_B10_COMP, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4055():
     'Figure fig:p4_shared caption: CD4 T cells hold 75.6 % of the sites within 0.05; recomputed from the frozen composition profiles. '\
@@ -32996,7 +32996,7 @@ def check_4055():
     value = _b10_shared('CD4T')
     return locals()
 
-@check(label='ch:identity:L76', title='held-out SD of the neutrophil set (status box)', line=76, status='openprob', printed='0.020', tol=0.0,
+@check(label='ch:identity:L76', title='held-out SD of the neutrophil set (status box)', line=82, status='openprob', printed='0.020', tol=0.0,
        kind='file', source=_B10_FLOOR, chapter='ch:identity', part=6, file='part6/p6_15_identity')
 def check_4056():
     'Status box: neutrophils on EPIC v1, 6,000 sites, held-out SD 0.020. Read from the frozen floor file (precision_heldout, sd: each of '\
@@ -33006,7 +33006,7 @@ def check_4056():
 
 
 # ======== Part 6 | ch:skytools | docs/book/part6/p6_16a_skytools.tex
-@check(label='ch:skytools:L23:3.5', title='Penzias and Wilson excess antenna temperature', line=23, status='observed', printed='3.5', tol=0.0,
+@check(label='ch:skytools:L23:3.5', title='Penzias and Wilson excess antenna temperature', line=29, status='observed', printed='3.5', tol=0.0,
        kind='num', chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4057():
     '3.5 K in Penzias and Wilson\'s horn in 1965. Published value: excess antenna temperature 3.5 +- 1.0 K at 4080 Mc/s (Penzias and Wilson '\
@@ -33029,14 +33029,14 @@ def check_4059():
     value = 865873 / (12 * 64**2)
     return locals()
 
-@check(label='ch:skytools:L61:2.5', title='atlas CpGs per HEALPix pixel, N_side 128', line=61, status='calc', printed='2.5', tol=0.0, kind='num', chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
+@check(label='ch:skytools:L61:2.5', title='atlas CpGs per HEALPix pixel, N_side 128', line=70, status='calc', printed='2.5', tol=0.0, kind='num', chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4060():
     'The atlas map uses N_side = 128 for its 483,092 CpGs: CpGs per pixel over 12 x 128^2 pixels. Book line 61, printed 2.5. Inputs: '\
     '483,092 CpGs, N_side = 128 (book).'
     value = 483092 / (12 * 128**2)
     return locals()
 
-@check(label='ch:skytools:L90:1.1104', title='healthy clustering baseline', line=90, status='derived', printed='1.1104', tol=0.0,
+@check(label='ch:skytools:L90:1.1104', title='healthy clustering baseline', line=99, status='derived', printed='1.1104', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4061():
     'The healthy baseline 1.1104 of the C-score: recomputed as the median of the six leave-one-out clustering values of the reference '\
@@ -33045,7 +33045,7 @@ def check_4061():
     value = _b10_cbase()
     return locals()
 
-@check(label='ch:skytools:L90:0.70', title='healthy C-score, lowest', line=90, status='derived', printed='0.70', tol=0.0,
+@check(label='ch:skytools:L90:0.70', title='healthy C-score, lowest', line=99, status='derived', printed='0.70', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4062():
     'Divided by the healthy baseline, the healthy arrays read 0.70-1.23; lower end = smallest leave-one-out clustering over the median. '\
@@ -33053,7 +33053,7 @@ def check_4062():
     value = float(_b10_cscore_healthy().min())
     return locals()
 
-@check(label='ch:skytools:L90:1.23', title='healthy C-score, highest', line=90, status='derived', printed='1.23', tol=0.0,
+@check(label='ch:skytools:L90:1.23', title='healthy C-score, highest', line=99, status='derived', printed='1.23', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4063():
     'Upper end of the healthy C-score 0.70-1.23: largest leave-one-out clustering over the median. Book line 90, printed 1.23. '\
@@ -33061,7 +33061,7 @@ def check_4063():
     value = float(_b10_cscore_healthy().max())
     return locals()
 
-@check(label='ch:skytools:L94:0.71', title='sky-map healthy C-score, lowest (two digits)', line=94, status='measured', printed='0.71', tol=0.0,
+@check(label='ch:skytools:L94:0.71', title='sky-map healthy C-score, lowest (two digits)', line=103, status='measured', printed='0.71', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4064():
     'The table\'s healthy C-score, 0.71-1.23, from the sky-map construction; lower end = smallest C_6000 of the six healthy maps. '\
@@ -33069,7 +33069,7 @@ def check_4064():
     value = float(_b10_sky('healthy', 'C_6000').min())
     return locals()
 
-@check(label='ch:skytools:L94:1.23', title='sky-map healthy C-score, highest', line=94, status='measured', printed='1.23', tol=0.0,
+@check(label='ch:skytools:L94:1.23', title='sky-map healthy C-score, highest', line=103, status='measured', printed='1.23', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4065():
     'Upper end of the table\'s healthy C-score 0.71-1.23: largest C_6000 of the six healthy maps. Book line 94, printed 1.23. '\
@@ -33077,7 +33077,7 @@ def check_4065():
     value = float(_b10_sky('healthy', 'C_6000').max())
     return locals()
 
-@check(label='ch:skytools:L94:0.705', title='sky-map healthy C-score, lowest (three digits)', line=94, status='measured', printed='0.705', tol=0.0,
+@check(label='ch:skytools:L94:0.705', title='sky-map healthy C-score, lowest (three digits)', line=103, status='measured', printed='0.705', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4066():
     'The lowest healthy array of the sky-map construction reads 0.705: smallest C_6000 of the six healthy maps. Book line 94, printed 0.705. '\
@@ -33085,7 +33085,7 @@ def check_4066():
     value = float(_b10_sky('healthy', 'C_6000').min())
     return locals()
 
-@check(label='ch:skytools:L95:0.70', title='chain healthy C-score, lowest', line=95, status='measured', printed='0.70', tol=0.0,
+@check(label='ch:skytools:L95:0.70', title='chain healthy C-score, lowest', line=104, status='measured', printed='0.70', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4067():
     'The chain\'s own reading of the same six arrays is 0.70-1.23: smallest leave-one-out clustering over the baseline (frozen reference). '\
@@ -33093,14 +33093,14 @@ def check_4067():
     value = float(_b10_cscore_healthy().min())
     return locals()
 
-@check(label='ch:skytools:L95:1.23', title='chain healthy C-score, highest', line=95, status='measured', printed='1.23', tol=0.0,
+@check(label='ch:skytools:L95:1.23', title='chain healthy C-score, highest', line=104, status='measured', printed='1.23', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4068():
     'Upper end of the chain\'s healthy C-score 0.70-1.23 (frozen reference). Book line 95, printed 1.23. Input: neutrophil_reference_v1_1.json.'
     value = float(_b10_cscore_healthy().max())
     return locals()
 
-@check(label='ch:skytools:L95:0.699', title='chain healthy C-score, lowest (three digits)', line=95, status='measured', printed='0.699', tol=0.0,
+@check(label='ch:skytools:L95:0.699', title='chain healthy C-score, lowest (three digits)', line=104, status='measured', printed='0.699', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4069():
     'The chain\'s lowest healthy reading, 0.699: smallest leave-one-out clustering over the baseline. Book line 95, printed 0.699. '\
@@ -33108,7 +33108,7 @@ def check_4069():
     value = float(_b10_cscore_healthy().min())
     return locals()
 
-@check(label='ch:skytools:L96:12.5', title='regional damage C-score, lowest', line=96, status='measured', printed='12.5', tol=0.0,
+@check(label='ch:skytools:L96:12.5', title='regional damage C-score, lowest', line=105, status='measured', printed='12.5', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4071():
     'The same damage concentrated in ten regions (5 % of the sites) raises the C-score to 12.5-15.7; lower end = smallest C_6000 of the '\
@@ -33116,14 +33116,14 @@ def check_4071():
     value = float(_b10_sky('local5pct', 'C_6000').min())
     return locals()
 
-@check(label='ch:skytools:L96:15.7', title='regional damage C-score, highest', line=96, status='measured', printed='15.7', tol=0.0,
+@check(label='ch:skytools:L96:15.7', title='regional damage C-score, highest', line=105, status='measured', printed='15.7', tol=0.0,
        kind='file', source=_B10_SKY, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4072():
     'Upper end of 12.5-15.7: largest C_6000 of the six regional-damage maps. Book line 96, printed 15.7. Input: sky_neut6_stats.csv.'
     value = float(_b10_sky('local5pct', 'C_6000').max())
     return locals()
 
-@check(label='ch:skytools:L125:0.32', title='C(d) of beta at 1-1.8 kb', line=125, status='measured', printed='0.32', tol=0.0,
+@check(label='ch:skytools:L125:0.32', title='C(d) of beta at 1-1.8 kb', line=134, status='measured', printed='0.32', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4073():
     'Agreement between CpGs falls to 0.32 at 1-1.8 kb: median over the six arrays of C(d) of beta in the 1,000-1,778 bp bin. '\
@@ -33131,7 +33131,7 @@ def check_4073():
     value = float(np.median([c for _, _, c, _ in _b10_cd('beta', 1000)]))
     return locals()
 
-@check(label='ch:skytools:L125:1.8', title='upper edge of the 1 kb distance bin', line=125, status='measured', printed='1.8', tol=0.0,
+@check(label='ch:skytools:L125:1.8', title='upper edge of the 1 kb distance bin', line=134, status='measured', printed='1.8', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4074():
     'The 1-1.8 kb bin: upper edge (bp) of the distance bin that starts at 1,000 bp, in kb (bins are logarithmic, quarter decades). '\
@@ -33139,7 +33139,7 @@ def check_4074():
     value = _b10_cd('beta', 1000)[0][1] / 1000
     return locals()
 
-@check(label='ch:skytools:L126', title='C(d) at 1 kb, highest of the six arrays', line=126, status='measured', printed='0.327', tol=0.0,
+@check(label='ch:skytools:L126', title='C(d) at 1 kb, highest of the six arrays', line=135, status='measured', printed='0.327', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4076():
     'The six arrays give the same curve to the second decimal (0.321-0.327 at 1 kb); upper end = largest C(d) of beta in the 1,000-1,778 bp '\
@@ -33147,7 +33147,7 @@ def check_4076():
     value = max(c for _, _, c, _ in _b10_cd('beta', 1000))
     return locals()
 
-@check(label='ch:skytools:L138', title='healthy residual uncorrelated beyond 1 kb', line=138, status='measured', printed='0.02', tol=0.0,
+@check(label='ch:skytools:L138', title='healthy residual uncorrelated beyond 1 kb', line=147, status='measured', printed='0.02', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4077():
     'In a healthy array the residual is uncorrelated beyond 1 kb (0.00-0.02); upper end = largest C(d) of the healthy residual z over the '\
@@ -33158,7 +33158,7 @@ def check_4077():
 def _b10_plateau():
     return [c for lo, _, c, _ in _b10_cd('z_local5pct') if 1000 <= lo <= 1000000]
 
-@check(label='ch:skytools:L139:0.08', title='regional-damage plateau, upper end', line=139, status='measured', printed='0.08', tol=0.0,
+@check(label='ch:skytools:L139:0.08', title='regional-damage plateau, upper end', line=148, status='measured', printed='0.08', tol=0.0,
        kind='file', source=_B10_CD, chapter='ch:skytools', part=6, file='part6/p6_16a_skytools')
 def check_4079():
     'Upper end of the 0.05-0.08 plateau: largest C(d) of the damaged residual over the bins starting from 1 kb to 1 Mb. Book line 139, '\
@@ -33182,7 +33182,7 @@ def check_4083():
 
 
 # ======== Part 6 | ch:sky | docs/book/part6/p6_16_sky.tex
-@check(label='ch:sky:L30:0.69', title='C-score of isolated neutrophils, lowest', line=30, status='measured', printed='0.69', tol=0.0,
+@check(label='ch:sky:L30:0.69', title='C-score of isolated neutrophils, lowest', line=34, status='measured', printed='0.69', tol=0.0,
        kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4084():
     'On the acceptance run the C-score read 0.69-1.21 on isolated neutrophils; lower end = smallest C of the six purified neutrophil arrays. '\
@@ -33192,7 +33192,7 @@ def check_4084():
     value = min(c)
     return locals()
 
-@check(label='ch:sky:L30:1.21', title='C-score of isolated neutrophils, highest', line=30, status='measured', printed='1.21', tol=0.0,
+@check(label='ch:sky:L30:1.21', title='C-score of isolated neutrophils, highest', line=34, status='measured', printed='1.21', tol=0.0,
        kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4085():
     'Upper end of 0.69-1.21: largest C of the six purified neutrophil arrays of the acceptance run. Book line 30, printed 1.21. '\
@@ -33200,7 +33200,7 @@ def check_4085():
     value = max(_b10_acc_C(True))
     return locals()
 
-@check(label='ch:sky:L30:0.78', title='C-score of whole bloods, lowest', line=30, status='measured', printed='0.78', tol=0.0,
+@check(label='ch:sky:L30:0.78', title='C-score of whole bloods, lowest', line=34, status='measured', printed='0.78', tol=0.0,
        kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4086():
     'The C-score read 0.78-1.49 on whole bloods; lower end = smallest C of the whole-blood specimens of the acceptance run (six DNA '\
@@ -33210,7 +33210,7 @@ def check_4086():
     value = min(c)
     return locals()
 
-@check(label='ch:sky:L30:1.49', title='C-score of whole bloods, highest', line=30, status='measured', printed='1.49', tol=0.0,
+@check(label='ch:sky:L30:1.49', title='C-score of whole bloods, highest', line=34, status='measured', printed='1.49', tol=0.0,
        kind='file', source=_B10_ACC, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4087():
     'Upper end of 0.78-1.49: largest C of the whole-blood specimens of the acceptance run. Book line 30, printed 1.49. '\
@@ -33218,14 +33218,14 @@ def check_4087():
     value = max(_b10_acc_C(False))
     return locals()
 
-@check(label='ch:sky:L47:50', title='sky block size', line=47, status='calibrated', printed='50', tol=0.0,
+@check(label='ch:sky:L47:50', title='sky block size', line=50, status='calibrated', printed='50', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4088():
     'Table tab:p4_skyinputs: block size 50, read from the frozen residual-map reference (key clustering_block). Book line 47, printed 50.'
     value = load_json(_B10_NREF)['clustering_block']
     return locals()
 
-@check(label='ch:sky:L47:120', title='blocks per sky map', line=47, status='calibrated', printed='120', tol=0.0,
+@check(label='ch:sky:L47:120', title='blocks per sky map', line=50, status='calibrated', printed='120', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4089():
     'Table tab:p4_skyinputs: 120 blocks per map = number of identity sites in the frozen reference over its block size. Book line 47, '\
@@ -33234,7 +33234,7 @@ def check_4089():
     value = len(ref['sites_ordered']) / ref['clustering_block']
     return locals()
 
-@check(label='ch:sky:L48', title='healthy mean H per site, median', line=48, status='calibrated', printed='0.3133', tol=0.0,
+@check(label='ch:sky:L48', title='healthy mean H per site, median', line=51, status='calibrated', printed='0.3133', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4090():
     'Table tab:p4_skyinputs: healthy mean H per site, median 0.3133 bits: median of neutrophil_H_mean over the 6,000 sites of the frozen '\
@@ -33242,7 +33242,7 @@ def check_4090():
     value = float(np.median(load_json(_B10_NREF)['neutrophil_H_mean']))
     return locals()
 
-@check(label='ch:sky:L49', title='shrunk SD s_i, median', line=49, status='calibrated', printed='0.0114', tol=0.0,
+@check(label='ch:sky:L49', title='shrunk SD s_i, median', line=52, status='calibrated', printed='0.0114', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4091():
     'Table tab:p4_skyinputs: shrunk SD s_i, median 0.0114 bits: median of neutrophil_H_sd_shrunk over the 6,000 sites. Book line 49, '\
@@ -33250,7 +33250,7 @@ def check_4091():
     value = float(np.median(load_json(_B10_NREF)['neutrophil_H_sd_shrunk']))
     return locals()
 
-@check(label='ch:sky:L50', title='healthy clustering baseline (table)', line=50, status='calibrated', printed='1.1104', tol=0.0,
+@check(label='ch:sky:L50', title='healthy clustering baseline (table)', line=53, status='calibrated', printed='1.1104', tol=0.0,
        kind='file', source=_B10_NREF, chapter='ch:sky', part=6, file='part6/p6_16_sky')
 def check_4092():
     'Table tab:p4_skyinputs: healthy clustering baseline c_healthy 1.1104, read from the frozen reference (key healthy_clustering_median; '\
@@ -33314,7 +33314,7 @@ def check_4096():
 
 # ======== Part 6 | ch:serial | docs/book/part6/p6_17_serial.tex
 @check(label='ch:serial:L71', chapter='ch:serial', part=6, title='E-MTAB-7309 Stage 1: median call rate',
-       file='part6/p6_17_serial', line=35, status='measured', kind='file', printed='0.894', tol=0.0,
+       file='part6/p6_17_serial', line=38, status='measured', kind='file', printed='0.894', tol=0.0,
        source='Biological_Physics/MethylPhys/archive/history_2026-10-16/STATUS_to_2026-10-15.md')
 def check_4110():
     'Median call rate of the 1,056 E-MTAB-7309 arrays calibrated by Stage 1, read from the Stage 1 record in STATUS.md (archived 2026-10-16 to archive/history_2026-10-16/STATUS_to_2026-10-15.md) (carried from PLAN.md at the 2026-10-09 consolidation) (2026-09-27 entry: "Call rate median ..."); the same record gives 738 of 1,056 below the 0.93 intake line. Book line 71, printed 0.894. Inputs: PLAN.md (no per-array call-rate file is committed).'
@@ -33327,7 +33327,7 @@ def check_4110():
 
 # ======== Part 6 | ch:discipline | docs/book/part6/p6_18_discipline.tex
 @check(label='ch:discipline:L24', chapter='ch:discipline', part=6, title='severe vs healthy above Normal: one-sided Fisher p',
-       file='part6/p6_18_discipline', line=24, status='measured', kind='file', printed='0.015', tol=0.0,
+       file='part6/p6_18_discipline', line=29, status='measured', kind='file', printed='0.015', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
 def check_4111():
     'Pre-registered T4a: SEVERE above Normal more often than NEGATIVE. Counts of tared readings "above Normal" per group from the battery file, one-sided Fisher exact test. Book line 24, printed p = 0.015. Inputs: neut_test_T1T3T4_readings.csv (tared_state); the outcome record gives 32/110 vs 11/76.'
@@ -33339,7 +33339,7 @@ def check_4111():
     return locals()
 
 @check(label='ch:discipline:L24:0.79', chapter='ch:discipline', part=6, title='median neutrophil fraction, severe infection',
-       file='part6/p6_18_discipline', line=24, status='measured', kind='file', printed='0.79', tol=0.0,
+       file='part6/p6_18_discipline', line=29, status='measured', kind='file', printed='0.79', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
 def check_4112():
     'Median Stage A neutrophil fraction of the SEVERE specimens of T4 (113 read). Book line 24, printed 0.79. Inputs: neut_test_T1T3T4_readings.csv (f_neu).'
@@ -33347,7 +33347,7 @@ def check_4112():
     return locals()
 
 @check(label='ch:discipline:L24:0.65', chapter='ch:discipline', part=6, title='median neutrophil fraction, healthy (NEGATIVE)',
-       file='part6/p6_18_discipline', line=24, status='measured', kind='file', printed='0.65', tol=0.0,
+       file='part6/p6_18_discipline', line=29, status='measured', kind='file', printed='0.65', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
 def check_4113():
     'Median Stage A neutrophil fraction of the NEGATIVE (healthy) specimens of T4 (99 read). Book line 24, printed 0.65. Inputs: neut_test_T1T3T4_readings.csv (f_neu).'
@@ -33355,7 +33355,7 @@ def check_4113():
     return locals()
 
 @check(label='ch:discipline:L25', chapter='ch:discipline', part=6, title='severity term with fraction in the model',
-       file='part6/p6_18_discipline', line=25, status='measured', kind='file', printed='+0.0075', tol=0.0,
+       file='part6/p6_18_discipline', line=30, status='measured', kind='file', printed='+0.0075', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
 def check_4114():
     'Severity term of the least-squares model tared A_rel = a + b_severe [SEVERE] + b_mild [MILD] + c f_neu over the 495 tared T4 readings. Book line 25, printed +0.0075. Inputs: neut_test_T1T3T4_readings.csv. (The fraction slope of the same fit is the record\'s "+0.12 A per unit fraction".)'
@@ -33364,7 +33364,7 @@ def check_4114():
     return locals()
 
 @check(label='ch:discipline:L25:0.42', chapter='ch:discipline', part=6, title='p of the severity term with fraction in the model',
-       file='part6/p6_18_discipline', line=25, status='measured', kind='file', printed='0.42', tol=0.0,
+       file='part6/p6_18_discipline', line=30, status='measured', kind='file', printed='0.42', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/neut_test_T1T3T4_readings.csv')
 def check_4115():
     'Two-sided t-test p of the severity term in the same least-squares model (tared A_rel on severity and neutrophil fraction, 495 tared T4 readings). Book line 25, printed p = 0.42. Inputs: neut_test_T1T3T4_readings.csv.'
@@ -33373,7 +33373,7 @@ def check_4115():
     return locals()
 
 @check(label='ch:discipline:L57', chapter='ch:discipline', part=6, title='planted 2 % loss: shift of the tared reading',
-       file='part6/p6_18_discipline', line=57, status='measured', kind='file', printed='+0.061', tol=0.0,
+       file='part6/p6_18_discipline', line=62, status='measured', kind='file', printed='+0.061', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/selfconsist.csv')
 def check_4116():
     'Median shift of the tared reading from a planted 2 % loss of the neutrophil pattern on the six mixtures with >= 50 % neutrophils; each mixture tared (median) against the other five, healthy and damaged readings divided by the same reference. The same tare reproduces the record\'s healthy 0.992-1.021 and damaged 1.052-1.090. Book line 57, printed +0.061. Inputs: selfconsist.csv (A_nnls, A_nnls_damaged).'
@@ -33436,7 +33436,7 @@ def check_4122():
     return locals()
 
 @check(label='ch:chain:L72', chapter='ch:chain', part=6, title='C-score healthy baseline (Stage MC text)',
-       file='part6/p6_19_chain', line=72, status='openprob', kind='file', printed='1.1104', tol=0.0,
+       file='part6/p6_19_chain', line=82, status='openprob', kind='file', printed='1.1104', tol=0.0,
        source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json')
 def check_4124():
     'Stage MC: the C-score is divided by the healthy baseline, the median of the six leave-one-out healthy clustering values of the frozen neutrophil reference, recomputed here. Book line 72, printed 1.1104. Inputs: neutrophil_reference_v1_1.json (healthy_clustering_LOO).'
@@ -34289,7 +34289,7 @@ def check_4344():
     return locals()
 
 @check(label='ch:status:L33', chapter='ch:status', part=6, title='atlas v2 held-out coverage',
-       file='part6/p6_24_status', line=33, status='calc', kind='file', printed='92.7', tol=0.0, source=_B12_V5,
+       file='part6/p6_24_status', line=40, status='calc', kind='file', printed='92.7', tol=0.0, source=_B12_V5,
        heavy=True, rerun='atlas v2 posterior refit on 20 masked blocks (atlas/v2/postbuild/scripts/v5_heldout.py); the record is the outcome file')
 def check_4345():
     'Atlas v2: share of 342,716 held-out observations inside the 90 % interval, B1 of the PROC-V5-HELDOUT outcome (92.68 %). Book line 33, printed 92.7.'
@@ -34521,7 +34521,7 @@ def check_4372():
     return locals()
 
 @check(label='ch:virial_partners:L29', chapter='ch:virial_partners', part=7, title='dark matter to dark energy ratio today, 0.26/0.69',
-       file='part7/p7_05b_virial_partners', line=29, status='calc', kind='num', printed='0.38', tol=0.0)
+       file='part7/p7_05b_virial_partners', line=28, status='calc', kind='num', printed='0.38', tol=0.0)
 def check_4373():
     'Omega_DM/Omega_Lambda today from the book\'s own rounded fractions at lines 25-26 (dark matter approximately 26 %, dark energy approximately 69 % of the critical density), as verify_virial_papers.py section G does. Book line 29, printed approximately 0.38.'
     f_dm, f_de = 0.26, 0.69     # book lines 25-26
@@ -34529,7 +34529,7 @@ def check_4373():
     return locals()
 
 @check(label='ch:virial_partners:L36', chapter='ch:virial_partners', part=7, title='atomic scale: the Bohr radius lies in the 10^-11 m decade',
-       file='part7/p7_05b_virial_partners', line=36, status='observed', kind='num', printed='10^{-11}', tol=0.0)
+       file='part7/p7_05b_virial_partners', line=35, status='observed', kind='num', printed='10^{-11}', tol=0.0)
 def check_4374():
     'The atomic scale 10^-11 m: the decade of the Bohr radius a0 = hbar/(m_e c alpha) = 5.29e-11 m (CODATA 2018), value = 10^floor(log10 a0). Same scale as ch:virial_law (p1_03 lines 27 and 173). Book line 36, printed 10^-11 m.'
     a0 = hbar / (m_e * c * alpha_em)
@@ -34537,21 +34537,21 @@ def check_4374():
     return locals()
 
 @check(label='ch:virial_partners:L37', chapter='ch:virial_partners', part=7, title='cosmic horizon scale c/H0 ~ 10^26 m',
-       file='part7/p7_05b_virial_partners', line=37, status='observed', kind='num', printed='10^{26}', tol=0.0)
+       file='part7/p7_05b_virial_partners', line=36, status='observed', kind='num', printed='10^{26}', tol=0.0)
 def check_4375():
     'Hubble radius c/H0 in metres with H0 = 67.16 (photon sector, locked), an order of magnitude. Book line 37, printed 10^26 m.'
     value = c / Hsi(H0_photon)
     return locals()
 
 @check(label='ch:virial_partners:L68', chapter='ch:virial_partners', part=7, title='virial ratio R at z = 2',
-       file='part7/p7_05b_virial_partners', line=68, status='calc', kind='num', printed='399', tol=0.0)
+       file='part7/p7_05b_virial_partners', line=67, status='calc', kind='num', printed='399', tol=0.0)
 def check_4376():
     'R(a) = Omega_m a^-3/[beta_m E(a)] at z = 2 (Table tab:vc_R). Book line 68, printed 399.'
     value = _b13_R(2.0)
     return locals()
 
 @check(label='ch:virial_partners:L68:20', chapter='ch:virial_partners', part=7, title='virial ratio R at z = 0.7',
-       file='part7/p7_05b_virial_partners', line=68, status='calc', kind='num', printed='20', tol=0.0)
+       file='part7/p7_05b_virial_partners', line=67, status='calc', kind='num', printed='20', tol=0.0)
 def check_4377():
     'R(a) at z = 0.7. Book line 68, printed 20.'
     value = _b13_R(0.7)
@@ -34799,7 +34799,7 @@ def check_4404():
 
 # ======== Part 7 | ch:onegauge | docs/book/part7/p7_08_one_gauge.tex
 @check(label='ch:onegauge:L22', chapter='ch:onegauge', part=7, title='drafted check, screened (runs; negative control fails)',
-       file='part7/p7_08_one_gauge', line=22, status='calc', kind='num', printed='399', tol=0.0)
+       file='part7/p7_08_one_gauge', line=23, status='calc', kind='num', printed='399', tol=0.0)
 def check_2595():
     'drafted check, screened (runs; negative control fails). Book line 22, printed 399.'
     # Line 22: M = 399--411; M = E_sw / (k_B T_j)
@@ -34811,7 +34811,7 @@ def check_2595():
     return locals()
 
 @check(label='ch:onegauge:L22:411', chapter='ch:onegauge', part=7, title='drafted check, screened (runs; negative control fails) (tolerance: E_sw is printed to 3 figures)',
-       file='part7/p7_08_one_gauge', line=22, status='calc', kind='num', printed='411', tol=0.0025)
+       file='part7/p7_08_one_gauge', line=23, status='calc', kind='num', printed='411', tol=0.0025)
 def check_2596():
     'drafted check, screened (runs; negative control fails) (tolerance: E_sw is printed to 3 figures). Book line 22, printed 411.'
     # Line 22: M = E_sw / (k_B T_j)
@@ -34823,7 +34823,7 @@ def check_2596():
     return locals()
 
 @check(label='ch:onegauge:L22:0.0017', chapter='ch:onegauge', part=7, title='drafted check, screened (runs; negative control fails)',
-       file='part7/p7_08_one_gauge', line=22, status='calc', kind='num', printed='0.0017', tol=0.0)
+       file='part7/p7_08_one_gauge', line=23, status='calc', kind='num', printed='0.0017', tol=0.0)
 def check_2597():
     'drafted check, screened (runs; negative control fails). Book line 22, printed 0.0017.'
     # Line 22: Landauer floor = k_B T_j ln(2)
@@ -34837,7 +34837,7 @@ def check_2597():
     return locals()
 
 @check(label='ch:onegauge:L41', chapter='ch:onegauge', part=7, title='transmon worked example: error-correction threshold at A = 10',
-       file='part7/p7_08_one_gauge', line=41, status='calc', kind='num', printed='10', tol=0.0)
+       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='10', tol=0.0)
 def check_4405():
     'On the qubit gauge A = reading/(the device as built): the error-correction threshold p ~ 1 % (line 40) over the worked transmon two-qubit error 10^-3 (fig:onegauge caption, line 58), both read through eps = -ln(1-p) as the qubit gauge defines (table, line 37). Book line 41, printed A = 10.'
     p_threshold, p_device = 0.01, 1e-3       # book lines 40 and 58
@@ -34853,7 +34853,7 @@ def check_2598():
     return locals()
 
 @check(label='ch:onegauge:L42:3.03', chapter='ch:onegauge', part=7, title='full surface on Met-A: 1/(healthy reference)',
-       file='part7/p7_08_one_gauge', line=42, status='calc', kind='num', printed='3.03', tol=0.0)
+       file='part7/p7_08_one_gauge', line=43, status='calc', kind='num', printed='3.03', tol=0.0)
 def check_4406():
     'Full surface on Met-A for neutrophils: H(beta) = 1 bit at every identity site over the healthy reference 0.330263 bits (CANON Met_A_floor_EPIC_neutrophil, frozen from 6 purified healthy EPIC arrays). Book line 42, printed 3.03.'
     value = 1.0 / _cv('Met_A_floor_EPIC_neutrophil')
@@ -35397,7 +35397,7 @@ def check_4466():
     return locals()
 
 @check(label='ch:predictions:L86', chapter='ch:predictions', part=7, title='GW170817 standard-siren H0 (published)',
-       file='part7/p7_07_predictions', line=86, status='observed', kind='num', printed='70.0', tol=0.0)
+       file='part7/p7_07_predictions', line=85, status='observed', kind='num', printed='70.0', tol=0.0)
 def check_4467():
     'Standard-siren H0 from GW170817, km/s/Mpc. Book line 86, printed 70.0 (+12.0 -8.0). Input: LIGO Scientific and Virgo Collaborations 2017, Nature 551, 85 (doi 10.1038/nature24471): 70.0 +12.0 -8.0.'
     H0_siren, up, lo = 70.0, 12.0, 8.0      # Abbott et al. 2017
@@ -35405,7 +35405,7 @@ def check_4467():
     return locals()
 
 @check(label='ch:predictions:L86:8.0', chapter='ch:predictions', part=7, title='GW170817 siren H0 lower error (published)',
-       file='part7/p7_07_predictions', line=86, status='observed', kind='num', printed='8.0', tol=0.0)
+       file='part7/p7_07_predictions', line=85, status='observed', kind='num', printed='8.0', tol=0.0)
 def check_4468():
     'Lower 68 % error of the GW170817 siren H0. Book line 86, printed 8.0. Input: doi 10.1038/nature24471, 70.0 +12.0 -8.0.'
     H0_siren, up, lo = 70.0, 12.0, 8.0      # Abbott et al. 2017
@@ -35413,7 +35413,7 @@ def check_4468():
     return locals()
 
 @check(label='ch:predictions:L87', chapter='ch:predictions', part=7, title='matter-sector H0 = H0_photon sqrt(1 + beta_m)',
-       file='part7/p7_07_predictions', line=87, status='openprob', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='part7/p7_07_predictions', line=86, status='openprob', kind='file', printed='72.26', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_4469():
     'H0_matter = H0_photon sqrt(1 + beta_m) (C12), H0_photon the iam_level2_runA posterior mean, beta_m from CANON. Book line 84-87, printed 72.26.'
@@ -35421,7 +35421,7 @@ def check_4469():
     return locals()
 
 @check(label='ch:predictions:L154', chapter='ch:predictions', part=7, title='bound on drift of m_p/m_e from H2 quasar absorbers (published)',
-       file='part7/p7_07_predictions', line=154, status='observed', kind='num', printed='5\\times10^{-6}', tol=0.0)
+       file='part7/p7_07_predictions', line=153, status='observed', kind='num', printed='5\\times10^{-6}', tol=0.0)
 def check_4470():
     '3 sigma bound |Delta mu/mu| from H2 absorbers at z = 2.0-4.2. Book line 154, printed < 5e-6. Input: Ubachs et al. 2016, Rev. Mod. Phys. 88, 021003 (doi 10.1103/RevModPhys.88.021003): |Delta mu/mu| < 5e-6 (3 sigma), z = 2.0-4.2.'
     bound, z_lo, z_hi = 5e-6, 2.0, 4.2      # Ubachs et al. 2016
@@ -35429,7 +35429,7 @@ def check_4470():
     return locals()
 
 @check(label='ch:predictions:L154:2.0', chapter='ch:predictions', part=7, title='lowest absorber redshift of the m_p/m_e bound (published)',
-       file='part7/p7_07_predictions', line=154, status='observed', kind='num', printed='2.0', tol=0.0)
+       file='part7/p7_07_predictions', line=153, status='observed', kind='num', printed='2.0', tol=0.0)
 def check_4471():
     'Lower end of the absorber redshift range of the bound. Book line 154, printed 2.0. Input: Ubachs et al. 2016 (doi 10.1103/RevModPhys.88.021003), z = 2.0-4.2.'
     bound, z_lo, z_hi = 5e-6, 2.0, 4.2      # Ubachs et al. 2016
@@ -35448,7 +35448,7 @@ def check_4472():
     return locals()
 
 @check(label='ch:predictions:L191', chapter='ch:predictions', part=7, title='quasiparticle-limited T1 of a 5 GHz Al transmon at x_qp = 1e-7, ms',
-       file='part7/p7_07_predictions', line=191, status='openprob', kind='num', printed='0.24', tol=0.0)
+       file='part7/p7_07_predictions', line=190, status='openprob', kind='num', printed='0.24', tol=0.0)
 def check_4473():
     'T1 = 1/Gamma, Gamma = x_qp (omega/pi) sqrt(2 Delta/(hbar omega)) (ch:xqp line 148), omega = 2 pi 5 GHz, Delta_Al = 182 micro-eV, x_qp = 1e-7, in ms. Book line 188/191, printed 0.24 ms.'
     x_qp, f_q, Delta = 1e-7, 5e9, 182e-6 * eV
@@ -37596,7 +37596,7 @@ def check_4652():
     return locals()
 
 @check(label='app:notation:L119', chapter='app:notation', part=8, title='C-score healthy clustering baseline',
-       file='appendices/app_N_notation', line=119, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       file='appendices/app_N_notation', line=121, status='calibrated', kind='file', printed='1.1104', tol=0.0,
        source=_B15N_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15N_METH_RERUN)
 def check_4654():
     'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 119, printed 1.1104.'
@@ -37604,7 +37604,7 @@ def check_4654():
     return locals()
 
 @check(label='app:notation:L120', chapter='app:notation', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_N_notation', line=120, status='observed', kind='file', printed='528', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_N_notation', line=122, status='observed', kind='file', printed='528', tol=0.0, source='CANON/iam_canon.json')
 def check_2709():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 120, printed 528.'
     ok = file_has('CANON/iam_canon.json', '528')
@@ -37661,21 +37661,21 @@ def check_4659():
 # ---------------------------------------------------------------- lines 117, 130: Jacobson and the apparent horizon
 
 @check(label='app:formulas:L100', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=91, status='derived', kind='num', printed='0.3153', tol=0.0)
+       file='appendices/app_E_formulas', line=93, status='derived', kind='num', printed='0.3153', tol=0.0)
 def check_2711():
     'drafted check, screened (runs; negative control fails). Book line 91, printed 0.3153.'
     value = Om
     return locals()
 
 @check(label='app:formulas:L100:0.15765', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=91, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=93, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2712():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 91, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L108', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=99, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_E_formulas', line=101, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2713():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 99, printed 67.16.'
@@ -37683,7 +37683,7 @@ def check_2713():
     return locals()
 
 @check(label='app:formulas:L108:72.26', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
-       file='appendices/app_E_formulas', line=99, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='appendices/app_E_formulas', line=101, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_2714():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 99, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
@@ -37719,7 +37719,7 @@ def check_4661():
 # ---------------------------------------------------------------- lines 240, 248
 
 @check(label='app:formulas:L177', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=168, status='derived', kind='num', printed='0.136', tol=0.0)
+       file='appendices/app_E_formulas', line=170, status='derived', kind='num', printed='0.136', tol=0.0)
 def check_2715():
     'drafted check, screened (runs; negative control fails). Book line 168, printed 0.136.'
     mu_0 = -beta_m / (1 + beta_m)
@@ -37727,7 +37727,7 @@ def check_2715():
     return locals()
 
 @check(label='app:formulas:L189', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=180, status='derived', kind='num', printed='1.062', tol=0.0)
+       file='appendices/app_E_formulas', line=182, status='derived', kind='num', printed='1.062', tol=0.0)
 def check_2716():
     'drafted check, screened (runs; negative control fails). Book line 180, printed 1.062.'
     numerator = -(1 - Om / 3)
@@ -37737,7 +37737,7 @@ def check_2716():
     return locals()
 
 @check(label='app:formulas:L189:1.062', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=180, status='calc', kind='num', printed='1.062', tol=0.0)
+       file='appendices/app_E_formulas', line=182, status='calc', kind='num', printed='1.062', tol=0.0)
 def check_2717():
     'drafted check, screened (runs; negative control fails). Book line 180, printed 1.062.'
     numerator = -(1 - Om / 3)
@@ -37747,7 +37747,7 @@ def check_2717():
     return locals()
 
 @check(label='app:formulas:L190', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=181, status='calc', kind='num', printed='0.012', tol=0.0)
+       file='appendices/app_E_formulas', line=183, status='calc', kind='num', printed='0.012', tol=0.0)
 def check_2718():
     'drafted check, screened (runs; negative control fails). Book line 181, printed 0.012.'
     w_a = -(Om**2) / (3 * (2 - Om)**2)
@@ -37755,14 +37755,14 @@ def check_2718():
     return locals()
 
 @check(label='app:formulas:L226', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=217, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=219, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2719():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 217, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L240', chapter='app:formulas', part=8, title='MGCAMB amplitude mu0 set in the runs',
-       file='appendices/app_E_formulas', line=231, status='calc', kind='file', printed='-0.13495', tol=0.0,
+       file='appendices/app_E_formulas', line=233, status='calc', kind='file', printed='-0.13495', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.input.yaml')
 def check_4662():
     'mu0 value of the fixed-amplitude Level 1 chain input (params: mu0: value). Book line 231, printed -0.13495.'
@@ -37771,14 +37771,14 @@ def check_4662():
     return locals()
 
 @check(label='app:formulas:L243', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_E_formulas', line=234, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_E_formulas', line=236, status='derived', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2720():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 234, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:formulas:L248', chapter='app:formulas', part=8, title='mu today',
-       file='appendices/app_E_formulas', line=239, status='derived', kind='num', printed='0.864', tol=0.0)
+       file='appendices/app_E_formulas', line=241, status='derived', kind='num', printed='0.864', tol=0.0)
 def check_4663():
     'mu(a = 1) of mu(a) = H^2/(H^2 + beta_m E(a) H0^2) (function mu_iam). Book line 239, printed 0.864.'
     value = float(mu_iam(1.0))
@@ -37787,14 +37787,14 @@ def check_4663():
 # ---------------------------------------------------------------- lines 321-340: the cosmological constant
 
 @check(label='app:formulas:L250', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:516 (H_m/H at z=0)',
-       file='appendices/app_E_formulas', line=241, status='derived', kind='num', printed='1.0759', tol=4.65e-05)
+       file='appendices/app_E_formulas', line=243, status='derived', kind='num', printed='1.0759', tol=4.65e-05)
 def check_2721():
     'same value as p1_02_iams_law:516 (H_m/H at z=0). Book line 241, printed 1.0759.'
     a=1.0; Elcdm2=Om*a**-3+OL; mu=1/(1+beta_m*E_act(a)/Elcdm2); value=1/math.sqrt(mu)
     return locals()
 
 @check(label='app:formulas:L330', chapter='app:formulas', part=8, title='measured rho_Lambda / rho_vac',
-       file='appendices/app_E_formulas', line=321, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=323, status='calc', kind='num', printed='1.133\\times10^{-123}', tol=0.0)
 def check_4664():
     'rho_Lambda/rho_vac = Omega_L rho_c c^2 / (c^7/(hbar G^2)), H0 67.4, Omega_L = 1 - 0.3153 - 9.15e-5 (ch:lambda inputs). Book line 321, printed 1.133e-123.'
     base, OLv, obs = _b15e_lambda()
@@ -37802,7 +37802,7 @@ def check_4664():
     return locals()
 
 @check(label='app:formulas:L335', chapter='app:formulas', part=8, title='base expression over the measured ratio',
-       file='appendices/app_E_formulas', line=326, status='fitted', kind='num', printed='1.218', tol=0.0)
+       file='appendices/app_E_formulas', line=328, status='fitted', kind='num', printed='1.218', tol=0.0)
 def check_4665():
     '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m) divided by the measured rho_Lambda/rho_vac (Planck 2018 Omega_b 0.0493, Omega_m 0.3153, H0 67.4). Book line 326, printed 1.218.'
     base, OLv, obs = _b15e_lambda()
@@ -37810,7 +37810,7 @@ def check_4665():
     return locals()
 
 @check(label='app:formulas:L342', chapter='app:formulas', part=8, title='base expression',
-       file='appendices/app_E_formulas', line=333, status='fitted', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=335, status='fitted', kind='num', printed='1.380\\times10^{-123}', tol=0.0)
 def check_4666():
     '(2/pi)(l_P/l_H)^2 (Omega_b/Omega_m), l_H = c/H0 at 67.4. Book line 333, printed 1.380e-123.'
     base, OLv, obs = _b15e_lambda()
@@ -37818,7 +37818,7 @@ def check_4666():
     return locals()
 
 @check(label='app:formulas:L348', chapter='app:formulas', part=8, title='corrected expression above the measured value, per cent',
-       file='appendices/app_E_formulas', line=339, status='fitted', kind='num', printed='0.79', tol=0.0)
+       file='appendices/app_E_formulas', line=341, status='fitted', kind='num', printed='0.79', tol=0.0)
 def check_4667():
     '(2/pi)(l_P/l_H)^2 sqrt(Omega_L)(Omega_b/Omega_m) over the measured ratio, minus 1, in per cent. Book line 339, printed 0.79.'
     base, OLv, obs = _b15e_lambda()
@@ -37826,7 +37826,7 @@ def check_4667():
     return locals()
 
 @check(label='app:formulas:L349', chapter='app:formulas', part=8, title='corrected expression',
-       file='appendices/app_E_formulas', line=340, status='fitted', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
+       file='appendices/app_E_formulas', line=342, status='fitted', kind='num', printed='1.142\\times10^{-123}', tol=0.0)
 def check_4668():
     'Base expression times sqrt(Omega_L). Book line 340, printed 1.142e-123.'
     base, OLv, obs = _b15e_lambda()
@@ -37836,7 +37836,7 @@ def check_4668():
 # ---------------------------------------------------------------- line 438: Kerr
 
 @check(label='app:formulas:L387', chapter='app:formulas', part=8, title='same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output)',
-       file='appendices/app_E_formulas', line=378, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
+       file='appendices/app_E_formulas', line=380, status='measured', kind='file', printed='1.0046', tol=0, source='docs/verification/scripts/verify_cc_and_baryon_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_cc_and_baryon.py > docs/verification/scripts/verify_cc_and_baryon_output.txt')
 def check_2722():
     'same value as p2_13b_baryon_chain:123 (ratio on the 18th chain, committed output). Book line 378, printed 1.0046.'
@@ -37844,14 +37844,14 @@ def check_2722():
     return locals()
 
 @check(label='app:formulas:L396', chapter='app:formulas', part=8, title='same value as p1_02_iams_law:696 (H0 matter-sector formula)',
-       file='appendices/app_E_formulas', line=387, status='calc', kind='num', printed='72.26', tol=7e-05)
+       file='appendices/app_E_formulas', line=389, status='calc', kind='num', printed='72.26', tol=7e-05)
 def check_2723():
     'same value as p1_02_iams_law:696 (H0 matter-sector formula). Book line 387, printed 72.26.'
     value=H0_photon*math.sqrt(1+beta_m)
     return locals()
 
 @check(label='app:formulas:L396:67.16', chapter='app:formulas', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_E_formulas', line=387, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_E_formulas', line=389, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2724():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 387, printed 67.16.'
@@ -37859,21 +37859,21 @@ def check_2724():
     return locals()
 
 @check(label='app:formulas:L447', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.5',
-       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.433', tol=0.0)
+       file='appendices/app_E_formulas', line=440, status='derived', kind='num', printed='0.433', tol=0.0)
 def check_4669():
     'T_BH S_BH/(M c^2) built from the Kerr horizon radius, area and surface gravity of a one-solar-mass hole at spin chi = 0.5. Book line 438, printed 0.433.'
     value = _b15e_kerr_TS(0.5)
     return locals()
 
 @check(label='app:formulas:L447:0.218', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.9',
-       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.218', tol=0.0)
+       file='appendices/app_E_formulas', line=440, status='derived', kind='num', printed='0.218', tol=0.0)
 def check_4670():
     'Same at chi = 0.9. Book line 438, printed 0.218.'
     value = _b15e_kerr_TS(0.9)
     return locals()
 
 @check(label='app:formulas:L447:0.032', chapter='app:formulas', part=8, title='Kerr T S / M c^2 at chi = 0.998',
-       file='appendices/app_E_formulas', line=438, status='derived', kind='num', printed='0.032', tol=0.0)
+       file='appendices/app_E_formulas', line=440, status='derived', kind='num', printed='0.032', tol=0.0)
 def check_4671():
     'Same at chi = 0.998. Book line 438, printed 0.032.'
     value = _b15e_kerr_TS(0.998)
@@ -37882,7 +37882,7 @@ def check_4671():
 # ---------------------------------------------------------------- lines 447-448: two horizons
 
 @check(label='app:formulas:L456', chapter='app:formulas', part=8, title='M_eq = c^3/(4GH) at H0 67.4, solar masses',
-       file='appendices/app_E_formulas', line=447, status='derived', kind='num', printed='2.32\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=449, status='derived', kind='num', printed='2.32\\times10^{22}', tol=0.0)
 def check_4672():
     'Mass at which hbar c^3/(8 pi G M k_B) equals hbar H/(2 pi k_B), solved numerically (brentq on the temperature difference), H0 = 67.4 (Planck 2018). Book line 447, printed 2.32e22.'
     TH = hbar * Hsi(67.4) / (2 * math.pi * kB)
@@ -37891,7 +37891,7 @@ def check_4672():
     return locals()
 
 @check(label='app:formulas:L457', chapter='app:formulas', part=8, title='black hole in balance with the CMB, kg',
-       file='appendices/app_E_formulas', line=448, status='derived', kind='num', printed='4.5\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=450, status='derived', kind='num', printed='4.5\\times10^{22}', tol=0.0)
 def check_4673():
     'M_CMB = hbar c^3/(8 pi G k_B T_CMB), T_CMB 2.7255 K (Fixsen 2009). Book line 448, printed 4.5e22 kg.'
     value = hbar * c**3 / (8 * math.pi * G * kB * T_CMB)
@@ -37900,7 +37900,7 @@ def check_4673():
 # ---------------------------------------------------------------- line 531: string tension
 
 @check(label='app:formulas:L540', chapter='app:formulas', part=8, title='string tension in GeV/fm',
-       file='appendices/app_E_formulas', line=531, status='calc', kind='num', printed='0.91', tol=0.0)
+       file='appendices/app_E_formulas', line=533, status='calc', kind='num', printed='0.91', tol=0.0)
 def check_4674():
     'sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c (in GeV fm, from SI hbar, c, e). Book line 531, printed 0.91.'
     hbarc_GeV_fm = hbar * c / (e_ch * 1e9) / 1e-15
@@ -37910,7 +37910,7 @@ def check_4674():
 # ---------------------------------------------------------------- lines 580-593: devices
 
 @check(label='app:formulas:L543', chapter='app:formulas', part=8, title='same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau)',
-       file='appendices/app_E_formulas', line=534, status='observed', kind='num', printed='0.66666051', tol=0)
+       file='appendices/app_E_formulas', line=536, status='observed', kind='num', printed='0.66666051', tol=0)
 def check_2725():
     'same value as p4_15a_lepton_koide:35 (Koide Q with the 2022 m_tau). Book line 534, printed 0.66666051.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -37926,7 +37926,7 @@ def check_2725():
     return locals()
 
 @check(label='app:formulas:L589', chapter='app:formulas', part=8, title='slope of the held-record floor at 15 mK, 5 GHz',
-       file='appendices/app_E_formulas', line=580, status='derived', kind='num', printed='16.0', tol=0.0)
+       file='appendices/app_E_formulas', line=585, status='derived', kind='num', printed='16.0', tol=0.0)
 def check_4675():
     'd ln p_eq / d ln T of p_eq = 1/(1+exp(hf/k_B T)), taken numerically at f = 5 GHz, T = 15 mK (equals M(1 - p_eq)). Book line 580, printed 16.0.'
     peq = lambda T: 1 / (1 + math.exp(h * 5e9 / (kB * T)))
@@ -37935,7 +37935,7 @@ def check_4675():
     return locals()
 
 @check(label='app:formulas:L596', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=587, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
+       file='appendices/app_E_formulas', line=592, status='derived', kind='num', printed='6.2\\times10^{-7}', tol=0.0)
 def check_2726():
     'drafted check, screened (runs; negative control fails). Book line 587, printed 6.2\\times10^{-7}.'
     # 5 GHz transmon at 35 mK: E = hf, M = E/(kB T)
@@ -37951,7 +37951,7 @@ def check_2726():
     return locals()
 
 @check(label='app:formulas:L599', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=590, status='calc', kind='num', printed='0.021', tol=0.0)
+       file='appendices/app_E_formulas', line=595, status='calc', kind='num', printed='0.021', tol=0.0)
 def check_2727():
     'drafted check, screened (runs; negative control fails). Book line 590, printed 0.021.'
     T_j = 348.0  # K
@@ -37961,14 +37961,14 @@ def check_2727():
     return locals()
 
 @check(label='app:formulas:L599:3.33\\times10^{-21}', chapter='app:formulas', part=8, title='Landauer floor at the junction temperature',
-       file='appendices/app_E_formulas', line=590, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0.0)
+       file='appendices/app_E_formulas', line=595, status='calc', kind='num', printed='3.33\\times10^{-21}', tol=0.0)
 def check_4676():
     'k_B T_j ln 2 at T_j = 75 C = 348.15 K. Book line 590, printed 3.33e-21 J.'
     value = kB * (273.15 + 75) * LN2
     return locals()
 
 @check(label='app:formulas:L602', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='6.2', tol=0.0)
+       file='appendices/app_E_formulas', line=598, status='derived', kind='num', printed='6.2', tol=0.0)
 def check_2728():
     'drafted check, screened (runs; negative control fails). Book line 593, printed 6.2.'
     s = 0.646
@@ -37978,7 +37978,7 @@ def check_2728():
     return locals()
 
 @check(label='app:formulas:L602:18.5', chapter='app:formulas', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='18.5', tol=0.0)
+       file='appendices/app_E_formulas', line=598, status='derived', kind='num', printed='18.5', tol=0.0)
 def check_2729():
     'drafted check, screened (runs; negative control fails). Book line 593, printed 18.5.'
     s = 1 - 1 / math.sqrt(2)
@@ -37988,7 +37988,7 @@ def check_2729():
     return locals()
 
 @check(label='app:formulas:L602:0.646', chapter='app:formulas', part=8, title='constant-field step per halving of area',
-       file='appendices/app_E_formulas', line=593, status='derived', kind='num', printed='0.646', tol=0.0)
+       file='appendices/app_E_formulas', line=598, status='derived', kind='num', printed='0.646', tol=0.0)
 def check_4677():
     'Fractional fall of C V^2 per node under constant-field scaling, 1 - kappa^-3 with kappa = sqrt 2 (area per transistor halved; ch:cmos). Book line 593, printed 0.646.'
     kap = math.sqrt(2)
@@ -37998,7 +37998,7 @@ def check_4677():
 # ---------------------------------------------------------------- lines 601-610: the cell
 
 @check(label='app:formulas:L610', chapter='app:formulas', part=8, title='body temperature, K (canon)',
-       file='appendices/app_E_formulas', line=601, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_E_formulas', line=607, status='calc', kind='file', printed='310.15', tol=0.0, source='CANON/iam_canon.json')
 def check_4678():
     'T_cell of the canon, checked against 37 C + 273.15 as its source note states. Book line 601, printed 310.15.'
     Tc = _cv('T_cell')
@@ -38006,28 +38006,28 @@ def check_4678():
     return locals()
 
 @check(label='app:formulas:L610:2.968', chapter='app:formulas', part=8, title='Landauer cost of one bit at body temperature',
-       file='appendices/app_E_formulas', line=601, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.0)
+       file='appendices/app_E_formulas', line=607, status='calc', kind='num', printed='2.968\\times10^{-21}', tol=0.0)
 def check_4679():
     'k_B T_cell ln 2, T_cell = 310.15 K (canon). Book line 601, printed 2.968e-21 J.'
     value = kB * T_cell * LN2
     return locals()
 
 @check(label='app:formulas:L611', chapter='app:formulas', part=8, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
-       file='appendices/app_E_formulas', line=602, status='calc', kind='num', printed='20.94', tol=0.000239)
+       file='appendices/app_E_formulas', line=608, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2730():
     'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 602, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
 @check(label='app:formulas:L613', chapter='app:formulas', part=8, title='same value as p6_02_landauer:48 (M/ln2)',
-       file='appendices/app_E_formulas', line=604, status='calc', kind='num', printed='30.21', tol=0)
+       file='appendices/app_E_formulas', line=610, status='calc', kind='num', printed='30.21', tol=0)
 def check_2731():
     'same value as p6_02_landauer:48 (M/ln2). Book line 604, printed 30.21.'
     value=dG_ATP/(N_A*kB*T_cell*LN2)
     return locals()
 
 @check(label='app:formulas:L616', chapter='app:formulas', part=8, title='CpG sites of the hg19 index',
-       file='appendices/app_E_formulas', line=607, status='calc', kind='file', printed='2.822\\times10^{7}', tol=0.0,
+       file='appendices/app_E_formulas', line=613, status='calc', kind='file', printed='2.822\\times10^{7}', tol=0.0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_4680():
     'Size of the wgbstools hg19 CpG index in the atlas v2 build notes (28,217,448). Book line 607, printed 2.822e7.'
@@ -38035,7 +38035,7 @@ def check_4680():
     return locals()
 
 @check(label='app:formulas:L617', chapter='app:formulas', part=8, title='Landauer floor of one copy of the methylome',
-       file='appendices/app_E_formulas', line=608, status='calc', kind='file', printed='8.38\\times10^{-14}', tol=0.0,
+       file='appendices/app_E_formulas', line=614, status='calc', kind='file', printed='8.38\\times10^{-14}', tol=0.0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_4681():
     'N k_B T_cell ln 2 with N the hg19 CpG count read from the atlas v2 build notes. Book line 608, printed 8.38e-14 J.'
@@ -38043,14 +38043,14 @@ def check_4681():
     return locals()
 
 @check(label='app:formulas:L618:2.3', chapter='app:formulas', part=8, title='discrimination energy at 10 % maintenance error',
-       file='appendices/app_E_formulas', line=609, status='calc', kind='num', printed='2.3', tol=0.0)
+       file='appendices/app_E_formulas', line=615, status='calc', kind='num', printed='2.3', tol=0.0)
 def check_4682():
     'Delta Delta G / k_B T = ln(1/p) at the upper maintenance error p = 0.10 (Genereux et al. 2005, as cited in ch:landauer). Book line 609, printed 2.3.'
     value = math.log(1 / 0.10)
     return locals()
 
 @check(label='app:formulas:L618:3.9', chapter='app:formulas', part=8, title='discrimination energy at 2 % maintenance error',
-       file='appendices/app_E_formulas', line=609, status='calc', kind='num', printed='3.9', tol=0.0)
+       file='appendices/app_E_formulas', line=615, status='calc', kind='num', printed='3.9', tol=0.0)
 def check_4683():
     'ln(1/p) at the lower maintenance error p = 0.02 (Genereux et al. 2005). Book line 609, printed 2.3--3.9 (upper end 3.9).'
     value = math.log(1 / 0.02)
@@ -38067,7 +38067,7 @@ def check_4684():
 # ---------------------------------------------------------------- lines 622-673: the gauges
 
 @check(label='app:formulas:L631', chapter='app:formulas', part=8, title='full surface on Met-A',
-       file='appendices/app_E_formulas', line=622, status='calc', kind='file', printed='3.03', tol=0.0,
+       file='appendices/app_E_formulas', line=629, status='calc', kind='file', printed='3.03', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4685():
     'One bit per identity site, H(1/2), over the frozen EPIC neutrophil floor of metA_floors_v1_3.json. Book line 622, printed 3.03.'
@@ -38075,7 +38075,7 @@ def check_4685():
     return locals()
 
 @check(label='app:formulas:L637', chapter='app:formulas', part=8, title='frozen EPIC neutrophil reference, bits',
-       file='appendices/app_E_formulas', line=628, status='calibrated', kind='file', printed='0.330263', tol=0.0,
+       file='appendices/app_E_formulas', line=635, status='calibrated', kind='file', printed='0.330263', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/metA_floors_v1_3.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4686():
     'Floor of EPIC neutrophils in the frozen Met-A floors v1.3. Book line 628, printed 0.330263.'
@@ -38107,7 +38107,7 @@ def check_4689():
     return locals()
 
 @check(label='app:formulas:L647', chapter='app:formulas', part=8, title='C-score healthy baseline',
-       file='appendices/app_E_formulas', line=638, status='calibrated', kind='file', printed='1.1104', tol=0.0,
+       file='appendices/app_E_formulas', line=648, status='calibrated', kind='file', printed='1.1104', tol=0.0,
        source=_B15E_RM + 'Met_A_Floors/neutrophil_reference_v1_1.json', heavy=True, rerun=_B15E_METH_RERUN)
 def check_4690():
     'Median of the six held-out clustering values healthy_clustering_LOO of neutrophil_reference_v1_1.json. Book line 638, printed 1.1104.'
@@ -38115,7 +38115,7 @@ def check_4690():
     return locals()
 
 @check(label='app:formulas:L664', chapter='app:formulas', part=8, title='M_eq at H0 = 67.16, solar masses',
-       file='appendices/app_E_formulas', line=655, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
+       file='appendices/app_E_formulas', line=670, status='calc', kind='num', printed='2.3\\times10^{22}', tol=0.0)
 def check_4691():
     'M_eq = c^3/(4 G H) at the photon-sector H0 = 67.16 (locked), in solar masses. Book line 655, printed 2.3e22.'
     value = c**3 / (4 * G * Hsi(H0_photon)) / Msun
@@ -40112,14 +40112,14 @@ def check_sat_h153():
     return locals()
 
 @check(label='app:saturation:L169', chapter='app:saturation', part=8, title='T_body / T_BH, 1 M_sun',
-       file='appendices/app_S_saturation', line=171, status='calc', kind='num', printed='5.0\\times10^{9}', tol=0)
+       file='appendices/app_S_saturation', line=174, status='calc', kind='num', printed='5.0\\times10^{9}', tol=0)
 def check_sat_13():
     'Ratio of the temperatures at the two ends: T_cell (CANON) over the Hawking temperature of one solar mass. Book line 171, printed 5.0e9.'
     value = T_cell / _sat_bh()[0]
     return locals()
 
 @check(label='app:saturation:L169:5.4\\times10^{69}', chapter='app:saturation', part=8, title='N_BH / N_CpG, 1 M_sun',
-       file='appendices/app_S_saturation', line=171, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0,
+       file='appendices/app_S_saturation', line=174, status='calc', kind='num', printed='5.4\\times10^{69}', tol=0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_sat_14():
     'Ratio of the bit counts: horizon bits S_BH/(k_B ln 2) of one solar mass over the CpG sites of the hg19 index read from the atlas v2 build notes. Book line 171, printed 5.4e69.'
@@ -40128,14 +40128,14 @@ def check_sat_14():
     return locals()
 
 @check(label='app:saturation:L177', chapter='app:saturation', part=8, title='T_BH, 1 M_sun',
-       file='appendices/app_S_saturation', line=179, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0)
+       file='appendices/app_S_saturation', line=183, status='calc', kind='num', printed='6.17\\times10^{-8}', tol=0)
 def check_sat_07():
     'Hawking temperature of one solar mass, hbar c^3/(8 pi G M k_B) (Table tab:sat:identity). Book line 179, printed 6.17e-8 K.'
     value = _sat_bh()[0]
     return locals()
 
 @check(label='app:saturation:L178', chapter='app:saturation', part=8, title='A/4 l_P^2 of one solar mass, nats',
-       file='appendices/app_S_saturation', line=180, status='calc', kind='num', printed='1.05\\times10^{77}', tol=0)
+       file='appendices/app_S_saturation', line=184, status='calc', kind='num', printed='1.05\\times10^{77}', tol=0)
 def check_sat_08():
     'Bekenstein-Hawking capacity A/(4 l_P^2) of one solar mass with A = 16 pi G^2 M^2/c^4 (nats), computed from the area. Book line 180, printed 1.05e77.'
     A = 16 * math.pi * G**2 * Msun**2 / c**4
@@ -40143,14 +40143,14 @@ def check_sat_08():
     return locals()
 
 @check(label='app:saturation:L178:1.51\\times10^{77}', chapter='app:saturation', part=8, title='bits, 1 M_sun',
-       file='appendices/app_S_saturation', line=180, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0)
+       file='appendices/app_S_saturation', line=184, status='calc', kind='num', printed='1.51\\times10^{77}', tol=0)
 def check_sat_09():
     'Horizon bits of one solar mass, S_BH/(k_B ln 2). Book line 180, printed 1.51e77.'
     value = _sat_bh()[1] / LN2
     return locals()
 
 @check(label='app:saturation:L178:2.82\\times10^{7}', chapter='app:saturation', part=8, title='CpG sites of the hg19 index, rounded',
-       file='appendices/app_S_saturation', line=180, status='calc', kind='file', printed='2.82\\times10^{7}', tol=0.0,
+       file='appendices/app_S_saturation', line=184, status='calc', kind='file', printed='2.82\\times10^{7}', tol=0.0,
        source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_sat_10():
     'N, the CpG sites of the hg19 index read from the atlas v2 build notes (28,217,448). Book line 180, printed 2.82e7.'
@@ -40159,7 +40159,7 @@ def check_sat_10():
     return locals()
 
 @check(label='app:saturation:L180:1.6\\times10^{59}', chapter='app:saturation', part=8, title='holographic capacity of a nucleus-sized area, bits',
-       file='appendices/app_S_saturation', line=180, status='calc', kind='num', printed='1.6\\times10^{59}', tol=0.0)
+       file='appendices/app_S_saturation', line=184, status='calc', kind='num', printed='1.6\\times10^{59}', tol=0.0)
 def check_sat_cap():
     'Bekenstein-Hawking capacity N = A/(4 l_P^2 ln 2) of the surface of a sphere of radius 3 micrometres (a representative 6 micrometre nucleus, as the archived ch:surfaces Fig. landauer_price and ch:statusall:L23:1.6e59). Book line 180, printed 1.6e59. Inputs: CODATA G, hbar, c.'
     r = 3e-6
@@ -40168,7 +40168,7 @@ def check_sat_cap():
     return locals()
 
 @check(label='app:saturation:L180:52', chapter='app:saturation', part=8, title='orders of magnitude between the capacity and the CpG sites',
-       file='appendices/app_S_saturation', line=180, status='calc', kind='num', printed='52', tol=0.0, source='Biological_Physics/MethylPhys/atlas/v2/README.md')
+       file='appendices/app_S_saturation', line=184, status='calc', kind='num', printed='52', tol=0.0, source='Biological_Physics/MethylPhys/atlas/v2/README.md')
 def check_sat_orders():
     'log10 of the holographic capacity of the 3 micrometre-radius sphere over the CpG count read from the hg19 index (28,217,448), as ch:statusall:L23:52. Book line 180, printed 52.'
     m = re.search(r'hg19 CpG index \(([\d,]+) sites\)', file_text('Biological_Physics/MethylPhys/atlas/v2/README.md'))
@@ -40178,14 +40178,14 @@ def check_sat_orders():
     return locals()
 
 @check(label='app:saturation:L179', chapter='app:saturation', part=8, title='k_B T_BH ln2, 1 M_sun',
-       file='appendices/app_S_saturation', line=181, status='calc', kind='num', printed='5.90\\times10^{-31}', tol=0)
+       file='appendices/app_S_saturation', line=185, status='calc', kind='num', printed='5.90\\times10^{-31}', tol=0)
 def check_sat_11():
     'Landauer cost per bit at the Hawking temperature of one solar mass. Book line 181, printed 5.90e-31 J.'
     value = kB * _sat_bh()[0] * LN2
     return locals()
 
 @check(label='app:saturation:L179:2.97\\times10^{-21}', chapter='app:saturation', part=8, title='k_B T_body ln2 in the table',
-       file='appendices/app_S_saturation', line=181, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0)
+       file='appendices/app_S_saturation', line=185, status='calc', kind='num', printed='2.97\\times10^{-21}', tol=0)
 def check_sat_12():
     'Same value as eq:sat_ebit (k_B T_cell ln 2), restated in Table tab:sat:identity. Book line 181, printed 2.97e-21 J.'
     value = kB * T_cell * LN2
@@ -40200,14 +40200,14 @@ def check_sat_h182():
     return locals()
 
 # ======== Part 8 | app:glossary | docs/book/appendices/app_F_glossary.tex
-@check(label='app:glossary:L18:0.067', title='6dFGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.067', tol=0.0,
+@check(label='app:glossary:L18:0.067', title='6dFGS f sigma8 redshift', line=19, status='observed', kind='file', printed='0.067', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4775():
     'Redshift of the 6dFGS f sigma8 point (Beutler et al. 2012), read at the 6dFGS row of the legacy f sigma8 table in the committed output of verify_sector_tension.py (section 9). Book line 18, printed 0.067.'
     value = _b17_st(r'6dFGS\s+z ([\d.]+):')[0]
     return locals()
 
-@check(label='app:glossary:L18:0.15', title='SDSS MGS f sigma8 redshift', line=18, status='observed', kind='file', printed='0.15', tol=0.0,
+@check(label='app:glossary:L18:0.15', title='SDSS MGS f sigma8 redshift', line=19, status='observed', kind='file', printed='0.15', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4776():
     'Redshift of the SDSS main galaxy sample f sigma8 point (Howlett et al. 2015), read at the MGS row of the legacy f sigma8 table in the committed output of verify_sector_tension.py. Book line 18, printed 0.15.'
@@ -40221,7 +40221,7 @@ def check_4777():
     value = _b17_bg95()
     return locals()
 
-@check(label='app:glossary:L28:0.02', title='ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024)', line=28, status='observed', kind='file', printed='0.02', tol=0.0,
+@check(label='app:glossary:L28:0.02', title='ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024)', line=29, status='observed', kind='file', printed='0.02', tol=0.0,
        source='docs/verification/chains/LATE_TIME_GROWTH_CHECK.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4778():
     'mu0 = 0.02 +- 0.19 from ACT + WMAP + SDSS + supernovae (Andrade et al. 2024, MNRAS 529, 831, doi 10.1093/mnras/stae402), read from the literature line of the late-time growth check file. Book line 28, printed 0.02.'
@@ -40231,7 +40231,7 @@ def check_4778():
 
 # ---------------------------------------------------------------- L46-L74
 
-@check(label='app:glossary:L46:3.03', title='Met-A at the full surface, neutrophils', line=46, status='observed', kind='file', printed='3.03', tol=0.0,
+@check(label='app:glossary:L46:3.03', title='Met-A at the full surface, neutrophils', line=47, status='observed', kind='file', printed='3.03', tol=0.0,
        source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4779():
     'A_max on Met-A: every identity site at a coin flip, H(1/2) = 1 bit, over the healthy neutrophil floor (canon Met_A_floor_EPIC_neutrophil). Book line 46, printed 3.03.'
@@ -40239,21 +40239,21 @@ def check_4779():
     value = _b17_Hb(0.5) / F0
     return locals()
 
-@check(label='app:glossary:L48:576', title='9950X switching energy over k_B T_j ln 2, upper transistor count', line=48, status='observed', kind='num', printed='576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L48:576', title='9950X switching energy over k_B T_j ln 2, upper transistor count', line=49, status='observed', kind='num', printed='576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4781():
     'Chip gauge reading E_sw/(k_B T_j ln 2), E_sw = TDP/(N f), at the larger die-level transistor count. Book line 48, printed 576. Inputs (Chapter ch:cmos): TDP 170 W and base clock 4.3 GHz (maker specification), N = 20.6e9 (die-level report), T_j = 75 C = 348.15 K.'
     TDP, f_clk, N_hi, Tj = 170.0, 4.3e9, 20.6e9, 348.15
     value = TDP / (N_hi * f_clk) / (kB * Tj * LN2)
     return locals()
 
-@check(label='app:glossary:L48:593', title='9950X switching energy over k_B T_j ln 2, lower transistor count', line=48, status='observed', kind='num', printed='593', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L48:593', title='9950X switching energy over k_B T_j ln 2, lower transistor count', line=49, status='observed', kind='num', printed='593', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4782():
     'Upper end of the 576-593 range: E_sw/(k_B T_j ln 2) at the smaller die-level count. Book line 48, printed 593. Inputs (Chapter ch:cmos): TDP 170 W, 4.3 GHz, N = 20.0e9, T_j = 348.15 K.'
     TDP, f_clk, N_lo, Tj = 170.0, 4.3e9, 20.0e9, 348.15
     value = TDP / (N_lo * f_clk) / (kB * Tj * LN2)
     return locals()
 
-@check(label='app:glossary:L50:10', title='AML diagnosis blood: patients read', line=48, status='observed', kind='file', printed='10', tol=0.0,
+@check(label='app:glossary:L50:10', title='AML diagnosis blood: patients read', line=49, status='observed', kind='file', printed='10', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_AML_SERIAL_01_OUTCOME.md', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4783():
     'Diagnosis blood stayed in Normal in 6 of 10 patients: the number of patients of bar S2 (Dx blood outside Normal, 4/10) of the PROC-AML-SERIAL-01 outcome; inside Normal = 10 - 4 = 6. Book line 50, printed 10.'
@@ -40278,14 +40278,14 @@ def check_2854():
     return locals()
 
 @check(label='app:glossary:L60', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=60, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=61, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2855():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 60, printed 450.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L68', chapter='app:glossary', part=8, title='same value as p0_giants:41 (H0 photon sector matches Level2 chain value)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
+       file='appendices/app_F_glossary', line=69, status='calc', kind='file', printed='67.16', tol=7.45e-05, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv',
        heavy=True, rerun='chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)')
 def check_2856():
     'same value as p0_giants:41 (H0 photon sector matches Level2 chain value). Book line 68, printed 67.16.'
@@ -40293,21 +40293,21 @@ def check_2856():
     return locals()
 
 @check(label='app:glossary:L68:55.57', chapter='app:glossary', part=8, title='same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='num', printed='55.57', tol=9e-05)
+       file='appendices/app_F_glossary', line=69, status='calc', kind='num', printed='55.57', tol=9e-05)
 def check_2857():
     'same value as p2_11_dark_energy:146 (precise H_infinity, Level 2 chains). Book line 68, printed 55.57.'
     H0=67.16; pass; value=H0*math.sqrt(1-Om)
     return locals()
 
 @check(label='app:glossary:L68:70.86', chapter='app:glossary', part=8, title='same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='num', printed='70.86', tol=7e-05)
+       file='appendices/app_F_glossary', line=69, status='calc', kind='num', printed='70.86', tol=7e-05)
 def check_2858():
     'same value as p2_11_dark_energy:173 (H_m asymptote, matter-sector). Book line 68, printed 70.86.'
     H0=67.16; pass; OL=0.6847; value=H0*math.sqrt(OL+beta_m*math.e)
     return locals()
 
 @check(label='app:glossary:L68:67.4', chapter='app:glossary', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='num', printed='67.4', tol=0.0)
+       file='appendices/app_F_glossary', line=69, status='calc', kind='num', printed='67.4', tol=0.0)
 def check_2859():
     'drafted check, screened (runs; negative control fails). Book line 68, printed 67.4.'
     # Line 68: "Planck 2018 base values H_0=67.4"
@@ -40317,7 +40317,7 @@ def check_2859():
     return locals()
 
 @check(label='app:glossary:L68:0.315', chapter='app:glossary', part=8, title='drafted check, screened (runs; negative control fails)',
-       file='appendices/app_F_glossary', line=68, status='calc', kind='num', printed='0.315', tol=0.0)
+       file='appendices/app_F_glossary', line=69, status='calc', kind='num', printed='0.315', tol=0.0)
 def check_2860():
     'drafted check, screened (runs; negative control fails). Book line 68, printed 0.315.'
     # Line 68: "Planck 2018 base values Omega_m=0.315"
@@ -40325,7 +40325,7 @@ def check_2860():
     value = Om
     return locals()
 
-@check(label='app:glossary:L68:71.12', title='matter-sector late rate, Planck 2018 base values', line=68, status='observed', kind='num', printed='71.12', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L68:71.12', title='matter-sector late rate, Planck 2018 base values', line=69, status='observed', kind='num', printed='71.12', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4784():
     'H_0 sqrt(Omega_Lambda + beta_m e) with the Planck 2018 base values H_0 = 67.4, Omega_m = 0.315 (Aghanim et al. 2020 abstract, doi 10.1051/0004-6361/201833910) and the fixed coupling beta_m (canon). Book line 68, printed 71.12.'
     H0p, Omp = 67.4, 0.315
@@ -40345,27 +40345,27 @@ def check_4786():
     return locals()
 
 @check(label='app:glossary:L72', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=72, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=73, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2861():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 72, printed 20.94.'
     ok = file_has('CANON/GLOSSARY.md', '20.94')
     return locals()
 
-@check(label='app:glossary:L72:54', title='ATP free energy of hydrolysis, kJ/mol', line=72, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L72:54', title='ATP free energy of hydrolysis, kJ/mol', line=73, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4787():
     'Cytosolic free energy of ATP hydrolysis in kJ/mol, read from the canon (dG_ATP in J/mol); its M number dG_ATP/(R T_cell) is also formed. Book line 72, printed 54.'
     M_check = dG_ATP / (R_gas * T_cell)
     value = dG_ATP / 1000
     return locals()
 
-@check(label='app:glossary:L74:61.5', title='Level 2b H0 (term in the background)', line=74, status='observed', kind='file', printed='61.5', tol=0.0,
+@check(label='app:glossary:L74:61.5', title='Level 2b H0 (term in the background)', line=75, status='observed', kind='file', printed='61.5', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4788():
     'H0 of the Level 2b chains (record term placed in the background): mean of runs A and D of the chain extraction. Book line 74, printed 61.5.'
     value = 0.5 * (csv_val(_B17_CHAINS, 'iam_l2b_runA', 'H0') + csv_val(_B17_CHAINS, 'iam_l2b_runD', 'H0'))
     return locals()
 
-@check(label='app:glossary:L74:10.9', title='Level 2b H0 from Planck, in Planck errors', line=74, status='observed', kind='file', printed='10.9', tol=0.0,
+@check(label='app:glossary:L74:10.9', title='Level 2b H0 from Planck, in Planck errors', line=75, status='observed', kind='file', printed='10.9', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4789():
     'Distance of the Level 2b run A H0 from Planck 2018 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910) in units of the Planck error. Book line 74, printed 10.9.'
@@ -40389,41 +40389,41 @@ def check_4791():
     return locals()
 
 @check(label='app:glossary:L89', chapter='app:glossary', part=8, title='same value as p1_02_iams_law:443 (beta_m is half of Omega_m)',
-       file='appendices/app_F_glossary', line=89, status='observed', kind='num', printed='0.15765', tol=3.2e-05)
+       file='appendices/app_F_glossary', line=90, status='observed', kind='num', printed='0.15765', tol=3.2e-05)
 def check_2862():
     'same value as p1_02_iams_law:443 (beta_m is half of Omega_m). Book line 89, printed 0.15765.'
     value = Om/2
     return locals()
 
 @check(label='app:glossary:L89:0.3153', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=89, status='observed', kind='file', printed='0.3153', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=90, status='observed', kind='file', printed='0.3153', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2863():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 89, printed 0.3153.'
     ok = file_has('CANON/GLOSSARY.md', '0.3153')
     return locals()
 
 @check(label='app:glossary:L89:0.1575', chapter='app:glossary', part=8, title='measured: printed value found in iam_canon.json, a file the chapter names',
-       file='appendices/app_F_glossary', line=89, status='observed', kind='file', printed='0.1575', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_F_glossary', line=90, status='observed', kind='file', printed='0.1575', tol=0.0, source='CANON/iam_canon.json')
 def check_2864():
     'measured: printed value found in iam_canon.json, a file the chapter names. Book line 89, printed 0.1575.'
     ok = file_has('CANON/iam_canon.json', '0.1575')
     return locals()
 
 @check(label='app:glossary:L89:0.315', chapter='app:glossary', part=8, title='Omega_m written 0.315 (= 2 beta_m to three decimals)',
-       file='appendices/app_F_glossary', line=89, status='observed', kind='file', printed='0.315', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_F_glossary', line=90, status='observed', kind='file', printed='0.315', tol=0.0, source='CANON/iam_canon.json')
 def check_2865():
     'Written 0.1575 where Omega_m = 0.315 is used: Omega_m = 2 beta_m from iam_canon.json (0.3153), to the printed three decimals. Book line 89, printed 0.315.'
     value = 2 * beta_m
     return locals()
 
-@check(label='app:glossary:L90:0.295', title='DESI BGS effective redshift', line=90, status='observed', kind='file', printed='0.295', tol=0.0,
+@check(label='app:glossary:L90:0.295', title='DESI BGS effective redshift', line=91, status='observed', kind='file', printed='0.295', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4792():
     'Effective redshift of the DESI DR1 Bright Galaxy Survey bin, read at the BGS row of the DESI f sigma_s8 table (section 9) of the committed output of verify_sector_tension.py. Book line 90, printed 0.295.'
     value = _b17_st(r'BGS\s+z ([\d.]+): f sigma_s8')[0]
     return locals()
 
-@check(label='app:glossary:L109:5.5', title='bottom-up exponent at z = 9', line=109, status='observed', kind='file', printed='5.5', tol=0.015,
+@check(label='app:glossary:L109:5.5', title='bottom-up exponent at z = 9', line=110, status='observed', kind='file', printed='5.5', tol=0.015,
        source='docs/verification/scripts/verify_bottom_up_exponent_output.txt', heavy=True, rerun=_B00_NEFF_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4793():
     'Bottom-up structure exponent at z = 9: middle of the Press-Schechter, Sheth-Tormen and Tinker values of n_eff in the committed output of verify_bottom_up_exponent.py. The sentence says "about 5.5": tol 1.5 %, as at ch:iams_law:L590. Book line 109, printed 5.5.'
@@ -40434,7 +40434,7 @@ def check_4793():
 
 
 
-@check(label='app:glossary:L124:0.97', title='C(d) of beta at 10-18 bp', line=123, status='observed', kind='file', printed='0.97', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L124:0.97', title='C(d) of beta at 10-18 bp', line=124, status='observed', kind='file', printed='0.97', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4796():
     'Genome-distance correlation of beta at 10-18 bp: median over the six healthy neutrophil arrays of C(d) in the first distance bin. Book line 124, printed 0.97.'
     value = float(np.median([cc for _, _, cc in _b17_cd(10)]))
@@ -40446,46 +40446,46 @@ def check_4797():
     value = min(int(r['d_lo']) for r in load_csv_rows(_B17_CD) if r['quantity'] == 'beta')
     return locals()
 
-@check(label='app:glossary:L124:18', title='C(d): upper edge of the first distance bin', line=123, status='observed', kind='file', printed='18', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L124:18', title='C(d): upper edge of the first distance bin', line=124, status='observed', kind='file', printed='18', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4798():
     'The 10-18 bp bin: upper edge (bp) of the bin that starts at 10 bp (logarithmic bins, quarter decades). Book line 124, printed 18.'
     value = _b17_cd(10)[0][1]
     return locals()
 
-@check(label='app:glossary:L124:0.32', title='C(d) of beta at 1-1.8 kb', line=123, status='observed', kind='file', printed='0.32', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L124:0.32', title='C(d) of beta at 1-1.8 kb', line=124, status='observed', kind='file', printed='0.32', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4799():
     'C(d) of beta at 1-1.8 kb: median over the six arrays in the 1,000-1,778 bp bin. Book line 124, printed 0.32.'
     value = float(np.median([cc for _, _, cc in _b17_cd(1000)]))
     return locals()
 
-@check(label='app:glossary:L124:1.8', title='C(d): upper edge of the 1 kb bin, kb', line=123, status='observed', kind='file', printed='1.8', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L124:1.8', title='C(d): upper edge of the 1 kb bin, kb', line=124, status='observed', kind='file', printed='1.8', tol=0.0, source=_B17_CD, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4800():
     'The 1-1.8 kb bin: upper edge of the bin that starts at 1,000 bp, in kb. Book line 124, printed 1.8.'
     value = _b17_cd(1000)[0][1] / 1000
     return locals()
 
-@check(label='app:glossary:L133:1.456', title='Chandrasekhar mass for mu_e = 2 from the constants', line=132, status='observed', kind='num', printed='1.456', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L133:1.456', title='Chandrasekhar mass for mu_e = 2 from the constants', line=133, status='observed', kind='num', printed='1.456', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4802():
     'M_Ch = omega_3 sqrt(3 pi)/2 (hbar c/G)^(3/2)/(mu_e m_u)^2 for mu_e = 2, in solar masses; omega_3 = 2.01824 (Lane-Emden n = 3), m_u CODATA 2018. Book line 133, printed 1.456.'
     m_u, omega3, mu_e = 1.66053906660e-27, 2.01824, 2
     value = omega3 * math.sqrt(3 * math.pi) / 2 * (hbar * c / G)**1.5 / (mu_e * m_u)**2 / Msun
     return locals()
 
-@check(label='app:glossary:L138:+0.54', title='Delta chi2 IAM minus LambdaCDM, Level 2', line=137, status='observed', kind='file', printed='+0.54', tol=0.01,
+@check(label='app:glossary:L138:+0.54', title='Delta chi2 IAM minus LambdaCDM, Level 2', line=138, status='observed', kind='file', printed='+0.54', tol=0.01,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4803():
     'IAM minus LambdaCDM from the lowest chi2 in each Level 2 chain (run A against run C), from the chain extraction; tol 1 % as at ch:level2:L19 (difference of two chain minima). Book line 138, printed +0.54.'
     value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'chi2_min') - csv_val(_B17_CHAINS, 'iam_level2_runC_lcdm', 'chi2_min')
     return locals()
 
-@check(label='app:glossary:L144:2.7255', title='CMB temperature today (Fixsen 2009)', line=143, status='observed', kind='num', printed='2.7255', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L144:2.7255', title='CMB temperature today (Fixsen 2009)', line=144, status='observed', kind='num', printed='2.7255', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4804():
     'Present CMB temperature in K. Input: Fixsen 2009, ApJ 707, 916 (doi 10.1088/0004-637X/707/2/916): 2.72548 +- 0.00057 K. Book line 144, printed 2.7255.'
     T0, T0_err = 2.72548, 0.00057
     value = T0
     return locals()
 
-@check(label='app:glossary:L149:1.2', title='coefficient of variation of P across three donors, per cent', line=148, status='observed', kind='file', printed='1.2', tol=0.0,
+@check(label='app:glossary:L149:1.2', title='coefficient of variation of P across three donors, per cent', line=149, status='observed', kind='file', printed='1.2', tol=0.0,
        source='Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4805():
     'Standard deviation (n - 1) over mean of the three donor positions P (P_position column of the IAM-A floor comparison, Loyfer granulocytes), in per cent. Book line 149, printed 1.2.'
@@ -40493,7 +40493,7 @@ def check_4805():
     value = float(100 * P_.std(ddof=1) / P_.mean())
     return locals()
 
-@check(label='app:glossary:L153:1.68', title='best 2D transmon T1 (Bland et al. 2025)', line=152, status='observed', kind='num', printed='1.68', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L153:1.68', title='best 2D transmon T1 (Bland et al. 2025)', line=153, status='observed', kind='num', printed='1.68', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4806():
     'Longest T1 reported for two-dimensional transmons, in ms. Input: Bland et al. 2025, Nature, Millisecond lifetimes and coherence times in 2D transmon qubits (doi 10.1038/s41586-025-09687-4): T1 up to 1.68 ms. Book line 153, printed 1.68.'
     T1_ms = 1.68
@@ -40517,7 +40517,7 @@ def check_4808():
     value=_he_q2()['held_error_range'][1]
     return locals()
 
-@check(label='app:glossary:L178:0.7', title='Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma', line=176, status='observed', kind='file', printed='0.7', tol=0.0,
+@check(label='app:glossary:L178:0.7', title='Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma', line=177, status='observed', kind='file', printed='0.7', tol=0.0,
        source='docs/verification/scripts/verify_lambda_baryon_book_output.txt', heavy=True, rerun=_b02_lam_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4809():
     'Ratio (Omega_b/Omega_m)/((3/16) sqrt(Omega_Lambda)) on the CMB-only chain, distance from 1 in its own error, from the iam_baryon_test row of the committed output of verify_lambda_baryon_book.py (as ch:lambda:L260:0.7). Book line 178, printed 0.7.'
@@ -40525,13 +40525,13 @@ def check_4809():
     value = (r['ratio'] - 1) / r['ratio_sd']
     return locals()
 
-@check(label='app:glossary:L183:2.8e7', title='CpGs per haploid human genome', line=181, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L183:2.8e7', title='CpGs per haploid human genome', line=183, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4810():
     'About 2.8 x 10^7 CpGs in a haploid genome: the number of sites of the hg19 CpG index (step 01 of the atlas v2 build record). Book line 183, printed 2.8 x 10^7.'
     value = _b17_hg19()
     return locals()
 
-@check(label='app:glossary:L185:+0.2', title='upper prior edge of mu0', line=183, status='observed', kind='file', printed='+0.2', tol=0.0,
+@check(label='app:glossary:L185:+0.2', title='upper prior edge of mu0', line=185, status='observed', kind='file', printed='+0.2', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4811():
     'The mu0 prior edge at +0.2: prior max of mu0 in the Cobaya settings of the free-mu0 Planck chain. Book line 185, printed +0.2.'
@@ -40540,7 +40540,7 @@ def check_4811():
     value = float(re.search(r'\bmax: (\S+)', blk).group(1))
     return locals()
 
-@check(label='app:glossary:L188:2.2e-10', title='crossover mass, tau_IAM = tau_DP at 10 mK', line=186, status='calc', kind='num', printed='2.2\\times10^{-10}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L188:2.2e-10', title='crossover mass, tau_IAM = tau_DP at 10 mK', line=188, status='calc', kind='num', printed='2.2\\times10^{-10}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4812():
     'Mass at which tau_IAM = hbar (k_B T)^2 ln2/E_G^3 equals the Diosi-Penrose time hbar/E_G at T = 10 mK, E_G = G m^2/R for a silica sphere (density 2200 kg/m^3, Chapter ch:entanglement). Solved by root finding in ln m, in kg. Book line 188, printed 2.2 x 10^-10.'
     rho_s, T = 2200.0, 0.010
@@ -40549,13 +40549,13 @@ def check_4812():
     value = math.exp(brentq(gap, math.log(1e-14), math.log(1e-6)))
     return locals()
 
-@check(label='app:glossary:L193:84.4', title='dark-matter share of beta_m, per cent', line=191, status='observed', kind='num', printed='84.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L193:84.4', title='dark-matter share of beta_m, per cent', line=193, status='observed', kind='num', printed='84.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4813():
     'Share of beta_m = Omega_m/2 carried by dark matter, (Omega_m - Omega_b)/Omega_m, Planck 2018 (Aghanim et al. 2020: Omega_m 0.3153, Omega_b 0.0493), in per cent. Book line 193, printed 84.4.'
     value = 100 * (Om - Ob) / Om
     return locals()
 
-@check(label='app:glossary:L198:55.57', title='photon-sector de Sitter rate H_infinity', line=196, status='observed', kind='file', printed='55.57', tol=0.0,
+@check(label='app:glossary:L198:55.57', title='photon-sector de Sitter rate H_infinity', line=198, status='observed', kind='file', printed='55.57', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4814():
     'H_infinity = H_0 sqrt(Omega_Lambda) for the photon sector, with H_0 from the Level 2 run A chain extraction and Omega_Lambda = 1 - Omega_m (Planck 2018). Book line 198, printed 55.57.'
@@ -40565,32 +40565,32 @@ def check_4814():
 # ---------------------------------------------------------------- L211-L262
 
 @check(label='app:glossary:L201', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=199, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=201, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2867():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 201, printed 963.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '963')
     return locals()
 
-@check(label='app:glossary:L211:0.776', title='DES Y3 S8', line=209, status='observed', kind='file', printed='0.776', tol=0.0,
+@check(label='app:glossary:L211:0.776', title='DES Y3 S8', line=211, status='observed', kind='file', printed='0.776', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4815():
     'DES Y3 3x2pt S8 = 0.776 +- 0.017 (Abbott et al. 2022, doi 10.1103/PhysRevD.105.023520), read at the DES Y3 row of the weak-lensing list (section 11) of the committed output of verify_sector_tension.py. Book line 211, printed 0.776.'
     value = _b17_st(r'DES Y3 3x2pt: ([\d.]+) ->')[0]
     return locals()
 
-@check(label='app:glossary:L223:1.9', title='DNMT1 selectivity 7-fold in k_B T', line=221, status='observed', kind='num', printed='1.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L223:1.9', title='DNMT1 selectivity 7-fold in k_B T', line=223, status='observed', kind='num', printed='1.9', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4816():
     'Hopfield discrimination k_B T ln(selectivity) at the low end, 7-fold (purified human DNMT1, Pradhan1999, Chapter ch:landauer), in k_B T. Book line 223, printed 1.9.'
     value = math.log(7)
     return locals()
 
-@check(label='app:glossary:L223:4.4', title='DNMT1 selectivity 80-fold in k_B T', line=221, status='observed', kind='num', printed='4.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L223:4.4', title='DNMT1 selectivity 80-fold in k_B T', line=223, status='observed', kind='num', printed='4.4', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4817():
     'Hopfield discrimination k_B T ln(selectivity) at the high end, 80-fold on average across flanking sequences (Adam2023, Chapter ch:landauer), in k_B T. Book line 223, printed 4.4.'
     value = math.log(80)
     return locals()
 
-@check(label='app:glossary:L224:1.16', title='DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM', line=426, status='observed', kind='file', printed='1.16', tol=0.0, source=_B17_DNA, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L224:1.16', title='DNMT1 inhibitor arrays: lowest Met-A at >= 80 nM', line=433, status='observed', kind='file', printed='1.16', tol=0.0, source=_B17_DNA, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4818():
     'Met-A of the arrays treated with the active DNMT1 inhibitor at 80 nM or more, each against its line vehicle arrays: lowest. Book line 224, printed 1.16.'
     value = float(_b17_metA_hi().min())
@@ -40621,33 +40621,33 @@ def check_4822():
     value = E_hold / LN2
     return locals()
 
-@check(label='app:glossary:L238:+1.8', title='E_G above GR at z = 0.3, per cent', line=235, status='observed', kind='num', printed='+1.8', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L238:+1.8', title='E_G above GR at z = 0.3, per cent', line=237, status='observed', kind='num', printed='+1.8', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4823():
     'E_G = Omega_m0 Sigma/f with Sigma = 1: ratio to GR is f_LCDM/f_IAM at z = 0.3 (linear growth, same early amplitude), minus 1, in per cent. Book line 238, printed +1.8.'
     value = 100 * (f_of('lcdm', 0.3) / f_of('iam', 0.3) - 1)
     return locals()
 
-@check(label='app:glossary:L238:+3.6', title='E_G above GR today, per cent', line=235, status='observed', kind='num', printed='+3.6', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L238:+3.6', title='E_G above GR today, per cent', line=237, status='observed', kind='num', printed='+3.6', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4824():
     'E_G ratio to GR today, f_LCDM/f_IAM at z = 0 minus 1, in per cent. Book line 238, printed +3.6.'
     value = 100 * (f_of('lcdm', 0.0) / f_of('iam', 0.0) - 1)
     return locals()
 
-@check(label='app:glossary:L243:0.576', title='electron fixed point without the (2 pi)^(3/10) prefactor, in m_e', line=240, status='observed', kind='num', printed='0.576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L243:0.576', title='electron fixed point without the (2 pi)^(3/10) prefactor, in m_e', line=242, status='observed', kind='num', printed='0.576', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4826():
     'Fixed point m c^2 = record cost at the horizon temperature without the prefactor: (2 pi)^(-2/5) [hbar H_0 ln2 m_P^(3/2)/(alpha^(5/2) c^2)]^(2/5), over m_e, H_0 = 67.4 (as ch:electronmass:L115). Book line 243, printed 0.576.'
     Bk = (hbar * Hsi(67.4) * LN2 * mP**1.5 / (alpha_em**2.5 * c**2))**0.4
     value = (2 * math.pi)**-0.4 * Bk / m_e
     return locals()
 
-@check(label='app:glossary:L245:159.5', title='electroweak crossover temperature (lattice)', line=243, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L245:159.5', title='electroweak crossover temperature (lattice)', line=245, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4827():
     'Electroweak crossover temperature in GeV. Input: D Onofrio and Rummukainen 2016, Phys. Rev. D 93, 025003 (doi 10.1103/physrevd.93.025003): T_c = 159.5 +- 1.5 GeV. Book line 245, printed 159.5.'
     Tc, Tc_err = 159.5, 1.5
     value = Tc
     return locals()
 
-@check(label='app:glossary:L245:9.2e-12', title='time of the electroweak crossover, s', line=242, status='observed', kind='num', printed='9.2\\times10^{-12}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L245:9.2e-12', title='time of the electroweak crossover, s', line=244, status='observed', kind='num', printed='9.2\\times10^{-12}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4828():
     'Radiation-era time t = 0.301 g_*^(-1/2) m_P/T^2 at T_c = 159.5 GeV (D Onofrio 2016), g_* = 106.75 (standard model), m_P = 1.220890e19 GeV and hbar = 6.582119569e-25 GeV s (CODATA 2018). Book line 245, printed 9.2 x 10^-12.'
     mP_GeV, hbar_GeVs, Tc = 1.220890e19, 6.582119569e-25, 159.5
@@ -40656,14 +40656,14 @@ def check_4828():
     return locals()
 
 @check(label='app:glossary:L246', chapter='app:glossary', part=8, title='same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV)',
-       file='appendices/app_F_glossary', line=243, status='observed', kind='num', printed='246.22', tol=0)
+       file='appendices/app_F_glossary', line=245, status='observed', kind='num', printed='246.22', tol=0)
 def check_2871():
     'same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV). Book line 246, printed 246.22.'
     G_F=1.1663788e-5  # GeV^-2, PDG 2024
     value=(math.sqrt(2)*G_F)**-0.5
     return locals()
 
-@check(label='app:glossary:L246:159.5', title='electroweak crossover temperature (lattice), restated', line=243, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L246:159.5', title='electroweak crossover temperature (lattice), restated', line=245, status='observed', kind='num', printed='159.5', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4829():
     'Crossover centred at T_c = 159.5 GeV. Input: D Onofrio and Rummukainen 2016 (doi 10.1103/physrevd.93.025003): 159.5 +- 1.5 GeV. Book line 246, printed 159.5.'
     Tc, Tc_err = 159.5, 1.5
@@ -40671,14 +40671,14 @@ def check_4829():
     return locals()
 
 @check(label='app:glossary:L251', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='7309', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=250, status='observed', kind='file', printed='7309', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2872():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 251, printed 7309.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '7309')
     return locals()
 
 @check(label='app:glossary:L251:738', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=248, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=250, status='observed', kind='file', printed='738', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2873():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 251, printed 738.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '738')
@@ -40694,7 +40694,7 @@ def check_4830():
     return locals()
 
 @check(label='app:glossary:L254', chapter='app:glossary', part=8, title='same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass)',
-       file='appendices/app_F_glossary', line=251, status='calc', kind='num', printed='152.5', tol=0.00033)
+       file='appendices/app_F_glossary', line=253, status='calc', kind='num', printed='152.5', tol=0.00033)
 def check_2874():
     'same value as p1_02_iams_law:650 (Hawking info rate for 1 solar mass). Book line 254, printed 152.5.'
     value=c**3/(1920*G*Msun*LN2)
@@ -40717,14 +40717,14 @@ def check_4831():
 # ---------------------------------------------------------------- L274-L320
 
 @check(label='app:glossary:L263', chapter='app:glossary', part=8, title='w_eff(1) for vacuum plus record',
-       file='appendices/app_F_glossary', line=260, status='observed', kind='file', printed='-1.062', tol=0.0)
+       file='appendices/app_F_glossary', line=262, status='observed', kind='file', printed='-1.062', tol=0.0)
 def check_2877():
     'For vacuum plus record w_eff(1) = -1.062: w_eff(1) = 2(3-Omega_m)/(3(Omega_m-2)) (app. C3, Eq. at line 190) with Omega_m = 2 beta_m. Book line 263, printed -1.062.'
     O = 2 * beta_m
     value = 2 * (3 - O) / (3 * (O - 2))
     return locals()
 
-@check(label='app:glossary:L274:5120', title='5120 in the evaporation time', line=271, status='observed', kind='num', printed='5120', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L274:5120', title='5120 in the evaporation time', line=273, status='observed', kind='num', printed='5120', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4832():
     'Coefficient of tau = 5120 pi G^2 M0^3/(hbar c^4): black-body power P = sigma_SB A T_BH^4 with A = 16 pi G^2 M^2/c^4, T_BH = hbar c^3/(8 pi G k_B M), sigma_SB = pi^2 k_B^4/(60 hbar^3 c^2); integrate c^2 dM/dt = -P from M0 to 0 and read the coefficient of pi G^2 M0^3/(hbar c^4). Book line 274, printed 5120.'
     hb, c_, G_, kB_, M = sp.symbols('hbar c G k_B M', positive=True)
@@ -40735,13 +40735,13 @@ def check_4832():
     value = float(sp.simplify(tau / (sp.pi * G_**2 * M0**3 / (hb * c_**4))))
     return locals()
 
-@check(label='app:glossary:L274:2.1e67', title='evaporation time of one solar mass, years', line=271, status='observed', kind='num', printed='2.1\\times10^{67}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L274:2.1e67', title='evaporation time of one solar mass, years', line=273, status='observed', kind='num', printed='2.1\\times10^{67}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4833():
     'tau = 5120 pi G^2 M^3/(hbar c^4) for M = 1 solar mass (IAU nominal), in Julian years. Book line 274, printed 2.1 x 10^67.'
     value = 5120 * math.pi * G**2 * Msun**3 / (hbar * c**4) / yr
     return locals()
 
-@check(label='app:glossary:L287:45', title='Koide angle to the democratic direction', line=283, status='observed', kind='num', printed='45', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L287:45', title='Koide angle to the democratic direction', line=285, status='observed', kind='num', printed='45', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4834():
     'cos^2 theta = 1/(3Q) between s = (sqrt m_e, sqrt m_mu, sqrt m_tau) and (1,1,1), at Q = 2/3, in degrees; the identity cos^2 theta = (sum sqrt m)^2/(3 sum m) is evaluated on a vector with Q = 2/3 built from the Koide parametrisation (x, delta = 0.2222). Book line 287, printed 45.'
     x, d = 1.0, 0.2222
@@ -40751,63 +40751,63 @@ def check_4834():
     value = math.degrees(math.acos(math.sqrt(cos2))) if abs(cos2 - 1 / (3 * Q)) < 1e-12 else float('nan')
     return locals()
 
-@check(label='app:glossary:L295:4.25', title='f sigma8 deficit today, per cent', line=290, status='observed', kind='num', printed='4.25', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L295:4.25', title='f sigma8 deficit today, per cent', line=292, status='observed', kind='num', printed='4.25', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4835():
     'f sigma8 of IAM below LambdaCDM at z = 0, same early amplitude (growth equation with mu(a) and beta_m canon). Book line 295, printed 4.25.'
     value = fs8_deficit(0.0)
     return locals()
 
-@check(label='app:glossary:L295:1.35', title='f sigma8 deficit at z = 0.5, per cent', line=290, status='observed', kind='num', printed='1.35', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L295:1.35', title='f sigma8 deficit at z = 0.5, per cent', line=292, status='observed', kind='num', printed='1.35', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4836():
     'f sigma8 deficit of IAM at z = 0.5. Book line 295, printed 1.35.'
     value = fs8_deficit(0.5)
     return locals()
 
-@check(label='app:glossary:L295:0.04', title='f sigma8 deficit at z = 2, per cent', line=290, status='observed', kind='num', printed='0.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L295:0.04', title='f sigma8 deficit at z = 2, per cent', line=292, status='observed', kind='num', printed='0.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4837():
     'f sigma8 deficit of IAM at z = 2. Book line 295, printed 0.04.'
     value = fs8_deficit(2.0)
     return locals()
 
-@check(label='app:glossary:L311:2.65e-30', title='Gibbons-Hawking temperature today', line=306, status='observed', kind='num', printed='2.65\\times10^{-30}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L311:2.65e-30', title='Gibbons-Hawking temperature today', line=309, status='observed', kind='num', printed='2.65\\times10^{-30}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4838():
     'T_GH = hbar H/(2 pi k_B) at H_0 = 67.16 km/s/Mpc (photon sector, locked), in K. Book line 311, printed 2.65 x 10^-30.'
     value = hbar * Hsi(H0_photon) / (2 * math.pi * kB)
     return locals()
 
-@check(label='app:glossary:L312:105', title='qubits of the Willow processor', line=316, status='observed', kind='num', printed='105', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L312:105', title='qubits of the Willow processor', line=320, status='observed', kind='num', printed='105', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4839():
     'Number of qubits of the processor of the below-threshold surface-code experiment. Input: Google Quantum AI and Collaborators 2025, Nature 638, 920 (doi 10.1038/s41586-024-08449-y): a 105-qubit processor. Book line 312, printed 105.'
     n_qubits = 105
     value = n_qubits
     return locals()
 
-@check(label='app:glossary:L316:1.315', title='gravitational slip today', line=311, status='observed', kind='num', printed='1.315', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L316:1.315', title='gravitational slip today', line=315, status='observed', kind='num', printed='1.315', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4840():
     'Phi/Psi = (2 - mu)/mu with mu(a = 1) = H^2/(H^2 + beta_m E(1) H0^2) = 1/(1 + beta_m). Book line 316, printed 1.315.'
     mu1 = float(mu_iam(1.0))
     value = (2 - mu1) / mu1
     return locals()
 
-@check(label='app:glossary:L318:0.78', title='growth factor deficit today, per cent', line=313, status='observed', kind='num', printed='0.78', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L318:0.78', title='growth factor deficit today, per cent', line=317, status='observed', kind='num', printed='0.78', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4841():
     'D of IAM below LambdaCDM at z = 0, same early amplitude. Book line 318, printed 0.78.'
     value = amp_deficit(0.0)
     return locals()
 
-@check(label='app:glossary:L319:0.55', title='growth index of general relativity (LambdaCDM)', line=314, status='observed', kind='num', printed='0.55', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L319:0.55', title='growth index of general relativity (LambdaCDM)', line=318, status='observed', kind='num', printed='0.55', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4842():
     'gamma = ln f/ln Omega_m(a = 1) today for LambdaCDM (mu = 1), linear growth, Omega_m 0.3153. Book line 319, printed 0.55.'
     value = math.log(f_of('lcdm', 0.0)) / math.log(Om)
     return locals()
 
-@check(label='app:glossary:L319:0.585', title='growth index under IAM today', line=314, status='observed', kind='num', printed='0.585', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L319:0.585', title='growth index under IAM today', line=318, status='observed', kind='num', printed='0.585', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4843():
     'gamma = ln f/ln Omega_m(a = 1) today with the informational term (exact mu, same early amplitude). Book line 319, printed 0.585.'
     value = math.log(f_of('iam', 0.0)) / math.log(Om)
     return locals()
 
-@check(label='app:glossary:L319:0.633', title='measured growth index (Nguyen et al. 2023)', line=314, status='observed', kind='file', printed='0.633', tol=0.0,
+@check(label='app:glossary:L319:0.633', title='measured growth index (Nguyen et al. 2023)', line=318, status='observed', kind='file', printed='0.633', tol=0.0,
        source='docs/verification/scripts/verify_s8_trend_output.txt', heavy=True, rerun=_B17_S8_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4844():
     'Growth index measured by one compilation, gamma = 0.633 +0.025 -0.024 (Nguyen, Huterer and Wen 2023), read at the z 0 row of section 3 of the committed output of verify_s8_trend.py. Book line 319, printed 0.633.'
@@ -40815,13 +40815,13 @@ def check_4844():
     return locals()
 
 @check(label='app:glossary:L320', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=315, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=319, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2878():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 319, printed 100.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
-@check(label='app:glossary:L320:106.75', title='g_*s of the standard model', line=315, status='observed', kind='num', printed='106.75', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L320:106.75', title='g_*s of the standard model', line=319, status='observed', kind='num', printed='106.75', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4845():
     'Relativistic degrees of freedom of the full standard model: bosons (photon 2, W and Z 9, gluons 16, Higgs 1) + 7/8 x fermions (quarks 6 x 3 x 2 x 2, charged leptons 3 x 2 x 2, neutrinos 3 x 2). Book line 320, printed 106.75.'
     bosons = 2 + 3 * 3 + 8 * 2 + 1
@@ -40829,7 +40829,7 @@ def check_4845():
     value = bosons + 7 / 8 * fermions
     return locals()
 
-@check(label='app:glossary:L320:7.8e-16', title='scale factor at 100 GeV', line=315, status='observed', kind='num', printed='7.8\\times10^{-16}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L320:7.8e-16', title='scale factor at 100 GeV', line=319, status='observed', kind='num', printed='7.8\\times10^{-16}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4846():
     'Entropy conservation g_*s a^3 T^3 = const: a = (g_*s0/g_*s)^(1/3) k_B T_CMB/T at T = 100 GeV, g_*s0 = 3.938 (today), g_*s = 106.75 (counted as at L320), T_CMB = 2.7255 K. Book line 320, printed 7.8 x 10^-16.'
     gs = (2 + 3 * 3 + 8 * 2 + 1) + 7 / 8 * (6 * 3 * 2 * 2 + 3 * 2 * 2 + 3 * 2)
@@ -40842,7 +40842,7 @@ def check_4846():
 def _b17_t3_rows():
     return [r for r in load_csv_rows('Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv') if r['test'] == 'T3']
 
-@check(label='app:glossary:L323:64', title='GSE250556 arrays', line=317, status='observed', kind='file', printed='64', tol=0.0,
+@check(label='app:glossary:L323:64', title='GSE250556 arrays', line=321, status='observed', kind='file', printed='64', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4847():
     'Number of GSE250556 whole-blood technical replicate arrays (test T3) in chain v3 development run 3. Book line 323, printed 64.'
@@ -40850,14 +40850,14 @@ def check_4847():
     value = len({r['gsm'] for r in rows if r['gse'] == 'GSE250556'})
     return locals()
 
-@check(label='app:glossary:L323:0.30', title='GSE250556: lowest neutrophil fraction', line=317, status='observed', kind='file', printed='0.30', tol=0.0,
+@check(label='app:glossary:L323:0.30', title='GSE250556: lowest neutrophil fraction', line=321, status='observed', kind='file', printed='0.30', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4848():
     'Lowest neutrophil fraction (Stage A) of the GSE250556 replicates (test T3), column f_neu. Book line 323, printed 0.30.'
     value = min(float(r['f_neu']) for r in _b17_t3_rows() if r['f_neu'] not in ('', 'nan'))
     return locals()
 
-@check(label='app:glossary:L323:0.56', title='GSE250556: highest neutrophil fraction', line=317, status='observed', kind='file', printed='0.56', tol=0.0,
+@check(label='app:glossary:L323:0.56', title='GSE250556: highest neutrophil fraction', line=321, status='observed', kind='file', printed='0.56', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/data/chain_v3_dev3_readings.csv', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4849():
     'Highest neutrophil fraction (Stage A) of the GSE250556 replicates (test T3). Book line 323, printed 0.56.'
@@ -40865,7 +40865,7 @@ def check_4849():
     return locals()
 
 @check(label='app:glossary:L324', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=315, status='measured', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=319, status='measured', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2879():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 323, printed 100.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
@@ -40873,88 +40873,88 @@ def check_2879():
 
 
 
-@check(label='app:glossary:L327:67.16', title='photon-sector H0 (Level 2 chain)', line=320, status='observed', kind='file', printed='67.16', tol=0.0,
+@check(label='app:glossary:L327:67.16', title='photon-sector H0 (Level 2 chain)', line=324, status='observed', kind='file', printed='67.16', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4852():
     'Photon-sector H0 of the Level 2 run A chain, from the chain extraction. Book line 327, printed 67.16.'
     value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'H0')
     return locals()
 
-@check(label='app:glossary:L327:72.26', title='matter-sector H0 = 67.16 sqrt(1 + beta_m)', line=320, status='observed', kind='file', printed='72.26', tol=0.0,
+@check(label='app:glossary:L327:72.26', title='matter-sector H0 = 67.16 sqrt(1 + beta_m)', line=324, status='observed', kind='file', printed='72.26', tol=0.0,
        source=_B17_CHAINS, heavy=True, rerun=_B17_CHAINS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4853():
     'Matter-sector rate H0 sqrt(1 + beta_m), H0 of the Level 2 run A chain and beta_m = Omega_m/2 (canon). Book line 327, printed 72.26.'
     value = csv_val(_B17_CHAINS, 'iam_level2_runA', 'H0') * math.sqrt(1 + beta_m)
     return locals()
 
-@check(label='app:glossary:L327:67.36', title='Planck 2018 H0', line=320, status='observed', kind='num', printed='67.36', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L327:67.36', title='Planck 2018 H0', line=324, status='observed', kind='num', printed='67.36', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4854():
     'Planck 2018 VI (TT,TE,EE+lowE+lensing) Table 2, H0 = 67.36 +- 0.54 (doi 10.1051/0004-6361/201833910); h_pl is that value / 100. Book line 327, printed 67.36.'
     value = 100 * h_pl
     return locals()
 
-@check(label='app:glossary:L327:73.04', title='SH0ES H0', line=320, status='observed', kind='num', printed='73.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L327:73.04', title='SH0ES H0', line=324, status='observed', kind='num', printed='73.04', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4855():
     'SH0ES Cepheid-supernova H0 = 73.04 +- 1.04 km/s/Mpc. Input: Riess et al. 2022, ApJL 934, L7 (doi 10.3847/2041-8213/ac5c5b). Book line 327, printed 73.04.'
     H0_sh, H0_sh_err = 73.04, 1.04
     value = H0_sh
     return locals()
 
-@check(label='app:glossary:L334:6.17e-8', title='Hawking temperature of one solar mass', line=326, status='observed', kind='num', printed='6.17\\times10^{-8}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L334:6.17e-8', title='Hawking temperature of one solar mass', line=330, status='observed', kind='num', printed='6.17\\times10^{-8}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4856():
     'T_BH = hbar c^3/(8 pi G k_B M) at M = 1 solar mass (IAU nominal), in K. Book line 334, printed 6.17 x 10^-8.'
     value = hbar * c**3 / (8 * math.pi * G * kB * Msun)
     return locals()
 
 @check(label='app:glossary:L336', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=328, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=332, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2880():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 335, printed 0.330263.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
 @check(label='app:glossary:L338', chapter='app:glossary', part=8, title='held-out neutrophil reference arrays, lowest Met-A',
-       file='appendices/app_F_glossary', line=330, status='observed', kind='file', printed='0.983', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
+       file='appendices/app_F_glossary', line=335, status='observed', kind='file', printed='0.983', tol=0.0, source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
 def check_2882():
     'The six neutrophil reference arrays, each read with sites re-chosen on the other five, range 0.983-1.045: smallest A_loo in metA_floors_v1_3_loo.csv. Book line 337, printed 0.983.'
     value = min(float(r['A_loo']) for r in load_csv_rows(_F03_LOO))
     return locals()
 
 @check(label='app:glossary:L338:-1.045', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=330, status='observed', kind='file', printed='-1.045', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=335, status='observed', kind='file', printed='-1.045', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2883():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 337, printed -1.045.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '-1.045')
     return locals()
 
-@check(label='app:glossary:L341:28217448', title='CpGs of the hg19 index', line=333, status='observed', kind='file', printed='28{,}217{,}448', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L341:28217448', title='CpGs of the hg19 index', line=338, status='observed', kind='file', printed='28{,}217{,}448', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4857():
     'N = 28,217,448 CpGs: number of sites of the wgbstools hg19 CpG index, step 01 of the atlas v2 build record. Book line 341, printed 28,217,448.'
     value = _b17_hg19()
     return locals()
 
-@check(label='app:glossary:L342:2.8e7', title='CpGs per haploid genome (hg19 count)', line=334, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L342:2.8e7', title='CpGs per haploid genome (hg19 count)', line=339, status='observed', kind='file', printed='2.8\\times10^7', tol=0.0, source=_B17_ATLAS_README, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4858():
     'About 2.8 x 10^7 CpGs per haploid genome: the hg19 CpG index count of the atlas v2 build record, rounded. Book line 342, printed 2.8 x 10^7.'
     value = _b17_hg19()
     return locals()
 
 @check(label='app:glossary:L344', chapter='app:glossary', part=8, title='same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV)',
-       file='appendices/app_F_glossary', line=336, status='observed', kind='num', printed='246.22', tol=0)
+       file='appendices/app_F_glossary', line=341, status='observed', kind='num', printed='246.22', tol=0)
 def check_2884():
     'same value as p4_22_electroweak:62 (v = (sqrt2 G_F)^(-1/2), GeV). Book line 343, printed 246.22.'
     G_F=1.1663788e-5  # GeV^-2, PDG 2024
     value=(math.sqrt(2)*G_F)**-0.5
     return locals()
 
-@check(label='app:glossary:L344:125.20', title='Higgs boson mass (PDG 2024)', line=336, status='observed', kind='num', printed='125.20', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L344:125.20', title='Higgs boson mass (PDG 2024)', line=341, status='observed', kind='num', printed='125.20', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4859():
     'Higgs boson mass in GeV. Input: Particle Data Group 2024 (Navas et al., Phys. Rev. D 110, 030001, doi 10.1103/PhysRevD.110.030001): m_H = 125.20 +- 0.11 GeV. Book line 344, printed 125.20.'
     mH, mH_err = 125.20, 0.11
     value = mH
     return locals()
 
-@check(label='app:glossary:L344:0.129', title='Higgs self-coupling m_H^2/(2 v^2)', line=336, status='observed', kind='num', printed='0.129', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L344:0.129', title='Higgs self-coupling m_H^2/(2 v^2)', line=341, status='observed', kind='num', printed='0.129', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4860():
     'lambda = m_H^2/(2 v^2), v = (sqrt2 G_F)^(-1/2); G_F = 1.1663788e-5 GeV^-2 and m_H = 125.20 GeV (PDG 2024). Book line 344, printed 0.129.'
     G_F, mH = 1.1663788e-5, 125.20
@@ -40982,7 +40982,7 @@ def check_2886():
     value=Hb(1/(1+math.exp(M_)))/(P_*Hb(e0))
     return locals()
 
-@check(label='app:glossary:L354:2.9e78', title='horizon capacity at T = 150 MeV, nats', line=346, status='calc', kind='num', printed='2.9\\times10^{78}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L354:2.9e78', title='horizon capacity at T = 150 MeV, nats', line=351, status='calc', kind='num', printed='2.9\\times10^{78}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4861():
     'N_H = A_H/(4 l_P^2) = pi (c/H)^2/l_P^2 at T = 150 MeV in the radiation era, H = 1.66 sqrt(g_*) T^2/m_P with g_* = 17.25 at the QCD scale (Chapter ch:baryon), m_P = 1.220890e19 GeV, hbar = 6.582119569e-25 GeV s (CODATA 2018). Book line 354, printed 2.9 x 10^78.'
     hbar_GeVs, mP_GeV, gs, T_GeV = 6.582119569e-25, 1.220890e19, 17.25, 0.150
@@ -40990,20 +40990,20 @@ def check_4861():
     value = math.pi * (c / H)**2 / lP**2
     return locals()
 
-@check(label='app:glossary:L355:123', title='orders of magnitude of the cosmological-constant problem', line=347, status='observed', kind='num', printed='123', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L355:123', title='orders of magnitude of the cosmological-constant problem', line=352, status='observed', kind='num', printed='123', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4862():
     'log10 of rho_vac/rho_Lambda = (8 pi/(3 Omega_Lambda)) (l_H/l_P)^2, the horizon identity inverted, l_H = c/H_0 at the photon-sector H_0 67.16, Omega_Lambda = 1 - Omega_m (Planck 2018). Book line 355, printed 123.'
     value = math.log10(8 * math.pi / (3 * (1 - Om)) * (c / Hsi(H0_photon) / lP)**2)
     return locals()
 
-@check(label='app:glossary:L359:0.776', title='HSC Y3 S8', line=351, status='observed', kind='file', printed='0.776', tol=0.0,
+@check(label='app:glossary:L359:0.776', title='HSC Y3 S8', line=356, status='observed', kind='file', printed='0.776', tol=0.0,
        source=_B17_ST, heavy=True, rerun=_B00_STENSION_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4863():
     'HSC Y3 cosmic-shear S8 (Dalal et al. 2023, C_ell), read at the HSC Y3 row of the weak-lensing list (section 11) of the committed output of verify_sector_tension.py. Book line 359, printed 0.776.'
     value = _b17_st(r'HSC Y3 C_ell \(Dalal 2023\): ([\d.]+) ->')[0]
     return locals()
 
-@check(label='app:glossary:L360:1588', title='Pantheon+ supernovae in the Hubble flow', line=352, status='observed', kind='file', printed='1588', tol=0.0,
+@check(label='app:glossary:L360:1588', title='Pantheon+ supernovae in the Hubble flow', line=357, status='observed', kind='file', printed='1588', tol=0.0,
        source='docs/verification/scripts/verify_dual_sector_chapters_data.json', heavy=True, rerun=_B17_DSV_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4864():
     'Number of Pantheon+ supernovae with 0.01 < z_CMB in the Hubble-flow table committed by verify_dual_sector_chapters.py. Book line 360, printed 1588.'
@@ -41011,7 +41011,7 @@ def check_4864():
     value = int((z > 0.01).sum())
     return locals()
 
-@check(label='app:glossary:L361:1.4e26', title='Hubble radius c/H0, m', line=353, status='observed', kind='num', printed='1.4\\times10^{26}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L361:1.4e26', title='Hubble radius c/H0, m', line=358, status='observed', kind='num', printed='1.4\\times10^{26}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4865():
     'c/H_0 at the photon-sector H_0 = 67.16 km/s/Mpc, in m. Book line 361, printed 1.4 x 10^26.'
     value = c / Hsi(H0_photon)
@@ -41044,7 +41044,7 @@ def check_4866():
     value = 1 / (1 + math.exp(phi_hold * M_cell))
     return locals()
 
-@check(label='app:glossary:L370:0.80', title='ICC of cell-type held-error differences across donors', line=362, status='observed', kind='file', printed='0.80', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L370:0.80', title='ICC of cell-type held-error differences across donors', line=368, status='observed', kind='file', printed='0.80', tol=0.0, source=_B17_PC, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4867():
     'Intraclass correlation of the common-site held error across donors (53 cell types with at least two samples), from section 7 of the PROC-CHANNEL-01 record. Book line 370, printed 0.80.'
     value = float(re.search(r'intraclass\s+correlation\s+(\d+\.\d+)', file_text(_B17_PC)).group(1))
@@ -41052,7 +41052,7 @@ def check_4867():
 
 
 
-@check(label='app:glossary:L400:0.815', title='KiDS-Legacy S8', line=392, status='observed', kind='file', printed='0.815', tol=0.0,
+@check(label='app:glossary:L400:0.815', title='KiDS-Legacy S8', line=399, status='observed', kind='file', printed='0.815', tol=0.0,
        source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4870():
     'KiDS-Legacy cosmic-shear S8 (Wright et al. 2025), read from the KiDS-Legacy line of the committed output of verify_virial_papers.py. Book line 400, printed 0.815.'
@@ -41060,7 +41060,7 @@ def check_4870():
     value = S8
     return locals()
 
-@check(label='app:glossary:L400:0.021', title='KiDS-Legacy S8, lower error', line=392, status='observed', kind='file', printed='0.021', tol=0.0,
+@check(label='app:glossary:L400:0.021', title='KiDS-Legacy S8, lower error', line=399, status='observed', kind='file', printed='0.021', tol=0.0,
        source='docs/verification/scripts/verify_virial_papers_output.txt', heavy=True, rerun=_B00_VPAPERS_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4871():
     'Lower error of the KiDS-Legacy S8, from the same line of the committed output of verify_virial_papers.py. Book line 400, printed 0.021.'
@@ -41068,14 +41068,14 @@ def check_4871():
     value = lo
     return locals()
 
-@check(label='app:glossary:L406:2.2e-6', title='Koide: 2/3 - Q, PDG 2024', line=398, status='observed', kind='num', printed='2.2\\times10^{-6}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L406:2.2e-6', title='Koide: 2/3 - Q, PDG 2024', line=405, status='observed', kind='num', printed='2.2\\times10^{-6}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4872():
     'Distance of Q = (m_e + m_mu + m_tau)/(sqrt m_e + sqrt m_mu + sqrt m_tau)^2 from 2/3, charged-lepton pole masses (CODATA 2018 m_e; PDG 2024 m_mu 105.6583755, m_tau 1776.93 +- 0.09 MeV). Book line 406, printed 2.2 x 10^-6.'
     me_, mmu_, mtau, stau, Q = _b17_koide()
     value = 2 / 3 - Q(mtau)
     return locals()
 
-@check(label='app:glossary:L406:0.43', title='Koide: (2/3 - Q) in units of sigma(Q)', line=398, status='observed', kind='num', printed='0.43', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L406:0.43', title='Koide: (2/3 - Q) in units of sigma(Q)', line=405, status='observed', kind='num', printed='0.43', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4873():
     '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV (PDG 2024) by the numerical derivative dQ/dm_tau. Book line 406, printed 0.43.'
     me_, mmu_, mtau, stau, Q = _b17_koide()
@@ -41083,7 +41083,7 @@ def check_4873():
     value = (2 / 3 - Q(mtau)) / abs(dQ * stau)
     return locals()
 
-@check(label='app:glossary:L406:0.2222', title='Koide offset delta', line=398, status='observed', kind='num', printed='0.2222', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L406:0.2222', title='Koide offset delta', line=405, status='observed', kind='num', printed='0.2222', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4874():
     'Offset delta of sqrt m_i = x (1 + sqrt2 cos(delta + 2 pi k/3)) for the measured masses: x = mean of the square roots, r = sqrt(2(3Q - 1)), delta = arccos((sqrt(m_tau)/x - 1)/r). Book line 406, printed 0.2222.'
     me_, mmu_, mtau, stau, Q = _b17_koide()
@@ -41092,7 +41092,7 @@ def check_4874():
     value = math.acos((s[0] / x - 1) / r)
     return locals()
 
-@check(label='app:glossary:L407:1.57', title='Koomey doubling time, years', line=399, status='observed', kind='num', printed='1.57', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L407:1.57', title='Koomey doubling time, years', line=406, status='observed', kind='num', printed='1.57', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4875():
     'Historical doubling time of computations per joule, in years. Input: Koomey, Berard, Sanchez and Wong 2011, IEEE Ann. Hist. Comput. 33, 46 (doi 10.1109/mahc.2010.28): doubling every 1.57 years. Book line 407, printed 1.57.'
     t_double = 1.57
@@ -41100,41 +41100,41 @@ def check_4875():
     return locals()
 
 @check(label='app:glossary:L411', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=403, status='observed', kind='file', printed='2.968\\times10^{-21}', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=410, status='observed', kind='file', printed='2.968\\times10^{-21}', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2890():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 410, printed 2.968\\times10^{-21}.'
     ok = file_has('CANON/GLOSSARY.md', '2.968\\times10^{-21}')
     return locals()
 
 @check(label='app:glossary:L411:310.15', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=403, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=410, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2891():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 410, printed 310.15.'
     ok = file_has('CANON/GLOSSARY.md', '310.15')
     return locals()
 
 @check(label='app:glossary:L411:348', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=403, status='observed', kind='file', printed='348', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=410, status='observed', kind='file', printed='348', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2892():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 410, printed 348.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '348')
     return locals()
 
-@check(label='app:glossary:L411:3.33e-21', title='Landauer floor at 348 K', line=403, status='observed', kind='num', printed='3.33\\times10^{-21}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L411:3.33e-21', title='Landauer floor at 348 K', line=410, status='observed', kind='num', printed='3.33\\times10^{-21}', tol=0.0, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4876():
     'k_B T ln 2 at T = 348 K (75 C junction), in J. Book line 411, printed 3.33 x 10^-21.'
     value = kB * 348.0 * LN2
     return locals()
 
 @check(label='app:glossary:L413', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=405, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=412, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2893():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 412, printed 20.94.'
     ok = file_has('CANON/GLOSSARY.md', '20.94')
     return locals()
 
 @check(label='app:glossary:L413:30.2', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=405, status='observed', kind='file', printed='30.2', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=412, status='observed', kind='file', printed='30.2', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2894():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 412, printed 30.2.'
     ok = file_has('CANON/GLOSSARY.md', '30.2')
@@ -41155,7 +41155,7 @@ def check_4877():
     return locals()
 
 @check(label='app:glossary:L420', chapter='app:glossary', part=8, title='H0 of the Level 2b background chain A',
-       file='appendices/app_F_glossary', line=412, status='observed', kind='file', printed='61.45', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=419, status='observed', kind='file', printed='61.45', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4878():
     'H0 posterior mean of the Level 2b chain A (the matter-sector term in the background expansion). Book line 419, printed 61.45. Source: row iam_l2b_runA, column H0, of the committed chain extraction.'
@@ -41163,7 +41163,7 @@ def check_4878():
     return locals()
 
 @check(label='app:glossary:L420:61.52', chapter='app:glossary', part=8, title='H0 of the Level 2b background chain D',
-       file='appendices/app_F_glossary', line=412, status='observed', kind='file', printed='61.52', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=419, status='observed', kind='file', printed='61.52', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4879():
     'H0 posterior mean of the Level 2b chain D. Book line 419, printed 61.52. Source: row iam_l2b_runD, column H0, of the committed chain extraction.'
@@ -41171,7 +41171,7 @@ def check_4879():
     return locals()
 
 @check(label='app:glossary:L422', chapter='app:glossary', part=8, title='likelihood ratio of the Level 2 Planck chain',
-       file='appendices/app_F_glossary', line=414, status='observed', kind='num', printed='0.76', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=422, status='observed', kind='num', printed='0.76', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4880():
     'Likelihood ratio exp(-Delta chi2/2) of the Level 2 IAM chain (run A) against the LambdaCDM chain (run C), equal parameter counts. Book line 421, printed 0.76. Inputs: chi2_min of rows iam_level2_runA and iam_level2_runC_lcdm of the committed chain extraction.'
@@ -41180,7 +41180,7 @@ def check_4880():
     return locals()
 
 @check(label='app:glossary:L426', chapter='app:glossary', part=8, title='Milky Way satellites in the Local Volume Database',
-       file='appendices/app_F_glossary', line=418, status='observed', kind='file', printed='68', tol=0.0,
+       file='appendices/app_F_glossary', line=426, status='observed', kind='file', printed='68', tol=0.0,
        source='docs/verification/observations/MISSING_SATELLITES_CHECK.md')
 def check_4881():
     'Number of known Milky Way satellites in the Local Volume Database dwarf catalogue (Pace2025LVDB, doi 10.33232/001c.144859), as the committed missing-satellites check records it (dwarf_mw.csv). Book line 425, printed 68.'
@@ -41188,7 +41188,7 @@ def check_4881():
     return locals()
 
 @check(label='app:glossary:L429', chapter='app:glossary', part=8, title='separation of the spins in the 2015 loophole-free Bell test, km',
-       file='appendices/app_F_glossary', line=421, status='observed', kind='num', printed='1.3', tol=0.0)
+       file='appendices/app_F_glossary', line=429, status='observed', kind='num', printed='1.3', tol=0.0)
 def check_4882():
     'NV electron spins 1.3 km apart in the 2015 loophole-free Bell test. Book line 428, printed 1.3. Published: the two labs are 1,280 m apart (Hensen et al., Nature 526, 682 (2015), doi 10.1038/nature15759, bib Hensen2015).'
     sep_m = 1280.0
@@ -41204,35 +41204,35 @@ def check_4883():
     return locals()
 
 @check(label='app:glossary:L434', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu(z) at z = 0.5 (Level 1)',
-       file='appendices/app_F_glossary', line=426, status='observed', kind='file', printed='1.05', tol=0.0)
+       file='appendices/app_F_glossary', line=433, status='observed', kind='file', printed='1.05', tol=0.0)
 def check_2896():
     'In the Level 1 form M_lens/M_dyn = 1/mu(z): 1.05 at z = 0.5. mu_iam(a) = H^2/(H^2 + beta_m E(a)), LambdaCDM H, Omega_m 0.3153. Book line 433, printed 1.05.'
     value = 1 / mu_iam(1 / 1.5)
     return locals()
 
 @check(label='app:glossary:L434:1.02', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu(z) at z = 1 (Level 1)',
-       file='appendices/app_F_glossary', line=426, status='observed', kind='file', printed='1.02', tol=0.0)
+       file='appendices/app_F_glossary', line=433, status='observed', kind='file', printed='1.02', tol=0.0)
 def check_2897():
     'In the Level 1 form M_lens/M_dyn = 1/mu(z): 1.02 at z = 1. mu_iam(a) = H^2/(H^2 + beta_m E(a)), LambdaCDM H, Omega_m 0.3153. Book line 433, printed 1.02.'
     value = 1 / mu_iam(0.5)
     return locals()
 
 @check(label='app:glossary:L434:1.16', chapter='app:glossary', part=8, title='M_lens/M_dyn = 1/mu today, Level 1 form',
-       file='appendices/app_F_glossary', line=426, status='observed', kind='num', printed='1.16', tol=0.0)
+       file='appendices/app_F_glossary', line=433, status='observed', kind='num', printed='1.16', tol=0.0)
 def check_4884():
     'Lensing-to-dynamical mass ratio in the Level 1 form, 1/mu(a=1) with mu = H^2/(H^2 + beta_m E(a) H0^2). Book line 433, printed 1.16. Inputs: beta_m (CANON), Omega_m 0.3153 (Planck 2018).'
     value = 1 / float(mu_iam(1.0))
     return locals()
 
 @check(label='app:glossary:L436', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=428, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=435, status='observed', kind='file', printed='20.94', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2898():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 435, printed 20.94.'
     ok = file_has('CANON/GLOSSARY.md', '20.94')
     return locals()
 
 @check(label='app:glossary:L446', chapter='app:glossary', part=8, title='1-b needed by Planck SZ counts with the primary-CMB cosmology',
-       file='appendices/app_F_glossary', line=437, status='observed', kind='file', printed='0.58', tol=0.0, source=_B18_CL,
+       file='appendices/app_F_glossary', line=444, status='observed', kind='file', printed='0.58', tol=0.0, source=_B18_CL,
        heavy=True, rerun=_B18_CL_RERUN)
 def check_4885():
     '1-b = 0.58 +- 0.04 needed to reconcile the Planck SZ counts with the primary CMB, Planck 2015 XXIV (doi 10.1051/0004-6361/201525833), read at its row of the committed cluster output. Book line 445, printed 0.58.'
@@ -41240,7 +41240,7 @@ def check_4885():
     return locals()
 
 @check(label='app:glossary:L446:0.80', chapter='app:glossary', part=8, title='baseline 1-b of about 0.80',
-       file='appendices/app_F_glossary', line=437, status='observed', kind='num', printed='0.80', tol=0.0)
+       file='appendices/app_F_glossary', line=444, status='observed', kind='num', printed='0.80', tol=0.0)
 def check_4886():
     'Baseline mass bias b = 0.2 of the Planck 2013 SZ cluster-count analysis (set from simulations), i.e. 1-b = 0.80, as restated by Planck 2015 XXIV (doi 10.1051/0004-6361/201525833); the same value as ch:lensdyn line 184. Book line 445, printed 0.80 ("about").'
     b_2013 = 0.2
@@ -41248,28 +41248,28 @@ def check_4886():
     return locals()
 
 @check(label='app:glossary:L451', chapter='app:glossary', part=8, title='maturity E(1)/e today, per cent',
-       file='appendices/app_F_glossary', line=442, status='observed', kind='num', printed='36.8', tol=0.0)
+       file='appendices/app_F_glossary', line=449, status='observed', kind='num', printed='36.8', tol=0.0)
 def check_4887():
     'Maturity E(a)/e at a = 1 with E(a) = exp(1 - 1/a), in per cent. Book line 450, printed 36.8.'
     value = 100 * float(E_act(1.0)) / float(E_act(1e12))
     return locals()
 
 @check(label='app:glossary:L457', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=448, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=455, status='observed', kind='file', printed='0.330263', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2899():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 456, printed 0.330263.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.330263')
     return locals()
 
 @check(label='app:glossary:L457:-1.05', chapter='app:glossary', part=8, title='Met-A: Normal band, upper edge (canon Normal_band)',
-       file='appendices/app_F_glossary', line=448, status='observed', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_F_glossary', line=455, status='observed', kind='file', printed='1.05', tol=0.0, source='CANON/iam_canon.json')
 def check_2900():
     'Met-A entry, Normal 0.95-1.05 (the printed value is the upper edge 1.05; the label keeps the old reading of the range): upper edge of Normal_band in iam_canon.json. Book line 456, printed 1.05.'
     value = float(_cv('Normal_band')[1])
     return locals()
 
 @check(label='app:glossary:L457:0.95', chapter='app:glossary', part=8, title='lower edge of the Normal band (CANON)',
-       file='appendices/app_F_glossary', line=448, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_F_glossary', line=455, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
 def check_4888():
     'Lower edge of the Normal band of a Met-A reading, CANON Normal_band. Book line 456, printed 0.95.'
     value = float(CANON['Normal_band']['value'][0])
@@ -41284,7 +41284,7 @@ def check_4889():
     return locals()
 
 @check(label='app:glossary:L464', chapter='app:glossary', part=8, title='MICROSCOPE Eotvos parameter Ti-Pt, central value',
-       file='appendices/app_F_glossary', line=454, status='observed', kind='num', printed='-1.5', tol=0.0)
+       file='appendices/app_F_glossary', line=461, status='observed', kind='num', printed='-1.5', tol=0.0)
 def check_4890():
     'Eotvos parameter of the titanium-platinum pair, final MICROSCOPE result, in units of 1e-15. Book line 463, printed -1.5. Published: Touboul et al., PRL 129, 121102 (2022), doi 10.1103/PhysRevLett.129.121102, eta = [-1.5 +- 2.3 (stat) +- 1.5 (syst)] x 1e-15.'
     eta_Touboul2022 = -1.5e-15
@@ -41292,7 +41292,7 @@ def check_4890():
     return locals()
 
 @check(label='app:glossary:L464:2.7e-15', chapter='app:glossary', part=8, title='MICROSCOPE total uncertainty, stat and syst in quadrature',
-       file='appendices/app_F_glossary', line=454, status='observed', kind='num', printed='2.7\\times10^{-15}', tol=0.0)
+       file='appendices/app_F_glossary', line=461, status='observed', kind='num', printed='2.7\\times10^{-15}', tol=0.0)
 def check_4891():
     'Level at which the MICROSCOPE Eotvos parameter is consistent with zero: the statistical and systematic errors added in quadrature. Book line 463, printed 2.7e-15. Inputs: stat 2.3e-15, syst 1.5e-15 (Touboul et al., PRL 129, 121102 (2022), doi 10.1103/PhysRevLett.129.121102).'
     stat, syst = 2.3e-15, 1.5e-15
@@ -41300,14 +41300,14 @@ def check_4891():
     return locals()
 
 @check(label='app:glossary:L474', chapter='app:glossary', part=8, title='mu0 = -beta_m/(1+beta_m)',
-       file='appendices/app_F_glossary', line=464, status='observed', kind='num', printed='-0.136', tol=0.0)
+       file='appendices/app_F_glossary', line=471, status='observed', kind='num', printed='-0.136', tol=0.0)
 def check_4892():
     'mu0 = mu(z=0) - 1 = -beta_m/(1+beta_m) from mu = H^2/(H^2 + beta_m E H0^2) at a = 1 (E(1) = 1, H = H0). Book line 473, printed -0.136. Input: beta_m (CANON).'
     value = float(mu_iam(1.0)) - 1
     return locals()
 
 @check(label='app:glossary:L474:-0.13495', chapter='app:glossary', part=8, title='mu0 fixed in the MGCAMB runs',
-       file='appendices/app_F_glossary', line=464, status='observed', kind='file', printed='-0.13495', tol=0.0,
+       file='appendices/app_F_glossary', line=471, status='observed', kind='file', printed='-0.13495', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_fixed_mu0_r2.updated.yaml')
 def check_4893():
     'Value of mu0 fixed in the Level 1 MGCAMB IAM chain, read from the committed chain input. Book line 473, printed -0.13495.'
@@ -41316,21 +41316,21 @@ def check_4893():
     return locals()
 
 @check(label='app:glossary:L474:4.25', chapter='app:glossary', part=8, title='f sigma8 deficit today, per cent',
-       file='appendices/app_F_glossary', line=464, status='observed', kind='num', printed='4.25', tol=0.0)
+       file='appendices/app_F_glossary', line=471, status='observed', kind='num', printed='4.25', tol=0.0)
 def check_4894():
     'f sigma8 deficit of IAM below LambdaCDM today, same early amplitude, from the growth equation with mu(a). Book line 473, printed 4.25 %. Inputs: beta_m (CANON), Omega_m 0.3153 (Planck 2018).'
     value = fs8_deficit(0.0)
     return locals()
 
 @check(label='app:glossary:L484', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='528', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=481, status='observed', kind='file', printed='528', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2901():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 483, printed 528.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '528')
     return locals()
 
 @check(label='app:glossary:L484:-0.149', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=474, status='observed', kind='file', printed='-0.149', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=481, status='observed', kind='file', printed='-0.149', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2902():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 483, printed -0.149.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '-0.149')
@@ -41344,28 +41344,28 @@ def check_4895():
     return locals()
 
 @check(label='app:glossary:L486:0.95', chapter='app:glossary', part=8, title='Normal band lower edge (CANON)',
-       file='appendices/app_F_glossary', line=476, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
+       file='appendices/app_F_glossary', line=483, status='observed', kind='file', printed='0.95', tol=0.0, source='CANON/iam_canon.json')
 def check_4896():
     'Lower edge of the healthy band 0.95 <= A <= 1.05, CANON Normal_band. Book line 485, printed 0.95.'
     value = float(CANON['Normal_band']['value'][0])
     return locals()
 
 @check(label='app:glossary:L498', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=488, status='observed', kind='file', printed='0.3153', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=495, status='observed', kind='file', printed='0.3153', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2903():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 497, printed 0.3153.'
     ok = file_has('CANON/GLOSSARY.md', '0.3153')
     return locals()
 
 @check(label='app:glossary:L501', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=491, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=498, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2904():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 500, printed 100.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L508:1701', chapter='app:glossary', part=8, title='Pantheon+ light curves',
-       file='appendices/app_F_glossary', line=498, status='observed', kind='file', printed='1701', tol=0.0, source=_B18_DSV,
+       file='appendices/app_F_glossary', line=505, status='observed', kind='file', printed='1701', tol=0.0, source=_B18_DSV,
        heavy=True, rerun=_B18_DSV_RERUN)
 def check_4897():
     'Number of type Ia supernova light curves in the public Pantheon+ release, as counted by the committed dual-sector run. Book line 507, printed 1701.'
@@ -41373,7 +41373,7 @@ def check_4897():
     return locals()
 
 @check(label='app:glossary:L508:0.001', chapter='app:glossary', part=8, title='Pantheon+ lowest redshift',
-       file='appendices/app_F_glossary', line=498, status='observed', kind='file', printed='0.001', tol=0.0, source=_B18_DSV,
+       file='appendices/app_F_glossary', line=505, status='observed', kind='file', printed='0.001', tol=0.0, source=_B18_DSV,
        heavy=True, rerun=_B18_DSV_RERUN)
 def check_4898():
     'Lowest Hubble-diagram redshift z_HD of the Pantheon+ release, as read by the committed dual-sector run (0.00122). Book line 507, printed 0.001 (lower bound of 0.001 < z < 2.26).'
@@ -41381,7 +41381,7 @@ def check_4898():
     return locals()
 
 @check(label='app:glossary:L508:2.26', chapter='app:glossary', part=8, title='Pantheon+ highest redshift',
-       file='appendices/app_F_glossary', line=498, status='observed', kind='file', printed='2.26', tol=0.0, source=_B18_DSV,
+       file='appendices/app_F_glossary', line=505, status='observed', kind='file', printed='2.26', tol=0.0, source=_B18_DSV,
        heavy=True, rerun=_B18_DSV_RERUN)
 def check_4899():
     'Highest Hubble-diagram redshift z_HD of the Pantheon+ release, as read by the committed dual-sector run. Book line 507, printed 2.26.'
@@ -41389,7 +41389,7 @@ def check_4899():
     return locals()
 
 @check(label='app:glossary:L520', chapter='app:glossary', part=8, title='M = hc/(lambda k_B T) of a 1550 nm photon at 300 K',
-       file='appendices/app_F_glossary', line=510, status='observed', kind='num', printed='30.9', tol=0.0)
+       file='appendices/app_F_glossary', line=517, status='observed', kind='num', printed='30.9', tol=0.0)
 def check_4900():
     'M number of a photonic qubit, M = h f/(k_B T) with f = c/lambda, lambda = 1550 nm, T = 300 K (the book inputs). Book line 519, printed 30.9.'
     lam, T = 1550e-9, 300.0
@@ -41397,7 +41397,7 @@ def check_4900():
     return locals()
 
 @check(label='app:glossary:L521', chapter='app:glossary', part=8, title='pipeline offset in beta on immune identity sites',
-       file='appendices/app_F_glossary', line=511, status='observed', kind='file', printed='0.075', tol=0.01,
+       file='appendices/app_F_glossary', line=518, status='observed', kind='file', printed='0.075', tol=0.01,
        source='Biological_Physics/MethylPhys/doors/PHASE1_OUTCOME.md')
 def check_4901():
     'Offset in beta between raw-IDAT noob processing and the processed reference methylomes on immune identity sites, at the reference identity mean: (a - 1) beta_ref + b, with the affine map beta_stage1 = a beta_atlas + b and beta_ref = 0.737 (Atlas immune mean on the same loci), both from PHASE1_OUTCOME.md. Book line 520, printed "about 0.075": tol 1 % because the record gives 0.0756 and the sentence states the offset approximately.'
@@ -41409,42 +41409,42 @@ def check_4901():
     return locals()
 
 @check(label='app:glossary:L525', chapter='app:glossary', part=8, title='Planck energy sqrt(hbar c^5/G), J',
-       file='appendices/app_F_glossary', line=515, status='observed', kind='num', printed='1.956\\times10^9', tol=0.0)
+       file='appendices/app_F_glossary', line=522, status='observed', kind='num', printed='1.956\\times10^9', tol=0.0)
 def check_4902():
     'Planck energy E_P = sqrt(hbar c^5/G). Book line 524, printed 1.956e9 J. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
     value = math.sqrt(hbar * c**5 / G)
     return locals()
 
 @check(label='app:glossary:L526', chapter='app:glossary', part=8, title='Planck length sqrt(hbar G/c^3), m',
-       file='appendices/app_F_glossary', line=516, status='observed', kind='num', printed='1.616\\times10^{-35}', tol=0.0)
+       file='appendices/app_F_glossary', line=523, status='observed', kind='num', printed='1.616\\times10^{-35}', tol=0.0)
 def check_4903():
     'Planck length l_P = sqrt(hbar G/c^3). Book line 525, printed 1.616e-35 m. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
     value = math.sqrt(hbar * G / c**3)
     return locals()
 
 @check(label='app:glossary:L526:2.176e-8', chapter='app:glossary', part=8, title='Planck mass sqrt(hbar c/G), kg',
-       file='appendices/app_F_glossary', line=516, status='observed', kind='num', printed='2.176\\times10^{-8}', tol=0.0)
+       file='appendices/app_F_glossary', line=523, status='observed', kind='num', printed='2.176\\times10^{-8}', tol=0.0)
 def check_4904():
     'Planck mass m_P = sqrt(hbar c/G). Book line 525, printed 2.176e-8 kg. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
     value = math.sqrt(hbar * c / G)
     return locals()
 
 @check(label='app:glossary:L528', chapter='app:glossary', part=8, title='Planck time sqrt(hbar G/c^5), s',
-       file='appendices/app_F_glossary', line=518, status='observed', kind='num', printed='5.4\\times10^{-44}', tol=0.0)
+       file='appendices/app_F_glossary', line=525, status='observed', kind='num', printed='5.4\\times10^{-44}', tol=0.0)
 def check_4905():
     'Planck time t_P = sqrt(hbar G/c^5). Book line 527, printed 5.4e-44 s. Inputs: hbar, c exact (SI 2019), G CODATA 2018.'
     value = math.sqrt(hbar * G / c**5)
     return locals()
 
 @check(label='app:glossary:L530', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=520, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=527, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2905():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 529, printed 450.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L534', chapter='app:glossary', part=8, title='index-3 polytrope binding energy of the Sun, J',
-       file='appendices/app_F_glossary', line=524, status='observed', kind='num', printed='-5.69\\times10^{41}', tol=0.0)
+       file='appendices/app_F_glossary', line=531, status='observed', kind='num', printed='-5.69\\times10^{41}', tol=0.0)
 def check_4906():
     'U = -(3/2) G M^2/R for an index-3 polytrope (U = -3/(5-n) G M^2/R at n = 3) of the Sun. Book line 533, printed -5.69e41 J. Inputs: M_sun 1.98847e30 kg, R_sun 6.957e8 m (IAU 2015 nominal), G CODATA 2018.'
     n, R_sun = 3, 6.957e8
@@ -41452,7 +41452,7 @@ def check_4906():
     return locals()
 
 @check(label='app:glossary:L534:23.6', chapter='app:glossary', part=8, title='Kelvin-Helmholtz time of the Sun, Myr',
-       file='appendices/app_F_glossary', line=524, status='observed', kind='num', printed='23.6', tol=0.0)
+       file='appendices/app_F_glossary', line=531, status='observed', kind='num', printed='23.6', tol=0.0)
 def check_4907():
     'Kelvin-Helmholtz time |U|/(2 L) with U of the index-3 polytrope (half the released energy is radiated, virial theorem). Book line 533, printed 23.6 Myr. Inputs: R_sun 6.957e8 m, L_sun 3.828e26 W (IAU 2015 nominal), M_sun, G CODATA 2018, Julian year.'
     R_sun, L_sun = 6.957e8, 3.828e26
@@ -41461,7 +41461,7 @@ def check_4907():
     return locals()
 
 @check(label='app:glossary:L539', chapter='app:glossary', part=8, title='atlas v2 held-out 90 % interval coverage, per cent',
-       file='appendices/app_F_glossary', line=529, status='observed', kind='file', printed='92.7', tol=0.0,
+       file='appendices/app_F_glossary', line=536, status='observed', kind='file', printed='92.7', tol=0.0,
        source='Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md')
 def check_4908():
     'Fraction of held-out observations inside the 90 % predictive interval of atlas v2 (test V5, bar B1), read from the PROC-V5-HELDOUT record (92.68 %). Book line 538, printed 92.7.'
@@ -41469,7 +41469,7 @@ def check_4908():
     return locals()
 
 @check(label='app:glossary:L542', chapter='app:glossary', part=8, title='lower bound of the flat prior on free mu0',
-       file='appendices/app_F_glossary', line=532, status='observed', kind='file', printed='-0.5', tol=0.0,
+       file='appendices/app_F_glossary', line=539, status='observed', kind='file', printed='-0.5', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
 def check_4909():
     'Lower bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 541, printed -0.5.'
@@ -41478,7 +41478,7 @@ def check_4909():
     return locals()
 
 @check(label='app:glossary:L542:+0.2', chapter='app:glossary', part=8, title='upper bound of the flat prior on free mu0',
-       file='appendices/app_F_glossary', line=532, status='observed', kind='file', printed='+0.2', tol=0.0,
+       file='appendices/app_F_glossary', line=539, status='observed', kind='file', printed='+0.2', tol=0.0,
        source='Cosmological_Physics/mgcamb_validation/chains/iam_float_mu0_r2.updated.yaml')
 def check_4910():
     'Upper bound of the flat prior on mu0 in the free-mu0 Level 1 chain, read from the committed chain input. Book line 541, printed +0.2.'
@@ -41487,7 +41487,7 @@ def check_4910():
     return locals()
 
 @check(label='app:glossary:L544:56', chapter='app:glossary', part=8, title='cell types of PROC-CHANNEL-01',
-       file='appendices/app_F_glossary', line=534, status='observed', kind='num', printed='56', tol=0.0, source=_B18_PC,
+       file='appendices/app_F_glossary', line=541, status='observed', kind='num', printed='56', tol=0.0, source=_B18_PC,
        heavy=True, rerun=_B18_PC_RERUN)
 def check_4911():
     'Number of cell types across which PROC-CHANNEL-01 read the holding energy, from the header of its record. Book line 543, printed 56.'
@@ -41495,14 +41495,14 @@ def check_4911():
     return locals()
 
 @check(label='app:glossary:L553', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=544, status='observed', kind='file', printed='150', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=552, status='observed', kind='file', printed='150', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2906():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 552, printed 150.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '150')
     return locals()
 
 @check(label='app:glossary:L553:1e-5', chapter='app:glossary', part=8, title='age of the radiation era at QCD confinement, s',
-       file='appendices/app_F_glossary', line=543, status='observed', kind='num', printed='10^{-5}', tol=0.0)
+       file='appendices/app_F_glossary', line=551, status='observed', kind='num', printed='10^{-5}', tol=0.0)
 def check_4912():
     'Time at which the radiation-dominated universe reaches T = 150 MeV: t = 1/(2H), H^2 = (8 pi G/3) rho/c^2, rho = (pi^2/30) g_* (k T)^4/(hbar c)^3. Book line 552, printed "some 10^-5 s" (an order of magnitude: half a decade). Inputs: T = 150 MeV (book, same line); g_* counted just below the transition: photons 2, e+- and mu+- 7/8 x 4 each, three neutrino species 7/8 x 6, three pions 3.'
     g_star = 2 + 7 / 8 * (4 + 4 + 6) + 3
@@ -41513,7 +41513,7 @@ def check_4912():
     return locals()
 
 @check(label='app:glossary:L556:12.7', chapter='app:glossary', part=8, title='surface-code threshold on the Helios gauge',
-       file='appendices/app_F_glossary', line=546, status='observed', kind='num', printed='12.7', tol=0.0)
+       file='appendices/app_F_glossary', line=554, status='observed', kind='num', printed='12.7', tol=0.0)
 def check_4913():
     'Surface-code threshold on the gauge of the 98-qubit trapped-ion processor: A = 1e-2/epsilon with epsilon = -ln(1 - p_2Q), the gate error in nats (Eq. eq:Agate; the threshold mark 1e-2/epsilon of Chapter ch:ascoreqc). Book line 555, printed 12.7. Inputs: p_2Q = 7.9e-4 (Ransford2025, as the book states on this line and in Table tab:platforms), threshold 1e-2 (Fowler2012, doi 10.1103/PhysRevA.86.032324).'
     p2Q, p_thr = 7.9e-4, 1e-2
@@ -41522,21 +41522,21 @@ def check_4913():
     return locals()
 
 @check(label='app:glossary:L583:0.79', chapter='app:glossary', part=8, title='rho of Met-A and noise index, second laboratory, 30 y',
-       file='appendices/app_F_glossary', line=578, status='observed', kind='file', printed='0.79', tol=0.0, source=_B18_NOISE)
+       file='appendices/app_F_glossary', line=586, status='observed', kind='file', printed='0.79', tol=0.0, source=_B18_NOISE)
 def check_4914():
     'Spearman correlation of the noise index N with Met-A over the arrays of the 30-year-old man (series GSE247193, 21 arrays with both values), recomputed from the DEV-NOISE-01 table. Book line 582, printed 0.79 (lower end of 0.79-0.83).'
     value, n_arrays = _b18_rho('GSE247193')
     return locals()
 
 @check(label='app:glossary:L583:0.83', chapter='app:glossary', part=8, title='rho of Met-A and noise index, second laboratory, 54 y',
-       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.83', tol=0.0, source=_B18_NOISE)
+       file='appendices/app_F_glossary', line=591, status='observed', kind='file', printed='0.83', tol=0.0, source=_B18_NOISE)
 def check_4915():
     'Spearman correlation of the noise index N with Met-A over the arrays of the 54-year-old man (series GSE247195, 24 arrays), recomputed from the DEV-NOISE-01 table. Book line 582, printed 0.83 (upper end of 0.79-0.83).'
     value, n_arrays = _b18_rho('GSE247195')
     return locals()
 
 @check(label='app:glossary:L587', chapter='app:glossary', part=8, title='departure of running-mass Koide Q from 2/3',
-       file='appendices/app_F_glossary', line=577, status='observed', kind='num', printed='1.2\\times10^{-3}', tol=0.0)
+       file='appendices/app_F_glossary', line=585, status='observed', kind='num', printed='1.2\\times10^{-3}', tol=0.0)
 def check_4916():
     'Q of the one-loop QED MSbar running lepton masses at mu = m_tau minus 2/3. Book line 586, printed 1.2e-3. Inputs: pole masses (CODATA 2018, PDG 2024 m_tau), alpha = 1/137.036, as in Chapter ch:koide.'
     value = _b07_Q_run(_B07_MTAU24) - sp.Rational(2, 3)
@@ -41544,14 +41544,14 @@ def check_4916():
     return locals()
 
 @check(label='app:glossary:L588', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=583, status='measured', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=591, status='measured', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2908():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 587, printed 0.830.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
     return locals()
 
 @check(label='app:glossary:L588:67.16', chapter='app:glossary', part=8, title='H0 of Level 2 run A',
-       file='appendices/app_F_glossary', line=578, status='measured', kind='file', printed='67.16', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=586, status='measured', kind='file', printed='67.16', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4917():
     'H0 posterior mean of the Level 2 chain A (IAM on Planck). Book line 587, printed 67.16. Source: row iam_level2_runA, column H0.'
@@ -41559,7 +41559,7 @@ def check_4917():
     return locals()
 
 @check(label='app:glossary:L588:0.7998', chapter='app:glossary', part=8, title='sigma8 of Level 2 run A',
-       file='appendices/app_F_glossary', line=578, status='measured', kind='file', printed='0.7998', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=586, status='measured', kind='file', printed='0.7998', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4918():
     'sigma8 posterior mean of the Level 2 chain A. Book line 587, printed 0.7998. Source: row iam_level2_runA, column sigma8.'
@@ -41567,7 +41567,7 @@ def check_4918():
     return locals()
 
 @check(label='app:glossary:L588:0.822', chapter='app:glossary', part=8, title='S8 of Level 2 run A',
-       file='appendices/app_F_glossary', line=583, status='measured', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=591, status='measured', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4919():
     'S8 posterior mean of the Level 2 chain A. Book line 587, printed 0.822. Source: row iam_level2_runA, column S8.'
@@ -41575,7 +41575,7 @@ def check_4919():
     return locals()
 
 @check(label='app:glossary:L588:0.821', chapter='app:glossary', part=8, title='S8 of Level 2 run D',
-       file='appendices/app_F_glossary', line=578, status='measured', kind='file', printed='0.821', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=586, status='measured', kind='file', printed='0.821', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4920():
     'S8 posterior mean of the Level 2 chain D (IAM on Planck with growth data). Book line 587, printed 0.821. Source: row iam_level2_runD, column S8.'
@@ -41583,14 +41583,14 @@ def check_4920():
     return locals()
 
 @check(label='app:glossary:L593', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=591, status='observed', kind='file', printed='0.830', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2909():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 592, printed 0.830.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '0.830')
     return locals()
 
 @check(label='app:glossary:L593:0.822', chapter='app:glossary', part=8, title='S8 of the Level 2 IAM chain',
-       file='appendices/app_F_glossary', line=583, status='observed', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=591, status='observed', kind='file', printed='0.822', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4921():
     'S8 = sigma8 sqrt(Omega_m/0.3) recomputed from the sigma8 and omegam posterior means of the Level 2 IAM chain (run A); the extraction lists S8 = 0.8215 directly. Book line 592, printed 0.822.'
@@ -41613,7 +41613,7 @@ def check_4922():
     return locals()
 
 @check(label='app:glossary:L607:0.020', chapter='app:glossary', part=8, title='SD of the held-out reference readings, sites re-chosen',
-       file='appendices/app_F_glossary', line=596, status='observed', kind='file', printed='0.020', tol=0.0,
+       file='appendices/app_F_glossary', line=605, status='observed', kind='file', printed='0.020', tol=0.0,
        source='Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv')
 def check_4923():
     'Sample SD of the held-out readings A_loo of the six purified healthy neutrophil arrays, sites re-chosen on the other five. Book line 606, printed 0.020.'
@@ -41624,7 +41624,7 @@ def check_4923():
     return locals()
 
 @check(label='app:glossary:L614', chapter='app:glossary', part=8, title='SH0ES H0',
-       file='appendices/app_F_glossary', line=603, status='observed', kind='num', printed='73.04', tol=0.0)
+       file='appendices/app_F_glossary', line=612, status='observed', kind='num', printed='73.04', tol=0.0)
 def check_4924():
     'SH0ES Cepheid-calibrated distance-ladder H0. Book line 613, printed 73.04. Published: Riess et al. 2022, ApJL 934, L7, doi 10.3847/2041-8213/ac5c5b, H0 = 73.04 +- 1.04 km/s/Mpc.'
     H0_Riess2022 = 73.04
@@ -41632,7 +41632,7 @@ def check_4924():
     return locals()
 
 @check(label='app:glossary:L619', chapter='app:glossary', part=8, title='Cornell sigma = 0.18 GeV^2 in GeV/fm',
-       file='appendices/app_F_glossary', line=608, status='observed', kind='num', printed='0.91', tol=0.0)
+       file='appendices/app_F_glossary', line=617, status='observed', kind='num', printed='0.91', tol=0.0)
 def check_4925():
     'String tension sigma = 0.18 GeV^2 converted to GeV/fm by dividing by hbar c. Book line 618, printed 0.91. Inputs: 0.18 GeV^2 (book, same line); hbar c from SI 2019 exact constants.'
     hbarc_GeV_fm = hbar * c / (1e9 * eV) * 1e15
@@ -41640,7 +41640,7 @@ def check_4925():
     return locals()
 
 @check(label='app:glossary:L620', chapter='app:glossary', part=8, title='sigma8 of the Level 2 LambdaCDM chain',
-       file='appendices/app_F_glossary', line=609, status='observed', kind='file', printed='0.809', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=618, status='observed', kind='file', printed='0.809', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4926():
     'sigma8 posterior mean of the Level 2 LambdaCDM chain (run C). Book line 619, printed 0.809.'
@@ -41648,7 +41648,7 @@ def check_4926():
     return locals()
 
 @check(label='app:glossary:L620:0.800', chapter='app:glossary', part=8, title='sigma8 of the Level 2 IAM chain',
-       file='appendices/app_F_glossary', line=609, status='observed', kind='file', printed='0.800', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=618, status='observed', kind='file', printed='0.800', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4927():
     'sigma8 posterior mean of the Level 2 IAM chain (run A). Book line 619, printed 0.800.'
@@ -41656,7 +41656,7 @@ def check_4927():
     return locals()
 
 @check(label='app:glossary:L620:0.813', chapter='app:glossary', part=8, title='sigma8 of the Level 1 LambdaCDM baseline (Planck + RSD)',
-       file='appendices/app_F_glossary', line=609, status='observed', kind='file', printed='0.813', tol=0.0, source=_B18_CH,
+       file='appendices/app_F_glossary', line=618, status='observed', kind='file', printed='0.813', tol=0.0, source=_B18_CH,
        heavy=True, rerun=_B04_CHAINS_RERUN)
 def check_4928():
     'sigma8 posterior mean of the Level 1 LambdaCDM baseline on Planck + RSD (row planck_rsd_lcdm_baseline), the 0.8133 that Chapter ch:latetime quotes as 0.813. Book line 619, printed "about 0.813".'
@@ -41664,7 +41664,7 @@ def check_4928():
     return locals()
 
 @check(label='app:glossary:L622:509', chapter='app:glossary', part=8, title='tau_IAM of a 1e-12 kg silica sphere at 10 mK, s',
-       file='appendices/app_F_glossary', line=611, status='calc', kind='num', printed='509', tol=0.0)
+       file='appendices/app_F_glossary', line=620, status='calc', kind='num', printed='509', tol=0.0)
 def check_4929():
     'IAM decoherence time tau = hbar (k_B T)^2 ln2 / E_G^3 with E_G = G m^2/R of a uniform sphere. Book line 621, printed 509 s. Inputs: m = 1e-12 kg, T = 10 mK, density 2200 kg/m^3 (book, same line).'
     m, T, rho_s = 1e-12, 0.010, 2200.0
@@ -41674,7 +41674,7 @@ def check_4929():
     return locals()
 
 @check(label='app:glossary:L622:7.5', chapter='app:glossary', part=8, title='tau_DP = hbar/E_G of a 1e-12 kg silica sphere, us',
-       file='appendices/app_F_glossary', line=611, status='calc', kind='num', printed='7.5', tol=0.0)
+       file='appendices/app_F_glossary', line=620, status='calc', kind='num', printed='7.5', tol=0.0)
 def check_4930():
     'Diosi-Penrose time hbar/E_G with E_G = G m^2/R of a uniform sphere, in microseconds. Book line 621, printed 7.5 us. Inputs: m = 1e-12 kg, density 2200 kg/m^3 (book, same line).'
     m, rho_s = 1e-12, 2200.0
@@ -41683,42 +41683,42 @@ def check_4930():
     return locals()
 
 @check(label='app:glossary:L624', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=613, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=622, status='observed', kind='file', printed='450', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2912():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 623, printed 450.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '450')
     return locals()
 
 @check(label='app:glossary:L637', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=635, status='observed', kind='file', printed='963', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2913():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 636, printed 963.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '963')
     return locals()
 
 @check(label='app:glossary:L637:867', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=626, status='observed', kind='file', printed='867', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=635, status='observed', kind='file', printed='867', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2914():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 636, printed 867.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '867')
     return locals()
 
 @check(label='app:glossary:L640', chapter='app:glossary', part=8, title='measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=629, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
+       file='appendices/app_F_glossary', line=638, status='observed', kind='file', printed='100', tol=0.0, source='Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md')
 def check_2915():
     'measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names. Book line 639, printed 100.'
     ok = file_has('Biological_Physics/MethylPhys/archive/sop/MethylPhys_CPG_SOP_v3.md', '100')
     return locals()
 
 @check(label='app:glossary:L650', chapter='app:glossary', part=8, title='(k_B T/q) ln 10 at 300 K, mV/decade',
-       file='appendices/app_F_glossary', line=639, status='observed', kind='num', printed='60', tol=0.0)
+       file='appendices/app_F_glossary', line=648, status='observed', kind='num', printed='60', tol=0.0)
 def check_4931():
     'Subthreshold-swing bound (k_B T/q) ln 10 at T = 300 K, in mV per decade. Book line 649, printed 60. Inputs: k_B, e exact (SI 2019).'
     value = kB * 300 / e_ch * math.log(10) * 1e3
     return locals()
 
 @check(label='app:glossary:L653', chapter='app:glossary', part=8, title='Delta chi2 of the matter-sector rate on SN distances',
-       file='appendices/app_F_glossary', line=642, status='observed', kind='file', printed='+23.6', tol=0.0, source=_B18_DSV,
+       file='appendices/app_F_glossary', line=651, status='observed', kind='file', printed='+23.6', tol=0.0, source=_B18_DSV,
        heavy=True, rerun=_B18_DSV_RERUN)
 def check_4932():
     'Delta chi2 of beta_m = 0.15765 put into the supernova distances (full covariance, Om 0.315): chi2 with beta_m minus the LambdaCDM chi2, both read from section 3 of the committed dual-sector output. Book line 652, printed +23.6.'
@@ -41728,21 +41728,21 @@ def check_4932():
     return locals()
 
 @check(label='app:glossary:L661', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
-       file='appendices/app_F_glossary', line=650, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/GLOSSARY.md')
+       file='appendices/app_F_glossary', line=659, status='observed', kind='file', printed='310.15', tol=0.0, source='CANON/GLOSSARY.md')
 def check_2916():
     'measured: printed value found in GLOSSARY.md, a file the chapter names. Book line 660, printed 310.15.'
     ok = file_has('CANON/GLOSSARY.md', '310.15')
     return locals()
 
 @check(label='app:glossary:L668', chapter='app:glossary', part=8, title='whole-blood technical-replicate arrays (GSE250556)',
-       file='appendices/app_F_glossary', line=671, status='observed', kind='file', printed='64', tol=0.0, source=_B18_SOP)
+       file='appendices/app_F_glossary', line=681, status='observed', kind='file', printed='64', tol=0.0, source=_B18_SOP)
 def check_4933():
     'Number of arrays of the whole-blood technical-replicate set GSE250556, from the record table of the chain SOP. Book line 667, printed 64.'
     value = int(re.search(r'GSE250556, (\d+) arrays', file_text(_B18_SOP)).group(1))
     return locals()
 
 @check(label='app:glossary:L671', chapter='app:glossary', part=8, title='thermal de Broglie wavelength of 1 g at 300 K, m',
-       file='appendices/app_F_glossary', line=660, status='observed', kind='num', printed='3.7\\times10^{-23}', tol=0.0)
+       file='appendices/app_F_glossary', line=670, status='observed', kind='num', printed='3.7\\times10^{-23}', tol=0.0)
 def check_4934():
     'lambda_th = hbar/sqrt(2 M k_B T) for M = 1 g, T = 300 K (book inputs, same line). Book line 670, printed 3.7e-23 m.'
     M, T = 1e-3, 300.0
@@ -41750,7 +41750,7 @@ def check_4934():
     return locals()
 
 @check(label='app:glossary:L675', chapter='app:glossary', part=8, title='three clocks: redshift of the peak per unit time',
-       file='appendices/app_F_glossary', line=665, status='observed', kind='file', printed='1.26', tol=0.0)
+       file='appendices/app_F_glossary', line=675, status='observed', kind='file', printed='1.26', tol=0.0)
 def check_2917():
     'Per unit time the record is written fastest at z = 1.26: the root of d/da[H(a) E(a)/a] = 0 (LambdaCDM H, Omega_m 0.3153), as ch:entropicgravity line 312. Book line 674, printed 1.26.'
     a = sp.symbols('a', positive=True)
@@ -41760,7 +41760,7 @@ def check_2917():
     return locals()
 
 @check(label='app:glossary:L675:8.9', chapter='app:glossary', part=8, title='lookback time to the peak of the per-time clock, Gyr',
-       file='appendices/app_F_glossary', line=665, status='observed', kind='num', printed='8.9', tol=0.0)
+       file='appendices/app_F_glossary', line=675, status='observed', kind='num', printed='8.9', tol=0.0)
 def check_4935():
     'Lookback time to the peak of the per-unit-time writing rate H(a) E(a)/a, LambdaCDM background with H0 = 67.16 (photon sector). Book line 674, printed 8.9 Gyr. Inputs: Omega_m 0.3153 (Planck 2018), H0 locked.'
     res = minimize_scalar(lambda a: -(math.sqrt(Om / a**3 + OL) * float(E_act(a)) / a), bounds=(0.01, 5), method='bounded')
@@ -41771,7 +41771,7 @@ def check_4935():
     return locals()
 
 @check(label='app:glossary:L681', chapter='app:glossary', part=8, title='top-quark lifetime hbar/Gamma_t, s',
-       file='appendices/app_F_glossary', line=670, status='observed', kind='num', printed='4.6\\times10^{-25}', tol=0.0)
+       file='appendices/app_F_glossary', line=680, status='observed', kind='num', printed='4.6\\times10^{-25}', tol=0.0)
 def check_4936():
     'Top-quark lifetime hbar/Gamma_t. Book line 680, printed 4.6e-25 s. Inputs: Gamma_t = 1.42 GeV (PDG 2022, doi 10.1093/ptep/ptac097, as Chapter ch:entanglement states); hbar and e exact (SI 2019).'
     Gamma_t_GeV = 1.42
@@ -41779,7 +41779,7 @@ def check_4936():
     return locals()
 
 @check(label='app:glossary:L707', chapter='app:glossary', part=8, title='Planck-cutoff vacuum energy density E_P^4/(hbar c)^3, J/m^3',
-       file='appendices/app_F_glossary', line=696, status='observed', kind='num', printed='4.63\\times10^{113}', tol=0.0)
+       file='appendices/app_F_glossary', line=706, status='observed', kind='num', printed='4.63\\times10^{113}', tol=0.0)
 def check_4937():
     'rho_vac ~ E_P^4/(hbar c)^3 with E_P = sqrt(hbar c^5/G). Book line 706, printed 4.63e113 J/m^3. Inputs: hbar, c exact, G CODATA 2018.'
     E_P = math.sqrt(hbar * c**5 / G)
@@ -41787,7 +41787,7 @@ def check_4937():
     return locals()
 
 @check(label='app:glossary:L707:1e123', chapter='app:glossary', part=8, title='rho_vac over the measured dark-energy density',
-       file='appendices/app_F_glossary', line=696, status='observed', kind='num', printed='10^{123}', tol=0.0)
+       file='appendices/app_F_glossary', line=706, status='observed', kind='num', printed='10^{123}', tol=0.0)
 def check_4938():
     'Ratio of the Planck-cutoff vacuum density to the measured dark-energy density Omega_L 3 H0^2 c^2/(8 pi G). Book line 706, printed 10^123 (order of magnitude: half a decade). Inputs: Planck 2018 h = 0.6736, Omega_L = 1 - 0.3153 (Aghanim et al. 2020); hbar, c, G.'
     E_P = math.sqrt(hbar * c**5 / G)
@@ -41805,7 +41805,7 @@ def check_2918():
     return locals()
 
 @check(label='app:glossary:L714', chapter='app:glossary', part=8, title='virial ratio with surface pressure, lower end (Klypin 2016)',
-       file='appendices/app_F_glossary', line=703, status='observed', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt')
+       file='appendices/app_F_glossary', line=713, status='observed', kind='file', printed='1.02', tol=0.0, source='docs/verification/scripts/verify_virial_papers_output.txt')
 def check_2919():
     'Simulated halos read 1.02-1.17 with surface pressure included: 2 x the lower K/|W| of the Klypin 2016 surface-pressure line of verify_virial_papers_output.txt. Book line 713, printed 1.02.'
     m = re.search(r"with surface pressure \(Klypin 2016\): K/\|W\| = (\d+\.\d+)-(\d+\.\d+)", load_data('docs/verification/scripts/verify_virial_papers_output.txt'))
@@ -41813,7 +41813,7 @@ def check_2919():
     return locals()
 
 @check(label='app:glossary:L714:1.1', chapter='app:glossary', part=8, title='lowest 2T/|U| of simulated halos within the virial radius',
-       file='appendices/app_F_glossary', line=703, status='observed', kind='file', printed='1.1', tol=0.0,
+       file='appendices/app_F_glossary', line=713, status='observed', kind='file', printed='1.1', tol=0.0,
        source='docs/verification/virial/NBODY_TRACE.md')
 def check_4939():
     'Lower end of 2T/|U| within the virial radius over Bett 2007, Neto 2007 and Power 2012, as traced in NBODY_TRACE.md. Book line 713, printed 1.1 (of 1.1-1.3).'
@@ -41822,7 +41822,7 @@ def check_4939():
     return locals()
 
 @check(label='app:glossary:L714:1.3', chapter='app:glossary', part=8, title='highest 2T/|U| of simulated halos within the virial radius',
-       file='appendices/app_F_glossary', line=703, status='observed', kind='file', printed='1.3', tol=0.0,
+       file='appendices/app_F_glossary', line=713, status='observed', kind='file', printed='1.3', tol=0.0,
        source='docs/verification/virial/NBODY_TRACE.md')
 def check_4940():
     'Upper end of 2T/|U| within the virial radius over Bett 2007, Neto 2007 and Power 2012, as traced in NBODY_TRACE.md. Book line 713, printed 1.3 (of 1.1-1.3).'
@@ -41831,7 +41831,7 @@ def check_4940():
     return locals()
 
 @check(label='app:glossary:L714:1.17', chapter='app:glossary', part=8, title='surface-pressure corrected 2K/|W|, upper end',
-       file='appendices/app_F_glossary', line=703, status='observed', kind='file', printed='1.17', tol=0.0,
+       file='appendices/app_F_glossary', line=713, status='observed', kind='file', printed='1.17', tol=0.0,
        source='docs/verification/virial/NBODY_TRACE.md')
 def check_4941():
     'Upper end of the surface-pressure corrected virial ratio 2K/|W| of Klypin et al. 2016, as traced in NBODY_TRACE.md. Book line 713, printed 1.17 (of 1.02-1.17).'
@@ -41839,7 +41839,7 @@ def check_4941():
     return locals()
 
 @check(label='app:glossary:L719', chapter='app:glossary', part=8, title='weak-interaction range hbar/(M_W c), m',
-       file='appendices/app_F_glossary', line=708, status='observed', kind='num', printed='2.5\\times10^{-18}', tol=0.0)
+       file='appendices/app_F_glossary', line=718, status='observed', kind='num', printed='2.5\\times10^{-18}', tol=0.0)
 def check_4942():
     'Range of the weak interaction hbar/(M_W c) = hbar c/(M_W c^2). Book line 718, printed 2.5e-18 m. Inputs: M_W = 80.4 GeV (book, same line); hbar, c, e exact (SI 2019).'
     MW_J = 80.4e9 * eV
@@ -41847,7 +41847,7 @@ def check_4942():
     return locals()
 
 @check(label='app:glossary:L725', chapter='app:glossary', part=8, title='mean DA white dwarf mass (Kepler et al. 2007)',
-       file='appendices/app_F_glossary', line=714, status='observed', kind='num', printed='0.593', tol=0.0)
+       file='appendices/app_F_glossary', line=724, status='observed', kind='num', printed='0.593', tol=0.0)
 def check_4943():
     'Measured mean mass of SDSS DA white dwarfs. Book line 724, printed 0.593 M_sun. Published: Kepler et al. 2007, MNRAS 375, 1315 (doi 10.1111/j.1365-2966.2006.11388.x, bib Kepler2007), <M_DA> = 0.593 +- 0.016 M_sun.'
     M_DA_Kepler2007 = 0.593
@@ -41855,21 +41855,21 @@ def check_4943():
     return locals()
 
 @check(label='app:glossary:L728', chapter='app:glossary', part=8, title='within-person SD, untared, 54 y repeat arrays',
-       file='appendices/app_F_glossary', line=717, status='measured', kind='file', printed='0.045', tol=0.0, source=_B18_T2)
+       file='appendices/app_F_glossary', line=727, status='measured', kind='file', printed='0.045', tol=0.0, source=_B18_T2)
 def check_4944():
     'Sample SD of the untared Met-A (A_own) of the 24 isolated-neutrophil repeat arrays of one person (series GSE247195) in the T2 repeat diagnostic. Book line 727, printed 0.045.'
     value, n_arrays = _b18_sd('GSE247195')
     return locals()
 
 @check(label='app:glossary:L728:0.044', chapter='app:glossary', part=8, title='within-person SD, untared, 30 y repeat arrays',
-       file='appendices/app_F_glossary', line=717, status='measured', kind='file', printed='0.044', tol=0.0, source=_B18_T2)
+       file='appendices/app_F_glossary', line=727, status='measured', kind='file', printed='0.044', tol=0.0, source=_B18_T2)
 def check_4945():
     'Sample SD of the untared Met-A (A_own) of the isolated-neutrophil repeat arrays of the other person (series GSE247193, 21 arrays read) in the T2 repeat diagnostic. Book line 727, printed 0.044.'
     value, n_arrays = _b18_sd('GSE247193')
     return locals()
 
 @check(label='app:glossary:L729', chapter='app:glossary', part=8, title='LoCuSS M_WL/M_X = 1/beta_X',
-       file='appendices/app_F_glossary', line=718, status='observed', kind='file', printed='1.05', tol=0.0)
+       file='appendices/app_F_glossary', line=728, status='observed', kind='file', printed='1.05', tol=0.0)
 def check_2920():
     'LoCuSS gives M_WL/M_X = 1.05 +- 0.06 at 0.15 < z < 0.3: 1/beta_X with beta_X = M_X/M_WL = 0.95 +- 0.05 (Smith et al. 2016, doi 10.1093/mnrasl/slv175), as ch:threeway line 191. Book line 728, printed 1.05.'
     beta_X_LoCuSS = 0.95
@@ -41877,7 +41877,7 @@ def check_2920():
     return locals()
 
 @check(label='app:glossary:L729:1.45', chapter='app:glossary', part=8, title='WtG Planck-prior 1/(1-b)',
-       file='appendices/app_F_glossary', line=718, status='observed', kind='num', printed='1.45', tol=0.0, source=_B18_CL,
+       file='appendices/app_F_glossary', line=728, status='observed', kind='num', printed='1.45', tol=0.0, source=_B18_CL,
        heavy=True, rerun=_B18_CL_RERUN)
 def check_4946():
     'M_WL/M_Planck = 1/(1-b) of the WtG calibration, from 1-b = 0.688 +- 0.072 (Planck 2015 XXIV Table 2, doi 10.1051/0004-6361/201525833) as listed in the committed cluster output. Book line 728, printed 1.45.'
@@ -41885,7 +41885,7 @@ def check_4946():
     return locals()
 
 @check(label='app:glossary:L729:1.28', chapter='app:glossary', part=8, title='CCCP Planck-prior 1/(1-b)',
-       file='appendices/app_F_glossary', line=718, status='observed', kind='num', printed='1.28', tol=0.0, source=_B18_CL,
+       file='appendices/app_F_glossary', line=728, status='observed', kind='num', printed='1.28', tol=0.0, source=_B18_CL,
        heavy=True, rerun=_B18_CL_RERUN)
 def check_4947():
     'M_WL/M_Planck = 1/(1-b) of the CCCP calibration, from 1-b = 0.78 +- 0.092 (Planck 2015 XXIV Table 2) as listed in the committed cluster output. Book line 728, printed 1.28.'
@@ -41893,7 +41893,7 @@ def check_4947():
     return locals()
 
 @check(label='app:glossary:L735', chapter='app:glossary', part=8, title='electron Yukawa y_e = sqrt2 m_e/v',
-       file='appendices/app_F_glossary', line=724, status='observed', kind='num', printed='2.9\\times10^{-6}', tol=0.0)
+       file='appendices/app_F_glossary', line=734, status='observed', kind='num', printed='2.9\\times10^{-6}', tol=0.0)
 def check_4948():
     'Electron Yukawa coupling y_e = sqrt2 m_e/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 2.9e-6. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_e CODATA 2018.'
     G_F = 1.1663788e-5
@@ -41902,7 +41902,7 @@ def check_4948():
     return locals()
 
 @check(label='app:glossary:L735:0.991', chapter='app:glossary', part=8, title='top Yukawa y_t = sqrt2 m_t/v',
-       file='appendices/app_F_glossary', line=724, status='observed', kind='num', printed='0.991', tol=0.0)
+       file='appendices/app_F_glossary', line=734, status='observed', kind='num', printed='0.991', tol=0.0)
 def check_4949():
     'Top Yukawa coupling y_t = sqrt2 m_t/v with v = (sqrt2 G_F)^(-1/2). Book line 735, printed 0.991. Inputs: G_F = 1.1663788e-5 GeV^-2 (PDG), m_t = 172.57 GeV (PDG 2024), as in Chapter ch:higgsrecord.'
     G_F, m_t = 1.1663788e-5, 172.57
@@ -44112,133 +44112,133 @@ def _mc_pairs(keep):
             if b == 9 and keep(lab, day): out.append(ratio)
     return out
 
-@check(label='ch:iama:mc:2M', chapter='ch:iama', part=6, title='work of two coins, 2M', file='part6/p6_08_iama', line=75, status='calculated', kind='num', printed='41.88', tol=0.0)
+@check(label='ch:iama:mc:2M', chapter='ch:iama', part=6, title='work of two coins, 2M', file='part6/p6_08_iama', line=77, status='calculated', kind='num', printed='41.88', tol=0.0)
 def check_mc_1():
     'work of two coins, 2M. Book printed 41.88.'
     value = 2 * _mc_M()
     return locals()
 
-@check(label='ch:iama:mc:odds2', chapter='ch:iama', part=6, title='restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage)', file='part6/p6_08_iama', line=75, status='conjecture', kind='num', printed='21.45', tol=0.0)
+@check(label='ch:iama:mc:odds2', chapter='ch:iama', part=6, title='restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage)', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='21.45', tol=0.0)
 def check_mc_2():
     'restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage). Book printed 21.45.'
     value = _mc_odds(2 * _mc_M())
     return locals()
 
-@check(label='ch:iama:mc:eps2', chapter='ch:iama', part=6, title='candidate healthy held error 1/(1+odds)', file='part6/p6_08_iama', line=75, status='conjecture', kind='num', printed='0.04454', tol=0.0)
+@check(label='ch:iama:mc:eps2', chapter='ch:iama', part=6, title='candidate healthy held error 1/(1+odds)', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='0.04454', tol=0.0)
 def check_mc_3():
     'candidate healthy held error 1/(1+odds). Book printed 0.04454.'
     value = 1 / (1 + _mc_odds(2 * _mc_M()))
     return locals()
 
-@check(label='ch:iama:mc:E2', chapter='ch:iama', part=6, title='candidate holding energy ln(odds), in kT', file='part6/p6_08_iama', line=75, status='conjecture', kind='num', printed='3.066', tol=0.0)
+@check(label='ch:iama:mc:E2', chapter='ch:iama', part=6, title='candidate holding energy ln(odds), in kT', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='3.066', tol=0.0)
 def check_mc_4():
     'candidate holding energy ln(odds), in kT. Book printed 3.066.'
     value = math.log(_mc_odds(2 * _mc_M()))
     return locals()
 
-@check(label='ch:iama:mc:phi2', chapter='ch:iama', part=6, title='candidate phi = ln(odds)/M', file='part6/p6_08_iama', line=75, status='conjecture', kind='num', printed='0.1464', tol=0.0)
+@check(label='ch:iama:mc:phi2', chapter='ch:iama', part=6, title='candidate phi = ln(odds)/M', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='0.1464', tol=0.0)
 def check_mc_5():
     'candidate phi = ln(odds)/M. Book printed 0.1464.'
     value = math.log(_mc_odds(2 * _mc_M())) / _mc_M()
     return locals()
 
-@check(label='ch:iama:mc:pool', chapter='ch:iama', part=6, title='pooled healthy lone-loss intercept', file='part6/p6_08_iama', line=76, status='measured', kind='file', printed='0.04526', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
+@check(label='ch:iama:mc:pool', chapter='ch:iama', part=6, title='pooled healthy lone-loss intercept', file='part6/p6_08_iama', line=78, status='measured', kind='file', printed='0.04526', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
 def check_mc_6():
     'pooled healthy lone-loss intercept. Book printed 0.04526.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt', r'both, non-neurons\s+197\s+([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:poollo', chapter='ch:iama', part=6, title='pooled intercept, lower 95 %', file='part6/p6_08_iama', line=76, status='measured', kind='file', printed='0.04375', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
+@check(label='ch:iama:mc:poollo', chapter='ch:iama', part=6, title='pooled intercept, lower 95 %', file='part6/p6_08_iama', line=78, status='measured', kind='file', printed='0.04375', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
 def check_mc_7():
     'pooled intercept, lower 95 %. Book printed 0.04375.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt', r'both, non-neurons\s+197\s+[\d.]+\s+([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:poolhi', chapter='ch:iama', part=6, title='pooled intercept, upper 95 %', file='part6/p6_08_iama', line=76, status='measured', kind='file', printed='0.04657', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
+@check(label='ch:iama:mc:poolhi', chapter='ch:iama', part=6, title='pooled intercept, upper 95 %', file='part6/p6_08_iama', line=78, status='measured', kind='file', printed='0.04657', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
 def check_mc_8():
     'pooled intercept, upper 95 %. Book printed 0.04657.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt', r'both, non-neurons\s+197\s+[\d.]+\s+[\d.]+\s+([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:oddsM', chapter='ch:iama', part=6, title='held error at odds = M', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='0.04558', tol=0.0)
+@check(label='ch:iama:mc:oddsM', chapter='ch:iama', part=6, title='held error at odds = M', file='part6/p6_08_iama', line=79, status='conjecture', kind='num', printed='0.04558', tol=0.0)
 def check_mc_9():
     'held error at odds = M. Book printed 0.04558.'
     value = 1 / (1 + _mc_M())
     return locals()
 
-@check(label='ch:iama:mc:EM', chapter='ch:iama', part=6, title='holding energy ln M', file='part6/p6_08_iama', line=77, status='conjecture', kind='num', printed='3.042', tol=0.0)
+@check(label='ch:iama:mc:EM', chapter='ch:iama', part=6, title='holding energy ln M', file='part6/p6_08_iama', line=79, status='conjecture', kind='num', printed='3.042', tol=0.0)
 def check_mc_10():
     'holding energy ln M. Book printed 3.042.'
     value = math.log(_mc_M())
     return locals()
 
-@check(label='ch:iama:mc:skolo', chapter='ch:iama', part=6, title='strand coupling, maintenance-only clones, minimum', file='part6/p6_08_iama', line=84, status='measured', kind='file', printed='5.08', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
+@check(label='ch:iama:mc:skolo', chapter='ch:iama', part=6, title='strand coupling, maintenance-only clones, minimum', file='part6/p6_08_iama', line=86, status='measured', kind='file', printed='5.08', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
 def check_mc_11():
     'strand coupling, maintenance-only clones, minimum. Book printed 5.08.'
     value = min(_mc_pairs(lambda lab, d: d > 0))
     return locals()
 
-@check(label='ch:iama:mc:skohi', chapter='ch:iama', part=6, title='strand coupling, maintenance-only clones, maximum', file='part6/p6_08_iama', line=84, status='measured', kind='file', printed='8.21', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
+@check(label='ch:iama:mc:skohi', chapter='ch:iama', part=6, title='strand coupling, maintenance-only clones, maximum', file='part6/p6_08_iama', line=86, status='measured', kind='file', printed='8.21', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
 def check_mc_12():
     'strand coupling, maintenance-only clones, maximum. Book printed 8.21.'
     value = max(_mc_pairs(lambda lab, d: d > 0))
     return locals()
 
-@check(label='ch:iama:mc:wtlo', chapter='ch:iama', part=6, title='strand coupling, wild type, minimum', file='part6/p6_08_iama', line=84, status='measured', kind='file', printed='5.43', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
+@check(label='ch:iama:mc:wtlo', chapter='ch:iama', part=6, title='strand coupling, wild type, minimum', file='part6/p6_08_iama', line=86, status='measured', kind='file', printed='5.43', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
 def check_mc_13():
     'strand coupling, wild type, minimum. Book printed 5.43.'
     value = min(_mc_pairs(lambda lab, d: lab.startswith('WT')))
     return locals()
 
-@check(label='ch:iama:mc:wthi', chapter='ch:iama', part=6, title='strand coupling, wild type, maximum', file='part6/p6_08_iama', line=84, status='measured', kind='file', printed='5.56', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
+@check(label='ch:iama:mc:wthi', chapter='ch:iama', part=6, title='strand coupling, wild type, maximum', file='part6/p6_08_iama', line=86, status='measured', kind='file', printed='5.56', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt')
 def check_mc_14():
     'strand coupling, wild type, maximum. Book printed 5.56.'
     value = max(_mc_pairs(lambda lab, d: lab.startswith('WT')))
     return locals()
 
-@check(label='ch:iama:mc:u_rise', chapter='ch:iama', part=6, title='UHRF1 knockout over control, held error', file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='2.925', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
+@check(label='ch:iama:mc:u_rise', chapter='ch:iama', part=6, title='UHRF1 knockout over control, held error', file='part6/p6_08_iama', line=92, status='measured', kind='file', printed='2.925', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
 def check_mc_15():
     'UHRF1 knockout over control, held error. Book printed 2.925.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'held error x ([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:u_c', chapter='ch:iama', part=6, title='UHRF1 control held error', file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='0.03216', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
+@check(label='ch:iama:mc:u_c', chapter='ch:iama', part=6, title='UHRF1 control held error', file='part6/p6_08_iama', line=92, status='measured', kind='file', printed='0.03216', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
 def check_mc_16():
     'UHRF1 control held error. Book printed 0.03216.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^control.*?held error ([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:u_k', chapter='ch:iama', part=6, title='UHRF1 knockout held error', file='part6/p6_08_iama', line=90, status='measured', kind='file', printed='0.09407', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
+@check(label='ch:iama:mc:u_k', chapter='ch:iama', part=6, title='UHRF1 knockout held error', file='part6/p6_08_iama', line=92, status='measured', kind='file', printed='0.09407', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
 def check_mc_17():
     'UHRF1 knockout held error. Book printed 0.09407.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^UHRF1 knockout\s+held error ([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:Wc', chapter='ch:iama', part=6, title='work per restore that gives the control held error', file='part6/p6_08_iama', line=90, status='interpretation', kind='num', printed='59.2', tol=0.001)
+@check(label='ch:iama:mc:Wc', chapter='ch:iama', part=6, title='work per restore that gives the control held error', file='part6/p6_08_iama', line=92, status='interpretation', kind='num', printed='59.2', tol=0.001)
 def check_mc_18():
     'work per restore that gives the control held error. Book printed 59.2.'
     value = _mc_w(_mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^control.*?held error ([\d.]+)'))
     return locals()
 
-@check(label='ch:iama:mc:Wk', chapter='ch:iama', part=6, title='work per restore that gives the knockout held error', file='part6/p6_08_iama', line=90, status='interpretation', kind='num', printed='18.2', tol=0.003)
+@check(label='ch:iama:mc:Wk', chapter='ch:iama', part=6, title='work per restore that gives the knockout held error', file='part6/p6_08_iama', line=92, status='interpretation', kind='num', printed='18.2', tol=0.003)
 def check_mc_19():
     'work per restore that gives the knockout held error. Book printed 18.2.'
     value = _mc_w(_mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^UHRF1 knockout\s+held error ([\d.]+)'))
     return locals()
 
-@check(label='ch:iama:mc:met_e_lo', chapter='ch:iama', part=6, title='energy route, low end, for a 3.33-5.00 fall', file='part6/p6_08_iama', line=95, status='prediction', kind='num', printed='1.057', tol=0.0)
+@check(label='ch:iama:mc:met_e_lo', chapter='ch:iama', part=6, title='energy route, low end, for a 3.33-5.00 fall', file='part6/p6_08_iama', line=97, status='prediction', kind='num', printed='1.057', tol=0.0)
 def check_mc_20():
     'energy route, low end, for a 3.33-5.00 fall. Book printed 1.057.'
     M_ = _mc_M(); e0 = 1 / (1 + _mc_odds(2 * M_)); value = 1 / (1 + _mc_odds(2 * (M_ - math.log(1 / 0.30)))) / e0
     return locals()
 
-@check(label='ch:iama:mc:met_e_hi', chapter='ch:iama', part=6, title='energy route, high end', file='part6/p6_08_iama', line=95, status='prediction', kind='num', printed='1.077', tol=0.0)
+@check(label='ch:iama:mc:met_e_hi', chapter='ch:iama', part=6, title='energy route, high end', file='part6/p6_08_iama', line=97, status='prediction', kind='num', printed='1.077', tol=0.0)
 def check_mc_21():
     'energy route, high end. Book printed 1.077.'
     M_ = _mc_M(); e0 = 1 / (1 + _mc_odds(2 * M_)); value = 1 / (1 + _mc_odds(2 * (M_ - math.log(1 / 0.20)))) / e0
     return locals()
 
-@check(label='ch:iama:mc:met_r', chapter='ch:iama', part=6, title='the fall, low end, from the committed readings', file='part6/p6_08_iama', line=96, status='measured', kind='file', printed='3.33', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt')
+@check(label='ch:iama:mc:met_r', chapter='ch:iama', part=6, title='the fall, low end, from the committed readings', file='part6/p6_08_iama', line=98, status='measured', kind='file', printed='3.33', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt')
 def check_mc_22():
     'the fall, low end, from the committed readings. Book printed 3.33.'
     value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt', r'^MZGC3 \| [\d.-]+ \| ([\d.]+)-')
@@ -44257,13 +44257,13 @@ def _mc_sam(stat):
     v = [float(x) for x in re.findall(r'ratio ([\d.]+)', load_data('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt'))]
     return min(v) if stat == 'min' else max(v)
 
-@check(label='ch:iama:mc:sam_lo', chapter='ch:iama', part=6, title='one SAM in ATP coins, lowest of four cell types', file='part6/p6_08_iama', line=100, status='measured', kind='file', printed='2.09', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+@check(label='ch:iama:mc:sam_lo', chapter='ch:iama', part=6, title='one SAM in ATP coins, lowest of four cell types', file='part6/p6_08_iama', line=102, status='measured', kind='file', printed='2.09', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
 def check_mc_sam_lo():
     'one SAM in ATP coins, lowest of four cell types. Book printed 2.09.'
     value = _mc_sam('min')
     return locals()
 
-@check(label='ch:iama:mc:sam_hi', chapter='ch:iama', part=6, title='one SAM in ATP coins, highest of four cell types', file='part6/p6_08_iama', line=100, status='measured', kind='file', printed='2.14', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+@check(label='ch:iama:mc:sam_hi', chapter='ch:iama', part=6, title='one SAM in ATP coins, highest of four cell types', file='part6/p6_08_iama', line=102, status='measured', kind='file', printed='2.14', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
 def check_mc_sam_hi():
     'one SAM in ATP coins, highest of four cell types. Book printed 2.14.'
     value = _mc_sam('max')
@@ -44394,25 +44394,25 @@ def check_cn_tb():
     value = _mc_num('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt', r'standard state: one SAM = ([\d.]+)')
     return locals()
 
-@check(label='ch:iama:mc:ak_lo', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at half its equilibrium', file='part6/p6_08_iama', line=99, status='derived', kind='num', printed='1.967', tol=0.0)
+@check(label='ch:iama:mc:ak_lo', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at half its equilibrium', file='part6/p6_08_iama', line=101, status='derived', kind='num', printed='1.967', tol=0.0)
 def check_mc_ak_lo():
     'SAM price at mass action K/2.'
     value = 2 + (R_gas * T_cell * math.log(0.5)) / dG_ATP
     return locals()
 
-@check(label='ch:iama:mc:ak_hi', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at twice its equilibrium', file='part6/p6_08_iama', line=99, status='derived', kind='num', printed='2.033', tol=0.0)
+@check(label='ch:iama:mc:ak_hi', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at twice its equilibrium', file='part6/p6_08_iama', line=101, status='derived', kind='num', printed='2.033', tol=0.0)
 def check_mc_ak_hi():
     'SAM price at mass action 2K.'
     value = 2 + (R_gas * T_cell * math.log(2.0)) / dG_ATP
     return locals()
 
-@check(label='ch:iama:mc:ak_eps_lo', chapter='ch:iama', part=6, title='held error at the highest SAM price in range', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.04386', tol=0.0)
+@check(label='ch:iama:mc:ak_eps_lo', chapter='ch:iama', part=6, title='held error at the highest SAM price in range', file='part6/p6_08_iama', line=102, status='conjecture', kind='num', printed='0.04386', tol=0.0)
 def check_mc_ak_eps_lo():
     'held error at SAM price 2 + RT ln2/coin.'
     value = 1 / (1 + _mc_odds((2 + R_gas * T_cell * math.log(2.0) / dG_ATP) * _mc_M()))
     return locals()
 
-@check(label='ch:iama:mc:ak_eps_hi', chapter='ch:iama', part=6, title='held error at the lowest SAM price in range', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.04524', tol=0.0)
+@check(label='ch:iama:mc:ak_eps_hi', chapter='ch:iama', part=6, title='held error at the lowest SAM price in range', file='part6/p6_08_iama', line=102, status='conjecture', kind='num', printed='0.04524', tol=0.0)
 def check_mc_ak_eps_hi():
     'held error at SAM price 2 - RT ln2/coin.'
     value = 1 / (1 + _mc_odds((2 + R_gas * T_cell * math.log(0.5) / dG_ATP) * _mc_M()))
@@ -44431,55 +44431,55 @@ def _ref_row(cell, k):
     if not m: raise ValueError('row not found: ' + cell)
     return float(m.group(k))
 
-@check(label='ch:iama:ref:n_total', chapter='ch:iama', part=6, title='libraries read in the blind test', file='part6/p6_08_iama', line=106, status='measured', kind='file', printed='54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:n_total', chapter='ch:iama', part=6, title='libraries read in the blind test', file='part6/p6_08_iama', line=108, status='measured', kind='file', printed='54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_0():
     'libraries read in the blind test. Book printed 54.'
     value = sum(_ref_row(c, 1) for c in ('b cells', 'cd4 t cells', 'cd8 t cells', 'monocytes'))
     return locals()
 
-@check(label='ch:iama:ref:n_b', chapter='ch:iama', part=6, title='B-cell libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='23', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:n_b', chapter='ch:iama', part=6, title='B-cell libraries', file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='23', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_1():
     'B-cell libraries. Book printed 23.'
     value = _ref_row('b cells', 1)
     return locals()
 
-@check(label='ch:iama:ref:n_cd4', chapter='ch:iama', part=6, title='CD4 libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='9', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:n_cd4', chapter='ch:iama', part=6, title='CD4 libraries', file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='9', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_2():
     'CD4 libraries. Book printed 9.'
     value = _ref_row('cd4 t cells', 1)
     return locals()
 
-@check(label='ch:iama:ref:n_cd8', chapter='ch:iama', part=6, title='CD8 libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='12', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:n_cd8', chapter='ch:iama', part=6, title='CD8 libraries', file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='12', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_3():
     'CD8 libraries. Book printed 12.'
     value = _ref_row('cd8 t cells', 1)
     return locals()
 
-@check(label='ch:iama:ref:n_mono', chapter='ch:iama', part=6, title='monocyte libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='10', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:n_mono', chapter='ch:iama', part=6, title='monocyte libraries', file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='10', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_4():
     'monocyte libraries. Book printed 10.'
     value = _ref_row('monocytes', 1)
     return locals()
 
-@check(label='ch:iama:ref:p_cd4', chapter='ch:iama', part=6, title='CD4 pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-0.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:p_cd4', chapter='ch:iama', part=6, title='CD4 pull', file='part6/p6_08_iama', line=112, status='measured', kind='file', printed='-0.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_5():
     'CD4 pull. Book printed -0.45.'
     value = _ref_row('cd4 t cells', 2)
     return locals()
 
-@check(label='ch:iama:ref:p_cd8', chapter='ch:iama', part=6, title='CD8 pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-1.72', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:p_cd8', chapter='ch:iama', part=6, title='CD8 pull', file='part6/p6_08_iama', line=112, status='measured', kind='file', printed='-1.72', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_6():
     'CD8 pull. Book printed -1.72.'
     value = _ref_row('cd8 t cells', 2)
     return locals()
 
-@check(label='ch:iama:ref:p_mono', chapter='ch:iama', part=6, title='monocyte pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-0.54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:p_mono', chapter='ch:iama', part=6, title='monocyte pull', file='part6/p6_08_iama', line=112, status='measured', kind='file', printed='-0.54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_7():
     'monocyte pull. Book printed -0.54.'
     value = _ref_row('monocytes', 2)
     return locals()
 
-@check(label='ch:iama:ref:p_b', chapter='ch:iama', part=6, title='B-cell pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-2.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+@check(label='ch:iama:ref:p_b', chapter='ch:iama', part=6, title='B-cell pull', file='part6/p6_08_iama', line=112, status='measured', kind='file', printed='-2.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
 def check_ref_8():
     'B-cell pull. Book printed -2.45.'
     value = _ref_row('b cells', 2)
