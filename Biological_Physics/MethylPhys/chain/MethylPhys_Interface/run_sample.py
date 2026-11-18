@@ -595,6 +595,12 @@ def _site_counts(pat):
             out[name] = dict(sites=what, n_probes=len(probes), n_with_cpg_index=len(idx), **c)
         except Exception as e:
             out[name] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
+    try:   # 2026-11-18 (register A8L2): held error by replication-timing third (Runtime Matrices/Replication_Timing), beside IAM-A
+        _st, _lb, _cuts = _Q2s.timing_runs()
+        with (_gz.open if str(pat).endswith(".gz") else open)(pat, "rt") as fh: _tc = _Q2s.count_pat_timing(fh, _st, _lb)
+        out["timing"] = dict(sites="replication-timing thirds of each molecule's first CpG (15 ENCODE UW Repli-seq tracks; register A8L2)", cuts=_cuts, **_tc)
+    except Exception as e:
+        out["timing"] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
     return out
 
 def main():

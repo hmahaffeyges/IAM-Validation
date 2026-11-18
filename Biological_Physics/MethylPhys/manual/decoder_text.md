@@ -492,6 +492,18 @@ the one button, by the same rule as band v1.
 **Status and open parts:** In commissioning: the libraries that set it also set the line (a rehearsal reference). One pooled band; each
 type's own position is in development.
 
+#### Input: Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz
+
+**What it is:** each hg19 CpG's constitutive replication timing (the mean of the 15 ENCODE UW Repli-seq wavelet signals at the CpG), cut into
+early, mid and late thirds by CpG, stored as runs of the CpG index. Built on GitHub from the public tracks by edit 153.
+
+**How the chain uses it:** `stage_q2_selfref.count_pat_timing` counts Stage Q2's held and gain errors by the third of each molecule's first CpG,
+by `count_pat_sites`' rules; every sequencing reading records the counts under `iam_a.sites.timing`. It never changes a reading.
+Frozen (FROZEN_INPUTS_v4.json).
+
+**Status and open parts:** Development (register A8L2, the location test): does the spread of held error between cell types live in
+late-copied DNA? The timing is from cell lines, not each type's own.
+
 #### Input: Runtime Matrices/IAM_A_SelfRef/band_v1.json
 
 **Kind:** measured
@@ -2336,6 +2348,15 @@ The loose share counted molecule by molecule (development, recorded only): of th
 
 ### stage_q2_selfref.py::count_pat_site_classes
 Every call at a set of sites, grouped (for Met-A: the cell's held and held-absent identity sites), split by the molecule's class from all its calls by Stage Q2's rules (held, held absent, loose, short): the site level and each class's share and level, so a site's level is shown as the loose share beside the held error (development, step 3 version 3). A synthetic file with planted classes is recovered.
+
+### stage_q2_selfref.py::timing_runs
+Loads the frozen replication-timing thirds (Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz): the CpG index where each run
+starts, its label (0 no timing value, 1 early, 2 mid, 3 late) and the two cuts. Development (register A8L2).
+
+### stage_q2_selfref.py::count_pat_timing
+Stage Q2's held and gain counts by the replication-timing third of each molecule's first CpG, by count_pat_sites' own rules (odd lines, molecule
+classes from all their calls, the isolated error at interior calls). Every sequencing reading records it under iam_a.sites.timing; it never
+changes a reading. Development (register A8L2, the location test).
 
 ### stage_q2_selfref.py::count_pat_sites
 The held error counted only at a chosen set of sites (development, Met-A's derived baseline, step 3 version 2): Stage Q2's own rules unchanged, the same held and held-absent molecules classed from all their calls, only the calls counted restricted to the sites. A synthetic file with planted rates 0.06 and 0.05 at a site set returns them once the neighbors' rate is divided out.

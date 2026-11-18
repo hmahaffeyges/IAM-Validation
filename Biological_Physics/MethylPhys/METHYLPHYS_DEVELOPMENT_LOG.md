@@ -6489,3 +6489,8 @@ unchanged; no sorted library of the purity check crosses the floor.
 The horizon ledger's density identity (T_H S / V equals the critical density exactly) and the matter sector's own deceleration from the
 book's matter-sector Friedmann equation: today -0.6595 against light's -0.527, with acceleration onsets at z 0.736 and 0.631. Checked in the
 simulator's self-test; the dark-sector checks behind them passed on GitHub. No existing reading changed.
+
+### 2026-11-18 · PHY-093, PHY-094: every sequencing reading counts held error by replication-timing third
+A replication-timing third read as its own file is refused by the genome-coverage intake, because it covers part of the genome by its nature. The
+timing split now lives inside the chain: a frozen timing file built from the 15 ENCODE UW Repli-seq tracks, and Stage Q2's counts by the third of
+each molecule's first CpG, recorded beside IAM-A in every sequencing reading. A planted count reads the same A before and after.
