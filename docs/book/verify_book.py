@@ -26876,7 +26876,7 @@ def check_2165():
     return locals()
 
 @check(label='eq:ko:delta0', chapter='ch:koide', part=4, title='masses at delta = 0 with x^2 = 313.851 MeV',
-       file='part4/p4_15a_lepton_koide', line=295, status='calc', kind='sym', printed='', tol=0)
+       file='part4/p4_15a_lepton_koide', line=306, status='calc', kind='sym', printed='', tol=0)
 def check_2166():
     'masses at delta = 0 with x^2 = 313.851 MeV (Eq. eq:ko:delta0). Book line 240.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26890,21 +26890,21 @@ def check_2166():
     return locals()
 
 @check(label='ch:koide:L243', chapter='ch:koide', part=4, title='measured offset delta (restated)',
-       file='part4/p4_15a_lepton_koide', line=298, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=309, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3715():
     'The measured spectrum needs delta = 0.2222 rad: offset of the first harmonic of the three square roots, tau at k = 0. Book line 243 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L246', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=301, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=312, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2167():
     'electron amplitude zero at delta = pi/12. Book line 246, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L247', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=302, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=313, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2168():
     'measured delta inside the edge. Book line 247, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26920,7 +26920,7 @@ def check_2168():
     return locals()
 
 @check(label='ch:koide:L253', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=308, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=319, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2169():
     'measured offset delta. Book line 253, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26936,7 +26936,7 @@ def check_2169():
     return locals()
 
 @check(label='ch:koide:L254', chapter='ch:koide', part=4, title='tau amplitude',
-       file='part4/p4_15a_lepton_koide', line=309, status='calc', kind='num', printed='2.379', tol=0)
+       file='part4/p4_15a_lepton_koide', line=320, status='calc', kind='num', printed='2.379', tol=0)
 def check_2170():
     'tau amplitude. Book line 254, printed 2.379.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26952,7 +26952,7 @@ def check_2170():
     return locals()
 
 @check(label='ch:koide:L254:0.040', chapter='ch:koide', part=4, title='electron amplitude',
-       file='part4/p4_15a_lepton_koide', line=309, status='calc', kind='num', printed='0.040', tol=0)
+       file='part4/p4_15a_lepton_koide', line=320, status='calc', kind='num', printed='0.040', tol=0)
 def check_2171():
     'electron amplitude. Book line 254, printed 0.040.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26968,7 +26968,7 @@ def check_2171():
     return locals()
 
 @check(label='ch:koide:L255', chapter='ch:koide', part=4, title='muon amplitude',
-       file='part4/p4_15a_lepton_koide', line=310, status='calc', kind='num', printed='0.580', tol=0)
+       file='part4/p4_15a_lepton_koide', line=321, status='calc', kind='num', printed='0.580', tol=0)
 def check_2172():
     'muon amplitude. Book line 255, printed 0.580.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -26984,14 +26984,14 @@ def check_2172():
     return locals()
 
 @check(label='ch:koide:L255:0.293', chapter='ch:koide', part=4, title='e and mu amplitude at delta = 0',
-       file='part4/p4_15a_lepton_koide', line=310, status='calc', kind='num', printed='0.293', tol=0)
+       file='part4/p4_15a_lepton_koide', line=321, status='calc', kind='num', printed='0.293', tol=0)
 def check_2173():
     'e and mu amplitude at delta = 0. Book line 255, printed 0.293.'
     value=1-math.sqrt(2)/2
     return locals()
 
 @check(label='ch:koide:L260', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='313.85', tol=0)
+       file='part4/p4_15a_lepton_koide', line=326, status='calc', kind='num', printed='313.85', tol=0)
 def check_2174():
     'x^2, MeV. Book line 260, printed 313.85.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27007,7 +27007,7 @@ def check_2174():
     return locals()
 
 @check(label='ch:koide:L260:0.2222', chapter='ch:koide', part=4, title='measured offset delta',
-       file='part4/p4_15a_lepton_koide', line=315, status='calc', kind='num', printed='0.2222', tol=0)
+       file='part4/p4_15a_lepton_koide', line=326, status='calc', kind='num', printed='0.2222', tol=0)
 def check_2175():
     'measured offset delta. Book line 260, printed 0.2222.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27023,7 +27023,7 @@ def check_2175():
     return locals()
 
 @check(label='ch:koide:L263', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=318, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='26.92', tol=0)
 def check_2176():
     'm_e = m_mu at delta = 0, MeV. Book line 263, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27039,7 +27039,7 @@ def check_2176():
     return locals()
 
 @check(label='ch:koide:L272', chapter='ch:koide', part=4, title='x = sum sqrt(m)/3',
-       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='17.71584', tol=0)
+       file='part4/p4_15a_lepton_koide', line=338, status='calc', kind='num', printed='17.71584', tol=0)
 def check_2177():
     'x = sum sqrt(m)/3. Book line 272, printed 17.71584.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27055,7 +27055,7 @@ def check_2177():
     return locals()
 
 @check(label='ch:koide:L272:313.851', chapter='ch:koide', part=4, title='x^2, MeV',
-       file='part4/p4_15a_lepton_koide', line=327, status='calc', kind='num', printed='313.851', tol=0)
+       file='part4/p4_15a_lepton_koide', line=338, status='calc', kind='num', printed='313.851', tol=0)
 def check_2178():
     'x^2, MeV. Book line 272, printed 313.851.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27071,7 +27071,7 @@ def check_2178():
     return locals()
 
 @check(label='ch:koide:L273', chapter='ch:koide', part=4, title='r from Q = (1 + r^2/2)/3',
-       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1.414209', tol=0)
+       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='1.414209', tol=0)
 def check_2179():
     'r from Q = (1 + r^2/2)/3. Book line 273, printed 1.414209.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27087,14 +27087,14 @@ def check_2179():
     return locals()
 
 @check(label='ch:koide:L273:1.414214', chapter='ch:koide', part=4, title='sqrt 2',
-       file='part4/p4_15a_lepton_koide', line=328, status='calc', kind='num', printed='1.414214', tol=0)
+       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='1.414214', tol=0)
 def check_2180():
     'sqrt 2. Book line 273, printed 1.414214.'
     value=math.sqrt(2)
     return locals()
 
 @check(label='ch:koide:L274', chapter='ch:koide', part=4, title='offset delta, rad (tau at k=0)',
-       file='part4/p4_15a_lepton_koide', line=329, status='calc', kind='num', printed='0.222225', tol=0)
+       file='part4/p4_15a_lepton_koide', line=340, status='calc', kind='num', printed='0.222225', tol=0)
 def check_2181():
     'offset delta, rad (tau at k=0). Book line 274, printed 0.222225.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27110,7 +27110,7 @@ def check_2181():
     return locals()
 
 @check(label='ch:koide:L275', chapter='ch:koide', part=4, title='angle of the sqrt-mass vector to (1,1,1)',
-       file='part4/p4_15a_lepton_koide', line=330, status='calc', kind='num', printed='44.99991', tol=0)
+       file='part4/p4_15a_lepton_koide', line=341, status='calc', kind='num', printed='44.99991', tol=0)
 def check_2182():
     'angle of the sqrt-mass vector to (1,1,1). Book line 275, printed 44.99991.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27126,7 +27126,7 @@ def check_2182():
     return locals()
 
 @check(label='ch:koide:L276', chapter='ch:koide', part=4, title='m_e = m_mu at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='26.92', tol=0)
+       file='part4/p4_15a_lepton_koide', line=342, status='calc', kind='num', printed='26.92', tol=0)
 def check_2183():
     'm_e = m_mu at delta = 0, MeV. Book line 276, printed 26.92.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27142,7 +27142,7 @@ def check_2183():
     return locals()
 
 @check(label='ch:koide:L276:1829.26', chapter='ch:koide', part=4, title='m_tau at delta = 0, MeV',
-       file='part4/p4_15a_lepton_koide', line=331, status='calc', kind='num', printed='1829.26', tol=0)
+       file='part4/p4_15a_lepton_koide', line=342, status='calc', kind='num', printed='1829.26', tol=0)
 def check_2184():
     'm_tau at delta = 0, MeV. Book line 276, printed 1829.26.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27158,14 +27158,14 @@ def check_2184():
     return locals()
 
 @check(label='ch:koide:L277', chapter='ch:koide', part=4, title='electron amplitude zero at delta = pi/12',
-       file='part4/p4_15a_lepton_koide', line=332, status='calc', kind='num', printed='0.2618', tol=0)
+       file='part4/p4_15a_lepton_koide', line=343, status='calc', kind='num', printed='0.2618', tol=0)
 def check_2185():
     'electron amplitude zero at delta = pi/12. Book line 277, printed 0.2618.'
     value=math.pi/12
     return locals()
 
 @check(label='ch:koide:L277:0.0396', chapter='ch:koide', part=4, title='measured delta inside the edge',
-       file='part4/p4_15a_lepton_koide', line=332, status='calc', kind='num', printed='0.0396', tol=0)
+       file='part4/p4_15a_lepton_koide', line=343, status='calc', kind='num', printed='0.0396', tol=0)
 def check_2186():
     'measured delta inside the edge. Book line 277, printed 0.0396.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27181,7 +27181,7 @@ def check_2186():
     return locals()
 
 @check(label='ch:koide:L278', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=333, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=344, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2187():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 278, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27197,7 +27197,7 @@ def check_2187():
     return locals()
 
 @check(label='ch:koide:L279', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=334, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=345, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2188():
     '2/9 - delta at Q = 2/3. Book line 279, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27213,7 +27213,7 @@ def check_2188():
     return locals()
 
 @check(label='ch:koide:L283', chapter='ch:koide', part=4, title='delta fixed by m_e, m_mu at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=338, status='calc', kind='num', printed='0.222222047', tol=0)
+       file='part4/p4_15a_lepton_koide', line=349, status='calc', kind='num', printed='0.222222047', tol=0)
 def check_2189():
     'delta fixed by m_e, m_mu at Q = 2/3. Book line 283, printed 0.222222047.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27229,7 +27229,7 @@ def check_2189():
     return locals()
 
 @check(label='ch:koide:L284', chapter='ch:koide', part=4, title='uncertainty of delta from m_mu',
-       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=350, status='calc', kind='num', printed='4\\times10^{-10}', tol=0)
 def check_2190():
     'uncertainty of delta from m_mu. Book line 284, printed 4\\times10^{-10}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27245,7 +27245,7 @@ def check_2190():
     return locals()
 
 @check(label='ch:koide:L284:1.75\\times10^{-7}', chapter='ch:koide', part=4, title='2/9 - delta at Q = 2/3',
-       file='part4/p4_15a_lepton_koide', line=339, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
+       file='part4/p4_15a_lepton_koide', line=350, status='calc', kind='num', printed='1.75\\times10^{-7}', tol=0)
 def check_2191():
     '2/9 - delta at Q = 2/3. Book line 284, printed 1.75\\times10^{-7}.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27261,7 +27261,7 @@ def check_2191():
     return locals()
 
 @check(label='ch:koide:L285', chapter='ch:koide', part=4, title='delta - 2/9 in sigma',
-       file='part4/p4_15a_lepton_koide', line=340, status='calc', kind='num', printed='0.4', tol=0)
+       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='0.4', tol=0)
 def check_2192():
     'delta - 2/9 in sigma. Book line 285, printed 0.4.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27277,7 +27277,7 @@ def check_2192():
     return locals()
 
 @check(label='ch:koide:L295', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=350, status='calc', kind='num', printed='1776.9690', tol=0)
+       file='part4/p4_15a_lepton_koide', line=361, status='calc', kind='num', printed='1776.9690', tol=0)
 def check_2193():
     'm_tau fixed by Q = 2/3, MeV. Book line 295, printed 1776.9690.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27293,7 +27293,7 @@ def check_2193():
     return locals()
 
 @check(label='ch:koide:L296', chapter='ch:koide', part=4, title='pull of the 2024 average',
-       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='-0.43', tol=0)
+       file='part4/p4_15a_lepton_koide', line=362, status='calc', kind='num', printed='-0.43', tol=0)
 def check_2194():
     'pull of the 2024 average. Book line 296, printed -0.43.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27309,7 +27309,7 @@ def check_2194():
     return locals()
 
 @check(label='ch:koide:L296:-0.9', chapter='ch:koide', part=4, title='pull of the 2022 average',
-       file='part4/p4_15a_lepton_koide', line=351, status='calc', kind='num', printed='-0.9', tol=0)
+       file='part4/p4_15a_lepton_koide', line=362, status='calc', kind='num', printed='-0.9', tol=0)
 def check_2195():
     'pull of the 2022 average. Book line 296, printed -0.9.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27325,14 +27325,14 @@ def check_2195():
     return locals()
 
 @check(label='ch:koide:L297', chapter='ch:koide', part=4, title='separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV',
-       file='part4/p4_15a_lepton_koide', line=352, status='prediction', kind='num', printed='3.9', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=363, status='prediction', kind='num', printed='3.9', tol=0.0)
 def check_3716():
     'A measurement at +-0.01 MeV with the present central value 1776.93 MeV would separate it from the Q = 2/3 value of m_tau (solved here from m_e, m_mu) at (m_tau(Q=2/3) - 1776.93)/0.01 sigma. Book line 297, printed 3.9. Inputs: m_e, m_mu CODATA 2018; m_tau 1776.93 (PDG 2024).'
     value = (_b07_mtau_exact() - _B07_MTAU24) / 0.01
     return locals()
 
 @check(label='ch:koide:L299', chapter='ch:koide', part=4, title='m_tau fixed by Q = 2/3, MeV',
-       file='part4/p4_15a_lepton_koide', line=354, status='calc', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=365, status='calc', kind='num', printed='1776.969', tol=0)
 def check_2196():
     'm_tau fixed by Q = 2/3, MeV. Book line 299, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27348,7 +27348,7 @@ def check_2196():
     return locals()
 
 @check(label='ch:koide:L299:0.2222220', chapter='ch:koide', part=4, title='delta at m_tau = 1776.969',
-       file='part4/p4_15a_lepton_koide', line=354, status='calc', kind='num', printed='0.2222220', tol=0)
+       file='part4/p4_15a_lepton_koide', line=365, status='calc', kind='num', printed='0.2222220', tol=0)
 def check_2197():
     'delta at m_tau = 1776.969. Book line 299, printed 0.2222220.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27364,7 +27364,7 @@ def check_2197():
     return locals()
 
 @check(label='ch:koide:L315', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses)',
-       file='part4/p4_15a_lepton_koide', line=370, status='observed', kind='num', printed='0.66666446', tol=0)
+       file='part4/p4_15a_lepton_koide', line=381, status='observed', kind='num', printed='0.66666446', tol=0)
 def check_2198():
     'same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses). Book line 315, printed 0.66666446.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -27380,7 +27380,7 @@ def check_2198():
     return locals()
 
 @check(label='ch:koide:L315:0.43', chapter='ch:koide', part=4, title='2/3 - Q in standard deviations (status table)',
-       file='part4/p4_15a_lepton_koide', line=370, status='observed', kind='num', printed='0.43', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=381, status='observed', kind='num', printed='0.43', tol=0.0)
 def check_3717():
     '(2/3 - Q)/sigma(Q), sigma(Q) from sigma(m_tau) = 0.09 MeV by a numerical derivative. Book line 315, printed 0.43 (restates ch:koide:L34:0.43). Inputs: table masses (CODATA 2018, PDG 2024).'
     dQ = (_b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 + 1e-4) - _b07_Q(_B07_ME, _B07_MMU, _B07_MTAU24 - 1e-4)) / 2e-4
@@ -27388,7 +27388,7 @@ def check_3717():
     return locals()
 
 @check(label='ch:koide:L316', chapter='ch:koide', part=4, title='drafted check, screened (runs; negative control fails)',
-       file='part4/p4_15a_lepton_koide', line=371, status='derived', kind='sym', printed='45', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=382, status='derived', kind='sym', printed='45', tol=0.0)
 def check_2199():
     'drafted check, screened (runs; negative control fails). Book line 316, printed 45.'
     lhs = sp.atan2(1, 1) * 180 / sp.pi
@@ -27397,14 +27397,14 @@ def check_2199():
     return locals()
 
 @check(label='ch:koide:L322', chapter='ch:koide', part=4, title='offset delta in the status table',
-       file='part4/p4_15a_lepton_koide', line=379, status='openprob', kind='num', printed='0.2222', tol=0.0)
+       file='part4/p4_15a_lepton_koide', line=392, status='openprob', kind='num', printed='0.2222', tol=0.0)
 def check_3718():
     'Status table: the offset delta = 0.2222. Book line 322 (restates ch:koide:L92). Inputs: table masses.'
     value = _b07_delta(_B07_MTAU24)
     return locals()
 
 @check(label='ch:koide:L323', chapter='ch:koide', part=4, title='same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV)',
-       file='part4/p4_15a_lepton_koide', line=380, status='prediction', kind='num', printed='1776.969', tol=0)
+       file='part4/p4_15a_lepton_koide', line=393, status='prediction', kind='num', printed='1776.969', tol=0)
 def check_2200():
     'same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV). Book line 323, printed 1776.969.'
     me_,mmu_=0.51099895000,105.6583755  # CODATA 2018 / PDG 2024, MeV
@@ -44759,7 +44759,7 @@ def check_iama_pos_max_val():
     return locals()
 
 # ---------------------------------------------------------------- ch:koide equal split from a sudden write (edit 150)
-@check(label='ch:koide:SW', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=0, status='derived',
+@check(label='ch:koide:SW', chapter='ch:koide', part=4, file='part4/p4_15a_lepton_koide', kind='sym', printed='', tol=0, line=286, status='derived',
        title='sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1')
 def check_ko_SW():
     'A step force F on a spring k: new rest point d = F/k; work F d = 2U, held (1/2) k d^2 = U, ringing amplitude d, energy (1/2) k d^2 = U. Q = |s|^2/(3|s_par|^2).'

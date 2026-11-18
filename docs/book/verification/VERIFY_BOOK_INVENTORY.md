@@ -3689,7 +3689,6 @@ Totals: 4728 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 0 | ch:koide:SW | derived |  | sympy: sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1 | PASS |
 | 18 | eq:ko:Q | derived |  | sympy: Q = 1/3 for equal masses, Q < 1 (sqrt-mass form) | PASS |
 | 29 | ch:koide:L29 | observed | `0.51099895000` | numeric: electron mass, MeV (CODATA 2018) | PASS |
 | 30 | ch:koide:L30 | observed | `105.6583755` | numeric: muon mass, MeV (CODATA 2018 ratio) | PASS |
@@ -3753,48 +3752,49 @@ Totals: 4728 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 270 | ch:koide:virial:ratio | calc | `0.999993` | numeric: balanced-part power over zero-sequence power = 3Q - 1 | PASS |
 | 281 | eq:ko:fid | derived |  | sympy: fidelity with equal shares F = (sum sqrt(p_k/3))^2 = 1/(3Q) | PASS |
 | 283 | ch:koide:virial:F | calc | `0.5000017` | numeric: fidelity of the charged-lepton mass shares with equal shares | PASS |
-| 295 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
+| 286 | ch:koide:SW | derived |  | sympy: sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1 | PASS |
 | 295 |  | calc | `1776.93` | not run: input: m_tau = 1776.93 MeV (PDG 2024, doi:10.1103/PhysRevD.110.030001), restates the table value read by ch:koide:L31 | - |
 | 296 |  | calc | `1776.86` | not run: input: m_tau = 1776.86 MeV (PDG 2022, doi:10.1093/ptep/ptac097), restates the table value read by ch:koide:L32 | - |
 | 297 |  | prediction | `1777.09` | not run: input: single measurement m_tau = 1777.09 +- 0.08 +- 0.11 MeV quoted from BelleII2023tau, nothing to recompute | - |
-| 298 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
-| 301 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 302 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 308 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 309 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
-| 309 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
-| 310 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
-| 310 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
-| 315 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
-| 315 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
-| 318 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 327 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
-| 327 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
-| 328 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
-| 328 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
-| 329 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
-| 330 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
-| 331 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
-| 331 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
-| 332 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
-| 332 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
-| 333 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 334 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 338 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
-| 339 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
-| 339 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
-| 340 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
-| 350 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 351 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
-| 351 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
-| 352 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
-| 354 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
-| 354 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
-| 370 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
-| 370 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
-| 371 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
-| 379 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
-| 380 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
+| 306 | eq:ko:delta0 | calc |  | sympy: masses at delta = 0 with x^2 = 313.851 MeV | PASS |
+| 309 | ch:koide:L243 | openprob | `0.2222` | numeric: measured offset delta (restated) | PASS |
+| 312 | ch:koide:L246 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 313 | ch:koide:L247 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 319 | ch:koide:L253 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 320 | ch:koide:L254 | calc | `2.379` | numeric: tau amplitude | PASS |
+| 320 | ch:koide:L254:0.040 | calc | `0.040` | numeric: electron amplitude | PASS |
+| 321 | ch:koide:L255 | calc | `0.580` | numeric: muon amplitude | PASS |
+| 321 | ch:koide:L255:0.293 | calc | `0.293` | numeric: e and mu amplitude at delta = 0 | PASS |
+| 326 | ch:koide:L260 | calc | `313.85` | numeric: x^2, MeV | PASS |
+| 326 | ch:koide:L260:0.2222 | calc | `0.2222` | numeric: measured offset delta | PASS |
+| 329 | ch:koide:L263 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 338 | ch:koide:L272 | calc | `17.71584` | numeric: x = sum sqrt(m)/3 | PASS |
+| 338 | ch:koide:L272:313.851 | calc | `313.851` | numeric: x^2, MeV | PASS |
+| 339 | ch:koide:L273 | calc | `1.414209` | numeric: r from Q = (1 + r^2/2)/3 | PASS |
+| 339 | ch:koide:L273:1.414214 | calc | `1.414214` | numeric: sqrt 2 | PASS |
+| 340 | ch:koide:L274 | calc | `0.222225` | numeric: offset delta, rad (tau at k=0) | PASS |
+| 341 | ch:koide:L275 | calc | `44.99991` | numeric: angle of the sqrt-mass vector to (1,1,1) | PASS |
+| 342 | ch:koide:L276 | calc | `26.92` | numeric: m_e = m_mu at delta = 0, MeV | PASS |
+| 342 | ch:koide:L276:1829.26 | calc | `1829.26` | numeric: m_tau at delta = 0, MeV | PASS |
+| 343 | ch:koide:L277 | calc | `0.2618` | numeric: electron amplitude zero at delta = pi/12 | PASS |
+| 343 | ch:koide:L277:0.0396 | calc | `0.0396` | numeric: measured delta inside the edge | PASS |
+| 344 | ch:koide:L278 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 345 | ch:koide:L279 | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 349 | ch:koide:L283 | calc | `0.222222047` | numeric: delta fixed by m_e, m_mu at Q = 2/3 | PASS |
+| 350 | ch:koide:L284 | calc | `4\times10^{-10}` | numeric: uncertainty of delta from m_mu | PASS |
+| 350 | ch:koide:L284:1.75\times10^{-7} | calc | `1.75\times10^{-7}` | numeric: 2/9 - delta at Q = 2/3 | PASS |
+| 351 | ch:koide:L285 | calc | `0.4` | numeric: delta - 2/9 in sigma | PASS |
+| 361 | ch:koide:L295 | calc | `1776.9690` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 362 | ch:koide:L296 | calc | `-0.43` | numeric: pull of the 2024 average | PASS |
+| 362 | ch:koide:L296:-0.9 | calc | `-0.9` | numeric: pull of the 2022 average | PASS |
+| 363 | ch:koide:L297 | prediction | `3.9` | numeric: separation of 1776.93 and the Q = 2/3 tau mass at +-0.01 MeV | PASS |
+| 365 | ch:koide:L299 | calc | `1776.969` | numeric: m_tau fixed by Q = 2/3, MeV | PASS |
+| 365 | ch:koide:L299:0.2222220 | calc | `0.2222220` | numeric: delta at m_tau = 1776.969 | PASS |
+| 381 | ch:koide:L315 | observed | `0.66666446` | numeric: same value as p4_15a_lepton_koide:33 (Koide Q, PDG 2024 masses) | PASS |
+| 381 | ch:koide:L315:0.43 | observed | `0.43` | numeric: 2/3 - Q in standard deviations (status table) | PASS |
+| 382 | ch:koide:L316 | derived | `45` | sympy: drafted check, screened (runs; negative control fails) | PASS |
+| 392 | ch:koide:L322 | openprob | `0.2222` | numeric: offset delta in the status table | PASS |
+| 393 | ch:koide:L323 | prediction | `1776.969` | numeric: same value as p4_15a_lepton_koide:299 (m_tau fixed by Q = 2/3, MeV) | PASS |
 
 ## Part 4 - ch:electronmass - `docs/book/part4/p4_15b_electron_mass.tex`
 
