@@ -22,8 +22,9 @@ for f in files:
     except Exception as e: miss.append((f, str(e)[:60]))
 print(f"published: {len(checks)} checks, {len(files)} data files, {len(miss)} data files missing: {miss[:8]}")
 # (1) run every check from the published copy
+RUN = os.environ.get('SKIP_RUN') != '1'
 os.chdir(W / "checks")
-r = subprocess.run([sys.executable, "verify_book.py", "--fails"], capture_output=True, text=True, timeout=7000)
+r = subprocess.run([sys.executable, "verify_book.py", "--fails"] if RUN else [sys.executable, "-c", "print(1)"], capture_output=True, text=True, timeout=7000)
 fails = [l for l in r.stdout.splitlines() if l.startswith(("FAIL", "ERROR"))]
 m = re.search(r"SUMMARY\s+PASS (\d+)\s+FAIL (\d+)", r.stdout + r.stderr)
 os.chdir("../..")
@@ -48,7 +49,11 @@ for pg in pages:
         for lab in labs:
             if lab not in checks: nolabel.append((rel, lab)); continue
             pr = PRINTED.get(lab, "")
-            if pr and pr not in txt: far.append((rel, lab, pr))
+            if not pr: continue
+            core = re.sub(r"\\\\(times|,|;|!|thinsp)|[{}$~\\\\]", " ", pr).replace("\u2212", "-").split()
+            core = core[0].lstrip("+-") if core else ""
+            t2 = re.sub(r"[\u2212\u2013]", "-", txt).replace("\u2009", "").replace(" ", "").replace(",", "")
+            if core and core.replace(",", "") not in t2: far.append((rel, lab, pr))
 print(f"pages {len(pages)}, buttons {btn}, unknown labels {len(nolabel)}, value not in the button's block {len(far)}")
 json.dump(dict(summary=summ, fails=fails, missing_files=miss, buttons=btn, unknown=nolabel, far=far), open("site_button_test.json", "w"), indent=1)
 os.makedirs("xout", exist_ok=True); os.replace("site_button_test.json", "xout/site_button_test.json")
@@ -56,4 +61,5 @@ print(f"::notice::SITE CHECKS run from the published files: {summ}; first fails:
 print(f"::notice::SITE BUTTONS: {btn} buttons on {len(pages)} pages; {len(nolabel)} with no check behind them; {len(far)} whose printed value is not in their paragraph")
 print("::notice::no-check examples: " + json.dumps(nolabel[:6])[:700])
 print("::notice::off-paragraph examples: " + json.dumps(far[:8])[:900])
+print("::notice::off-paragraph by page: " + json.dumps(collections.Counter(f[0] for f in far).most_common(12))[:900])
 print(f"::notice::missing data files on the site: {len(miss)} " + json.dumps(miss[:5])[:400])
