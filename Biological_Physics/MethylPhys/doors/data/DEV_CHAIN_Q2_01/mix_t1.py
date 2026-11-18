@@ -39,13 +39,15 @@ for tag, spec in (("a_whole_blood", "whole blood"), ("b_sorted_cells", "sorted c
         rc = subprocess.run(["python3", "run_sample.py", "--pat", mp, "--specimen", spec, "--id", f"MIXT1_{tag}", "--out", os.path.join(W, f"{tag}.html"),
                              "--bundle", b], cwd=IF, stdout=fh, stderr=subprocess.STDOUT).returncode
     B = json.load(open(b)) if rc == 0 and os.path.exists(b) else {}
+    if os.path.exists(b): subprocess.run(["cp", b, os.path.join("xout", f"t1_{tag}_bundle.json")])
+    r_shares = B.get("cell_shares"); r_found = B.get("cells_found"); r_mix = B.get("iam_a_mix")
     ia = B.get("iam_a") or {}; dc = B.get("deconvolver", B.get("cell_shares", {}))
     top = sorted(dc.items(), key=lambda kv: -kv[1])[:6] if isinstance(dc, dict) and dc and all(isinstance(v, (int, float)) for v in dc.values()) else str(dc)[:200]
     tail = open(os.path.join("xout", f"t1_{tag}_log.txt")).read().splitlines()[-6:]
     r = {"rc": rc, "minutes": round((time.time() - t0) / 60, 1), "route": B.get("route") or B.get("specimen_route") or ia.get("route"),
          "iam_a": {k: ia.get(k) for k in ("A", "A_derived", "cell", "state", "refusal", "refusal_code", "mixed", "cells")},
          "deconvolver_top": top, "met_a_cells": [(m.get("cell"), m.get("share"), m.get("met_a")) for m in (B.get("met_a_each_cell") or [])][:6] if isinstance(B.get("met_a_each_cell"), list) else str(B.get("met_a_each_cell"))[:200],
-         "bundle_keys": sorted(B)[:50], "log_tail": [x[:220] for x in tail]}
+         "cell_shares": r_shares, "cells_found": r_found, "iam_a_mix": r_mix, "bundle_keys": sorted(B)[:50], "log_tail": [x[:220] for x in tail]}
     res["runs"][tag] = r
     s = json.dumps(r, default=str)
     for i in range(0, min(len(s), 7600), 1900): print(f"::notice::T1 {tag} part {i // 1900 + 1}: " + s[i:i + 1900])
