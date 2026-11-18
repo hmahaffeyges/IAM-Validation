@@ -122,8 +122,10 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
     out.update(A=round(A, 4), predicted=round(r["predicted"], 6), held_err=round(r["held_err"], 6), loose_share=round(r["loose_share"], 4),
                state="Normal" if B["lo"] <= A <= B["hi"] else ("above Normal" if A > B["hi"] else "below Normal"))
     out["counting"] = counting_error(rec, A, B)   # 2026-10-22 (finding F38): the reading's own counting error; recorded, never a gate
-    if cell in CD8_TYPES and chemistry == "whole-genome bisulfite": out["commissioning"] = Q2.IAMA_COMMISSIONING
-    else: out["development"] = "DEVELOPMENT - not commissioned for this cell type or chemistry (commissioned: healthy blood CD8 T cells, whole-genome bisulfite)"
+    _cok, _cbad = Q2.commissioned_files_ok()
+    if cell in CD8_TYPES and chemistry == "whole-genome bisulfite" and _cok: out["commissioning"] = Q2.IAMA_COMMISSIONING
+    elif cell in CD8_TYPES and chemistry == "whole-genome bisulfite": out["development"] = f"DEVELOPMENT - the commissioned files have changed ({', '.join(_cbad)}): not the commissioned reading"
+    if "commissioning" not in out and "development" not in out: out["development"] = "DEVELOPMENT - not commissioned for this cell type or chemistry (commissioned: healthy blood CD8 T cells, whole-genome bisulfite)"
     return out
 
 # ---------------------------------------------------------------- SKY: the C-Score's departures on the sphere

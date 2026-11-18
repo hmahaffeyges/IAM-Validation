@@ -445,10 +445,11 @@ def build_line(per_sample):
     s, i, _, _ = theilslopes(C.eps.values, C.L.values); res = C.eps.values - (i + s * C.L.values)
     return dict(axis="raw counter held error (no scale factor)", firm=float(i), slope=float(s), cells=int(len(C)), samples=int(C.n.sum()),
                 residual_abs_median=float(np.median(abs(res))), within_0_003=int((abs(res) <= 0.003).sum()), cut=CUT, tile_cpgs=TILE), C.reset_index()
+LINE_DEFAULT = 1   # the commissioned line (COMMISSIONING_NOTE_IAMA.md); a new line becomes default only by changing this, with a new rehearsal
 def line(version=None):
     fs = sorted(glob.glob(os.path.join(LINE_DIR, "selfref_line_v*.json")))
     if not fs: raise RuntimeError("no self-reference line in the chain yet (Runtime Matrices/IAM_A_SelfRef): build it with build_line() first")
-    f = [x for x in fs if x.endswith(f"_v{version}.json")][0] if version else fs[-1]; J = json.load(open(f))
+    f = [x for x in fs if x.endswith(f"_v{version or LINE_DEFAULT}.json")][0]; J = json.load(open(f))   # pinned (overhaul E1): never the newest file by default
     if payload_sha(J) != J["chain_stamp"]["payload_sha256"]: raise RuntimeError(f"{os.path.basename(f)} has been edited after the chain wrote it")
     return J
 def predict(loose_share, version=None):
@@ -498,10 +499,11 @@ def build_shape_reference(records):
     spread = [max(v) - min(v) for v in G.values() if len(v) >= 2]
     return dict(kind="IAM-A sample-shape reference", margin=float(np.quantile(spread, SHAPE_Q)), margin_basis=f"{SHAPE_Q:.0%} quantile of within-type spread of tile_p10 over {len(spread)} cell types",
                 cells={c: dict(min_p10=min(v), n=len(v)) for c, v in sorted(G.items())}, samples=int(sum(len(v) for v in G.values())))
+SHAPE_DEFAULT = 1   # the commissioned shape reference; v2 (granulocytes, megakaryocytes) becomes default only with a rehearsal
 def shape_reference(version=None):
     fs = sorted(glob.glob(os.path.join(LINE_DIR, "shape_reference_v*.json")))
     if not fs: raise RuntimeError("no shape reference in the chain yet: build it with build_shape_reference()")
-    f = [x for x in fs if x.endswith(f"_v{version}.json")][0] if version else fs[-1]; J = json.load(open(f))
+    f = [x for x in fs if x.endswith(f"_v{version or SHAPE_DEFAULT}.json")][0]; J = json.load(open(f))   # pinned (overhaul E1): never the newest file by default
     if payload_sha(J) != J["chain_stamp"]["payload_sha256"]: raise RuntimeError(f"{os.path.basename(f)} has been edited after the chain wrote it")
     return J
 def shape_check(rec, cell, version=None, ref=None):
@@ -532,7 +534,16 @@ CD8_SHAPE_TYPE = {"naive": "naive cd8 t cells", "tem": "effector memory cd8 t ce
 def band(version=1):
     J = json.load(open(os.path.join(LINE_DIR, f"band_v{version}.json"), encoding="utf-8")); assert payload_sha(J) == J["chain_stamp"]["payload_sha256"]; return J
 IAMA_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-17", "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
-    "specimens": ["healthy blood CD8 T cells"], "chemistry": ["whole-genome bisulfite"], "band": [0.7787, 1.0551]}
+    "specimens": ["healthy blood CD8 T cells"], "chemistry": ["whole-genome bisulfite"], "band": [0.7787, 1.0551],
+    "files": {"selfref_line_v1.json": "4a61d83585178fe1914b8985ab252eb6e7d4cde2b766dca7b041198c66273cef", "band_v1.json": "2ea104136c0169407aec899908c8bec473e547d87a3c9bb93e074bd473b7979f", "shape_reference_v1.json": "3d5b32c4e42ffb1f033888c8c86a004cd9ce3eb647f25f5e20437499d56d0957"}}
+def commissioned_files_ok():
+    """True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (payload checksums in
+    IAMA_COMMISSIONING['files']); otherwise (False, which file differs). The commissioned label is given only when this is True."""
+    bad = []
+    for f, h in IAMA_COMMISSIONING["files"].items():
+        J = json.load(open(os.path.join(LINE_DIR, f), encoding="utf-8"))
+        if payload_sha(J) != h: bad.append(f)
+    return (not bad, bad)
 def grand_verdict(records, version=1, B=None, ref=None):
     """records: [(count, shape type)] for each healthy sample. Each is shape-checked first (refused = listed, not counted); each read sample's
     reading A must lie inside IAM-A's band v1. MET if at least GRAND_SHARE of the read samples are inside and at least GRAND_MIN_READ were read;

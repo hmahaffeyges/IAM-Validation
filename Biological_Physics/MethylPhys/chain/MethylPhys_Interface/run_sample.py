@@ -1546,7 +1546,7 @@ def main():
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
             if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
         elif qi.get("refusal_code"):
-            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
+            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') == 'NO_CHAIN_CELL' else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
@@ -1571,7 +1571,7 @@ def main():
         qi = o.get("iam_a_intake") or {}
         if qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"],
-                          "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
+                          "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') == 'NO_CHAIN_CELL' else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:
             o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=bool(getattr(a, "dev_allow_partial", False))); o["iam_a"]["input"] = src
             if getattr(a, "iama_ref_table", None):

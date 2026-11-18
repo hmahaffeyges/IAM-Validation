@@ -6381,3 +6381,9 @@ sites): g = 0.443 +/- 0.120 per hour, half-time 1.6 h. Per-type bands, GUM k = 2
 model 1 %, copier lag 0.4 %, counting 0.1 %; about +/-8.5 % for three libraries; leave-one-out 119 of 126 inside; 2 of
 2 later libraries inside. Islands meter does not predict position (Spearman -0.06). Open: the between-laboratory term; what
 sets each type's position. Not yet in the chain code; the book carries a one-paragraph summary.
+
+### 2026-11-17 · PHY-084, COM-IAMA-054: chain overhaul step 1 (safety; no reading changes)
+IAM-A's default line is pinned to v1 by version (it was the newest file, a risk to the commissioned reading); the commissioned label is given
+only when the line, band and shape reference match the commissioned files' checksums; the refusal for a cell with no IAM-A shape reference no longer
+names Stage Q0; the frozen-inputs list and the SOP gain derived_line_v1, band_v2, the clock sites and the sites key; the Decoder's statements the
+chain audit found wrong are corrected. A planted CD8 count reads the same A, line and label before and after.

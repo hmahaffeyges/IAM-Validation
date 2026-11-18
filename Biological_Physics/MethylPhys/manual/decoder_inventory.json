@@ -3607,7 +3607,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 190,
+   "lines": 192,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3734,14 +3734,14 @@
      "function": "stage_q2",
      "name": "stage_q2",
      "line": 99,
-     "end": 127,
+     "end": 129,
      "args": [
       "rec",
       "cell",
       "chemistry",
       "source"
      ],
-     "lines": 29,
+     "lines": 31,
      "doc": "",
      "constants": [
       "CD8_TYPES"
@@ -3757,8 +3757,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 135,
-     "end": 137,
+     "line": 137,
+     "end": 139,
      "args": [
       "v"
      ],
@@ -3774,8 +3774,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 138,
-     "end": 147,
+     "line": 140,
+     "end": 149,
      "args": [
       "nside",
       "ipix"
@@ -3795,8 +3795,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 149,
-     "end": 186,
+     "line": 151,
+     "end": 188,
      "args": [
       "z",
       "out_png",
@@ -3816,8 +3816,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 188,
-     "end": 189,
+     "line": 190,
+     "end": 191,
      "args": [
       "path"
      ],
@@ -3993,7 +3993,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 548,
+   "lines": 559,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4565,14 +4565,15 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 448,
-     "end": 453,
+     "line": 449,
+     "end": 454,
      "args": [
       "version"
      ],
      "lines": 6,
      "doc": "",
      "constants": [
+      "LINE_DEFAULT",
       "LINE_DIR"
      ],
      "data_files": [],
@@ -4584,8 +4585,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 454,
-     "end": 455,
+     "line": 455,
+     "end": 456,
      "args": [
       "loose_share",
       "version"
@@ -4600,8 +4601,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 456,
-     "end": 460,
+     "line": 457,
+     "end": 461,
      "args": [
       "rec",
       "version"
@@ -4618,8 +4619,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_line",
      "name": "derived_line",
-     "line": 463,
-     "end": 468,
+     "line": 464,
+     "end": 469,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -4635,8 +4636,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_reading",
      "name": "derived_reading",
-     "line": 469,
-     "end": 486,
+     "line": 470,
+     "end": 487,
      "args": [
       "rec"
      ],
@@ -4654,8 +4655,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 493,
-     "end": 500,
+     "line": 494,
+     "end": 501,
      "args": [
       "records"
      ],
@@ -4671,15 +4672,16 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 501,
-     "end": 506,
+     "line": 503,
+     "end": 508,
      "args": [
       "version"
      ],
      "lines": 6,
      "doc": "",
      "constants": [
-      "LINE_DIR"
+      "LINE_DIR",
+      "SHAPE_DEFAULT"
      ],
      "data_files": [],
      "traced_calls": {
@@ -4690,8 +4692,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 507,
-     "end": 515,
+     "line": 509,
+     "end": 517,
      "args": [
       "rec",
       "cell",
@@ -4710,8 +4712,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 518,
-     "end": 521,
+     "line": 520,
+     "end": 523,
      "args": [
       "rec",
       "version"
@@ -4728,8 +4730,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 522,
-     "end": 527,
+     "line": 524,
+     "end": 529,
      "args": [
       "healthy",
       "version"
@@ -4744,8 +4746,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 532,
-     "end": 533,
+     "line": 534,
+     "end": 535,
      "args": [
       "version"
      ],
@@ -4761,10 +4763,26 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "commissioned_files_ok",
+     "name": "commissioned_files_ok",
+     "line": 539,
+     "end": 546,
+     "args": [],
+     "lines": 8,
+     "doc": "True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (payload checksums in IAMA_COMMISSIONING['files']); otherwise (False, which file differs). The commissioned label is given only when this is True.",
+     "constants": [
+      "IAMA_COMMISSIONING",
+      "LINE_DIR"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 536,
-     "end": 547,
+     "line": 547,
+     "end": 558,
      "args": [
       "records",
       "version",
@@ -10916,5 +10934,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 559
+ "n_functions": 560
 }

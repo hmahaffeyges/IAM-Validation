@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **559 functions** (nested ones included); 559 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **560 functions** (nested ones included); 560 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -51,9 +51,9 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
-| `stage_v4.py` | 190 | 11 | 4 | 2 |
+| `stage_v4.py` | 192 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
-| `stage_q2_selfref.py` | 548 | 45 | 0 | 11 |
+| `stage_q2_selfref.py` | 559 | 46 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 120 | 8 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
@@ -264,9 +264,10 @@ the chain reads comes from that one statement; everything else in the chain is s
   derivation explains them, and the measured IAM-A line sits 1.12 times the derived level in the atlas laboratory and 0.96 to 1.03 times it in
   the blind-test laboratory.
 - **What every IAM-A reading carries.** Besides A, each reading keeps the count's run lengths (loss runs against the
-  independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields (conversion
-  failure, the T-to-C slip, the lambda spike-in where present). An earlier version of the main path dropped them.
-- **The derived line in every reading.** Each IAM-A reading now also gives A_derived: the held error over the line whose
+  independent expectation), the held error in firm and loose tiles (the line tested tile by tile), and the meter's own fields. On a molecule
+  file (.pat) the meter's fields are empty: conversion failure and the T-to-C slip are counted only from an aligned BAM, and the lambda
+  spike-in only on the count-only route. None of these fields is used by A or the state; they are recorded.
+- **The derived line beside A.** An IAM-A reading from a molecule file whose clustering (coupling) lies inside the forward table's range also gives A_derived: the held error over the line whose
   intercept is the held error from M alone (0.0445, no eraser input in mature blood, a lead) read through this counter
   at the sample's own clustering (Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json), with the measured slope. A (the measured line) stays
   the default while the two laboratories disagree: the atlas laboratory reads 1.12 times the derived level, the blind-test laboratory
@@ -274,10 +275,11 @@ the chain reads comes from that one statement; everything else in the chain is s
 - **Islands and clock sites in every reading.** Each sequencing reading also counts, by the same rules as the held error, the held and
   absent sides at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own meter,
   register T1) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side (register C3), written as iam_a.sites. No reading uses them yet.
-- **The healthy band on the derived line.** Every IAM-A reading also gives state_derived: A_derived against band v2
+- **The healthy band on the derived line.** Where A_derived exists the reading also gives state_derived: A_derived against band v2
   (Runtime Matrices/IAM_A_SelfRef/band_v2.json), the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by the one
   button, by the same rule as band v1. Band v1 on the measured line stays the default and keeps its commissioning record; band v2 is in
-  commissioning, because the libraries that set it also set the line.
+  commissioning, because the libraries that set it also set the line. A_derived and state_derived are written to the bundle only; the report
+  does not print them yet. Readings from an aligned BAM get neither (the BAM count has no clustering).
 - **Met-A sequencing at held sites, against the derived level.** Each sequencing Met-A reading also gives A_derived_held: the library's
   disorder over the cell's held identity sites (atlas level at least 0.80) over the disorder of 1 - eps0 (0.0445, the held
   error from M alone) at each site's own read count. It sits beside A; the per-type reference stays measured, because each type's own
@@ -673,7 +675,30 @@ checks the atlases against their checksums before any reading (`reference_door.p
 
 **Reproduce it:** `cd Biological_Physics/MethylPhys/chain` && `python3 -c "import stage_q2_selfref as Q; J=Q.line(1); print(J['firm'], J['slope'])"`. To rebuild it: `stage_q2_selfref.build_line(per_sample)` on the 153 healthy counts named in the file's stamp (`chain_stamp.inputs`). Check one reading by hand: the test library's held error 0.034412 at loose share 0.0304 gives 0.034412 / (0.040265 + 0.034625 × 0.0304) = 0.8329.
 
-**Status and open parts:** Measured; the chain's default line. The derived intercept is computed (forward table, Section 9) and is not yet read by the chain. Making a derived line the default waits on the 12 % between-laboratory offset (open: A5 lead, A8, the meter) and comes together with band v2.
+**Status and open parts:** Measured; the chain's default line, loaded by version (`LINE_DEFAULT = 1`), never as the newest file. The derived intercept is read beside it (`derived_reading`, derived_line_v1.json). Making a derived line the default waits on the 12 % between-laboratory offset (open: A5 lead, A8, the meter) and comes together with band v2.
+
+#### Input: Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json
+
+**What it is:** the forward table of the line whose intercept is the held error from M alone (0.0445), read through this
+counter at the sample's own clustering (firm_by_coupling), with the measured slope; and eps0 itself, which Met-A sequencing's held-site
+reading uses.
+
+**How the chain uses it:** `stage_q2_selfref.derived_reading` (stamp checked) gives A_derived beside A when the sample's coupling lies inside
+the table's range; outside it, or on a BAM count (no coupling), A_derived is not given and the reason is recorded.
+`stage_metaa_atlas.derived_held` reads eps0 from it. Frozen (FROZEN_INPUTS_v4.json).
+
+**Status and open parts:** Derived intercept, measured slope; reported beside A, not the default. Becoming the default needs a rehearsal and
+the author's decision, because it changes the commissioned reading.
+
+#### Input: Runtime Matrices/IAM_A_SelfRef/band_v2.json
+
+**What it is:** the healthy band on the derived line: the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by
+the one button, by the same rule as band v1.
+
+**How the chain uses it:** `derived_reading` gives state_derived against it, written to the bundle. Frozen (FROZEN_INPUTS_v4.json).
+
+**Status and open parts:** In commissioning: the libraries that set it also set the line (a rehearsal reference). One pooled band; each
+type's own position is in development.
 
 #### Input: Runtime Matrices/IAM_A_SelfRef/band_v1.json
 
@@ -2534,11 +2559,10 @@ The count also holds the run-length spectrum of losses on the same held molecule
 consecutive losses, and their exact expectation when each molecule's own losses fall at random among its calls; `loss_run_ratio` =
 observed runs / expected runs: 1 for independent point losses, below 1 when losses come in stretches), the tile-by-tile line
 (`held_err_firm_tiles`, `held_err_loose_tiles`, `tile_line_n`, `held_err_by_tile_call`) and the library's end damage (`end_damage`,
-`meter`), all from `stage_q2_selfref.count_pat`. This function's count list does not pass them on; they reach the bundle on the count-only
-route (`--dev-count-only`) and the mixed-specimen route of `run_sample.py`. Development, recorded only, never used in A (register CP1; book
+`meter`), all from `stage_q2_selfref.count_pat`. This function's count list passes them on to the bundle with every reading. Development, recorded only, never used in A (register CP1; book
 Part VI, 'Run-length spectrum of losses').
 
-*Code:* `stage_v4.py` line 99 (29 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 99 (31 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_q2_selfref.py::_runs_expected`
 
@@ -2567,26 +2591,26 @@ firm tiles read the line at loose share 0 and loose tiles at loose share 1. Deve
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 135 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 137 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 138 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 140 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 149 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 151 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 188 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 190 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -2852,7 +2876,7 @@ open, with the register row that decides it. Every number can be recomputed with
    when the restore push scales with the held share of the neighborhood (A7, partly derived, replicated in a second laboratory, median ratio
    1.03); the rest is cell type and completes with A8.
 10. **The reading (measured against the line).** IAM-A = ε measured / ε predicted at the sample's own L (`stage_q2_selfref.reading`). The chain
-    reads A on the measured line v1; the derived intercept of step 8 is not yet read by the chain.
+    reads A on the measured line v1 (the default); A on the derived line of step 8 is read beside it where the sample's clustering is in range.
 11. **The band (measured, A9).** Band v1, 0.7787 to 1.0551: the 2.5th to 97.5th percentiles of 156 pooled healthy readings on line v1, commissioned
     on healthy CD8 T cells. Band v2 is to be rebuilt on the derived line from the joint run's healthy atlas libraries, and the default line
     switches to the derived line together with it. `stage_v4.counting_error` gives each reading's binomial counting range,
@@ -2885,9 +2909,8 @@ open, with the register row that decides it. Every number can be recomputed with
     library's islands are its in-sample meter.
 17. **Where these fields are recorded now.** `stage_q2_selfref.count_pat` computes the coupling, the run lengths, the tile line, the end damage and
     the distance tally on every `.pat` count; `count_bam` adds conv_fail, sub_err and tc_err. The main reading's count (`stage_v4.stage_q2`)
-    carries the coupling (coupling, coupling_err_share, coupling_pairs, coupling_max) but not the run lengths, the tile line or the meter's
-    fields; those reach the bundle on `run_sample.py`'s count-only route (`--dev-count-only`; on an aligned BAM with conv_fail, sub_err, tc_err
-    and the lambda meter) and on its mixed-specimen route.
+    carries the coupling, the run lengths, the tile line and the meter's fields; on a molecule file the meter's fields are empty (they come
+    from an aligned BAM), and the lambda meter is read only on the count-only route (`--dev-count-only`).
 18. **What is open.** Each cell type's own level (A8, the deciding item; it also completes A7's slope); the 12 % between-laboratory offset that
     keeps the measured line the default (A5 lead, A8, the meter); band v2; the mitotic clock's tick from the writer's error (C3); the domains'
     level from the line (T2); each type's own coin (A16); IAM's Law inside the coupling (CP1); and inside the information sphere (SP1).
@@ -3093,31 +3116,31 @@ run time; the line is read from its frozen file.
 
 Loads the frozen line and refuses it if it was edited after the chain wrote it.
 
-*Code:* `stage_q2_selfref.py` line 448 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 449 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DEFAULT`, `LINE_DIR`
 
 ### `stage_q2_selfref.py::predict`
 
 ε predicted at a loose share: firm + slope × L.
 
-*Code:* `stage_q2_selfref.py` line 454 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 455 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::residual`
 
 A count against the line: measured ε, predicted ε, and their difference.
 
-*Code:* `stage_q2_selfref.py` line 456 (5 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 457 (5 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_shape_reference`
 
 How the shape reference was built: per cell type, the lowest healthy 10th percentile, and the margin. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 493 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
+*Code:* `stage_q2_selfref.py` line 494 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
 
 ### `stage_q2_selfref.py::shape_reference`
 
 Loads the frozen shape reference and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 501 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 503 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`, `SHAPE_DEFAULT`
 
 ### `stage_q2_selfref.py::shape_check`
 
@@ -3128,32 +3151,32 @@ chromosome and the loose share on the autosomes; the aligned-read route counts b
 line, counting the held error on the autosomes only moved IAM-A by a mean of −0.32 % (range −0.71 % to +0.09 %), at most about 2.5 % of the
 band's width (`doors/DEV_IAMA_SEX_01.md`). The commissioned line and band were built on the `.pat` route and are kept.
 
-*Code:* `stage_q2_selfref.py` line 507 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 509 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
 
 ### `stage_q2_selfref.py::reading`
 
 IAM-A = measured ε / predicted ε.
 
-*Code:* `stage_q2_selfref.py` line 518 (4 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 520 (4 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_band`
 
 How band v1 was built: the 2.5th to 97.5th percentile of pooled healthy readings. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 522 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 524 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::band`
 
 Loads band v1 and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 532 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 534 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::grand_verdict`
 
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
 
-*Code:* `stage_q2_selfref.py` line 536 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
+*Code:* `stage_q2_selfref.py` line 547 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
 
 ### `stage_q2_selfref.py::derived_line`
 
@@ -3161,7 +3184,7 @@ Loads the derived line (Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json): th
 sample's clustering (coupling), from the held error derived from M alone (0.0445, no eraser input) read through this
 counter on planted molecules, and the measured slope. Refuses the file if it was edited after the chain wrote it (its stamp).
 
-*Code:* `stage_q2_selfref.py` line 463 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `LINE_DIR` · files named: `derived_line_v1.json`
+*Code:* `stage_q2_selfref.py` line 464 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `LINE_DIR` · files named: `derived_line_v1.json`
 
 ### `stage_q2_selfref.py::derived_reading`
 
@@ -3171,7 +3194,7 @@ slope x loose share). Never extrapolated: outside the table's coupling range it 
 When band_v2.json exists (refused if edited after the chain wrote it), the reading also carries state_derived (Normal, above Normal or
 below Normal on band v2) and the band it used, marked 'in commissioning'.
 
-*Code:* `stage_q2_selfref.py` line 469 (18 lines) · arguments: rec · calls: not called on the traced runs · constants read: `LINE_DIR` · files named: `band_v2.json`
+*Code:* `stage_q2_selfref.py` line 470 (18 lines) · arguments: rec · calls: not called on the traced runs · constants read: `LINE_DIR` · files named: `band_v2.json`
 
 ### `stage_metaa_atlas.py::derived_held`
 
@@ -3180,6 +3203,20 @@ cell's own atlas level is at least 0.80; the expectation at each is the disorder
 eps0 read from derived_line_v1.json. Returns A_derived_held with its site count, or None with the reason (no derived line; under 200 sites).
 
 *Code:* `stage_metaa_atlas.py` line 546 (16 lines) · arguments: x, n, mu · calls: not called on the traced runs · constants read: `HELD_MIN` · files named: `derived_line_v1.json`, `read from derived_line_v1.json`
+
+### `stage_q2_selfref.py::commissioned_files_ok`
+
+True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (their payload
+checksums are kept in IAMA_COMMISSIONING['files']); otherwise False with the files that differ. `stage_v4.stage_q2` gives the commissioned
+label only when it is True, and says which file changed when it is not.
+
+### run_sample.py: refusal NO_CHAIN_CELL
+
+When the Deconvolver's cells hold no IAM-A shape reference (for example granulocytes or megakaryocytes, which the shape reference
+does not yet carry), IAM-A is not read and the record says 'IAM-A not read' with the cells found; no cell is taken from the specimen's
+words.
+
+*Code:* `stage_q2_selfref.py` line 539 (8 lines) · arguments: none · calls: not called on the traced runs · constants read: `IAMA_COMMISSIONING`, `LINE_DIR`
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 

@@ -236,10 +236,14 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | File (in `chain/`) | SHA-256 |
 |---|---|
 | `../atlas/v2.1/compact_manifest.json` | `fafb600b4545dabb…` |
+| `../atlas/v2.1/sites_sequencing_key.parquet` | `9b2a6635227b87fe…` |
 | `Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json` | `7cbb4a517fe4ce66…` |
 | `Runtime Matrices/Atlas_V21/sky_order_v21.npz` | `c61c2f7efd8e6b2c…` |
+| `Runtime Matrices/Clock_Sites/epitoc2_sites.csv` | `2839b1f6c1637063…` |
 | `Runtime Matrices/Gauge/cell_gauge_marks_v1.json` | `d23916d54a8fe7b0…` |
 | `Runtime Matrices/IAM_A_SelfRef/band_v1.json` | `d4c32f760d98ad14…` |
+| `Runtime Matrices/IAM_A_SelfRef/band_v2.json` | `1bbb799403581d0e…` |
+| `Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json` | `8800b4e2a6599339…` |
 | `Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json` | `540157559b9e27bb…` |
 | `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json` | `41470faf73551699…` |
 | `Runtime Matrices/Intake/intake_thresholds_v1.json` | `58f7e6073e8f2a5c…` |
