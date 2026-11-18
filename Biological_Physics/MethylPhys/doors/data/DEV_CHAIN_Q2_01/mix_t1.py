@@ -16,21 +16,19 @@ CHUNK = 2_000_000
 def chunks(f):
     for d in pd.read_csv(f, sep="\t", header=None, usecols=[0, 1, 2, 3], names=["chr", "idx", "pat", "n"], dtype={"chr": str, "idx": np.int64, "pat": str, "n": np.int64}, chunksize=CHUNK):
         yield d
-src = {}; mol = {}
-for g in MIX:
-    src[g] = Q0.geo_pat(g, W)["path"]; mol[g] = int(sum(d["n"].sum() for d in chunks(src[g])))
-    print(f"::notice::T1 source {g} {MIX[g][0]}: {mol[g]:,} molecules")
-N = min(mol[g] / s for g, (_, s) in MIX.items())        # the largest total with every share met by thinning only
-rng = np.random.default_rng(7); got = {}; parts = []
-for g, (_, s) in MIX.items():
-    p = min(1.0, s * N / mol[g]); k = 0; tp = os.path.join(W, f"{g}.thin.tsv")
+NTOT = 10_000_000                                       # molecules in the planted mixture (each library holds far more; thinning only)
+rng = np.random.default_rng(7); got = {}; parts = []; mol = {}
+for g, (_, s) in MIX.items():                           # one library on disk at a time
+    f = Q0.geo_pat(g, W)["path"]; mol[g] = int(sum(d["n"].sum() for d in chunks(f)))
+    p = s * NTOT / mol[g]; assert p <= 1, (g, mol[g]); k = 0; tp = os.path.join(W, f"{g}.thin.tsv")
     with open(tp, "w") as fo:
-        for d in chunks(src[g]):
+        for d in chunks(f):
             d["n"] = rng.binomial(d["n"].to_numpy(), p); d = d[d["n"] > 0]; k += int(d["n"].sum())
             d.to_csv(fo, sep="\t", header=False, index=False)
-    got[g] = k; parts.append(tp); os.remove(src[g])
+    os.remove(f); got[g] = k; parts.append(tp)
+    print(f"::notice::T1 source {g} {MIX[g][0]}: {mol[g]:,} molecules, kept {k:,}")
 mp = os.path.join(W, "MIXT1.pat.gz")
-subprocess.run(f"sort -k2,2n -k3,3 -S 4G --parallel=2 {' '.join(parts)} | gzip -1 > {mp}", shell=True, check=True)
+subprocess.run(f"sort -k2,2n -k3,3 -S 1G -T {W} {' '.join(parts)} | gzip -1 > {mp}", shell=True, check=True)
 for tp in parts: os.remove(tp)
 tot = sum(got.values()); planted = {MIX[g][0]: round(got[g] / tot, 4) for g in MIX}
 print("::notice::T1 planted shares (by molecules): " + json.dumps(planted) + f" | total {tot:,}")
