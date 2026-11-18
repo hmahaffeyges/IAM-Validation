@@ -16,7 +16,7 @@ CHUNK = 2_000_000
 def chunks(f):
     for d in pd.read_csv(f, sep="\t", header=None, usecols=[0, 1, 2, 3], names=["chr", "idx", "pat", "n"], dtype={"chr": str, "idx": np.int64, "pat": str, "n": np.int64}, chunksize=CHUNK):
         yield d
-NTOT = 10_000_000                                       # molecules in the planted mixture (each library holds far more; thinning only)
+NTOT = int(os.environ.get('T1_NTOT', '100000000'))   # full depth (2026-11-17 night: the 10 M plant measured only 3,271 of 5,799 markers)                                       # molecules in the planted mixture (each library holds far more; thinning only)
 rng = np.random.default_rng(7); got = {}; parts = []; mol = {}
 for g, (_, s) in MIX.items():                           # one library on disk at a time
     f = Q0.geo_pat(g, W)["path"]; mol[g] = int(sum(d["n"].sum() for d in chunks(f)))
