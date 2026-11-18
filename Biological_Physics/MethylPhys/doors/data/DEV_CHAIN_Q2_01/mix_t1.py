@@ -11,27 +11,27 @@ sys.path.insert(0, CH); import stage_q0_intake as Q0
 MIX = {"GSM5652313": ("granulocytes", 0.60), "GSM5652279": ("cd4 t cells", 0.15), "GSM5652282": ("cd8 t cells", 0.10),
        "GSM5652302": ("monocytes", 0.10), "GSM5652316": ("b cells", 0.05)}
 os.makedirs("xout", exist_ok=True); W = tempfile.mkdtemp(prefix="mix")
-import heapq
-def lines(f):
-    with gzip.open(f, "rt") as fh:
-        for l in fh:
-            p = l.rstrip("\n").split("\t")
-            if len(p) >= 4: yield p[0], int(p[1]), p[2], int(p[3])
+import numpy as np, pandas as pd
+CHUNK = 2_000_000
+def chunks(f):
+    for d in pd.read_csv(f, sep="\t", header=None, usecols=[0, 1, 2, 3], names=["chr", "idx", "pat", "n"], dtype={"chr": str, "idx": np.int64, "pat": str, "n": np.int64}, chunksize=CHUNK):
+        yield d
 src = {}; mol = {}
 for g in MIX:
-    src[g] = Q0.geo_pat(g, W)["path"]; mol[g] = sum(c for *_, c in lines(src[g]))
+    src[g] = Q0.geo_pat(g, W)["path"]; mol[g] = int(sum(d["n"].sum() for d in chunks(src[g])))
     print(f"::notice::T1 source {g} {MIX[g][0]}: {mol[g]:,} molecules")
 N = min(mol[g] / s for g, (_, s) in MIX.items())        # the largest total with every share met by thinning only
-rng = random.Random(7); got = {g: 0 for g in MIX}
-def thinned(g):
-    p = MIX[g][1] * N / mol[g]
-    for chrom, idx, pat, c in lines(src[g]):
-        m = sum(1 for _ in range(c) if rng.random() < p) if c < 50 else max(0, int(round(c * p + rng.gauss(0, (c * p * (1 - p)) ** 0.5))))
-        if m > 0: got[g] += m; yield (idx, chrom, pat, m)
+rng = np.random.default_rng(7); got = {}; parts = []
+for g, (_, s) in MIX.items():
+    p = min(1.0, s * N / mol[g]); k = 0; tp = os.path.join(W, f"{g}.thin.tsv")
+    with open(tp, "w") as fo:
+        for d in chunks(src[g]):
+            d["n"] = rng.binomial(d["n"].to_numpy(), p); d = d[d["n"] > 0]; k += int(d["n"].sum())
+            d.to_csv(fo, sep="\t", header=False, index=False)
+    got[g] = k; parts.append(tp); os.remove(src[g])
 mp = os.path.join(W, "MIXT1.pat.gz")
-with gzip.open(mp, "wt") as fo:
-    for idx, chrom, pat, m in heapq.merge(*(thinned(g) for g in MIX), key=lambda t: t[0]): fo.write(f"{chrom}\t{idx}\t{pat}\t{m}\n")
-for g in MIX: os.remove(src[g])
+subprocess.run(f"sort -k2,2n -k3,3 -S 4G --parallel=2 {' '.join(parts)} | gzip -1 > {mp}", shell=True, check=True)
+for tp in parts: os.remove(tp)
 tot = sum(got.values()); planted = {MIX[g][0]: round(got[g] / tot, 4) for g in MIX}
 print("::notice::T1 planted shares (by molecules): " + json.dumps(planted) + f" | total {tot:,}")
 res = {"planted": planted, "runs": {}}
