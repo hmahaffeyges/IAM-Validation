@@ -5873,26 +5873,8 @@ PASS  ch:koide:K3                        ch:koide:p4_15a_lepton_koide:172  print
 PASS  ch:blackholes:membrane             ch:blackholes:p3_01_blackholes:155  printed 376.73  recomputed 376.73  tol 0.00500001  [derived] membrane paradigm: horizon surface resistivity 4 pi (Gaussian) = mu_0 c = 376.73 ohm, the impedance of free space
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
-PASS  ch:iama:pos:n_lib                  ch:iama:p6_08_iama:223  printed 150  recomputed 150  tol 0.5  [measured] libraries in the joint run
 PASS  ch:iama:pos:n_types                ch:iama:p6_08_iama:223  printed 56  recomputed 56  tol 0.5  [measured] cell types in the joint run
-PASS  ch:iama:pos:min_val                ch:iama:p6_08_iama:228  printed 0.80  recomputed 0.804265  tol 0.00500001  [measured] lowest type position on the derived line
-PASS  ch:iama:pos:neur                   ch:iama:p6_08_iama:229  printed 0.90  recomputed 0.895441  tol 0.00500001  [measured] cortical neurons' position
-PASS  ch:iama:pos:naive4                 ch:iama:p6_08_iama:230  printed 0.93  recomputed 0.932324  tol 0.00500001  [measured] naive CD4 T position
-PASS  ch:iama:pos:max_val                ch:iama:p6_08_iama:231  printed 1.17  recomputed 1.17132  tol 0.00500001  [measured] highest type position
-PASS  ch:iama:pos:dE                     ch:iama:p6_08_iama:232  printed 0.38  recomputed 0.375955  tol 0.00500001  [measured] spread in holding energy, ln(highest/lowest)
-PASS  ch:iama:pos:run_med                ch:iama:p6_08_iama:237  printed 0.994  recomputed 0.993699  tol 5.000005e-04  [measured] median observed/expected loss runs
-PASS  ch:iama:pos:rho_c                  ch:iama:p6_08_iama:238  printed -0.32  recomputed -0.315721  tol 0.00500001  [measured] Spearman: position vs coupling
-PASS  ch:iama:pos:rho_d                  ch:iama:p6_08_iama:239  printed -0.36  recomputed -0.357963  tol 0.00500001  [measured] Spearman: position vs loss spread
-PASS  ch:iama:pos:rho_f                  ch:iama:p6_08_iama:240  printed 0.45  recomputed 0.445933  tol 0.00500001  [measured] Spearman: position vs firm-tile held error
-PASS  ch:iama:pos:tile_med               ch:iama:p6_08_iama:241  printed 1.19  recomputed 1.19295  tol 0.00500001  [measured] median loose/firm tile held error
-PASS  ch:iama:pos:g                      ch:iama:p6_08_iama:249  printed 0.443  recomputed 0.443304  tol 5.000005e-04  [measured] restore rate g per hour (Repli-BS)
-PASS  ch:iama:pos:gse                    ch:iama:p6_08_iama:249  printed 0.120  recomputed 0.119579  tol 5.000005e-04  [measured] standard error of g
-PASS  ch:iama:pos:th                     ch:iama:p6_08_iama:249  printed 1.6  recomputed 1.5636  tol 0.05  [measured] restore half-time ln2/g
-PASS  ch:iama:pos:ud                     ch:iama:p6_08_iama:254  printed 3.5  recomputed 3.5413  tol 0.05  [measured] pooled within-type relative spread
-PASS  ch:iama:pos:hw                     ch:iama:p6_08_iama:255  printed 8.5  recomputed 8.45956  tol 0.05  [measured] band half-width, k=2, n=3
-PASS  ch:iama:pos:lo_hit                 ch:iama:p6_08_iama:256  printed 119  recomputed 119  tol 0.5  [measured] leave-one-out inside
-PASS  ch:iama:pos:lo_tot                 ch:iama:p6_08_iama:256  printed 126  recomputed 126  tol 0.5  [measured] leave-one-out total
-PASS  ch:iama:pos:rec_in                 ch:iama:p6_08_iama:257  printed 2  recomputed 2  tol 0.5  [measured] later libraries inside their band
-PASS  ch:iama:pos:rho_i                  ch:iama:p6_08_iama:260  printed -0.06  recomputed -0.0601504  tol 0.00500001  [measured] Spearman: position vs islands meter
+PASS  ch:iama:pos:min_val                ch:iama:p6_08_iama:223  printed 0.80  recomputed 0.804265  tol 0.00500001  [measured] lowest type position on the derived line
+PASS  ch:iama:pos:max_val                ch:iama:p6_08_iama:223  printed 1.17  recomputed 1.17132  tol 0.00500001  [measured] highest type position
 
-SUMMARY  PASS 4745  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4727  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

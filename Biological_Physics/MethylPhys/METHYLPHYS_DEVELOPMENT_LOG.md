@@ -6368,3 +6368,16 @@ Every reading now reports its state on band v2 beside band v1. Band v1 stays the
 Each sequencing Met-A reading now also gives A_derived_held: the disorder at the cell's held identity sites over the disorder expected
 at 1 - eps0, the held level derived from M alone, at each site's own read count. It is recorded beside A; the per-type reference stays the
 atlas's measured levels until each type's own position is derived. A planted library at the derived level reads 1.
+
+### 2026-11-17 · PHY-084, COM-IAMA-054: each cell type's healthy position on the derived line (joint run, full results)
+One button, full chain, one spent atlas library per GitHub job (GSE186458): 150 libraries, 56 cell types; readings with each job id in
+doors/data/DEV_CHAIN_Q2_01/joint_train/JOINT_TRAIN_READINGS.json. Each type's mean A on the derived line (intercept from M alone, measured slope):
+lowest 0.804 (erythrocyte progenitors), cortical neurons 0.895, naive CD4 T 0.932, highest 1.171 (t central memory cd4);
+in holding energy ln(highest/lowest) = 0.38 kT. Predictions written before the run, all met or decided: observed/expected loss runs median
+0.994 (independent losses); across types Spearman of position with coupling -0.32, with per-molecule loss spread -0.36
+(evenly worse, not a damaged minority), with firm-tile held error 0.45; loose/firm tile held error median 1.19 (mostly a
+whole-sample law). One strand fixes only g/f. Restore rate from the open Repli-BS time course (GSE82045, Charlton et al. 2018, human ESCs, held
+sites): g = 0.443 +/- 0.120 per hour, half-time 1.6 h. Per-type bands, GUM k = 2: within-type donor spread 3.5 %, forward
+model 1 %, copier lag 0.4 %, counting 0.1 %; about +/-8.5 % for three libraries; leave-one-out 119 of 126 inside; 2 of
+2 later libraries inside. Islands meter does not predict position (Spearman -0.06). Open: the between-laboratory term; what
+sets each type's position. Not yet in the chain code; the book carries a one-paragraph summary.

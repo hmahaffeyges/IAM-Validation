@@ -44737,13 +44737,6 @@ def _jt94():
     if not _JT94S: _JT94S.update(_jt_stats(_JT94))
     return _JT94S
 
-@check(label='ch:iama:pos:n_lib', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=223, status='measured', kind='num', printed='150', tol=0.0,
-       title='libraries in the joint run')
-def check_iama_pos_n_lib():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['n_lib'])
-    return locals()
-
 @check(label='ch:iama:pos:n_types', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=223, status='measured', kind='num', printed='56', tol=0.0,
        title='cell types in the joint run')
 def check_iama_pos_n_types():
@@ -44751,137 +44744,18 @@ def check_iama_pos_n_types():
     value = float(_jt94()['n_types'])
     return locals()
 
-@check(label='ch:iama:pos:min_val', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=228, status='measured', kind='num', printed='0.80', tol=0.0,
+@check(label='ch:iama:pos:min_val', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=223, status='measured', kind='num', printed='0.80', tol=0.0,
        title='lowest type position on the derived line')
 def check_iama_pos_min_val():
     'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
     value = float(_jt94()['min_val'])
     return locals()
 
-@check(label='ch:iama:pos:neur', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=229, status='measured', kind='num', printed='0.90', tol=0.0,
-       title="cortical neurons' position")
-def check_iama_pos_neur():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['neur'])
-    return locals()
-
-@check(label='ch:iama:pos:naive4', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=230, status='measured', kind='num', printed='0.93', tol=0.0,
-       title='naive CD4 T position')
-def check_iama_pos_naive4():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['naive4'])
-    return locals()
-
-@check(label='ch:iama:pos:max_val', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=231, status='measured', kind='num', printed='1.17', tol=0.0,
+@check(label='ch:iama:pos:max_val', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=223, status='measured', kind='num', printed='1.17', tol=0.0,
        title='highest type position')
 def check_iama_pos_max_val():
     'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
     value = float(_jt94()['max_val'])
-    return locals()
-
-@check(label='ch:iama:pos:dE', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=232, status='measured', kind='num', printed='0.38', tol=0.0,
-       title='spread in holding energy, ln(highest/lowest)')
-def check_iama_pos_dE():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['dE'])
-    return locals()
-
-@check(label='ch:iama:pos:run_med', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=237, status='measured', kind='num', printed='0.994', tol=0.0,
-       title='median observed/expected loss runs')
-def check_iama_pos_run_med():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['run_med'])
-    return locals()
-
-@check(label='ch:iama:pos:rho_c', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=238, status='measured', kind='num', printed='-0.32', tol=0.0,
-       title='Spearman: position vs coupling')
-def check_iama_pos_rho_c():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['rho_c'])
-    return locals()
-
-@check(label='ch:iama:pos:rho_d', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=239, status='measured', kind='num', printed='-0.36', tol=0.0,
-       title='Spearman: position vs loss spread')
-def check_iama_pos_rho_d():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['rho_d'])
-    return locals()
-
-@check(label='ch:iama:pos:rho_f', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=240, status='measured', kind='num', printed='0.45', tol=0.0,
-       title='Spearman: position vs firm-tile held error')
-def check_iama_pos_rho_f():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['rho_f'])
-    return locals()
-
-@check(label='ch:iama:pos:tile_med', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=241, status='measured', kind='num', printed='1.19', tol=0.0,
-       title='median loose/firm tile held error')
-def check_iama_pos_tile_med():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['tile_med'])
-    return locals()
-
-@check(label='ch:iama:pos:g', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=249, status='measured', kind='num', printed='0.443', tol=0.0,
-       title='restore rate g per hour (Repli-BS)')
-def check_iama_pos_g():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['g'])
-    return locals()
-
-@check(label='ch:iama:pos:gse', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=249, status='measured', kind='num', printed='0.120', tol=0.0,
-       title='standard error of g')
-def check_iama_pos_gse():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['gse'])
-    return locals()
-
-@check(label='ch:iama:pos:th', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=249, status='measured', kind='num', printed='1.6', tol=0.0,
-       title='restore half-time ln2/g')
-def check_iama_pos_th():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['th'])
-    return locals()
-
-@check(label='ch:iama:pos:ud', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=254, status='measured', kind='num', printed='3.5', tol=0.0,
-       title='pooled within-type relative spread')
-def check_iama_pos_ud():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['ud'])
-    return locals()
-
-@check(label='ch:iama:pos:hw', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=255, status='measured', kind='num', printed='8.5', tol=0.0,
-       title='band half-width, k=2, n=3')
-def check_iama_pos_hw():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['hw'])
-    return locals()
-
-@check(label='ch:iama:pos:lo_hit', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=256, status='measured', kind='num', printed='119', tol=0.0,
-       title='leave-one-out inside')
-def check_iama_pos_lo_hit():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['lo_hit'])
-    return locals()
-
-@check(label='ch:iama:pos:lo_tot', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=256, status='measured', kind='num', printed='126', tol=0.0,
-       title='leave-one-out total')
-def check_iama_pos_lo_tot():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['lo_tot'])
-    return locals()
-
-@check(label='ch:iama:pos:rec_in', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=257, status='measured', kind='num', printed='2', tol=0.0,
-       title='later libraries inside their band')
-def check_iama_pos_rec_in():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['rec_in'])
-    return locals()
-
-@check(label='ch:iama:pos:rho_i', chapter='ch:iama', part=6, file='part6/p6_08_iama', line=260, status='measured', kind='num', printed='-0.06', tol=0.0,
-       title='Spearman: position vs islands meter')
-def check_iama_pos_rho_i():
-    'sec:iama_positions: recomputed from joint_train/JOINT_TRAIN_READINGS.json (edit 094a).'
-    value = float(_jt94()['rho_i'])
     return locals()
 
 if __name__ == "__main__":
