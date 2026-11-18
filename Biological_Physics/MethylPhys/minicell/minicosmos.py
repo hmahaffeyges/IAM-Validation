@@ -18,6 +18,7 @@ exactly the IAM content. The background expansion itself is the established one 
 67.16, by the matter sector 72.26; canon locked results) are read, not refitted.
 
 SELF-TESTS (minicosmos_selftest() below): the numbers the canon's four-domains table prints for the cosmos row, recomputed here.
+ADDED 2026-11-18: the ledger's density identity and each sector's deceleration and acceleration onset (dark sector).
 ADDED 2026-11-15 (v0.1): matter's coupling as its own black-hole half, Lambda's own-horizon temperature, held/paid = 1/2 for settled surfaces,
 and a black-hole module (Hawking temperature, kappa R/c^2 = 1/2, the CMB balance mass): one simulator for the universe and its black holes,
 which the same nearest-surface reading treats as local surfaces inside the cosmic ledger.
@@ -62,7 +63,29 @@ def ledger(a=1.0, H0_kms=67.16, iam=True):
         out["held_per_paid"] = Sc.Reading(0.5, "IAM", ["settled_half"], "a settled area-law surface holds 1/2 of what it paid (T S against the integral of T dS)")
         out["held_per_inside"] = Sc.Reading(1.0, "IAM", ["settled_half"], "the cosmic horizon's T S over the energy inside (M_H c^2): 1, the canon's ratio; "
                                             f"inside energy {M_H * C ** 2:.3e} J is half of what was paid")
+        # 2026-11-18 (register R13; dark-sector spider DS1, GitHub run 44323118220): the ledger's density identity and the matter sector's own deceleration
+        V_H = 4 * math.pi / 3 * rA ** 3; S_geo = KB * math.pi * rA ** 2 / (G * HBAR / C ** 3)
+        out["ledger_density_ratio"] = Sc.Reading(float(out["T_H"]) * S_geo / V_H / (3 * H ** 2 / (8 * math.pi * G) * C ** 2), "established",
+                                                  note="T_H S_geo / V_H over rho_crit c^2 = 1 exactly: anything booked on the horizon ledger lands at the critical density")
+        out["q_matter"] = Sc.Reading(q_sector(a, matter=True), "IAM", ["virial_half"], "matter sector's own deceleration from H_m^2 = H_LCDM^2 + beta_m E(a) H0^2 "
+                                     "(the book's eq:Hm); light keeps LCDM's q (Sigma = 1)")
+        out["q_light"] = Sc.Reading(q_sector(a, matter=False), "established", note="flat LambdaCDM deceleration (the photon ruler)")
     return out
+
+def q_sector(a, matter=True):
+    """Deceleration q = -1 - d ln H / d ln a of one sector: light sees flat LambdaCDM; matter adds beta_m E(a) H0^2 (E(a) = exp(1 - 1/a), d ln E/d ln a = 1/a)."""
+    H2 = OMEGA_M * a ** -3 + (1 - OMEGA_M); dH2 = -3 * OMEGA_M * a ** -3
+    if matter: H2 += BETA_M * E_act(a); dH2 += BETA_M * E_act(a) / a
+    return -1 - 0.5 * dH2 / H2
+
+def onset_z(matter=True):
+    """Redshift where the sector's q crosses zero (bisection in a)."""
+    lo, hi = 0.2, 1.0
+    for _ in range(80):
+        m = (lo + hi) / 2
+        if q_sector(m, matter) > 0: lo = m
+        else: hi = m
+    return 1 / ((lo + hi) / 2) - 1
 
 def black_hole(M_kg):
     """2026-11-15 (register X1, X23): a Schwarzschild black hole priced at its own (Hawking) temperature. Established physics plus the settled_half
@@ -108,6 +131,9 @@ def minicosmos_selftest():
     chk("horizon membrane resistivity 376.73 ohm = free-space impedance (E38)", abs(float(B["membrane_ohm"]) - 376.73) < 0.01)
     chk("a 10 solar-mass hole is colder than the CMB", bool(B["colder_than_CMB"].value if hasattr(B["colder_than_CMB"], "value") else float(B["colder_than_CMB"])))
     chk("CMB balance mass about 4.5e22 kg (saturation chapter)", abs(M_CMB_BALANCE / 4.5e22 - 1) < 0.02)
+    chk("ledger density identity T_H S_geo / V_H = rho_crit c^2 (dark sector DS1)", abs(float(L["ledger_density_ratio"]) - 1) < 1e-9)
+    chk("matter-sector q today -0.6595 (dark sector; light -0.527)", abs(float(L["q_matter"]) + 0.6595) < 0.0005 and abs(float(L["q_light"]) + 0.5271) < 0.0005)
+    chk(f"acceleration onset: matter z {onset_z(True):.3f}, light z {onset_z(False):.3f} (dark sector 0.736, 0.631)", abs(onset_z(True) - 0.736) < 0.002 and abs(onset_z(False) - 0.631) < 0.002)
     print("ALL PASS" if ok else "SOME FAILED"); return ok
 
 if __name__ == "__main__":

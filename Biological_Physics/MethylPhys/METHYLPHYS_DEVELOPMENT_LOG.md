@@ -6484,3 +6484,8 @@ and calls a file a mixture when a second group holds more than 0.12: the floor i
 (0.112, GitHub run 44274975547), and a planted 100-million-molecule blood mixture is recovered within 0.02 per group (run 44275835821).
 When no cell was named and the file is a mixture, IAM-A is not read (MIXED_SAMPLE). Readings with a named cell, and IAM-A's arithmetic, are
 unchanged; no sorted library of the purity check crosses the floor.
+
+### 2026-11-18 · PHY-078: cosmos simulator gains the ledger's density identity and each sector's deceleration
+The horizon ledger's density identity (T_H S / V equals the critical density exactly) and the matter sector's own deceleration from the
+book's matter-sector Friedmann equation: today -0.6595 against light's -0.527, with acceleration onsets at z 0.736 and 0.631. Checked in the
+simulator's self-test; the dark-sector checks behind them passed on GitHub. No existing reading changed.
