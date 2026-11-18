@@ -39,14 +39,21 @@ U = P_ @ np.diag(np.exp(-1j * 0.05 * w_)) @ P_.conj().T
 psi0 = rng.normal(size=3) + 1j * rng.normal(size=3); psi0 /= np.linalg.norm(psi0)
 objs["qutrit"] = (lambda s: U @ s, lambda s: U.conj().T @ s, psi0)
 for name, (fwd, bwd, x0) in objs.items():
-    X = run(fwd, bwd, x0)
     vec = (lambda s: np.sqrt(np.abs(s) ** 2)) if name == "qutrit" else (lambda s: s)
+    X = run(fwd, bwd, x0)
     V = np.array([vec(x) for x in X]); K = np.array([koide(v) for v in V])
-    rlo, rhi = K[:, 0].min() * 0.99, K[:, 0].max() * 1.01
+    rlo, rhi = K[:, 0].min() * 0.987, K[:, 0].max() * 1.019   # off-centre: a conserved scale must not sit on a bin edge (2026-11-18 fix)
     recK = [(q(r, rlo, rhi), q(Qv, 1 / 3, 1)) for r, Qv, _ in K]
     recP = [(a, b, q(d, -np.pi, np.pi)) for (a, b), (_, _, d) in zip(recK, K)]
-    # (a) bits lost per write: delta is uniform over its 2^B bins given the Koide record
-    lostK = float(B); lostP = 0.0
+    # (a) bits lost per write, MEASURED (2026-11-18 fix; was set by construction): H(delta bin | Koide record) over 200,000 random states, 4 bits per number
+    from collections import Counter as _C, defaultdict as _D
+    _g = _D(_C); _B4 = 4; _q4 = lambda x, lo, hi: int(np.clip((x - lo) / (hi - lo) * 2 ** _B4, 0, 2 ** _B4 - 1))
+    for _ in range(200000):
+        if name == 'qutrit': _s = rng.normal(size=3) + 1j * rng.normal(size=3); _s /= np.linalg.norm(_s)
+        else: _s = np.abs(rng.normal(size=3)); _s /= np.linalg.norm(_s); _s *= rng.uniform(0.5, 2.0)
+        _r, _Q, _d = koide(vec(_s)); _g[(_q4(_r, 0.0, 2.1), _q4(_Q, 1 / 3, 1))][_q4(_d, -np.pi, np.pi)] += 1
+    _n = sum(sum(c.values()) for c in _g.values())
+    lostK = float(-sum(v / _n * np.log2(v / sum(c.values())) for c in _g.values() for v in c.values())); lostP = 0.0
     # (b) rewind from the record at t: sample the states the record allows, run each back one tick
     spreadK, spreadP = [], []
     for t in range(1, NT):
@@ -70,6 +77,7 @@ for name, (fwd, bwd, x0) in objs.items():
     for _ in range(NT): Xr.append(bwd(Xr[-1]))
     Kr = [koide(vec(x)) for x in Xr]; recKr = [(q(r, rlo, rhi), q(Qv, 1 / 3, 1)) for r, Qv, _ in Kr]
     sym = float(np.mean([a == b for a, b in zip(recKr, recK[::-1])]))
+    sym_state = float(np.mean([np.allclose(x, y, atol=1e-9) for x, y in zip(Xr, X[::-1])]))   # the rewind itself, at full precision
     # (d) finite tile: one record kept, overwritten each tick; H(R_t-1 | R_t) over an ensemble of 20,000 random starts, records at 4 bits per number
     from collections import Counter, defaultdict
     B4 = 4; qq = lambda x, lo, hi: int(np.clip((x - lo) / (hi - lo) * 2 ** B4, 0, 2 ** B4 - 1)); pairs = defaultdict(Counter)
@@ -82,6 +90,6 @@ for name, (fwd, bwd, x0) in objs.items():
     Hc = -sum(cnt / n * np.log2(cnt / sum(c.values())) for c in pairs.values() for cnt in c.values())
     out[name] = dict(bits_lost_per_write_koide=lostK, bits_lost_per_write_with_phase=lostP,
                      rewind_spread_Q_koide=float(np.median(spreadK)), rewind_spread_Q_with_phase=float(np.median(spreadP)),
-                     record_time_symmetric_share=sym, overwrite_bits_lost_per_tick=float(Hc), distinct_records=len(set(recK)), Q_range=[float(K[:, 1].min()), float(K[:, 1].max())])
+                     record_time_symmetric_share=sym, rewind_state_match_share=sym_state, bits_lost_resolution='4 bits per number (of 4 possible for delta)', overwrite_bits_lost_per_tick=float(Hc), distinct_records=len(set(recK)), Q_range=[float(K[:, 1].min()), float(K[:, 1].max())])
     print("::notice::KR1 " + name + ": " + json.dumps(out[name]))
 os.makedirs("xout", exist_ok=True); json.dump(out, open("xout/kr1.json", "w"), indent=1)
