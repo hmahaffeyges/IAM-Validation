@@ -6387,3 +6387,8 @@ IAM-A's default line is pinned to v1 by version (it was the newest file, a risk 
 only when the line, band and shape reference match the commissioned files' checksums; the refusal for a cell with no IAM-A shape reference no longer
 names Stage Q0; the frozen-inputs list and the SOP gain derived_line_v1, band_v2, the clock sites and the sites key; the Decoder's statements the
 chain audit found wrong are corrected. A planted CD8 count reads the same A, line and label before and after.
+
+### 2026-11-17 · PHY-084, PHY-091, PHY-093: chain overhaul step 2a (the report shows what the count makes; no reading changes)
+The report's IAM-A section prints, beside A, the reading on the derived line with its band v2 state (in commissioning) or why it is not given; a new
+section shows how the losses are laid out along the molecules (run lengths, the line tile by tile, the spread over molecules, the islands meter, the clock
+sites), information only. Met-A's held-site score is held back until its null test on healthy libraries is read. Tested on a joint-run bundle (GSM5652348).

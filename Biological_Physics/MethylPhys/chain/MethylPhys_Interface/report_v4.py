@@ -176,7 +176,48 @@ def _iama(o):
             f"{q.get('predicted')} predicted by this sample's own loose share ({q.get('loose_share')}). No outside reference is used: the sample is read against itself.</p>"
             + (f"<p>Counting: {(q.get('counting') or {}).get('opportunities', 0):,} held-error chances counted; from counting alone A lies within "
                f"{q['counting']['A_95'][0]:.3f} to {q['counting']['A_95'][1]:.3f} (95 %), {100 * q['counting']['share_of_band_width']:.0f} % of the Normal band's width.</p>"
-               if (q.get("counting") or {}).get("A_95") else ""))
+               if (q.get("counting") or {}).get("A_95") else "")
+            + _iama_derived(q))
+
+
+def _iama_derived(q):
+    """IAM-A on the derived line, beside A (overhaul E2a): the held error over the line whose intercept comes from M alone, read through this counter
+    at the sample's own clustering, with the measured slope; its state on band v2, which is in commissioning. Or the reason it is not given."""
+    if q.get("A") is None: return ""
+    if q.get("A_derived") is None:
+        why = ("an aligned BAM count does not carry the clustering the derived line is read at" if "bam" in str(q.get("input", "")).lower()
+               else "this sample's clustering lies outside the range of the derived line's table")
+        return f"<p>{chip('in commissioning')} On the derived line: not given ({E(why)}).</p>"
+    bd = q.get("band_derived") or {}
+    return (f"<p>{chip('in commissioning')} On the derived line: <b>{q['A_derived']:.3f}</b>, "
+            + (f"{E(str(q.get('state_derived')))} (band v2, {bd['lo']:.3f} to {bd['hi']:.3f}). " if q.get("state_derived") and bd.get("lo") is not None else "")
+            + f"Held error {q.get('held_err')} against {q.get('predicted_derived')} predicted by the line whose intercept comes from M alone, read at this "
+              "sample's own clustering, with the measured slope. A above stays the reading; this one is shown beside it while its band is in commissioning.</p>")
+
+
+def _layout(o):
+    """How the losses are laid out along the molecules (overhaul E2a): values the count already makes, shown for information; no judgment uses them."""
+    q = o.get("iam_a") or {}; c = q.get("count") or {}; st = q.get("sites") or {}
+    if not c or q.get("stage") != "Q2": return ""
+    R = []
+    if c.get("loss_run_ratio") is not None:
+        lr = c.get("loss_runs") or {}; ob, ex = lr.get("obs") or {}, lr.get("exp") or {}
+        R.append(("Run lengths", f"{c['loss_run_ratio']:.3f}", "lost marks in runs, against runs of independent losses (1: independent)"
+                  + (f"; runs of two {ob.get('2', 0):,} seen, {ex.get('2', 0):,.0f} expected" if ob else "")))
+    if c.get("held_err_firm_tiles") is not None and c.get("held_err_loose_tiles") is not None:
+        tn = c.get("tile_line_n") or {}
+        R.append(("The line, tile by tile", f"{c['held_err_firm_tiles']:.4f} / {c['held_err_loose_tiles']:.4f}",
+                  f"held error in firm and in loose tiles ({tn.get('firm', 0):,} and {tn.get('loose', 0):,} tiles)"))
+    if c.get("loss_dispersion") is not None:
+        R.append(("Spread over molecules", f"{c['loss_dispersion']:.3f}", f"variance of losses per molecule over the counting variance ({c.get('loss_dispersion_molecules') or 0:,} molecules; 1: losses spread evenly)"))
+    for k, lab in (("islands", "Islands meter"), ("epitoc2", "Clock sites")):
+        x = st.get(k) or {}
+        if x.get("gain_err") is not None:
+            R.append((lab, f"{x['gain_err']:.4f}", f"stray marks at sites kept unmarked ({x.get('gain_opp', 0):,} chances); held error {x.get('held_err') if x.get('held_err') is not None else '-'} ({x.get('held_opp', 0):,} chances)"))
+    if not R: return ""
+    h = "<h2 id='v4-layout'>How the losses are laid out along the molecules</h2>"
+    return (h + f"<p>{chip('in development')} Shown for information; no state above uses them.</p><table><tr><th>Reading</th><th>Value</th><th>What it is</th></tr>"
+            + "".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(d)}</td></tr>" for a, b, d in R) + "</table>")
 
 
 def _coupling(o):
@@ -377,7 +418,8 @@ def detail_tables(o):
               "Each asks the same question of a different map: scattered departures read near 1; departures that run along the genome read higher.", ["C-Score", "Value", "Note", "Status"], cr, ""))
     T.append(("v4-iama", "IAM-A: is each mark still held, against the sample's own reference",
               "Single molecules only: the share of marks left unwritten between written neighbors, against what this sample's own loose share predicts. No other person is needed.",
-              ["Reading", "Value", "State"], [["A", _f(q.get("A")), str(q.get("state") or "")]] if q.get("A") is not None else [],
+              ["Reading", "Value", "State"], ([["A", _f(q.get("A")), str(q.get("state") or "")]]
+                                             + ([["A on the derived line (in commissioning)", _f(q.get("A_derived")), str(q.get("state_derived") or "")]] if q.get("A_derived") is not None else [])) if q.get("A") is not None else [],
               ("commissioned on healthy CD8 T cells" if q.get("commissioning") else DEV) + "." if q.get("A") is not None else ("Not read: " + str(q.get("refusal")) + "." if q else "Not run: this sample has no sequencing input (arrays carry no single molecules).")))
     ga = o.get("group_a") or {}
     T.append(("v4-groupa", "Group-A: this person's group against its healthy group",
@@ -441,7 +483,7 @@ def build(o, out, sid):
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
              "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
-             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), _coupling(o), "</div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), _layout(o), _coupling(o), "</div>",
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))

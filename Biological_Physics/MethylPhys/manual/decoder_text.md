@@ -70,8 +70,8 @@ the chain reads comes from that one statement; everything else in the chain is s
 - **The healthy band on the derived line.** Where A_derived exists the reading also gives state_derived: A_derived against band v2
   (Runtime Matrices/IAM_A_SelfRef/band_v2.json), the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by the one
   button, by the same rule as band v1. Band v1 on the measured line stays the default and keeps its commissioning record; band v2 is in
-  commissioning, because the libraries that set it also set the line. A_derived and state_derived are written to the bundle only; the report
-  does not print them yet. Readings from an aligned BAM get neither (the BAM count has no clustering).
+  commissioning, because the libraries that set it also set the line. The report prints A_derived and state_derived beside A, marked in commissioning
+  (report_v4._iama_derived). Readings from an aligned BAM get neither (the BAM count has no clustering), and the report says so.
 - **Met-A sequencing at held sites, against the derived level.** Each sequencing Met-A reading also gives A_derived_held: the library's
   disorder over the cell's held identity sites (atlas level at least 0.80) over the disorder of 1 - eps0 ({{canon:eps0_candidate:.4f}}, the held
   error from M alone) at each site's own read count. It sits beside A; the per-type reference stays measured, because each type's own
@@ -2720,6 +2720,16 @@ The C-Score section: its bar, its sky and the overlay.
 
 ### report_v4.py::_iama
 The IAM-A section: its gauge, or the refusal.
+
+### report_v4.py::_iama_derived
+IAM-A on the derived line, printed beside A in the IAM-A section and marked in commissioning: A_derived, its state on band v2, and the
+held error against the derived prediction; where it is not given, the reason (a BAM count, or clustering outside the derived line's table).
+A and its state are unchanged.
+
+### report_v4.py::_layout
+The section 'How the losses are laid out along the molecules': run lengths (loss_run_ratio, with runs of two seen and expected), the line tile
+by tile (held error in firm and loose tiles), the spread over molecules (loss_dispersion), and the islands meter and clock sites (iam_a.sites).
+Information only: no state uses them. Met-A's held-site score is not printed until its null test on healthy libraries is read.
 
 ### report_v4.py::_figs
 Draws this sample's gauge and C-Score pictures beside the report.

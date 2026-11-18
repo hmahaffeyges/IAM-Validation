@@ -2105,7 +2105,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 461,
+   "lines": 503,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2359,11 +2359,11 @@
      "function": "_iama",
      "name": "_iama",
      "line": 167,
-     "end": 179,
+     "end": 180,
      "args": [
       "o"
      ],
-     "lines": 13,
+     "lines": 14,
      "doc": "",
      "constants": [
       "E"
@@ -2376,10 +2376,44 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_iama_derived",
+     "name": "_iama_derived",
+     "line": 183,
+     "end": 195,
+     "args": [
+      "q"
+     ],
+     "lines": 13,
+     "doc": "IAM-A on the derived line, beside A (overhaul E2a): the held error over the line whose intercept comes from M alone, read through this counter at the sample's own clustering, with the measured slope; its state on band v2, which is in commissioning. Or the reason it is not given.",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_layout",
+     "name": "_layout",
+     "line": 198,
+     "end": 220,
+     "args": [
+      "o"
+     ],
+     "lines": 23,
+     "doc": "How the losses are laid out along the molecules (overhaul E2a): values the count already makes, shown for information; no judgment uses them.",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
      "function": "_coupling",
      "name": "_coupling",
-     "line": 182,
-     "end": 192,
+     "line": 223,
+     "end": 233,
      "args": [
       "o"
      ],
@@ -2395,8 +2429,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 194,
-     "end": 215,
+     "line": 235,
+     "end": 256,
      "args": [
       "o",
       "base"
@@ -2414,8 +2448,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 221,
-     "end": 226,
+     "line": 262,
+     "end": 267,
      "args": [
       "o"
      ],
@@ -2435,8 +2469,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 228,
-     "end": 259,
+     "line": 269,
+     "end": 300,
      "args": [
       "o"
      ],
@@ -2455,8 +2489,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 265,
-     "end": 272,
+     "line": 306,
+     "end": 313,
      "args": [
       "o"
      ],
@@ -2474,8 +2508,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 274,
-     "end": 292,
+     "line": 315,
+     "end": 333,
      "args": [
       "o",
       "F"
@@ -2495,8 +2529,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_fam_of",
      "name": "_fam_of",
-     "line": 299,
-     "end": 303,
+     "line": 340,
+     "end": 344,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -2508,8 +2542,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_f",
      "name": "_f",
-     "line": 304,
-     "end": 304,
+     "line": 345,
+     "end": 345,
      "args": [
       "v",
       "d"
@@ -2524,12 +2558,12 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables",
      "name": "detail_tables",
-     "line": 307,
-     "end": 399,
+     "line": 348,
+     "end": 441,
      "args": [
       "o"
      ],
-     "lines": 93,
+     "lines": 94,
      "doc": "[(id, title, intro, header, rows, note)] - plain text cells; one per instrument, in the order the chain reads them.",
      "constants": [
       "BLOOD_FAMILIES",
@@ -2542,8 +2576,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables._cl",
      "name": "_cl",
-     "line": 356,
-     "end": 357,
+     "line": 397,
+     "end": 398,
      "args": [
       "name",
       "A",
@@ -2559,8 +2593,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "report_text",
      "name": "report_text",
-     "line": 405,
-     "end": 408,
+     "line": 447,
+     "end": 450,
      "args": [],
      "lines": 4,
      "doc": "The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file).",
@@ -2577,8 +2611,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "explain",
      "name": "explain",
-     "line": 409,
-     "end": 412,
+     "line": 451,
+     "end": 454,
      "args": [
       "sec"
      ],
@@ -2594,8 +2628,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_explain_html",
      "name": "_explain_html",
-     "line": 413,
-     "end": 415,
+     "line": 455,
+     "end": 457,
      "args": [
       "sec"
      ],
@@ -2611,8 +2645,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_intro_html",
      "name": "_intro_html",
-     "line": 416,
-     "end": 418,
+     "line": 458,
+     "end": 460,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2626,8 +2660,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 420,
-     "end": 427,
+     "line": 462,
+     "end": 469,
      "args": [
       "o"
      ],
@@ -2643,8 +2677,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 429,
-     "end": 460,
+     "line": 471,
+     "end": 502,
      "args": [
       "o",
       "out",
@@ -10934,5 +10968,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 560
+ "n_functions": 562
 }

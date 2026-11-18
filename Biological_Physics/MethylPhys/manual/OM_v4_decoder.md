@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **560 functions** (nested ones included); 560 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **562 functions** (nested ones included); 562 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -47,7 +47,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 321 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 102 | 7 | 3 | 0 |
-| `MethylPhys_Interface/report_v4.py` | 461 | 30 | 17 | 17 |
+| `MethylPhys_Interface/report_v4.py` | 503 | 32 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
@@ -278,8 +278,8 @@ the chain reads comes from that one statement; everything else in the chain is s
 - **The healthy band on the derived line.** Where A_derived exists the reading also gives state_derived: A_derived against band v2
   (Runtime Matrices/IAM_A_SelfRef/band_v2.json), the 2.5th to 97.5th percentile of A_derived over the healthy atlas libraries read by the one
   button, by the same rule as band v1. Band v1 on the measured line stays the default and keeps its commissioning record; band v2 is in
-  commissioning, because the libraries that set it also set the line. A_derived and state_derived are written to the bundle only; the report
-  does not print them yet. Readings from an aligned BAM get neither (the BAM count has no clustering).
+  commissioning, because the libraries that set it also set the line. The report prints A_derived and state_derived beside A, marked in commissioning
+  (report_v4._iama_derived). Readings from an aligned BAM get neither (the BAM count has no clustering), and the report says so.
 - **Met-A sequencing at held sites, against the derived level.** Each sequencing Met-A reading also gives A_derived_held: the library's
   disorder over the cell's held identity sites (atlas level at least 0.80) over the disorder of 1 - eps0 (0.0445, the held
   error from M alone) at each site's own read count. It sits beside A; the per-type reference stays measured, because each type's own
@@ -3641,19 +3641,35 @@ The C-Score section: its bar, its sky and the overlay.
 
 The IAM-A section: its gauge, or the refusal.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 167 (13 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 167 (14 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`
+
+### `report_v4.py::_iama_derived`
+
+IAM-A on the derived line, printed beside A in the IAM-A section and marked in commissioning: A_derived, its state on band v2, and the
+held error against the derived prediction; where it is not given, the reason (a BAM count, or clustering outside the derived line's table).
+A and its state are unchanged.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 183 (13 lines) · arguments: q · calls: not called on the traced runs · constants read: `E`
+
+### `report_v4.py::_layout`
+
+The section 'How the losses are laid out along the molecules': run lengths (loss_run_ratio, with runs of two seen and expected), the line tile
+by tile (held error in firm and loose tiles), the spread over molecules (loss_dispersion), and the islands meter and clock sites (iam_a.sites).
+Information only: no state uses them. Met-A's held-site score is not printed until its null test on healthy libraries is read.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 198 (23 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
 
 ### `report_v4.py::_figs`
 
 Draws this sample's gauge and C-Score pictures beside the report.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 194 (22 lines) · arguments: o, base · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/report_v4.py` line 235 (22 lines) · arguments: o, base · calls: array run 1, bam run 1
 
 ### `report_v4.py::_physics`
 
 The physics section as HTML.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 221 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
+*Code:* `MethylPhys_Interface/report_v4.py` line 262 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
 
 ### `report_v4.py::physics_rows`
 
@@ -3663,25 +3679,25 @@ what healthy 1 is on this run (the median of the same-run references, or the com
 the reading in bits per site. The C-Score: the clustering ratio and its band. The 0.330263 bits per site it prints is typed in this
 function rather than read from `metA_floors_v1_3.json` (a fix on the Decoder's list).
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 228 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 269 (32 lines) · arguments: o · calls: array run 2, bam run 2 · constants read: `E`
 
 ### `report_v4.py::_skypair`
 
 The overlay of the sample on its healthy reference, with how sure the healthy reference is at those sites.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 265 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
+*Code:* `MethylPhys_Interface/report_v4.py` line 306 (8 lines) · arguments: o · calls: array run 1 · constants read: `SKY_CAP`
 
 ### `report_v4.py::_plain`
 
 The plain view: one gauge and one sentence per reading.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 274 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 315 (19 lines) · arguments: o, F · calls: array run 1, bam run 1 · constants read: `E`
 
 ### `report_v4.py::build`
 
 Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 429 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 471 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
 
 ### `report_v3.py::_gauge`
 
@@ -4467,43 +4483,43 @@ flagged on arrays and sequencing (INSTRUMENTS.md, In development).
 
 Each atlas cell type's family (stage_info_sphere.FAMILIES), for the report's unexpected-cell note.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 299 (5 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_v4.py` line 340 (5 lines) · arguments: none · calls: not called on the traced runs
 
 ### `report_v4.py::detail_tables`
 
 The one source of the report's instrument sections, drawn by the HTML report and the researcher PDF alike: for each instrument (atlas and ruler, unexpected cells, Met-A whole sample, Met-A for each cell, commissioned Met-A, territories, the four C-Scores, IAM-A, Group-A, the globe, the information sphere) a title, what it reads, a table, and a note that says the state or why it did not fire. Every instrument always appears.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 307 (93 lines) · arguments: o · calls: not called on the traced runs · constants read: `BLOOD_FAMILIES`, `DEV`
+*Code:* `MethylPhys_Interface/report_v4.py` line 348 (94 lines) · arguments: o · calls: not called on the traced runs · constants read: `BLOOD_FAMILIES`, `DEV`
 
 ### `report_v4.py::_f`
 
 Prints a number to a fixed number of decimals, or the value as text.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 304 (1 lines) · arguments: v, d · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_v4.py` line 345 (1 lines) · arguments: v, d · calls: not called on the traced runs
 
 ### `report_v4.py::report_text`
 
 Loads the report's explanations from Runtime Matrices/Report/report_text.json, which CANON/report_text.py generates from CANON/catalogue.json (the one source); read once per run.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 405 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `REPORT_TEXT`, `_RT` · files named: `generated from CANON/catalogue.json`
+*Code:* `MethylPhys_Interface/report_v4.py` line 447 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `REPORT_TEXT`, `_RT` · files named: `generated from CANON/catalogue.json`
 
 ### `report_v4.py::explain`
 
 The explanation of one report section as (label, text) pairs, in a fixed order: what it measures, where it comes from, what it is compared to, the physics, why it matters, the link to the sky where there is one, and its status.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 409 (4 lines) · arguments: sec · calls: not called on the traced runs · constants read: `EXPLAIN_LABELS`
+*Code:* `MethylPhys_Interface/report_v4.py` line 451 (4 lines) · arguments: sec · calls: not called on the traced runs · constants read: `EXPLAIN_LABELS`
 
 ### `report_v4.py::_explain_html`
 
 Draws one section's explanation as a shaded block under its table in the HTML report.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 413 (3 lines) · arguments: sec · calls: not called on the traced runs · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 455 (3 lines) · arguments: sec · calls: not called on the traced runs · constants read: `E`
 
 ### `report_v4.py::_intro_html`
 
 Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, the methods' origin in sky mapping, and what each status means) from the same source.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 416 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 458 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `E`
 
 ### `report_pdf_v4.py::_explain`
 
@@ -4515,13 +4531,13 @@ Draws one section's explanation in the researcher PDF, from the same source as t
 
 Adds one row to the distance-to-the-ceiling table for a reading that carries its ceiling record: the reading, its saturation, its distance to the ceiling, its turnover share, and whether its methylated sites have passed 0.5.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 356 (2 lines) · arguments: name, A, c · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_v4.py` line 397 (2 lines) · arguments: name, A, c · calls: not called on the traced runs
 
 ### `report_v4.py::_sections_v5`
 
 All the new sections in their order, after the cell shares.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 420 (8 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 462 (8 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
 
 ### `stage_t_selftare.py::ruler_map`
 
@@ -5452,7 +5468,7 @@ run), both counted. Output `coupling_a`: A, healthy, floor, ceiling, band, state
 The report's nearest-neighbor coupling section: coupling-A's state and Normal band beside the healthy coupling of the sample's cell,
 flagged in development, with its gauge; without a reference, the coupling and the reason it has no gauge position.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 182 (11 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 223 (11 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
 
 ### `stage_coupling.py::reference`
 
