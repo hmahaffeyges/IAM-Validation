@@ -492,6 +492,18 @@ the one button, by the same rule as band v1.
 **Status and open parts:** In commissioning: the libraries that set it also set the line (a rehearsal reference). One pooled band; each
 type's own position is in development.
 
+#### Input: Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz
+
+**What it is:** each hg19 CpG's constitutive replication timing (the mean of the 15 ENCODE UW Repli-seq wavelet signals at the CpG), cut into
+early, mid and late thirds by CpG, stored as runs of the CpG index. Built on GitHub from the public tracks by edit 153.
+
+**How the chain uses it:** `stage_q2_selfref.count_pat_timing` counts Stage Q2's held and gain errors by the third of each molecule's first CpG,
+by `count_pat_sites`' rules; every sequencing reading records the counts under `iam_a.sites.timing`. It never changes a reading.
+Frozen (FROZEN_INPUTS_v4.json).
+
+**Status and open parts:** Development (register A8L2, the location test): does the spread of held error between cell types live in
+late-copied DNA? The timing is from cell lines, not each type's own.
+
 #### Input: Runtime Matrices/IAM_A_SelfRef/band_v1.json
 
 **Kind:** measured

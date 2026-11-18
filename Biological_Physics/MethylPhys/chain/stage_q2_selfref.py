@@ -295,6 +295,34 @@ def count_pat_sites(lines, sites):
     return dict(held_iso=int(e_iso), held_opp=int(e_opp), held_err=(e_iso / e_opp if e_opp else None),
                 gain_iso=int(g_iso), gain_opp=int(g_opp), gain_err=(g_iso / g_opp if g_opp else None), n_sites=len(S))
 
+def timing_runs(path=None):
+    """2026-11-18 (register A8L2): the frozen replication-timing thirds (Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz):
+    run starts on the CpG index and each run's label (0 no timing value, 1 early, 2 mid, 3 late)."""
+    import numpy as _np
+    path = path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Replication_Timing", "hg19_cpg_timing_thirds_v1.npz")
+    z = _np.load(path); return z["starts"].tolist(), z["labels"].tolist(), [float(x) for x in z["cuts"]]
+
+def count_pat_timing(lines, starts, labels):
+    """2026-11-18 (register A8L2): Stage Q2's held and gain counts by the replication-timing third of each molecule's first CpG (the rule of
+    DEV-METHIONINE-01's lag_split.py), by count_pat_sites' own rules: the same split (odd lines), the same molecule classes from ALL their calls,
+    the same isolated error at interior calls. Returns {early, mid, late: counts}; molecules whose first CpG has no timing value are counted as 'none'."""
+    import bisect as _b
+    names = {1: "early", 2: "mid", 3: "late"}; acc = {k: [0, 0, 0, 0, 0] for k in ("early", "mid", "late", "none")}
+    for k, line in enumerate(lines):
+        if k % 2 == 0: continue
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        i, pat, n = int(p[1]), p[2], int(p[3])
+        j = _b.bisect_right(starts, i) - 1; lab = names.get(labels[j] if j >= 0 else 0, "none"); A = acc[lab]; A[4] += n
+        s_ = [x for x in pat if x != "."]
+        if len(s_) < QUAL_MIN_CALLS: continue
+        f = s_.count("C") / len(s_)
+        for q in range(1, len(s_) - 1):
+            if f >= QUAL_MIN_METH: A[1] += n; A[0] += n * (s_[q] == "T" and s_[q - 1] == "C" and s_[q + 1] == "C")
+            elif f <= QUAL_MAX_METH: A[3] += n; A[2] += n * (s_[q] == "C" and s_[q - 1] == "T" and s_[q + 1] == "T")
+    return {k: dict(held_iso=int(v[0]), held_opp=int(v[1]), held_err=(v[0] / v[1] if v[1] else None), gain_iso=int(v[2]), gain_opp=int(v[3]),
+                    gain_err=(v[2] / v[3] if v[3] else None), molecules=int(v[4])) for k, v in acc.items()}
+
 def count_pat_site_classes(lines, groups):
     """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 3): every call at given sites, by group (groups: site index -> label, e.g. the cell's
     held and held-absent identity sites), split by the molecule's class from ALL its calls, Stage Q2's own rules: held (marked share at least

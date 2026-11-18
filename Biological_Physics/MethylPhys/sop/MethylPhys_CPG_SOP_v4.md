@@ -245,6 +245,7 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | `Runtime Matrices/IAM_A_SelfRef/band_v2.json` | `1bbb799403581d0e…` |
 | `Runtime Matrices/IAM_A_SelfRef/derived_line_v1.json` | `8800b4e2a6599339…` |
 | `Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json` | `540157559b9e27bb…` |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz` | `f4a4835c8ff23dc7…` |
 | `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json` | `41470faf73551699…` |
 | `Runtime Matrices/Intake/intake_thresholds_v1.json` | `58f7e6073e8f2a5c…` |
 | `Runtime Matrices/Intake/intake_thresholds_v2.json` | `c0941e5a58d2f95f…` |
