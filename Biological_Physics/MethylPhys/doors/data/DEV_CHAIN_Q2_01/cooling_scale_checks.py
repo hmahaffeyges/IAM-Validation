@@ -1,5 +1,5 @@
 import subprocess as _sp, sys as _sy
-_sp.run([_sy.executable, '-m', 'pip', 'install', '-q', 'sympy', 'numpy', 'scipy', 'mpmath'], check=True)
+_sp.run([_sy.executable, '-m', 'pip', 'install', '-q', 'sympy', 'numpy', 'scipy', 'mpmath', 'colossus'], check=True)
 import numpy as _np
 if not hasattr(_np, 'trapezoid'): _np.trapezoid = _np.trapz
 """cooling_scale_checks.py  (2026-11-18, derivation spider, private)
