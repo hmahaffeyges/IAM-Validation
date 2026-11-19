@@ -255,6 +255,9 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | `Runtime Matrices/Met_A_Floors/noise_gate_EPIC_v1.json` | `825f64f7b6c7077a…` |
 | `Runtime Matrices/Met_A_Floors/noise_sites_EPIC_v1.json` | `3531561783261c57…` |
 | `Runtime Matrices/Met_A_Widths/donor_widths_v1.json` | `c8e0231f6ef3f907…` |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_blood_v1.npz` | `84a6abdbf58292dd…` |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_endothelial_v1.npz` | `13372eebfa63d773…` |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_epithelial_v1.npz` | `2454f24260d0717d…` |
 | `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz` | `f4a4835c8ff23dc7…` |
 | `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json` | `652906dff10a0c33…` |
 

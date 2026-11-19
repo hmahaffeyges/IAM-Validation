@@ -492,6 +492,16 @@ the one button, by the same rule as band v1.
 **Status and open parts:** In commissioning: the libraries that set it also set the line (a rehearsal reference). One pooled band; each
 type's own position is in development.
 
+#### Input: Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_{blood,endothelial,epithelial}_v1.npz
+
+**What they are:** the same CpG timing thirds as hg19_cpg_timing_thirds_v1.npz, each built from one family's own ENCODE UW Repli-seq lines:
+blood (GM06990, GM12801, GM12812, GM12813, GM12878, K562), endothelial (HUVEC), epithelial (NHEK, MCF-7, HeLa-S3, HepG2). Built on GitHub by edit 157.
+
+**How the chain uses them:** `stage_q2_selfref.count_pat_timing_sets` counts Stage Q2's held and gain errors by each family's thirds in one pass;
+every sequencing reading records them under `iam_a.sites.timing_by_family`. They never change a reading. Frozen (FROZEN_INPUTS_v4.json).
+
+**Status and open parts:** Development (register A8, exploration): does the late excess of immune and endothelial types survive their own timing?
+
 #### Input: Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz
 
 **What it is:** each hg19 CpG's constitutive replication timing (the mean of the 15 ENCODE UW Repli-seq wavelet signals at the CpG), cut into
@@ -2352,6 +2362,10 @@ Every call at a set of sites, grouped (for Met-A: the cell's held and held-absen
 ### stage_q2_selfref.py::timing_runs
 Loads the frozen replication-timing thirds (Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz): the CpG index where each run
 starts, its label (0 no timing value, 1 early, 2 mid, 3 late) and the two cuts. Development (register A8L2).
+
+### stage_q2_selfref.py::count_pat_timing_sets
+count_pat_timing for several timing references in one pass over the molecule file (the 15-line mean and each family's own lines); the same rules.
+Recorded under iam_a.sites.timing_by_family; never changes a reading. Development (register A8).
 
 ### stage_q2_selfref.py::count_pat_timing
 Stage Q2's held and gain counts by the replication-timing third of each molecule's first CpG, by count_pat_sites' own rules (odd lines, molecule

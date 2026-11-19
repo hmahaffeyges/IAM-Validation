@@ -601,6 +601,14 @@ def _site_counts(pat):
         out["timing"] = dict(sites="replication-timing thirds of each molecule's first CpG (15 ENCODE UW Repli-seq tracks; register A8L2)", cuts=_cuts, **_tc)
     except Exception as e:
         out["timing"] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
+    try:   # 2026-11-18 (register A8, A8L2T EXPLORATION): the same counts by each family's own timing lines (blood, endothelial, epithelial)
+        _D = os.path.join(os.path.dirname(os.path.abspath(_Q2s.__file__)), "Runtime Matrices", "Replication_Timing")
+        _sets = {}
+        for _f in ("blood", "endothelial", "epithelial"):
+            _a, _b2, _c = _Q2s.timing_runs(os.path.join(_D, f"hg19_cpg_timing_thirds_{_f}_v1.npz")); _sets[_f] = (_a, _b2)
+        with (_gz.open if str(pat).endswith(".gz") else open)(pat, "rt") as fh: out["timing_by_family"] = _Q2s.count_pat_timing_sets(fh, _sets)
+    except Exception as e:
+        out["timing_by_family"] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
     return out
 
 def main():

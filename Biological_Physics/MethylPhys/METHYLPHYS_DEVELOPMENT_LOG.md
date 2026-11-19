@@ -6494,3 +6494,8 @@ simulator's self-test; the dark-sector checks behind them passed on GitHub. No e
 A replication-timing third read as its own file is refused by the genome-coverage intake, because it covers part of the genome by its nature. The
 timing split now lives inside the chain: a frozen timing file built from the 15 ENCODE UW Repli-seq tracks, and Stage Q2's counts by the third of
 each molecule's first CpG, recorded beside IAM-A in every sequencing reading. A planted count reads the same A before and after.
+
+### 2026-11-18 · PHY-093, PHY-094: held error by each cell family's own replication timing
+The late-copied excess of held error seen in immune and endothelial types was read against a timing reference averaged over 15 cell lines,
+six of them blood. Every sequencing reading now also counts held error by the timing of each family's own lines (blood, endothelial, epithelial),
+in one pass over the file. A planted count reads the same A before and after.

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1678,
+   "lines": 1686,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,15 +308,16 @@
      "function": "_site_counts",
      "name": "_site_counts",
      "line": 579,
-     "end": 604,
+     "end": 612,
      "args": [
       "pat"
      ],
-     "lines": 26,
+     "lines": 34,
      "doc": "Register T1 and C3 (PHY-093, PHY-094), in every sequencing reading: the held and absent sides counted by Stage Q2's own rules (count_pat_sites) at the islands territory (each library's own meter) and at the epiTOC2 clock CpGs with 25 CpGs either side. Recorded beside IAM-A; it never changes a reading. Returns {set: count} or {set: {\"error\": ...}}.",
      "constants": [],
      "data_files": [
       "Runtime Matrices/Clock_Sites/epitoc2_sites.csv",
+      "_v1.npz",
       "epitoc2_sites.csv",
       "pyarrow.parquet",
       "sites_sequencing_key.parquet"
@@ -327,8 +328,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 606,
-     "end": 1675,
+     "line": 614,
+     "end": 1683,
      "args": [],
      "lines": 1070,
      "doc": "",
@@ -362,8 +363,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 979,
-     "end": 983,
+     "line": 987,
+     "end": 991,
      "args": [
       "r"
      ],
@@ -379,8 +380,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1214,
-     "end": 1221,
+     "line": 1222,
+     "end": 1229,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -392,8 +393,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1597,
-     "end": 1598,
+     "line": 1605,
+     "end": 1606,
      "args": [
       "b",
       "it",
@@ -4046,7 +4047,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 587,
+   "lines": 611,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4477,10 +4478,28 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "count_pat_timing_sets",
+     "name": "count_pat_timing_sets",
+     "line": 326,
+     "end": 348,
+     "args": [
+      "lines",
+      "sets"
+     ],
+     "lines": 23,
+     "doc": "2026-11-18 (register A8, A8L2T EXPLORATION): count_pat_timing for several timing references in ONE pass over the file. sets = {name: (starts, labels)}; returns {name: {early, mid, late, none: counts}} by count_pat_timing's own rules.",
+     "constants": [
+      "QUAL_MAX_METH"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "count_pat_site_classes",
      "name": "count_pat_site_classes",
-     "line": 326,
-     "end": 349,
+     "line": 350,
+     "end": 373,
      "args": [
       "lines",
       "groups"
@@ -4497,8 +4516,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 353,
-     "end": 354,
+     "line": 377,
+     "end": 378,
      "args": [
       "seq"
      ],
@@ -4512,8 +4531,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 355,
-     "end": 387,
+     "line": 379,
+     "end": 411,
      "args": [
       "r",
       "ref",
@@ -4530,8 +4549,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 388,
-     "end": 393,
+     "line": 412,
+     "end": 417,
      "args": [
       "a",
       "b"
@@ -4546,8 +4565,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 394,
-     "end": 429,
+     "line": 418,
+     "end": 453,
      "args": [
       "args"
      ],
@@ -4563,8 +4582,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 401,
-     "end": 416,
+     "line": 425,
+     "end": 440,
      "args": [
       "calls"
      ],
@@ -4580,8 +4599,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 430,
-     "end": 438,
+     "line": 454,
+     "end": 462,
      "args": [
       "parts",
       "assembly"
@@ -4598,8 +4617,8 @@
      "file": "stage_q2_selfref.py",
      "function": "lambda_meter",
      "name": "lambda_meter",
-     "line": 440,
-     "end": 457,
+     "line": 464,
+     "end": 481,
      "args": [
       "bam",
       "fa"
@@ -4616,8 +4635,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 459,
-     "end": 463,
+     "line": 483,
+     "end": 487,
      "args": [
       "bam",
       "fa",
@@ -4640,8 +4659,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 466,
-     "end": 475,
+     "line": 490,
+     "end": 499,
      "args": [
       "per_sample"
      ],
@@ -4655,8 +4674,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 477,
-     "end": 482,
+     "line": 501,
+     "end": 506,
      "args": [
       "version"
      ],
@@ -4675,8 +4694,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 483,
-     "end": 484,
+     "line": 507,
+     "end": 508,
      "args": [
       "loose_share",
       "version"
@@ -4691,8 +4710,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 485,
-     "end": 489,
+     "line": 509,
+     "end": 513,
      "args": [
       "rec",
       "version"
@@ -4709,8 +4728,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_line",
      "name": "derived_line",
-     "line": 492,
-     "end": 497,
+     "line": 516,
+     "end": 521,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -4726,8 +4745,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_reading",
      "name": "derived_reading",
-     "line": 498,
-     "end": 515,
+     "line": 522,
+     "end": 539,
      "args": [
       "rec"
      ],
@@ -4745,8 +4764,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 522,
-     "end": 529,
+     "line": 546,
+     "end": 553,
      "args": [
       "records"
      ],
@@ -4762,8 +4781,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 531,
-     "end": 536,
+     "line": 555,
+     "end": 560,
      "args": [
       "version"
      ],
@@ -4782,8 +4801,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 537,
-     "end": 545,
+     "line": 561,
+     "end": 569,
      "args": [
       "rec",
       "cell",
@@ -4802,8 +4821,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 548,
-     "end": 551,
+     "line": 572,
+     "end": 575,
      "args": [
       "rec",
       "version"
@@ -4820,8 +4839,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 552,
-     "end": 557,
+     "line": 576,
+     "end": 581,
      "args": [
       "healthy",
       "version"
@@ -4836,8 +4855,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 562,
-     "end": 563,
+     "line": 586,
+     "end": 587,
      "args": [
       "version"
      ],
@@ -4855,8 +4874,8 @@
      "file": "stage_q2_selfref.py",
      "function": "commissioned_files_ok",
      "name": "commissioned_files_ok",
-     "line": 567,
-     "end": 574,
+     "line": 591,
+     "end": 598,
      "args": [],
      "lines": 8,
      "doc": "True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (payload checksums in IAMA_COMMISSIONING['files']); otherwise (False, which file differs). The commissioned label is given only when this is True.",
@@ -4871,8 +4890,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 575,
-     "end": 586,
+     "line": 599,
+     "end": 610,
      "args": [
       "records",
       "version",
@@ -11024,5 +11043,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 565
+ "n_functions": 566
 }

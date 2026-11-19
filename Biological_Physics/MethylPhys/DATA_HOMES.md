@@ -34,6 +34,9 @@ Every reference file the chain loads, with the checksum it is frozen at (chain/F
 | `Runtime Matrices/Clock_Sites/epitoc2_sites.csv` | `2839b1f6c163` | repository |
 | `../atlas/v2.1/sites_sequencing_key.parquet` | `9b2a6635227b` | repository |
 | `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz` | `f4a4835c8ff2` | repository |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_blood_v1.npz` | `84a6abdbf582` | repository |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_endothelial_v1.npz` | `13372eebfa63` | repository |
+| `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_epithelial_v1.npz` | `2454f24260d0` | repository |
 
 ## B. What each reproduction test reads
 

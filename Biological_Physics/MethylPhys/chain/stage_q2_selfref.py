@@ -323,6 +323,30 @@ def count_pat_timing(lines, starts, labels):
     return {k: dict(held_iso=int(v[0]), held_opp=int(v[1]), held_err=(v[0] / v[1] if v[1] else None), gain_iso=int(v[2]), gain_opp=int(v[3]),
                     gain_err=(v[2] / v[3] if v[3] else None), molecules=int(v[4])) for k, v in acc.items()}
 
+def count_pat_timing_sets(lines, sets):
+    """2026-11-18 (register A8, A8L2T EXPLORATION): count_pat_timing for several timing references in ONE pass over the file.
+    sets = {name: (starts, labels)}; returns {name: {early, mid, late, none: counts}} by count_pat_timing's own rules."""
+    import bisect as _b
+    names = {1: "early", 2: "mid", 3: "late"}
+    acc = {nm: {k: [0, 0, 0, 0, 0] for k in ("early", "mid", "late", "none")} for nm in sets}
+    for k, line in enumerate(lines):
+        if k % 2 == 0: continue
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        i, pat, n = int(p[1]), p[2], int(p[3])
+        s_ = [x for x in pat if x != "."]
+        f = s_.count("C") / len(s_) if s_ else 0.0
+        hi, hn, gi, gn = 0, 0, 0, 0
+        if len(s_) >= QUAL_MIN_CALLS:
+            for q in range(1, len(s_) - 1):
+                if f >= QUAL_MIN_METH: hn += 1; hi += (s_[q] == "T" and s_[q - 1] == "C" and s_[q + 1] == "C")
+                elif f <= QUAL_MAX_METH: gn += 1; gi += (s_[q] == "C" and s_[q - 1] == "T" and s_[q + 1] == "T")
+        for nm, (st, lb) in sets.items():
+            j = _b.bisect_right(st, i) - 1; A = acc[nm][names.get(lb[j] if j >= 0 else 0, "none")]
+            A[0] += n * hi; A[1] += n * hn; A[2] += n * gi; A[3] += n * gn; A[4] += n
+    return {nm: {k: dict(held_iso=int(v[0]), held_opp=int(v[1]), held_err=(v[0] / v[1] if v[1] else None), gain_iso=int(v[2]), gain_opp=int(v[3]),
+                         gain_err=(v[2] / v[3] if v[3] else None), molecules=int(v[4])) for k, v in a.items()} for nm, a in acc.items()}
+
 def count_pat_site_classes(lines, groups):
     """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 3): every call at given sites, by group (groups: site index -> label, e.g. the cell's
     held and held-absent identity sites), split by the molecule's class from ALL its calls, Stage Q2's own rules: held (marked share at least
