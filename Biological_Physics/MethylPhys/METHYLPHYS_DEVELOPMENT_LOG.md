@@ -6643,3 +6643,7 @@ An audit of the joint run's kept readings found the globe not drawn for 152 of 1
 the one button labels them 'sorted cells', and the globe's reference rule looked for a cell of that name. A specimen that names no cell
 now takes the sample's own Deconvolver shares, the route a mixture already takes. Named cells and mixtures are unchanged; no IAM-A, Met-A
 or C-score reading changes.
+
+### 2026-11-19 · PHY-084: the C-Score sky plate on sequencing (the sequencing C-Score's whole-genome departures)
+The sky plate drew only the array C-Score's neutrophil departure map, so on sequencing it was never drawn. It now draws the sequencing
+C-Score's whole-genome departures; a smoke test checks the map reproduces the whole-genome C exactly. No reading changes.

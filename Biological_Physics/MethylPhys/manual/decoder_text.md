@@ -2927,6 +2927,11 @@ weighted by this blood's Stage A fractions (or the neutrophil profile for isolat
 as dots. And each cell the IAM-Deconvolver read, named with its share of this sample, as that cell's healthy map in IAM-Atlas v2.1. Each
 reading is shown against the reference its instrument reads against.
 
+### stage_metaa_atlas.py::cscore_whole_departures
+The whole-genome departure map behind the sequencing C-Score's whole_genome reading: at every atlas site the sample measured, H(beta) minus
+H(e), e the atlas mixed in the sample's own Deconvolver shares, in genome order. The sky plate draws it for a sequenced sample, which has no
+array C-Score map (before this the plate was never drawn on sequencing). The neutrophil overlays stay with the array map. Development.
+
 ### report_globe_v4.py::_dots
 Draws a sparse texture as dots: every texture pixel within 3 of a measured one takes the nearest one's value.
 

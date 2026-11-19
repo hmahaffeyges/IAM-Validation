@@ -1404,7 +1404,13 @@ def main():
                                      (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)
         o["banner"] = a.banner
         if planted_rec: o["planted"] = planted_rec
-        o["cscore_sky"] = V4.cscore_sky(_z, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere", readings=_rd)
+        _zseq = None   # 2026-11-19 (edit 177): a sequenced sample has no array C-Score map; the sky draws the sequencing C-Score's whole-genome departures
+        if _z is None and getattr(a, "_seqv", False) and isinstance(o.get("cscore_each_cell"), dict) and (o["cscore_each_cell"].get("whole_genome") or {}).get("C") is not None:
+            try:
+                import stage_metaa_atlas as _SAz; _zseq = _SAz.cscore_whole_departures(_vals, _shr)
+            except Exception: _zseq = None
+        o["cscore_sky"] = V4.cscore_sky(_z if _z is not None else _zseq, os.path.splitext(os.path.abspath(a.out))[0] + "_cscore_sky.png", title=f"{sid}: C-Score departures on the sphere" + ("" if _z is not None or _zseq is None else " (sequencing, whole genome, against the atlas in this sample's shares)"), readings=_rd)
+        if _z is None and _zseq is not None and isinstance(o.get("cscore_sky"), dict): o["cscore_sky"]["map"] = "sequencing C-Score whole-genome departures (development; edit 177)"
         if _z is not None:   # 2026-10-18: the healthy neutrophil of IAM-Atlas v2.1 at the same sites, same pixels, drawn beside the sample's sky
             import report_figs_v4 as RF
             try: o["atlas_sky"] = RF.atlas_sky_png(os.path.splitext(os.path.abspath(a.out))[0] + "_atlas_sky.png", list(_z.index), "neutrophils",

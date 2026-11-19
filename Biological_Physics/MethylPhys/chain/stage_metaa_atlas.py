@@ -769,6 +769,19 @@ def cscore_in_mix(beta, shares, deps=None):
     return out
 
 
+def cscore_whole_departures(beta, shares):
+    """2026-11-19 (edit 177): the whole-genome departure map behind cscore_in_mix's whole_genome C, in genome order, for the sky plate
+    on sequencing (the same lines as cscore_in_mix; the smoke test checks _clustering of this map equals that C). None if too few sites."""
+    cells = [c for c, f in shares.items() if f is not None]
+    if not cells: return None
+    x = pd.Series(beta, dtype="float64").dropna(); idx = x.index
+    MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
+    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); ok = e.notna() & (cover >= MIX_COVER)
+    dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
+    return dw.reindex(_genome_order(dw.index)) if len(dw) >= 10 * CS_BLOCK else None
+
+
 
 # ---- cancer's own territories (2026-10-23; DEVELOPMENT, plan 48; author: 'we know what is missing and we can find it') ---------------------
 # Met-A's identity sites are by rule at healthy 0.05-0.25 or 0.75-0.95 in the cell, so neither place early cancer acts is read by it. Two fixed
