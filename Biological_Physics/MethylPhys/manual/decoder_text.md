@@ -2907,6 +2907,10 @@ shares (in a sorted library the top share is about 0.98). Before this rule the g
 the information sphere had no site-by-site change to place (152 of 156 atlas libraries in the joint run). With no shares it refuses and
 says why.
 
+**Cells the atlas does not hold (no-cell route).** When the Deconvolver's shares include cells the atlas has no column for, they are left out
+and the rest rescaled if together they hold at most 1 % of the shares (the coverage rule Met-A uses at every site); the reference names them.
+Above 1 % the globe refuses and names them.
+
 **Four layers.** The sample; the reference; the difference (sample minus reference) at every site both hold; and Met-A's 6,000 neutrophil
 identity sites as the C-Score's departure map, centered and scaled by the sample's own median and spread as the report's overlay, drawn as
 dots of radius 3 texture pixels at their own places so that a run of departing sites shows as a patch. The page prints the share of the

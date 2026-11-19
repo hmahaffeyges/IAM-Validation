@@ -6647,3 +6647,8 @@ or C-score reading changes.
 ### 2026-11-19 · PHY-084: the C-Score sky plate on sequencing (the sequencing C-Score's whole-genome departures)
 The sky plate drew only the array C-Score's neutrophil departure map, so on sequencing it was never drawn. It now draws the sequencing
 C-Score's whole-genome departures; a smoke test checks the map reproduces the whole-genome C exactly. No reading changes.
+
+### 2026-11-19 · PHY-035: the globe leaves out trace cells the atlas does not hold (1 % coverage rule)
+The first unused atlas library read after the globe repair (a cortical neuron library) still drew no globe: its shares include
+megakaryocytes at 0.0087, which the sequencing atlas does not hold. In the no-cell route such cells are now left out when they hold at most 1 %
+of the shares, the rule Met-A already uses per site. No reading changes.

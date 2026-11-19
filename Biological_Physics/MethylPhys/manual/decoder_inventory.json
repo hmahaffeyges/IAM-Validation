@@ -7017,7 +7017,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 461,
+   "lines": 466,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -7359,7 +7359,7 @@
      "function": "build",
      "name": "build",
      "line": 212,
-     "end": 390,
+     "end": 395,
      "args": [
       "beta",
       "specimen",
@@ -7371,7 +7371,7 @@
       "cell_departures",
       "counts"
      ],
-     "lines": 179,
+     "lines": 184,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -7400,8 +7400,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 258,
-     "end": 259,
+     "line": 263,
+     "end": 264,
      "args": [
       "m"
      ],
@@ -7415,8 +7415,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 261,
-     "end": 266,
+     "line": 266,
+     "end": 271,
      "args": [
       "v",
       "full"
@@ -7431,8 +7431,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 407,
-     "end": 450,
+     "line": 412,
+     "end": 455,
      "args": [
       "beta",
       "ref_beta",
@@ -7462,8 +7462,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 429,
-     "end": 430,
+     "line": 434,
+     "end": 435,
      "args": [
       "m"
      ],

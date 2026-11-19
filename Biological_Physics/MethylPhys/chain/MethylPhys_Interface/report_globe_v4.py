@@ -221,6 +221,11 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     if hashlib.sha256(open(os.path.join(ATLAS, "sites.parquet"), "rb").read()).hexdigest() != str(Z["sites_sha256"]):
         return {"drawn": False, "reason": "the atlas site list differs from the one the frozen layout was built on"}
     mu = _mu(list(w)); missing = [c for c in w if c not in mu]
+    if missing and str(name).startswith("healthy reference for this sample's own cells"):   # 2026-11-19 (edit 183): read_in_mix's coverage rule
+        _lost = sum(w[c] for c in missing) / max(sum(w.values()), 1e-12)
+        if _lost <= 0.01:
+            w = {c: v for c, v in w.items() if c not in missing}; _t2 = sum(w.values()); w = {c: v / _t2 for c, v in w.items()}
+            name = f"{name}; left out, not in the atlas: {', '.join(missing)} ({_lost:.4f} of the shares, within the 1 % coverage rule)"; missing = []
     if missing: return {"drawn": False, "reason": f"cell(s) not in {ATLAS_NAME}: {', '.join(missing)}"}
     _num = sum(w[c] * np.nan_to_num(mu[c]) for c in w); _den = sum(w[c] * np.isfinite(mu[c]) for c in w)   # 2026-10-23: mixed over the cells with a value
     ref = np.where(_den >= 0.99 * sum(w.values()), _num / np.maximum(_den, 1e-12), np.nan)   # kept at >= 99 % of the shares, read_in_mix's rule (MIX_COVER)
