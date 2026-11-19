@@ -1,0 +1,115 @@
+{
+ "_written": "2026-11-19, 7:17 AM Pacific, before any library is read for A8DER",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "register A8: each cell type holds its own fixed IAM-A level (held error set by the balance g/f of restore against loss, E_hold = kT ln(g/f), A1 and A4); measured fixed over donor age (F034); the A8O injection (F200) shows only a per-type rate balance can set it. This test asks whether each type's level is the type's own, on donors and libraries the reference never saw.",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "49 spent IAM Sequencing Atlas libraries (GSE186458) never named in the record and absent from the atlas build inputs (seq_atlas_inputs.csv on main): GSM5652190, GSM5652197, GSM5652200, GSM5652204, GSM5652210, GSM5652211, GSM5652214, GSM5652215, GSM5652217, GSM5652218, GSM5652222, GSM5652226, GSM5652227, GSM5652228, GSM5652229, GSM5652230, GSM5652231, GSM5652232, GSM5652236, GSM5652237, GSM5652238, GSM5652242, GSM5652246, GSM5652261, GSM5652262, GSM5652263, GSM5652270, GSM5652277, GSM5652278, GSM5652307, GSM5652321, GSM5652330, GSM5652331, GSM5652332, GSM5652333, GSM5652334, GSM5652341, GSM5652345, GSM5652346, GSM5652353, GSM5652357, GSM5652358, GSM5652368, GSM5652369, GSM5652374, GSM5652376, GSM5652377, GSM5652378, GSM5652382",
+  "protocol_read": "standard pre-bisulfite WGBS (Loyfer et al. 2023), GEO molecule files (.pat.gz) as the joint run used them",
+  "spent_first": "yes: GSE186458 is spent; these 49 libraries are its unused remainder, used for a derivation test, not commissioning (author 2026-11-19)",
+  "form": [
+   {
+    "form": "the libraries' GEO molecule files read once by the one command, defaults",
+    "hours": 3.0,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "raw reads from SRA, re-aligned",
+    "hours": 12.0,
+    "adequate": true,
+    "chosen": false,
+    "why_not": "the molecule files of the same reads are on GEO"
+   }
+  ],
+  "alternatives": "no kept reading exists for these libraries; the joint run read the 156 atlas inputs only",
+  "preflight": {
+   "checked": "the one button read a spent CD8 atlas library and its planted variants on GitHub (a8o_inject.py, run 44546033783): CD8 named, A 0.943, instruments ran; globe and C-score sky repairs smoke-tested (edits 175, 177)",
+   "minutes": 25,
+   "result": "all four reads rc 0 with the cell named"
+  },
+  "needs": "sorted single-type molecule files outside the reference, with types already banded by the joint run"
+ },
+ "kiss": {
+  "smallest": "every unused library once; no second read",
+  "samples_why": "31 libraries in 17 banded types decide D1-D2; the 18 unbanded add types for exploration"
+ },
+ "machines": {
+  "platform": "google",
+  "why_not_github": "GitHub carries the chain edits and checks; 49 libraries of about 1 h each run in parallel on Google spot machines at the day's price",
+  "github_free_at_design": "queue free, but one sender at a time and 6 h job limit per library set",
+  "s_per_pair": 0.0,
+  "pairs": 0,
+  "peak_mem_gb": "about 6",
+  "machine_mem_gb": 16,
+  "parallel_per_machine": 1,
+  "expected_hours": 2.0,
+  "time_limit_hours": 4,
+  "cost": "about $4 (49 machines x 4 h x about $0.02)"
+ },
+ "save": {
+  "resume": "each library's full bundle a8der_<GSM>.json goes to the bucket when it finishes; a relaunched machine skips any library already read"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "all 49 a8der_<GSM>.done in the bucket or 3 tries each"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 1,
+   "halves_corr_min": 0.0,
+   "hours_per_sample_max": 4.0,
+   "_meaning": "rows_min: the canary library read by the one button with A, the cell named, globe and C-score sky present in its bundle; hours per library",
+   "_rule": "Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/a8o_inject.py (one-button reads of a real spent library, passed); then the first library (a cortical neuron) is the canary"
+  }
+ },
+ "cosmologist": {
+  "method": "repeat the measurement on new fields of the same survey, outside the calibration set: each type's level read on donors the reference never saw, same instrument and pipeline",
+  "null_test": "the joint run's own libraries sit inside their bands (own_libs_inside in the band table); the canary must name its type and read inside its band before the rest are launched"
+ },
+ "value": {
+  "question": "does each cell type keep its own IAM-A level on libraries outside the reference (A8's fixed level), and do the repaired instruments read on all of them?",
+  "adequate": "31 banded libraries in 17 types spanning A 0.80-1.05",
+  "options": [
+   {
+    "name": "49 unused atlas libraries on Google in parallel",
+    "hours": 2.0,
+    "cost_usd": 4.0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": true
+   },
+   {
+    "name": "the same on GitHub",
+    "hours": 10.0,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": false
+   }
+  ],
+  "why_this": "the only unused sorted libraries of many types in one open source; reading them once serves A8 and the instrument check together"
+ },
+ "explore": {
+  "done": "joint run (156 libraries, bands per type); A8 age test (F034); injection (F200); crew (F201); rehearsal, leave-one-out as the scorer applies to new libraries (centre from the type's other libraries, sigma u_rel x centre x sqrt(1 + 1/(n-1))): 149 libraries, 98.7 % within 2, none beyond 3, largest |pull| 2.62 (GSM5652290, t effector cell cd8): the scorer is not sealable (gate rule), so this read is exploration with expectations written first (author: not official yet)",
+  "rehearsal_pull": 2.622
+ },
+ "prediction": {
+  "form": "expectations written before reading (register A8DER plan item 1); exploration, no seal",
+  "decided_by": {
+   "D1": ">= 90 % of banded libraries' A_derived inside their type's band",
+   "D2": "Spearman(library A_derived, type centre) >= 0.60",
+   "D3": "the cell named is the mapped type or its lineage sibling in >= 90 %"
+  },
+  "reading": "each type's level is its own (fixed per type, A8)"
+ },
+ "bars": {
+  "rule": "no seal: exploration. Expectations written before reading, not moved after: pull = (A_derived - type centre) / (u_rel_k1 x centre x sqrt(1 + 1/n)); classes as agreed (within 2; 2 to 3 watch; beyond 3 a real miss); D1 >= 90 % of banded libraries within 2; D2 rho >= 0.60; D3 cell named >= 90 %"
+ },
+ "synthetic": {
+  "script": "Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/a8o_inject.py",
+  "noise_from": "a real spent library (GSM5652282) thinned to 15 M molecules with planted loss",
+  "null_rehearsed": "the unplanted baseline read by the one button named CD8 and gave A_derived 1.056 inside the CD8 band (0.960-1.138); the same library at full depth in the joint run gave 1.066"
+ }
+}
