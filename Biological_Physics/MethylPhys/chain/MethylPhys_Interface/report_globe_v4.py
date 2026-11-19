@@ -136,6 +136,11 @@ def reference(specimen, shares):
         w = {PANEL.get(c, c): float(v) for c, v in (shares or {}).items() if v is not None and np.isfinite(v) and v > 0}
         if not w: return None, "no cell shares from Stage D21, so the healthy reference for this person's mix cannot be drawn"
         t = sum(w.values()); return ("healthy blood" if s in BLOOD else "healthy " + s) + " for this person's own cell mix (" + ATLAS_NAME + ", Stage D21 shares)", {c: v / t for c, v in w.items()}
+    _generic = {"sorted", "purified", "isolated", "facs", "cells", "cell", "sorted-cells", "sample"}   # 2026-11-19 (edit 175): a label that names no cell
+    if s and all(x in _generic for x in s.replace(",", " ").split()):
+        w = {PANEL.get(c, c): float(v) for c, v in (shares or {}).items() if v is not None and np.isfinite(v) and v > 0}
+        if not w: return None, f"the specimen '{specimen}' names no cell and Stage D21 gave no cell shares, so no healthy reference can be drawn"
+        t = sum(w.values()); return ("healthy reference for this sample's own cells as the IAM-Deconvolver found them (" + ATLAS_NAME + ", Stage D21 shares; the specimen names no cell)", {c: v / t for c, v in w.items()})
     c = s[9:] if s.startswith("isolated ") else s
     import stage_0_intake as _S0   # 2026-10-25: "sorted b cells", "purified monocytes" and the like name the atlas cell intake already maps them to
     c = _S0.atlas_cell_of(specimen) or c

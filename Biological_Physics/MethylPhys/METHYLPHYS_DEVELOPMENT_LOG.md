@@ -6637,3 +6637,9 @@ body's, so culture rates are not used as instrument inputs.
 Part IV, section 'The composition of beta_m', gains one paragraph: the proton's mass is about 1 % Higgs-given quark mass and 99 % strong
 binding; MICROSCOPE (titanium vs platinum) and lunar laser ranging show binding and gravitational self-energy gravitate like rest mass; the
 horizon and black-hole ledgers book gravitating mass for any composition. One verify_book check. No reading changed.
+
+### 2026-11-19 · PHY-035, PHY-084: the globe and the information sphere on sorted sequencing files (specimen that names no cell)
+An audit of the joint run's kept readings found the globe not drawn for 152 of 156 atlas libraries, and so no information sphere:
+the one button labels them 'sorted cells', and the globe's reference rule looked for a cell of that name. A specimen that names no cell
+now takes the sample's own Deconvolver shares, the route a mixture already takes. Named cells and mixtures are unchanged; no IAM-A, Met-A
+or C-score reading changes.

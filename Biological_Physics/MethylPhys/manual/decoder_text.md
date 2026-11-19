@@ -2901,6 +2901,12 @@ checked against the cell pages: 785,718 measured neutrophil pixels on both), so 
 with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
 Comparing blood with one cell would light up every site where blood differs from that cell.
 
+**A specimen that names no cell.** The one button reads a sorted molecule file with the specimen 'sorted cells' and no cell named.
+That label names no atlas cell, so the reference is the sample's own cells as the IAM-Deconvolver found them, weighted by their Stage D21
+shares (in a sorted library the top share is about 0.98). Before this rule the globe looked for a cell called 'sorted cells', refused, and
+the information sphere had no site-by-site change to place (152 of 156 atlas libraries in the joint run). With no shares it refuses and
+says why.
+
 **Four layers.** The sample; the reference; the difference (sample minus reference) at every site both hold; and Met-A's 6,000 neutrophil
 identity sites as the C-Score's departure map, centered and scaled by the sample's own median and spread as the report's overlay, drawn as
 dots of radius 3 texture pixels at their own places so that a run of departing sites shows as a patch. The page prints the share of the

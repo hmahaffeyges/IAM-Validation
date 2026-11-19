@@ -68,7 +68,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 215 | 9 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 461 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 1,276 | 63 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
@@ -3929,6 +3929,12 @@ checked against the cell pages: 785,718 measured neutrophil pixels on both), so 
 with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
 Comparing blood with one cell would light up every site where blood differs from that cell.
 
+**A specimen that names no cell.** The one button reads a sorted molecule file with the specimen 'sorted cells' and no cell named.
+That label names no atlas cell, so the reference is the sample's own cells as the IAM-Deconvolver found them, weighted by their Stage D21
+shares (in a sorted library the top share is about 0.98). Before this rule the globe looked for a cell called 'sorted cells', refused, and
+the information sphere had no site-by-site change to place (152 of 156 atlas libraries in the joint run). With no shares it refuses and
+says why.
+
 **Four layers.** The sample; the reference; the difference (sample minus reference) at every site both hold; and Met-A's 6,000 neutrophil
 identity sites as the C-Score's departure map, centered and scaled by the sample's own median and spread as the report's overlay, drawn as
 dots of radius 3 texture pixels at their own places so that a run of departing sites shows as a patch. The page prints the share of the
@@ -3953,7 +3959,7 @@ reading is shown against the reference its instrument reads against.
 
 Draws a sparse texture as dots: every texture pixel within 3 of a measured one takes the nearest one's value.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 145 (7 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 150 (7 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
 
 ### `report_globe_v4.py::purified`
 
@@ -3971,7 +3977,7 @@ lossless value picture beside it. Sliding right keeps only the sites at or above
 below the value, the sky with no site, and the rim of each dot alike, so at the right end the globe is dark. Release check V13 requires at
 least 90 % of the globe dark at every map layer's right end, layers drawn as dots included.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 153 (9 lines) · arguments: fractions, specimen · calls: not called on the traced runs · constants read: `BLOOD`, `CH` · files named: `blood_composition_EPIC_v1.json`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 158 (9 lines) · arguments: fractions, specimen · calls: not called on the traced runs · constants read: `BLOOD`, `CH` · files named: `blood_composition_EPIC_v1.json`
 
 ### `globe_viewer.py::inline`
 
@@ -4086,20 +4092,20 @@ OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 bloc
 `drop` leaves listed sites out before anything is computed (the X and Y, so a difference of sex is not counted as a change). The record also
 gives the changed blocks above and below the reference and the share of the globe's measured pixels the change lights.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 402 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 407 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
 
 ### `report_globe_v4.py::build_pair.rgb`
 
 Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 424 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 429 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ### `report_globe_v4.py::build._code`
 
 Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
 changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 256 (6 lines) · arguments: v, full · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 261 (6 lines) · arguments: v, full · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky_extreme`
 
@@ -4131,7 +4137,7 @@ A color texture as base64 JPEG, for the sample and reference layers.
 The healthy reference for a specimen: the matching atlas cell, or for blood the six panel cells weighted by the Stage D21 shares and scaled
 to 1; refuses with the reason when there are no shares or no specimen.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 131 (13 lines) · arguments: specimen, shares · calls: not called on the traced runs · constants read: `ATLAS_NAME`, `BLOOD`, `PANEL`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 131 (18 lines) · arguments: specimen, shares · calls: not called on the traced runs · constants read: `ATLAS_NAME`, `BLOOD`, `PANEL`
 
 ### `report_globe_v4.py::_paint_blocks`
 
@@ -4141,14 +4147,14 @@ first placed site to its last, at their places on the genome-order sky. Met-A's 
 patches where it sits on the genome. Which blocks changed, and every count, are untouched; a block whose sites lie far apart gives a large patch
 from only 10 measured sites, and the layer's note says so.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 163 (14 lines) · arguments: sky, vals, posidx, npix, n · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 168 (14 lines) · arguments: sky, vals, posidx, npix, n · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_patch`
 
 Drawing only. On the whole-genome change layer a block of 10 neighboring sites covers only a few texture pixels; each changed pixel is drawn as a
 patch of the dots' radius (R_DOT), the larger change winning where two meet. Unchanged and unmeasured pixels and every count are untouched.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 178 (8 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 183 (8 lines) · arguments: v · calls: not called on the traced runs · constants read: `R_DOT`
 
 ### `report_globe_v4.py::_cell_change`
 
@@ -4159,20 +4165,20 @@ order; a block changed beyond the 5 % family-wise line is lit, drawn as dots. Ea
 sample's own centering and shows in that cell's Met-A number instead (the example blood with a 5 % even CD4 T loss: 2 of 597 blocks
 before and after).
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 187 (19 lines) · arguments: d, ids_ordered, npix, look · calls: not called on the traced runs · constants read: `BLOCK`, `R_DOT`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 192 (19 lines) · arguments: d, ids_ordered, npix, look · calls: not called on the traced runs · constants read: `BLOCK`, `R_DOT`
 
 ### `report_globe_v4.py::build`
 
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 207 (179 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex, cell_departures, counts · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `ATLAS_NAME`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 212 (179 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex, cell_departures, counts · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `ATLAS_NAME`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
 Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 253 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 258 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
 
