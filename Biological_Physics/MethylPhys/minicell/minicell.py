@@ -36,7 +36,7 @@ def default_card(name="mini cell v1 (healthy, assumed rates)"):
     for c, m, d, e in (("held_marked", 0.97, 0.05, 0.01), ("held_unmarked", 0.97, 0.004, 0.10), ("loose", 0.90, 0.10, 0.10)):
         P[f"{c}.m"] = Param(m, "per cycle", A, "maintenance of a hemimethylated pair; literature range 0.9-0.99", "restore")
         P[f"{c}.d"] = Param(d, "per strand per cycle", A, "de novo writing on an unmethylated strand", "writer")
-        P[f"{c}.e"] = Param(e, "per strand per cycle", A, "erasing or loss of a methylated strand", "eraser")
+        P[f"{c}.e"] = Param(e, "per strand per cycle", A, "erasing or loss of a methylated strand" + (" (reference, not an input: net loss at held sites 0.0028 per doubling, immortalised fetal fibroblast in culture, GSE197512; hESC, GSE82045: relaxation 0.443 per hour = loss 0.0228 + restore 0.420 per hour; human lymphocytes in the body, one locus (Laird 2004): maintenance 0.96, de novo 0.17 per division)" if c == "held_marked" else ""), "eraser")
     P["share.held_marked"] = Param(0.55, "fraction of identity sites", A, "to be taken from the atlas column")
     P["share.held_unmarked"] = Param(0.35, "fraction of identity sites", A, "to be taken from the atlas column")
     P["lag"] = Param(0.10, "cell cycles (mean)", A, "copier lag: time after copying for maintenance to complete", "restore")

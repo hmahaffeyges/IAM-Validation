@@ -6618,3 +6618,17 @@ _Written at midnight from the day's record (the chat walked line by line, 24 che
 - CHECKS (spider checks rerun unchanged on GitHub): forward 65 of 65, IAM's law 114 of 114, and the rest listed above.
 - R23 (Einstein to the virial theorem): carried in the long form's checks.
 - E30 (replicative history and methylation entropy, Penarroya et al.): an established-physics row on IAM's web, read at abstract depth.
+
+### 2026-11-19 · PHY-084: the second laboratory, four sorted types of one donor
+B cells, CD8, CD4 and monocytes of one donor (GSE173787, a second laboratory) were read through the one button with no cell named.
+All four land inside the per-type bands built from the atlas laboratory: A_derived 0.9828 (B), 0.9724 (CD8), 1.0284 (CD4), 0.9508
+(monocytes). Against each band centre the second laboratory reads low by one common amount, mean -5.2 % (sd 2.2 %, n = 4): a between-laboratory
+calibration term. The order of the four is kept except that CD8 and B, whose atlas centres differ by 2.3 %, swap. One donor; exploration on
+spent referee libraries, not commissioning.
+
+### 2026-11-19 · PHY-084: loss and restore rates of the held record in cultured primary cells
+GSE197512 (seven primary human lines grown to senescence, EPIC arrays) was read at each line's held sites (beta >= 0.80 in its earliest
+sample, that sample left out of the fit). The held record erodes with population doublings in 6 of 7 lines (keratinocytes flat); fibroblasts
+held out of division by serum withdrawal do not erode. Only the immortalised fetal fibroblast, followed over 154 doublings, settles to a
+plateau, which separates the two rates: loss 0.0028 and restore 0.0130 per doubling. The culture plateau (held error 0.18) is far above the
+body's, so culture rates are not used as instrument inputs.
