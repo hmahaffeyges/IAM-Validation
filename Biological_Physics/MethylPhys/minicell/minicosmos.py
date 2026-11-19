@@ -144,6 +144,26 @@ def collapse_fill(M_kg, R_m):
 
 CAUSAL_CAP = 0.708; BUCHDAHL_CAP = 8 / 9
 
+I_F = math.pi ** 4 / 8
+
+def suddenness(duration_s, own_time_s):
+    """How sudden a write is: x = duration / the system's own clock. The classical split it implies for a field switched on smoothly is
+    radiated/held = 2 I_f x^-3 (I_f = pi^4/8), capped at 1: the exact half (spent = held) needs x <= (2 I_f)^(1/3) = 2.8985; slower writes keep the
+    record and spend almost nothing (surfaces_checks.py)."""
+    x = duration_s / own_time_s
+    return dict(x=Sc.Reading(x, "established", note="duration over own clock"),
+                split=Sc.Reading(min(1.0, 2 * I_F / x ** 3), "established", note="radiated/held, 1 = the exact half"))
+
+def ew_crossover_suddenness(Tc_GeV=159.5, width_GeV=5.0, gstar=106.75, mW_GeV=80.377):
+    """The electroweak crossover (D'Onofrio and Rummukainen 2016): duration 2 (dT/T_c) t_c in the radiation era, own clock hbar/(m_W c^2)."""
+    hbar_GeV_s = 6.582119569e-25; MPl = 1.220890e19
+    t_c = 0.3012 * MPl / (math.sqrt(gstar) * Tc_GeV ** 2) * hbar_GeV_s
+    return suddenness(2 * width_GeV / Tc_GeV * t_c, hbar_GeV_s / mW_GeV)
+
+def collapse_suddenness(R0_over_rs):
+    """Oppenheimer-Snyder dust collapse from rest at R0: proper time (pi/2)(R0/r_s)^(3/2) in units of the light-crossing time r_s/c."""
+    return suddenness(math.pi / 2 * R0_over_rs ** 1.5, 1.0)
+
 M_CMB_BALANCE = HBAR * C ** 3 / (8 * math.pi * G * KB * 2.7255)   # kg: the mass whose Hawking temperature equals today's CMB (about 4.5e22 kg)
 
 def history(a_grid, H0_kms=67.16, iam=True):
@@ -188,6 +208,12 @@ def minicosmos_selftest():
     for n_, lo_, hi_, v_ in ((2.5, 0.01, 0.1, -2.02), (3.0, 0.01, 0.1, -1.52), (3.5, 0.01, 0.1, -1.02), (4.0, 0.01, 0.1, -0.53), (3.5, 0.25, 1.0, -1.57)):
         chk(f"rate law n = {n_}: power of dS_info/dln a over a {lo_}-{hi_} = {v_} (book p1_02 sec:law_exponent)", abs(rate_law_power(n_, lo_, hi_) - v_) < 0.006)
     chk("required writing per e-fold today beta_m S_geo = 5.2e121 bits at H0 67.16 (eq:law_Sneed)", abs(BETA_M * float(L["horizon_bits"]) / 5.2e121 - 1) < 0.01)
+    _ew = ew_crossover_suddenness()
+    chk("suddenness: electroweak crossover x = 7.05e13 write times, split ~7e-41 (adiabatic)", abs(float(_ew["x"]) / 7.05e13 - 1) < 0.01 and float(_ew["split"]) < 1e-39)
+    chk("suddenness: the exact half at x = 2.8985", abs(float(suddenness(2.8985, 1.0)["split"]) - 1) < 0.001)
+    _c2, _c10 = collapse_suddenness(2.0), collapse_suddenness(10.0)
+    chk("suddenness: collapse from 2 r_s x = 4.443, split 0.278; from 10 r_s x = 49.67, split 1.99e-4", abs(float(_c2["x"]) - 4.443) < 0.002 and abs(float(_c2["split"]) - 0.2777) < 0.002
+        and abs(float(_c10["x"]) - 49.67) < 0.02 and abs(float(_c10["split"]) / 1.987e-4 - 1) < 0.01)
     print("ALL PASS" if ok else "SOME FAILED"); return ok
 
 if __name__ == "__main__":

@@ -6516,3 +6516,9 @@ The cell simulator's ledger now carries the three speed ceilings on writing for 
 5.41e14 operations/s, thermal kT/h 6.46e12/s), their ratio 2 pi^2 M/ln2 = 596 (set by the coin alone) and a restore's Landauer efficiency
 ln2/(2M) = 1.655 %. The cell restores far below every ceiling (about 1e-20 of the per-mark quantum ceilings): its limit is fidelity, not speed.
 No reading changed.
+
+### 2026-11-18 · PHY-078: the cosmos simulator reads how sudden a write is
+The cosmos simulator now carries one shared quantity for every write: its duration over the system's own clock, x, and the classical split
+it implies, radiated/held = 2 I_f x^-3 (equal at x = 2.8985). The electroweak crossover sits at x = 7.05e13 (adiabatic); Oppenheimer-Snyder collapse
+from rest sits at x = 4.44 from 2 r_s (split 0.28) and 49.7 from 10 r_s (split 2e-4): only collapse that starts near its own radius reaches the half.
+No reading changed.
