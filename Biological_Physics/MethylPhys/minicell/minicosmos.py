@@ -27,7 +27,7 @@ to show E(a) arising rather than being put in; then the two-ruler reading of H0 
 import math, os, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import simcore as Sc
-HBAR = 1.054571817e-34; KB = 1.380649e-23; C = 299792458.0; G = 6.67430e-11; MPC = 3.0856775814913673e22; LN2 = math.log(2)
+M_P = 1.67262192e-27; HBAR = 1.054571817e-34; KB = 1.380649e-23; C = 299792458.0; G = 6.67430e-11; MPC = 3.0856775814913673e22; LN2 = math.log(2)
 _CANON = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON", "iam_canon.json")))["constants"]
 BETA_M = _CANON["beta_m"]["value"]; OMEGA_M = 2 * BETA_M          # canon: beta_m = Omega_m / 2, Omega_m = 0.3153 (Planck 2018)
 
@@ -70,6 +70,11 @@ def ledger(a=1.0, H0_kms=67.16, iam=True):
         out["q_matter"] = Sc.Reading(q_sector(a, matter=True), "IAM", ["virial_half"], "matter sector's own deceleration from H_m^2 = H_LCDM^2 + beta_m E(a) H0^2 "
                                      "(the book's eq:Hm); light keeps LCDM's q (Sigma = 1)")
         out["q_light"] = Sc.Reading(q_sector(a, matter=False), "established", note="flat LambdaCDM deceleration (the photon ruler)")
+        out["write_rate_over_bekenstein"] = Sc.Reading(E_act(a) * a ** 2, "IAM", ["encoding_surface"], "the record rate the ledger needs per unit of matter's "
+                                                       "rest energy, pi E(a) a^2 m c^2/hbar, over Bekenstein's maximum pi m c^2/hbar (1981): exactly 1 today; below it in the past, above it after today unless the history saturates (finding TIME AND RATE)")
+        out["proton_write_nats_s"] = Sc.Reading(math.pi * M_P * C ** 2 * E_act(a) * a ** 2 / HBAR, "IAM", ["encoding_surface"], "nats per second each proton must write for the ledger (4.478e24 today)")
+        out["matter_clock_rate"] = Sc.Reading(1 / math.sqrt(1 + BETA_M * E_act(a) / (OMEGA_M * a ** -3 + 1 - OMEGA_M)), "IAM", ["virial_half"],
+                                              "matter's clock against light's, H/H_m (the book's dual sector): 0.929 today, 0.991 at z = 1; matter's clock runs slower")
     return out
 
 def q_sector(a, matter=True):
@@ -99,6 +104,15 @@ def black_hole(M_kg):
                                         "resistivity equals the impedance of free space, 376.73 ohm, matched to infinity (register E38)"),
                 held_per_paid=Sc.Reading(0.5, "IAM", ["settled_half"], "1/2, as every settled surface"),
                 colder_than_CMB=Sc.Reading(T < 2.7255, "established", note="True: the hole is a net absorber today"))
+
+def collapse_fill(M_kg, R_m):
+    """Black-hole formation (collapse spider, 2026-11-18): the fill f = r_s/R of a body of mass M and radius R. f reaches 1 exactly as the first trapped
+    surface forms (Oppenheimer-Snyder dust). A static body cannot exceed the causal cap 0.708 (Lattimer 2012) nor Buchdahl's 8/9 (1959)."""
+    f = 2 * G * M_kg / (C ** 2 * R_m)
+    return dict(fill=Sc.Reading(f, "established", note="r_s/R"), static_possible=Sc.Reading(f < 8 / 9, "established", note="below Buchdahl's 8/9"),
+                trapped=Sc.Reading(f >= 1, "established", note="first trapped surface: the new writing surface"))
+
+CAUSAL_CAP = 0.708; BUCHDAHL_CAP = 8 / 9
 
 M_CMB_BALANCE = HBAR * C ** 3 / (8 * math.pi * G * KB * 2.7255)   # kg: the mass whose Hawking temperature equals today's CMB (about 4.5e22 kg)
 
@@ -134,6 +148,13 @@ def minicosmos_selftest():
     chk("ledger density identity T_H S_geo / V_H = rho_crit c^2 (dark sector DS1)", abs(float(L["ledger_density_ratio"]) - 1) < 1e-9)
     chk("matter-sector q today -0.6595 (dark sector; light -0.527)", abs(float(L["q_matter"]) + 0.6595) < 0.0005 and abs(float(L["q_light"]) + 0.5271) < 0.0005)
     chk(f"acceleration onset: matter z {onset_z(True):.3f}, light z {onset_z(False):.3f} (dark sector 0.736, 0.631)", abs(onset_z(True) - 0.736) < 0.002 and abs(onset_z(False) - 0.631) < 0.002)
+    for a_, v in ((1.0, 1.0), (0.5, 0.0920), (1.25, 1.908), (2.0, 6.594)):
+        chk(f"record rate over Bekenstein's maximum at a = {a_}: {v} (time and rate)", abs(float(ledger(a_)["write_rate_over_bekenstein"]) - v) < 0.001 * max(v, 1))
+    chk("per-proton write rate today 4.478e24 nats/s", abs(float(L["proton_write_nats_s"]) / 4.478e24 - 1) < 0.001)
+    chk("matter clock rate 0.929 today, 0.991 at z = 1 (two clocks)", abs(float(L["matter_clock_rate"]) - 0.9294) < 0.0005 and abs(float(ledger(0.5)["matter_clock_rate"]) - 0.9911) < 0.0005)
+    _cf = collapse_fill(1.4 * 1.989e30, 1.2e4)
+    chk("neutron star 1.4 Msun, R 12 km: fill 0.34, static allowed", abs(float(_cf["fill"]) - 0.3446) < 0.002 and bool(_cf["static_possible"].value if hasattr(_cf["static_possible"], "value") else float(_cf["static_possible"])))
+    chk("caps: causal 0.708 below Buchdahl 8/9 below trapping 1", CAUSAL_CAP < BUCHDAHL_CAP < 1)
     print("ALL PASS" if ok else "SOME FAILED"); return ok
 
 if __name__ == "__main__":

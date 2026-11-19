@@ -6499,3 +6499,8 @@ each molecule's first CpG, recorded beside IAM-A in every sequencing reading. A 
 The late-copied excess of held error seen in immune and endothelial types was read against a timing reference averaged over 15 cell lines,
 six of them blood. Every sequencing reading now also counts held error by the timing of each family's own lines (blood, endothelial, epithelial),
 in one pass over the file. A planted count reads the same A before and after.
+
+### 2026-11-18 · PHY-078: the cosmos simulator reads the write rate against Bekenstein's limit, the two clocks and collapse
+The cosmos simulator now carries the record rate per unit of matter's rest energy over Bekenstein's maximum, E(a) a^2 (exactly 1 today, 0.092
+at z = 1, 1.91 at a = 1.25), the per-proton rate (4.478e24 nats/s today), matter's clock against light's (0.929 today, 0.991 at z = 1), and
+black-hole formation: the fill r_s/R with the causal (0.708) and Buchdahl (8/9) caps on a static body. No reading changed.
