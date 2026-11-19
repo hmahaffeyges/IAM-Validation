@@ -33,7 +33,7 @@ e0 = eps_on(card)
 for sh in (0.0122, 0.0217):
     r1 = mc.bisulfite_held_error(e0, sh, 1.0) / e0; row("meter (5hmC)", f"hmC_transient_fraction 0->1 at share {sh}", [0.0, 1.0], 1 / r1 if r1 > 0 else float("inf"), 1.0, "lowers the read only (types below 1)")
 # 5. kinetic levers, law off (operating point UNCALIBRATED: stated)
-m, d, e, lag = (card.v(f"held_marked.{x}") for x in ("m", "d", "e")) + (card.v("lag"),)
+m, d, e = (card.v(f"held_marked.{x}") for x in ("m", "d", "e")); lag = card.v("lag")
 def lvl(mm, dd, ee, ll): U, Hh, M = mc.class_state(mm, dd, ee, ll); return 1 - (M + Hh / 2)
 for name, idx in (("loss per cycle 1-m", 0), ("writing d", 1), ("erasing e", 2), ("lag", 3)):
     p = [m, d, e, lag]
