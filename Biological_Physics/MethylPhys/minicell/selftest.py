@@ -62,4 +62,9 @@ ok &= check("5hmC: a neuron-like type (A 0.81, 5hmC 10 %) needs ~8.5 % of its 5h
 ok &= check("5hmC: a type reading above 1 cannot be explained by hiding", mc.transient_fraction_needed(1.06, eps_t, 0.02) is None)
 lc = mc.law_card()
 ok &= check("5hmC: blood shares are measured, the transient fraction is an open lever at 0", lc["hmC_share_blood"].origin == "measured" and lc["hmC_transient_fraction"].value == 0.0)
+Lg = mc.ledger(mc.law_card())
+ok &= check("speed ceilings for one coin: Bekenstein 3.85e15 bits/s, Margolus-Levitin 5.41e14/s, thermal 6.46e12/s (saturation)",
+            abs(float(Lg["bekenstein_bits_s"]) / 3.85e15 - 1) < 0.005 and abs(float(Lg["margolus_levitin_ops_s"]) / 5.41e14 - 1) < 0.005 and abs(float(Lg["thermal_rate_s"]) / 6.46e12 - 1) < 0.005)
+ok &= check("ceiling ratio 2 pi^2 M/ln2 = 596 at M = 20.94, equal to Bekenstein over thermal", abs(float(Lg["ceiling_ratio"]) - 596.3) < 0.5 and abs(float(Lg["ceiling_ratio"]) - float(Lg["bekenstein_bits_s"]) / float(Lg["thermal_rate_s"])) < 1e-6 * float(Lg["ceiling_ratio"]))
+ok &= check("a restore's Landauer efficiency ln2/(2M) = 1.655 %", abs(float(Lg["restore_landauer_efficiency"]) - 0.01655) < 0.00005)
 print("ALL PASS" if ok else "SOME FAILED"); sys.exit(0 if ok else 1)

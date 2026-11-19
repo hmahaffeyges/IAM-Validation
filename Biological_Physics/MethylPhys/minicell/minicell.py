@@ -27,6 +27,8 @@ from simcore import Param, ModelCard, op, sweep, contingency, sensitivity
 CLASSES = ("held_marked", "held_unmarked", "loose")
 
 
+HBAR = 1.054571817e-34; H_PLANCK = 6.62607015e-34   # J s (exact SI values)
+
 def default_card(name="mini cell v1 (healthy, assumed rates)"):
     A, Me = "assumed", "measured"
     P = {}
@@ -225,7 +227,12 @@ def ledger(card):
                 eps_ceiling=Sc.Reading(0.5, "established", note="the coin flip"),
                 held_per_paid=Sc.Reading(float(E) / float(M) / 2, "IAM", list(E.relations) + ["paid_pump_third"],
                                          "share of what is paid that the hold keeps (two coins per restore); a paid pump keeps at most 1/3 (X3)"),
-                pump_ceiling=Sc.Reading(1 / 3, "IAM", ["paid_pump_third"], "the most a paid pump can keep, reached only at zero drive (X3)"))
+                pump_ceiling=Sc.Reading(1 / 3, "IAM", ["paid_pump_third"], "the most a paid pump can keep, reached only at zero drive (X3)"),
+                bekenstein_bits_s=Sc.Reading(math.pi * float(M) * kT / (HBAR * Sc.LN2), "established", note="Bekenstein 1981: the most bits/s one coin's energy can carry"),
+                margolus_levitin_ops_s=Sc.Reading(2 * float(M) * kT / (math.pi * HBAR), "established", note="Margolus-Levitin: the most distinct operations/s for one coin"),
+                thermal_rate_s=Sc.Reading(kT / H_PLANCK, "established", note="kT/h: the thermal kick rate at the cell's temperature"),
+                ceiling_ratio=Sc.Reading(2 * math.pi ** 2 * float(M) / Sc.LN2, "IAM", ["coin_M"], "Bekenstein over thermal = 2 pi^2 M/ln2, set by the coin alone"),
+                restore_landauer_efficiency=Sc.Reading(Sc.LN2 / (2 * float(M)), "IAM", ["coin_M", "paid_pump_third"], "kT ln2 against the two coins a restore costs"))
 
 
 def model2(card):

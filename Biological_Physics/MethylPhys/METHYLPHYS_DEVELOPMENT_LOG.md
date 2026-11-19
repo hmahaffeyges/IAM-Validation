@@ -6510,3 +6510,9 @@ First stage of the cosmos history simulator: the book's integration of the recor
 chapter, its figure script) is ported into the cosmos simulator in pure python, with the growth factor from deep in the radiation era. It reproduces
 the book's fitted powers of the writing per e-fold (-2.02, -1.52, -1.02, -0.53 for n = 5/2, 3, 7/2, 4 over a 0.01-0.1; -1.57 for n = 7/2 over
 0.25-1; E(a) needs -1) and the required writing today, 5.2e121 bits per e-fold. No reading changed.
+
+### 2026-11-18 · PHY-078: the cell simulator reads its speed ceilings from M
+The cell simulator's ledger now carries the three speed ceilings on writing for one coin (Bekenstein 3.85e15 bits/s, Margolus-Levitin
+5.41e14 operations/s, thermal kT/h 6.46e12/s), their ratio 2 pi^2 M/ln2 = 596 (set by the coin alone) and a restore's Landauer efficiency
+ln2/(2M) = 1.655 %. The cell restores far below every ceiling (about 1e-20 of the per-mark quantum ceilings): its limit is fidelity, not speed.
+No reading changed.
