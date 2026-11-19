@@ -17,7 +17,9 @@ sol = sp.solve(sp.Eq(bm * TGH * Sg, Mm * c**2 / 2), bm)
 chk("B2", "beta_m T_GH S_geo = (1/2) M_m c^2 with gravitating M_m  =>  beta_m", sol == [Om / 2], sol)
 mu, md, mp = 2.16, 4.70, 938.27208816   # PDG 2024 MSbar 2 GeV light-quark masses and the proton mass (MeV)
 chk("B3", "proton Higgs-quark share (2 m_u + m_d)/m_p", 0.005 < (2 * mu + md) / mp < 0.02, round((2 * mu + md) / mp, 4))
-t = urllib.request.urlopen("https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt", timeout=120).read().decode("latin-1")
+# AME2020 (Wang et al., Chinese Phys. C 45, 030003, 2021), mass_1.mas20.txt from www-nds.iaea.org: the IAEA server refuses GitHub machines (403),
+# so the two lines used are copied verbatim from the published file (fetched 2026-11-19); the parser below is unchanged (it skips 36 header lines).
+t = "\n" * 36 + "\n".join(["   4   26   22   48 Ti       -48492.952       0.074      8723.0122     0.0016  B-  -4014.9467     0.9691   47 947940.677       0.079", "  39  117   78  195 Pt       -32793.878       0.503      7926.5530     0.0026  B-   -226.8175     0.9998  194 964794.325       0.540"])
 def ba(el, A):
     for l in t.splitlines()[36:]:
         if len(l) > 60 and l[20:22].strip().lower() == el.lower() and l[16:19].strip() == str(A):
