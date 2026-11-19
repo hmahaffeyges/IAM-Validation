@@ -42,7 +42,7 @@ for name, (fwd, bwd, x0) in objs.items():
     vec = (lambda s: np.sqrt(np.abs(s) ** 2)) if name == "qutrit" else (lambda s: s)
     X = run(fwd, bwd, x0)
     V = np.array([vec(x) for x in X]); K = np.array([koide(v) for v in V])
-    rlo, rhi = K[:, 0].min() * 0.987, K[:, 0].max() * 1.019   # off-centre: a conserved scale must not sit on a bin edge (2026-11-18 fix)
+    rlo, rhi = K[:, 0].min() * 0.98, K[:, 0].max() * 1.0237   # 2026-11-18 second fix: 0.987/1.019 put a conserved scale at 104.0 of 256, exactly ON an edge (diagnostic run 44323624900); now 117.2
     recK = [(q(r, rlo, rhi), q(Qv, 1 / 3, 1)) for r, Qv, _ in K]
     recP = [(a, b, q(d, -np.pi, np.pi)) for (a, b), (_, _, d) in zip(recK, K)]
     # (a) bits lost per write, MEASURED (2026-11-18 fix; was set by construction): H(delta bin | Koide record) over 200,000 random states, 4 bits per number
