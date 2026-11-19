@@ -6504,3 +6504,9 @@ in one pass over the file. A planted count reads the same A before and after.
 The cosmos simulator now carries the record rate per unit of matter's rest energy over Bekenstein's maximum, E(a) a^2 (exactly 1 today, 0.092
 at z = 1, 1.91 at a = 1.25), the per-proton rate (4.478e24 nats/s today), matter's clock against light's (0.929 today, 0.991 at z = 1), and
 black-hole formation: the fill r_s/R with the causal (0.708) and Buchdahl (8/9) caps on a static body. No reading changed.
+
+### 2026-11-18 · PHY-078: the cosmos simulator carries the book's own rate-law integration (history, stage 1)
+First stage of the cosmos history simulator: the book's integration of the record rate law (rate law and exponent sections of the IAM's Law
+chapter, its figure script) is ported into the cosmos simulator in pure python, with the growth factor from deep in the radiation era. It reproduces
+the book's fitted powers of the writing per e-fold (-2.02, -1.52, -1.02, -0.53 for n = 5/2, 3, 7/2, 4 over a 0.01-0.1; -1.57 for n = 7/2 over
+0.25-1; E(a) needs -1) and the required writing today, 5.2e121 bits per e-fold. No reading changed.

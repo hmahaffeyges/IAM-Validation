@@ -77,6 +77,36 @@ def ledger(a=1.0, H0_kms=67.16, iam=True):
                                               "matter's clock against light's, H/H_m (the book's dual sector): 0.929 today, 0.991 at z = 1; matter's clock runs slower")
     return out
 
+def _growth_table(om, orad=9.1e-5, ai=1e-6, a_end=3.0, steps=6000):
+    """Linear growth D(a) and f = dlnD/dlna of flat LambdaCDM with radiation (the book's fig_p1_law_derivations.py setup: Meszaros mode deep in the
+    radiation era), RK4 in ln a. Returns lists (lna, D, f)."""
+    ol = 1 - om - orad
+    def rhs(lna, y):
+        a = math.exp(lna); h2 = om / a ** 3 + orad / a ** 4 + ol; dlnh = -(1.5 * om / a ** 3 + 2 * orad / a ** 4) / h2
+        return (y[1], -(2 + dlnh) * y[1] + 1.5 * om / a ** 3 / h2 * y[0])
+    x0, x1 = math.log(ai), math.log(a_end); h = (x1 - x0) / steps; y0 = ai * om / orad; y = (1 + 1.5 * y0, 1.5 * y0); x = x0
+    X, D, F = [x], [y[0]], [y[1] / y[0]]
+    for _ in range(steps):
+        k1 = rhs(x, y); k2 = rhs(x + h / 2, (y[0] + h / 2 * k1[0], y[1] + h / 2 * k1[1])); k3 = rhs(x + h / 2, (y[0] + h / 2 * k2[0], y[1] + h / 2 * k2[1]))
+        k4 = rhs(x + h, (y[0] + h * k3[0], y[1] + h * k3[1])); y = (y[0] + h / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]), y[1] + h / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])); x += h
+        X.append(x); D.append(y[0]); F.append(y[1] / y[0])
+    return X, D, F
+
+def rate_law_power(n, a_lo, a_hi, om=None, orad=9.1e-5):
+    """The book's sec:law_exponent calculation (fig_p1_law_derivations.py): dS_info/dln a ~ rho_m D^n f / (T_H A_H) ~ a^-3 D^n f H, fitted as a power of a
+    over [a_lo, a_hi] on 400 log-spaced points from a = 10^-2.5 to 2. E(a) = exp(1 - 1/a) needs the power -1."""
+    om = OMEGA_M if om is None else om; X, D, F = _growth_table(om, orad); ol = 1 - om - orad
+    def at(a):
+        x = math.log(a); i = min(int((x - X[0]) / (X[1] - X[0])), len(X) - 2); t = (x - X[i]) / (X[i + 1] - X[i])
+        return D[i] + t * (D[i + 1] - D[i]), F[i] + t * (F[i + 1] - F[i])
+    L = [-2.5 + k * (math.log10(2) + 2.5) / 399 for k in range(400)]; pts = []
+    for l in L:
+        a = 10 ** l
+        if a_lo <= a <= a_hi:
+            d, f = at(a); pts.append((math.log(a), math.log(a ** -3 * d ** n * f * math.sqrt(om / a ** 3 + orad / a ** 4 + ol))))
+    mx = sum(p[0] for p in pts) / len(pts); my = sum(p[1] for p in pts) / len(pts)
+    return sum((p[0] - mx) * (p[1] - my) for p in pts) / sum((p[0] - mx) ** 2 for p in pts)
+
 def q_sector(a, matter=True):
     """Deceleration q = -1 - d ln H / d ln a of one sector: light sees flat LambdaCDM; matter adds beta_m E(a) H0^2 (E(a) = exp(1 - 1/a), d ln E/d ln a = 1/a)."""
     H2 = OMEGA_M * a ** -3 + (1 - OMEGA_M); dH2 = -3 * OMEGA_M * a ** -3
@@ -155,6 +185,9 @@ def minicosmos_selftest():
     _cf = collapse_fill(1.4 * 1.989e30, 1.2e4)
     chk("neutron star 1.4 Msun, R 12 km: fill 0.34, static allowed", abs(float(_cf["fill"]) - 0.3446) < 0.002 and bool(_cf["static_possible"].value if hasattr(_cf["static_possible"], "value") else float(_cf["static_possible"])))
     chk("caps: causal 0.708 below Buchdahl 8/9 below trapping 1", CAUSAL_CAP < BUCHDAHL_CAP < 1)
+    for n_, lo_, hi_, v_ in ((2.5, 0.01, 0.1, -2.02), (3.0, 0.01, 0.1, -1.52), (3.5, 0.01, 0.1, -1.02), (4.0, 0.01, 0.1, -0.53), (3.5, 0.25, 1.0, -1.57)):
+        chk(f"rate law n = {n_}: power of dS_info/dln a over a {lo_}-{hi_} = {v_} (book p1_02 sec:law_exponent)", abs(rate_law_power(n_, lo_, hi_) - v_) < 0.006)
+    chk("required writing per e-fold today beta_m S_geo = 5.2e121 bits at H0 67.16 (eq:law_Sneed)", abs(BETA_M * float(L["horizon_bits"]) / 5.2e121 - 1) < 0.01)
     print("ALL PASS" if ok else "SOME FAILED"); return ok
 
 if __name__ == "__main__":

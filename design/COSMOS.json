@@ -1,0 +1,111 @@
+{
+ "_written": "2026-11-18, 7:03 PM Pacific, before any stage-1 code is run",
+ "purpose": "exploration",
+ "physics": {
+  "where_iam_law": "register X22 and X7: stage 1 ports the book's own integration of the rate law (eq:rate, eq:Sdot; fig_p1_law_derivations.py) into the cosmos simulator, so the emergent record, its local power p(a) and the required writing per e-fold (eq:law_Sneed) are readings beside E(a); the book's printed values are the self-tests",
+  "counterparts": "kept in the private cross-domain register (not in public files)"
+ },
+ "data": {
+  "set": "none: a simulation of the model; the only data are the book's own numbers (canon beta_m, Planck 2018 background) and, at stage 3, the 54 rows of the predictions register (app_G) with their published measured values",
+  "protocol_read": "the cosmos simulator on main (minicosmos.py, 140 lines) and its four-domains self-tests; book p1_02 (record constraint, rate accounting) to be read in full before the stage-1 code",
+  "spent_first": "yes: no data are read",
+  "form": [
+   {
+    "form": "closed-form integration in the existing pure-python simulator (numpy-free), run on GitHub",
+    "hours": 0.1,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "form": "a Boltzmann code (CAMB) run per history",
+    "hours": 6.0,
+    "adequate": false,
+    "chosen": false,
+    "why_not": "stage 1 needs only the background and linear growth; CAMB is used later through the converged chains, not inside the simulator"
+   }
+  ],
+  "alternatives": "WRITER tests 1 and 2 already re-score the converged chain under alternative histories; stage 1 asks a different question (does the book's own rate law produce E(a)), which needs no chain",
+  "preflight": {
+   "checked": "the simulator's 26 current self-tests pass on main (edit 079 run)",
+   "minutes": 5,
+   "result": "ALL PASS on main before any change"
+  },
+  "needs": "the established growth factor D(a) and growth rate f(a) of flat LambdaCDM (Planck 2018 Omega_m = 2 beta_m), computed in the simulator by direct integration"
+ },
+ "kiss": {
+  "smallest": "one integration along a with the rate law; one comparison curve E(a); no new parameter",
+  "samples_why": "a model calculation: no samples"
+ },
+ "machines": {
+  "platform": "github",
+  "why_not_github": "",
+  "github_free_at_design": "4 of 20 once the second lab moves to 16 chunks",
+  "s_per_pair": 0.0,
+  "pairs": 0,
+  "peak_mem_gb": 0.2,
+  "machine_mem_gb": 7,
+  "parallel_per_machine": 1,
+  "expected_hours": 0.05,
+  "time_limit_hours": 0.5,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "a pure calculation: rerunning gives the same numbers"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "the job's self-test line ALL PASS or SOME FAILED"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 26,
+   "halves_corr_min": 1.0,
+   "hours_per_sample_max": 0.1,
+   "_meaning": "rows_min: every current self-test of the simulator still passes after stage 1 is added (26 lines); halves_corr_min: the history with the rate law switched off must equal the current simulator exactly",
+   "_rule": "minicosmos_selftest() on GitHub; the synthetic (below) first"
+  }
+ },
+ "cosmologist": {
+  "method": "make the record arise from its rate rather than putting it in, as a cosmologist checks that an assumed equation of state follows from its source term; compare the emergent history with the assumed one at every a",
+  "null_test": "with the rate law replaced by the derivative of E(a) itself, the integrator must return E(a) to 1e-6 at every a (an integrator check before the rate law is used)"
+ },
+ "value": {
+  "question": "does the book's own record rate, integrated from the first record, produce the record history E(a) = exp(1 - 1/a) that the chains assume, and where does it depart?",
+  "adequate": "a curve of the emergent record over E(a) at every a, with the integrator's null test passing",
+  "options": [
+   {
+    "name": "stage 1 inside the existing simulator, pure python on GitHub",
+    "hours": 0.1,
+    "cost_usd": 0.0,
+    "adequate": true,
+    "chosen": true,
+    "cosmologist": "make the record arise from its own source term and compare it with the assumed history at every epoch (as for an equation of state from its source)"
+   },
+   {
+    "name": "a new separate history code",
+    "hours": 8,
+    "cost_usd": 0.0,
+    "adequate": true,
+    "chosen": false
+   }
+  ],
+  "why_this": "the author's rule: no new documents or codes when an existing one can carry it; the simulator's own header names this as its next version"
+ },
+ "explore": {
+  "done": "book p1_02 sec:law_exponent already integrates the rate law (fig_p1_law_derivations.py); long form gap 3; WRITER test 1",
+  "rehearsal_pull": null
+ },
+ "prediction": {
+  "form": "none sealed: exploration",
+  "decided_by": "",
+  "reading": "not a new test: the simulator must reproduce the book's printed values (p = -1.02 over 0.01-0.1 and -1.57 over 0.25-1 for n = 7/2; -2.02, -1.52, -0.53 for n = 5/2, 3, 4) to 0.01; a mismatch is reported against the book's figure script, never tuned"
+ },
+ "bars": {
+  "rule": "no seal: exploration; the ratio emergent/E(a) reported at every a with the integrator null test's error"
+ },
+ "synthetic": {
+  "script": "the integrator null test inside minicosmos_selftest()",
+  "noise_from": "none: a deterministic calculation",
+  "null_rehearsed": "rate = dE/da gives E(a) back to 1e-6 before the rate law is used"
+ }
+}
