@@ -5880,4 +5880,7 @@ PASS  ch:iama:pos:max_val                ch:iama:p6_08_iama:223  printed 1.17  r
 == Part 4: Particles and Quantum Records | ch:koide (part4/p4_15a_lepton_koide.tex)
 PASS  ch:koide:SW                        ch:koide:p4_15a_lepton_koide:286  printed (algebra)  recomputed True  [derived] sudden write: held offset energy = ringing energy; |s_par| = |s_perp| gives Q = 2/3; stretched spin-1 <J_n>^2 = <J_perp^2> = 1
 
-SUMMARY  PASS 4728  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 4: Particles and Quantum Records | ch:electroweak (part4/p4_22_electroweak.tex)
+PASS  ch:ew:binding                      ch:electroweak:p4_22_electroweak:0  printed 0.0096; 8.55e-4; 3.2e-12  recomputed found in file  [measured] Higgs share of the proton (2 m_u + m_d)/m_p; Ti-48/Pt-195 binding-fraction difference; MICROSCOPE bound on binding gravitating differently; Smarr TS = Mc^2/2
+
+SUMMARY  PASS 4729  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

@@ -6632,3 +6632,8 @@ sample, that sample left out of the fit). The held record erodes with population
 held out of division by serum withdrawal do not erode. Only the immortalised fetal fibroblast, followed over 154 doublings, settles to a
 plateau, which separates the two rates: loss 0.0028 and restore 0.0130 per doubling. The culture plateau (held error 0.18) is far above the
 body's, so culture rates are not used as instrument inputs.
+
+### 2026-11-19 · PHY-078: book, what the cosmic ledger counts (binding gravitates like rest mass)
+Part IV, section 'The composition of beta_m', gains one paragraph: the proton's mass is about 1 % Higgs-given quark mass and 99 % strong
+binding; MICROSCOPE (titanium vs platinum) and lunar laser ranging show binding and gravitational self-energy gravitate like rest mass; the
+horizon and black-hole ledgers book gravitating mass for any composition. One verify_book check. No reading changed.

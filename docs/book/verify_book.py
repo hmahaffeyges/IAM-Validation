@@ -44776,5 +44776,21 @@ def check_ko_SW():
     neg_ok = sp.simplify(Q.subs(b, 2 * a)) == sp.Rational(2, 3)
     return locals()
 
+# ---------------------------------------------------------------- sec:ew:betam what the ledger counts (edit 170)
+@check(label='ch:ew:binding', chapter='ch:electroweak', part=4, file='part4/p4_22_electroweak', kind='num', printed='0.0096; 8.55e-4; 3.2e-12', tol=0.02, line=0, status='measured',
+       title='Higgs share of the proton (2 m_u + m_d)/m_p; Ti-48/Pt-195 binding-fraction difference; MICROSCOPE bound on binding gravitating differently; Smarr TS = Mc^2/2')
+def check_ew_binding():
+    'PDG quark masses m_u 2.16, m_d 4.70 MeV, m_p 938.272 MeV; AME2020 B/A Ti-48 8723.0122 keV, Pt-195 7926.553 keV; u = 931.494 MeV; MICROSCOPE eta = -1.5 +/- 2.3 (stat) +/- 1.5 (syst) e-15.'
+    share = (2 * 2.16 + 4.70) / 938.272
+    dfrac = (8.7230122 - 7.926553) / 931.494
+    sig = (2.3e-15 ** 2 + 1.5e-15 ** 2) ** 0.5
+    bound = sig / dfrac
+    M, T, S, G, c, hb, kB = sp.symbols('M T S G c hbar k_B', positive=True)
+    rs = 2 * G * M / c**2; TH = hb * c**3 / (8 * sp.pi * G * M * kB); SBH = kB * sp.pi * rs**2 * c**3 / (G * hb)
+    smarr = sp.simplify(TH * SBH / (M * c**2)) == sp.Rational(1, 2)
+    ok = abs(share - 0.0096) / 0.0096 < 0.02 and abs(dfrac - 8.55e-4) / 8.55e-4 < 0.02 and abs(bound - 3.2e-12) / 3.2e-12 < 0.02 and smarr
+    neg_ok = abs(share - 0.5) < 0.02
+    return locals()
+
 if __name__ == "__main__":
     sys.exit(main())

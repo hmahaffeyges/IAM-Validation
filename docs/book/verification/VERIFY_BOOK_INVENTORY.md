@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4728 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4729 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -3614,6 +3614,7 @@ Totals: 4728 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
+| 0 | ch:ew:binding | measured | `0.0096; 8.55e-4; 3.2e-12` | numeric: Higgs share of the proton (2 m_u + m_d)/m_p; Ti-48/Pt-195 binding-fraction difference; MICROSCOPE bound on binding gravitating differently; Smarr TS = Mc^2/2 | PASS |
 | 18 | eq:ew:virial | derived |  | sympy: virial theorem for a potential homogeneous of degree k | PASS |
 | 25 | ch:electroweak:L25 | calc | `0.91` | numeric: string tension 0.18 GeV^2 in GeV/fm | PASS |
 | 32 | ch:electroweak:L32 | calc | `2.5\times10^{-18}` | numeric: range hbar/(M_W c), m | PASS |
