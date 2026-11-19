@@ -1,0 +1,79 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-18",
+ "title": "The sudden write is derived; a second laboratory agrees; each type's late-copied excess is a continuum",
+ "set_out": "Carry IAM's Law forward from the moment of actualization to the horizon ledger, in long form; finish the second laboratory and each cell type's own level (A8) with the full chain; fix the chain's routing of mixed sequencing files; keep the machines working and the records consolidated.",
+ "open_at_turnover": "The CD4 library of the second laboratory (re-aligning); the binding-at-the-half checks' rerun; what orders A8's continuum (restore crew, solo-WCGW split); which sudden event was the first write; the 3/16 coefficient and eta; the one database's next steps.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Second laboratory, same donor (PHY-084, the referee test)",
+     "status": "development",
+     "what": "B cells, CD8 and monocytes from GSE173787 at full depth through the one button.",
+     "outcome": "3 of 3 inside their atlas bands; a common between-lab offset of -6.1 % (sd 1.7 %); the order test waits for CD4.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (per-type bands); GSE173787"
+    },
+    {
+     "title": "Each type's late-copied excess (A8), sealed test",
+     "status": "development",
+     "what": "13 atlas libraries never used before, read on each type's own family timing.",
+     "outcome": "Not met, 8 of 13: immune and endothelial 7 of 7 high as predicted, but 5 of 6 others also high.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (spent libraries)"
+    },
+    {
+     "title": "Mixture routing (chain overhaul E2b; COM-IAMA-054)",
+     "status": "development",
+     "what": "A purity check on 154 sorted libraries set the mixture floor; a mixed file is no longer read as its largest cell.",
+     "outcome": "On main; named-cell readings unchanged.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (spent libraries)"
+    },
+    {
+     "title": "The sudden write (long form link 1)",
+     "status": "development",
+     "what": "Classical and quantum checks of when a write splits its energy exactly in half.",
+     "outcome": "Classical 11 of 11 met; quantum 6 of 8 (two numeric bars I set were missed as written).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): a derivation and its checks"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "What 'sudden' means",
+     "what": "A write pays the exact half only when it is about as fast as its surface's own light-crossing time; the Standard Model electroweak crossover is far too slow to write.",
+     "status": "derived",
+     "outcome": "The first sudden write is not yet identified.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "A watcher cancelled a running alignment",
+     "what": "A watcher the agent started wrongly cancelled the CD4 library's alignment; two merge-only resends failed.",
+     "status": "failed",
+     "outcome": "Full re-alignment sent.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}

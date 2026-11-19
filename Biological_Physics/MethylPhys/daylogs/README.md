@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-18](2026-11-18.md) | The sudden write is derived; a second laboratory agrees; each type's late-copied excess is a continuum |
 | [2026-11-17](2026-11-17.md) | No identity feature sets a type's level; the chain overhaul began |
 | [2026-11-16](2026-11-16.md) | Each cell type holds its own fixed level; the train left |
 | [2026-11-15](2026-11-15.md) | The writer read clean in blood; the islands read only the meter |
