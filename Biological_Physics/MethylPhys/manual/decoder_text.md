@@ -1299,12 +1299,22 @@ The cells the IAM-Deconvolver found in the sample, largest share first, each at 
 The cell the Deconvolver found most of, or nothing when it did not run. The only source of a single-cell reading's cell when the operator set
 none.
 
+### stage_0_intake.py::lineage_group
+The group a cell is pooled into before the mixture test: a blood cell by its lineage (`LINEAGE`: T cells, B cells, monocytes with the
+macrophages), any other atlas cell by its tissue family (`FAMILY`: epithelial, endothelial, neural, stromal, from the atlas's own family
+of each type), and anything else as its own group. Used by `mixture_check` (overhaul step E2c).
+
 ### stage_0_intake.py::mixture_check
 One cell type or a mixture? The cells found are pooled into lineage groups (`LINEAGE`: the T-cell subsets, the B cells, monocytes with the
 macrophages, neurons with oligodendrocytes, and the sibling kidney, stomach, islet, breast and tonsil types; any other cell is its own group),
 and the sample is a mixture when a second group holds more than 0.12 (`MIX_FLOOR`). The floor is measured: in 154 sorted atlas libraries the
 largest second share was 0.112, always a sibling type. A planted 100-million-molecule blood mixture is recovered within 0.02 per group.
 Written to the bundle as `mixture_check`.
+Since overhaul step E2c, blood cells keep these lineage groups (a blood mixture must stay a mixture) and every other atlas cell is pooled by
+tissue family (`FAMILY`: epithelial, endothelial, neural, stromal; `lineage_group`). Reason: read outside the reference, 19 of 49 sorted
+atlas libraries never used before were refused although the Deconvolver's first group was the true type; the second group was a sibling of
+the same tissue family. With family pooling all 154 atlas inputs stay single, the planted blood mixture stays a mixture, and 12 of the 19 are
+read; the other 7 carry a second family above 0.12 and stay refused. `MIX_FLOOR` is unchanged.
 
 ### stage_0_intake.py::label_check
 The specimen's claimed cell against what the Deconvolver found: the claimed cell, its measured share, the cells found, the chain's cell, and

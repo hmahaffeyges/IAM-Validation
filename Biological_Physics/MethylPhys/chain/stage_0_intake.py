@@ -133,6 +133,16 @@ LINEAGE = {   # 2026-11-18 (overhaul E2b): sibling types pooled before the mixtu
     "tonsil epithelium": ("tonsil palatine epithelium", "tonsil pharyngeal epithelium"),
 }
 LINEAGE_OF = {c: g for g, cs in LINEAGE.items() for c in cs}
+FAMILY = {   # 2026-11-19 (overhaul E2c): non-blood atlas cells pooled by tissue family (the atlas's own family column); blood keeps LINEAGE
+    'endothelial': ('aorta endothelium', 'kidney glomerular endothelium', 'kidney tubular endothelium', 'lung alveolar endothelium', 'pancreas endothelium', 'vascular saphenous endothelium'),
+    'epithelial': ('bladder epithelium', 'breast basal epithelium', 'breast luminal epithelium', 'colon enteroendocrine', 'colon epithelium', 'endometrium epithelium', 'fallopien tubes epithelium', 'gastric antrum epithelium', 'gastric body epithelium', 'gastric fundus epithelium', 'hepatocyte', 'kidney glomerular epithelium', 'kidney tubular epithelium', 'lung alveolar epithelium', 'lung bronchus epithelium', 'pancreatic acinar', 'pancreatic alpha', 'pancreatic beta', 'pancreatic delta', 'pancreatic duct', 'prostate epithelium', 'small intestine epithelium', 'thyroid epithelium', 'tongue epithelium', 'tonsil palatine epithelium', 'tonsil pharyngeal epithelium'),
+    'neural': ('cortical neurons', 'oligodendrocytes'),
+    'stromal': ('adipocytes', 'cardiomyocyte', 'colon fibroblasts', 'heart fibroblasts', 'smooth muscle', 'striated muscle'),
+}
+FAMILY_OF = {c: g for g, cs in FAMILY.items() for c in cs}
+def lineage_group(c):
+    """Blood cells by LINEAGE (a blood mixture must stay a mixture); other atlas cells by tissue FAMILY; anything else is its own group."""
+    return FAMILY_OF.get(c) or LINEAGE_OF.get(c) or c
 MIX_FLOOR = 0.12   # measured: the largest second share in 154 sorted atlas libraries was 0.112 (purity check, GitHub run 44274975547), rounded up
 
 def mixture_check(cell_shares, floor=MIX_FLOOR):
@@ -140,9 +150,9 @@ def mixture_check(cell_shares, floor=MIX_FLOOR):
     sample is a mixture when a second group holds more than `floor`. Returns the groups, largest first, and a refusal text when mixed."""
     g = {}
     for c, x in cells_found(cell_shares):
-        k = LINEAGE_OF.get(c, c); g[k] = g.get(k, 0.0) + x
+        k = lineage_group(c); g[k] = g.get(k, 0.0) + x
     G = sorted(g.items(), key=lambda kv: -kv[1])
-    rec = dict(rule=f"siblings pooled; a mixture when a second lineage group holds more than {floor} (the sorted maximum 0.112)", floor=floor,
+    rec = dict(rule=f"siblings pooled (blood by lineage, other cells by tissue family); a mixture when a second lineage group holds more than {floor} (the sorted maximum 0.112)", floor=floor,
                groups=[dict(group=k, share=round(v, 4)) for k, v in G[:6]], mixed=bool(len(G) >= 2 and G[1][1] > floor))
     if rec["mixed"]:
         rec["refusal"] = ("the sample is a mixture of cell types (" + ", ".join(f"{k} {v:.1%}" for k, v in G[:4]) + "); IAM-A reads one cell type, "

@@ -6652,3 +6652,9 @@ C-Score's whole-genome departures; a smoke test checks the map reproduces the wh
 The first unused atlas library read after the globe repair (a cortical neuron library) still drew no globe: its shares include
 megakaryocytes at 0.0087, which the sequencing atlas does not hold. In the no-cell route such cells are now left out when they hold at most 1 %
 of the shares, the rule Met-A already uses per site. No reading changes.
+
+### 2026-11-19 · PHY-084: mixture routing pools non-blood cells by tissue family (overhaul E2c)
+Read outside the reference, the mixture check refused 19 of 49 sorted atlas libraries never used before, each with its true type first
+and a sibling of the same tissue family second. Non-blood atlas cells are now pooled by tissue family; blood keeps its lineage groups;
+the floor stays 0.12. The 154 atlas inputs stay single (largest possible second group 0.079), the planted blood mixture stays a mixture,
+12 of the 19 become readable. No reading of a named cell changes.
