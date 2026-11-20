@@ -6794,3 +6794,6 @@ switch on for --geo-pat too. An earlier edit meant to fix the globe's switch nev
 
 ### 2026-11-20 · PHY-035: IAM's Law Sphere on mixtures
 The Law Sphere ran only where IAM-A read one cell type; it now also reads mixtures in their own shares, with its own loose share when IAM-A gives none.
+
+### 2026-11-20 · PHY-035: the whole-genome globe on mixtures
+The whole-genome sample globe was drawn only where IAM-A read one cell type; it now draws for mixtures read in their mix too.

@@ -1612,6 +1612,8 @@ def main():
                 o["iam_a"]["counting"] = V4.counting_error(_cnt, _A, _B)
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
             if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
+            if a.dev_genome_globe and a.pat:   # edit 211: the whole-genome globe on mixtures too
+                o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
         elif qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') in ('NO_CHAIN_CELL', 'MIXED_SAMPLE') else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:

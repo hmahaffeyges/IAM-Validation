@@ -1199,7 +1199,7 @@ With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 2
 `--dev-genome-globe` with `--pat` or `--geo-pat` (development, not commissioned; the file must be hg19, Section 10b): counts the file's molecules into regions of `--genome-region` CpGs on the
 autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its own predicted held error (`self_globe`) and, with `--prior-pat`,
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
-the Globe Explorer file. In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209).
+the Globe Explorer file. In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209). It draws for mixtures too, each region against the sample's own prediction from its loose share (edit 211).
 
 ### run_sample.py::_build
 `--build`: the chain builds a reference instead of reading a sample. `info-sphere` (development): the information sphere's layout from a
