@@ -73,6 +73,11 @@ def eps_of(card, cell=None, loose_share=None):
     sh = float(t.get("eraser_share", card["eraser_share"])); e = e / max(1e-9, 1 - sh)
     return min(0.5, e * float(t.get("held_mult", 1.0)))
 MIN_OPP = 200            # a unit's hold layers are drawn at >= 200 held-error opportunities (as stage_q2_globe)
+PILEUP_X = 10            # edit 218: a unit read deeper than 10 x the sample's median calls per unit is a depth pile-up (repeats), left out of pooled hold
+def pileup_mask(calls):
+    """Edit 218. True where a unit's calls exceed PILEUP_X times the median calls over the units read (a depth pile-up). A chain rule, not physics."""
+    c = np.asarray(calls, float); r = c[c > 0]
+    return c > PILEUP_X * float(np.median(r)) if len(r) else np.zeros(len(c), bool)
 MIN_CALLS = 20           # a unit's level layers are drawn at >= 20 calls
 LAYERS = [
     ("angle_law", "Angle to the law", "rad", "the angle between the sample's level and the law's expected level, in the sample's own cells"),
@@ -189,6 +194,7 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
                koide_q=(1 + h / np.maximum(1 - h, 1e-12)) / 3, write_vs_law=np.where(okG, (gerr / np.maximum(gopp, 1)) / u_law, np.nan),
                loose_share=np.where(nm >= 20, C["loose"][u] / np.maximum(nm, 1), np.nan),
                halves=np.where(okHv, _theta(ba, bb) / hfl, np.nan), depth=calls)
+    pile = pileup_mask(calls)
     def summ(m):
         r = dict(units=int(m.sum()))
         if not m.any(): return r
@@ -199,13 +205,17 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
                              angle_atlas_rms=round(float(np.sqrt(np.nanmean(Lay["angle_atlas"][m & okL] ** 2))), 5))
         r.update(angle_law_atlas_rms=round(float(np.sqrt(np.nanmean(th_la[m] ** 2))), 5))
         if "angle_law_rms" in r: r["power_factor"] = round(float(np.cos(r["angle_law_rms"])), 5)
-        mh = m & okH
+        mh = m & ~pile & (opp > 0)   # edit 218: all units of the set, pile-ups left out (was m & okH)
         if mh.any():
             hp = float(err[mh].sum() / max(opp[mh].sum(), 1)); od = (1 - hp) / max(hp, 1e-12)
             r.update(held_err=round(hp, 5), hold_vs_self=round(hp / p, 4), hold_vs_law=round(hp / EPS_LAW, 4), kicks_held=round(float(np.log(od)), 4),
                      phi=round(float(np.log(od)) / M_COIN, 5), coins_per_restore=round(float(push_for_odds(od)) / M_COIN, 4), koide_q=round((1 + hp / (1 - hp)) / 3, 5),
                      held_opp=int(opp[mh].sum()))
-        mg = m & okG
+        mv = m & okHv & ~pile   # edit 218: halves, the strand-to-strand angle over its counting floor
+        if mv.any():
+            _t = _theta(ba[mv], bb[mv]); r.update(halves=round(float(np.sqrt(np.nanmean(_t ** 2)) / np.sqrt(np.nanmean(hfl[mv] ** 2))), 3), halves_units=int(mv.sum()))
+        r.update(pileup_units=int((m & pile).sum()))
+        mg = m & okG & ~pile
         if mg.any(): r.update(write_vs_law=round(float(gerr[mg].sum() / max(gopp[mg].sum(), 1)) / u_law, 4))
         if (m & (nm > 0)).any(): r.update(loose_share=round(float(C["loose"][u][m].sum() / max(nm[m].sum(), 1)), 4))
         return r
@@ -321,6 +331,8 @@ def hold_alarm(C, ref, cell, predicted_derived, blocks=100):
     if predicted_derived is None or not cell:
         return dict(status="NOT_RUN", reason="needs IAM-A's derived prediction for one cell type (mixtures are not read by the hold alarm)")
     u = ref["table"]["unit"].to_numpy(); err = np.asarray(C["err"], float)[u]; opp = np.asarray(C["opp"], float)[u]
+    _pl = pileup_mask(np.asarray(C["calls_a"], float)[u] + np.asarray(C["calls_b"], float)[u])   # edit 218: pile-ups out of the alarm
+    err = np.where(_pl, 0.0, err); opp = np.where(_pl, 0.0, opp)
     E, O = float(err.sum()), float(opp.sum())
     if O < 1e4: return dict(status="NOT_RUN", reason=f"too few held opportunities ({int(O)})")
     p = E / O; idx = np.array_split(np.arange(len(err)), blocks)

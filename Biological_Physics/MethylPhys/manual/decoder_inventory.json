@@ -9587,7 +9587,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 356,
+   "lines": 368,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -9657,10 +9657,27 @@
     },
     {
      "file": "stage_law_sphere.py",
+     "function": "pileup_mask",
+     "name": "pileup_mask",
+     "line": 77,
+     "end": 80,
+     "args": [
+      "calls"
+     ],
+     "lines": 4,
+     "doc": "Edit 218. True where a unit's calls exceed PILEUP_X times the median calls over the units read (a depth pile-up). A chain rule, not physics.",
+     "constants": [
+      "PILEUP_X"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_law_sphere.py",
      "function": "unit_map",
      "name": "unit_map",
-     "line": 95,
-     "end": 101,
+     "line": 100,
+     "end": 106,
      "args": [
       "isl_first",
       "isl_last",
@@ -9677,8 +9694,8 @@
      "file": "stage_law_sphere.py",
      "function": "load_ref",
      "name": "load_ref",
-     "line": 103,
-     "end": 109,
+     "line": 108,
+     "end": 114,
      "args": [
       "ref_dir"
      ],
@@ -9696,8 +9713,8 @@
      "file": "stage_law_sphere.py",
      "function": "count_pat_units",
      "name": "count_pat_units",
-     "line": 111,
-     "end": 144,
+     "line": 116,
+     "end": 149,
      "args": [
       "lines",
       "umap"
@@ -9712,8 +9729,8 @@
      "file": "stage_law_sphere.py",
      "function": "count_pat_units.flush",
      "name": "flush",
-     "line": 116,
-     "end": 120,
+     "line": 121,
+     "end": 125,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -9725,8 +9742,8 @@
      "file": "stage_law_sphere.py",
      "function": "_theta",
      "name": "_theta",
-     "line": 146,
-     "end": 147,
+     "line": 151,
+     "end": 152,
      "args": [
       "b",
       "e"
@@ -9741,8 +9758,8 @@
      "file": "stage_law_sphere.py",
      "function": "push_for_odds",
      "name": "push_for_odds",
-     "line": 151,
-     "end": 153,
+     "line": 156,
+     "end": 158,
      "args": [
       "odds"
      ],
@@ -9759,8 +9776,8 @@
      "file": "stage_law_sphere.py",
      "function": "reading",
      "name": "reading",
-     "line": 155,
-     "end": 219,
+     "line": 160,
+     "end": 229,
      "args": [
       "C",
       "ref",
@@ -9769,7 +9786,7 @@
       "conv",
       "card"
      ],
-     "lines": 65,
+     "lines": 70,
      "doc": "One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers).",
      "constants": [
       "CARD",
@@ -9787,12 +9804,12 @@
      "file": "stage_law_sphere.py",
      "function": "reading.summ",
      "name": "summ",
-     "line": 192,
-     "end": 211,
+     "line": 198,
+     "end": 221,
      "args": [
       "m"
      ],
-     "lines": 20,
+     "lines": 24,
      "doc": "",
      "constants": [
       "EPS_LAW",
@@ -9805,8 +9822,8 @@
      "file": "stage_law_sphere.py",
      "function": "save_counts",
      "name": "save_counts",
-     "line": 223,
-     "end": 228,
+     "line": 233,
+     "end": 238,
      "args": [
       "path",
       "C",
@@ -9828,8 +9845,8 @@
      "file": "stage_law_sphere.py",
      "function": "load_counts",
      "name": "load_counts",
-     "line": 229,
-     "end": 234,
+     "line": 239,
+     "end": 244,
      "args": [
       "path",
       "ref"
@@ -9846,8 +9863,8 @@
      "file": "stage_law_sphere.py",
      "function": "sweep",
      "name": "sweep",
-     "line": 235,
-     "end": 243,
+     "line": 245,
+     "end": 253,
      "args": [
       "C",
       "ref",
@@ -9869,8 +9886,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit",
      "name": "fit",
-     "line": 244,
-     "end": 256,
+     "line": 254,
+     "end": 266,
      "args": [
       "C",
       "ref",
@@ -9895,8 +9912,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit.best",
      "name": "best",
-     "line": 249,
-     "end": 252,
+     "line": 259,
+     "end": 262,
      "args": [
       "get"
      ],
@@ -9910,8 +9927,8 @@
      "file": "stage_law_sphere.py",
      "function": "departure",
      "name": "departure",
-     "line": 267,
-     "end": 277,
+     "line": 277,
+     "end": 287,
      "args": [
       "key",
       "Lay"
@@ -9928,8 +9945,8 @@
      "file": "stage_law_sphere.py",
      "function": "texture",
      "name": "texture",
-     "line": 278,
-     "end": 285,
+     "line": 288,
+     "end": 295,
      "args": [
       "X",
       "v",
@@ -9946,8 +9963,8 @@
      "file": "stage_law_sphere.py",
      "function": "spec",
      "name": "spec",
-     "line": 286,
-     "end": 311,
+     "line": 296,
+     "end": 321,
      "args": [
       "rec",
       "Lay",
@@ -9967,8 +9984,8 @@
      "file": "stage_law_sphere.py",
      "function": "type_positions",
      "name": "type_positions",
-     "line": 314,
-     "end": 316,
+     "line": 324,
+     "end": 326,
      "args": [],
      "lines": 3,
      "doc": "Each healthy type's measured position on IAM-A's derived line (type_positions_v1.json; measured, not derived).",
@@ -9984,8 +10001,8 @@
      "file": "stage_law_sphere.py",
      "function": "hold_alarm",
      "name": "hold_alarm",
-     "line": 317,
-     "end": 334,
+     "line": 327,
+     "end": 346,
      "args": [
       "C",
       "ref",
@@ -9993,7 +10010,7 @@
       "predicted_derived",
       "blocks"
      ],
-     "lines": 18,
+     "lines": 20,
      "doc": "The sample's held error (all units, IAM-A's molecule rule) against the law, IAM-A's own derived line, and the line x the type's measured position. z = log(held / reference) / sqrt(se^2 + u^2): se from a block jackknife over the units in genome order (the measured spread between units and molecules), u the type's band uncertainty (only for the type reference). One cell type only: the line is define",
      "constants": [
       "EPS_LAW"
@@ -10005,8 +10022,8 @@
      "file": "stage_law_sphere.py",
      "function": "unused_islands",
      "name": "unused_islands",
-     "line": 337,
-     "end": 355,
+     "line": 349,
+     "end": 367,
      "args": [
       "C",
       "shares",
@@ -11613,5 +11630,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 596
+ "n_functions": 597
 }
