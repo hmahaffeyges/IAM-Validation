@@ -6787,3 +6787,7 @@ the counter's held error (isolated losses) and convert it to the per-call loss.
 
 ### 2026-11-20 · PHY-035: IAM's Law Sphere page beside the report
 The Law Sphere's outputs as layers on the sphere (the website's globe viewer), each unit coloured by its departure from its healthy value; linked from the report.
+
+### 2026-11-20 · PHY-035: the whole-genome globe and the Law Sphere on files fetched from GEO
+The full chain switched both on only when --pat was given; a --geo-pat file is fetched after that check, so no GEO library ran them. Both now
+switch on for --geo-pat too. An earlier edit meant to fix the globe's switch never landed. Development; no reading changes.

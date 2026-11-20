@@ -868,8 +868,8 @@ def main():
         # stay off: the common and class library floors (failed their own tests), the measured middle (held until its spent test), --dev-curve-cal (until its synthetic)
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
         on.append("provisional megakaryocytes" + ("" if (a.cell_panel or "blood") != "blood" else " (runs with --cell-panel atlas; not with the six-cell blood panel)"))
-        if a.pat: a.dev_genome_globe = True; on.append("genome_globe")
-        if a.pat: a.dev_law_sphere = True; on.append("law_sphere")   # edit 205
+        if a.pat or getattr(a, "geo_pat", None): a.dev_genome_globe = True; on.append("genome_globe")   # edit 209: a --geo-pat file is fetched after this check
+        if a.pat or getattr(a, "geo_pat", None): a.dev_law_sphere = True; on.append("law_sphere")   # edits 205, 209
         if not a.sesame_rscript: skip["epic_v2"] = "EPIC v2 arrays only; needs --sesame-rscript"
         a._full_chain = dict(on=on, not_run=skip)
     if a.dev_tiles != "table":   # 2026-10-25 (plan 14.9, development)

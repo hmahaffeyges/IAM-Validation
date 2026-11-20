@@ -1193,13 +1193,13 @@ Deconvolver's shares, reads every sequencing-sphere unit from the sample's molec
 expected point in the sample's own cells (`stage_law_sphere.reading`, Section 18b). Written under bundle `development.law_sphere`: the 14
 layers summarised per job and for the whole sample; `--law-sphere-out` saves them per unit. Not run without a molecule file, IAM-A's loose
 share or the Deconvolver's shares (the reason is written).
-With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208).
+With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208). In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209).
 
 ### run_sample.py::_genome_globe
 `--dev-genome-globe` with `--pat` or `--geo-pat` (development, not commissioned; the file must be hg19, Section 10b): counts the file's molecules into regions of `--genome-region` CpGs on the
 autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its own predicted held error (`self_globe`) and, with `--prior-pat`,
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
-the Globe Explorer file.
+the Globe Explorer file. In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209).
 
 ### run_sample.py::_build
 `--build`: the chain builds a reference instead of reading a sample. `info-sphere` (development): the information sphere's layout from a
