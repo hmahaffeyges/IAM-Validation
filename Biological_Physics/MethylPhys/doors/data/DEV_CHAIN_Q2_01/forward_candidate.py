@@ -18,6 +18,7 @@ MODE, PARAM, REPS, OUT = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), sys.
 # loss is then the candidate over r (the candidate holds against thermal kicks alone; the eraser adds its measured share on top).
 RATIO = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0
 RHO = float(sys.argv[6]) if len(sys.argv) > 6 else 0.0   # 2026-11-19 (A8PC): recruitment share for mode 'proc'
+LSCALE = float(sys.argv[7]) if len(sys.argv) > 7 else 1.0   # 2026-11-19 (A8FEED): CpGs per molecule scaled
 E = E / RATIO
 N, SEED = 120000, 20261113
 REAL = json.load(open(sorted(glob.glob(os.path.join(H, "percall_out", "*.json")))[0])); REAL = REAL[0] if isinstance(REAL, list) else REAL
@@ -43,7 +44,7 @@ def molecule(g, L):
 def sample(seed):
     g = random.Random(seed); lines = []
     for _ in range(N):
-        L = g.choices(Ls, weights=Ws)[0]; c, (a, b) = g.choices(AUTO, weights=WTS)[0]; i = g.randrange(a, b - L)
+        L = max(3, int(round(g.choices(Ls, weights=Ws)[0] * LSCALE))); c, (a, b) = g.choices(AUTO, weights=WTS)[0]; i = g.randrange(a, b - L)
         lines.append((c, i, f"{c}\t{i}\t{molecule(g, L)}\t1"))
     lines.sort(key=lambda x: (x[0], x[1]))
     w = tempfile.mkdtemp(prefix="fc"); pat = os.path.join(w, "s.pat.gz"); bj = os.path.join(w, "b.json")
@@ -56,7 +57,7 @@ def sample(seed):
     return B["iam_a_count_only"]["count"]
 rows = []
 for r in range(REPS):
-    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}.get(MODE, 3 + int(RHO * 10)) * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
+    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}.get(MODE, 3 + int(RHO * 10)) + int(LSCALE * 1000) * 10000000 * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
     rows.append((r, c["held_err_length"], c["held_e_call"], c.get("coupling"), c.get("held_err"))); print(MODE, PARAM, r, rows[-1][1:], flush=True)
 # 2026-11-13: held_err (isolated losses over interior calls, the quantity behind CANON eps0_meth / H_ref_cell) added as the last column,
 # so the Met-A healthy level (register M2) can be compared like for like.
