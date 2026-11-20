@@ -6803,3 +6803,6 @@ The Law Sphere's level layers are blind to the hold. A hold alarm now reads the 
 
 ### 2026-11-20 · PHY-035: the type positions file in the reference manifest
 Edit 212's type_positions_v1.json had no checksum in reference_manifest.json, so the reference door refused every sequencing run; its checksum is added.
+
+### 2026-11-20 · PHY-035: the Law Sphere reads the islands no cell writes
+The Law Sphere now reads stray writing at the 8,567 islands written in no healthy atlas type (516 off every array), against the law's stray level and the atlas's own healthy level in the sample's shares. Its reference file entered the reference manifest in the same edit. Met-A sequencing's each-cell label no longer names the array self-tare. Development (edit 215).

@@ -536,7 +536,9 @@ def _law_sphere(a, cnt, o):
         _ia = o.get("iam_a") or {}
         try: rec["hold_alarm"] = LS.hold_alarm(C, ref, _ia.get("cell") if _ia.get("A_derived") is not None else None, _ia.get("predicted_derived"))
         except Exception as e: rec["hold_alarm"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
-    U_ = rec.pop("_units", None)
+    if rec.get("status") == "OK":   # edit 215: the islands no healthy cell type writes
+        try: rec["unused_islands"] = LS.unused_islands(C, sh)
+        except Exception as e: rec["unused_islands"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
     U_ = rec.pop("_units", None)
     if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
         try:
@@ -1420,7 +1422,7 @@ def main():
                     _bs = None
                 o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
-                o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else "Stage 1 (Stage T step 1 could not run)")
+                o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else ("sequencing values (stage_seq_values); the self-tare is for arrays only" if getattr(a, "_seqv", None) else "Stage 1 (Stage T step 1 could not run)"))
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
                 if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen) or _neu_iso): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"

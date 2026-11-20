@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1748,
+   "lines": 1750,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -270,13 +270,13 @@
      "function": "_law_sphere",
      "name": "_law_sphere",
      "line": 522,
-     "end": 549,
+     "end": 551,
      "args": [
       "a",
       "cnt",
       "o"
      ],
-     "lines": 28,
+     "lines": 30,
      "doc": "Edit 205 (DEV-SPHERE-01): IAM's Law Sphere. Each sequencing-sphere unit read from the sample's molecules by IAM-A's own rule and set against the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere.",
      "constants": [],
      "data_files": [
@@ -288,8 +288,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 551,
-     "end": 571,
+     "line": 553,
+     "end": 573,
      "args": [
       "a",
       "cnt",
@@ -305,8 +305,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 574,
-     "end": 615,
+     "line": 576,
+     "end": 617,
      "args": [
       "a",
       "o",
@@ -326,8 +326,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_site_counts",
      "name": "_site_counts",
-     "line": 619,
-     "end": 652,
+     "line": 621,
+     "end": 654,
      "args": [
       "pat"
      ],
@@ -347,8 +347,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 654,
-     "end": 1745,
+     "line": 656,
+     "end": 1747,
      "args": [],
      "lines": 1092,
      "doc": "",
@@ -382,8 +382,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1036,
-     "end": 1040,
+     "line": 1038,
+     "end": 1042,
      "args": [
       "r"
      ],
@@ -399,8 +399,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1271,
-     "end": 1278,
+     "line": 1273,
+     "end": 1280,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1667,
-     "end": 1668,
+     "line": 1669,
+     "end": 1670,
      "args": [
       "b",
       "it",
@@ -9568,7 +9568,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 335,
+   "lines": 356,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -9980,6 +9980,30 @@
       "EPS_LAW"
      ],
      "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_law_sphere.py",
+     "function": "unused_islands",
+     "name": "unused_islands",
+     "line": 337,
+     "end": 355,
+     "args": [
+      "C",
+      "shares",
+      "conv"
+     ],
+     "lines": 19,
+     "doc": "Stray writing at the islands written in no healthy cell type (unused_islands_v1.json, measured from the IAM Sequencing Atlas). Every methylated call there is a stray. Returns the sample's pooled rate, the law's stray level as read (writer 1/(1 + D) after the eraser's clean-up, plus conversion failure) and the atlas's healthy level in the sample's own cell shares, each as a ratio with z from counti",
+     "constants": [
+      "CONV_DEFAULT",
+      "D_SELECT",
+      "ERASER_CLEAN",
+      "REF_DIR"
+     ],
+     "data_files": [
+      "unused_islands_v1.json"
+     ],
      "traced_calls": {}
     }
    ],
@@ -11570,5 +11594,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 594
+ "n_functions": 595
 }

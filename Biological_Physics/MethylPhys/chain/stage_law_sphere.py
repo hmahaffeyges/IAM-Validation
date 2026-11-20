@@ -332,3 +332,24 @@ def hold_alarm(C, ref, cell, predicted_derived, blocks=100):
             state="within" if abs(z) <= 2 else ("above" if z > 0 else "below"))
     if P: out["type_position"] = dict(centre=P["centre"], u_rel_k1=P["u_rel_k1"], n=P["n"], basis="measured (A8-POSITION, F132; F248 out of sample)")
     return out
+
+# ---- edit 215: the islands no healthy cell type writes
+def unused_islands(C, shares, conv=None):
+    """Stray writing at the islands written in no healthy cell type (unused_islands_v1.json, measured from the IAM Sequencing Atlas). Every
+    methylated call there is a stray. Returns the sample's pooled rate, the law's stray level as read (writer 1/(1 + D) after the eraser's
+    clean-up, plus conversion failure) and the atlas's healthy level in the sample's own cell shares, each as a ratio with z from counting."""
+    J = json.load(open(os.path.join(REF_DIR, "unused_islands_v1.json"), encoding="utf-8"))
+    out = dict(status="OK", label="DEVELOPMENT - not commissioned", basis=J.get("basis"), islands=len(J["units"]), off_array=len(J["off_array"]))
+    cv = CONV_DEFAULT if conv is None else float(conv); u_law = (1 / (1 + D_SELECT)) * (1 - ERASER_CLEAN); u_law = u_law + cv * (1 - u_law)
+    S = {c: float(w) for c, w in (shares or {}).items() if w and c in J["atlas_stray_by_type"]}; tw = sum(S.values())
+    e_atlas = sum(w * J["atlas_stray_by_type"][c] for c, w in S.items()) / tw if tw > 0.5 else None
+    for name, ids in (("all", J["units"]), ("off_array", J["off_array"])):
+        ids = np.asarray(ids, int); m = float((np.asarray(C["meth_a"], float)[ids] + np.asarray(C["meth_b"], float)[ids]).sum())
+        n = float((np.asarray(C["calls_a"], float)[ids] + np.asarray(C["calls_b"], float)[ids]).sum())
+        if n < 1000: out[name] = dict(status="NOT_RUN", reason=f"too few calls ({int(n)})"); continue
+        r = m / n; rec = dict(calls=int(n), stray=round(r, 6))
+        for k, e in (("law", u_law), ("atlas", e_atlas)):
+            if e is None: rec[k] = dict(status="NOT_RUN", reason="cell shares cover less than half the sample"); continue
+            z = (r - e) / np.sqrt(e * (1 - e) / n); rec[k] = dict(expected=round(e, 6), ratio=round(r / e, 4), z_counting=round(float(z), 2))
+        out[name] = rec
+    return out
