@@ -37,11 +37,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **38 Python files** holding **580 functions** (nested ones included); 580 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **38 Python files** holding **589 functions** (nested ones included); 589 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,713 | 21 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,733 | 21 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -74,7 +74,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
-| `stage_law_sphere.py` | 162 | 8 | 0 | 0 |
+| `stage_law_sphere.py` | 253 | 17 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -82,7 +82,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **128 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **134 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -184,7 +184,13 @@ Read from `run_sample.py`'s own option definitions at build time: **128 options*
 | `--intake-log` | None |  | append intake and integrity records here |
 | `--lambda-bam` | None |  | PHY-091 amendment 3 (development): the same reads aligned to the lambda spike-in genome alone; with --lambda-fasta, the meter read on lambda |
 | `--lambda-fasta` | None |  | the lambda genome FASTA (NC_001416.1) for --lambda-bam |
+| `--law-card` | None |  | IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD) |
+| `--law-counts` | None |  | with --build law-sphere-sweep or law-sphere-fit: the saved counts |
+| `--law-counts-out` | None |  | with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit |
+| `--law-set` | None |  | IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held="law", by_type={...}); keys in stage_law_sphere.CARD |
 | `--law-sphere-out` | None |  | with the Law Sphere: save the per-unit layers |
+| `--law-vary` | None |  | with --build law-sphere-sweep or law-sphere-fit: the input varied and its range |
+| `--law-vary-cell` | None |  | with --law-vary: vary the input for this cell type only (by_type) |
 | `--ledger` | None |  | append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report |
 | `--manifest-dir` | None |  | write the immutable per-sample manifest here |
 | `--metaa-atlas-ref-A` | None |  | with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare) |
@@ -1342,7 +1348,7 @@ Register T1 and C3: in every sequencing reading, the held and absent sides count
 (count_pat_sites) at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own
 meter) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side. Written as iam_a.sites; it never changes a reading.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 595 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 609 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::_bio_root`
 
@@ -1449,7 +1455,7 @@ expected point in the sample's own cells (`stage_law_sphere.reading`, Section 18
 layers summarised per job and for the whole sample; `--law-sphere-out` saves them per unit. Not run without a molecule file, IAM-A's loose
 share or the Deconvolver's shares (the reason is written).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 511 (15 lines) · arguments: a, cnt, o · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 522 (18 lines) · arguments: a, cnt, o · calls: not called on the traced runs
 
 ### `run_sample.py::_genome_globe`
 
@@ -1458,7 +1464,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 527 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 541 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -1466,7 +1472,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 254 (255 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 254 (266 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -1474,7 +1480,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 550 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 564 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -1488,14 +1494,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 630 (1081 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 644 (1087 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1241 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1261 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1503,13 +1509,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1006 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1026 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1632 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1652 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -5267,7 +5273,7 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 420 (1 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 431 (1 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::save_layout`
 
@@ -5366,59 +5372,120 @@ The hold layers use IAM-A's own counter (isolated errors over opportunities on h
 so they compare like with like with the law's 0.0445 (A4). The implied coins per restore invert the slow-write rule, the identity with
 A4's driven passage. The Koide balance assumes the conjectured identification of held and spent parts.
 
+**The input card.** Every law input is named, with its default from the cell simulator's law card: temperature, the coin's
+size, coins per restore, a set push (suddenness), the source of the held error (IAM-A's line or the law), IAM-A's line, the
+writer's selection D, the eraser's share and clean-up, conversion, and per-type and per-job settings. `--law-set`, `--law-card`;
+`--build law-sphere-sweep` and `law-sphere-fit` read saved counts again (`--law-counts`, `--law-vary`, `--law-vary-cell`).
+
 **The 16 layers.** Angle to the law; that angle over its floor; fidelity to the law; the power-factor reading (cos of the angle, an analogy); the angle between the law's and the atlas's expected points; angle to the healthy atlas; hold against IAM-A's
 line; hold against the law; energy held per mark (kT); share of each coin kept as hold (phi); implied coins per restore; Koide balance;
 stray marks against the law; loose share; agreement of the file's two halves over their floor (the instrument's own check); depth.
+
+### `stage_law_sphere.py::card_of`
+
+The Law Sphere's input card: the defaults (stage_law_sphere.CARD, from the cell simulator's law card) with overrides from a dict or
+KEY=VALUE strings; unknown keys are refused.
+
+*Code:* `stage_law_sphere.py` line 40 (15 lines) · arguments: over · calls: not called on the traced runs · constants read: `CARD`
+
+### `stage_law_sphere.py::odds_of_push`
+
+Held over lost for a write of x kicks, (x/2)/(1 - (1 - e^-x)/x): the slow-write rule, identical to A4's driven passage.
+
+*Code:* `stage_law_sphere.py` line 55 (3 lines) · arguments: x · calls: not called on the traced runs
+
+### `stage_law_sphere.py::eps_of`
+
+The held error a card predicts for one cell type: IAM-A's line, or the law from the coin, temperature and coins per restore (or a
+set push), the eraser's share, and a per-type multiplier.
+
+*Code:* `stage_law_sphere.py` line 64 (11 lines) · arguments: card, cell, loose_share · calls: not called on the traced runs · constants read: `R_GAS`
+
+### `stage_law_sphere.py::loss_of_eps`
+
+The per-call loss whose isolated losses equal the counter's held error (independent losses assumed).
+
+*Code:* `stage_law_sphere.py` line 58 (6 lines) · arguments: eps · calls: not called on the traced runs
+
+### `stage_law_sphere.py::save_counts`
+
+Saves a sample's per-unit molecule counts with its shares and loose share, so any card can be read again without the file.
+
+*Code:* `stage_law_sphere.py` line 219 (6 lines) · arguments: path, C, ref, shares, loose_share, conv, sample · calls: not called on the traced runs · constants read: `COUNT_KEYS`
+
+### `stage_law_sphere.py::load_counts`
+
+Reads saved counts back onto the sphere's units.
+
+*Code:* `stage_law_sphere.py` line 225 (6 lines) · arguments: path, ref · calls: not called on the traced runs · constants read: `COUNT_KEYS`
+
+### `stage_law_sphere.py::sweep`
+
+One card input over a range (or one type's), every summary at each value.
+
+*Code:* `stage_law_sphere.py` line 231 (9 lines) · arguments: C, ref, shares, loose_share, key, values, base, conv, cell · calls: not called on the traced runs
+
+### `stage_law_sphere.py::fit`
+
+The value of one card input (whole or one type's) that brings the sample nearest its counting floor, whole and per job, with the curve.
+
+*Code:* `stage_law_sphere.py` line 240 (13 lines) · arguments: C, ref, shares, loose_share, key, lo, hi, n, base, conv, cell, target · calls: not called on the traced runs
+
+### `stage_law_sphere.py::fit.best`
+
+The minimum of one summary over the fit's grid, and whether it lies at the grid's edge.
+
+*Code:* `stage_law_sphere.py` line 245 (4 lines) · arguments: get · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::unit_map`
 
 CpG index to sphere unit: each island one unit, then blocks of 50 consecutive CpGs outside islands.
 
-*Code:* `stage_law_sphere.py` line 46 (7 lines) · arguments: isl_first, isl_last, block, n · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 95 (7 lines) · arguments: isl_first, isl_last, block, n · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::load_ref`
 
 Reads the runtime reference: island bounds, block size, and the per-unit table of jobs, levels and held shares.
 
-*Code:* `stage_law_sphere.py` line 54 (7 lines) · arguments: ref_dir · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `units.npz`
+*Code:* `stage_law_sphere.py` line 103 (7 lines) · arguments: ref_dir · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `units.npz`
 
 ### `stage_law_sphere.py::count_pat_units`
 
 IAM-A's molecule rule per unit: levels from even lines; from odd lines held, unmarked and loose molecules, isolated errors
 and gains on interior calls, with their opportunities.
 
-*Code:* `stage_law_sphere.py` line 62 (34 lines) · arguments: lines, umap · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 111 (34 lines) · arguments: lines, umap · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::_theta`
 
 The Fisher-Rao angle between two Bernoulli states.
 
-*Code:* `stage_law_sphere.py` line 97 (2 lines) · arguments: b, e · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 146 (2 lines) · arguments: b, e · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::push_for_odds`
 
 Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x in kicks.
 
-*Code:* `stage_law_sphere.py` line 102 (3 lines) · arguments: odds · calls: not called on the traced runs · constants read: `_OG`, `_XG`
+*Code:* `stage_law_sphere.py` line 151 (3 lines) · arguments: odds · calls: not called on the traced runs · constants read: `_OG`, `_XG`
 
 ### `stage_law_sphere.py::reading`
 
 One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
 whole-sample summaries, each against its counting floor.
 
-*Code:* `stage_law_sphere.py` line 106 (56 lines) · arguments: C, ref, shares, loose_share, conv · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `EPS_LAW`, `ERASER_CLEAN`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 155 (61 lines) · arguments: C, ref, shares, loose_share, conv, card · calls: not called on the traced runs · constants read: `CARD`, `CONV_DEFAULT`, `EPS_LAW`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
 
 ### `stage_law_sphere.py::count_pat_units.flush`
 
 Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buffers.
 
-*Code:* `stage_law_sphere.py` line 67 (5 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 116 (5 lines) · arguments: none · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::reading.summ`
 
 The summary of every layer over a set of units (the whole sample, or one job), pooled before the ratio is taken.
 
-*Code:* `stage_law_sphere.py` line 136 (20 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 189 (20 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 

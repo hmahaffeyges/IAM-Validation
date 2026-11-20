@@ -273,6 +273,17 @@ def _build(a):
         rep = dict(_SQt.table_to_lbeta(a.build_input, a.build_out, _bed, _fm, _gn), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT (plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k != "command"}, default=str)); return 0
+    if a.build in ("law-sphere-sweep", "law-sphere-fit"):   # edit 207: any card read again on a sample's saved Law Sphere counts
+        import stage_law_sphere as LS
+        if not (a.law_counts and a.law_vary): print(f"--build {a.build} needs --law-counts FILE and --law-vary KEY=LO:HI:N (with --law-vary-cell CELL for one type)"); return 2
+        ref = LS.load_ref(); C, meta = LS.load_counts(a.law_counts, ref); k, rng_ = a.law_vary.split("=", 1); lo, hi, n = rng_.split(":")
+        base = json.load(open(a.law_card)) if a.law_card else {}
+        if a.law_set: base.update({kk: vv for kk, vv in LS.card_of(a.law_set).items() if vv != LS.CARD.get(kk)})
+        if a.build == "law-sphere-fit": rep = LS.fit(C, ref, meta["shares"], meta["loose_share"], k, float(lo), float(hi), int(n), base, meta.get("conv"), a.law_vary_cell)
+        else: rep = dict(key=k, cell=a.law_vary_cell, steps=LS.sweep(C, ref, meta["shares"], meta["loose_share"], k, list(np.linspace(float(lo), float(hi), int(n))), base, meta.get("conv"), a.law_vary_cell))
+        rep = dict(rep, sample=meta.get("sample"), base_card=base, label="DEVELOPMENT (DEV-SPHERE-01): IAM's Law Sphere, one input varied on saved counts", command=["run_sample.py"] + sys.argv[1:])
+        if a.build_out: json.dump(rep, open(a.build_out, "w"), indent=1, default=float)
+        print(json.dumps({x: rep.get(x) for x in ("key", "cell", "whole") if x in rep}, default=float)); return 0
     if a.build == "seq-beta-vs-pat":   # 2026-10-30 (plan 35.30, development): a healthy input's published .beta counts against its own .pat
         if not (a.build_input and a.pat and a.build_cell): print("--build seq-beta-vs-pat needs --build-input BETA (path or URL), --pat PAT and --build-cell CELL"); return 2
         import stage_seq_atlas as _SQb
@@ -519,7 +530,10 @@ def _law_sphere(a, cnt, o):
     op = (lambda f: gzip.open(f, "rt")) if a.pat.endswith(".gz") else (lambda f: open(f))
     print("Development: IAM's Law Sphere (sequencing units, IAM-A's molecule rule, the law's expected point)", flush=True)
     ref = LS.load_ref(); umap = LS.unit_map(ref["isl_first"], ref["isl_last"], ref["block"], ref["n"])
-    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt["loose_share"]); rec["label"] = DV.DEV_LABEL
+    card = LS.card_of(json.load(open(a.law_card)) if getattr(a, "law_card", None) else None)
+    if getattr(a, "law_set", None): card.update({k: v for k, v in LS.card_of(a.law_set).items() if v != LS.CARD.get(k)})
+    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt["loose_share"], card=card); rec["label"] = DV.DEV_LABEL
+    if getattr(a, "law_counts_out", None): LS.save_counts(a.law_counts_out, C, ref, sh, cnt["loose_share"], sample=os.path.basename(a.pat)); rec["counts_file"] = os.path.basename(a.law_counts_out)
     if getattr(a, "law_sphere_out", None) and Lay is not None:
         np.savez_compressed(a.law_sphere_out, unit=ref["table"]["unit"].to_numpy(), **{k: np.asarray(v, "float32") for k, v in Lay.items()}); rec["layers_file"] = os.path.basename(a.law_sphere_out)
     return rec
@@ -720,7 +734,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("ref-compare", "info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-metaa-inner", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("law-sphere-sweep", "law-sphere-fit", "ref-compare", "info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-metaa-inner", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -738,6 +752,12 @@ def main():
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-law-sphere", action="store_true", help="DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain")
+    ap.add_argument("--law-set", action="append", default=None, metavar="KEY=VALUE", help="IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held=\"law\", by_type={...}); keys in stage_law_sphere.CARD")
+    ap.add_argument("--law-card", default=None, metavar="FILE.json", help="IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD)")
+    ap.add_argument("--law-counts-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit")
+    ap.add_argument("--law-counts", default=None, metavar="FILE.npz", help="with --build law-sphere-sweep or law-sphere-fit: the saved counts")
+    ap.add_argument("--law-vary", default=None, metavar="KEY=LO:HI:N", help="with --build law-sphere-sweep or law-sphere-fit: the input varied and its range")
+    ap.add_argument("--law-vary-cell", default=None, metavar="CELL", help="with --law-vary: vary the input for this cell type only (by_type)")
     ap.add_argument("--law-sphere-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the per-unit layers")
     ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "
                     "(methylation level, held error and the change against the sample's own prediction; with --prior-pat, against an earlier reading too)")

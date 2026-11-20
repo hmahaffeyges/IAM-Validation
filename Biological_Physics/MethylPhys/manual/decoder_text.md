@@ -3803,9 +3803,43 @@ The hold layers use IAM-A's own counter (isolated errors over opportunities on h
 so they compare like with like with the law's 0.0445 (A4). The implied coins per restore invert the slow-write rule, the identity with
 A4's driven passage. The Koide balance assumes the conjectured identification of held and spent parts.
 
+**The input card.** Every law input is named, with its default from the cell simulator's law card: temperature, the coin's
+size, coins per restore, a set push (suddenness), the source of the held error (IAM-A's line or the law), IAM-A's line, the
+writer's selection D, the eraser's share and clean-up, conversion, and per-type and per-job settings. `--law-set`, `--law-card`;
+`--build law-sphere-sweep` and `law-sphere-fit` read saved counts again (`--law-counts`, `--law-vary`, `--law-vary-cell`).
+
 **The 16 layers.** Angle to the law; that angle over its floor; fidelity to the law; the power-factor reading (cos of the angle, an analogy); the angle between the law's and the atlas's expected points; angle to the healthy atlas; hold against IAM-A's
 line; hold against the law; energy held per mark (kT); share of each coin kept as hold (phi); implied coins per restore; Koide balance;
 stray marks against the law; loose share; agreement of the file's two halves over their floor (the instrument's own check); depth.
+
+### stage_law_sphere.py::card_of
+The Law Sphere's input card: the defaults (stage_law_sphere.CARD, from the cell simulator's law card) with overrides from a dict or
+KEY=VALUE strings; unknown keys are refused.
+
+### stage_law_sphere.py::odds_of_push
+Held over lost for a write of x kicks, (x/2)/(1 - (1 - e^-x)/x): the slow-write rule, identical to A4's driven passage.
+
+### stage_law_sphere.py::eps_of
+The held error a card predicts for one cell type: IAM-A's line, or the law from the coin, temperature and coins per restore (or a
+set push), the eraser's share, and a per-type multiplier.
+
+### stage_law_sphere.py::loss_of_eps
+The per-call loss whose isolated losses equal the counter's held error (independent losses assumed).
+
+### stage_law_sphere.py::save_counts
+Saves a sample's per-unit molecule counts with its shares and loose share, so any card can be read again without the file.
+
+### stage_law_sphere.py::load_counts
+Reads saved counts back onto the sphere's units.
+
+### stage_law_sphere.py::sweep
+One card input over a range (or one type's), every summary at each value.
+
+### stage_law_sphere.py::fit
+The value of one card input (whole or one type's) that brings the sample nearest its counting floor, whole and per job, with the curve.
+
+### stage_law_sphere.py::fit.best
+The minimum of one summary over the fit's grid, and whether it lies at the grid's edge.
 
 ### stage_law_sphere.py::unit_map
 CpG index to sphere unit: each island one unit, then blocks of 50 consecutive CpGs outside islands.

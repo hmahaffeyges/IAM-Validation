@@ -143,6 +143,8 @@ A public series of arrays: `run_series.py` runs the one command on every array o
 
 - `--dev-metaa-atlas CELL` (with `--metaa-atlas-ref-A` for its tare): Met-A against a cell in IAM-Atlas v2.1, on the self-tared values.
 - `--dev-genome-globe` with `--pat` or `--geo-pat` (and `--prior-pat` / `--prior-geo-pat`, `--prior-name`): the whole-genome globe.
+- `--dev-law-sphere` with `--pat` or `--geo-pat` (`--law-sphere-out OUT.npz` for the per-unit layers): IAM's Law Sphere against the law (development; on in the full chain).
+- Law Sphere input card: `--law-set KEY=VALUE` (repeatable) or `--law-card FILE.json`; `--law-counts-out OUT.npz` saves the counts; `--build law-sphere-sweep|law-sphere-fit --law-counts FILE --law-vary KEY=LO:HI:N [--law-vary-cell CELL] --build-out OUT.json`.
 - `--build info-sphere | explorer-purified | explorer-noise | atlas-sphere | atlas-masks`: the chain builds a reference or a reference globe.
 - `--explorer-spec FILE`: the report globe's layers as a Globe Explorer file.
 - `--dev-count-only` with `--pat`: IAM-A's counts only (held error, stray marks, opportunities), flagged, for derivation tests on samples without a healthy

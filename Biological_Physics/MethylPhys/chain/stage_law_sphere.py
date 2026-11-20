@@ -23,6 +23,55 @@ PUSH_LAW = 2 * M_COIN    # two coins per restore
 D_SELECT = 60            # the writer's selection (A15): stray rate 1/(1 + D)
 ERASER_CLEAN = 0.18      # share of strays the eraser cleans (TET2 + TET3)
 CONV_DEFAULT = 0.0044    # conversion failure when the sample's own is not given (A17)
+R_GAS = 8.314462618     # J/(mol K)
+CARD = dict(   # edit 207: every law input, defaults from the cell simulator's law card (minicell.law_card); --law-set KEY=VALUE or --law-card FILE
+    T_K=310.15,          # temperature (K); with dG_ATP gives M = dG_ATP / (R T)
+    dG_ATP=54000.0,      # the coin's size, J/mol (measured; minicell dG_ATP)
+    coins=2.0,           # ATP coins per restore (derived, A2; minicell SAM_cost)
+    push=None,           # suddenness x in kicks; when set it replaces coins x M
+    held="iama",         # 'iama': held error from IAM-A's own line for this sample; 'law': from the push (driven passage / slow-write rule)
+    line_firm=None, line_slope=None,   # IAM-A's line (held error = firm + slope x loose share); None = the chain's committed line
+    D=60.0,              # writer's selection: stray rate 1/(1 + D) (measured; minicell D_select)
+    eraser_share=0.0,    # share of held losses made by the eraser (minicell eraser_share): held error = restore error / (1 - share)
+    eraser_clean=0.18,   # share of strays the eraser cleans (measured; minicell eraser_stray_clean)
+    conv=None,           # conversion failure; None = 0.0044 (measured; minicell conv_fail)
+    by_type={},          # per cell type, any of: coins, push, eraser_share, held_mult (A8 written as a multiplier on held error)
+    by_job={})           # per job (territory), held_mult: a job-specific multiplier
+def card_of(over=None):
+    """The default card with overrides (dict, or 'KEY=VALUE' strings); unknown keys are refused."""
+    c = json.loads(json.dumps(CARD))
+    if isinstance(over, (list, tuple)):
+        o = {}
+        for kv in over:
+            k, v = kv.split("=", 1); k = k.strip()
+            try: v = json.loads(v)
+            except Exception: pass
+            o[k] = v
+        over = o
+    for k, v in (over or {}).items():
+        if k not in c: raise KeyError(f"unknown law-card input {k!r}; known: {sorted(c)}")
+        c[k] = v
+    return c
+def odds_of_push(x):
+    """Held over lost for a write of x kicks: (x/2)/(1 - (1 - e^-x)/x), the slow-write rule (identical to A4's driven passage)."""
+    x = float(x); return (x / 2) / (1 - (1 - np.exp(-x)) / x)
+def loss_of_eps(eps):
+    """The per-call loss q whose isolated losses q(1 - q)^2 equal the counter's held error eps (IAM-A's counter and the book's eps count a
+    loss only with both neighbours marked). Assumes losses are independent along the molecule; clustering (coupling) would change it."""
+    e = np.asarray(eps, float); q = e.copy()
+    for _ in range(30): f = q * (1 - q) ** 2 - e; d = (1 - q) * (1 - 3 * q); q = np.clip(q - f / d, 0, 1 / 3)
+    return q
+def eps_of(card, cell=None, loose_share=None):
+    """The held error the card predicts for one cell type."""
+    t = (card.get("by_type") or {}).get(cell, {}) if cell else {}
+    if card["held"] == "iama" and "coins" not in t and "push" not in t:
+        if card.get("line_firm") is not None: e = float(card["line_firm"]) + float(card.get("line_slope") or 0) * float(loose_share or 0)
+        else: e = float(Q2.predict(loose_share))
+    else:
+        M = card["dG_ATP"] / (R_GAS * card["T_K"]); x = t.get("push", card["push"] if card["push"] is not None else t.get("coins", card["coins"]) * M)
+        e = 1.0 / (1.0 + odds_of_push(x))
+    sh = float(t.get("eraser_share", card["eraser_share"])); e = e / max(1e-9, 1 - sh)
+    return min(0.5, e * float(t.get("held_mult", 1.0)))
 MIN_OPP = 200            # a unit's hold layers are drawn at >= 200 held-error opportunities (as stage_q2_globe)
 MIN_CALLS = 20           # a unit's level layers are drawn at >= 20 calls
 LAYERS = [
@@ -103,7 +152,7 @@ def push_for_odds(odds):
     """Invert the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) (identity with A4's driven passage) for the push x, in kicks."""
     o = np.asarray(odds, float); return np.where(np.isfinite(o) & (o > _OG[0]), np.interp(np.log(np.clip(o, _OG[0], _OG[-1])), np.log(_OG), _XG), np.nan)
 
-def reading(C, ref, shares, loose_share, conv=None):
+def reading(C, ref, shares, loose_share, conv=None, card=None):
     """One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside
     the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers)."""
     import stage_info_sphere as IS
@@ -111,12 +160,16 @@ def reading(C, ref, shares, loose_share, conv=None):
     s = {c: float(v) for c, v in (shares or {}).items() if c in cells and v and v > 0}; tot = sum(s.values())
     if not s: return {"status": "NOT_RUN", "reason": "no cell share in the reference"}, None
     s = {c: v / tot for c, v in s.items()}
-    p = float(Q2.predict(loose_share)); cv = CONV_DEFAULT if conv is None else float(conv)
-    stray = (1 / (1 + D_SELECT)) * (1 - ERASER_CLEAN); u_law = stray + cv * (1 - stray)
+    card = card_of(card) if not isinstance(card, dict) or set(card) != set(CARD) else card
+    p = float(Q2.predict(loose_share)); cv = float(card["conv"]) if card["conv"] is not None else (CONV_DEFAULT if conv is None else float(conv))
+    stray = (1 / (1 + float(card["D"]))) * (1 - float(card["eraser_clean"])); u_law = stray + cv * (1 - stray)
+    pt = {c: eps_of(card, c, loose_share) for c in s}; terr0 = T["territory"].to_numpy()
+    jm = np.ones(len(T))
+    for j, v in (card.get("by_job") or {}).items(): jm[terr0 == j] = float((v or {}).get("held_mult", 1.0))
     e = np.zeros(len(T)); a = np.zeros(len(T))
     for c, w in s.items():
         hf = T[f"{c}|held"].to_numpy(np.float64); hf = np.where(np.isfinite(hf), hf, (T[f"{c}|level"].to_numpy(np.float64) >= 0.5))
-        e += w * (hf * (1 - p) + (1 - hf) * u_law); a += w * T[f"{c}|level"].to_numpy(np.float64)
+        e += w * (hf * (1 - loss_of_eps(np.minimum(0.148, pt[c] * jm))) + (1 - hf) * u_law); a += w * T[f"{c}|level"].to_numpy(np.float64)
     ma, ca, mb, cb = (C[k][u] for k in ("meth_a", "calls_a", "meth_b", "calls_b")); calls = ca + cb
     b = np.where(calls > 0, (ma + mb) / np.maximum(calls, 1), np.nan); okL = calls >= MIN_CALLS
     th = np.where(okL, _theta(b, e), np.nan); fl = np.sqrt(np.where(okL, IS.counting_floor(calls, e), np.nan))
@@ -154,8 +207,46 @@ def reading(C, ref, shares, loose_share, conv=None):
         if (m & (nm > 0)).any(): r.update(loose_share=round(float(C["loose"][u][m].sum() / max(nm[m].sum(), 1)), 4))
         return r
     terr = T["territory"].to_numpy(); jobs = {t: summ(terr == t) for t in sorted(set(terr))}
-    rec = dict(stage="IAM's Law Sphere (sequencing; development, DEV-SPHERE-01)", status="OK", units_in_reference=int(len(T)),
+    rec = dict(stage="IAM's Law Sphere (sequencing; development, DEV-SPHERE-01)", status="OK", units_in_reference=int(len(T)), card=card,
+               predicted_held_err_by_type={c: round(v, 5) for c, v in pt.items()},
                predicted_held_err=round(p, 5), law_held_err=EPS_LAW, law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
                whole=summ(np.ones(len(T), bool)), jobs=jobs, layers=[dict(key=k, name=nm_, unit=un, about=ab) for k, nm_, un, ab in LAYERS],
                law=dict(eps=EPS_LAW, kicks_held=round(float(np.log((1 - EPS_LAW) / EPS_LAW)), 4), phi=0.1464, coins_per_restore=2.0, koide_q=0.349))
     return rec, Lay
+
+
+COUNT_KEYS = ("err", "opp", "gerr", "gopp", "meth_a", "calls_a", "meth_b", "calls_b", "held", "unm", "loose")
+def save_counts(path, C, ref, shares, loose_share, conv=None, sample=""):
+    """Edit 207: the sample's per-unit molecule counts on the sphere's units, with its shares and loose share, so any card can be read again
+    in seconds without the molecule file (count once, evaluate many)."""
+    u = ref["table"]["unit"].to_numpy()
+    np.savez_compressed(path, unit=u, **{k: C[k][u].astype(np.float32) for k in COUNT_KEYS},
+                        meta=np.array(json.dumps(dict(shares=shares, loose_share=loose_share, conv=conv, sample=sample))))
+def load_counts(path, ref):
+    """The saved counts, laid back onto unit indexes as count_pat_units returns them; and the saved shares, loose share, conversion."""
+    Z = np.load(path, allow_pickle=False); u = Z["unit"]; n = int(max(u.max(), ref["table"]["unit"].max())) + 1
+    C = {}
+    for k in COUNT_KEYS: a = np.zeros(n); a[u] = Z[k]; C[k] = a
+    return C, json.loads(str(Z["meta"]))
+def sweep(C, ref, shares, loose_share, key, values, base=None, conv=None, cell=None):
+    """One input over a range (in by_type[cell] when cell is given); every whole-sample and per-job summary at each value."""
+    out = []
+    for v in values:
+        c = card_of(base)
+        if cell: c["by_type"] = dict(c.get("by_type") or {}); c["by_type"][cell] = dict(c["by_type"].get(cell, {}), **{key: v})
+        else: c[key] = v
+        r, _ = reading(C, ref, shares, loose_share, conv, c); out.append(dict(value=v, whole=r["whole"], jobs=r["jobs"]))
+    return out
+def fit(C, ref, shares, loose_share, key, lo, hi, n=41, base=None, conv=None, cell=None, target="alarm_law"):
+    """The value of one input that brings the sample closest to the law: the alarm (angle over its counting floor) at its minimum, over a
+    grid of n values from lo to hi, for the whole sample and for each job. Returns the curve and the best value for each."""
+    vals = list(np.linspace(float(lo), float(hi), int(n)))
+    S = sweep(C, ref, shares, loose_share, key, vals, base, conv, cell)
+    def best(get):
+        y = np.array([get(x) if get(x) is not None else np.nan for x in S], float)
+        if not np.isfinite(y).any(): return None
+        i = int(np.nanargmin(y)); return dict(value=round(vals[i], 6), **{target: round(float(y[i]), 5)}, at_edge=i in (0, len(vals) - 1))
+    jobs = sorted(S[0]["jobs"]) if S else []
+    return dict(key=key, cell=cell, target=target, values=[round(v, 6) for v in vals],
+                whole=best(lambda x: x["whole"].get(target)), jobs={j: best(lambda x, j=j: (x["jobs"].get(j) or {}).get(target)) for j in jobs},
+                curve=[dict(value=round(x["value"], 6), whole=x["whole"].get(target)) for x in S])

@@ -6779,3 +6779,8 @@ On every sequenced sample (--pat or --geo-pat) the full chain now runs the Law S
 
 ### 2026-11-20 · PHY-035: the sample report shows IAM's Law Sphere
 A researcher-view section lists every Law Sphere output (16) for the whole sample and by job, beside its healthy (law) value and its basis, with the whole-genome globe's numbers.
+
+### 2026-11-20 · PHY-035: IAM's Law Sphere input card, sweep and fit
+Every law input is set by name (defaults from the cell simulator's card); a sample's counts are saved once and any card read again in
+seconds; the fit finds the value of one input, whole or for one type, that brings the sample to its counting floor. The level layers take
+the counter's held error (isolated losses) and convert it to the per-call loss.
