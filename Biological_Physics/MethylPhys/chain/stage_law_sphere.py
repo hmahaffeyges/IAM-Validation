@@ -212,6 +212,7 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
                predicted_held_err=round(p, 5), law_held_err=EPS_LAW, law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
                whole=summ(np.ones(len(T), bool)), jobs=jobs, layers=[dict(key=k, name=nm_, unit=un, about=ab) for k, nm_, un, ab in LAYERS],
                law=dict(eps=EPS_LAW, kicks_held=round(float(np.log((1 - EPS_LAW) / EPS_LAW)), 4), phi=0.1464, coins_per_restore=2.0, koide_q=0.349))
+    rec["_units"] = u.tolist()   # edit 208: unit order of the layers (popped before the bundle is written)
     return rec, Lay
 
 
@@ -250,3 +251,58 @@ def fit(C, ref, shares, loose_share, key, lo, hi, n=41, base=None, conv=None, ce
     return dict(key=key, cell=cell, target=target, values=[round(v, 6) for v in vals],
                 whole=best(lambda x: x["whole"].get(target)), jobs={j: best(lambda x, j=j: (x["jobs"].get(j) or {}).get(target)) for j in jobs},
                 curve=[dict(value=round(x["value"], 6), whole=x["whole"].get(target)) for x in S])
+
+# ---- edit 208: the Law Sphere as a page (the website's globe viewer, one layer per output, each a coded difference from its healthy value)
+TEX_H, TEX_W = 128, 256
+GROUPS = [("Against the law", ["alarm_law", "angle_law", "fidelity_law", "power_factor"]),
+          ("Hold (the record)", ["hold_vs_law", "hold_vs_self", "kicks_held", "phi", "coins_per_restore", "koide_q"]),
+          ("Write and settling", ["write_vs_law", "loose_share"]),
+          ("Healthy and the law", ["angle_law_atlas", "angle_atlas"]),
+          ("Instrument", ["halves", "depth"])]
+LAW_VALUE = dict(alarm_law=1.0, hold_vs_law=1.0, hold_vs_self=1.0, write_vs_law=1.0, halves=1.0, kicks_held=3.0657, phi=0.1464, coins_per_restore=2.0,
+                 koide_q=0.3489, angle_law_atlas=0.0)
+def departure(key, Lay):
+    """Each unit's departure from its healthy value: the law's value where there is one; for the angles, from the angle counting alone gives
+    (angle / alarm); for loose share and depth, from the sample's own median (no law value; said in the layer's note)."""
+    v = np.asarray(Lay[key], float)
+    if key in LAW_VALUE: return v - LAW_VALUE[key], "the law's value " + f"{LAW_VALUE[key]:g}"
+    fl = np.asarray(Lay["angle_law"], float) / np.asarray(Lay["alarm_law"], float)
+    if key in ("angle_law", "angle_atlas"): return v - fl, "the angle counting alone gives"
+    if key == "fidelity_law": return v - np.cos(fl) ** 2, "the fidelity counting alone allows"
+    if key == "power_factor": return v - np.cos(fl), "the power-factor reading counting alone allows"
+    if key == "depth": lv = np.log10(np.where(v > 0, v, np.nan)); return lv - np.nanmedian(lv), "the sample's own median depth (log10 calls)"
+    return v - np.nanmedian(v), "the sample's own median"
+def texture(X, v, H=TEX_H, W=TEX_W):
+    """The mean of each unit's value in every cell of an equirectangular grid; direction (cos lat cos lon, sin lat, cos lat sin lon), as
+    info_sphere_viewer.territories. NaN where no unit with a value falls."""
+    X = np.asarray(X, float); ok = np.isfinite(v)
+    lat = np.arcsin(np.clip(X[:, 1], -1, 1)); lon = np.arctan2(X[:, 2], X[:, 0])
+    r = np.clip(((0.5 - lat / np.pi) * H).astype(int), 0, H - 1); c = np.clip(((lon + np.pi) / (2 * np.pi) * W).astype(int), 0, W - 1); k = r * W + c
+    s = np.bincount(k[ok], v[ok], H * W); n = np.bincount(k[ok], minlength=H * W)
+    return np.where(n > 0, s / np.maximum(n, 1), np.nan).reshape(H, W)
+def spec(rec, Lay, positions, sample=""):
+    """A globe_viewer spec: one group per family of outputs, one 'diff' layer per output (0 no unit; 1..255 = -0.5..+0.5 x scale)."""
+    import io, base64
+    from PIL import Image
+    pu, X = positions["unit"], positions["X"]; order = {int(u): i for i, u in enumerate(rec.get("_units", []))}
+    names = {k: (n, un, ab) for k, n, un, ab in LAYERS}; groups = []
+    for gname, keys in GROUPS:
+        layers = []
+        for key in keys:
+            if key not in Lay: continue
+            d, against = departure(key, Lay); vv = np.full(len(pu), np.nan)
+            idx = np.array([order.get(int(u), -1) for u in pu]); m = idx >= 0; vv[m] = d[idx[m]]
+            T = texture(X, vv); fin = np.abs(T[np.isfinite(T)])
+            if not len(fin): continue
+            sc = float(max(2 * np.quantile(fin, 0.95), 1e-6)); code = np.where(np.isfinite(T), np.clip(np.round(128 + 254 * T / sc), 1, 255), 0).astype(np.uint8)
+            b = io.BytesIO(); Image.fromarray(code, "L").save(b, "PNG", optimize=True)
+            above = [round(float((fin > t * sc / 100).mean()), 4) for t in range(51)]
+            n_, un, ab = names[key]
+            layers.append(dict(kind="diff", name=n_, src="data:image/png;base64," + base64.b64encode(b.getvalue()).decode(), scale=round(sc, 6), above=above, start=0,
+                               note=f"{ab}. Colour: the departure from {against} ({un}); the slider hides departures smaller than the chosen size.",
+                               share_text="of the sphere's measured cells depart by more than this"))
+        if layers: groups.append(dict(name=gname, layers=layers))
+    return dict(id="law_sphere", name=f"{sample}: IAM's Law Sphere".strip(": "), groups=groups,
+                about=("IAM's Law Sphere (development). Each point of the sphere is a unit of the IAM Sequencing Atlas (a CpG island, or 50 CpGs "
+                       "outside islands), placed by how it behaves across the 58 healthy cell types. Each layer shows, for this sample, how far each "
+                       "unit departs from its healthy value: the law's value where the law gives one. Departures are read from the sample's own molecules."))

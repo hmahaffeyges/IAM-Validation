@@ -533,6 +533,12 @@ def _law_sphere(a, cnt, o):
     card = LS.card_of(json.load(open(a.law_card)) if getattr(a, "law_card", None) else None)
     if getattr(a, "law_set", None): card.update({k: v for k, v in LS.card_of(a.law_set).items() if v != LS.CARD.get(k)})
     C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt["loose_share"], card=card); rec["label"] = DV.DEV_LABEL
+    U_ = rec.pop("_units", None)
+    if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
+        try:
+            import globe_viewer as GV; rec["_units"] = U_; P_ = np.load(os.path.join(LS.REF_DIR, "positions.npz")); sp_ = LS.spec(rec, Lay, {"unit": P_["unit"], "X": P_["X"]}, os.path.basename(a.out).rsplit(".", 1)[0]); rec.pop("_units", None)
+            hp = os.path.splitext(os.path.abspath(a.out))[0] + "_law_sphere.html"; open(hp, "w", encoding="utf-8").write(GV.page([GV.dedupe(sp_)], "IAM's Law Sphere", intro=sp_["about"])); rec["html"] = os.path.basename(hp)
+        except Exception as e: rec.pop("_units", None); rec["html_error"] = f"{type(e).__name__}: {e}"[:200]
     if getattr(a, "law_counts_out", None): LS.save_counts(a.law_counts_out, C, ref, sh, cnt["loose_share"], sample=os.path.basename(a.pat)); rec["counts_file"] = os.path.basename(a.law_counts_out)
     if getattr(a, "law_sphere_out", None) and Lay is not None:
         np.savez_compressed(a.law_sphere_out, unit=ref["table"]["unit"].to_numpy(), **{k: np.asarray(v, "float32") for k, v in Lay.items()}); rec["layers_file"] = os.path.basename(a.law_sphere_out)

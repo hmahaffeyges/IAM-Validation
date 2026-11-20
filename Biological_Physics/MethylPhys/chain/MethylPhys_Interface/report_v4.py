@@ -482,6 +482,7 @@ def _law_sphere_sec(o):
     if ls.get("status") != "OK":
         return h + f"<p>{chip('not run')} {E(str(ls.get('reason') or 'not run on this sample (it needs a sequencing molecule file)'))}</p>"
     W = ls.get("whole") or {}; L = ls.get("layers") or []
+    if ls.get("html"): h += f"<p><a href='{E(ls['html'])}'>Open IAM's Law Sphere</a>: every output below as a layer on the sphere, each unit coloured by how far it departs from its healthy value.</p>"   # edit 208 law_sphere_page
     h += ("<p>" + chip("development") + " Each unit of the sequencing sphere (a CpG island, or 50 CpGs outside islands; "
           f"{E(str(ls.get('units_in_reference')))} units) is read from this sample's own molecules and set against the state IAM's Law predicts for the "
           f"sample's own cells (held error predicted for this sample {E(str(ls.get('predicted_held_err')))}; the law's {E(str(ls.get('law_held_err')))}). "

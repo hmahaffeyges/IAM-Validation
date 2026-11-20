@@ -1193,6 +1193,7 @@ Deconvolver's shares, reads every sequencing-sphere unit from the sample's molec
 expected point in the sample's own cells (`stage_law_sphere.reading`, Section 18b). Written under bundle `development.law_sphere`: the 14
 layers summarised per job and for the whole sample; `--law-sphere-out` saves them per unit. Not run without a molecule file, IAM-A's loose
 share or the Deconvolver's shares (the reason is written).
+With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208).
 
 ### run_sample.py::_genome_globe
 `--dev-genome-globe` with `--pat` or `--geo-pat` (development, not commissioned; the file must be hg19, Section 10b): counts the file's molecules into regions of `--genome-region` CpGs on the
@@ -3840,6 +3841,17 @@ The value of one card input (whole or one type's) that brings the sample nearest
 
 ### stage_law_sphere.py::fit.best
 The minimum of one summary over the fit's grid, and whether it lies at the grid's edge.
+
+### stage_law_sphere.py::departure
+Each unit's departure from its healthy value for one output: the law's value where it gives one; the angles from what counting
+alone gives; loose share and depth from the sample's own median.
+
+### stage_law_sphere.py::texture
+The mean of the units' values in each cell of an equirectangular grid on the sphere (the information sphere's direction convention).
+
+### stage_law_sphere.py::spec
+The Law Sphere page's globe-viewer spec: one group per family of outputs, one coded-difference layer per output with its scale,
+its share above each step and its note.
 
 ### stage_law_sphere.py::unit_map
 CpG index to sphere unit: each island one unit, then blocks of 50 consecutive CpGs outside islands.
