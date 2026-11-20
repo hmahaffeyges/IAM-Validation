@@ -161,6 +161,9 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
     if not s: return {"status": "NOT_RUN", "reason": "no cell share in the reference"}, None
     s = {c: v / tot for c, v in s.items()}
     card = card_of(card) if not isinstance(card, dict) or set(card) != set(CARD) else card
+    ls_src = "IAM-A"
+    if loose_share is None:   # edit 210: the sphere's own loose share when IAM-A gives none
+        _nm = C["held"][u] + C["unm"][u] + C["loose"][u]; loose_share = float(C["loose"][u].sum() / max(_nm.sum(), 1)); ls_src = "the sphere's own units (IAM-A gave none)"
     p = float(Q2.predict(loose_share)); cv = float(card["conv"]) if card["conv"] is not None else (CONV_DEFAULT if conv is None else float(conv))
     stray = (1 / (1 + float(card["D"]))) * (1 - float(card["eraser_clean"])); u_law = stray + cv * (1 - stray)
     pt = {c: eps_of(card, c, loose_share) for c in s}; terr0 = T["territory"].to_numpy()
@@ -207,7 +210,7 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
         if (m & (nm > 0)).any(): r.update(loose_share=round(float(C["loose"][u][m].sum() / max(nm[m].sum(), 1)), 4))
         return r
     terr = T["territory"].to_numpy(); jobs = {t: summ(terr == t) for t in sorted(set(terr))}
-    rec = dict(stage="IAM's Law Sphere (sequencing; development, DEV-SPHERE-01)", status="OK", units_in_reference=int(len(T)), card=card,
+    rec = dict(stage="IAM's Law Sphere (sequencing; development, DEV-SPHERE-01)", status="OK", units_in_reference=int(len(T)), card=card, loose_share=round(float(loose_share), 4), loose_share_source=ls_src,
                predicted_held_err_by_type={c: round(v, 5) for c, v in pt.items()},
                predicted_held_err=round(p, 5), law_held_err=EPS_LAW, law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
                whole=summ(np.ones(len(T), bool)), jobs=jobs, layers=[dict(key=k, name=nm_, unit=un, about=ab) for k, nm_, un, ab in LAYERS],

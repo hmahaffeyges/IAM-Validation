@@ -524,7 +524,6 @@ def _law_sphere(a, cnt, o):
     the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere."""
     import gzip, numpy as np, stage_law_sphere as LS, dev_stages as DV
     if not a.pat: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "needs --pat (the units are counted from molecules)"}
-    if cnt.get("loose_share") is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "IAM-A gave no loose share"}
     sh = {r["cell"]: r["share"] for r in ((o.get("cell_shares") or {}).get("cells") or [])}
     if not sh: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "no cell shares from the Deconvolver"}
     op = (lambda f: gzip.open(f, "rt")) if a.pat.endswith(".gz") else (lambda f: open(f))
@@ -532,14 +531,14 @@ def _law_sphere(a, cnt, o):
     ref = LS.load_ref(); umap = LS.unit_map(ref["isl_first"], ref["isl_last"], ref["block"], ref["n"])
     card = LS.card_of(json.load(open(a.law_card)) if getattr(a, "law_card", None) else None)
     if getattr(a, "law_set", None): card.update({k: v for k, v in LS.card_of(a.law_set).items() if v != LS.CARD.get(k)})
-    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt["loose_share"], card=card); rec["label"] = DV.DEV_LABEL
+    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt.get("loose_share"), card=card); rec["label"] = DV.DEV_LABEL
     U_ = rec.pop("_units", None)
     if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
         try:
             import globe_viewer as GV; rec["_units"] = U_; P_ = np.load(os.path.join(LS.REF_DIR, "positions.npz")); sp_ = LS.spec(rec, Lay, {"unit": P_["unit"], "X": P_["X"]}, os.path.basename(a.out).rsplit(".", 1)[0]); rec.pop("_units", None)
             hp = os.path.splitext(os.path.abspath(a.out))[0] + "_law_sphere.html"; open(hp, "w", encoding="utf-8").write(GV.page([GV.dedupe(sp_)], "IAM's Law Sphere", intro=sp_["about"])); rec["html"] = os.path.basename(hp)
         except Exception as e: rec.pop("_units", None); rec["html_error"] = f"{type(e).__name__}: {e}"[:200]
-    if getattr(a, "law_counts_out", None): LS.save_counts(a.law_counts_out, C, ref, sh, cnt["loose_share"], sample=os.path.basename(a.pat)); rec["counts_file"] = os.path.basename(a.law_counts_out)
+    if getattr(a, "law_counts_out", None): LS.save_counts(a.law_counts_out, C, ref, sh, rec.get("loose_share", cnt.get("loose_share")), sample=os.path.basename(a.pat)); rec["counts_file"] = os.path.basename(a.law_counts_out)
     if getattr(a, "law_sphere_out", None) and Lay is not None:
         np.savez_compressed(a.law_sphere_out, unit=ref["table"]["unit"].to_numpy(), **{k: np.asarray(v, "float32") for k, v in Lay.items()}); rec["layers_file"] = os.path.basename(a.law_sphere_out)
     return rec
@@ -1650,6 +1649,9 @@ def main():
                 _rr = [{k: (None if _pd.isna(r.get(k)) else r.get(k)) for k in ("A", "id", "pipeline") if k in _rt.columns} for r in _rt.to_dict("records")]
                 o["iam_a"]["tare"] = Q.tare(o["iam_a"], _rr, sample_id=a.id)
             if not a.pat: o["iam_a"]["intake"] = "Stage Q0 not run: a site table carries no molecules to check"
+    if getattr(a, "dev_law_sphere", False) and a.pat and "law_sphere" not in (o.get("development") or {}):   # edit 210: samples IAM-A does not read (mixtures)
+        try: o.setdefault("development", {})["law_sphere"] = _law_sphere(a, {}, o)
+        except Exception as e: o.setdefault("development", {})["law_sphere"] = {"status": "FAILED", "reason": f"{type(e).__name__}: {e}"[:200]}
     # what stage 12b needs from every draw (recorded on every run so a later draw can be compared): the identifier hash and the pipeline
     if a.betas: o["pipeline"] = "chain Stage 1 (beta table)"
     if a.betas and a.patient_id: o["patient_hash"] = a.patient_id if (len(a.patient_id) >= 16 and a.patient_id.isalnum()) else __import__("hashlib").sha256(a.patient_id.encode()).hexdigest()[:32]

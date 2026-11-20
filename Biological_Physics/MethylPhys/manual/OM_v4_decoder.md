@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,739 | 21 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,741 | 21 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -74,7 +74,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
-| `stage_law_sphere.py` | 309 | 20 | 0 | 0 |
+| `stage_law_sphere.py` | 312 | 20 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -1348,7 +1348,7 @@ Register T1 and C3: in every sequencing reading, the held and absent sides count
 (count_pat_sites) at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own
 meter) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side. Written as iam_a.sites; it never changes a reading.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 615 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 614 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::_bio_root`
 
@@ -1454,9 +1454,9 @@ Deconvolver's shares, reads every sequencing-sphere unit from the sample's molec
 expected point in the sample's own cells (`stage_law_sphere.reading`, Section 18b). Written under bundle `development.law_sphere`: the 14
 layers summarised per job and for the whole sample; `--law-sphere-out` saves them per unit. Not run without a molecule file, IAM-A's loose
 share or the Deconvolver's shares (the reason is written).
-With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208). In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209).
+With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208). In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209). It also reads samples IAM-A does not read as one cell type (mixtures), in their own shares; without IAM-A's loose share it takes the sphere's own (edit 210).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 522 (24 lines) · arguments: a, cnt, o · calls: not called on the traced runs · files named: `positions.npz`
+*Code:* `MethylPhys_Interface/run_sample.py` line 522 (23 lines) · arguments: a, cnt, o · calls: not called on the traced runs · files named: `positions.npz`
 
 ### `run_sample.py::_genome_globe`
 
@@ -1465,7 +1465,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file. In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 547 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 546 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -1481,7 +1481,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 570 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 569 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -1495,14 +1495,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 650 (1087 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 649 (1090 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1267 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1266 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1510,13 +1510,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1032 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1031 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1658 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1660 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -5412,51 +5412,51 @@ The per-call loss whose isolated losses equal the counter's held error (independ
 
 Saves a sample's per-unit molecule counts with its shares and loose share, so any card can be read again without the file.
 
-*Code:* `stage_law_sphere.py` line 220 (6 lines) · arguments: path, C, ref, shares, loose_share, conv, sample · calls: not called on the traced runs · constants read: `COUNT_KEYS`
+*Code:* `stage_law_sphere.py` line 223 (6 lines) · arguments: path, C, ref, shares, loose_share, conv, sample · calls: not called on the traced runs · constants read: `COUNT_KEYS`
 
 ### `stage_law_sphere.py::load_counts`
 
 Reads saved counts back onto the sphere's units.
 
-*Code:* `stage_law_sphere.py` line 226 (6 lines) · arguments: path, ref · calls: not called on the traced runs · constants read: `COUNT_KEYS`
+*Code:* `stage_law_sphere.py` line 229 (6 lines) · arguments: path, ref · calls: not called on the traced runs · constants read: `COUNT_KEYS`
 
 ### `stage_law_sphere.py::sweep`
 
 One card input over a range (or one type's), every summary at each value.
 
-*Code:* `stage_law_sphere.py` line 232 (9 lines) · arguments: C, ref, shares, loose_share, key, values, base, conv, cell · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 235 (9 lines) · arguments: C, ref, shares, loose_share, key, values, base, conv, cell · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::fit`
 
 The value of one card input (whole or one type's) that brings the sample nearest its counting floor, whole and per job, with the curve.
 
-*Code:* `stage_law_sphere.py` line 241 (13 lines) · arguments: C, ref, shares, loose_share, key, lo, hi, n, base, conv, cell, target · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 244 (13 lines) · arguments: C, ref, shares, loose_share, key, lo, hi, n, base, conv, cell, target · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::fit.best`
 
 The minimum of one summary over the fit's grid, and whether it lies at the grid's edge.
 
-*Code:* `stage_law_sphere.py` line 246 (4 lines) · arguments: get · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 249 (4 lines) · arguments: get · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::departure`
 
 Each unit's departure from its healthy value for one output: the law's value where it gives one; the angles from what counting
 alone gives; loose share and depth from the sample's own median.
 
-*Code:* `stage_law_sphere.py` line 264 (11 lines) · arguments: key, Lay · calls: not called on the traced runs · constants read: `LAW_VALUE`
+*Code:* `stage_law_sphere.py` line 267 (11 lines) · arguments: key, Lay · calls: not called on the traced runs · constants read: `LAW_VALUE`
 
 ### `stage_law_sphere.py::texture`
 
 The mean of the units' values in each cell of an equirectangular grid on the sphere (the information sphere's direction convention).
 
-*Code:* `stage_law_sphere.py` line 275 (8 lines) · arguments: X, v, H, W · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 278 (8 lines) · arguments: X, v, H, W · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::spec`
 
 The Law Sphere page's globe-viewer spec: one group per family of outputs, one coded-difference layer per output with its scale,
 its share above each step and its note.
 
-*Code:* `stage_law_sphere.py` line 283 (26 lines) · arguments: rec, Lay, positions, sample · calls: not called on the traced runs · constants read: `GROUPS`, `LAYERS`
+*Code:* `stage_law_sphere.py` line 286 (26 lines) · arguments: rec, Lay, positions, sample · calls: not called on the traced runs · constants read: `GROUPS`, `LAYERS`
 
 ### `stage_law_sphere.py::unit_map`
 
@@ -5494,7 +5494,7 @@ Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x 
 One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
 whole-sample summaries, each against its counting floor.
 
-*Code:* `stage_law_sphere.py` line 155 (62 lines) · arguments: C, ref, shares, loose_share, conv, card · calls: not called on the traced runs · constants read: `CARD`, `CONV_DEFAULT`, `EPS_LAW`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 155 (65 lines) · arguments: C, ref, shares, loose_share, conv, card · calls: not called on the traced runs · constants read: `CARD`, `CONV_DEFAULT`, `EPS_LAW`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
 
 ### `stage_law_sphere.py::count_pat_units.flush`
 
@@ -5506,7 +5506,7 @@ Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buf
 
 The summary of every layer over a set of units (the whole sample, or one job), pooled before the ratio is taken.
 
-*Code:* `stage_law_sphere.py` line 189 (20 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 192 (20 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 

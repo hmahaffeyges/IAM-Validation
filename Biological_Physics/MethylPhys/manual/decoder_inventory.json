@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1739,
+   "lines": 1741,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -270,13 +270,13 @@
      "function": "_law_sphere",
      "name": "_law_sphere",
      "line": 522,
-     "end": 545,
+     "end": 544,
      "args": [
       "a",
       "cnt",
       "o"
      ],
-     "lines": 24,
+     "lines": 23,
      "doc": "Edit 205 (DEV-SPHERE-01): IAM's Law Sphere. Each sequencing-sphere unit read from the sample's molecules by IAM-A's own rule and set against the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere.",
      "constants": [],
      "data_files": [
@@ -288,8 +288,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 547,
-     "end": 567,
+     "line": 546,
+     "end": 566,
      "args": [
       "a",
       "cnt",
@@ -305,8 +305,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 570,
-     "end": 611,
+     "line": 569,
+     "end": 610,
      "args": [
       "a",
       "o",
@@ -326,8 +326,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_site_counts",
      "name": "_site_counts",
-     "line": 615,
-     "end": 648,
+     "line": 614,
+     "end": 647,
      "args": [
       "pat"
      ],
@@ -347,10 +347,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 650,
-     "end": 1736,
+     "line": 649,
+     "end": 1738,
      "args": [],
-     "lines": 1087,
+     "lines": 1090,
      "doc": "",
      "constants": [
       "BIO",
@@ -382,8 +382,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1032,
-     "end": 1036,
+     "line": 1031,
+     "end": 1035,
      "args": [
       "r"
      ],
@@ -399,8 +399,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1267,
-     "end": 1274,
+     "line": 1266,
+     "end": 1273,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1658,
-     "end": 1659,
+     "line": 1660,
+     "end": 1661,
      "args": [
       "b",
       "it",
@@ -9568,7 +9568,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 309,
+   "lines": 312,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -9741,7 +9741,7 @@
      "function": "reading",
      "name": "reading",
      "line": 155,
-     "end": 216,
+     "end": 219,
      "args": [
       "C",
       "ref",
@@ -9750,7 +9750,7 @@
       "conv",
       "card"
      ],
-     "lines": 62,
+     "lines": 65,
      "doc": "One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers).",
      "constants": [
       "CARD",
@@ -9768,8 +9768,8 @@
      "file": "stage_law_sphere.py",
      "function": "reading.summ",
      "name": "summ",
-     "line": 189,
-     "end": 208,
+     "line": 192,
+     "end": 211,
      "args": [
       "m"
      ],
@@ -9786,8 +9786,8 @@
      "file": "stage_law_sphere.py",
      "function": "save_counts",
      "name": "save_counts",
-     "line": 220,
-     "end": 225,
+     "line": 223,
+     "end": 228,
      "args": [
       "path",
       "C",
@@ -9809,8 +9809,8 @@
      "file": "stage_law_sphere.py",
      "function": "load_counts",
      "name": "load_counts",
-     "line": 226,
-     "end": 231,
+     "line": 229,
+     "end": 234,
      "args": [
       "path",
       "ref"
@@ -9827,8 +9827,8 @@
      "file": "stage_law_sphere.py",
      "function": "sweep",
      "name": "sweep",
-     "line": 232,
-     "end": 240,
+     "line": 235,
+     "end": 243,
      "args": [
       "C",
       "ref",
@@ -9850,8 +9850,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit",
      "name": "fit",
-     "line": 241,
-     "end": 253,
+     "line": 244,
+     "end": 256,
      "args": [
       "C",
       "ref",
@@ -9876,8 +9876,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit.best",
      "name": "best",
-     "line": 246,
-     "end": 249,
+     "line": 249,
+     "end": 252,
      "args": [
       "get"
      ],
@@ -9891,8 +9891,8 @@
      "file": "stage_law_sphere.py",
      "function": "departure",
      "name": "departure",
-     "line": 264,
-     "end": 274,
+     "line": 267,
+     "end": 277,
      "args": [
       "key",
       "Lay"
@@ -9909,8 +9909,8 @@
      "file": "stage_law_sphere.py",
      "function": "texture",
      "name": "texture",
-     "line": 275,
-     "end": 282,
+     "line": 278,
+     "end": 285,
      "args": [
       "X",
       "v",
@@ -9927,8 +9927,8 @@
      "file": "stage_law_sphere.py",
      "function": "spec",
      "name": "spec",
-     "line": 283,
-     "end": 308,
+     "line": 286,
+     "end": 311,
      "args": [
       "rec",
       "Lay",

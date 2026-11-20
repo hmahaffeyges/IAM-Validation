@@ -6791,3 +6791,6 @@ The Law Sphere's outputs as layers on the sphere (the website's globe viewer), e
 ### 2026-11-20 · PHY-035: the whole-genome globe and the Law Sphere on files fetched from GEO
 The full chain switched both on only when --pat was given; a --geo-pat file is fetched after that check, so no GEO library ran them. Both now
 switch on for --geo-pat too. An earlier edit meant to fix the globe's switch never landed. Development; no reading changes.
+
+### 2026-11-20 · PHY-035: IAM's Law Sphere on mixtures
+The Law Sphere ran only where IAM-A read one cell type; it now also reads mixtures in their own shares, with its own loose share when IAM-A gives none.
