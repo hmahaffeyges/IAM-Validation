@@ -7,6 +7,7 @@ clustering measure (coupling), to be set beside the healthy samples' measured co
   seq X : after a loss, the next call's loss chance is X times the candidate (losses follow each other along the molecule)
   het K : each molecule's loss chance is the candidate times a Gamma(K, 1/K) draw (some molecules or regions simply lose more)
   ind   : independent losses.
+  proc W: a processive crew restoring windows of W CpGs; 6th argument rho, the recruitment share (2026-11-19, A8PC)
 Usage: python3 forward_candidate.py MODE PARAM REPS OUTPREFIX [ERASER_RATIO]   (writes OUTPREFIX.csv and OUTPREFIX_summary.txt)"""
 import os, sys, json, glob, gzip, random, subprocess, tempfile
 H = os.path.dirname(os.path.abspath(__file__)); IF = os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface")
@@ -16,15 +17,24 @@ MODE, PARAM, REPS, OUT = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), sys.
 # DEV-ERASE-01 recount median 0.8642 in stem cells; PHY-085 TET2 in blood progenitors, mean of the two units). The planted per-site
 # loss is then the candidate over r (the candidate holds against thermal kicks alone; the eraser adds its measured share on top).
 RATIO = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0
+RHO = float(sys.argv[6]) if len(sys.argv) > 6 else 0.0   # 2026-11-19 (A8PC): recruitment share for mode 'proc'
 E = E / RATIO
 N, SEED = 120000, 20261113
 REAL = json.load(open(sorted(glob.glob(os.path.join(H, "percall_out", "*.json")))[0])); REAL = REAL[0] if isinstance(REAL, list) else REAL
 LENS = {int(k): v[0] for k, v in REAL["held_by_length"].items() if int(k) <= 40}; Ls, Ws = list(LENS), list(LENS.values())
 RANGES = json.load(open(os.path.join(H, "..", "..", "..", "chain", "Runtime Matrices", "IAM_A_Positions", "hg19_cpg_chrom_ranges.json")))["ranges"]
 AUTO = [(f"chr{k}", RANGES[f"chr{k}"]) for k in range(1, 23)]; WTS = [b - a for _, (a, b) in AUTO]
+def molecule_proc(g, L):
+    import math as _m
+    w = max(1, int(PARAM)); fr = (E / (1 - E)) * (RHO + (1 - RHO) * w) / w; out = []; j = 0; first = w - g.randrange(w)
+    while j < L:
+        n = min(first if j == 0 else w, L - j); p_ = 1 - _m.exp(-fr * g.expovariate(1.0))
+        out += ['T' if g.random() < p_ else 'C' for _ in range(n)]; j += n
+    return ''.join(out)
 def molecule(g, L):
     if MODE == "het": e = min(0.5, E * g.gammavariate(PARAM, 1 / PARAM)); q = e
     elif MODE == "seq": e = E; q = min(0.5, PARAM * E)
+    elif MODE == "proc": return molecule_proc(g, L)
     else: e = q = E
     s, prev = [], False
     for _ in range(L):
@@ -46,7 +56,7 @@ def sample(seed):
     return B["iam_a_count_only"]["count"]
 rows = []
 for r in range(REPS):
-    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}[MODE] * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
+    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}.get(MODE, 3 + int(RHO * 10)) * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
     rows.append((r, c["held_err_length"], c["held_e_call"], c.get("coupling"), c.get("held_err"))); print(MODE, PARAM, r, rows[-1][1:], flush=True)
 # 2026-11-13: held_err (isolated losses over interior calls, the quantity behind CANON eps0_meth / H_ref_cell) added as the last column,
 # so the Met-A healthy level (register M2) can be compared like for like.
