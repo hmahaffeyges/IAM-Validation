@@ -459,7 +459,7 @@ checks the atlases against their checksums before any reading (`reference_door.p
 
 **What it is:** The energy that holds one mark, E_hold = 3.066 kT, and the share of one coin it is, φ = E_hold / M = 0.1464.
 
-**Physics / equation:** E_hold = kT ln[(1 − ε0)/ε0] = kT ln(odds) = ln 21.45 = 3.066 kT. φ(M) = ln(odds(2M)) / M = 0.1464; for a strong push φ ≈ ln(M)/M, within 1 % at the cell's M. Measured on 56 healthy cell types: 3.084 kT and 0.1473 (canon E_hold_meth, phi). In plain words: the cell pays in coins worth 20.94 kicks each, and each mark is held at about 3 kicks' worth.
+**Physics / equation:** E_hold = kT ln[(1 − ε0)/ε0] = kT ln(odds) = ln 21.45 = 3.066 kT. φ(M) = ln(odds(2M)) / M = 0.1464; for a strong push φ ≈ ln(M)/M, within 1 % at the cell's M. Measured on 56 healthy cell types: 3.084 kT and 0.1473 (canon E_hold_meth, phi). In plain words: the cell pays in coins worth 20.94 kicks each, and each mark is held at about 3 kicks' worth. The driven-passage odds are the same function as a write ramped slowly against its own clock (kept over lost = (x/2)/(1 - (1 - e^-x)/x)), with x = w = 2M here; a sudden write (x -> 0) keeps half and loses half. So φ is about 0.147 rather than one half because a maintained record is restored slowly, not written once suddenly.
 
 **How the chain uses it:** Printed by the Decoder and the report; no stage file reads it.
 

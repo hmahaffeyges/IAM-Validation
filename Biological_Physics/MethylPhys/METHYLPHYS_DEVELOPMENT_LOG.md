@@ -6658,3 +6658,6 @@ Read outside the reference, the mixture check refused 19 of 49 sorted atlas libr
 and a sibling of the same tissue family second. Non-blood atlas cells are now pooled by tissue family; blood keeps its lineage groups;
 the floor stays 0.12. The 154 atlas inputs stay single (largest possible second group 0.079), the planted blood mixture stays a mixture,
 12 of the 19 become readable. No reading of a named cell changes.
+
+### 2026-11-19 · PHY-083: the cell's derived hold is the slow-write rule
+The driven-passage odds that give the healthy middle, (w/2)/(1 - (1 - e^-w)/w) at w = 2M, are exactly the kept-over-lost ratio of a write ramped slowly against the system's own clock; their sudden limit is 1, half kept and half lost. Checked symbolically on GitHub (run 44662887227). So the cell holds about 0.147 of its drive rather than one half because each mark is restored slowly, not written once suddenly. Book chapter IAM-A (one item, appended inside an existing line so no check moves) and the Euler-halves chapter (one clause); Decoder entry for phi_candidate; SOP section on the M number; cell simulator note on phi_derived. No reading changes.
