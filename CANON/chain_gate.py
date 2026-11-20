@@ -32,7 +32,7 @@ CHAIN = "Biological_Physics/MethylPhys/chain"; DOORS = "Biological_Physics/Methy
 ADDS = re.compile(r"(?i)^\*\*Synthetic test:\*\*|^\*\*Bars?\b|^## Outcome|^\*\*Status: rule|^\*\*Sealed|^## Bars?\b")
 LINE_NUMS = re.compile(r"(?<![\d.])(0\.0298|0\.0555|0\.74128\d*|0\.0402|0\.0347)(?!\d)")
 CHAIN_IMPORT = re.compile(r"(?m)^\s*(from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics)\b")
-PIECES = re.compile(r"(?m)^\s*(?:from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics|report_globe_v4|globe_viewer|report_v\w+|run_sample)\b")
+PIECES = re.compile(r"(?m)(?:^|;)\s*(?:from|import)\s+(conductor_v3|stage_\w+|dev_stages|cmb_tools|sky_statistics|report_globe_v4|globe_viewer|report_v\w+|run_sample)\b")
 ONE_COMMAND = re.compile(r"run_sample\.py")
 SCOPE_F = ("Biological_Physics/MethylPhys/doors/data/", "website/art/")
 OWN_PAT = re.compile(r"\\\.pat\\\.gz|\.pat\.gz")
