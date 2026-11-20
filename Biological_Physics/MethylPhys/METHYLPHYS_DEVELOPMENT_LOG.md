@@ -6767,3 +6767,12 @@ A one-library cell now borrows its lineage siblings' spread (median per site). C
 The sphere's Fisher-Rao angle from counting alone is 1/(2 sqrt n) per site at any level, so a healthy sample's distance measures depth
 (48 sorted libraries: median 0.19 rad, about 7 reads a site). The sphere now reports the expected distance from the sample's own counts
 and the reference's standard error, and measured over expected. Development; the territory rule and the measured distance are unchanged.
+
+### 2026-11-20 · PHY-035: IAM's Law Sphere (sequencing), development stage and runtime reference
+The sequencing sphere is built on the IAM Sequencing Atlas's own CpGs (islands and 50-CpG blocks; 237,850 units chosen by the atlas's own
+noise; level-matched test met, 12 of 12 marker groups, 1 of 100 twins; distance agreement of the 3D picture 0.666). The Law Sphere stage reads
+each unit from the sample's molecules by IAM-A's rule and gives 14 layers against the law's expected point in the sample's own cells.
+Development; the one button calls it in a later edit.
+
+### 2026-11-20 · PHY-035: the one button reads sequenced samples on IAM's Law Sphere
+On every sequenced sample (--pat or --geo-pat) the full chain now runs the Law Sphere after IAM-A and the Deconvolver; bundle development.law_sphere.

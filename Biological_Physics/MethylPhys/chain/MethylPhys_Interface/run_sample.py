@@ -508,6 +508,22 @@ def _build(a):
     return 2
 
 
+def _law_sphere(a, cnt, o):
+    """Edit 205 (DEV-SPHERE-01): IAM's Law Sphere. Each sequencing-sphere unit read from the sample's molecules by IAM-A's own rule and set against
+    the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere."""
+    import gzip, numpy as np, stage_law_sphere as LS, dev_stages as DV
+    if not a.pat: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "needs --pat (the units are counted from molecules)"}
+    if cnt.get("loose_share") is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "IAM-A gave no loose share"}
+    sh = {r["cell"]: r["share"] for r in ((o.get("cell_shares") or {}).get("cells") or [])}
+    if not sh: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "no cell shares from the Deconvolver"}
+    op = (lambda f: gzip.open(f, "rt")) if a.pat.endswith(".gz") else (lambda f: open(f))
+    print("Development: IAM's Law Sphere (sequencing units, IAM-A's molecule rule, the law's expected point)", flush=True)
+    ref = LS.load_ref(); umap = LS.unit_map(ref["isl_first"], ref["isl_last"], ref["block"], ref["n"])
+    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt["loose_share"]); rec["label"] = DV.DEV_LABEL
+    if getattr(a, "law_sphere_out", None) and Lay is not None:
+        np.savez_compressed(a.law_sphere_out, unit=ref["table"]["unit"].to_numpy(), **{k: np.asarray(v, "float32") for k, v in Lay.items()}); rec["layers_file"] = os.path.basename(a.law_sphere_out)
+    return rec
+
 def _genome_globe(a, cnt, sid):
     """--dev-genome-globe (DEV-IAMA-GLOBE-01, development, not commissioned): the whole genome from the --pat file's molecules, cut into regions
     of --genome-region CpGs on the autosomes (stage_q2_globe), each drawn on every pixel of its span: the sample against its own predicted held
@@ -721,6 +737,8 @@ def main():
     ap.add_argument("--build-block", default=None, metavar="START:END", help="--build seq-atlas (2026-10-29, development): the block of hg19 CpGs, 0-based, end excluded")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
+    ap.add_argument("--dev-law-sphere", action="store_true", help="DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain")
+    ap.add_argument("--law-sphere-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the per-unit layers")
     ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "
                     "(methylation level, held error and the change against the sample's own prediction; with --prior-pat, against an earlier reading too)")
     ap.add_argument("--prior-pat", default=None, help="with --dev-genome-globe: a .pat file of an earlier reading of the same person or specimen")
@@ -825,6 +843,7 @@ def main():
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
         on.append("provisional megakaryocytes" + ("" if (a.cell_panel or "blood") != "blood" else " (runs with --cell-panel atlas; not with the six-cell blood panel)"))
         if a.pat: a.dev_genome_globe = True; on.append("genome_globe")
+        if a.pat: a.dev_law_sphere = True; on.append("law_sphere")   # edit 205
         if not a.sesame_rscript: skip["epic_v2"] = "EPIC v2 arrays only; needs --sesame-rscript"
         a._full_chain = dict(on=on, not_run=skip)
     if a.dev_tiles != "table":   # 2026-10-25 (plan 14.9, development)
@@ -1578,6 +1597,8 @@ def main():
             if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
             if a.dev_genome_globe:   # 2026-10-22: the whole-genome globe, drawn by the one command (development)
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
+            if getattr(a, "dev_law_sphere", False):   # edit 205: IAM's Law Sphere (development)
+                o.setdefault("development", {})["law_sphere"] = _law_sphere(a, _cnt, o)
     elif seq:   # Stage Q (v3, retired position reading): --site-table, or --pat with --dev-iama-position
         import stage_q_iam_a as Q
         if a.pat:

@@ -1187,6 +1187,13 @@ unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`st
 3 healthy samples of the same cell run the same way, never this one), tares it (`stage_metaa_atlas.tare`). Written under bundle
 `development.metaa_atlas`; the reading, gauge and tare are untouched.
 
+### run_sample.py::_law_sphere
+`--dev-law-sphere` with `--pat` or `--geo-pat` (development, on in the full chain; edit 205): after IAM-A's count and the
+Deconvolver's shares, reads every sequencing-sphere unit from the sample's molecules by IAM-A's own rule and sets it against the law's
+expected point in the sample's own cells (`stage_law_sphere.reading`, Section 18b). Written under bundle `development.law_sphere`: the 14
+layers summarised per job and for the whole sample; `--law-sphere-out` saves them per unit. Not run without a molecule file, IAM-A's loose
+share or the Deconvolver's shares (the reason is written).
+
 ### run_sample.py::_genome_globe
 `--dev-genome-globe` with `--pat` or `--geo-pat` (development, not commissioned; the file must be hg19, Section 10b): counts the file's molecules into regions of `--genome-region` CpGs on the
 autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its own predicted held error (`self_globe`) and, with `--prior-pat`,
@@ -3776,6 +3783,50 @@ graticule for depth, and reads which family's territory is under the pointer. It
 ### stage_info_sphere.py::build
 The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named
 group its concentration against the 99th percentile of 500 random groups of the same size.
+
+## 18b. IAM's Law Sphere (development): `stage_law_sphere.py`
+
+**What it is for.** Showing a sequenced sample against IAM's Law itself, unit by unit and job by job, with one layer per result the
+law's inputs allow. The information sphere places units by how they behave across the healthy cell types; the Law Sphere reads each unit
+from the sample's own molecules and compares it with the state the law predicts for the sample's own cells. Development (DEV-SPHERE-01).
+
+**Label: established mathematics on IAM's derived values.** The angle between two Bernoulli states b and e is the Fisher-Rao angle
+arccos(sqrt(b e) + sqrt((1 - b)(1 - e))); fidelity is its cos^2. The law's expected level at a unit is the share-weighted sum over the
+sample's cells of held CpGs at 1 - p (p: IAM-A's own predicted held error from the sample's loose share) and unmarked CpGs at the
+writer's stray rate 1/(1 + D), less the eraser's clean-up, plus the meter. Each angle is judged against its counting floor (edit 198).
+The hold layers use IAM-A's own counter (isolated errors over opportunities on held molecules, the book's definition of the held error),
+so they compare like with like with the law's 0.0445 (A4). The implied coins per restore invert the slow-write rule, the identity with
+A4's driven passage. The Koide balance assumes the conjectured identification of held and spent parts.
+
+**The 14 layers.** Angle to the law; that angle over its floor; fidelity to the law; angle to the healthy atlas; hold against IAM-A's
+line; hold against the law; energy held per mark (kT); share of each coin kept as hold (phi); implied coins per restore; Koide balance;
+stray marks against the law; loose share; agreement of the file's two halves over their floor (the instrument's own check); depth.
+
+### stage_law_sphere.py::unit_map
+CpG index to sphere unit: each island one unit, then blocks of 50 consecutive CpGs outside islands.
+
+### stage_law_sphere.py::load_ref
+Reads the runtime reference: island bounds, block size, and the per-unit table of jobs, levels and held shares.
+
+### stage_law_sphere.py::count_pat_units
+IAM-A's molecule rule per unit: levels from even lines; from odd lines held, unmarked and loose molecules, isolated errors
+and gains on interior calls, with their opportunities.
+
+### stage_law_sphere.py::_theta
+The Fisher-Rao angle between two Bernoulli states.
+
+### stage_law_sphere.py::push_for_odds
+Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x in kicks.
+
+### stage_law_sphere.py::reading
+One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
+whole-sample summaries, each against its counting floor.
+
+### stage_law_sphere.py::count_pat_units.flush
+Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buffers.
+
+### stage_law_sphere.py::reading.summ
+The summary of every layer over a set of units (the whole sample, or one job), pooled before the ratio is taken.
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 

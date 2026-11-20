@@ -93,6 +93,22 @@
    "bytes": 7853,
    "sha256": "6a78fee8eddd61ac6d3d3a84c5098d23d3fcf7446fbe1898178650f08eca7da7"
   },
+  "law_sphere/seq_sphere_ref_part1.parquet": {
+   "bytes": 9625010,
+   "sha256": "36e92831b3e7c65b1d6ee24d187c10ea6aa99dddfcf4b550b54252ad79688360"
+  },
+  "law_sphere/seq_sphere_ref_part2.parquet": {
+   "bytes": 9593853,
+   "sha256": "3f7951f9b1e41249543cad441bb456c99f93dbc1abd9b55049ad0ae7303104e4"
+  },
+  "law_sphere/seq_sphere_ref_part3.parquet": {
+   "bytes": 9652321,
+   "sha256": "80db37c151093eea290e52e9300a20fd44de804d4271afcf264b3a2486867c51"
+  },
+  "law_sphere/seq_sphere_ref_part4.parquet": {
+   "bytes": 9670339,
+   "sha256": "a95aefd21a15d600d12882f480ca4d059f368f73e76890a1eb6ed89aef72d722"
+  },
   "metaa_donor_counts/metaa_donor_counts_v1.parquet": {
    "bytes": 12776758,
    "sha256": "bf326f8664ac127f0d4423f110feaaf7ded5acc076bdd03a2cfda8584b564d3f"
@@ -100,6 +116,14 @@
   "metaa_half_counts/metaa_half_counts_v1.parquet": {
    "bytes": 5543063,
    "sha256": "14b1d5097404cd2eca61932391f55efd63806af6f155e96d5da778db93a5d09c"
+  },
+  "metaa_inner_reference/metaa_inner_reference_t3.json": {
+   "bytes": 447,
+   "sha256": "99437d38429270acc86fabbb06e2ee7dd4019100e2b2c10ed01b845afcbc2007"
+  },
+  "metaa_inner_reference/metaa_inner_reference_t3.parquet": {
+   "bytes": 5538290,
+   "sha256": "d07f46168f37facc7026a77434c397f7e4959906f685c8aac0d9299da64eba18"
   },
   "metaa_inner_reference/metaa_inner_reference_v1.json": {
    "bytes": 670,
@@ -192,14 +216,6 @@
   "terr_half_counts/terr_half_counts_v1.parquet": {
    "bytes": 19400699,
    "sha256": "5fe496614606d97629adb4f97ac1ffc760aa0f35ca03e0dbeccfe56bfe32e315"
-  },
-  "metaa_inner_reference/metaa_inner_reference_t3.parquet": {
-   "bytes": 5538290,
-   "sha256": "d07f46168f37facc7026a77434c397f7e4959906f685c8aac0d9299da64eba18"
-  },
-  "metaa_inner_reference/metaa_inner_reference_t3.json": {
-   "bytes": 447,
-   "sha256": "99437d38429270acc86fabbb06e2ee7dd4019100e2b2c10ed01b845afcbc2007"
   }
  }
 }
