@@ -6800,3 +6800,6 @@ The whole-genome sample globe was drawn only where IAM-A read one cell type; it 
 
 ### 2026-11-20 · PHY-035: the Law Sphere's hold alarm
 The Law Sphere's level layers are blind to the hold. A hold alarm now reads the held error against the law, IAM-A's own derived line and the line times each type's measured position, with a floor from a jackknife over units and the type's band uncertainty.
+
+### 2026-11-20 · PHY-035: the type positions file in the reference manifest
+Edit 212's type_positions_v1.json had no checksum in reference_manifest.json, so the reference door refused every sequencing run; its checksum is added.

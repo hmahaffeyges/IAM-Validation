@@ -109,6 +109,10 @@
    "bytes": 9670339,
    "sha256": "a95aefd21a15d600d12882f480ca4d059f368f73e76890a1eb6ed89aef72d722"
   },
+  "law_sphere/type_positions_v1.json": {
+   "bytes": 5373,
+   "sha256": "a9918856e0942c72805852cca6f176a2875ce8712d515afa482d05c2eb59dc12"
+  },
   "metaa_donor_counts/metaa_donor_counts_v1.parquet": {
    "bytes": 12776758,
    "sha256": "bf326f8664ac127f0d4423f110feaaf7ded5acc076bdd03a2cfda8584b564d3f"
