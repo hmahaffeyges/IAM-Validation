@@ -1,0 +1,153 @@
+gsm,cell,A_derived,geo_title,lab,age,sex
+GSM5652176,adipocytes,1.130043,Adipocytes-Z000000T7,KI,53,F
+GSM5652177,adipocytes,1.114143,Adipocytes-Z000000T9,KI,35,F
+GSM5652178,adipocytes,1.115981,Adipocytes-Z000000T5,KI,37,F
+GSM5652179,aorta endothelium,1.017606,Aorta-Endothelium-Z00000422,Lonza,33,F
+GSM5652180,aorta endothelium,1.106765,Aorta-Endothelium-Z0000043G,Had-HU,62,F
+GSM5652181,vascular saphenous endothelium,1.153827,Saphenous-Vein-Endothelium-Z000000RM,Had-HU,54,F
+GSM5652182,vascular saphenous endothelium,1.11769,Saphenous-Vein-Endothelium-Z000000S7,Had-HU,52,F
+GSM5652183,vascular saphenous endothelium,1.110101,Saphenous-Vein-Endothelium-Z000000SB,Had-HU,34,M
+GSM5652184,kidney glomerular endothelium,1.152011,Kidney-Glomerular-Endothelium-Z000000Q5,Had-HU,67,M
+GSM5652185,kidney glomerular endothelium,1.11229,Kidney-Glomerular-Endothelium-Z00000443,Had-HU,60,M
+GSM5652186,kidney glomerular endothelium,1.16001,Kidney-Glomerular-Endothelium-Z0000045J,Had-HU,47,M
+GSM5652187,kidney tubular endothelium,1.140098,Kidney-Tubular-Endothelium-Z000000PX,Had-HU,65,M
+GSM5652188,kidney tubular endothelium,1.143255,Kidney-Tubular-Endothelium-Z000000Q3,Had-HU,67,M
+GSM5652189,kidney tubular endothelium,1.14271,Kidney-Tubular-Endothelium-Z0000042R,Had-HU,74,F
+GSM5652191,lung alveolar endothelium,1.020224,Lung-Alveolar-Endothelium-Z000000Q1,Had-HU,28,F
+GSM5652192,lung alveolar endothelium,1.119642,Lung-Alveolar-Endothelium-Z000000QK,Had-HU,76,F
+GSM5652193,lung alveolar endothelium,1.101999,Lung-Alveolar-Endothelium-Z0000045H,Had-HU,81,F
+GSM5652194,pancreas endothelium,1.110921,Pancreas-Endothelium-Z0000042D,UA,61,F
+GSM5652195,pancreas endothelium,1.167447,Pancreas-Endothelium-Z0000042X,UA,49,F
+GSM5652196,pancreas endothelium,1.170991,Pancreas-Endothelium-Z00000430,UA,52,F
+GSM5652198,colon fibroblasts,1.104744,Colon-Fibroblasts-Z0000042A,Had-HU,37,M
+GSM5652199,colon fibroblasts,1.091741,Colon-Fibroblasts-Z0000042C,Had-HU,46,M
+GSM5652201,heart fibroblasts,0.968382,Heart-Fibroblasts-Z0000041V,Lonza,50,F
+GSM5652202,heart fibroblasts,0.978071,Heart-Fibroblasts-Z0000041W,Lonza,35,F
+GSM5652203,heart fibroblasts,0.96735,Heart-Fibroblasts-Z0000041X,Lonza,61,M
+GSM5652205,striated muscle,1.186237,Skeletal-Muscle-Z00000427,Had-HU,59,F
+GSM5652206,striated muscle,1.155514,Skeletal-Muscle-Z00000429,Had-HU,34,M
+GSM5652207,smooth muscle,0.951314,Aorta-Smooth-Muscle-Z0000041U,Lonza,22,M
+GSM5652208,smooth muscle,0.989907,Coronary-Artery-Smooth-Muscle-Z00000420,Lonza,17,F
+GSM5652209,smooth muscle,0.933672,Bladder-Smooth-Muscle-Z0000041Z,Lonza,51,F
+GSM5652212,cardiomyocyte,1.056386,Heart-Cardiomyocyte-Z0000044G,Had-HU,83,M
+GSM5652213,cardiomyocyte,1.055031,Heart-Cardiomyocyte-Z0000044K,Had-HU,54,M
+GSM5652216,cardiomyocyte,1.050838,Heart-Cardiomyocyte-Z0000044Q,Had-HU,81,M
+GSM5652219,oligodendrocytes,1.051725,Oligodendrocytes-Z000000TK,KI,31,M
+GSM5652220,oligodendrocytes,1.010127,Oligodendrocytes-Z0000042E,KI,56,M
+GSM5652221,oligodendrocytes,1.017831,Oligodendrocytes-Z0000042L,KI,25,M
+GSM5652223,cortical neurons,0.947044,Cortex-Neuron-Z000000TF,KI,38,M
+GSM5652224,cortical neurons,0.88031,Neuron-Z000000TH,KI,31,M
+GSM5652225,cortical neurons,0.85897,Cortex-Neuron-Z0000042F,KI,56,M
+GSM5652233,hepatocyte,1.030722,Liver-Hepatocytes-Z000000R3,OHSU,24,M
+GSM5652234,hepatocyte,0.977989,Liver-Hepatocytes-Z000000T3,OHSU,NA,NA
+GSM5652235,hepatocyte,0.986982,Liver-Hepatocytes-Z0000043Q,Lonza,56,F
+GSM5652239,pancreatic duct,1.057403,Pancreas-Duct-Z0000043T,UA,26,F
+GSM5652240,pancreatic duct,1.086207,Pancreas-Duct-Z0000043U,UA,19,M
+GSM5652241,pancreatic duct,1.065778,Pancreas-Duct-Z0000043V,UA,23,M
+GSM5652243,pancreatic acinar,0.978324,Pancreas-Acinar-Z000000QX,OHSU,45,M
+GSM5652244,pancreatic acinar,0.992137,Pancreas-Acinar-Z0000043W,UA,26,F
+GSM5652245,pancreatic acinar,0.882489,Pancreas-Acinar-Z0000043X,UA,19,M
+GSM5652247,pancreatic delta,1.175682,Pancreas-Delta-Z00000451,UA,58,F
+GSM5652248,pancreatic delta,1.136108,Pancreas-Delta-Z00000454,UA,43,F
+GSM5652249,pancreatic delta,1.18337,Pancreas-Delta-Z00000457,IIDP,58,F
+GSM5652250,pancreatic beta,1.127231,Pancreas-Beta-Z00000452,UA,58,F
+GSM5652251,pancreatic beta,1.151191,Pancreas-Beta-Z00000455,UA,43,F
+GSM5652252,pancreatic beta,1.106023,Pancreas-Beta-Z00000458,IIDP,58,F
+GSM5652253,pancreatic alpha,1.149042,Pancreas-Alpha-Z00000453,UA,58,F
+GSM5652254,pancreatic alpha,1.155661,Pancreas-Alpha-Z00000456,UA,43,F
+GSM5652255,pancreatic alpha,1.133075,Pancreas-Alpha-Z00000459,IIDP,58,F
+GSM5652256,kidney glomerular epithelium,1.091538,Kidney-Glomerular-Epithelium-Z0000045K,Had-HU,47,M
+GSM5652257,kidney glomerular epithelium,1.118876,Kidney-Glomerular-Epithelium-Z0000045L,Had-HU,47,M
+GSM5652258,kidney tubular epithelium,1.102881,Kidney-Tubular-Epithelium-Z000000QH,Had-HU,47,M
+GSM5652259,kidney tubular epithelium,1.082803,Kidney-Tubular-Epithelium-Z0000043Z,Had-HU,60,M
+GSM5652260,kidney tubular epithelium,1.004246,Kidney-Tubular-Epithelium-Z00000440,Had-HU,60,M
+GSM5652264,thyroid epithelium,1.125838,Thyroid-Epithelium-Z0000042S,Had-HU,28,F
+GSM5652265,thyroid epithelium,1.112166,Thyroid-Epithelium-Z0000042T,Had-HU,40,F
+GSM5652266,thyroid epithelium,1.111114,Thyroid-Epithelium-Z0000042U,Had-HU,35,F
+GSM5652267,fallopien tubes epithelium,1.044374,Fallopian-Epithelium-Z000000Q7,Had-HU,36,F
+GSM5652268,fallopien tubes epithelium,1.069566,Fallopian-Epithelium-Z000000S9,Had-HU,50,F
+GSM5652269,fallopien tubes epithelium,0.99106,Fallopian-Epithelium-Z000000UV,Had-HU,46,F
+GSM5652271,endometrium epithelium,1.024539,Endometrium-Epithelium-Z00000434,Had-HU,29,F
+GSM5652272,endometrium epithelium,1.045875,Endometrium-Epithelium-Z00000435,Had-HU,42,F
+GSM5652273,endometrium epithelium,0.989208,Endometrium-Epithelium-Z0000043S,Had-HU,29,F
+GSM5652274,erythrocyte progenitors,0.792413,Bone_marrow-Erythrocyte_progenitors-Z000000RF,Had-HU,60,M
+GSM5652275,erythrocyte progenitors,0.811922,Bone_marrow-Erythrocyte_progenitors-Z000000RH,Had-HU,53,F
+GSM5652276,erythrocyte progenitors,0.808461,Bone_marrow-Erythrocyte_progenitors-Z000000RK,Had-HU,64,F
+GSM5652279,cd4 t cells,1.048956,Blood-T-CD4-Z000000TT,Had-HU,56,F
+GSM5652280,cd4 t cells,1.074376,Blood-T-CD4-Z000000U7,Had-HU,50,M
+GSM5652281,cd4 t cells,1.038187,Blood-T-CD4-Z000000UM,Had-HU,55,F
+GSM5652282,cd8 t cells,1.065851,Blood-T-CD8-Z000000TR,Had-HU,56,F
+GSM5652283,cd8 t cells,0.977871,Blood-T-CD8-Z000000U5,Had-HU,50,M
+GSM5652284,cd8 t cells,1.10344,Blood-T-CD8-Z000000UK,Had-HU,55,F
+GSM5652285,t central memory cd4,1.186153,Blood-T-CenMem-CD4-Z00000417,Had-HU,30,F
+GSM5652286,t central memory cd4,1.188838,Blood-T-CenMem-CD4-Z0000041D,Had-HU,29,F
+GSM5652287,t central memory cd4,1.138961,Blood-T-CenMem-CD4-Z0000041N,Had-HU,69,M
+GSM5652288,t effector cell cd8,1.176315,Blood-T-Eff-CD8-Z00000419,Had-HU,30,F
+GSM5652289,t effector cell cd8,1.139783,Blood-T-Eff-CD8-Z0000041F,Had-HU,29,F
+GSM5652290,t effector cell cd8,1.000742,Blood-T-Eff-CD8-Z0000041Q,Had-HU,69,M
+GSM5652291,t effector memory cd4,1.105301,Blood-T-EffMem-CD4-Z00000416,Had-HU,30,F
+GSM5652292,t effector memory cd4,1.039944,Blood-T-EffMem-CD4-Z0000041C,Had-HU,29,F
+GSM5652293,t effector memory cd4,0.990103,Blood-T-EffMem-CD4-Z0000041M,Had-HU,69,M
+GSM5652295,effector memory cd8 t cells,1.001361,Blood-T-EffMem-CD8-Z0000041G,Had-HU,29,F
+GSM5652296,naive cd4 t cells,0.932324,Blood-T-Naive-CD4-Z0000041E,Had-HU,29,F
+GSM5652298,naive cd8 t cells,0.897875,Blood-T-Naive-CD8-Z0000041H,Had-HU,29,F
+GSM5652299,nk cells,1.013634,Blood-NK-Z000000TM,Had-HU,56,F
+GSM5652300,nk cells,1.088415,Blood-NK-Z000000U1,Had-HU,50,M
+GSM5652301,nk cells,1.031536,Blood-NK-Z000000UF,Had-HU,55,F
+GSM5652302,monocytes,1.04197,Blood-Monocytes-Z000000TP,Had-HU,56,F
+GSM5652303,monocytes,1.019001,Blood-Monocytes-Z000000U3,Had-HU,50,M
+GSM5652304,monocytes,1.000985,Blood-Monocytes-Z000000UH,Had-HU,55,F
+GSM5652305,colon macrophages,1.02598,Colon-Macrophages-Z00000444,Had-HU,79,F
+GSM5652306,colon macrophages,0.991322,Colon-Macrophages-Z00000446,Had-HU,79,F
+GSM5652308,lung alveolar macrophages,0.946405,Lung-Alveolar-Macrophages-Z00000448,Had-HU,64,M
+GSM5652309,lung alveolar macrophages,0.972521,Lung-Alveolar-Macrophages-Z0000044C,Had-HU,70,M
+GSM5652310,lung interstitial macrophages,0.972421,Lung-Interstitial-Macrophages-Z00000447,Had-HU,64,M
+GSM5652311,lung interstitial macrophages,0.953539,Lung-Interstitial-Macrophages-Z0000044D,Had-HU,70,M
+GSM5652312,lung interstitial macrophages,0.953215,Lung-Interstitial-Macrophages-Z0000044E,Had-HU,70,F
+GSM5652316,b cells,1.089518,Blood-B-Z000000TX,Had-HU,56,F
+GSM5652317,b cells,1.024281,Blood-B-Z000000UB,Had-HU,50,M
+GSM5652318,b cells,0.963146,Blood-B-Z000000UR,Had-HU,55,F
+GSM5652319,memory b cells,1.155143,Blood-B-Mem-Z0000041J,Had-HU,32,F
+GSM5652320,memory b cells,1.036281,Blood-B-Mem-Z0000041K,Had-HU,35,F
+GSM5652322,tonsil palatine epithelium,1.047693,Tonsil-Palatine-Epithelium-Z000000QF,Had-HU,27,M
+GSM5652323,tonsil palatine epithelium,1.111179,Tonsil-Palatine-Epithelium-Z000000RP,Had-HU,36,F
+GSM5652324,tonsil palatine epithelium,1.121771,Tonsil-Palatine-Epithelium-Z000000RR,Had-HU,20,M
+GSM5652325,tonsil pharyngeal epithelium,1.028834,Tonsil-Pharyngeal-Epithelium-Z000000Q9,Had-HU,37,F
+GSM5652326,tonsil pharyngeal epithelium,1.138217,Tonsil-Pharyngeal-Epithelium-Z000000S1,Had-HU,3,F
+GSM5652327,tongue epithelium,1.113176,Tongue-Epithelium-Z000000QV,Had-HU,65,F
+GSM5652328,tongue epithelium,1.165659,Tongue-Epithelium-Z00000449,Had-HU,59,M
+GSM5652329,tongue epithelium,1.119333,Tongue-Epithelium-Z0000044F,Had-HU,70,M
+GSM5652335,lung bronchus epithelium,1.109871,Lung-Bronchus-Epithelium-Z000000QD,Had-HU,64,F
+GSM5652336,lung bronchus epithelium,1.134536,Lung-Bronchus-Epithelium-Z000000RZ,Had-HU,70,M
+GSM5652337,lung bronchus epithelium,1.111558,Lung-Bronchus-Epithelium-Z000000S5,Had-HU,62,M
+GSM5652338,prostate epithelium,1.047649,Prostate-Epithelium-Z000000RV,Had-HU,54,M
+GSM5652339,prostate epithelium,1.138068,Prostate-Epithelium-Z000000S3,Had-HU,75,M
+GSM5652340,prostate epithelium,1.026688,Prostate-Epithelium-Z0000045F,Had-HU,83,M
+GSM5652342,bladder epithelium,1.094538,Bladder-Epithelium-Z000000QM,Had-HU,66,M
+GSM5652343,bladder epithelium,1.099355,Bladder-Epithelium-Z000000QP,Had-HU,66,M
+GSM5652344,bladder epithelium,1.128407,Bladder-Epithelium-Z0000043F,Had-HU,56,M
+GSM5652347,breast luminal epithelium,1.019774,Breast-Luminal-Epithelium-Z000000V2,Had-HU,71,F
+GSM5652349,breast luminal epithelium,0.967553,Breast-Luminal-Epithelium-Z000000VN,Had-HU,50,F
+GSM5652350,breast basal epithelium,0.995772,Breast-Basal-Epithelium-Z000000V6,Had-HU,41,F
+GSM5652351,breast basal epithelium,1.005573,Breast-Basal-Epithelium-Z000000VG,Had-HU,53,F
+GSM5652352,breast basal epithelium,1.002108,Breast-Basal-Epithelium-Z000000VL,Had-HU,50,F
+GSM5652354,lung alveolar epithelium,1.078727,Lung-Alveolar-Epithelium-Z000000T1,Had-HU,71,M
+GSM5652355,lung alveolar epithelium,1.063511,Lung-Alveolar-Epithelium-Z000000VC,Had-HU,37,M
+GSM5652356,lung alveolar epithelium,1.059233,Lung-Alveolar-Epithelium-Z000000VE,Had-HU,68,M
+GSM5652359,gastric fundus epithelium,1.067599,Gastric-fundus-Epithelium-Z000000RX,Had-HU,27,F
+GSM5652360,gastric fundus epithelium,1.021442,Gastric-fundus-Epithelium-Z000000SK,Had-HU,28,F
+GSM5652361,gastric fundus epithelium,1.07637,Gastric-fundus-Epithelium-Z000000SV,Had-HU,44,F
+GSM5652362,gastric body epithelium,1.086032,Gastric-body-Epithelium-Z000000SD,Had-HU,29,F
+GSM5652363,gastric body epithelium,1.046211,Gastric-body-Epithelium-Z000000SM,Had-HU,28,F
+GSM5652364,gastric body epithelium,1.060706,Gastric-body-Epithelium-Z000000ST,Had-HU,44,F
+GSM5652365,gastric antrum epithelium,1.049378,Gastric-antrum-Epithelium-Z000000SF,Had-HU,29,F
+GSM5652366,gastric antrum epithelium,1.084984,Gastric-antrum-Epithelium-Z000000SP,Had-HU,28,F
+GSM5652367,gastric antrum epithelium,1.09529,Gastric-antrum-Epithelium-Z000000SR,Had-HU,44,F
+GSM5652370,colon epithelium,1.091157,Colon-Right-Epithelium-Z000000V0,Had-HU,78,F
+GSM5652371,colon epithelium,0.996139,Colon-Right-Epithelium-Z000000V8,Had-HU,72,F
+GSM5652372,colon enteroendocrine,1.032994,Colon-Right-Endocrine-Z0000044S,Had-HU,79,F
+GSM5652373,colon epithelium,1.0033,Colon-Left-Epithelium-Z000000VA,Had-HU,51,M
+GSM5652375,colon enteroendocrine,1.029875,Colon-Left-Endocrine-Z0000044T,Had-HU,67,F
+GSM5652379,small intestine epithelium,1.068818,Small-int-Epithelium-Z000000RT,Had-HU,65,M
+GSM5652380,small intestine epithelium,1.057623,Small-int-Epithelium-Z000000UW,Had-HU,78,F
+GSM5652381,small intestine epithelium,1.060008,Small-int-Epithelium-Z000000UY,Had-HU,72,F

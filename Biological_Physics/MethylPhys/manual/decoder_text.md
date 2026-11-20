@@ -492,6 +492,18 @@ the one button, by the same rule as band v1.
 **Status and open parts:** In commissioning: the libraries that set it also set the line (a rehearsal reference). One pooled band; each
 type's own position is in development.
 
+#### Analysis: per-type band against band v2, like for like (DEV-IAMA-BAND-01, COM-IAMA-054, 2026-11-20)
+
+**What it is:** an analysis, not a chain stage. The question: does judging each healthy cell type against its own measured level (A8's substitute, `type_positions_v1.json`) make IAM-A more sensitive without calling healthy libraries abnormal, compared with one pooled band (band v2)?
+
+**How it was done:** 152 IAM Sequencing Atlas libraries (GSE186458), each with A_derived from the one-button joint run. For every library, all libraries from its donor stand-in (GEO lab + age + sex; GEO gives no donor id) are removed and both bands are rebuilt. Pooled band: band v2's rule (2.5th-97.5th percentile of all remaining libraries). Per-type band: centre m = median A_derived of the remaining libraries of the same type; half-width w = t(0.975, df) x s x sqrt(1 + 1/n), s = the pooled within-type relative spread (0.035, df 94), the GUM prediction interval for one new library. Sensitivity is calculated: the prediction does not depend on held error, so a rise r multiplies A_derived by (1 + r).
+
+**Results (123 libraries scored; 16 types with fewer than 2 libraries left out):** per-type band 113 of 123 inside (91.9 %), +/-8.5 %, flags an 8.5 % held-error rise in all 43 types. Pooled band 115 of 123 (93.5 %), one window 0.874-1.178, flags a rise of 0.7 % to 46.9 % depending on the type (10 % in 18 of 43); it misses whole healthy types (erythrocyte progenitors 3 of 3 below, central memory CD4 2 of 3 above). The per-type misses are single libraries just past the edge (|z| 2.1-3.4).
+
+**Physics and basis:** the line's intercept is derived from M alone (A1-A4: M = 20.94, two coins, the slow-write rule, held error 0.04454); the slope is partly derived (A7); each type's level (A8) is MEASURED, used as a substitute value (a pseudo-measurement). This is not a derivation of A8.
+
+**Status and open parts:** exploration on spent data, not commissioning. Coverage 91.9 % is under the 95 % built for (a between-lab term, about -5 %, PHY-084, is not in it). Donor stand-in, not donor ids (COM-IAMA-039 owed). Correction recorded: a first statement called band v2 'commissioned', scored it in-sample and quoted 17.8 % from A = 1; the numbers above replace it. Full record: `doors/DEV_IAMA_BAND_01.md`; rerun: `doors/data/DEV_IAMA_BAND_01/per_type_band_loo.py`.
+
 #### Input: Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_{blood,endothelial,epithelial}_v1.npz
 
 **What they are:** the same CpG timing thirds as hg19_cpg_timing_thirds_v1.npz, each built from one family's own ENCODE UW Repli-seq lines:

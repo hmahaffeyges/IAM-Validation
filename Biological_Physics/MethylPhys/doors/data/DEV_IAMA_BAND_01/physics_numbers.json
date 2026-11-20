@@ -1,0 +1,11 @@
+{
+ "R_J_per_mol_K": 8.314,
+ "T_K": 310.15,
+ "dG_ATP_J_per_mol": 54000.0,
+ "M_kicks": 20.94,
+ "push_x_kicks": 41.88,
+ "held_over_lost": 21.45,
+ "eps0": 0.04454,
+ "counting_sd_of_A_test_library": 0.0014,
+ "counting_sd_source": "GSM5652214 one-button bundle iam_a.counting.A_sd (0.00143)"
+}

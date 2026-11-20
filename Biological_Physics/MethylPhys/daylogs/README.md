@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-20](2026-11-20.md) | The sequencing chain's instruments checked one by one; each type judged against its own healthy level |
 | [2026-11-19](2026-11-19.md) | Each type's level is a property of the type; the cell's hold is the slow-write rule; the chain's sequencing instruments read again |
 | [2026-11-18](2026-11-18.md) | The sudden write is derived; a second laboratory agrees; each type's late-copied excess is a continuum |
 | [2026-11-17](2026-11-17.md) | No identity feature sets a type's level; the chain overhaul began |

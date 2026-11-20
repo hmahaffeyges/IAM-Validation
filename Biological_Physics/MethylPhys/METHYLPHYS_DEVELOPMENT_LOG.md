@@ -6809,3 +6809,6 @@ The Law Sphere now reads stray writing at the 8,567 islands written in no health
 
 ### 2026-11-20 · PHY-035: the IAM-A C-Score on the sequencing globe
 The IAM-A C-Score, until now only on the retired Stage Q path, is read by the one button on the sequencing globe's regions for every sequenced file with molecules (whole-genome C, null spread, the share from the top 1 % of regions). The globe's held-error layer shows where it comes from. No healthy band yet; it is to be measured on the atlas libraries. Development (edit 216).
+
+### 2026-11-20 · COM-IAMA-054: the per-type band (A8's measured substitute) against band v2, like for like
+On 152 atlas libraries, each scored against bands rebuilt without its donor stand-in: the per-type band held 113 of 123 (91.9 %) at +/-8.5 % and flags an 8.5 % rise in held error in every type; band v2's pooled rule held 115 of 123 (93.5 %) with a sensitivity of 0.7-46.9 % by type, missing whole healthy types. Each type's level is measured (a substitute for the underived A8), not derived. A first statement that called band v2 'commissioned' and scored it in-sample is corrected here. Exploration on spent data; full method, physics and limits in DEV_IAMA_BAND_01.md; rerun with doors/data/DEV_IAMA_BAND_01/per_type_band_loo.py.

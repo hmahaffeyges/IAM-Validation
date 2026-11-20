@@ -1,0 +1,180 @@
+{
+ "libraries_with_A": 152,
+ "scored": 123,
+ "not_scored_reason": "type has fewer than 2 libraries once the library's donor stand-in is removed",
+ "not_scored": [
+  "aorta endothelium",
+  "bladder epithelium",
+  "breast luminal epithelium",
+  "colon enteroendocrine",
+  "colon fibroblasts",
+  "colon macrophages",
+  "effector memory cd8 t cells",
+  "endometrium epithelium",
+  "kidney glomerular epithelium",
+  "kidney tubular epithelium",
+  "lung alveolar macrophages",
+  "memory b cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "striated muscle",
+  "tonsil pharyngeal epithelium"
+ ],
+ "per_type": {
+  "inside": 113,
+  "share": 0.919,
+  "halfwidth_median": 0.085,
+  "pooled_sd": 0.035,
+  "df": 94
+ },
+ "per_type_variantB": {
+  "inside": 117,
+  "halfwidth_median": 0.2596
+ },
+ "pooled_loo": {
+  "inside": 115,
+  "share": 0.935,
+  "lo_median": 0.8744,
+  "hi_median": 1.1783
+ },
+ "sensitivity": {
+  "per_type_rise_median": 0.085,
+  "pooled_rise_median": 0.1082,
+  "pooled_rise_range": [
+   0.0073,
+   0.4688
+  ],
+  "types_where_pooled_catches_10pct": 18,
+  "types_where_type_catches_10pct": 43,
+  "types": 43
+ },
+ "outside_per_type": [
+  [
+   "GSM5652223",
+   "cortical neurons",
+   0.94704,
+   0.7972,
+   0.9421,
+   2.12
+  ],
+  [
+   "GSM5652245",
+   "pancreatic acinar",
+   0.88249,
+   0.9039,
+   1.0666,
+   -2.51
+  ],
+  [
+   "GSM5652283",
+   "cd8 t cells",
+   0.97787,
+   0.9944,
+   1.1749,
+   -2.35
+  ],
+  [
+   "GSM5652288",
+   "t effector cell cd8",
+   1.17631,
+   0.9825,
+   1.1581,
+   2.4
+  ],
+  [
+   "GSM5652290",
+   "t effector cell cd8",
+   1.00074,
+   1.0668,
+   1.2493,
+   -3.42
+  ],
+  [
+   "GSM5652291",
+   "t effector memory cd4",
+   1.1053,
+   0.9318,
+   1.0983,
+   2.15
+  ],
+  [
+   "GSM5652316",
+   "b cells",
+   1.08952,
+   0.9102,
+   1.0772,
+   2.28
+  ],
+  [
+   "GSM5652318",
+   "b cells",
+   0.96315,
+   0.9692,
+   1.1446,
+   -2.12
+  ],
+  [
+   "GSM5652339",
+   "prostate epithelium",
+   1.13807,
+   0.9511,
+   1.1232,
+   2.33
+  ],
+  [
+   "GSM5652370",
+   "colon epithelium",
+   1.09116,
+   0.9161,
+   1.0834,
+   2.17
+  ]
+ ],
+ "outside_pooled": [
+  [
+   "GSM5652225",
+   "cortical neurons",
+   0.85897
+  ],
+  [
+   "GSM5652249",
+   "pancreatic delta",
+   1.18337
+  ],
+  [
+   "GSM5652274",
+   "erythrocyte progenitors",
+   0.79241
+  ],
+  [
+   "GSM5652275",
+   "erythrocyte progenitors",
+   0.81192
+  ],
+  [
+   "GSM5652276",
+   "erythrocyte progenitors",
+   0.80846
+  ],
+  [
+   "GSM5652285",
+   "t central memory cd4",
+   1.18615
+  ],
+  [
+   "GSM5652286",
+   "t central memory cd4",
+   1.18884
+  ],
+  [
+   "GSM5652288",
+   "t effector cell cd8",
+   1.17631
+  ]
+ ],
+ "band_v2_in_sample_check": {
+  "lo": 0.8744415,
+  "hi": 1.178255125,
+  "inside": 116
+ }
+}
