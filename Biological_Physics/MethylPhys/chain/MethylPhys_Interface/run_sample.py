@@ -562,6 +562,8 @@ def _genome_globe(a, cnt, sid):
     R = S.count_pat_regions(op(a.pat)); groups = []; rec = {"label": DV.DEV_LABEL, "status": "OK", "region_cpgs": a.genome_region, "loose_share": cnt.get("loose_share")}
     if cnt.get("loose_share") is not None:
         sp, r1 = S.self_globe(R, cnt["loose_share"], "self", f"{sid} against its own prediction"); groups += sp["groups"]; rec["self"] = r1
+    try: rec["iama_cscore"] = S.cscore_regions(R)   # edit 216: IAM-A C-Score (v2 definition) on the globe's regions, every sequenced file
+    except Exception as e: rec["iama_cscore"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
     if a.prior_pat:
         Rb = S.count_pat_regions(op(a.prior_pat)); sp, r2 = S.pair_globe(R, Rb, "prior", f"{sid} against {a.prior_name}", a.prior_name)
         groups += sp["groups"]; rec["against_prior"] = dict(r2, prior=os.path.basename(a.prior_pat))

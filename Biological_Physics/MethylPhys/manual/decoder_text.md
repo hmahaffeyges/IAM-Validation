@@ -3641,6 +3641,10 @@ floor); changed beyond the family-wise line the report globes use.
 ### stage_q2_globe.py::site_owner
 The atlas sites that have a CpG index, with their atlas rows, for counting on the atlas's layout.
 
+### stage_q2_globe.py::cscore_regions
+
+The IAM-A C-Score on the sequencing globe's regions (edit 216). Physics: IAM's Law prices each held mark independently, so losses of held marks should fall like independent coin flips; the C-Score asks whether they do. Same definition as stage_q_iam_a.cscore: C = sum over blocks of (k - eps o)^2 / sum eps (1 - eps) o, eps the sample's pooled held error, here with the globe's regions (1,000 CpGs by default) as the blocks. Independent losses give 1 with null spread sqrt(2 / regions). Each region's term is the globe's own departure, so the globe shows where C comes from. Healthy regions also differ by nature, so the healthy band is measured on the atlas libraries, not assumed. Development; on in the full chain.
+
 ### stage_q2_globe.py::_owner_of
 The atlas row of each CpG index, by binary search.
 

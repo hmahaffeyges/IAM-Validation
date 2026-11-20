@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1750,
+   "lines": 1752,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -289,13 +289,13 @@
      "function": "_genome_globe",
      "name": "_genome_globe",
      "line": 553,
-     "end": 573,
+     "end": 575,
      "args": [
       "a",
       "cnt",
       "sid"
      ],
-     "lines": 21,
+     "lines": 23,
      "doc": "--dev-genome-globe (DEV-IAMA-GLOBE-01, development, not commissioned): the whole genome from the --pat file's molecules, cut into regions of --genome-region CpGs on the autosomes (stage_q2_globe), each drawn on every pixel of its span: the sample against its own predicted held error (its loose share, the self-reference line), and, with --prior-pat, against an earlier reading. Layers: methylation l",
      "constants": [],
      "data_files": [],
@@ -305,8 +305,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 576,
-     "end": 617,
+     "line": 578,
+     "end": 619,
      "args": [
       "a",
       "o",
@@ -326,8 +326,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_site_counts",
      "name": "_site_counts",
-     "line": 621,
-     "end": 654,
+     "line": 623,
+     "end": 656,
      "args": [
       "pat"
      ],
@@ -347,8 +347,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 656,
-     "end": 1747,
+     "line": 658,
+     "end": 1749,
      "args": [],
      "lines": 1092,
      "doc": "",
@@ -382,8 +382,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1038,
-     "end": 1042,
+     "line": 1040,
+     "end": 1044,
      "args": [
       "r"
      ],
@@ -399,8 +399,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1273,
-     "end": 1280,
+     "line": 1275,
+     "end": 1282,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1669,
-     "end": 1670,
+     "line": 1671,
+     "end": 1672,
      "args": [
       "b",
       "it",
@@ -9013,7 +9013,7 @@
   },
   {
    "file": "stage_q2_globe.py",
-   "lines": 145,
+   "lines": 159,
    "functions": [
     {
      "file": "stage_q2_globe.py",
@@ -9267,6 +9267,25 @@
      "doc": "One sample against another: each region's held error against the other's, in both regions' counting noise.",
      "constants": [
       "ABOUT",
+      "REGION"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_globe.py",
+     "function": "cscore_regions",
+     "name": "cscore_regions",
+     "line": 147,
+     "end": 158,
+     "args": [
+      "R",
+      "min_opp"
+     ],
+     "lines": 12,
+     "doc": "IAM-A C-Score over the globe's regions: C = sum (k_r - eps o_r)^2 / sum eps (1 - eps) o_r, eps the sample's pooled held error, over regions with at least MIN_OPP opportunities. Independent losses give C = 1 with null spread sqrt(2 / regions); C above 1 means losses gather in some regions (clustering, or healthy differences between regions). Returns C, regions, se_null, eps and the share of C from ",
+     "constants": [
+      "MIN_OPP",
       "REGION"
      ],
      "data_files": [],
@@ -11594,5 +11613,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 595
+ "n_functions": 596
 }

@@ -6806,3 +6806,6 @@ Edit 212's type_positions_v1.json had no checksum in reference_manifest.json, so
 
 ### 2026-11-20 · PHY-035: the Law Sphere reads the islands no cell writes
 The Law Sphere now reads stray writing at the 8,567 islands written in no healthy atlas type (516 off every array), against the law's stray level and the atlas's own healthy level in the sample's shares. Its reference file entered the reference manifest in the same edit. Met-A sequencing's each-cell label no longer names the array self-tare. Development (edit 215).
+
+### 2026-11-20 · PHY-035: the IAM-A C-Score on the sequencing globe
+The IAM-A C-Score, until now only on the retired Stage Q path, is read by the one button on the sequencing globe's regions for every sequenced file with molecules (whole-genome C, null spread, the share from the top 1 % of regions). The globe's held-error layer shows where it comes from. No healthy band yet; it is to be measured on the atlas libraries. Development (edit 216).

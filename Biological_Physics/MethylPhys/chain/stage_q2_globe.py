@@ -142,3 +142,17 @@ def pair_globe(A, B, gid, title, name_b):
     L, rec = _page_layers(z, ok, er, mt, pp, "the change from " + name_b, name_b)
     about = ABOUT.replace("__R__", str(REGION)).replace("__WHAT__", f"Here two samples are compared region by region, and only where they differ is left lit.")
     return dict(id=gid, name=title, about=about, groups=[dict(name="the two samples", layers=L)]), rec
+
+# ---- edit 216: the IAM-A C-Score on the globe's regions (stage_q_iam_a.cscore's definition)
+def cscore_regions(R, min_opp=None):
+    """IAM-A C-Score over the globe's regions: C = sum (k_r - eps o_r)^2 / sum eps (1 - eps) o_r, eps the sample's pooled held error, over regions
+    with at least MIN_OPP opportunities. Independent losses give C = 1 with null spread sqrt(2 / regions); C above 1 means losses gather in some
+    regions (clustering, or healthy differences between regions). Returns C, regions, se_null, eps and the share of C from the top 1 % of regions."""
+    m = MIN_OPP if min_opp is None else min_opp; o = np.asarray(R["opp"], float); k = np.asarray(R["err"], float); ok = o >= m
+    if ok.sum() < 10 or o[ok].sum() <= 0: return dict(status="NOT_RUN", reason=f"fewer than 10 regions with >= {m} opportunities")
+    e = float(k[ok].sum() / o[ok].sum())
+    if not 0 < e < 1: return dict(status="NOT_RUN", reason="no held errors")
+    t = (k[ok] - e * o[ok]) ** 2 / (e * (1 - e) * o[ok]); C = float(t.sum() / ok.sum()); top = np.sort(t)[::-1][:max(1, int(ok.sum()) // 100)]
+    return dict(status="OK", C=round(C, 4), regions=int(ok.sum()), se_null=round(float(np.sqrt(2.0 / ok.sum())), 4), eps=round(e, 6),
+                top1pct_share=round(float(top.sum() / t.sum()), 4), region_cpgs=int(R.get("region") or REGION),
+                definition="IAM-A C-Score (stage_q_iam_a.cscore) with the globe's regions as blocks; independent losses -> 1", band="none yet (healthy atlas libraries)")
