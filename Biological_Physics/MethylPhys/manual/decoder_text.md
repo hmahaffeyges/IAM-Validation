@@ -2911,6 +2911,12 @@ checked against the cell pages: 785,718 measured neutrophil pixels on both), so 
 with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
 Comparing blood with one cell would light up every site where blood differs from that cell.
 
+**The information sphere's expected healthy distance.** On a sequenced sample the sphere reports, beside its measured distance, the
+distance a healthy sample of the same depth should show (fisher_rao_expected_rms_rad) and the ratio of the two (fisher_rao_over_expected).
+At each site the expected angle squared is 1/(4n) for the sample's own n reads, at any level, plus the reference's own uncertainty
+mu_se^2 / (4e(1 - e)) in the sample's shares; the counting part is summed exactly over the possible read outcomes,
+since at a few reads a site 1/(4n) is up to a third too small. A healthy sample reads near 1; the measured distance alone mostly measures depth.
+
 **A cell the atlas holds from one library.** The globe measures each site's change in its healthy width, which includes the person-to-person
 spread of every cell in the sample's mix. Naive CD8, effector memory CD8 and naive CD4 T cells come from one library each, so they have no
 spread of their own; when they held more than 1 % of a sample's shares, every site lost its width and the information sphere's territories
@@ -3681,6 +3687,10 @@ cover is masked, as the microwave sky masks the galaxy.
    (T1), the clustering statistic (C1) and the cell shares (D1). Construction test 7 passed; sample test 1 met on distance, not on territories
    (0 of 27); the null test ATL-028 is pending.
 
+
+### stage_info_sphere.py::counting_floor
+The expected squared Fisher-Rao angle at each site of a healthy sample read n times at its true level, summed exactly over every
+read outcome (binomial); the large-n value 1/(4n) above 200 reads.
 
 ### stage_info_sphere.py::info_vectors
 The square-root vectors of a sites × cell types matrix.

@@ -1428,7 +1428,7 @@ def main():
                            fractions=(o.get("composition") or {}).get("fractions"),
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",
                            cell_departures=getattr(a, "_cell_dep", None), counts=getattr(a, "_seqc", None) if getattr(a, "dev_seq_ref", None) and not getattr(a, "dev_globe_v21", False) else None)
-            _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", ""); _sites = _g.pop("_sites", None)
+            _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", ""); _sites = _g.pop("_sites", None); _sfloor = _g.pop("_sites_floor", None)
             if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None):   # 2026-11-01 (plan 35.30): the sequencing atlas's sphere columns pool every input donor
                 _ins = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv")
                 if os.path.exists(_ins) and str(a.id).strip() in set(_pd.read_csv(_ins).gsm.astype(str).str.strip()):
@@ -1438,7 +1438,7 @@ def main():
                 try:
                     import stage_info_sphere as IS, info_sphere_viewer as ISV
                     _lay = IS.load_layout(); _id, _zg, _sm, _rf = _sites
-                    _r, _x, _lit, _sg = IS.sample_reading(_pd.Series(_zg, index=_id), _lay, IS.FAMILIES, _pd.Series(_sm, index=_id), _pd.Series(_rf, index=_id))
+                    _r, _x, _lit, _sg = IS.sample_reading(_pd.Series(_zg, index=_id), _lay, IS.FAMILIES, _pd.Series(_sm, index=_id), _pd.Series(_rf, index=_id), floor_by_id=(_pd.Series(_sfloor, index=_id) if _sfloor is not None else None))
                     _ch = [g for g in _r["territories"] if g["changed"]]
                     _fix = (f"Changed: {_r['territories_changed']} of {_r['territories_read']} territories (each family's clearly marking sites, methylated or unmethylated "
                             f"there), beyond the line {_r['line']}. This count is fixed; the slider never changes it.")

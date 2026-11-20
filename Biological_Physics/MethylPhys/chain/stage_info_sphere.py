@@ -166,7 +166,18 @@ def groups_of(lay):
     fam = lay["cell_family"][lay["cell"]]; clear = lay["margin"].astype(float) >= CLEAR; up = lay["sgn"] > 0
     return [(int(k), int(u), clear & (fam == k) & (up == bool(u))) for k in range(int(fam.max()) + 1) for u in (0, 1)]
 
-def sample_reading(x_by_id, lay, families, b_by_id=None, e_by_id=None):
+def counting_floor(n, e, cap=200):
+    """Edit 198 (SP1): the expected squared Fisher-Rao angle at each site of a healthy sample read n times at true level e, summed exactly
+    over every read outcome k of n (binomial); above cap reads the large-n value 1/(4n). At a few reads a site the smooth 1/(4n) is up to
+    a third too small, so the exact sum is used."""
+    from scipy.stats import binom
+    n = np.asarray(n, float); e = np.clip(np.asarray(e, float), 0.0, 1.0); out = np.where(n > cap, 1.0 / (4.0 * np.maximum(n, 1)), 0.0)
+    m = (n >= 1) & (n <= cap) & np.isfinite(e); nn, ee = n[m].astype(int), e[m]; acc = np.zeros(m.sum())
+    for k in range(int(nn.max()) + 1 if len(nn) else 0):
+        ok = k <= nn; bb = k / nn[ok]; acc[ok] += binom.pmf(k, nn[ok], ee[ok]) * np.arccos(np.clip(np.sqrt(bb * ee[ok]) + np.sqrt((1 - bb) * (1 - ee[ok])), -1, 1)) ** 2
+    out[m] = acc; out[n < 1] = np.nan; return out
+
+def sample_reading(x_by_id, lay, families, b_by_id=None, e_by_id=None, floor_by_id=None):
     """One sample on the information sphere. x_by_id: each site's change from the sample's own expected healthy self, in that site's healthy
     width and the sample's own spread (report_globe_v4.build's zg: the number the address globe reads, so both globes read the same change).
     Each territory's mean change t_g = mean / (sd / sqrt(n)) over its measured sites, then in the sample's own spread of territories (median and
@@ -174,7 +185,8 @@ def sample_reading(x_by_id, lay, families, b_by_id=None, e_by_id=None):
     line pure chance crosses less than once in 20 samples (5 % family-wise over the territories read). Nothing fitted.
     Also, when b_by_id and e_by_id (the sample and its expectation, 0 to 1) are given: the Fisher-Rao angle between them at each measured site,
     theta = arccos(sqrt(b e) + sqrt((1 - b)(1 - e))), and its root mean square over the sphere's sites: the sample's distance from its own
-    healthy expectation, from the same mathematics as relative entropy."""
+    healthy expectation, from the same mathematics as relative entropy. floor_by_id (edit 198): each site's expected healthy angle squared, 1/(4n)
+    plus the reference's own uncertainty; gives the expected rms and measured over expected (a healthy sample near 1)."""
     import pandas as pd
     from scipy.stats import norm
     ids = pd.Index(lay["ids"].astype(str)); x = pd.Series(x_by_id, dtype="float64").reindex(ids).to_numpy(); meas = np.isfinite(x)
@@ -192,6 +204,11 @@ def sample_reading(x_by_id, lay, families, b_by_id=None, e_by_id=None):
         b = pd.Series(b_by_id, dtype="float64").reindex(ids).to_numpy(); e = pd.Series(e_by_id, dtype="float64").reindex(ids).to_numpy(); ok = np.isfinite(b) & np.isfinite(e)
         b, e = np.clip(b[ok], 0, 1), np.clip(e[ok], 0, 1); th = np.arccos(np.clip(np.sqrt(b * e) + np.sqrt((1 - b) * (1 - e)), -1, 1))
         rec["fisher_rao_rms_rad"] = round(float(np.sqrt(np.mean(th ** 2))), 5); rec["fisher_rao_median_rad"] = round(float(np.median(th)), 5)
+        if floor_by_id is not None:   # edit 198 (SP1): the expected healthy distance from counting and the reference's own uncertainty
+            f = pd.Series(floor_by_id, dtype="float64").reindex(ids).to_numpy()[ok]; fm = np.isfinite(f) & (f > 0)
+            if fm.any():
+                rec["fisher_rao_expected_rms_rad"] = round(float(np.sqrt(np.mean(f[fm]))), 5); rec["floor_sites"] = int(fm.sum())
+                rec["fisher_rao_over_expected"] = round(float(np.sqrt(np.mean(th[fm] ** 2)) / np.sqrt(np.mean(f[fm]))), 4)
     lit = np.zeros(len(ids), bool); sign = np.zeros(len(ids), "int8")
     for (k, u, m), g in zip([q for q in groups_of(lay) if int((q[2] & meas).sum()) >= MIN_GROUP], G):
         if g["changed"]: lit |= m & meas; sign[m & meas] = 1 if g["z"] > 0 else -1

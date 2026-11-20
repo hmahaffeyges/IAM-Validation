@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **569 functions** (nested ones included); 569 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **570 functions** (nested ones included); 570 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -68,12 +68,12 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 215 | 9 | 0 | 0 |
-| `MethylPhys_Interface/report_globe_v4.py` | 483 | 25 | 0 | 0 |
+| `MethylPhys_Interface/report_globe_v4.py` | 489 | 25 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 1,289 | 64 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
-| `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
+| `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -3942,6 +3942,12 @@ checked against the cell pages: 785,718 measured neutrophil pixels on both), so 
 with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
 Comparing blood with one cell would light up every site where blood differs from that cell.
 
+**The information sphere's expected healthy distance.** On a sequenced sample the sphere reports, beside its measured distance, the
+distance a healthy sample of the same depth should show (fisher_rao_expected_rms_rad) and the ratio of the two (fisher_rao_over_expected).
+At each site the expected angle squared is 1/(4n) for the sample's own n reads, at any level, plus the reference's own uncertainty
+mu_se^2 / (4e(1 - e)) in the sample's shares; the counting part is summed exactly over the possible read outcomes,
+since at a few reads a site 1/(4n) is up to a third too small. A healthy sample reads near 1; the measured distance alone mostly measures depth.
+
 **A cell the atlas holds from one library.** The globe measures each site's change in its healthy width, which includes the person-to-person
 spread of every cell in the sample's mix. Naive CD8, effector memory CD8 and naive CD4 T cells come from one library each, so they have no
 spread of their own; when they held more than 1 % of a sample's shares, every site lost its width and the information sphere's territories
@@ -4130,20 +4136,20 @@ OUT.html` on chain Stage 1 values. A pair with no change lights 0 of 77,356 bloc
 `drop` leaves listed sites out before anything is computed (the X and Y, so a difference of sex is not counted as a change). The record also
 gives the changed blocks above and below the reference and the share of the globe's measured pixels the change lights.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 429 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 435 (44 lines) · arguments: beta, ref_beta, ref_name, out_html, title, drop · calls: not called on the traced runs · constants read: `ATLAS`, `BLOCK`, `HERE`, `MV`, `ORDER`, `PAIR_ABOUT` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `sites.parquet`
 
 ### `report_globe_v4.py::build_pair.rgb`
 
 Draws a methylation map for the pair's globe on the atlas pages' parchment scale; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 451 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 457 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ### `report_globe_v4.py::build._code`
 
 Codes a change map for the page: 0 where no site was measured, 128 where the sites are unchanged, and 128 plus or minus at least one step for a
 changed site, its size up to a fixed full scale (10 spreads), so the page can fade the unchanged background without ever touching the change.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 283 (6 lines) · arguments: v, full · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 288 (6 lines) · arguments: v, full · calls: not called on the traced runs
 
 ### `report_globe_v4.py::_to_sky_extreme`
 
@@ -4210,13 +4216,13 @@ before and after).
 Checks the frozen layout against the atlas site list, builds the four layers, the shares above each size, and the page fragment (canvas,
 controls and script, no outside library). Returns the record kept in the bundle, marked `scored: False`.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 228 (185 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex, cell_departures, counts · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `ATLAS_NAME`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 228 (191 lines) · arguments: beta, specimen, shares, out_html, z, fractions, sex, cell_departures, counts · calls: not called on the traced runs · constants read: `ABOUT`, `ATLAS`, `ATLAS_NAME`, `BLOCK`, `CH`, `HERE`, `MV`, `ORDER`, `PANEL`, `R_DOT`, `SEXNOTE`, `SEXWORD` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `neutrophil_reference_v1_2.json`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `report_globe_v4.py::build.rgb`
 
 Colors a sky map for the texture with the atlas pages' parchment scale, 0 to 1; gray where no site was measured.
 
-*Code:* `MethylPhys_Interface/report_globe_v4.py` line 280 (2 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/report_globe_v4.py` line 285 (2 lines) · arguments: m · calls: not called on the traced runs
 
 ## 15. The development readings: `dev_stages.py`, `dev_comp_methods.py`, `deconv_v2.py`, `sky_statistics.py`
 
@@ -5170,6 +5176,13 @@ cover is masked, as the microwave sky masks the galaxy.
    (T1), the clustering statistic (C1) and the cell shares (D1). Construction test 7 passed; sample test 1 met on distance, not on territories
    (0 of 27); the null test ATL-028 is pending.
 
+### `stage_info_sphere.py::counting_floor`
+
+The expected squared Fisher-Rao angle at each site of a healthy sample read n times at its true level, summed exactly over every
+read outcome (binomial); the large-n value 1/(4n) above 200 reads.
+
+*Code:* `stage_info_sphere.py` line 169 (10 lines) · arguments: n, e, cap · calls: not called on the traced runs
+
 ### `stage_info_sphere.py::info_vectors`
 
 The square-root vectors of a sites × cell types matrix.
@@ -5264,7 +5277,7 @@ read, as the address globe reads its blocks in its own block spread). A territor
 in 20 samples (5 % family-wise over the territories read). Also the Fisher-Rao angle between the sample and its expectation at each site, and
 its root mean square: the sample's distance from its own expected healthy self. Nothing fitted.
 
-*Code:* `stage_info_sphere.py` line 169 (30 lines) · arguments: x_by_id, lay, families, b_by_id, e_by_id · calls: not called on the traced runs · constants read: `MIN_GROUP`
+*Code:* `stage_info_sphere.py` line 180 (36 lines) · arguments: x_by_id, lay, families, b_by_id, e_by_id, floor_by_id · calls: not called on the traced runs · constants read: `MIN_GROUP`
 
 ### `stage_info_sphere.py::roles`
 

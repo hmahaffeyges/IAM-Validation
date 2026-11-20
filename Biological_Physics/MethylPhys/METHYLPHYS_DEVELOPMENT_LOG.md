@@ -6762,3 +6762,8 @@ In 6 of 48 sorted libraries read for A8DER the globe was drawn with no site meas
 territories were empty. Cause: naive CD8, effector memory CD8 and naive CD4 T cells come from one atlas library each (no donor_sd), and the
 width needs cells with a spread to hold 99 % of the shares; all six libraries held more than 1 % of those three, every working one less.
 A one-library cell now borrows its lineage siblings' spread (median per site). Cells with their own spread are unchanged.
+
+### 2026-11-20 · PHY-035: the information sphere's expected healthy distance (SP1 step 1)
+The sphere's Fisher-Rao angle from counting alone is 1/(2 sqrt n) per site at any level, so a healthy sample's distance measures depth
+(48 sorted libraries: median 0.19 rad, about 7 reads a site). The sphere now reports the expected distance from the sample's own counts
+and the reference's standard error, and measured over expected. Development; the territory rule and the measured distance are unchanged.

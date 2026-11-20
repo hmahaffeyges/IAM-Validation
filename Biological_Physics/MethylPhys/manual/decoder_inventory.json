@@ -7034,7 +7034,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 483,
+   "lines": 489,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -7393,7 +7393,7 @@
      "function": "build",
      "name": "build",
      "line": 228,
-     "end": 412,
+     "end": 418,
      "args": [
       "beta",
       "specimen",
@@ -7405,7 +7405,7 @@
       "cell_departures",
       "counts"
      ],
-     "lines": 185,
+     "lines": 191,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -7434,8 +7434,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 280,
-     "end": 281,
+     "line": 285,
+     "end": 286,
      "args": [
       "m"
      ],
@@ -7449,8 +7449,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 283,
-     "end": 288,
+     "line": 288,
+     "end": 293,
      "args": [
       "v",
       "full"
@@ -7465,8 +7465,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 429,
-     "end": 472,
+     "line": 435,
+     "end": 478,
      "args": [
       "beta",
       "ref_beta",
@@ -7496,8 +7496,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 451,
-     "end": 452,
+     "line": 457,
+     "end": 458,
      "args": [
       "m"
      ],
@@ -9240,7 +9240,7 @@
   },
   {
    "file": "stage_info_sphere.py",
-   "lines": 199,
+   "lines": 216,
    "functions": [
     {
      "file": "stage_info_sphere.py",
@@ -9489,18 +9489,36 @@
     },
     {
      "file": "stage_info_sphere.py",
+     "function": "counting_floor",
+     "name": "counting_floor",
+     "line": 169,
+     "end": 178,
+     "args": [
+      "n",
+      "e",
+      "cap"
+     ],
+     "lines": 10,
+     "doc": "Edit 198 (SP1): the expected squared Fisher-Rao angle at each site of a healthy sample read n times at true level e, summed exactly over every read outcome k of n (binomial); above cap reads the large-n value 1/(4n). At a few reads a site the smooth 1/(4n) is up to a third too small, so the exact sum is used.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
      "function": "sample_reading",
      "name": "sample_reading",
-     "line": 169,
-     "end": 198,
+     "line": 180,
+     "end": 215,
      "args": [
       "x_by_id",
       "lay",
       "families",
       "b_by_id",
-      "e_by_id"
+      "e_by_id",
+      "floor_by_id"
      ],
-     "lines": 30,
+     "lines": 36,
      "doc": "One sample on the information sphere. x_by_id: each site's change from the sample's own expected healthy self, in that site's healthy width and the sample's own spread (report_globe_v4.build's zg: the number the address globe reads, so both globes read the same change). Each territory's mean change t_g = mean / (sd / sqrt(n)) over its measured sites, then in the sample's own spread of territories ",
      "constants": [
       "MIN_GROUP"
@@ -11096,5 +11114,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 569
+ "n_functions": 570
 }

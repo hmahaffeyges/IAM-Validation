@@ -260,9 +260,14 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     _ok = {c: np.isfinite(hi_[c]) & np.isfinite(lo_[c]) & np.isfinite(sd_[c]) for c in w}; _wd = sum(w[c] * _ok[c] for c in w)   # 2026-10-23: over the cells with values
     un = sum(w[c] * np.nan_to_num((hi_[c] - lo_[c]) / 3.92) for c in w) / np.maximum(_wd, 1e-12)
     width = np.where(_wd >= 0.99 * sum(w.values()), np.sqrt(sum(w[c] * np.nan_to_num(sd_[c]) ** 2 for c in w) / np.maximum(_wd, 1e-12) + un ** 2), np.nan)[order]
+    _floor = None   # edit 198 (SP1): each site's expected healthy angle, when the sample's own counts are known
     if counts is not None:   # 2026-11-01 (plan 35.30): a sequenced sample's own counting at each site, at its expected level (half a read added each side, as the atlas's range)
         _n = pd.Series(counts, dtype="float64"); _n.index = _n.index.astype(str); _n = _n.reindex(ids).to_numpy()[order]; _e = ref[order]
         _ej = (_e * _n + 0.5) / (_n + 1); width = np.sqrt(width ** 2 + np.where(_n > 0, _ej * (1 - _ej) / np.maximum(_n, 1), np.nan))
+        _se = _mu(list(w), "mu_se"); _W = sum(w.values()) or 1.0   # edit 198: the reference's own standard error in the sample's shares
+        _se2 = (sum((w[c] / _W) ** 2 * np.nan_to_num(_se[c]) ** 2 for c in w if c in _se) if _se else np.zeros(len(ref)))
+        _se2 = np.asarray(_se2, float)[order] if np.ndim(_se2) else np.zeros(len(_n)); _ec = np.clip(_e, 0.005, 0.995)
+        import stage_info_sphere as _ISf; _floor = np.where(_n > 0, _ISf.counting_floor(np.nan_to_num(_n), _e) + _se2 / (4.0 * _ec * (1 - _ec)), np.nan)
     x = np.where(both & np.isfinite(width) & (width > 0), d / np.where(width > 0, width, np.nan), np.nan); xv = x[np.isfinite(x)]
     med = float(np.median(xv)); mad = float(np.median(np.abs(xv - med))) * 1.4826 or 1.0; zg = (x - med) / mad
     # Blocks, not single sites (2026-10-21, author: "no way the entire globe is lit up"): one site beyond 3 lit 2.1 % of a healthy blood's
@@ -408,6 +413,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     if out_html: open(out_html, "w", encoding="utf-8").write(page([spec], "The sample on the globe")); rec["html"] = os.path.abspath(out_html)
     rec["prose"] = " ".join([spec["about"]] + [g["name"] for g in groups] + [x.get(k, "") for g in groups for x in g["layers"] for k in ("name", "note", "share_text")])
     rec["spec"] = spec
+    rec["_sites_floor"] = _floor   # edit 198: popped by run_sample.py with _sites
     rec["_sites"] = (ids[order], zg, smp[order], ref[order])   # 2026-10-23: the change the globe read, site by site, for the information sphere (popped by run_sample.py)
     return rec
 
