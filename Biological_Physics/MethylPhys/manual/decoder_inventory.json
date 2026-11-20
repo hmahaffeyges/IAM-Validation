@@ -2159,7 +2159,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 503,
+   "lines": 535,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2729,10 +2729,28 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_law_sphere_sec",
+     "name": "_law_sphere_sec",
+     "line": 478,
+     "end": 501,
+     "args": [
+      "o"
+     ],
+     "lines": 24,
+     "doc": "Edit 206: IAM's Law Sphere in the report: every output, whole and per job, beside its healthy (law) value and its basis.",
+     "constants": [
+      "E",
+      "LS_BASIS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 471,
-     "end": 502,
+     "line": 503,
+     "end": 534,
      "args": [
       "o",
       "out",
@@ -9548,14 +9566,14 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 157,
+   "lines": 162,
    "functions": [
     {
      "file": "stage_law_sphere.py",
      "function": "unit_map",
      "name": "unit_map",
-     "line": 44,
-     "end": 50,
+     "line": 46,
+     "end": 52,
      "args": [
       "isl_first",
       "isl_last",
@@ -9572,8 +9590,8 @@
      "file": "stage_law_sphere.py",
      "function": "load_ref",
      "name": "load_ref",
-     "line": 52,
-     "end": 58,
+     "line": 54,
+     "end": 60,
      "args": [
       "ref_dir"
      ],
@@ -9591,8 +9609,8 @@
      "file": "stage_law_sphere.py",
      "function": "count_pat_units",
      "name": "count_pat_units",
-     "line": 60,
-     "end": 93,
+     "line": 62,
+     "end": 95,
      "args": [
       "lines",
       "umap"
@@ -9607,8 +9625,8 @@
      "file": "stage_law_sphere.py",
      "function": "count_pat_units.flush",
      "name": "flush",
-     "line": 65,
-     "end": 69,
+     "line": 67,
+     "end": 71,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -9620,8 +9638,8 @@
      "file": "stage_law_sphere.py",
      "function": "_theta",
      "name": "_theta",
-     "line": 95,
-     "end": 96,
+     "line": 97,
+     "end": 98,
      "args": [
       "b",
       "e"
@@ -9636,8 +9654,8 @@
      "file": "stage_law_sphere.py",
      "function": "push_for_odds",
      "name": "push_for_odds",
-     "line": 100,
-     "end": 102,
+     "line": 102,
+     "end": 104,
      "args": [
       "odds"
      ],
@@ -9654,8 +9672,8 @@
      "file": "stage_law_sphere.py",
      "function": "reading",
      "name": "reading",
-     "line": 104,
-     "end": 156,
+     "line": 106,
+     "end": 161,
      "args": [
       "C",
       "ref",
@@ -9663,7 +9681,7 @@
       "loose_share",
       "conv"
      ],
-     "lines": 53,
+     "lines": 56,
      "doc": "One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers).",
      "constants": [
       "CONV_DEFAULT",
@@ -9682,12 +9700,12 @@
      "file": "stage_law_sphere.py",
      "function": "reading.summ",
      "name": "summ",
-     "line": 133,
-     "end": 150,
+     "line": 136,
+     "end": 155,
      "args": [
       "m"
      ],
-     "lines": 18,
+     "lines": 20,
      "doc": "",
      "constants": [
       "EPS_LAW",
@@ -11284,5 +11302,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 579
+ "n_functions": 580
 }

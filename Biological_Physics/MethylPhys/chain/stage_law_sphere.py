@@ -29,6 +29,8 @@ LAYERS = [
     ("angle_law", "Angle to the law", "rad", "the angle between the sample's level and the law's expected level, in the sample's own cells"),
     ("alarm_law", "Angle to the law over its floor", "x floor", "the angle to the law divided by the angle counting alone would give a healthy sample read this deeply"),
     ("fidelity_law", "Fidelity to the law", "0 to 1", "cos^2 of the angle to the law: 1 is exactly the law's state"),
+    ("power_factor", "Power-factor reading", "cos", "cos of the angle to the law (fidelity is its square); 1 is exactly in phase with the law (an analogy to the grid's power factor)"),
+    ("angle_law_atlas", "Angle between the law and the atlas", "rad", "the angle between the law's expected point and the healthy atlas's, in the sample's cells: how far healthy sits from the law"),
     ("angle_atlas", "Angle to the healthy atlas", "rad", "the angle between the sample's level and the healthy atlas level of the same cells (drift toward another job)"),
     ("hold_vs_self", "Hold against IAM-A's own line", "x predicted", "the unit's held error, from molecules, over the held error the sample's own loose share predicts"),
     ("hold_vs_law", "Hold against the law", "x law", "the unit's held error over the law's 0.0445 (A4)"),
@@ -118,6 +120,7 @@ def reading(C, ref, shares, loose_share, conv=None):
     ma, ca, mb, cb = (C[k][u] for k in ("meth_a", "calls_a", "meth_b", "calls_b")); calls = ca + cb
     b = np.where(calls > 0, (ma + mb) / np.maximum(calls, 1), np.nan); okL = calls >= MIN_CALLS
     th = np.where(okL, _theta(b, e), np.nan); fl = np.sqrt(np.where(okL, IS.counting_floor(calls, e), np.nan))
+    th_la = _theta(e, a)   # edit 206: the angle between the law's and the atlas's expected points (no sample in it)
     err, opp = C["err"][u], C["opp"][u]; okH = opp >= MIN_OPP; h = np.where(okH, err / np.maximum(opp, 1), np.nan)
     odds = np.where(okH & (h > 0), (1 - h) / np.maximum(h, 1e-12), np.nan)
     gerr, gopp = C["gerr"][u], C["gopp"][u]; okG = gopp >= MIN_OPP
@@ -125,7 +128,7 @@ def reading(C, ref, shares, loose_share, conv=None):
     ba = np.where(ca > 0, ma / np.maximum(ca, 1), np.nan); bb = np.where(cb > 0, mb / np.maximum(cb, 1), np.nan)
     okHv = (ca >= MIN_CALLS) & (cb >= MIN_CALLS); hfl = np.sqrt(np.where(okHv, IS.counting_floor(ca, e) + IS.counting_floor(cb, e), np.nan))
     kicks = np.log(odds)
-    Lay = dict(angle_law=th, alarm_law=th / fl, fidelity_law=np.cos(th) ** 2, angle_atlas=np.where(okL, _theta(b, a), np.nan),
+    Lay = dict(angle_law=th, alarm_law=th / fl, fidelity_law=np.cos(th) ** 2, power_factor=np.cos(th), angle_law_atlas=th_la, angle_atlas=np.where(okL, _theta(b, a), np.nan),
                hold_vs_self=h / p, hold_vs_law=h / EPS_LAW, kicks_held=kicks, phi=kicks / M_COIN, coins_per_restore=push_for_odds(odds) / M_COIN,
                koide_q=(1 + h / np.maximum(1 - h, 1e-12)) / 3, write_vs_law=np.where(okG, (gerr / np.maximum(gopp, 1)) / u_law, np.nan),
                loose_share=np.where(nm >= 20, C["loose"][u] / np.maximum(nm, 1), np.nan),
@@ -138,6 +141,8 @@ def reading(C, ref, shares, loose_share, conv=None):
                              alarm_law=round(float(np.sqrt(np.nanmean(t2 ** 2)) / np.sqrt(np.nanmean(f2 ** 2))), 3),
                              fidelity_law=round(float(np.cos(np.sqrt(np.nanmean(t2 ** 2))) ** 2), 5),
                              angle_atlas_rms=round(float(np.sqrt(np.nanmean(Lay["angle_atlas"][m & okL] ** 2))), 5))
+        r.update(angle_law_atlas_rms=round(float(np.sqrt(np.nanmean(th_la[m] ** 2))), 5))
+        if "angle_law_rms" in r: r["power_factor"] = round(float(np.cos(r["angle_law_rms"])), 5)
         mh = m & okH
         if mh.any():
             hp = float(err[mh].sum() / max(opp[mh].sum(), 1)); od = (1 - hp) / max(hp, 1e-12)

@@ -468,6 +468,38 @@ def _sections_v5(o):
         h.append(_explain_html(i))
     return "".join(h)
 
+LS_BASIS = {"angle_law": ("about the floor", "calculated: measured state against the derived law"), "alarm_law": ("1", "calculated (counting floor, edit 198)"),
+            "fidelity_law": ("cos^2 of the floor", "calculated"), "power_factor": ("cos of the floor", "calculated; an analogy to the grid's power factor"),
+            "angle_law_atlas": ("small", "derived law against the measured atlas (no sample)"), "angle_atlas": ("about the floor", "measured against the measured atlas"),
+            "hold_vs_self": ("1", "IAM-A's own line (calibrated)"), "hold_vs_law": ("1", "derived: 0.0445 from M and the two-coin push (A4)"),
+            "kicks_held": ("3.07", "derived: ln(21.45)"), "phi": ("0.1464", "derived: ln(M)/M (P4)"), "coins_per_restore": ("2", "derived: two coins per restore (A2), by the slow-write identity"),
+            "koide_q": ("0.349", "derived value under a conjectured identification (Koide's balance)"), "write_vs_law": ("1", "law: the writer's 1/(1 + D) less the eraser, plus the meter"),
+            "loose_share": ("", "measured"), "halves": ("1", "instrument check (calculated)"), "depth": ("", "measured")}
+def _law_sphere_sec(o):
+    """Edit 206: IAM's Law Sphere in the report: every output, whole and per job, beside its healthy (law) value and its basis."""
+    ls = (o.get("development") or {}).get("law_sphere") or {}; gg = (o.get("development") or {}).get("genome_globe") or {}
+    h = "<h2 id='v4-law-sphere'>IAM's Law Sphere: the sample against the law</h2>"
+    if ls.get("status") != "OK":
+        return h + f"<p>{chip('not run')} {E(str(ls.get('reason') or 'not run on this sample (it needs a sequencing molecule file)'))}</p>"
+    W = ls.get("whole") or {}; L = ls.get("layers") or []
+    h += ("<p>" + chip("development") + " Each unit of the sequencing sphere (a CpG island, or 50 CpGs outside islands; "
+          f"{E(str(ls.get('units_in_reference')))} units) is read from this sample's own molecules and set against the state IAM's Law predicts for the "
+          f"sample's own cells (held error predicted for this sample {E(str(ls.get('predicted_held_err')))}; the law's {E(str(ls.get('law_held_err')))}). "
+          "Each angle is judged against its counting floor: a healthy sample read this deeply sits near 1 on the floor ratio.</p>")
+    rows = "".join(f"<tr><td>{E(x['name'])}</td><td><b>{E(_f(W.get(x['key'] + ('_rms' if x['key'].startswith('angle') and x['key'] + '_rms' in W else ''))))}</b></td>"
+                   f"<td>{E(LS_BASIS.get(x['key'], ('', ''))[0])}</td><td>{E(x['unit'])}</td><td>{E(LS_BASIS.get(x['key'], ('', ''))[1])}</td><td>{E(x['about'])}</td></tr>" for x in L)
+    h += "<table><tr><th>output</th><th>this sample</th><th>healthy (law)</th><th>unit</th><th>basis</th><th>what it is</th></tr>" + rows + "</table>"
+    J = ls.get("jobs") or {}; K = ["units", "alarm_law", "fidelity_law", "power_factor", "hold_vs_law", "coins_per_restore", "write_vs_law", "loose_share"]
+    if J:
+        h += ("<h3>By job (territory)</h3><table><tr><th>job</th>" + "".join(f"<th>{E(k)}</th>" for k in K) + "</tr>"
+              + "".join("<tr><td>" + E(j) + "</td>" + "".join(f"<td>{E(_f(v.get(k)))}</td>" for k in K) + "</tr>" for j, v in sorted(J.items())) + "</table>")
+    if gg.get("status") == "OK":
+        sf = gg.get("self") or {}
+        h += ("<h3>The sequencing globe: where</h3><p>" + chip("development") + f" Regions of {E(str(gg.get('region_cpgs')))} CpGs over the whole genome, each region's held "
+              f"error against this sample's own predicted {E(_f(sf.get('predicted')))} (measured {E(_f(sf.get('measured')))}). "
+              "Unlike an 850k array, it reads every CpG the file covers, islands outside the array's probes included.</p>")
+    return h
+
 def build(o, out, sid):
     G, GP = o.pop("_globe_html", "") or "", o.pop("_globe_prose", "") or ""   # taken out first: the technical record must not print the globe's data
     tech = os.path.splitext(out)[0] + "_v3record.tmp.html"

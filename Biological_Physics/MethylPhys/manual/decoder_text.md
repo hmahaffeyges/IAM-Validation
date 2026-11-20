@@ -2743,6 +2743,11 @@ given, with its reason), CAUTION and NOTE. They are written into the bundle as w
 **How to break it.** Write a disease word into a reading's text: the claim scan must fail. Remove a mark from the gauge file: the gauge
 must not draw.
 
+### report_v4.py::_law_sphere_sec
+The report's IAM's Law Sphere section (edit 206): every Law Sphere output for the whole sample and by job, beside its healthy
+(law) value, its unit and its basis (derived, calculated, measured, conjecture), and the whole-genome globe's numbers; 'not run' with
+the reason when the sample has no molecule file.
+
 ### report_v4.py::_uri
 A figure file as a data URI, so the page is self-contained.
 
@@ -3798,7 +3803,7 @@ The hold layers use IAM-A's own counter (isolated errors over opportunities on h
 so they compare like with like with the law's 0.0445 (A4). The implied coins per restore invert the slow-write rule, the identity with
 A4's driven passage. The Koide balance assumes the conjectured identification of held and spent parts.
 
-**The 14 layers.** Angle to the law; that angle over its floor; fidelity to the law; angle to the healthy atlas; hold against IAM-A's
+**The 16 layers.** Angle to the law; that angle over its floor; fidelity to the law; the power-factor reading (cos of the angle, an analogy); the angle between the law's and the atlas's expected points; angle to the healthy atlas; hold against IAM-A's
 line; hold against the law; energy held per mark (kT); share of each coin kept as hold (phi); implied coins per restore; Koide balance;
 stray marks against the law; loose share; agreement of the file's two halves over their floor (the instrument's own check); depth.
 

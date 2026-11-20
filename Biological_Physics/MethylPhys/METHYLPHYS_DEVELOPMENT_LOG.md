@@ -6776,3 +6776,6 @@ Development; the one button calls it in a later edit.
 
 ### 2026-11-20 · PHY-035: the one button reads sequenced samples on IAM's Law Sphere
 On every sequenced sample (--pat or --geo-pat) the full chain now runs the Law Sphere after IAM-A and the Deconvolver; bundle development.law_sphere.
+
+### 2026-11-20 · PHY-035: the sample report shows IAM's Law Sphere
+A researcher-view section lists every Law Sphere output (16) for the whole sample and by job, beside its healthy (law) value and its basis, with the whole-genome globe's numbers.

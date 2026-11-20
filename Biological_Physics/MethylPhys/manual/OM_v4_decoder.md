@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **38 Python files** holding **579 functions** (nested ones included); 579 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **38 Python files** holding **580 functions** (nested ones included); 580 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -47,7 +47,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 321 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 102 | 7 | 3 | 0 |
-| `MethylPhys_Interface/report_v4.py` | 503 | 32 | 17 | 17 |
+| `MethylPhys_Interface/report_v4.py` | 535 | 33 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
@@ -74,7 +74,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
-| `stage_law_sphere.py` | 157 | 8 | 0 | 0 |
+| `stage_law_sphere.py` | 162 | 8 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -3644,6 +3644,14 @@ given, with its reason), CAUTION and NOTE. They are written into the bundle as w
 **How to break it.** Write a disease word into a reading's text: the claim scan must fail. Remove a mark from the gauge file: the gauge
 must not draw.
 
+### `report_v4.py::_law_sphere_sec`
+
+The report's IAM's Law Sphere section (edit 206): every Law Sphere output for the whole sample and by job, beside its healthy
+(law) value, its unit and its basis (derived, calculated, measured, conjecture), and the whole-genome globe's numbers; 'not run' with
+the reason when the sample has no molecule file.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 478 (24 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`, `LS_BASIS`
+
 ### `report_v4.py::_uri`
 
 A figure file as a data URI, so the page is self-contained.
@@ -3783,7 +3791,7 @@ The plain view: one gauge and one sentence per reading.
 
 Builds the whole page: the technical record from `report_v3.build`, the figures, both views, and the two PDFs.
 
-*Code:* `MethylPhys_Interface/report_v4.py` line 471 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
+*Code:* `MethylPhys_Interface/report_v4.py` line 503 (32 lines) · arguments: o, out, sid · calls: array run 1, bam run 1 · constants read: `CSS`, `E`
 
 ### `report_v3.py::_gauge`
 
@@ -5358,7 +5366,7 @@ The hold layers use IAM-A's own counter (isolated errors over opportunities on h
 so they compare like with like with the law's 0.0445 (A4). The implied coins per restore invert the slow-write rule, the identity with
 A4's driven passage. The Koide balance assumes the conjectured identification of held and spent parts.
 
-**The 14 layers.** Angle to the law; that angle over its floor; fidelity to the law; angle to the healthy atlas; hold against IAM-A's
+**The 16 layers.** Angle to the law; that angle over its floor; fidelity to the law; the power-factor reading (cos of the angle, an analogy); the angle between the law's and the atlas's expected points; angle to the healthy atlas; hold against IAM-A's
 line; hold against the law; energy held per mark (kT); share of each coin kept as hold (phi); implied coins per restore; Koide balance;
 stray marks against the law; loose share; agreement of the file's two halves over their floor (the instrument's own check); depth.
 
@@ -5366,51 +5374,51 @@ stray marks against the law; loose share; agreement of the file's two halves ove
 
 CpG index to sphere unit: each island one unit, then blocks of 50 consecutive CpGs outside islands.
 
-*Code:* `stage_law_sphere.py` line 44 (7 lines) · arguments: isl_first, isl_last, block, n · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 46 (7 lines) · arguments: isl_first, isl_last, block, n · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::load_ref`
 
 Reads the runtime reference: island bounds, block size, and the per-unit table of jobs, levels and held shares.
 
-*Code:* `stage_law_sphere.py` line 52 (7 lines) · arguments: ref_dir · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `units.npz`
+*Code:* `stage_law_sphere.py` line 54 (7 lines) · arguments: ref_dir · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `units.npz`
 
 ### `stage_law_sphere.py::count_pat_units`
 
 IAM-A's molecule rule per unit: levels from even lines; from odd lines held, unmarked and loose molecules, isolated errors
 and gains on interior calls, with their opportunities.
 
-*Code:* `stage_law_sphere.py` line 60 (34 lines) · arguments: lines, umap · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 62 (34 lines) · arguments: lines, umap · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::_theta`
 
 The Fisher-Rao angle between two Bernoulli states.
 
-*Code:* `stage_law_sphere.py` line 95 (2 lines) · arguments: b, e · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 97 (2 lines) · arguments: b, e · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::push_for_odds`
 
 Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x in kicks.
 
-*Code:* `stage_law_sphere.py` line 100 (3 lines) · arguments: odds · calls: not called on the traced runs · constants read: `_OG`, `_XG`
+*Code:* `stage_law_sphere.py` line 102 (3 lines) · arguments: odds · calls: not called on the traced runs · constants read: `_OG`, `_XG`
 
 ### `stage_law_sphere.py::reading`
 
 One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
 whole-sample summaries, each against its counting floor.
 
-*Code:* `stage_law_sphere.py` line 104 (53 lines) · arguments: C, ref, shares, loose_share, conv · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `EPS_LAW`, `ERASER_CLEAN`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 106 (56 lines) · arguments: C, ref, shares, loose_share, conv · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `EPS_LAW`, `ERASER_CLEAN`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `M_COIN`
 
 ### `stage_law_sphere.py::count_pat_units.flush`
 
 Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buffers.
 
-*Code:* `stage_law_sphere.py` line 65 (5 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 67 (5 lines) · arguments: none · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::reading.summ`
 
 The summary of every layer over a set of units (the whole sample, or one job), pooled before the ratio is taken.
 
-*Code:* `stage_law_sphere.py` line 133 (18 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
+*Code:* `stage_law_sphere.py` line 136 (20 lines) · arguments: m · calls: not called on the traced runs · constants read: `EPS_LAW`, `M_COIN`
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 
