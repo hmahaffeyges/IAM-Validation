@@ -1,0 +1,79 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-19",
+ "title": "Each type's level is a property of the type; the cell's hold is the slow-write rule; the chain's sequencing instruments read again",
+ "set_out": "Find what sets each cell type's own level (A8) on spent data, with the simulator first; get every sequencing instrument reading on the spent atlas libraries; keep the records consolidated and lose nothing.",
+ "open_at_turnover": "Which side moves in A8 beyond the eraser's share (restore delivery or passive loss); an outside per-type measure of how much of the time a type is being ordered; a usable per-CpG 5hmC source for neurons; the 12 libraries made readable by E2c stay unread; the full spent-data run.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Unused atlas libraries through the one button (A8DER)",
+     "status": "development",
+     "what": "49 atlas libraries never read before, one reading each.",
+     "outcome": "20 of 22 banded readings inside their type band; 19 refused as mixtures until routing step E2c.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (per-type bands); GSE186458"
+    },
+    {
+     "title": "Mixture routing by tissue family (chain overhaul E2c; COM-IAMA-054)",
+     "status": "development",
+     "what": "Non-blood atlas cells pooled by tissue family in the mixture check.",
+     "outcome": "On main; atlas inputs stay single; the planted blood mixture stays mixed.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (development); purity check of 154 sorted atlas libraries"
+    },
+    {
+     "title": "Globe, information sphere and C-Score sky on sorted sequencing files (PHY-035)",
+     "status": "development",
+     "what": "A specimen naming no cell takes the sample's own Deconvolver shares; the sky plate is drawn on sequencing.",
+     "outcome": "On main; were refused in 152 of 156 readings.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (development), the sample's own Deconvolver shares"
+    },
+    {
+     "title": "The cell's hold as the slow-write rule (PHY-083)",
+     "status": "development",
+     "what": "Symbolic check that the driven-passage odds equal the kept-over-lost ratio of a slow write.",
+     "outcome": "Confirmed; book, Decoder, physics root and simulator note updated.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "no atlas: a symbolic identity; the cell simulator's canon level 0.04454 (IAM Sequencing Atlas held reference)"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "Each type's level belongs to the type",
+     "what": "No donor effect and no age effect across 152 libraries; unseen donors land in their type's band.",
+     "status": "development",
+     "outcome": "The bands cannot be narrowed by a donor correction.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "A rule attributed to the author that he never gave",
+     "what": "The agent set published division counts aside citing a 'rule' of the author's; the author caught it.",
+     "status": "failed",
+     "outcome": "Corrected in the register and memory; the counts are used.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}
