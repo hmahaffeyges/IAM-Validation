@@ -7,7 +7,7 @@ make the instruments possible.
 
 1. **The scale is derived, not learned.** The energy a cell spends holding a mark sets the least error it can reach: the floor. A site
    whose mark is lost entirely reads as a coin flip, one bit of disorder: the ceiling. Counting single DNA molecules in 56 healthy human
-   cell types, the energy that holds a methyl mark is {{canon:E_hold_meth:.2f}} k_B T, about {{canon:phi:.3f}} of the ATP the cell pays to keep each site (M = {{canon:M_cell:.2f}} k_B T).
+   cell types, the energy that holds a methyl mark is {{canon:E_hold_meth:.2f}} k_B T, about {{canon:phi:.3f}} of the ATP the cell pays to keep each site (M = {{canon:M_cell:.2f}} k_B T). The restore odds behind that share follow the same rule as a slowly ramped write; restored suddenly, a mark would be a coin flip.
    A healthy cell sits at a measured place between the floor and the ceiling, so a reading in bits means the same thing in any
    laboratory, for any cell type, before anything has been trained. A candidate derives that place from M and the price of the methyl
    donor (one SAM costs about {{canon:SAM_cost_ATP:.1f}} ATP): restoring paid against thermal kicks gives a held error of
