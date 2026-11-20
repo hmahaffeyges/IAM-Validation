@@ -3873,6 +3873,14 @@ Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x 
 One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
 whole-sample summaries, each against its counting floor.
 
+### stage_law_sphere.py::type_positions
+
+Reads type_positions_v1.json: each healthy cell type's measured position on IAM-A's derived line (A8-POSITION), with its relative uncertainty and library count. Measured, not derived: a substitute for the underived A8, like a scheduled value for a missing meter. The between-lab term is not in it (edit 212).
+
+### stage_law_sphere.py::hold_alarm
+
+The Law Sphere's hold alarm (edit 212). Physics: the held record is the potential side of IAM's Law in the cell (the slow close, A4); the level layers see the hold only as 1 - q, so they cannot confirm a reference for it. The alarm counts the sample's held error from the same molecules (IAM-A's rule) and compares it with three references: the law (two coins, 0.04454), IAM-A's own derived line at the sample's loose share, and that line times the type's measured position. z = log(held / reference) / sqrt(se^2 + u^2), with se from a block jackknife over the sphere's units (the measured spread between units and molecules, about four times plain counting noise) and u the type's band uncertainty (GUM). |z| <= 2 reads within. Mixtures are not read: the line is defined for one cell type. Development; on in the full chain with the Law Sphere.
+
 ### stage_law_sphere.py::count_pat_units.flush
 Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buffers.
 

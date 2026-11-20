@@ -309,3 +309,26 @@ def spec(rec, Lay, positions, sample=""):
                 about=("IAM's Law Sphere (development). Each point of the sphere is a unit of the IAM Sequencing Atlas (a CpG island, or 50 CpGs "
                        "outside islands), placed by how it behaves across the 58 healthy cell types. Each layer shows, for this sample, how far each "
                        "unit departs from its healthy value: the law's value where the law gives one. Departures are read from the sample's own molecules."))
+
+# ---- edit 212: the hold alarm (register F245-F248)
+def type_positions():
+    """Each healthy type's measured position on IAM-A's derived line (type_positions_v1.json; measured, not derived)."""
+    return json.load(open(os.path.join(REF_DIR, "type_positions_v1.json"), encoding="utf-8"))
+def hold_alarm(C, ref, cell, predicted_derived, blocks=100):
+    """The sample's held error (all units, IAM-A's molecule rule) against the law, IAM-A's own derived line, and the line x the type's measured
+    position. z = log(held / reference) / sqrt(se^2 + u^2): se from a block jackknife over the units in genome order (the measured spread between
+    units and molecules), u the type's band uncertainty (only for the type reference). One cell type only: the line is defined per type."""
+    if predicted_derived is None or not cell:
+        return dict(status="NOT_RUN", reason="needs IAM-A's derived prediction for one cell type (mixtures are not read by the hold alarm)")
+    u = ref["table"]["unit"].to_numpy(); err = np.asarray(C["err"], float)[u]; opp = np.asarray(C["opp"], float)[u]
+    E, O = float(err.sum()), float(opp.sum())
+    if O < 1e4: return dict(status="NOT_RUN", reason=f"too few held opportunities ({int(O)})")
+    p = E / O; idx = np.array_split(np.arange(len(err)), blocks)
+    jk = np.array([np.log((E - err[i].sum()) / max(O - opp[i].sum(), 1)) for i in idx]); se = float(np.sqrt((blocks - 1) / blocks * ((jk - jk.mean()) ** 2).sum()))
+    P = type_positions()["types"].get(cell); out = dict(status="OK", held_err=round(p, 5), held_opp=int(O), se_jackknife=round(se, 4), cell=cell, refs={})
+    for k, e, ub in (("law", EPS_LAW, 0.0), ("own_line", float(predicted_derived), 0.0), ("type_position", float(predicted_derived) * P["centre"] if P else None, P["u_rel_k1"] if P else None)):
+        if e is None: out["refs"][k] = dict(status="NOT_RUN", reason="no measured position for this type"); continue
+        z = float(np.log(p / e) / np.sqrt(se ** 2 + ub ** 2)); out["refs"][k] = dict(expected=round(e, 5), ratio=round(p / e, 4), z=round(z, 2), u_band=ub,
+            state="within" if abs(z) <= 2 else ("above" if z > 0 else "below"))
+    if P: out["type_position"] = dict(centre=P["centre"], u_rel_k1=P["u_rel_k1"], n=P["n"], basis="measured (A8-POSITION, F132; F248 out of sample)")
+    return out

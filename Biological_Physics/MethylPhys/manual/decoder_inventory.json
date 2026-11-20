@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1743,
+   "lines": 1748,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -270,13 +270,13 @@
      "function": "_law_sphere",
      "name": "_law_sphere",
      "line": 522,
-     "end": 544,
+     "end": 549,
      "args": [
       "a",
       "cnt",
       "o"
      ],
-     "lines": 23,
+     "lines": 28,
      "doc": "Edit 205 (DEV-SPHERE-01): IAM's Law Sphere. Each sequencing-sphere unit read from the sample's molecules by IAM-A's own rule and set against the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere.",
      "constants": [],
      "data_files": [
@@ -288,8 +288,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 546,
-     "end": 566,
+     "line": 551,
+     "end": 571,
      "args": [
       "a",
       "cnt",
@@ -305,8 +305,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 569,
-     "end": 610,
+     "line": 574,
+     "end": 615,
      "args": [
       "a",
       "o",
@@ -326,8 +326,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_site_counts",
      "name": "_site_counts",
-     "line": 614,
-     "end": 647,
+     "line": 619,
+     "end": 652,
      "args": [
       "pat"
      ],
@@ -347,8 +347,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 649,
-     "end": 1740,
+     "line": 654,
+     "end": 1745,
      "args": [],
      "lines": 1092,
      "doc": "",
@@ -382,8 +382,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1031,
-     "end": 1035,
+     "line": 1036,
+     "end": 1040,
      "args": [
       "r"
      ],
@@ -399,8 +399,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1266,
-     "end": 1273,
+     "line": 1271,
+     "end": 1278,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1662,
-     "end": 1663,
+     "line": 1667,
+     "end": 1668,
      "args": [
       "b",
       "it",
@@ -9568,7 +9568,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 312,
+   "lines": 335,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -9940,6 +9940,44 @@
      "constants": [
       "GROUPS",
       "LAYERS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_law_sphere.py",
+     "function": "type_positions",
+     "name": "type_positions",
+     "line": 314,
+     "end": 316,
+     "args": [],
+     "lines": 3,
+     "doc": "Each healthy type's measured position on IAM-A's derived line (type_positions_v1.json; measured, not derived).",
+     "constants": [
+      "REF_DIR"
+     ],
+     "data_files": [
+      "type_positions_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_law_sphere.py",
+     "function": "hold_alarm",
+     "name": "hold_alarm",
+     "line": 317,
+     "end": 334,
+     "args": [
+      "C",
+      "ref",
+      "cell",
+      "predicted_derived",
+      "blocks"
+     ],
+     "lines": 18,
+     "doc": "The sample's held error (all units, IAM-A's molecule rule) against the law, IAM-A's own derived line, and the line x the type's measured position. z = log(held / reference) / sqrt(se^2 + u^2): se from a block jackknife over the units in genome order (the measured spread between units and molecules), u the type's band uncertainty (only for the type reference). One cell type only: the line is define",
+     "constants": [
+      "EPS_LAW"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -11532,5 +11570,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 592
+ "n_functions": 594
 }

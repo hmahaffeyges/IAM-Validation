@@ -1,0 +1,287 @@
+{
+ "about": "Each healthy cell type's measured position on IAM-A's derived line (A8-POSITION, register F132): the centre of the type's healthy A_derived from the one-button joint-run readings of the IAM Sequencing Atlas libraries, with its relative uncertainty (k=1). A measured substitute for the underived A8 (a pseudo-measurement, like a scheduled value for a missing meter); confirmed out of sample on 41 unseen libraries (40 within |z| <= 2). The between-lab term is not in it.",
+ "basis": "measured",
+ "types": {
+  "adipocytes": {
+   "centre": 1.1201,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "aorta endothelium": {
+   "centre": 1.0622,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "b cells": {
+   "centre": 1.0256,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "bladder epithelium": {
+   "centre": 1.1074,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "breast basal epithelium": {
+   "centre": 1.0012,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "breast luminal epithelium": {
+   "centre": 0.9937,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "cardiomyocyte": {
+   "centre": 1.0541,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "cd4 t cells": {
+   "centre": 1.0563,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "cd8 t cells": {
+   "centre": 1.0491,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "colon enteroendocrine": {
+   "centre": 1.0314,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "colon epithelium": {
+   "centre": 1.0302,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "colon fibroblasts": {
+   "centre": 1.0982,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "colon macrophages": {
+   "centre": 1.0087,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "cortical neurons": {
+   "centre": 0.8954,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "effector memory cd8 t cells": {
+   "centre": 1.0014,
+   "n": 1,
+   "u_rel_k1": 0.0512
+  },
+  "endometrium epithelium": {
+   "centre": 1.0199,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "erythrocyte progenitors": {
+   "centre": 0.8043,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "fallopien tubes epithelium": {
+   "centre": 1.035,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "gastric antrum epithelium": {
+   "centre": 1.0766,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "gastric body epithelium": {
+   "centre": 1.0643,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "gastric fundus epithelium": {
+   "centre": 1.0551,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "heart fibroblasts": {
+   "centre": 0.9713,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "hepatocyte": {
+   "centre": 0.9986,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "kidney glomerular endothelium": {
+   "centre": 1.1414,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "kidney glomerular epithelium": {
+   "centre": 1.1052,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "kidney tubular endothelium": {
+   "centre": 1.142,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "kidney tubular epithelium": {
+   "centre": 1.0633,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "lung alveolar endothelium": {
+   "centre": 1.0806,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "lung alveolar epithelium": {
+   "centre": 1.0672,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "lung alveolar macrophages": {
+   "centre": 0.9464,
+   "n": 1,
+   "u_rel_k1": 0.0512
+  },
+  "lung bronchus epithelium": {
+   "centre": 1.1187,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "lung interstitial macrophages": {
+   "centre": 0.9597,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "memory b cells": {
+   "centre": 1.0957,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "monocytes": {
+   "centre": 1.0207,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "naive cd4 t cells": {
+   "centre": 0.9323,
+   "n": 1,
+   "u_rel_k1": 0.0512
+  },
+  "naive cd8 t cells": {
+   "centre": 0.8979,
+   "n": 1,
+   "u_rel_k1": 0.0512
+  },
+  "nk cells": {
+   "centre": 1.0445,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "oligodendrocytes": {
+   "centre": 1.0266,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreas endothelium": {
+   "centre": 1.1498,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreatic acinar": {
+   "centre": 0.951,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreatic alpha": {
+   "centre": 1.1459,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreatic beta": {
+   "centre": 1.1281,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreatic delta": {
+   "centre": 1.1651,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "pancreatic duct": {
+   "centre": 1.0698,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "prostate epithelium": {
+   "centre": 1.0708,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "small intestine epithelium": {
+   "centre": 1.0621,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "smooth muscle": {
+   "centre": 0.9583,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "striated muscle": {
+   "centre": 1.1709,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "t central memory cd4": {
+   "centre": 1.1713,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "t effector cell cd8": {
+   "centre": 1.1056,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "t effector memory cd4": {
+   "centre": 1.0451,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "thyroid epithelium": {
+   "centre": 1.1164,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "tongue epithelium": {
+   "centre": 1.1327,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "tonsil palatine epithelium": {
+   "centre": 1.0935,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  },
+  "tonsil pharyngeal epithelium": {
+   "centre": 1.0835,
+   "n": 2,
+   "u_rel_k1": 0.0447
+  },
+  "vascular saphenous endothelium": {
+   "centre": 1.1272,
+   "n": 3,
+   "u_rel_k1": 0.0423
+  }
+ },
+ "version": 1
+}

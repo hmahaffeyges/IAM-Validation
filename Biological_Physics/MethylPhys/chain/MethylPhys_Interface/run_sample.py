@@ -532,6 +532,11 @@ def _law_sphere(a, cnt, o):
     card = LS.card_of(json.load(open(a.law_card)) if getattr(a, "law_card", None) else None)
     if getattr(a, "law_set", None): card.update({k: v for k, v in LS.card_of(a.law_set).items() if v != LS.CARD.get(k)})
     C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt.get("loose_share"), card=card); rec["label"] = DV.DEV_LABEL
+    if rec.get("status") == "OK":   # edit 212: the hold alarm (the level layers are blind to the hold)
+        _ia = o.get("iam_a") or {}
+        try: rec["hold_alarm"] = LS.hold_alarm(C, ref, _ia.get("cell") if _ia.get("A_derived") is not None else None, _ia.get("predicted_derived"))
+        except Exception as e: rec["hold_alarm"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
+    U_ = rec.pop("_units", None)
     U_ = rec.pop("_units", None)
     if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
         try:
