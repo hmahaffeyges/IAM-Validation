@@ -84,6 +84,22 @@ def _to_sky(v, npix):
     s = np.bincount(pix[ok], v[ok], npix); k = np.bincount(pix[ok], minlength=npix)
     return np.where(k > 0, s / np.maximum(k, 1), np.nan)
 
+def _borrow_sd(sd_, cells, mu_fn):
+    """A cell whose donor_sd is missing at every site (a type the atlas holds from one library) borrows the median donor_sd of its lineage
+    siblings at each site (stage_0_intake.LINEAGE). Returns (sd_, borrowed): borrowed maps each such cell to the siblings used."""
+    import stage_0_intake as _S0
+    borrowed = {}
+    for c in cells:
+        v = sd_.get(c)
+        if v is not None and np.isfinite(v).any(): continue
+        g = _S0.LINEAGE_OF.get(c)
+        if not g: continue
+        sib = [x for x in _S0.LINEAGE[g] if x != c]; S = mu_fn(sib, "donor_sd"); S = {k: u for k, u in S.items() if np.isfinite(u).any()}
+        if not S: continue
+        with np.errstate(all="ignore"): sd_[c] = np.nanmedian(np.vstack(list(S.values())), axis=0)
+        borrowed[c] = sorted(S)
+    return sd_, borrowed
+
 def _mu(cells, stem="mu"):
     """Atlas values for `cells` at every atlas site (atlas row order); NaN where the atlas has none. stem: mu (best value), mu_lo / mu_hi
     (the 95 % range from the fit)."""
@@ -240,6 +256,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     # 84 % of a healthy blood, because that range is how sure the atlas is of the healthy average, not how much a healthy person varies; with
     # the person-to-person spread added, still 18.5 % beyond 2 widths, because an array's own noise is not in the atlas.)
     lo_, hi_, sd_ = _mu(list(w), "mu_lo"), _mu(list(w), "mu_hi"), _mu(list(w), "donor_sd")
+    sd_, _borrowed = _borrow_sd(sd_, list(w), _mu)   # one-library types borrow their lineage siblings' spread (edit 197)
     _ok = {c: np.isfinite(hi_[c]) & np.isfinite(lo_[c]) & np.isfinite(sd_[c]) for c in w}; _wd = sum(w[c] * _ok[c] for c in w)   # 2026-10-23: over the cells with values
     un = sum(w[c] * np.nan_to_num((hi_[c] - lo_[c]) / 3.92) for c in w) / np.maximum(_wd, 1e-12)
     width = np.where(_wd >= 0.99 * sum(w.values()), np.sqrt(sum(w[c] * np.nan_to_num(sd_[c]) ** 2 for c in w) / np.maximum(_wd, 1e-12) + un ** 2), np.nan)[order]
@@ -312,7 +329,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     rec = {"drawn": True, "reference": name, "weights": {c: round(v, 4) for c, v in w.items()}, "sites_compared": int(both.sum()),
            "pixels_compared": int(len(m)), "median_abs_difference": round(float(np.median(m)), 4) if len(m) else None,
            "share_above": {"0.05": above[5], "0.10": above[10], "0.20": above[20], "0.30": above[30]},
-           "change_rule": "blocks of 10 neighboring sites, each site's difference in its healthy width in IAM-Atlas v2.1, the block mean in the sample's own block spread, beyond the 5 % family-wise line", "sites_changed": n_changed, "sites_with_range": n_ranged,
+           "change_rule": "blocks of 10 neighboring sites, each site's difference in its healthy width in IAM-Atlas v2.1, the block mean in the sample's own block spread, beyond the 5 % family-wise line", "sites_changed": n_changed, "sites_with_range": n_ranged, "width_borrowed": _borrowed,
            "layout": "IAM-Atlas v2.1 genome-order sky, NSIDE 256 NESTED (sky_order_v21.npz)", "scored": False}
     J = lambda b: "data:image/jpeg;base64," + b; P_ = lambda b: "data:image/png;base64," + b
     R_ = J(_jpg_b64(rgb(ref_s)))

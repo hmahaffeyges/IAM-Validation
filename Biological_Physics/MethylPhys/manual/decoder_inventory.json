@@ -7034,7 +7034,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 466,
+   "lines": 483,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -7158,10 +7158,27 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_borrow_sd",
+     "name": "_borrow_sd",
+     "line": 87,
+     "end": 101,
+     "args": [
+      "sd_",
+      "cells",
+      "mu_fn"
+     ],
+     "lines": 15,
+     "doc": "A cell whose donor_sd is missing at every site (a type the atlas holds from one library) borrows the median donor_sd of its lineage siblings at each site (stage_0_intake.LINEAGE). Returns (sd_, borrowed): borrowed maps each such cell to the siblings used.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 87,
-     "end": 98,
+     "line": 103,
+     "end": 114,
      "args": [
       "cells",
       "stem"
@@ -7181,8 +7198,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky_extreme",
      "name": "_to_sky_extreme",
-     "line": 100,
-     "end": 105,
+     "line": 116,
+     "end": 121,
      "args": [
       "v",
       "npix"
@@ -7197,8 +7214,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 107,
-     "end": 113,
+     "line": 123,
+     "end": 129,
      "args": [
       "nside"
      ],
@@ -7214,8 +7231,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 115,
-     "end": 117,
+     "line": 131,
+     "end": 133,
      "args": [
       "arr",
       "mode"
@@ -7230,8 +7247,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_vmask",
      "name": "_vmask",
-     "line": 119,
-     "end": 124,
+     "line": 135,
+     "end": 140,
      "args": [
       "v"
      ],
@@ -7245,8 +7262,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 127,
-     "end": 129,
+     "line": 143,
+     "end": 145,
      "args": [
       "rgb"
      ],
@@ -7260,8 +7277,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 131,
-     "end": 148,
+     "line": 147,
+     "end": 164,
      "args": [
       "specimen",
       "shares"
@@ -7280,8 +7297,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 150,
-     "end": 156,
+     "line": 166,
+     "end": 172,
      "args": [
       "v"
      ],
@@ -7297,8 +7314,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 158,
-     "end": 166,
+     "line": 174,
+     "end": 182,
      "args": [
       "fractions",
       "specimen"
@@ -7318,8 +7335,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_paint_blocks",
      "name": "_paint_blocks",
-     "line": 168,
-     "end": 181,
+     "line": 184,
+     "end": 197,
      "args": [
       "sky",
       "vals",
@@ -7337,8 +7354,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_patch",
      "name": "_patch",
-     "line": 183,
-     "end": 190,
+     "line": 199,
+     "end": 206,
      "args": [
       "v"
      ],
@@ -7354,8 +7371,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 192,
-     "end": 210,
+     "line": 208,
+     "end": 226,
      "args": [
       "d",
       "ids_ordered",
@@ -7375,8 +7392,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 212,
-     "end": 395,
+     "line": 228,
+     "end": 412,
      "args": [
       "beta",
       "specimen",
@@ -7388,7 +7405,7 @@
       "cell_departures",
       "counts"
      ],
-     "lines": 184,
+     "lines": 185,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -7417,8 +7434,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 263,
-     "end": 264,
+     "line": 280,
+     "end": 281,
      "args": [
       "m"
      ],
@@ -7432,8 +7449,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 266,
-     "end": 271,
+     "line": 283,
+     "end": 288,
      "args": [
       "v",
       "full"
@@ -7448,8 +7465,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 412,
-     "end": 455,
+     "line": 429,
+     "end": 472,
      "args": [
       "beta",
       "ref_beta",
@@ -7479,8 +7496,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 434,
-     "end": 435,
+     "line": 451,
+     "end": 452,
      "args": [
       "m"
      ],
@@ -11079,5 +11096,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 568
+ "n_functions": 569
 }

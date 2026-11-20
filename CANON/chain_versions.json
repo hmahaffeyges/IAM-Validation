@@ -1570,6 +1570,11 @@
    "chain_sha": "a772d7d6cc43c67e8d95e82618a09bfdba3e479f0692b0a29094e92cb415d183",
    "first_commit_after": "59a335f1",
    "date": "2026-11-19"
+  },
+  {
+   "chain_sha": "6d78e883d4a89f20626fbb8339c1da1401fa5759c0cd50dad747912cf5c493da",
+   "first_commit_after": "ad79106c",
+   "date": "2026-11-20"
   }
  ]
 }

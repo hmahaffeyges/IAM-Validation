@@ -2911,6 +2911,12 @@ checked against the cell pages: 785,718 measured neutrophil pixels on both), so 
 with the atlas's healthy blood for this person's own mix: the six panel cells weighted by their Stage D21 shares, scaled to sum to 1.
 Comparing blood with one cell would light up every site where blood differs from that cell.
 
+**A cell the atlas holds from one library.** The globe measures each site's change in its healthy width, which includes the person-to-person
+spread of every cell in the sample's mix. Naive CD8, effector memory CD8 and naive CD4 T cells come from one library each, so they have no
+spread of their own; when they held more than 1 % of a sample's shares, every site lost its width and the information sphere's territories
+were empty (6 of 48 sorted libraries). Such a cell now borrows its lineage siblings' spread, the median at each site, and the globe lists
+the cells that borrowed (width_borrowed).
+
 **A specimen that names no cell.** The one button reads a sorted molecule file with the specimen 'sorted cells' and no cell named.
 That label names no atlas cell, so the reference is the sample's own cells as the IAM-Deconvolver found them, weighted by their Stage D21
 shares (in a sorted library the top share is about 0.98). Before this rule the globe looked for a cell called 'sorted cells', refused, and
@@ -2987,6 +2993,10 @@ Writes one inlined picture to its file and returns its address.
 
 ### report_globe_v4.py::_to_sky
 One value per site in genome order to a NESTED map: the mean per pixel, nothing where no site was measured (the atlas tools' own rule).
+
+### report_globe_v4.py::_borrow_sd
+For a cell whose person-to-person spread (donor_sd) is missing at every site, a type the atlas holds from one library,
+the median spread of its lineage siblings at each site (stage_0_intake.LINEAGE); returns the spreads and which cells borrowed from whom.
 
 ### report_globe_v4.py::_mu
 Reads the atlas best values of the named cells from the compact copy (`atlas/v2.1/mu_part*.parquet`), 65535 decoded as no value.

@@ -6756,3 +6756,9 @@ _Written at midnight from the day's record (the chat walked line by line, 22 che
 - WEBBUILD (website build): bounded retries.
 - X6 (beta_m): what the ledger counts, in the book.
 - DAYLOG: this summary.
+
+### 2026-11-20 · PHY-035: the globe's healthy width for cells the atlas holds from one library
+In 6 of 48 sorted libraries read for A8DER the globe was drawn with no site measured in its healthy width, so the information sphere's
+territories were empty. Cause: naive CD8, effector memory CD8 and naive CD4 T cells come from one atlas library each (no donor_sd), and the
+width needs cells with a spread to hold 99 % of the shares; all six libraries held more than 1 % of those three, every working one less.
+A one-library cell now borrows its lineage siblings' spread (median per site). Cells with their own spread are unchanged.
