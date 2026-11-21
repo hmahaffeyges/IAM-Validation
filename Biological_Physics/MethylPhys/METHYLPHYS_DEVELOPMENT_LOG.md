@@ -6848,3 +6848,7 @@ pooled level, taken as exact, sits at 0 or 1 where it has few reads. Those readi
 
 ### 2026-11-20 · GRP-019: the counted switch's module name
 Edit 226's switch referred to the Met-A module by a name the one button binds later, so its canary stopped before reading. It now uses the name the sequencing block already uses.
+
+### 2026-11-20 · GRP-019, GRP-017: correction (2026-11-20): the held-out canary of edits 222 and 226
+
+The half-only atlas columns used for the held-out canaries were first built one CpG off: the probe-to-CpG key counts from 1 and the half tables count from 0. The numbers the edit 226 entry cites (Met-A for the whole sample 1.240, the own cell in the mix 0.761) came from that misaligned reference and are withdrawn. Rebuilt with the index corrected and checked against the published sealed halves of the IAM Sequencing Atlas pieces at the same CpG (correlation 1.0000 for all 96 cell halves), the same library (GSM5652179, aorta endothelium, half A) read against half B gives: Met-A for the whole sample 0.945 with the counted expectation (1.121 with the expectation taken from the half's levels as exact), the own cell in the mix 0.949 (1.028), the domains 1.007 (1.063), and sorted-cell Met-A, already read at a common depth, 0.951. A one-library half does inflate the old expectation, by about 12 % for the whole sample, and the counted expectation brings the three held-out readings to within 0.006 of sorted-cell Met-A.
