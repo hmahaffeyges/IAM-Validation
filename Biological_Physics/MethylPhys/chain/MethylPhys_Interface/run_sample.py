@@ -804,6 +804,7 @@ def main():
                     "expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
+    ap.add_argument("--dev-seq-half-cols", default=None, metavar="DIR", help="DEVELOPMENT (edit 222): a folder with array_sites_halfA/B; with --dev-seq-ref-half every in-mix reading (Met-A whole and in the mix, territories, C-Score) is read against that donor half only")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")

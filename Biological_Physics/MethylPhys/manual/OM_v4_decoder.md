@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,759 | 21 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,760 | 21 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -82,7 +82,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **134 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **135 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -150,6 +150,7 @@ Read from `run_sample.py`'s own option definitions at build time: **134 options*
 | `--dev-seq-copies` | off | yes | DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01) |
 | `--dev-seq-donors` | None |  | DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics |
 | `--dev-seq-end-cal` | off |  | DEVELOPMENT (2026-11-12, with --dev-seq-self-cal; the self-calibration's eighth form): before the cell shares, a first Deconvolver pass finds the cells, the library's two molecule-end error rates are measured where those cells agree on the atlas (agree_rates), every site's level is corrected for them (end_corrected_levels), and the shares and every reading then use the corrected levels |
+| `--dev-seq-half-cols` | None |  | DEVELOPMENT (edit 222): a folder with array_sites_halfA/B; with --dev-seq-ref-half every in-mix reading (Met-A whole and in the mix, territories, C-Score) is read against that donor half only |
 | `--dev-seq-level` | None | yes | DEVELOPMENT: on sequencing, the healthy level the expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule) |
 | `--dev-seq-noise-weight` | off |  | DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met |
 | `--dev-seq-ref` | None | yes | DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1 |
@@ -1507,14 +1508,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 658 (1099 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 658 (1100 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1275 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1276 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1522,13 +1523,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1040 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1041 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1678 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1679 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 

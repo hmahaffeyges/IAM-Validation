@@ -6828,3 +6828,6 @@ In healthy passes 5 to 7 only sorted-cell Met-A and the islands territory were r
 ### 2026-11-20 · GRP-019: every in-mix reading against one donor half
 The healthy passes read sorted-cell Met-A and the islands against the other donor half, but the other in-mix readings against every donor, the input's own included.
 `--dev-seq-half-cols` serves them from one half's own columns, so the held-out pass can be run for Met-A whole and in the mix, the territories and the C-Score.
+
+### 2026-11-20 · GRP-019: the held-out option on the command line
+Edit 222's switch was in the one button but its option was not, so the canary's held-out read was refused at the command line. The option is added, and the smoke test now reads the one button's parser.
