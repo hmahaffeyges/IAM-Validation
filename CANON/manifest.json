@@ -27081,7 +27081,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "2026-10-16: the MethylPhys README C-score row also said 50-site blocks (the superseded set); corrected to blocks of 10 as the commissioning note states, and the gate now refuses the old wording | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "notes": "2026-10-16: the MethylPhys README C-score row also said 50-site blocks (the superseded set); corrected to blocks of 10 as the commissioning note states, and the gate now refuses the old wording | 2026-11-13: 2026-11-13 afternoon: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md; edit 219: public WHY_IAM.md retired at the author's request (content kept privately); its testing rules moved to CANON/TEST_DESIGN_CHECKLIST.md",
    "legacy_ids": [],
    "id": "OTH-064",
    "sources_of_row": [

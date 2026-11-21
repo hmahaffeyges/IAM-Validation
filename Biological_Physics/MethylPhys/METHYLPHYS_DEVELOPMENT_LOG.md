@@ -6815,3 +6815,6 @@ On 152 atlas libraries, each scored against bands rebuilt without its donor stan
 
 ### 2026-11-20 · PHY-035: IAM's Law Sphere's pooled hold over all units, depth pile-ups left out
 The readiness check on the known-answer library (GSM5652214, cardiomyocyte) found the Law Sphere's whole-sample hold at 1.73 x the line. Its summary pooled only units with at least 200 held chances, which at atlas depth were 79 of 237,850 units, 35 of them depth pile-ups (held error 0.079). Pooled over all units with pile-ups (over 10 x the median depth) left out, the library reads 0.04253, against IAM-A's 0.042375. The hold alarm leaves out the same pile-ups; the halves are added to the whole-sample and per-job records.
+
+### 2026-11-20 · OTH-064: WHY_IAM.md retired; its testing rules moved to the test design checklist
+The public WHY_IAM.md is retired at the author's request; its content is kept in the author's private record. Its testing rules move verbatim to CANON/TEST_DESIGN_CHECKLIST.md, and the design checks cite them there. The home page no longer links it.

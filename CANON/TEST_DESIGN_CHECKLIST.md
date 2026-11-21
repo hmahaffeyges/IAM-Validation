@@ -112,6 +112,29 @@ Answers are evidence (numbers, file names, quoted protocol lines), not reassuran
 | cosmologist.method | How the CMB missions would answer this (forward model through the instrument, null tests, self-calibration on calibrators, cross-spectra between independent halves) and whether this design does it |
 | data.needs | Every field and condition the test needs from the data (e.g. both strands, paired reads, whole-genome spread, the cell label, read length) |
 | data.preflight | A check on a small slice, minutes long, that confirms every item in data.needs BEFORE the canary or any full run: what was checked, minutes taken, and the result |
-| bars.rule | The pass rule, in the agreed standard's own classes (WHY_IAM.md rule 4: pull within 2 passes; 2 to 3 watch; beyond 3 a real miss), with the bar from measured uncertainty (GUM, k = 2) |
+| bars.rule | The pass rule, in the agreed standard's own classes (TEST_DESIGN_CHECKLIST.md, setting test bars, rule 4: pull within 2 passes; 2 to 3 watch; beyond 3 a real miss), with the bar from measured uncertainty (GUM, k = 2) |
 | physics.counterparts | The same question for the chips and the qubits: what this addition's counterpart is there, or 'none yet' (author 2026-11-13) |
 | cosmologist.null_test | The null test or self-calibration in this design, stated before it runs |
+
+## The testing rules (moved verbatim from WHY_IAM.md, retired 2026-11-20)
+
+**Before any test or run, the four questions, answered in writing.**
+1. Is this the best data for it, chosen from everything already in hand (kept values, bundles, count files, molecule files) before anything new?
+2. Is this the most efficient and expedient route: the cheapest data, free machines first, the smallest set that answers?
+3. Is this the best test, the one a physicist and a geneticist cannot tear apart?
+4. What would a cosmologist do? (Calibrate each detector on its own data; forward-model the instrument onto the expectation; split null tests; noise maps.)
+
+**Data.** Spent data first. Fresh data only when necessary, and spent once, on a sealed test whose form exploration has already settled.
+
+**Judging results.** Exploration is judged by what the data shows; strict sealed bars are for commissioning and referees. Act on named risks before reading, not only note them.
+
+**Setting test bars (agreed 2026-11-12; never set a bar by choice).** A bar comes from measured uncertainty, following metrology's guide (GUM):
+1. Combined uncertainty: sigma_total^2 = (the prediction's own uncertainty)^2 + (the meter)^2 + (the natural spread)^2. When the test is on a mean or median of n samples, the natural spread enters divided by n. Coverage k = 2 (about 95 %).
+2. Say which question is tested. The baseline (is the healthy level where the law predicts?) is tested on the median, with the median's uncertainty. Each sample (is every sample within X?) uses X = the natural spread itself, and about 1 healthy sample in 20 is expected outside by chance.
+3. Write the formula and the bar before any data are read (sealed), so a referee can recompute the bar.
+4. Report the pull, (observed - predicted) / sigma_total: within 2 passes; 2 to 3, watch; beyond 3, a real miss. One result just past 2 is not a refutation; a miss counts when it is large or repeats.
+5. A claim of new physics needs about 5 sigma; agreement tests use k = 2.
+6. Measured components so far (healthy lone-loss rate, 150 Loyfer non-neuron samples, PHY-079): meter under 1 %; same cell type 2.9 %; between cell types 6.7 %; total 7.5 %. Per-cell-type bars become possible as the cell-type part is explained.
+7. The lesson behind it: PHY-050's third test held each sample to +/-10 % while the body's own spread is 7.5 % (about 82 % of healthy samples fall inside by nature; the bar asked 83 %; it got 81.5 %). On the baseline question it passes at about 1 sigma (median 0.987 of the prediction, uncertainty about 1.3 %). The original sealed verdicts stay in the record beside the rescored ones.
+
+**The chain.** If the chain didn't produce it, it didn't happen; every chain change goes into the Decoder in the same commit; synthetic first; nothing fitted; healthy always from the atlases; the Deconvolver decides what is in a sample.
