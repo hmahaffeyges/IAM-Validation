@@ -204,6 +204,8 @@ def _layout(o):
         lr = c.get("loss_runs") or {}; ob, ex = lr.get("obs") or {}, lr.get("exp") or {}
         R.append(("Run lengths", f"{c['loss_run_ratio']:.3f}", "lost marks in runs, against runs of independent losses (1: independent)"
                   + (f"; runs of two {ob.get('2', 0):,} seen, {ex.get('2', 0):,.0f} expected" if ob else "")))
+        for _k, _lab in (("loss_run_excess_2", "two or more"), ("loss_run_excess_3", "three or more")):   # edit 230
+            if c.get(_k) is not None: R.append((f"Runs of {_lab}", f"{c[_k]:.2f}", f"lost marks in runs of {_lab}, seen over expected for independent losses (1: independent)"))
     if c.get("held_err_firm_tiles") is not None and c.get("held_err_loose_tiles") is not None:
         tn = c.get("tile_line_n") or {}
         R.append(("The line, tile by tile", f"{c['held_err_firm_tiles']:.4f} / {c['held_err_loose_tiles']:.4f}",

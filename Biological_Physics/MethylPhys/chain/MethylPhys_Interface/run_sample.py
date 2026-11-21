@@ -893,6 +893,16 @@ def main():
             print(f"Fetching {_g}'s {_Q0g.GEO_BUILD} .pat file from GEO", flush=True); _r = _Q0g.geo_pat(_g, _gd); setattr(a, _attr, _r["path"]); _geo[_attr] = dict(_r, gsm=_g)
             print(f"  {_r['name']} ({_r['size']:,} bytes; also on GEO: {', '.join(_r['other_files']) or 'nothing else'})", flush=True)
         a._geo_fetch = _geo
+    if a.pat and str(a.pat).endswith(".gz") and not getattr(a, "build", None):   # edit 230 (relay test set): read a .gz molecule file to its end first
+        import gzip as _gzc
+        try:
+            with _gzc.open(a.pat, "rb") as _fhc:
+                while _fhc.read(1 << 24): pass
+        except (EOFError, OSError) as _ec:
+            _why = f"the molecule file is damaged or incomplete ({type(_ec).__name__}: {str(_ec)[:160]}); nothing was read from it"
+            print("  INTAKE_REFUSED - " + _why, flush=True)
+            if a.bundle: json.dump({"status": "INTAKE_REFUSED", "id": a.id, "reason": _why, "file": os.path.basename(a.pat), "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1)
+            sys.exit(3)
     seq = bool(a.pat or a.site_table or a.bam)
     # 2026-11-07 (the Deconvolver decides what is in a sample; stage_0_intake.LABEL_RULE): a cell set by the operator is recorded as such, and on a
     # sequencing file the values are always made so the Deconvolver runs first; no reading takes its cell from the specimen's words
@@ -1552,7 +1562,7 @@ def main():
             _c0 = V4.count_sequencing(pat=a.pat)
             o["iam_a_count_only"] = dict(stage="Q2 count (development)", flag="DEVELOPMENT, NOT COMMISSIONED: Stage Q2's count only; no IAM-A reading",
                                          genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
-                                         count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "held_err_length", "held_e_call", "held_by_length", "held_by_distance", "end_damage", "meter", "tc_err", "conv_fail", "conv_fail_lambda", "loss_dispersion", "loss_dispersion_molecules", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs", "loss_runs", "loss_run_ratio", "held_err_firm_tiles", "held_err_loose_tiles", "tile_line_n", "held_err_by_tile_call")},
+                                         count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "held_err_length", "held_e_call", "held_by_length", "held_by_distance", "end_damage", "meter", "tc_err", "conv_fail", "conv_fail_lambda", "loss_dispersion", "loss_dispersion_molecules", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs", "loss_runs", "loss_run_ratio", "loss_run_excess_2", "loss_run_excess_3", "held_err_firm_tiles", "held_err_loose_tiles", "tile_line_n", "held_err_by_tile_call")},
                                          note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
             if a.dev_count_tiles:   # 2026-10-25 (DEV-ERASE-01 graded maintenance test): the held error tile by tile, two independent halves
                 import gzip as _gzt, stage_q2_selfref as _Q2t
@@ -1624,7 +1634,7 @@ def main():
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
             _B = _Q2.band(1); _r = _Q2.reading(_cnt) if _cnt.get("held_opp") and _cnt.get("loose_share") is not None else None
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": "mixed specimen (" + str(a.specimen) + ")", "input": src, "A": None,
-                          "count": {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "held_err_length", "held_e_call", "held_by_length", "held_by_distance", "end_damage", "meter", "tc_err", "conv_fail", "conv_fail_lambda", "loss_dispersion", "loss_dispersion_molecules", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs", "loss_runs", "loss_run_ratio", "held_err_firm_tiles", "held_err_loose_tiles", "tile_line_n", "held_err_by_tile_call")}, "band": {"lo": _B["lo"], "hi": _B["hi"]},
+                          "count": {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "held_err_length", "held_e_call", "held_by_length", "held_by_distance", "end_damage", "meter", "tc_err", "conv_fail", "conv_fail_lambda", "loss_dispersion", "loss_dispersion_molecules", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs", "loss_runs", "loss_run_ratio", "loss_run_excess_2", "loss_run_excess_3", "held_err_firm_tiles", "held_err_loose_tiles", "tile_line_n", "held_err_by_tile_call")}, "band": {"lo": _B["lo"], "hi": _B["hi"]},
                           "development": "DEVELOPMENT - read and flagged: a mixed specimen has no healthy shape reference, so the sample-shape check is not applied; "
                                          "IAM-A is commissioned on healthy blood CD8 T cells"}
             if _r is not None:

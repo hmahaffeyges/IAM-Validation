@@ -226,7 +226,9 @@ def _loss_runs(RL, RE):
     """2026-11-16 (CP1): the run-length spectrum of losses on held molecules against random placement; loss_run_ratio = observed runs / expected
     runs: 1 when losses fall independently, below 1 when they come in stretches (a processive or double-loss mechanism)."""
     lab = ("1", "2", "3", "4", "5+"); o, e = sum(RL), sum(RE)
-    return dict(loss_runs=dict(obs={lab[i]: int(RL[i]) for i in range(5)}, exp={lab[i]: round(RE[i], 3) for i in range(5)}), loss_run_ratio=(o / e) if e else None)
+    o2, e2, o3, e3 = sum(RL[1:]), sum(RE[1:]), sum(RL[2:]), sum(RE[2:])   # edit 230: the excess by length (single losses dominate o / e)
+    return dict(loss_runs=dict(obs={lab[i]: int(RL[i]) for i in range(5)}, exp={lab[i]: round(RE[i], 3) for i in range(5)}), loss_run_ratio=(o / e) if e else None,
+                loss_run_excess_2=(o2 / e2) if e2 else None, loss_run_excess_3=(o3 / e3) if e3 else None)
 
 def _tile_line(tile_calls, TE):
     """2026-11-16 (TERR/GLB locality test, development, recorded only): the held error pooled in tiles judged firm (mean call >= CUT) and loose

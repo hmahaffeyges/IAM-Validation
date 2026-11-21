@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1767,
+   "lines": 1777,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -348,9 +348,9 @@
      "function": "main",
      "name": "main",
      "line": 658,
-     "end": 1764,
+     "end": 1774,
      "args": [],
-     "lines": 1107,
+     "lines": 1117,
      "doc": "",
      "constants": [
       "BIO",
@@ -382,8 +382,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1042,
-     "end": 1046,
+     "line": 1052,
+     "end": 1056,
      "args": [
       "r"
      ],
@@ -399,8 +399,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1277,
-     "end": 1284,
+     "line": 1287,
+     "end": 1294,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1684,
-     "end": 1685,
+     "line": 1694,
+     "end": 1695,
      "args": [
       "b",
       "it",
@@ -2161,7 +2161,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 538,
+   "lines": 540,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2452,11 +2452,11 @@
      "function": "_layout",
      "name": "_layout",
      "line": 198,
-     "end": 220,
+     "end": 222,
      "args": [
       "o"
      ],
-     "lines": 23,
+     "lines": 25,
      "doc": "How the losses are laid out along the molecules (overhaul E2a): values the count already makes, shown for information; no judgment uses them.",
      "constants": [
       "E"
@@ -2468,8 +2468,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_coupling",
      "name": "_coupling",
-     "line": 223,
-     "end": 233,
+     "line": 225,
+     "end": 235,
      "args": [
       "o"
      ],
@@ -2485,8 +2485,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 235,
-     "end": 256,
+     "line": 237,
+     "end": 258,
      "args": [
       "o",
       "base"
@@ -2504,8 +2504,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 262,
-     "end": 267,
+     "line": 264,
+     "end": 269,
      "args": [
       "o"
      ],
@@ -2525,8 +2525,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 269,
-     "end": 300,
+     "line": 271,
+     "end": 302,
      "args": [
       "o"
      ],
@@ -2545,8 +2545,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 306,
-     "end": 313,
+     "line": 308,
+     "end": 315,
      "args": [
       "o"
      ],
@@ -2564,8 +2564,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 315,
-     "end": 333,
+     "line": 317,
+     "end": 335,
      "args": [
       "o",
       "F"
@@ -2585,8 +2585,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_fam_of",
      "name": "_fam_of",
-     "line": 340,
-     "end": 344,
+     "line": 342,
+     "end": 346,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -2598,8 +2598,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_tl",
      "name": "_tl",
-     "line": 345,
-     "end": 346,
+     "line": 347,
+     "end": 348,
      "args": [
       "o"
      ],
@@ -2613,8 +2613,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_f",
      "name": "_f",
-     "line": 347,
-     "end": 347,
+     "line": 349,
+     "end": 349,
      "args": [
       "v",
       "d"
@@ -2629,8 +2629,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables",
      "name": "detail_tables",
-     "line": 350,
-     "end": 443,
+     "line": 352,
+     "end": 445,
      "args": [
       "o"
      ],
@@ -2647,8 +2647,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables._cl",
      "name": "_cl",
-     "line": 399,
-     "end": 400,
+     "line": 401,
+     "end": 402,
      "args": [
       "name",
       "A",
@@ -2664,8 +2664,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "report_text",
      "name": "report_text",
-     "line": 449,
-     "end": 452,
+     "line": 451,
+     "end": 454,
      "args": [],
      "lines": 4,
      "doc": "The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file).",
@@ -2682,8 +2682,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "explain",
      "name": "explain",
-     "line": 453,
-     "end": 456,
+     "line": 455,
+     "end": 458,
      "args": [
       "sec"
      ],
@@ -2699,8 +2699,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_explain_html",
      "name": "_explain_html",
-     "line": 457,
-     "end": 459,
+     "line": 459,
+     "end": 461,
      "args": [
       "sec"
      ],
@@ -2716,8 +2716,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_intro_html",
      "name": "_intro_html",
-     "line": 460,
-     "end": 462,
+     "line": 462,
+     "end": 464,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2731,8 +2731,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 464,
-     "end": 471,
+     "line": 466,
+     "end": 473,
      "args": [
       "o"
      ],
@@ -2748,8 +2748,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_law_sphere_sec",
      "name": "_law_sphere_sec",
-     "line": 480,
-     "end": 504,
+     "line": 482,
+     "end": 506,
      "args": [
       "o"
      ],
@@ -2766,8 +2766,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 506,
-     "end": 537,
+     "line": 508,
+     "end": 539,
      "args": [
       "o",
       "out",
@@ -4116,7 +4116,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 611,
+   "lines": 613,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4431,12 +4431,12 @@
      "function": "_loss_runs",
      "name": "_loss_runs",
      "line": 225,
-     "end": 229,
+     "end": 231,
      "args": [
       "RL",
       "RE"
      ],
-     "lines": 5,
+     "lines": 7,
      "doc": "2026-11-16 (CP1): the run-length spectrum of losses on held molecules against random placement; loss_run_ratio = observed runs / expected runs: 1 when losses fall independently, below 1 when they come in stretches (a processive or double-loss mechanism).",
      "constants": [],
      "data_files": [],
@@ -4446,8 +4446,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_tile_line",
      "name": "_tile_line",
-     "line": 231,
-     "end": 246,
+     "line": 233,
+     "end": 248,
      "args": [
       "tile_calls",
       "TE"
@@ -4462,8 +4462,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_errors",
      "name": "count_pat_tile_errors",
-     "line": 248,
-     "end": 262,
+     "line": 250,
+     "end": 264,
      "args": [
       "lines",
       "tile"
@@ -4478,8 +4478,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_calls",
      "name": "count_pat_tile_calls",
-     "line": 264,
-     "end": 275,
+     "line": 266,
+     "end": 277,
      "args": [
       "lines",
       "tile"
@@ -4494,8 +4494,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_sites",
      "name": "count_pat_sites",
-     "line": 277,
-     "end": 296,
+     "line": 279,
+     "end": 298,
      "args": [
       "lines",
       "sites"
@@ -4512,8 +4512,8 @@
      "file": "stage_q2_selfref.py",
      "function": "timing_runs",
      "name": "timing_runs",
-     "line": 298,
-     "end": 303,
+     "line": 300,
+     "end": 305,
      "args": [
       "path"
      ],
@@ -4530,8 +4530,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_timing",
      "name": "count_pat_timing",
-     "line": 305,
-     "end": 324,
+     "line": 307,
+     "end": 326,
      "args": [
       "lines",
       "starts",
@@ -4549,8 +4549,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_timing_sets",
      "name": "count_pat_timing_sets",
-     "line": 326,
-     "end": 348,
+     "line": 328,
+     "end": 350,
      "args": [
       "lines",
       "sets"
@@ -4567,8 +4567,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_site_classes",
      "name": "count_pat_site_classes",
-     "line": 350,
-     "end": 373,
+     "line": 352,
+     "end": 375,
      "args": [
       "lines",
       "groups"
@@ -4585,8 +4585,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 377,
-     "end": 378,
+     "line": 379,
+     "end": 380,
      "args": [
       "seq"
      ],
@@ -4600,8 +4600,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 379,
-     "end": 411,
+     "line": 381,
+     "end": 413,
      "args": [
       "r",
       "ref",
@@ -4618,8 +4618,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 412,
-     "end": 417,
+     "line": 414,
+     "end": 419,
      "args": [
       "a",
       "b"
@@ -4634,8 +4634,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 418,
-     "end": 453,
+     "line": 420,
+     "end": 455,
      "args": [
       "args"
      ],
@@ -4651,8 +4651,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 425,
-     "end": 440,
+     "line": 427,
+     "end": 442,
      "args": [
       "calls"
      ],
@@ -4668,8 +4668,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 454,
-     "end": 462,
+     "line": 456,
+     "end": 464,
      "args": [
       "parts",
       "assembly"
@@ -4686,8 +4686,8 @@
      "file": "stage_q2_selfref.py",
      "function": "lambda_meter",
      "name": "lambda_meter",
-     "line": 464,
-     "end": 481,
+     "line": 466,
+     "end": 483,
      "args": [
       "bam",
       "fa"
@@ -4704,8 +4704,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 483,
-     "end": 487,
+     "line": 485,
+     "end": 489,
      "args": [
       "bam",
       "fa",
@@ -4728,8 +4728,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 490,
-     "end": 499,
+     "line": 492,
+     "end": 501,
      "args": [
       "per_sample"
      ],
@@ -4743,8 +4743,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 501,
-     "end": 506,
+     "line": 503,
+     "end": 508,
      "args": [
       "version"
      ],
@@ -4763,8 +4763,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 507,
-     "end": 508,
+     "line": 509,
+     "end": 510,
      "args": [
       "loose_share",
       "version"
@@ -4779,8 +4779,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 509,
-     "end": 513,
+     "line": 511,
+     "end": 515,
      "args": [
       "rec",
       "version"
@@ -4797,8 +4797,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_line",
      "name": "derived_line",
-     "line": 516,
-     "end": 521,
+     "line": 518,
+     "end": 523,
      "args": [],
      "lines": 6,
      "doc": "",
@@ -4814,8 +4814,8 @@
      "file": "stage_q2_selfref.py",
      "function": "derived_reading",
      "name": "derived_reading",
-     "line": 522,
-     "end": 539,
+     "line": 524,
+     "end": 541,
      "args": [
       "rec"
      ],
@@ -4833,8 +4833,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 546,
-     "end": 553,
+     "line": 548,
+     "end": 555,
      "args": [
       "records"
      ],
@@ -4850,8 +4850,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 555,
-     "end": 560,
+     "line": 557,
+     "end": 562,
      "args": [
       "version"
      ],
@@ -4870,8 +4870,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 561,
-     "end": 569,
+     "line": 563,
+     "end": 571,
      "args": [
       "rec",
       "cell",
@@ -4890,8 +4890,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 572,
-     "end": 575,
+     "line": 574,
+     "end": 577,
      "args": [
       "rec",
       "version"
@@ -4908,8 +4908,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 576,
-     "end": 581,
+     "line": 578,
+     "end": 583,
      "args": [
       "healthy",
       "version"
@@ -4924,8 +4924,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 586,
-     "end": 587,
+     "line": 588,
+     "end": 589,
      "args": [
       "version"
      ],
@@ -4943,8 +4943,8 @@
      "file": "stage_q2_selfref.py",
      "function": "commissioned_files_ok",
      "name": "commissioned_files_ok",
-     "line": 591,
-     "end": 598,
+     "line": 593,
+     "end": 600,
      "args": [],
      "lines": 8,
      "doc": "True when the line, band and shape reference the chain loads are byte-for-byte the files IAM-A was commissioned on (payload checksums in IAMA_COMMISSIONING['files']); otherwise (False, which file differs). The commissioned label is given only when this is True.",
@@ -4959,8 +4959,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 599,
-     "end": 610,
+     "line": 601,
+     "end": 612,
      "args": [
       "records",
       "version",
