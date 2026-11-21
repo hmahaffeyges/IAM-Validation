@@ -692,6 +692,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
             _cp = float(shares[c]) * float(np.median(_n)); r["copies_per_site"] = round(_cp, 3); r["copies_behind_reading"] = round(float(shares[c]) * float(_n.sum()), 1)
             if _cp < COPY_FLOOR: r["below_cell_count_floor"] = (f"about {_cp:.2f} copies of this cell per site (its share {float(shares[c]):.3f} of {float(np.median(_n)):g} "
                                                                f"reads): fewer than {COPY_FLOOR:g}, so most sites carry none of this cell's DNA")
+        if COUNTED_MIX and counts is not None and SEQ_ATLAS and r.get("A") is not None:   # 2026-11-20 (edit 226): this cell's identity sites at a common depth
+            _c = counted_mix(x[ok], counts, {kk: float(shares[kk]) for kk in cells}); r["counted"] = _c
+            if _c.get("A") is not None: r["A_plugin"] = r["A"]; r["A"] = _c["A"]
         out["cells"].append(r)
     return out
 
@@ -897,6 +900,9 @@ def territory_reading(beta, shares, counts=None):
             r["counted"] = c_
             if c_.get("A") is not None:
                 r["A_plugin"] = r["A"]; r["A"] = c_["A"]; r["ceiling"] = ceiling_counted(c_["A"], c_.get("A_sat"), xs.to_numpy(), es.to_numpy())   # 2026-11-02 (B8)
+        elif COUNTED_MIX and counts is not None and SEQ_ATLAS:   # 2026-11-20 (edit 226): the domains (and the islands, when not read by islands_counted) at a common depth
+            _c = counted_mix(xs, counts, {kk: float(F[kk]) for kk in cells}); r["counted"] = _c
+            if _c.get("A") is not None: r["A_plugin"] = r["A"]; r["A"] = _c["A"]
         out["sets"][name] = r
     return out
 
@@ -926,6 +932,57 @@ FLOOR_CLASS = False   # 2026-11-07 (run_sample.py --dev-floor-class; development
                       # islands take the whole floor in outside laboratories (1.001, 18 libraries) and in plasma (1.005) but 0.291 of it in the atlas's
                       # own laboratory (floor_by_site_class, 11-03 and 11-07), so a floor measured at the floor sites is not the islands' floor.
 CLASS_UNMARKED = 0.01   # stated: an island is unmarked for this purpose when the mix's pooled reference level there is at most 1 %
+
+COUNTED_MIX = False   # 2026-11-20 (run_sample.py --dev-seq-counted-mix; on with --dev-seq-half-cols; development): Met-A for the whole sample, each cell in the mix and the
+                      # domains read with the expectation from the reference's own reads at a common depth (counted_mix), as the islands already are (islands_counted).
+                      # Why: a held-out half holds one library per cell; its pooled level, taken as exact, sits at 0 or 1 where it has few reads (canary GSM5652179, 11-20:
+                      # whole sample 0.966 -> 1.240, own cell 1.038 -> 0.761 against one half, sorted-cell Met-A, already depth-matched, unchanged at 0.9507).
+
+def _cnt(cell, idx):
+    """2026-11-20 (counted_mix): one cell's reference reads at the given sites, methylated and total (NaN where none), from the sequencing atlas columns in use
+    (the held-out half when --dev-seq-half-cols is given)."""
+    import pyarrow.parquet as pq
+    k = ("cnt", cell, SEQ_ATLAS)
+    if k not in _cache:
+        if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+        got = None
+        for part in (1, 2, 3):
+            pm, pr = (os.path.join(SEQ_ATLAS, f"{t}_part{part}.parquet") for t in ("meth", "reads"))
+            if os.path.exists(pm) and cell in pq.read_schema(pm).names:
+                m = pq.read_table(pm, columns=[cell]).column(0).to_numpy().astype("float64"); n = pq.read_table(pr, columns=[cell]).column(0).to_numpy().astype("float64")
+                bad = (m == NA) | (n == NA) | (n < 1); m[bad] = np.nan; n[bad] = np.nan; got = (pd.Series(m, index=_cache["ids"]), pd.Series(n, index=_cache["ids"])); break
+        _cache[k] = got
+    g = _cache[k]
+    if g is None: return np.full(len(idx), np.nan), np.full(len(idx), np.nan)
+    return g[0].reindex(idx).to_numpy(), g[1].reindex(idx).to_numpy()
+
+def counted_mix(xs, counts, F, w=None, Mk=None, Nk=None, m_max=None):
+    """2026-11-20 (derived, nothing fitted; the islands' rule, islands_counted, for any set of sites): the sample's disorder and a healthy sample of this mix's
+    expected disorder, both at a common depth m at each site, the smallest of the sample's reads, m_max and every kept cell's reference reads. The sample's own k of n reads are drawn down to m without replacement (thin_H);
+    the expectation draws each of the m reads from a cell of the mix (shares F, cells under TERR_SHARE_MIN dropped and the rest renormalized) and from that cell's
+    reference reads without replacement (expected_H_mix_counts; with one cell, thin_H of the reference's own reads). No level is taken as exact. A = sum w hm /
+    sum w he (w: the reading's own site weights; equal when None). Sites where a kept cell has no reference read are left out and counted. Mk, Nk (sites x
+    cells) may be given directly (tests)."""
+    m_max = TERR_M if m_max is None else m_max
+    Fk = pd.Series(F, dtype="float64"); Fk = Fk[Fk >= TERR_SHARE_MIN]; Fk = Fk / Fk.sum(); cells = list(Fk.index); idx = xs.index
+    if Mk is None:
+        got = [_cnt(c, idx) for c in cells]; Mk = np.column_stack([g[0] for g in got]); Nk = np.column_stack([g[1] for g in got])
+    n = pd.Series(counts).reindex(idx).fillna(0).astype("int64").to_numpy(); k = np.rint(xs.to_numpy() * n).astype("int64")
+    ok = np.isfinite(Nk).all(1) & (np.nan_to_num(Nk) >= 1).all(1) & (n >= 1)
+    # the common depth: no deeper than the sample, m_max, or ANY kept cell's reference reads (donor_pair's rule), so every draw is exact (hypergeometric)
+    m = np.minimum(np.minimum(n, m_max), np.nan_to_num(Nk, nan=0).min(1).astype("int64")) if Nk.size else np.minimum(n, m_max)
+    w = np.ones(len(n)) if w is None else np.asarray(w, "float64"); hm = np.full(len(n), np.nan); he = np.full(len(n), np.nan)
+    ok = ok & (m >= 2)   # at one read both sides are 0 disorder: no information
+    for mm in np.unique(m[ok]):
+        s = ok & (m == mm); mm = int(mm); hm[s] = thin_H(k[s], n[s], mm)
+        if len(cells) == 1: he[s] = thin_H(Mk[s, 0].astype("int64"), Nk[s, 0].astype("int64"), mm)   # one cell: its own reference reads drawn down to m
+        else: he[s] = expected_H_mix_counts(Mk[s], Nk[s], Fk.to_numpy(), mm)
+    g = ok & np.isfinite(he) & np.isfinite(hm) & (he > 0)
+    if g.sum() < 100: return dict(A=None, reason=f"only {int(g.sum())} sites with reference reads for every kept cell", left_out=int((~ok).sum()))
+    A = float((w[g] * hm[g]).sum() / (w[g] * he[g]).sum()); dv = hm[g] - A * he[g]
+    return dict(A=round(A, 5), se_over_sites=round(float(np.sqrt((w[g] ** 2 * dv ** 2).sum()) / (w[g] * he[g]).sum()), 6), sites=int(g.sum()), left_out=int((~ok).sum()),
+                cells=[(c, round(float(f), 4)) for c, f in Fk.items()], common_depth_max=m_max, half=TERR_HALF,
+                expectation="each read from a cell of the mix, drawn without replacement from that cell's reference reads; the sample's reads drawn down to the same depth (counted_mix)")
 
 def _Hj(m, u=0.0):
     """2026-11-02 (the laboratory floor; derived, nothing fitted): the disorder of j methylated of m reads, j = 0..m, after each of the m - j
@@ -1131,6 +1188,9 @@ def read_whole(beta, shares, counts=None, raw=None):
     out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], ceiling=r["ceiling"], shift_per_1pct_loss=round(sh, 5),
                effective_sites=int(w.sum() ** 2 / (w ** 2).sum()), state="untared",
                by_place={"identity sites of the cells found": one(mi), "islands": one(ms), "domains": one(md), "the rest": one(~mi & ~ms & ~md)})
+    if COUNTED_MIX and counts is not None and SEQ_ATLAS:   # 2026-11-20 (edit 226): the expectation from the reference's own reads at a common depth
+        _c = counted_mix(xs, counts, {kk: float(F[kk]) for kk in cells}); out["counted"] = _c
+        if _c.get("A") is not None: out["A_plugin"] = out["A"]; out["A"] = _c["A"]; out["se_over_sites"] = _c["se_over_sites"]
     if counts is None:   # 2026-10-24 (DEV-METAA-HEALTHY-01): arrays; sequencing's own blur is the read count, already in _he
         try:
             if PRED_RAW and raw is not None:   # 2026-11-07: the prediction and its A both on the array's own values, the same sites and mix

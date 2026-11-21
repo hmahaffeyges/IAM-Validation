@@ -6839,3 +6839,9 @@ instrument: self, atlas or the law, and how the laboratory part is taken from th
 
 ### 2026-11-20 · GRP-019, GRP-017: the SOP states the healthy-reference rule
 The operating procedure no longer asks for same-run healthy samples. It prints the atlas-only rule and the chain's own table of what each sequencing reading is referenced to; the array same-run tare options are marked legacy.
+
+### 2026-11-20 · GRP-019, GRP-017: the held-out in-mix readings at a common depth
+The canary of the held-out switch (edit 222) on one atlas library read against the other donor half moved Met-A for the whole sample from 0.966 to 1.240 and the
+own cell in the mix from 1.038 to 0.761, while sorted-cell Met-A, already read at a common depth, held at 0.9507. Every cell's donor half is one library, so its
+pooled level, taken as exact, sits at 0 or 1 where it has few reads. Those readings now take their expectation from the reference's own reads at a common depth
+(counted_mix, the islands' rule), with equal site weights; on a thin-reference synthetic a healthy sample reads 1 within 0.02 and a planted loss still shows.

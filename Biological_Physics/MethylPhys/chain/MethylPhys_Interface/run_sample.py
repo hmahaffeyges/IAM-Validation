@@ -804,6 +804,7 @@ def main():
                     "expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
+    ap.add_argument("--dev-seq-counted-mix", action="store_true", help="DEVELOPMENT (edit 226): Met-A whole and in the mix, and the territories, with the expectation from the reference's own reads at a common depth (counted_mix); on with --dev-seq-half-cols")
     ap.add_argument("--dev-seq-half-cols", default=None, metavar="DIR", help="DEVELOPMENT (edit 222): a folder with array_sites_halfA/B; with --dev-seq-ref-half every in-mix reading (Met-A whole and in the mix, territories, C-Score) is read against that donor half only")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
@@ -1358,6 +1359,8 @@ def main():
             if _dref and not os.path.exists(_dref): print(f"--dev-deconv-ref {a.dev_deconv_ref}: not found"); return 2
             _dsr = _SQd.deconv_reference_of(_dref or _SQd.DECONV_REF)
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
+            if getattr(a, "dev_seq_counted_mix", False) or (getattr(a, "dev_seq_half_cols", None) and getattr(a, "dev_seq_ref_half", None)):   # 2026-11-20 (edit 226)
+                SA.COUNTED_MIX = True; o["counted_mix"] = "on: in-mix expectations from the reference's own reads at a common depth (edit 226)"
             if getattr(a, "dev_seq_half_cols", None) and getattr(a, "dev_seq_ref_half", None):   # 2026-11-20 (edit 222): every in-mix reading against one donor half
                 _hd = os.path.join(a.dev_seq_half_cols, f"array_sites_half{a.dev_seq_ref_half}")
                 if not os.path.exists(os.path.join(_hd, "mu_part1.parquet")): print(f"--dev-seq-half-cols: {_hd} has no mu_part1.parquet"); return 2

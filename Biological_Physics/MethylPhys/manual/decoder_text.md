@@ -2511,6 +2511,12 @@ For a sequenced sample, replaces the legacy state 'untared' in every atlas-refer
 ### stage_metaa_atlas.py::sequencing_reference.fix
 Inside sequencing_reference: one reading's state. If the reading holds a value and its state is missing or the legacy 'untared', the state becomes SEQ_REFERENCE_STATE and the reading's name is recorded as changed; a reading not read is left as it is.
 
+### stage_metaa_atlas.py::_cnt
+One cell's reference reads at the given sites, methylated and total, from the sequencing atlas columns in use (the held-out donor half when --dev-seq-half-cols is given); NaN where the cell has none.
+
+### stage_metaa_atlas.py::counted_mix
+The sample's disorder and a healthy sample of this mix's expected disorder, both at a common depth at each site: the smallest of the sample's reads, 20, and every kept cell's reference reads. The sample's reads are drawn down without replacement; the expectation draws each read from a cell of the mix and from that cell's own reference reads without replacement, so no level is taken as exact. A is the ratio of their sums with equal site weights (weights taken from the same thin reads would bias it). Used by Met-A for the whole sample, Met-A for each cell in the mix and the territories when COUNTED_MIX is on (--dev-seq-counted-mix, or --dev-seq-half-cols); the plug-in reading is kept as A_plugin.
+
 ### stage_metaa_atlas.py::derived_held
 
 Met-A at a cell's held identity sites against the level derived from M alone: held sites are those where the
