@@ -3405,6 +3405,30 @@ Loads the report's explanations from Runtime Matrices/Report/report_text.json, w
 ### report_v4.py::explain
 The explanation of one report section as (label, text) pairs, in a fixed order: what it measures, where it comes from, what it is compared to, the physics, why it matters, the link to the sky where there is one, and its status.
 
+### report_v4.py::_is_seq
+
+True when the sample was read from sequenced molecules (IAM-A counted reads, or sequencing values). Sets which explanation the report prints (edit 235).
+
+### report_v4.py::_ikey
+
+Sorts the sequencing instruments in chain order (edit 235).
+
+### report_v4.py::_seq_block
+
+One sequencing instrument's explanation: the field's terms, how it is measured, IAM's Law (the steps it rests on, with their status), where the method comes from, and the credit for every method it borrows. Text from report_text.json's sequencing part, generated from the cell instruments database (edit 235).
+
+### report_v4.py::explain_seq
+
+The sequencing instruments printed under one report section (edit 235).
+
+### report_v4.py::instruments_seq
+
+Every sequencing instrument with its explanation, in chain order: the report's appendix 'How each instrument works' (edit 235).
+
+### report_v4.py::_instruments_seq_html
+
+The appendix in the HTML report, printed only for a sequencing sample (edit 235).
+
 ### report_v4.py::_explain_html
 Draws one section's explanation as a shaded block under its table in the HTML report.
 

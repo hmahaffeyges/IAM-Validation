@@ -2161,7 +2161,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 540,
+   "lines": 574,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2680,17 +2680,111 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
-     "function": "explain",
-     "name": "explain",
-     "line": 455,
+     "function": "_is_seq",
+     "name": "_is_seq",
+     "line": 456,
      "end": 458,
+     "args": [
+      "o"
+     ],
+     "lines": 3,
+     "doc": "True when the sample was read from sequenced molecules (IAM-A counted reads, or the array type names sequencing values).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_ikey",
+     "name": "_ikey",
+     "line": 460,
+     "end": 461,
+     "args": [
+      "k"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_seq_block",
+     "name": "_seq_block",
+     "line": 462,
+     "end": 466,
+     "args": [
+      "ins"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "SEQ_LABELS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "explain_seq",
+     "name": "explain_seq",
+     "line": 467,
+     "end": 470,
      "args": [
       "sec"
      ],
      "lines": 4,
-     "doc": "[(label, text)] for one report section, in the fixed order of EXPLAIN_LABELS; empty when the section has no entry.",
+     "doc": "The sequencing instruments printed under one report section, from report_text.json's sequencing part (generated from the instruments database).",
+     "constants": [],
+     "data_files": [
+      "from report_text.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "explain",
+     "name": "explain",
+     "line": 471,
+     "end": 481,
+     "args": [
+      "sec"
+     ],
+     "lines": 11,
+     "doc": "[(label, text)] for one report section. A sequencing sample (build() sets _SEQ) gets each of the section's sequencing instruments: the field's terms, how it is measured, IAM's Law, the method's origin and its credits, then the section's status; an array sample keeps EXPLAIN_LABELS.",
      "constants": [
-      "EXPLAIN_LABELS"
+      "EXPLAIN_LABELS",
+      "_SEQ"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "instruments_seq",
+     "name": "instruments_seq",
+     "line": 482,
+     "end": 485,
+     "args": [],
+     "lines": 4,
+     "doc": "[(title, [(label, text)])] for every sequencing instrument, in chain order: the report's appendix 'How each instrument works'.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_instruments_seq_html",
+     "name": "_instruments_seq_html",
+     "line": 486,
+     "end": 491,
+     "args": [],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "E",
+      "_SEQ"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -2699,8 +2793,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_explain_html",
      "name": "_explain_html",
-     "line": 459,
-     "end": 461,
+     "line": 492,
+     "end": 494,
      "args": [
       "sec"
      ],
@@ -2716,8 +2810,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_intro_html",
      "name": "_intro_html",
-     "line": 462,
-     "end": 464,
+     "line": 495,
+     "end": 497,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2731,8 +2825,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 466,
-     "end": 473,
+     "line": 499,
+     "end": 506,
      "args": [
       "o"
      ],
@@ -2748,8 +2842,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_law_sphere_sec",
      "name": "_law_sphere_sec",
-     "line": 482,
-     "end": 506,
+     "line": 515,
+     "end": 539,
      "args": [
       "o"
      ],
@@ -2766,18 +2860,19 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 508,
-     "end": 539,
+     "line": 541,
+     "end": 573,
      "args": [
       "o",
       "out",
       "sid"
      ],
-     "lines": 32,
+     "lines": 33,
      "doc": "",
      "constants": [
       "CSS",
-      "E"
+      "E",
+      "_SEQ"
      ],
      "data_files": [],
      "traced_calls": {
@@ -5150,7 +5245,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_pdf_v4.py",
-   "lines": 120,
+   "lines": 123,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
@@ -5270,7 +5365,7 @@
      "function": "build_pdfs",
      "name": "build_pdfs",
      "line": 61,
-     "end": 119,
+     "end": 122,
      "args": [
       "o",
       "F",
@@ -5278,7 +5373,7 @@
       "sid",
       "when"
      ],
-     "lines": 59,
+     "lines": 62,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -11733,5 +11828,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 602
+ "n_functions": 608
 }

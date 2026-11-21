@@ -6930,3 +6930,6 @@ _Written after midnight from the day's record (the chat walked line by line, 34 
 
 ### 2026-11-21 · GRP-019: the three Met-A readings on sequencing explained in the SOP and the Decoder
 Sorted-cell Met-A, Met-A for each cell in the mix and whole-sample Met-A use different sites and different healthy expectations, so they can differ on one library; the SOP and the Decoder now say how, from one text in the chain (`stage_metaa_atlas.METAA_SEQ_READINGS`). Whole-sample Met-A stays development while the offset on never-used libraries is tested.
+
+### 2026-11-21 · OTH-069: the sequencing report explains every instrument in the field's terms, with its physics and credits
+The sequencing report now prints, for every result, the field's name for the instrument, how it is measured, the steps of IAM's Law it rests on with their status, and the credit for every method it borrows from cosmology, statistics and electrical engineering. The text is generated from the cell instruments database into the catalogue's report source; the array report is unchanged.

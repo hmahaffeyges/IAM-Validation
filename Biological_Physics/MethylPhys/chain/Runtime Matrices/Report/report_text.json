@@ -123,5 +123,399 @@
    "status": "Development: produced by the same chain and shown for examination; not yet commissioned, so not a finding.",
    "instrument_name": null
   }
+ },
+ "sequencing": {
+  "_source": "generated from the instruments database (cell instruments table); do not edit by hand",
+  "instruments": {
+   "seq.00": {
+    "cosmo_tool": "Data-quality masks: a sky survey flags bad fields before anything is measured.",
+    "credit": "",
+    "field_how": "Checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; records the specimen; refuses a damaged or incomplete file with a stated reason. Nothing is read until the file passes.",
+    "field_term": "Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen",
+    "id": "seq.00",
+    "job": "accept or refuse the file before anything is read",
+    "law": "Not the law: instrument or meter.",
+    "link": "0. Intake",
+    "report_section": "v4-intake",
+    "tools": []
+   },
+   "seq.01": {
+    "cosmo_tool": "Calibration against a fixed standard sky plus each exposure's own noise model, instead of comparison stars taken the same night.",
+    "credit": "",
+    "field_how": "Atlas-referenced readings compare the sample with the healthy cell-type reference (the IAM Sequencing Atlas), measured once. Laboratory and library effects are corrected from the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates, the library's noise floor at the sites read, the expectation at its own read depth, and its own cell composition. No same-batch healthy controls are needed. IAM-A uses no outside reference at all.",
+    "field_term": "Healthy reference and batch correction without matched controls",
+    "id": "seq.01",
+    "job": "say what healthy each reading is compared with, and correct between-lab offsets",
+    "law": "Not the law: a chain rule.",
+    "link": "1. Reference and tare (the reference block)",
+    "report_section": "v4-reference",
+    "tools": []
+   },
+   "seq.02": {
+    "cosmo_tool": "A reference sky map with noise maps from donor and read halves, masks, a sign-flip null and structure by scale.",
+    "credit": "",
+    "field_how": "Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread and the 95 % range (from the donors' spread with Student's t interval; not a model fit). Split by donor halves so every reading can be tested out of sample. Used both to identify cells and as the healthy ruler.",
+    "field_term": "Cell-type-resolved healthy methylation reference: whole-genome bisulfite sequencing, 28.2 million CpGs, 58 cell types",
+    "id": "seq.02",
+    "job": "the ruler: what healthy is, at every CpG, for 58 cell types",
+    "law": "Not the law itself: a measured input the law uses.",
+    "link": "2. Sequencing Atlas",
+    "report_section": "v4-atlas",
+    "tools": [
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+      "tool": "Split maps and half-mission null tests (noise from difference maps)",
+      "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+     },
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+      "tool": "Null tests (shuffled and sign-flip nulls)",
+      "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+     },
+     {
+      "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+      "tool": "Student's t interval (statistics, not cosmology)",
+      "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+     }
+    ]
+   },
+   "seq.03": {
+    "cosmo_tool": "Component separation: the cosmic microwave background is separated from galactic foregrounds by their known spectra; here each cell type is a component with a known methylation spectrum.",
+    "credit": "this work (IAM-Deconvolver on the IAM Sequencing Atlas); atlas inputs: Loyfer et al. (2023) methylation atlas of normal human cell types (GSE186458)",
+    "field_how": "Fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types, giving each type's share. A mixture check stops a single-type reading when no one family dominates. The specimen label is recorded and compared with the fit, never obeyed.",
+    "field_term": "Reference-based cell-type deconvolution: composition, purity and cell of origin",
+    "id": "seq.03",
+    "job": "purity: which cells are in the sample, so a mix cannot pose as a type difference",
+    "law": "Not the law itself: a measured input the law uses.",
+    "link": "3. Deconvolver and the mixture check",
+    "report_section": "v4-shares",
+    "tools": [
+     {
+      "credit": "internal linear combination: Tegmark M., de Oliveira-Costa A. & Hamilton A.J.S. (2003) Phys. Rev. D 68:123523, doi 10.1103/PhysRevD.68.123523",
+      "tool": "Component separation",
+      "what": "a mixed sample separated into its cell types by their known methylation spectra, so a change of mix is never read as a change of state"
+     }
+    ]
+   },
+   "seq.04": {
+    "cosmo_tool": "Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.",
+    "credit": "",
+    "field_how": "On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbours): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).",
+    "field_term": "Maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation",
+    "id": "seq.04",
+    "job": "how well the cell holds its record, against its own physics",
+    "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable).",
+    "link": "4. IAM-A",
+    "report_section": "v4-iama",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.05": {
+    "cosmo_tool": "The two-point correlation function at the shortest separation.",
+    "credit": "",
+    "field_how": "Counts adjacent pairs of lost marks on single molecules and divides by the pairs expected if each loss were independent. 1 means independent losses; above 1 means losses arrive together.",
+    "field_term": "Neighboring-CpG co-loss: adjacent unmethylated pairs on single reads over the number expected if losses were independent",
+    "id": "seq.05",
+    "job": "the double-loss signature: losses next to each other on one molecule",
+    "law": "Not the law: statistics (a yardstick).",
+    "link": "5. Coupling (Coupling-A)",
+    "report_section": "v4-coupling",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.06": {
+    "cosmo_tool": "Clustering statistics by scale (counts in cells).",
+    "credit": "",
+    "field_how": "Lengths of runs of lost marks along each molecule (1, 2, 3, 4, 5 or more), each observed over its independent expectation; also held error by read length and by distance.",
+    "field_term": "Run-length spectrum of unmethylated stretches along single reads (processive versus scattered loss)",
+    "id": "seq.06",
+    "job": "slower crew (scattered single losses) or double loss (longer bare runs)",
+    "law": "Not the law: statistics (a yardstick).",
+    "link": "6. Run lengths",
+    "report_section": "v4-runs",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.07": {
+    "cosmo_tool": "Blank-sky calibration (a dark frame): the detector's own false signal measured where the sky is known to be dark.",
+    "credit": "",
+    "field_how": "Reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated. In a healthy sample these are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands.",
+    "field_term": "Library false-methylation rate at CpG islands every healthy cell keeps unmethylated; island hypermethylation above it",
+    "id": "seq.07",
+    "job": "the dust correction: each library's own false-mark rate",
+    "law": "Not the law: instrument or meter.",
+    "link": "7. Islands meter",
+    "report_section": "v4-meter",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.08": {
+    "cosmo_tool": "A cosmic clock: age read from accumulated, irreversible change.",
+    "credit": "",
+    "field_how": "Held and gain errors at the 163 epiTOC2 CpGs and 25 CpGs either side, read on single molecules.",
+    "field_term": "Mitotic clock: methylation gain at the 163 epiTOC2 CpGs (Teschendorff 2020), a proxy for cumulative cell divisions",
+    "id": "seq.08",
+    "job": "the call-up count: activation history read directly",
+    "law": "IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+    "link": "8. Clock sites",
+    "report_section": "v4-clock",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.09": {
+    "cosmo_tool": "Splitting the survey by epoch.",
+    "credit": "",
+    "field_how": "Held error in early-, mid- and late-replicating regions, as ratios within the sample.",
+    "field_term": "Loss by replication timing: early-, mid- and late-replicating DNA (the late-replicating loss seen with repeated cell division and with age)",
+    "id": "seq.09",
+    "job": "whether held error depends on when the DNA is copied",
+    "law": "Not the law itself: a measured input the law uses.",
+    "link": "9. Copy timing",
+    "report_section": "v4-timing",
+    "tools": [
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     }
+    ]
+   },
+   "seq.10": {
+    "cosmo_tool": "Local against global calibration (an isotropy test).",
+    "credit": "",
+    "field_how": "Firm and loosely held tiles counted with their opportunities, to test whether IAM-A's line holds locally, not only per sample.",
+    "field_term": "Whether the fidelity line holds region by region",
+    "id": "seq.10",
+    "job": "whether IAM-A's line holds region by region or only per sample",
+    "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+    "link": "10. Line locality",
+    "report_section": "v4-locality",
+    "tools": []
+   },
+   "seq.11": {
+    "cosmo_tool": "A dispersion test against a Poisson field, as for galaxy clustering.",
+    "credit": "",
+    "field_how": "Per block of consecutive tiles, the squared excess of held errors over each tile's own prediction, over the binomial variance; independent errors give 1.",
+    "field_term": "Overdispersion of discordance along the genome: clumped or even (a dispersion index; 1 = independent)",
+    "id": "seq.11",
+    "job": "whether each type's excess is even across the genome or clumped",
+    "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+    "link": "11. IAM-A C-Score (molecules: clumping of held errors)",
+    "report_section": "v4-cscores",
+    "tools": []
+   },
+   "seq.12": {
+    "cosmo_tool": "Entropy of the record against the reference sky, with the expectation computed at the sample's own read depth: counting noise modeled, not ignored.",
+    "credit": "",
+    "field_how": "Shannon entropy of methylation at each site, against the entropy a healthy cell of the same type shows at the same read depth. Sorted-cell Met-A: the type's identity CpGs against each healthy person of that type. Each cell in the mix: each found cell's identity CpGs against the atlas in the sample's composition. Whole sample: every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition.",
+    "field_term": "Normalized methylation entropy against a cell-type-matched healthy reference: sorted cell, each cell in a mixture, whole sample",
+    "id": "seq.12",
+    "job": "the healthy height of each cell's identity sites; tests whether a type's level is physics or a quirk of IAM-A",
+    "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor.",
+    "link": "12. Met-A sequencing",
+    "report_section": "v4-each",
+    "tools": [
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+      "tool": "Split maps and half-mission null tests (noise from difference maps)",
+      "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+     },
+     {
+      "credit": "",
+      "tool": "Cross-calibration of two methods on the same objects (tension metrics)",
+      "what": "two routes to one reading pointed at the same samples; a uniform offset between them is a calibration error, not biology"
+     },
+     {
+      "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+      "tool": "Student's t interval (statistics, not cosmology)",
+      "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+     }
+    ]
+   },
+   "seq.12b": {
+    "cosmo_tool": "Distance to saturation (a detector's dynamic range).",
+    "credit": "",
+    "field_how": "(A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth: how much of the way to complete disorder the sample has gone.",
+    "field_term": "Headroom: distance from maximum methylation entropy",
+    "id": "seq.12b",
+    "job": "how far the sample sits from the most disordered state its own cells can reach",
+    "law": "IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED.",
+    "link": "12b. Distance to maximum disorder (the ceiling)",
+    "report_section": "v4-ceiling",
+    "tools": []
+   },
+   "seq.13": {
+    "cosmo_tool": "Power at large scales: clustered against scattered structure.",
+    "credit": "",
+    "field_how": "Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered).",
+    "field_term": "Spatial clustering of methylation departures along the genome",
+    "id": "seq.13",
+    "job": "whether departures lie clustered along the genome",
+    "law": "IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.",
+    "link": "13. Met-A-side C-Score on sequencing (levels against the atlas: each cell, whole genome, sky)",
+    "report_section": "v4-cscores",
+    "tools": []
+   },
+   "seq.14": {
+    "cosmo_tool": "Regions of the sky read separately under their own masks.",
+    "credit": "",
+    "field_how": "Each territory read at its expected value for the sample's own read depth, against the atlas.",
+    "field_term": "Entropy change at CpG islands and at partially methylated (loosely held) domains",
+    "id": "seq.14",
+    "job": "changes outside identity sites",
+    "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+    "link": "14. Territories (islands and loosely held domains)",
+    "report_section": "v4-territories",
+    "tools": [
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+      "tool": "Split maps and half-mission null tests (noise from difference maps)",
+      "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+     },
+     {
+      "credit": "",
+      "tool": "End-to-end simulation (inject and recover)",
+      "what": "a known change planted in real data and read back through the whole pipeline"
+     },
+     {
+      "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+      "tool": "Student's t interval (statistics, not cosmology)",
+      "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+     }
+    ]
+   },
+   "seq.15": {
+    "cosmo_tool": "Fisher-Rao geometry (Rao 1945; Bhattacharyya 1943), the distance used to compare probability distributions.",
+    "credit": "this work; Fisher-Rao geometry: Rao (1945); Bhattacharyya (1943)",
+    "field_how": "Sites placed by their behavior across atlas types; the Fisher-Rao distance from the sample's expected self, with its counting floor. Array samples (parked for the array chain).",
+    "field_term": "Information-geometric (Fisher-Rao) distance of a sample from its expected healthy self, by groups of sites",
+    "id": "seq.15",
+    "job": "which group of sites moved, by geometry",
+    "law": "Not the law: geometry (a yardstick).",
+    "link": "15. Information sphere (array-sited)",
+    "report_section": "v4-sphere",
+    "tools": [
+     {
+      "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+      "tool": "HEALPix equal-area pixelization",
+      "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+     },
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+      "tool": "Null tests (shuffled and sign-flip nulls)",
+      "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+     },
+     {
+      "credit": "Rao C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (Fisher-Rao distance); Bhattacharyya A. (1943) Bull. Calcutta Math. Soc. 35:99-109",
+      "tool": "Fisher-Rao information geometry (not cosmology)",
+      "what": "the distance between two methylation states measured as an angle between probability distributions"
+     }
+    ]
+   },
+   "seq.16": {
+    "cosmo_tool": "A HEALPix sky map (Gorski et al. 2005): the genome laid out on equal-area pixels, as the microwave sky is mapped.",
+    "credit": "this work; HEALPix: Górski et al. (2005) ApJ 622:759",
+    "field_how": "Each region's held error against the sample's own predicted held error, drawn on a sphere of equal-area pixels.",
+    "field_term": "Genome-wide map of where maintenance fidelity departs, in 1,000-CpG regions",
+    "id": "seq.16",
+    "job": "WHERE the problem is located",
+    "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start. IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.",
+    "link": "16. Sequencing Globe",
+    "report_section": "v4-globe-sum",
+    "tools": [
+     {
+      "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+      "tool": "HEALPix equal-area pixelization",
+      "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+     },
+     {
+      "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+      "tool": "Null tests (shuffled and sign-flip nulls)",
+      "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+     },
+     {
+      "credit": "Hivon E. et al. (2002) ApJ 567:2, doi 10.1086/338126 (MASTER)",
+      "tool": "Angular power spectrum on a masked sky (pseudo-C_l, MASTER)",
+      "what": "whether departures along the genome have a scale: the spectrum of the departure map with the mask's coupling corrected"
+     },
+     {
+      "credit": "Mecke K.R., Buchert T. & Wagner H. (1994) A&A 288:697-704, arXiv astro-ph/9312028 (into cosmology); Schmalzing J. & Gorski K.M. (1998) MNRAS 297:355 (CMB maps)",
+      "tool": "Minkowski functionals (morphology of excursion sets)",
+      "what": "the shape of the regions where a sample departs (area, boundary length, number of patches) against those of noise"
+     },
+     {
+      "credit": "",
+      "tool": "Monopole, dipole and low multipoles",
+      "what": "the mean and the large-scale tilt of the departure map (sex shows as a chrX patch)"
+     }
+    ]
+   },
+   "seq.17": {
+    "cosmo_tool": "Fisher-Rao angles on a HEALPix sphere; symmetrical components (Fortescue 1918), electrical engineering's three-phase decomposition.",
+    "credit": "IAM's Law (this work); Fisher-Rao geometry: Rao (1945); Bhattacharyya (1943); symmetrical components: Fortescue (1918); HEALPix: Górski et al. (2005)",
+    "field_how": "Each unit (an island, or 50 CpGs) read from molecules by IAM-A's rule; the law's expected state built in the sample's own composition; the departure judged against counting noise. The hold alarm compares each type's hold with its measured healthy level.",
+    "field_term": "Measured fidelity, gain and level region by region, against the state predicted from the energetics of maintenance in the sample's own cell mix",
+    "id": "seq.17",
+    "job": "HOW the cell is performing against the law",
+    "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED. IAM's Law, step 4 (Koide as the record): Koide's Q = (1 + CV^2)/3; the record keeps (scale, action) and drops the phase delta; axis share 1/(NQ): Q = 2/N holds exactly half, any N, any d; a sudden write gives Q = 2/3 with nothing fitted. Status: DERIVED (identities and the sudden-write split). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+    "link": "17. IAM's Law Sphere",
+    "report_section": "v4-lawsphere",
+    "tools": [
+     {
+      "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+      "tool": "HEALPix equal-area pixelization",
+      "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+     },
+     {
+      "credit": "Rao C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (Fisher-Rao distance); Bhattacharyya A. (1943) Bull. Calcutta Math. Soc. 35:99-109",
+      "tool": "Fisher-Rao information geometry (not cosmology)",
+      "what": "the distance between two methylation states measured as an angle between probability distributions"
+     },
+     {
+      "credit": "Fortescue C.L. (1918) Method of symmetrical co-ordinates applied to the solution of polyphase networks, Trans. AIEE 37:1027-1140, doi 10.1109/T-AIEE.1918.4765570",
+      "tool": "Symmetrical components (electrical engineering, not cosmology)",
+      "what": "three readings split into one common part and a balanced pair (the three-phase decomposition)"
+     }
+    ]
+   },
+   "seq.20": {
+    "cosmo_tool": "Repeat observations of the same field (difference imaging).",
+    "credit": "",
+    "field_how": "A later sample against an earlier one of the same person at every CpG both measured.",
+    "field_term": "Longitudinal comparison: the person as their own control",
+    "id": "seq.20",
+    "job": "a later draw against an earlier one of the same person",
+    "law": "Not the law: a chain rule.",
+    "link": "20. Serial samples from one person",
+    "report_section": "v4-serial",
+    "tools": []
+   }
+  },
+  "_rule": "Generated from the cell instruments database (the canonical source for every instrument's explanation); written here by a gated edit, never by hand. Printed for sequencing samples by report_v4.explain; the array wording in 'sections' stays for array samples. No result numbers here."
  }
 }

@@ -452,10 +452,43 @@ def report_text():
     """The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file)."""
     if not _RT: _RT.append(json.load(open(REPORT_TEXT, encoding="utf-8")))
     return _RT[0]
+_SEQ = [False]   # set by build(): True for a sequencing sample (single molecules)
+def _is_seq(o):
+    """True when the sample was read from sequenced molecules (IAM-A counted reads, or the array type names sequencing values)."""
+    return bool(((o.get("iam_a") or {}).get("count") or {}).get("mol_n")) or "sequencing" in str(o.get("array_type") or "").lower()
+SEQ_LABELS = (("field_term", "In the field's terms"), ("field_how", "How it is measured"), ("law", "IAM's Law"), ("cosmo_tool", "Where the method comes from"))
+def _ikey(k):
+    m = re.match(r"seq\.(\d+)([a-z]?)", k); return (int(m.group(1)), m.group(2)) if m else (999, k)
+def _seq_block(ins):
+    e = [(lab, ins[k]) for k, lab in SEQ_LABELS if ins.get(k)]
+    t = [x["tool"] + ": " + x["credit"] for x in ins.get("tools") or [] if x.get("credit")]
+    if t: e.append(("Methods used and their credit", "; ".join(t) + "."))
+    return e
+def explain_seq(sec):
+    """The sequencing instruments printed under one report section, from report_text.json's sequencing part (generated from the instruments database)."""
+    I = (report_text().get("sequencing") or {}).get("instruments") or {}
+    return [I[k] for k in sorted(I, key=_ikey) if I[k].get("report_section") == sec]
 def explain(sec):
-    """[(label, text)] for one report section, in the fixed order of EXPLAIN_LABELS; empty when the section has no entry."""
+    """[(label, text)] for one report section. A sequencing sample (build() sets _SEQ) gets each of the section's sequencing instruments: the field's
+    terms, how it is measured, IAM's Law, the method's origin and its credits, then the section's status; an array sample keeps EXPLAIN_LABELS."""
     x = report_text()["sections"].get(sec) or {}
+    if _SEQ[0]:
+        S = explain_seq(sec)
+        if S:
+            e = []
+            for ins in S: e += [((ins["link"].split(". ", 1)[-1] + ": " + lab) if len(S) > 1 else lab, t) for lab, t in _seq_block(ins)]
+            return e + ([("Status", x["status"])] if x.get("status") else [])
     return [(lab, x[k]) for k, lab in EXPLAIN_LABELS if x.get(k)]
+def instruments_seq():
+    """[(title, [(label, text)])] for every sequencing instrument, in chain order: the report's appendix 'How each instrument works'."""
+    I = (report_text().get("sequencing") or {}).get("instruments") or {}
+    return [(I[k]["link"], [("What it does", I[k].get("job") or "")] + _seq_block(I[k])) for k in sorted(I, key=_ikey)]
+def _instruments_seq_html():
+    if not _SEQ[0]: return ""
+    h = ["<h2 id='v4-how'>How each instrument works (sequencing)</h2><p>Every instrument the chain ran on this sample, in the field's terms, with the "
+         "step of IAM's Law it rests on and the credit for every method it borrows. Generated from the cell instruments database.</p>"]
+    for t, e in instruments_seq(): h.append("<h3>" + E(t) + "</h3><div class='explain'>" + "".join("<p><b>" + E(l) + ".</b> " + E(x) + "</p>" for l, x in e if x) + "</div>")
+    return "".join(h)
 def _explain_html(sec):
     e = explain(sec)
     return ("<div class='explain'>" + "".join(f"<p><b>{E(l)}.</b> {E(t)}</p>" for l, t in e) + "</div>") if e else ""
@@ -506,6 +539,7 @@ def _law_sphere_sec(o):
     return h
 
 def build(o, out, sid):
+    _SEQ[0] = _is_seq(o)   # edit 235: sequencing explanations
     G, GP = o.pop("_globe_html", "") or "", o.pop("_globe_prose", "") or ""   # taken out first: the technical record must not print the globe's data
     tech = os.path.splitext(out)[0] + "_v3record.tmp.html"
     r = R3.build(o, tech, sid); t = open(tech, encoding="utf-8").read(); os.remove(tech)
@@ -520,7 +554,7 @@ def build(o, out, sid):
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
              "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
-             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), _layout(o), _coupling(o), "</div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), _layout(o), _coupling(o), _instruments_seq_html(), "</div>",
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))

@@ -95,6 +95,9 @@ def build_pdfs(o, F, out, sid, when):
     if c.get("drawn") and c.get("png") and os.path.exists(c["png"]):
         import report_v4 as R4
         st += [KeepTogether([P("What changed: the sample laid over its healthy reference", "h2"), _img(c["png"], 6.4), P(R4.SKY_CAP, "small")])]
+    if R._SEQ[0]:   # edit 235: every sequencing instrument, explained, with its physics and credits
+        st += [P("How each instrument works (sequencing)", "h2"), P("Every instrument the chain ran on this sample, in the field's terms, with the step of IAM's Law it rests on and the credit for every method it borrows.", "small")]
+        for _t, _e in R.instruments_seq(): st += [KeepTogether([P("<b>" + html.escape(_t) + "</b>")] + [P("<b>" + html.escape(l) + ".</b> " + html.escape(x), "small") for l, x in _e if x])]
     res["researcher"] = doc(base + "_researcher.pdf", st)
     # plain
     st = _head(o, sid, when, "Plain") + [P("The readings, in plain words", "h2"),
