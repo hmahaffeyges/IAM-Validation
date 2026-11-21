@@ -84,7 +84,7 @@ cd MethylPhys_Interface
 python3 run_sample.py --grn S_Grn.idat --red S_Red.idat --specimen "whole blood" --id S001 --out S001.html
 ```
 
-Isolated neutrophils: `--specimen "isolated neutrophils"`. Optional: `--sex F|M`, `--age`, recorded when given. Same-run healthy references for the median tare: `--ref-table refs.csv`, three or more healthy arrays read on the same run, with column `A` (their Met-A reading) and column `C` (their C-score), each from that array's own report bundle.
+Isolated neutrophils: `--specimen "isolated neutrophils"`. Optional: `--sex F|M`, `--age`, recorded when given. LEGACY (arrays, retired by the 2026-11-07 rule; arrays are being re-commissioned on IAM-Atlas v2.1): `--ref-table refs.csv`, a same-run median tare. Not used on sequencing, and not the method: see **Healthy references** below.
 
 Sequencing (whole-genome bisulfite), against the sample's own reference:
 
@@ -117,9 +117,22 @@ python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell
 
 **The chain reads from the files:** the array type, from the IDAT header (450K, EPIC v1, EPIC v2); the platform of a values file, from its probe names and count; the array's sex, from its X and Y signals; and a sequencing file's genome build, from its name and its CpG index ranges (Stage Q0). Nothing has to be switched by hand for the chain to pick its stages.
 
-**You tell it:** the specimen (`--specimen`); the file (`--grn` and `--red`, `--betas`, `--pat` or `--bam`); for sequencing, the cell type (`--seq-cell`); and, for a tared reading, three or more healthy references read the same way (`--ref-table`).
+**You tell it:** the specimen (`--specimen`); the file (`--grn` and `--red`, `--betas`, `--pat` or `--bam`); for sequencing, the cell type (`--seq-cell`). Nothing else: no healthy samples from the same run or laboratory are needed or used.
 
-**Laboratories.** There is no list of approved laboratories. A laboratory's offset is canceled by the same-run tare: three or more healthy arrays of the same specimen, run with the sample. The tare is never the sample itself.
+**Healthy references (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than what we can be certain is healthy').** There is no list of approved laboratories, and no reading is tared with same-run or same-laboratory healthy samples: a laboratory rarely has three healthy samples of the same cell, and samples labeled healthy cannot be trusted to be. Every reading is referenced to the sample itself, the atlas, or the law, and every laboratory or library difference is measured from the sample's own reads. On sequencing (the chain's own table, `stage_metaa_atlas.SEQ_REFERENCE_RULE`, also in every bundle as `reference_rule`):
+
+| Reading | Referenced to |
+|---|---|
+| IAM-A | self: its own line (held error against its own loose share); no atlas, no tare |
+| CP1 run lengths, islands meter, clock sites, copy timing, TERR/GLB line locality | self: the sample against itself (independent losses, the islands' own zero, late against early copied DNA, tile against tile) |
+| IAM-A C-Score, whole-genome sequencing globe | self: each region against the sample's own held error |
+| Deconvolver | atlas: which cells and their shares (identity only) |
+| Coupling-A | atlas: the type's healthy coupling |
+| Met-A sequencing (sorted cell, whole sample, each cell in the mix), Met-A-side C-Score, territories | atlas, in this sample's own Deconvolver mix; laboratory part from its own reads: the islands meter (its own false-mark rate), the library floor at the sites read, the expectation at its own read count; for an atlas library, the other sealed donor half (--dev-seq-ref-half, --dev-seq-half-cols) |
+| IAM's Law Sphere | the law's expected point, with the sample's own line (hold against self) and the atlas angle beside it |
+| legacy | the word 'untared' and the optional same-run tare (A / median of >= 3 same-run healthy samples) are left from the array method that this rule retired; on sequencing neither applies |
+
+No sequencing reading is tared with same-run or same-laboratory healthy samples. The atlases are the only healthy reference; laboratory and library differences are measured from the sample's own reads.
 
 **Specimens intake accepts:** `buffy coat`, `constructed DNA mixture`, `isolated neutrophils`, `whole blood`; and an isolated, sorted or purified cell of any IAM-Atlas v2.1 type, read by Met-A against the atlas and flagged as not commissioned.
 
@@ -131,13 +144,13 @@ A public sequencing sample, fetched by the chain on the genome build it reads (D
 python3 run_sample.py --geo-pat GSM5652282 --seq-cell "cd8 t cells" --id S004 --out S004.html
 ```
 
-A public series of arrays: `run_series.py` runs the one command on every array of a list (columns `gsm` and `slide`): pass 1 reads each array; pass 2 reads it again tared against the other healthy arrays of its series or slide. `run_series.py table` writes one row per bundle for a scorer, which reads the bundles only.
+A public series of arrays: `run_series.py` runs the one command on every array of a list (columns `gsm` and `slide`): pass 1 reads each array; pass 2 (LEGACY, arrays only, retired by the 2026-11-07 rule) reads it again tared against the other healthy arrays of its series or slide. `run_series.py table` writes one row per bundle for a scorer, which reads the bundles only.
 
 ## 4d. On GitHub's machines
 
 **Public data.** Fork the repository, turn on Actions, and run `series` (a list of GEO arrays) or `reproduce_all` (every reproduction). Each job runs up to six hours; up to twenty jobs run at once.
 
-**Your own samples.** A fork of a public repository stays public, so for samples that are not public make a private copy (GitHub's Import repository, or a copy pushed to a new private repository). Put each array's two IDAT files in one folder, commit, and run `my_samples` with that folder and the specimen (and, for a tared reading, a CSV of three or more same-run healthy references). Every array is read by `run_sample.py`, unchanged; the reports, bundles and ledgers come back as the run's artifacts. A private repository uses the account's included Actions minutes. Tested on a public array (GSM7508429): one array took about 18 minutes on its machine, most of it installing the chain's packages, and read the same Met-A and C-Score as the committed example report.
+**Your own samples.** A fork of a public repository stays public, so for samples that are not public make a private copy (GitHub's Import repository, or a copy pushed to a new private repository). Put each array's two IDAT files in one folder, commit, and run `my_samples` with that folder and the specimen (no healthy references are needed; the legacy array same-run CSV is retired). Every array is read by `run_sample.py`, unchanged; the reports, bundles and ledgers come back as the run's artifacts. A private repository uses the account's included Actions minutes. Tested on a public array (GSM7508429): one array took about 18 minutes on its machine, most of it installing the chain's packages, and read the same Met-A and C-Score as the committed example report.
 
 ## 4e. Development readings (flagged in the report, not commissioned)
 

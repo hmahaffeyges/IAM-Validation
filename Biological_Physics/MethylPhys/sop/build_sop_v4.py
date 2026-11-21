@@ -10,6 +10,10 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 HERE = os.path.dirname(os.path.abspath(__file__)); MP = os.path.dirname(HERE); ROOT = os.path.dirname(os.path.dirname(MP)); CH = os.path.join(MP, "chain")
 OUT = os.path.join(HERE, "MethylPhys_CPG_SOP_v4.md")
 J = lambda p: json.load(open(p, encoding="utf-8"))
+def _seq_ref_rows():   # 2026-11-20 (edit 225): the sequencing reference table, read from the chain, never typed twice
+    import importlib.util as _u; sp = _u.spec_from_file_location("_sma", os.path.join(CH, "stage_metaa_atlas.py")); src = open(sp.origin, encoding="utf-8").read()
+    i = src.find("SEQ_REFERENCE_STATE = "); j = src.find("SEQ_ATLAS = None"); ns = {}; exec(src[i:j], ns); R = ns["SEQ_REFERENCE_RULE"]
+    return ["| Reading | Referenced to |", "|---|---|"] + [f"| {k} | {v} |" for k, v in R.items() if k not in ("rule",)] + ["", R["rule"]]
 def text():
     K = J(os.path.join(ROOT, "CANON", "commissioning.json"))["instruments"]; F = J(os.path.join(CH, "FROZEN_INPUTS_v4.json"))["files"]
     S = J(os.path.join(CH, "chain_sequence.json")); SH = sorted(J(os.path.join(CH, "Runtime Matrices", "IAM_A_SelfRef", "shape_reference_v1.json"))["cells"])
@@ -34,7 +38,7 @@ def text():
           "## 4. Read one sample", "", "Arrays (a raw IDAT pair, Illumina EPIC v1):", "", "```", "cd MethylPhys_Interface",
           "python3 run_sample.py --grn S_Grn.idat --red S_Red.idat --specimen \"whole blood\" --id S001 --out S001.html",
           "```", "", "Isolated neutrophils: `--specimen \"isolated neutrophils\"`. Optional: `--sex F|M`, `--age`, recorded when given. "
-          "Same-run healthy references for the median tare: `--ref-table refs.csv`, three or more healthy arrays read on the same run, with column `A` (their Met-A reading) and column `C` (their C-score), each from that array's own report bundle.", "",
+          "LEGACY (arrays, retired by the 2026-11-07 rule; arrays are being re-commissioned on IAM-Atlas v2.1): `--ref-table refs.csv`, a same-run median tare. Not used on sequencing, and not the method: see **Healthy references** below.", "",
           "Sequencing (whole-genome bisulfite), against the sample's own reference:", "", "```",
           "python3 run_sample.py --pat S.pat.gz --seq-cell \"cd8 t cells\" --id S002 --out S002.html",
           "python3 run_sample.py --bam S.bam --ref-fasta hg19.fa --assembly hg19 --seq-cell \"cd8 t cells\" --id S003 --out S003.html", "```", "",
@@ -47,24 +51,27 @@ def text():
           "from its probe names and count; the array's sex, from its X and Y signals; and a sequencing file's genome build, from its name and "
           "its CpG index ranges (Stage Q0). Nothing has to be switched by hand for the chain to pick its stages.", "",
           "**You tell it:** the specimen (`--specimen`); the file (`--grn` and `--red`, `--betas`, `--pat` or `--bam`); for sequencing, the "
-          "cell type (`--seq-cell`); and, for a tared reading, three or more healthy references read the same way (`--ref-table`).", "",
-          "**Laboratories.** There is no list of approved laboratories. A laboratory's offset is canceled by the same-run tare: three or more "
-          "healthy arrays of the same specimen, run with the sample. The tare is never the sample itself.", "",
+          "cell type (`--seq-cell`). Nothing else: no healthy samples from the same run or laboratory are needed or used.", "",
+          "**Healthy references (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than what we can be certain is healthy').** "
+          "There is no list of approved laboratories, and no reading is tared with same-run or same-laboratory healthy samples: a laboratory rarely has three healthy samples of the same cell, "
+          "and samples labeled healthy cannot be trusted to be. Every reading is referenced to the sample itself, the atlas, or the law, and every laboratory or library difference "
+          "is measured from the sample's own reads. On sequencing (the chain's own table, `stage_metaa_atlas.SEQ_REFERENCE_RULE`, also in every bundle as `reference_rule`):", "",
+          ] + _seq_ref_rows() + ["",
           "**Specimens intake accepts:** " + ", ".join(f"`{x}`" for x in sorted(set(_S0.ACCEPTED_SPECIMENS.values()))) + "; and an "
           "isolated, sorted or purified cell of any IAM-Atlas v2.1 type, read by Met-A against the atlas and flagged as not commissioned.", "",
           "## 4c. Public samples and whole series", "",
           "A public sequencing sample, fetched by the chain on the genome build it reads (Decoder, genome builds):", "", "```",
           "python3 run_sample.py --geo-pat GSM5652282 --seq-cell \"cd8 t cells\" --id S004 --out S004.html", "```", "",
           "A public series of arrays: `run_series.py` runs the one command on every array of a list (columns `gsm` and `slide`): pass 1 reads "
-          "each array; pass 2 reads it again tared against the other healthy arrays of its series or slide. `run_series.py table` writes one "
+          "each array; pass 2 (LEGACY, arrays only, retired by the 2026-11-07 rule) reads it again tared against the other healthy arrays of its series or slide. `run_series.py table` writes one "
           "row per bundle for a scorer, which reads the bundles only.", "",
           "## 4d. On GitHub's machines", "",
           "**Public data.** Fork the repository, turn on Actions, and run `series` (a list of GEO arrays) or `reproduce_all` (every "
           "reproduction). Each job runs up to six hours; up to twenty jobs run at once.", "",
           "**Your own samples.** A fork of a public repository stays public, so for samples that are not public make a private copy "
           "(GitHub's Import repository, or a copy pushed to a new private repository). Put each array's two IDAT files in one folder, "
-          "commit, and run `my_samples` with that folder and the specimen (and, for a tared reading, a CSV of three or more same-run healthy "
-          "references). Every array is read by `run_sample.py`, unchanged; the reports, bundles and ledgers come back as the run's artifacts. "
+          "commit, and run `my_samples` with that folder and the specimen (no healthy references are needed; the legacy array same-run CSV is retired"
+          "). Every array is read by `run_sample.py`, unchanged; the reports, bundles and ledgers come back as the run's artifacts. "
           "A private repository uses the account's included Actions minutes. Tested on a public array (GSM7508429): one array took about 18 "
           "minutes on its machine, most of it installing the chain's packages, and read the same Met-A and C-Score as the committed example report.", "",
           "## 4e. Development readings (flagged in the report, not commissioned)", "",

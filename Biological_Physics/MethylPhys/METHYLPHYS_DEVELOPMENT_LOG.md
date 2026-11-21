@@ -6836,3 +6836,6 @@ Edit 222's switch was in the one button but its option was not, so the canary's 
 No sequencing reading is tared with same-run healthy samples (the atlas-only rule of 2026-11-07). The chain still wrote the array method's word
 'untared' into Met-A sequencing, the territories and the C-Score; each now states its reference, the bundle carries reference_rule (one line per
 instrument: self, atlas or the law, and how the laboratory part is taken from the sample's own reads), and the Decoder carries the table.
+
+### 2026-11-20 · GRP-019, GRP-017: the SOP states the healthy-reference rule
+The operating procedure no longer asks for same-run healthy samples. It prints the atlas-only rule and the chain's own table of what each sequencing reading is referenced to; the array same-run tare options are marked legacy.
