@@ -6824,3 +6824,7 @@ The author's testing plan template, the 53-question checklist with its after-res
 
 ### 2026-11-20 · GRP-019, GRP-017: correction, which healthy-pass readings were held out
 In healthy passes 5 to 7 only sorted-cell Met-A and the islands territory were read against the other donor half; whole-sample Met-A, Met-A in the mix, the domains and the C-Score pooled every donor of the cell, the input's own reads included, so those readings were in-reference. Healthy libraries the atlas does not contain (49 spent libraries of its own series, read as exploration) read Met-A whole 0.930 and domains 0.929 against the full atlas; the C-Score stays inside its derived limit in 45 of 49. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-11-20 · GRP-019: every in-mix reading against one donor half
+The healthy passes read sorted-cell Met-A and the islands against the other donor half, but the other in-mix readings against every donor, the input's own included.
+`--dev-seq-half-cols` serves them from one half's own columns, so the held-out pass can be run for Met-A whole and in the mix, the territories and the C-Score.

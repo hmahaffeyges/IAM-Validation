@@ -2942,6 +2942,12 @@ At each site the expected angle squared is 1/(4n) for the sample's own n reads, 
 mu_se^2 / (4e(1 - e)) in the sample's shares; the counting part is summed exactly over the possible read outcomes,
 since at a few reads a site 1/(4n) is up to a third too small. A healthy sample reads near 1; the measured distance alone mostly measures depth.
 
+**Every in-mix reading against one donor half.** For a healthy atlas input to be read held out, every healthy level it is compared with must come from
+donors it does not belong to. `--dev-seq-ref-half` did that only for sorted-cell Met-A and the islands; `--dev-seq-half-cols DIR` with it serves Met-A for the
+whole sample, Met-A in the mix, the territories and the C-Score from that half's own columns (array_sites_halfA or _halfB, the same layout as the sequencing
+atlas's columns, built from the atlas's per-CpG donor-half tables). The folder is outside the reference door, so the bundle records each file's checksum
+(seq_half_columns). Development; without the flag nothing changes.
+
 **A cell the atlas holds from one library.** The globe measures each site's change in its healthy width, which includes the person-to-person
 spread of every cell in the sample's mix. Naive CD8, effector memory CD8 and naive CD4 T cells come from one library each, so they have no
 spread of their own; when they held more than 1 % of a sample's shares, every site lost its width and the information sphere's territories

@@ -1357,6 +1357,13 @@ def main():
             if _dref and not os.path.exists(_dref): print(f"--dev-deconv-ref {a.dev_deconv_ref}: not found"); return 2
             _dsr = _SQd.deconv_reference_of(_dref or _SQd.DECONV_REF)
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
+            if getattr(a, "dev_seq_half_cols", None) and getattr(a, "dev_seq_ref_half", None):   # 2026-11-20 (edit 222): every in-mix reading against one donor half
+                _hd = os.path.join(a.dev_seq_half_cols, f"array_sites_half{a.dev_seq_ref_half}")
+                if not os.path.exists(os.path.join(_hd, "mu_part1.parquet")): print(f"--dev-seq-half-cols: {_hd} has no mu_part1.parquet"); return 2
+                _SAd.SEQ_ATLAS = _hd; import hashlib as _hl
+                o["seq_half_columns"] = dict(half=a.dev_seq_ref_half, folder=os.path.basename(_hd), flag="development (edit 222): outside the reference door; checksums recorded here",
+                    sha256={f: _hl.sha256(open(os.path.join(_hd, f), "rb").read()).hexdigest() for f in sorted(os.listdir(_hd)) if f.endswith(".parquet")},
+                    about=(json.load(open(os.path.join(_hd, f"array_sites_half{a.dev_seq_ref_half}.json"))) if os.path.exists(os.path.join(_hd, f"array_sites_half{a.dev_seq_ref_half}.json")) else None))
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
