@@ -138,3 +138,165 @@ Answers are evidence (numbers, file names, quoted protocol lines), not reassuran
 7. The lesson behind it: PHY-050's third test held each sample to +/-10 % while the body's own spread is 7.5 % (about 82 % of healthy samples fall inside by nature; the bar asked 83 %; it got 81.5 %). On the baseline question it passes at about 1 sigma (median 0.987 of the prediction, uncertainty about 1.3 %). The original sealed verdicts stay in the record beside the rescored ones.
 
 **The chain.** If the chain didn't produce it, it didn't happen; every chain change goes into the Decoder in the same commit; synthetic first; nothing fitted; healthy always from the atlases; the Deconvolver decides what is in a sample.
+
+## The author's testing checklist, testing plan, methods and machine rules (2026-11-20)
+
+### Testing Plan
+
+Author's request (2026-11-16 ~1:30 AM): 'go through and run through the checklist on each one and fill out a testing plan for each one of them and notate everything we checked and what is needed to test it ... Each one a step by step plan with all things to check including the simulators and web and decoder and searching the book and writing the synthetic test and so forth. That way we have a stack of derivation items ready to actually go.' Rules: the one spend of unseen cell data is the sealed COMMISSIONING test; each derivation enters it as an if-then line (method 5). Derivation work uses methods 1-3 only (math in code; recover a known result; spent or published data, labelled).
+0. What it is and where it stands
+* Register row(s) and current status (quoted from the row's FULL text, its notes not only its status column):
+* Instruments that read this quantity (IAM-A, Met-A sequencing, Met-A arrays, coupling, coupling-A, IAM-A C-score, territories, Group-A, the Deconvolver, IAM-A globe): one line each: how it enters, or why it does not.
+* What is DERIVED / MEASURED and stays measured (true input, why) / MEASURED NOW but derivable (open target) / FITTED / OPEN:
+1. Checklist (all 40 questions, answered for THIS item; label first, then a real reason)
+2. Checked so far (each with what was found and where)
+* IAM's web: reviewed links touching the row, two steps out; the physics they carry; gaps
+* The book: every passage naming it, read in full; its tag
+* The simulators: what physics each holds for it (cell, cosmos); does it compute correctly
+* The chain and the Decoder: code that reads it; Decoder entry
+* Docs and earlier records (doors/, day logs, development log): already done or redundant?
+* Established neighbours (E rows) and the first-principles path
+3. Step-by-step plan
+1. Paper derivation (equations, checked in code on GitHub, never the laptop)
+2. Simulator run that answers it first (which model, which settings, expected output)
+3. Spent data that settles or recovers a known result (exact files; kept molecule files or counts; nothing unseen)
+4. Synthetic test at the real data's measured noise through the one command; the null rule rehearsed on spent data
+5. Canary (smallest set) before any full run
+6. Chain change and its Decoder entry (if any)
+7. What each step's result would mean (if X then ..., if Y then ...)
+4. Commissioning line (the if-then this item contributes to the ONE sealed test)
+* Prediction, inputs, bars (GUM: measured uncertainty, never a chosen number), which instrument reads it, which data in the sealed set
+5. Finish list (findings ledger columns): register, development log, day summary, book, canon, chain, Decoder, simulators, IAM's web, memory
+6. Cost and order
+* Machines (GitHub/Google), time, data spent (none before commissioning), what it unblocks next
+
+### Checklist
+
+**for AI before each test:**
+
+CHECKLIST, printed from private/checklist.py (2026-11-16). Every answer starts with its label and gives a reason for THIS item;
+bare yes/n/a, a copied answer under more than two questions, or a plan answer without an existing plan file is refused.
+
+**BEFORE an item starts:**
+
+1. [fastest] Is this the fastest possible way to perform this test?
+2. [cheapest] Is this the cheapest way to perform this test?
+3. [practical] Is this the most practical way?
+4. [pen and paper] Have you done the pen and paper calculations first?
+5. [strict] Are you making the tests too strict again and hamstringing ourselves? (exploration needs no sealed prediction)
+6. [spent data] Have you exhausted all options, including spent data, first?
+7. [IAM's web] Have you checked IAM's web for connections to neighbors, established physics or other domains? (evidence below)
+8. [machines] Am I using GitHub or Google machines and NOT the laptop?
+9. [simulators] Have you checked and/or tested the simulators for clues or answers? (evidence below)
+10. [docs] Have you searched the book, the repository's docs AND the gate's own rules (CANON/repro_check.py, CANON/chain_gate.py, CANON/kiss_check.py) to see whether the answer already exists or is already ruled out? (evidence below)
+11. [spending] Am I spending data I don't have to?
+12. [explored] Have I explored on paper and with spent data first?
+13. [cosmologist] What would a cosmologist do?
+14. [public] Is it public or private?
+15. [chain] Is the chain and the Decoder covered?
+16. [unspent] Have you reviewed all of our unspent data saved for testing for possible options? (CANON/data_spent.csv)
+17. [molecule files] Are the molecule files already run and kept in the GitHub library (past 90 days)? (tools/artifact_inventory.py)
+18. [bars] Are the bars from the agreed scientific standard (GUM, measured uncertainty), not too high or too narrow?
+19. [brief] Have you read the item's brief and every book section it names IN FULL (no truncated previews)?
+20. [IAM's Law] Where is IAM's Law in this item? (physics first)
+21. [like for like] Is every comparison like for like (the same reading in every laboratory and in the rehearsal)?
+22. [sealed] If anything is sealed: is the prediction 'if this, then that', each branch set by an independent measurement, with the rehearsal pull within 2?
+23. [library] Is the data's library method read from the deposit (PBAT, low input, EM-seq, end clipping) and does it fit the reading?
+24. [synthetic] Does the synthetic run at the real data's measured noise, through the one command, with the null rule rehearsed on spent data?
+25. [memory] Is anything taken from memory? Every number, citation and accession checked against its source or file?
+26. [IAM's terms] Am I answering in IAM's terms first, giving the standard view only as the older lens?
+27. [gated] Is any data behind an application wall (EGA, dbGaP, registries)? It must not be.
+28. [hotspot] Will anything larger than a few KB come over the owner's hotspot? (results are read on GitHub; only summaries come back)
+29. [design sheet] For a new or sealed test: is the design sheet complete before the first synthetic (design_check)?
+30. [reserve] Is the reserve ring-fenced (no unspent data used before commissioning, except as agreed)?
+31. [fitted] Does any value used come from a fit or a substitution? Is it inside the valid range it was set in (lever rule)?
+32. [names] Am I using the chain's and the Decoder's own names (no renames without the author's words)?
+33. [next machine] Is the next machine item prepared, so the machines are not left idle?
+34. [time] Are the time labels from the clock, in Pacific?
+35. [method] Which accepted method settles this row: 1 derivation from accepted premises, 2 recovering a known result, 3 published or spent data read after the fact, 4 blind test, 5 joint test? Is there a cheaper accepted one?
+36. [one spend] Does this row need unseen data? For cell rows: can its prediction ride on the one commissioning test instead of its own spend?
+37. [established] Which established results (E-rows: Landauer, Szilard, Bennett, Berut, Bekenstein-Hawking, Jacobson/Cai-Kim, Zurek, Sartori-Pigolotti, Hopfield...) does this row stand on, and does a derivation from them settle it without a test? Where is the one identification that still needs a downstream check?
+38. [path] Trace the path: which first principle (Boltzmann, detailed balance, Landauer, ...) and which step of IAM's Law does this rest on, through which established rows? Is that path drawn on IAM's web? (name the rows)
+39. [two steps] Two steps out on IAM's web: which neighbours, and neighbours of neighbours, does this touch, and does the new result fill, change or connect any of them? (name them)
+40. [simulators] Does the result have a place in each simulator (cell, cosmos), and in the chain and Decoder if it is a cell result? (one line each)
+41. [chain] GATE: Does every reading in this item come from the chain's one command (run_sample.py) and its stage functions, with NOTHING computed in a cell or script from chain counts? (name the command and stage; author 2026-11-16: ALWAYS USE THE CHAIN)
+42. [laptop text] GATE: Is every command this item runs on the laptop text-only and kilobyte-sized (no sub-agents, no repo pulls, no parsing large files, no runs)? (list each laptop command; everything else goes to GitHub or Google)
+43. [sources read] GATE: For every term, number and status this item uses, which book passage and register row did you READ today (file:line), not recall? (author 2026-11-16: go read the damn book)
+44. [google price] GOOGLE (if used): today's price check run (gcp_prices.py, prices file dated today) and the cheapest VERIFIED zone chosen, spot only? (name zone, machine, price; or 'not used: <why>')
+45. [google safety] GOOGLE (if used): does every machine self-delete at job end and at the time limit, and save results to the bucket in pieces as it runs, saying how it resumes? (name the job's resume rule)
+46. [google watch] GOOGLE (if used): is relaunch_watch.py started with the job, the machines checked every 30 minutes (logs in UTC), and every 'GAVE UP <job> rc <code>' logged so a failure never looks like a finish?
+47. [google spread] GOOGLE (if used): is the work spread across machines within the 32-CPU quota (e.g. 8 x 4 CPUs), and the disk sized to the job (a big alignment chunk fills 60 GB)? (name the split and disk size)
+48. [physics] CHECK THE PHYSICS: on IAM's web and in each simulator, is the physics this item touches actually there, does it compute correctly, and does the new result agree or contradict it? (not counts or names: say what physics you found and whether it works)
+49. [instruments] Which instruments can use this derivation (IAM-A, Met-A sequencing, Met-A arrays, coupling, coupling-A, C-score, territories, Group-A, Deconvolver, globe, tumor gauge, library floor)? Every one that can use it must be included: name each and how, or why not
+50. [commissioning] Commissioning: is this a type test (once, in the one sealed run) or an installation check (each sample's own intake and meter)? Is the use outside the commissioned range (e.g. neurons, tumor tissue), needing a verification point?
+51. [plan] Testing plan: name the plan file private/plans/<ITEM>_PLAN.md with all sections (0 status from the FULL row; 1 checklist; 2 checked; 3 steps; 4 commissioning line; 5 finish list; 6 cost), or 'not a test: <why>'
+52. [chaining] Chaining: does this row follow from a DERIVED row by accepted physics only (it inherits that standing, no separate test), or does it make new contact with data (the one place a test is spent)?
+53. (scoring) Are you using the full chain with one button and letting the chain decide???
+
+**AFTER the result is in:**
+
+1. [practical] Was this the fastest, cheapest, most practical way?
+2. [updated] Updated: IAM's web, canon files, chain, Decoder, SOP, simulators, webpage, book, Q&A, repo items, private items? (name each)
+3. [web result] Checked IAM's web: does the result connect a neighbor or finish another derivation? (name the rows)
+4. [other domains] Does it transfer directly to another domain (cosmos)? If so, updated everywhere for that domain? (name them)
+5. [recorded] Findings recorded the same day: development log, day summary, register, memory, Universe document, work list? (name each)
+6. [next queued] Was the next machine item queued when this one finished?
+7. [ledger] Findings ledger: is there a row for this result with every column (register, devlog, daysummary, book, canon, chain, decoder, simulators, iams_web, memory) set to done/PENDING/n/a with a reason?
+8. [expectation] Reported to the author against expectation: positive or negative, against which predicted number, and was every reading the chain's own (not computed outside it)?
+9. Please confirm these are all updated in detail elaborately and the math was tested especially in the book but all the math via code?
+10. The private plan-document merge, line by line. The checklist gate gets changed so it accepts a plan section instead of a plan file.
+11. The Decoder, the book's IAM-A chapter and the webpage, one GitHub edit each.
+12. The Q&A, the M-number paper and the rolling log.
+13. The canon entries, glossary check and generators.
+14. The private web and the simulators.
+15. The daily report at midnight.
+16. CHECK THE IAM-WEB AND SIMULATORS MEANS CHECK THAT THE  PHYSICS IS THERE AND WORKS AND LOOK FOR CONNECTIONS!!!
+
+### Examples And Methods For Testing
+
+There are several accepted ways to establish a result, and only some of them need a test run on new data. Roughly from cheapest to strongest:
+| Method | What it is | Needs a prediction test? | Our examples |
+|---|---|---|---|
+| 1. Derivation from accepted premises | A mathematical proof that starts only from established physics. The referee checks the premises and the math. | No. We check the math in code (symbolic algebra, high precision); no data needed. | Every settled surface holds ½ of what it paid (from Bekenstein–Hawking plus the first law); a paid pump keeps at most ⅓ (X3, 50 digits) |
+| 2. Recovering a known result | Show that IAM gives an established result in some limit | No. It shows consistency, and referees expect it, though it's weak as evidence because the formula was built to fit | The floor is Sartori–Pigolotti's one-step copy limit; the record term rides the Jacobson/Cai–Kim first law |
+| 3. Comparison with published measurements | A derived number compared with values already measured and published | A check against existing data, with no run on our machines. It counts only if nothing was tuned, and it needs a chance test | Matter's expansion rate against SH0ES; the growth deficit against fσ8; Λ's factor with its own chance test (3 of 414 forms) |
+| 4. Blind test on unseen data | Prediction written first, read once | Yes. This is the strongest method, and the only one that commissions an instrument | PHY-084, and A6 next |
+| 5. Joint test | One data set tests several connected rows at once | One test for many pieces | The fσ8 ramp pins the rate exponent, and through it c and the shape of E(a) together |
+
+On chaining (your question about neighbors): yes. If A is derived and B follows from A using only accepted physics, B inherits A's standing, and B's derivation needs no separate test. The test is needed only where a row says something new about the world. So build long chains on paper with method 1, and spend one test at the point where the chain makes contact with data. One well-chosen data set can then decide a whole chain.
+Where a test can't be avoided:
+* Identifications. Proving that the horizon holds ½ is mathematics. Claiming that the horizon's holding is IAM's record, and that it drives matter's expansion rate, is an identification. A referee will accept it only if it predicts something checkable somewhere downstream. That check can often be method 3, published cosmology data, rather than a computer run.
+* Instruments. A methylation gauge has to be commissioned on unseen data (method 4), because the claim is that it reads real patients correctly. That's why the cell side is where the data runs happen, and why the unseen data should go only there.
+* Independent routes giving the same number (e.g. Ω_m/2 from the black-hole half and from the virial half). This is strong support only if the two routes really share no premise. A referee will check exactly that.
+**** Unseen data is now reserved for one sealed commissioning test, which will also carry each cell row's derived prediction as a pre-registered line. Nothing gets queued against unseen data until that test is assembled.
+
+Does each cell type need its own commissioning? No. IAM-A is one line for every cell type and is commissioned once. Metrology handles this the way your protection relays are handled:
+* Type testing, done once. For us that's the one sealed run, across a spread of cell types that covers the range IAM-A will be used on.
+* A check at every installation. For us that's every sample's own intake and meter checks: coverage, conversion failure, false marks. The chain already runs these on every library.
+Two cautions:
+* Cell types outside the commissioned range, such as neurons or tumor tissue, need a verification point before IAM-A can be trusted there.
+* Met-A is different because it reads against the atlas, which is measured type by type. Its per-type references are measured, not separately commissioned, and the one run checks the method on a sample of types.
+
+### Google Machines Rules
+
+1. Cheapest only, verified that day. Price-check the zones and regions daily before launching (gcp_prices.py), and pick the cheapest that's actually verified, not assumed. Spot machines count against the regular quota.
+2. Self-delete when done. Every machine shuts itself down and deletes itself when its job ends, with a hard time limit as a backstop (the launcher's maximum run time). Nothing is left running or billing.
+3. Save to the bucket as it runs. Results are copied to the storage bucket in pieces while the job runs, so a recalled spot machine loses nothing. It relaunches itself and resumes from what's already in the bucket.
+4. Spread the work across machines to finish faster, within the quota: 32 CPUs in total, so 8 machines of 4 CPUs.
+5. Check the machines every 30 minutes, not hourly, and log anything a dispatcher gives up on ("GAVE UP <job> rc <code>") so a failure never looks like a finish. Remember the machine logs are in UTC.
+6. Disk: a big alignment chunk fills the default 60 GB disk, so size the disk to the job.
+7. The launcher's own checks: a job needs its design sheet and checklist before it launches, and it must define everything it uses (the $BUCKET lesson from November 7).
+Private work fits there because those machines aren't public. The web rebuild and the planners' book reading are small, so one cheapest machine at a time is enough, with each output written to the bucket as it's made.
+Before launching anything, I'll read the launcher's code and today's prices to confirm each of these is actually enforced, not take it from memory. I'll tell you which are built in and which I have to add.
+
+### Launcher’S Code
+
+| Rule | Enforced in code? | How |
+|---|---|---|
+| Cheapest, verified that day | Yes | Refuses to launch without today's price check (the prices file dated today); refuses a machine not offered in that region; refuses a price above twice today's spot price. Spot machines only. |
+| Self-delete when done | Yes, three ways | When the job ends for any reason, including an error, the machine deletes itself. A timer deletes it at the time limit. Google's own maximum run time is set as a backstop. The disk is deleted with it. |
+| Save to the bucket while it runs | Yes | The log goes to the bucket at every step and results go up as they're written. The launcher refuses a job that doesn't save as it goes (it has to say how it resumes). The shutdown script saves the log if Google reclaims the machine. |
+| Relaunch when reclaimed | A separate watcher (relaunch_watch.py) | Not in the launcher. It has to be started with the job. Its November 10 lesson: it lost its connection once and only logged errors, so it gets checked. |
+| Spread across machines | Partly | The launcher caps the total at the quota (32 CPUs, plus Toronto's N2 limit). Splitting the work into pieces is up to each job's dispatcher. |
+| Design sheet and checklist first | Yes | It refuses without them. |
+| Every launch recorded | Yes | Time in UTC, machine, zone, price, time limit and purpose (gcp_ledger.csv). |

@@ -6818,3 +6818,6 @@ The readiness check on the known-answer library (GSM5652214, cardiomyocyte) foun
 
 ### 2026-11-20 · OTH-064: WHY_IAM.md retired; its testing rules moved to the test design checklist
 The public WHY_IAM.md is retired at the author's request; its content is kept in the author's private record. Its testing rules move verbatim to CANON/TEST_DESIGN_CHECKLIST.md, and the design checks cite them there. The home page no longer links it.
+
+### 2026-11-20 · OTH-086: The author's testing checklist and machine rules in the test design checklist
+The author's testing plan template, the 53-question checklist with its after-result list, the accepted methods for establishing a result, and the Google machine rules are added to CANON/TEST_DESIGN_CHECKLIST.md.
