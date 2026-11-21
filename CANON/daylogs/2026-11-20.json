@@ -1,9 +1,9 @@
 {
  "_convention": "see 2026-10-13.json",
  "date": "2026-11-20",
- "title": "The sequencing chain's instruments checked one by one; each type judged against its own healthy level",
- "set_out": "Finish the sequencing work: every sequencing instrument wired in and checked on a known-answer library, IAM-A's per-type band compared like for like, A8 defended by its measured substitute until it can be derived; document everything.",
- "open_at_turnover": "Filled at the midnight close.",
+ "title": "IAM's Law Sphere in the chain; each type's measured healthy level documented; every sequencing instrument has a planted-answer test",
+ "set_out": "Sign off every sequencing instrument on spent atlas libraries; build IAM's Law Sphere into the chain; document the measured substitute for each type's level; apply the 2026-11-07 healthy-reference rule; set held-out bars for Met-A on sequencing and the territories.",
+ "open_at_turnover": "The 49 never-used libraries reread through the current chain and the pooling test on 12 of them; the known-answer run after the run-length and intake fix; the render check of the report; bars for Met-A, the territories and the ceiling distance once the 6 % offset is settled.",
  "check_completeness": false,
  "off_page_rows": [],
  "compute": {
@@ -16,12 +16,86 @@
    "heading": "What ran, and how each came out",
    "entries": [
     {
-     "title": "Per-type band against band v2, like for like (COM-IAMA-054)",
+     "title": "IAM's Law Sphere in the one button (DEV-SPHERE-01, PHY-035)",
+     "what": "The sample's own molecules read against IAM's Law, with an input card, saved counts, sweep and fit.",
      "status": "development",
-     "what": "152 atlas libraries, each scored against bands rebuilt without its donor stand-in (GEO lab, age, sex).",
-     "outcome": "Per-type band 113 of 123 inside at +/-8.5 %, flags an 8.5 % rise in every type; band v2's pooled rule 115 of 123, flags 0.7-46.9 % by type and misses whole healthy types.",
+     "outcome": "Runs on every sequencing file; the card's synthetic found the counter counts isolated losses, so the level layers convert.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Each type's measured healthy level and the hold alarm (DEV-IAMA-BAND-01)",
+     "what": "Held error against IAM-A's own line times each type's level measured from the atlas's healthy libraries.",
+     "status": "development",
+     "outcome": "40 of 41 unseen libraries within two standard uncertainties; documented with its data and summary files.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md",
-     "reference": "IAM Sequencing Atlas (GSE186458), A_derived from the one-button joint run"
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Held-out pass 8 (GRP-019, GRP-017)",
+     "what": "All 137 atlas inputs read against the other donor half, every in-mix reading.",
+     "status": "development",
+     "outcome": "Middles at 1 (Met-A whole 0.990); widths large; recorded as measured widths, not bands.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Planted-fault test set on the test library",
+     "what": "Six reads of GSM5652214, one known fault each, through the one button.",
+     "status": "development",
+     "outcome": "Each fault moved its own instrument; run excess by length and an intake refusal added (0f17bb26).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Known-answer run after the reference edits",
+     "what": "The test library read again, field by field against its known answer.",
+     "status": "audit",
+     "outcome": "74 unchanged, 2 moved as intended, 0 unexpected.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "OTH-064: WHY_IAM.md retired; its testing rules moved to the test design checklist",
+     "what": "The public WHY_IAM.md retired (the author keeps it privately); its testing rules moved verbatim to CANON/TEST_DESIGN_CHECKLIST.md.",
+     "status": "structure",
+     "outcome": "On main (d01b3713); home page link removed.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy)"
+    },
+    {
+     "title": "OTH-086: The author's testing checklist and machine rules in the test design checklist",
+     "what": "The author's testing checklist, testing plan template, methods and Google machine rules published in the test design checklist.",
+     "status": "structure",
+     "outcome": "On main (548e5202).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy)"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The 6 % offset is the whole-sample route, not the libraries",
+     "what": "On the 49 never-used libraries sorted-cell Met-A reads 1.017 and whole-sample Met-A 0.930, low in 19 of 24 types.",
+     "status": "diagnosis",
+     "outcome": "Leading explanation written before the test: a pooled-donor expectation overstates an unseen person's disorder.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "Half-atlas columns one CpG off",
+     "what": "The agent built the half-only atlas columns one CpG off, invalidating two canaries.",
+     "status": "failed",
+     "outcome": "Caught by checking against the published donor halves; corrected in public (3bf03e97).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   }

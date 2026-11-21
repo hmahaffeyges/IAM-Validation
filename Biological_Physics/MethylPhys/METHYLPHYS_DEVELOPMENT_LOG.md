@@ -6855,3 +6855,66 @@ The half-only atlas columns used for the held-out canaries were first built one 
 
 ### 2026-11-20 · COM-IAMA-054: the measured substitute for A8, documented in full
 DEV-IAMA-BAND-01 now states how the type positions are built (150 libraries, 56 types), the out-of-sample test in full with its data and summary files (40 of 41 unseen libraries within |z| <= 2 against the substitute; 24 against the law alone), and every candidate cause of A8 tested so far.
+
+### 2026-11-20 · Day summary
+_Written after midnight from the day's record (the chat walked line by line, 34 checklist forms and the day's 32 commits), in the fixed outline; work in the private domains is kept off this public page._
+
+**Set out:**
+- Get every sequencing instrument reading on the spent IAM Sequencing Atlas libraries and sign each one off against a single audit table, before arrays or plasma.
+- Build IAM's Law Sphere (DEV-SPHERE-01, PHY-035) into the chain: the sample's own molecules read against IAM's Law, with every law input settable by name.
+- Put the measured substitute for each cell type's own level (the value IAM-A cannot yet derive) into the chain, and document it so a reader can check it without asking anyone.
+- Apply the 2026-11-07 healthy-reference rule everywhere: the atlas is the only healthy ruler and the laboratory part comes from the sample's own reads, never from same-run healthy samples.
+- Set healthy bars for Met-A on sequencing and the territories (GRP-019, GRP-017) by the agreed method, from held-out readings.
+
+**Ran, and how each came out:**
+- IAM's Law Sphere went into the chain (c89e9188), then its report section (56f08f75), its input card with saved counts, sweep and fit (5b182ff1), its page beside the report (25b2558c), mixtures (fe8c2fb5) and files fetched from GEO (41a43d17). The input card's own synthetic exposed that the counter counts isolated losses, not per-call losses; the level layers now convert between the two.
+- The hold alarm (ed82de41) compares each library's held error with IAM-A's own line and with each cell type's healthy level measured from the atlas's own healthy libraries. Out of sample it put 40 of 41 unseen libraries within two standard uncertainties. Its record, with the data file, the summary file and every candidate cause tested so far, is in DEV-IAMA-BAND-01 (6cc5758a, 8a0ec68f).
+- The globe's healthy width for atlas cells held from a single library (be534feb), the information sphere's expected healthy distance (79fac09f), the IAM-A C-Score on the sequencing globe (0dfc5462) and the stray-writing layer at islands no healthy cell type writes (44bccab2) all landed.
+- The healthy-reference rule went into the chain, the Decoder and the SOP (0a7ceec1, 35fdcb7f). A held-out switch (acf881c0, 30eaff87) and a counted expectation (4873059a, 2ce5e018) were added so every in-mix reading can be read against the other donor half.
+- Pass 8: all 137 atlas inputs read against the other donor half. Bar middles sit at 1 (Met-A whole sample 0.990, sorted cell 1.008, own cell in the mix 1.007, C-Score 0.999); the widths are large because each half rests on one library. These are recorded as measured widths, not yet bands.
+- Coupling-A's existing band held on 27 of 30 never-used libraries.
+- A planted-fault test set (six reads of the test library GSM5652214, one fault each) moved each instrument it was aimed at and left the others: isolated losses moved IAM-A, runs of losses were seen by the run-length spectrum, late-copied losses moved copy timing, island gain moved the islands meter and clock gain moved the clock. A truncated file stopped with a raw error; intake now refuses it with a plain reason (0f17bb26).
+- The known-answer run after the reference edits passed: 74 outputs unchanged, 2 moved as intended, 0 unexpected.
+
+**Successes:**
+- IAM's Law Sphere runs on every sequencing file through the one button.
+- The measured substitute for each type's level is in the chain and documented in full, with its data.
+- Every sequencing instrument now has a planted-answer test, and the sign-off audit has every cell checked.
+
+**Learned:**
+- On healthy libraries, losses cluster: runs of three or more losses occur at 2.4 times independent placement. A single pooled run ratio hides planted runs, so the count now reports the excess by run length.
+- Coupling-A falls under uniform isolated loss: it measures how loss arrives, not how much.
+- The never-used libraries read about 6 % low on whole-sample Met-A while sorted-cell Met-A reads 1.017 on the same 49 libraries, across 24 cell types and one way in 19 of them. A one-way offset across types points to the method, not to thin donors. The leading explanation, written before the result: the whole-sample expectation uses a level pooled over donors, and the disorder of a pooled level is higher than any one person's.
+
+**Errors (the agent's own), and what caught each:**
+- The half-atlas columns were built one CpG off, which invalidated two canaries; caught by checking against the published donor halves, and corrected in public (3bf03e97).
+- A file added to the Law Sphere's reference was not in the reference manifest, so every sequencing run was refused; caught by the canary, fixed in f34e36be.
+- The 49-library run was launched before the readiness checklist was done; the author stopped it.
+- Earlier passes were cited as held out for readings that were in fact in-reference; corrected in public (fe57663b).
+- A rebuilt piece duplicated what the atlas's published README already provides; the author pointed to it.
+- Five audit rows waiting on the 6 % offset were labelled failures; the author corrected it, and they now read as waiting.
+
+**The author's instructions and corrections:**
+- Never wait for the author, and never stop overnight; decide for the research and report on return.
+- No same-run healthy tare: a researcher will not have three healthy samples from the same lab.
+- Put every new piece in the Decoder, the SOP, the instruments table and every required place, with credit, then sign off every sequencing row before plasma.
+- Document the measured substitute so a reader can check it without asking anyone.
+- The report becomes a professional PDF in the style of established methylation research reports, with every input and output kept and plain names throughout; interactive pages stay optional.
+
+**Path changes:**
+- The public WHY_IAM.md was retired (OTH-064) and the author's testing checklist and machine rules published in the test design checklist (OTH-086).
+- The report moves from the HTML page to a PDF built from static figures drawn from the full data.
+- Bars for Met-A on sequencing wait on the 6 % test before they are set.
+
+**Data:**
+- IAM Sequencing Atlas (GSE186458, Loyfer et al. 2023) libraries, spent: 137 atlas inputs held out by donor half; 49 never-used libraries; test library GSM5652214.
+- Second-laboratory referee libraries (GSE173787) cited for PHY-084.
+
+**Machines:**
+- Google spot machines only (up to 32 at a time) for every read, the bars computation and the planted-fault reads; GitHub runners for every chain edit's gate and smoke test. No calculation on the author's laptop.
+
+**Open at turnover:**
+- The 49 libraries reread through the current chain; the pooling test on 12 of them (an unseen person's expectation from the atlas's own person-to-person spread).
+- The known-answer run after the run-length and intake fix; the render check of the report and its pages.
+- Healthy bars for Met-A, the territories and the ceiling distance once the offset is settled; the remaining planted-answer tests for the reference block and line locality.
+- Test ids worked today: DEV-SPHERE-01, PHY-035, PHY-084, GRP-017, GRP-019, OTH-064, DEV-IAMA-BAND-01, COM-IAMA-054.
