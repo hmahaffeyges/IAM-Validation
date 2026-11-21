@@ -1460,6 +1460,8 @@ def main():
                 if a.dev_metaa_specific:   # 2026-10-22 (39.9): the same reading on sites held by each cell and not by the others
                     o["met_a_each_cell_specific"] = {d.strip(): SA.read_in_mix(_vals, _shr, counts=getattr(a, "_seqc", None), specific=float(d)) for d in a.dev_metaa_specific.split(",") if d.strip()}
             except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
+        if getattr(a, "_seqv", None):   # 2026-11-20 (edit 224): on sequencing every atlas-referenced reading states its reference (no same-run tare)
+            import stage_metaa_atlas as _SAr; o["reference_changed"] = _SAr.sequencing_reference(o)
         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),
                                      (f"C-score {_c['C_rel']:.2f} (tared)" if _c.get("C_rel") is not None else (f"C-score {_c['C']:.2f}" if _c.get("C") is not None else ""))) if x)
@@ -1730,6 +1732,8 @@ def main():
         except Exception as _e: o.setdefault("development", {})["library_floor"] = dict(status="NOT_RUN", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     try: import stage_metaa_atlas as _SAcf; o["cells_found"] = _SAcf.cells_found(o)   # 2026-11-07: the result, cell by cell (author)
     except Exception as _e: o["cells_found"] = dict(status="NOT_ASSEMBLED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
+    if getattr(a, "_seqv", None):   # 2026-11-20 (edit 224): again after the development stages (sorted-cell Met-A), before the bundle is written
+        import stage_metaa_atlas as _SAr2; o["reference_changed"] = sorted(set((o.get("reference_changed") or []) + _SAr2.sequencing_reference(o)))
     try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
     except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     if getattr(a, "dev_seq_atlas_dir", None) and isinstance(o.get("reference"), dict):   # 2026-11-09: the rebuilt atlas named, and not door-checked

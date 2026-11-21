@@ -6831,3 +6831,8 @@ The healthy passes read sorted-cell Met-A and the islands against the other dono
 
 ### 2026-11-20 · GRP-019: the held-out option on the command line
 Edit 222's switch was in the one button but its option was not, so the canary's held-out read was refused at the command line. The option is added, and the smoke test now reads the one button's parser.
+
+### 2026-11-20 · GRP-019, GRP-017: what each sequencing reading is referenced to
+No sequencing reading is tared with same-run healthy samples (the atlas-only rule of 2026-11-07). The chain still wrote the array method's word
+'untared' into Met-A sequencing, the territories and the C-Score; each now states its reference, the bundle carries reference_rule (one line per
+instrument: self, atlas or the law, and how the laboratory part is taken from the sample's own reads), and the Decoder carries the table.

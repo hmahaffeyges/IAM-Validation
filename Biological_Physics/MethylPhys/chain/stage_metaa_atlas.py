@@ -29,6 +29,31 @@ FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-META
 def _flag():   # 2026-11-03: the flag names the ruler actually used (the fixed FLAG said IAM-Atlas v2.1 on sequencing too; corrected, disclosed)
     return ("read against the IAM Sequencing Atlas; not commissioned by our standards (DEV-METAA-ATLAS-01)" if SEQ_ATLAS else FLAG)
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
+SEQ_REFERENCE_STATE = "atlas ruler; laboratory part from this sample's own reads (no same-run healthy tare)"   # 2026-11-20 (edit 224)
+SEQ_REFERENCE_RULE = {   # 2026-11-20 (edit 224; author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's'): what each sequencing reading is referenced to
+    "rule": "No sequencing reading is tared with same-run or same-laboratory healthy samples. The atlases are the only healthy reference; laboratory and library differences are measured from the sample's own reads.",
+    "IAM-A": "self: its own line (held error against its own loose share); no atlas, no tare",
+    "CP1 run lengths, islands meter, clock sites, copy timing, TERR/GLB line locality": "self: the sample against itself (independent losses, the islands' own zero, late against early copied DNA, tile against tile)",
+    "IAM-A C-Score, whole-genome sequencing globe": "self: each region against the sample's own held error",
+    "Deconvolver": "atlas: which cells and their shares (identity only)",
+    "Coupling-A": "atlas: the type's healthy coupling",
+    "Met-A sequencing (sorted cell, whole sample, each cell in the mix), Met-A-side C-Score, territories": "atlas, in this sample's own Deconvolver mix; laboratory part from its own reads: the islands meter (its own false-mark rate), the library floor at the sites read, the expectation at its own read count; for an atlas library, the other sealed donor half (--dev-seq-ref-half, --dev-seq-half-cols)",
+    "IAM's Law Sphere": "the law's expected point, with the sample's own line (hold against self) and the atlas angle beside it",
+    "legacy": "the word 'untared' and the optional same-run tare (A / median of >= 3 same-run healthy samples) are left from the array method that this rule retired; on sequencing neither applies",
+}
+
+def sequencing_reference(o):
+    # 2026-11-20 (edit 224): for a sequenced sample, replace the legacy state 'untared' in every atlas-referenced reading with what it is referenced to, and put
+    # SEQ_REFERENCE_RULE in the bundle. Returns the readings changed.
+    changed = []
+    def fix(d, name):
+        if isinstance(d, dict) and (d.get("state") is None or str(d.get("state")).startswith("untared")) and (d.get("A") is not None or d.get("C") is not None or d.get("sets") or d.get("cells") or d.get("whole_genome")):
+            d["state"] = SEQ_REFERENCE_STATE; changed.append(name)
+    for k in ("met_a_whole", "met_a_each_cell", "territories", "cscore_each_cell"): fix(o.get(k), k)
+    fix((o.get("development") or {}).get("metaa_atlas"), "development.metaa_atlas")
+    o["reference_rule"] = SEQ_REFERENCE_RULE
+    return changed
+
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
 SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule); "donors" reads sorted-cell Met-A donor by donor (donor_pair) and every column reading on the pooled level
 SEQ_COUNTED = False   # 2026-10-31: the counted-reference expectation (expected_H_counted) is off: its synthetic was not met (DEV_METAA_ATLAS_CURVE_01)

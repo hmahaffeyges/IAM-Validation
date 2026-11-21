@@ -77,7 +77,7 @@ def glance_rows(o):
     else: rows.append(("IAM-Deconvolver", "Which cells, in what shares", "", "", "not run (no array input)"))
     if m.get("A") is not None:
         wh = str(m.get("state", "")).startswith("withheld")
-        val = "no reading" if wh else (f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} (untared)")
+        val = "no reading" if wh else (f"A_rel {t['A_rel']}" if t.get("A_rel") is not None else f"A {m['A']} ({_tl(o)})")
         st = "commissioned" if m.get("commissioning") else untested(m.get("specimen") or "whole blood", "Met-A", shown=not str(m.get("state", "")).startswith("withheld"))
         rows.append(("Met-A", "How far the neutrophil's tagging level has moved", val,
                      "withheld by the array's noise check" if wh else str(t.get("state") or m.get("state", "")).split(". ")[0][:140], st))
@@ -88,20 +88,20 @@ def glance_rows(o):
     if ec.get("cells"):   # 2026-10-22: Met-A for each cell of a whole blood, against IAM-Atlas v2.1 in the person's own shares (development, flagged)
         rd = [x for x in ec["cells"] if x.get("A") is not None]
         rows.append(("Met-A, each cell", "How far each blood cell's tagging level has moved (against IAM-Atlas v2.1 in this person's own cell mix)",
-                     ", ".join(f"{cellname(x['cell'])} {x['A']:.3f}" for x in rd) + (" (untared)" if rd else ""), "",
+                     ", ".join(f"{cellname(x['cell'])} {x['A']:.3f}" for x in rd) + (f" ({_tl(o)})" if rd else ""), "",
                      untested("each blood cell in whole blood", "Met-A")))
     mw = o.get("met_a_whole") or {}
     if mw.get("A") is not None:   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged)
         bp = mw.get("by_place") or {}
         rows.append(("Met-A, whole sample", "Has the sample as a whole departed from its own expected healthy self, over every atlas site",
                      f"A {mw['A']} ({mw['sites']:,} sites; " + "; ".join(f"{k} {v['A']}" for k, v in bp.items() if v) + ")", "",
-                     "development, not commissioned; " + str(mw.get("state") or "untared")))
+                     "development, not commissioned; " + str(mw.get("state") or _tl(o))))
     elif mw.get("reason"): rows.append(("Met-A, whole sample", "Has the sample as a whole departed", "", "", "not read: " + str(mw.get("reason"))[:120]))
     te = (o.get("territories") or {}).get("sets") or {}
     if any(v.get("A") is not None for v in te.values()):   # 2026-10-23: cancer's own territories (development, flagged)
         rows.append(("Territories", "Gains at islands every healthy cell keeps unmarked; losses in loosely held domains",
                      "; ".join(f"{k} A {v.get('A')}, level change {v.get('level_change'):+}" for k, v in te.items() if v.get("A") is not None), "",
-                     "development, not commissioned; untared"))
+                     "development, not commissioned; " + _tl(o)))
     sp = o.get("info_sphere") or {}
     if sp.get("territories_read"):   # 2026-10-23: the information sphere, on by default (development, flagged)
         rows.append(("Information sphere", "Which cell programs moved, and how far the sample sits from its own expected healthy self",
@@ -109,7 +109,7 @@ def glance_rows(o):
                      "development, not commissioned (page " + str(sp.get("html") or "") + ")"))
     elif sp.get("reason"): rows.append(("Information sphere", "Which cell programs moved", "", "", "not drawn: " + str(sp.get("reason"))[:120]))
     if c.get("C") is not None:
-        val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
+        val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} ({_tl(o)})"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"
               else untested(o.get("specimen") or "this specimen", "the C-Score"))
         rows.append(("C-Score, commissioned", "Are the neutrophil's departures clustered or scattered", val, str(c.get("C_call") or ""), st))
@@ -342,6 +342,8 @@ def _fam_of():
         import stage_info_sphere as _IS
         return {c: n for n, _, cs in _IS.FAMILIES for c in cs}
     except Exception: return {}
+def _tl(o):   # 2026-11-20 (edit 224): what an atlas-referenced reading is referenced to; sequencing has no same-run tare
+    return "atlas ruler; laboratory part from this sample's own reads" if (o or {}).get("reference_rule") else "untared"
 def _f(v, d=4): return "" if v is None else (f"{v:.{d}f}" if isinstance(v, (int, float)) else str(v))
 DEV = "development, not commissioned"
 
@@ -374,7 +376,7 @@ def detail_tables(o):
               "Disorder at every atlas site against the atlas mixed in this sample's own cell shares, each site counted by how firmly a healthy sample of this mix holds it. The sensitive reading: it moves when anything in the sample departs. Healthy reads 1.",
               ["Sites", "Met-A", "Standard error", "Sites read"],
               ([["whole sample", _f(w.get("A")), _f(w.get("se_over_sites"), 5), f"{w.get('sites', 0):,}"]] + [[k, _f(v["A"]), _f(v.get("se_over_sites"), 5), f"{v.get('sites', 0):,}"] for k, v in (w.get("by_place") or {}).items() if v]) if w.get("A") is not None else [],
-              (f"A 1 % loss of the held pattern moves this reading by about {_f(w.get('shift_per_1pct_loss'))}. State: {w.get('state', 'untared')}. {DEV}." if w.get("A") is not None else "Not read: " + str(w.get("reason") or "no cell shares") + ".")))
+              (f"A 1 % loss of the held pattern moves this reading by about {_f(w.get('shift_per_1pct_loss'))}. State: {w.get('state', _tl(o))}. {DEV}." if w.get("A") is not None else "Not read: " + str(w.get("reason") or "no cell shares") + ".")))
     ec = o.get("met_a_each_cell") or {}; cells = sorted(ec.get("cells", []), key=lambda x: -(x.get("share") or 0))
     T.append(("v4-each", "Met-A for each cell: which cell moved",
               "Each cell found, read at its own identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.",
@@ -385,14 +387,14 @@ def detail_tables(o):
     T.append(("v4-meta-c", "Met-A, commissioned: the neutrophil on its gauge",
               "The commissioned reading: the neutrophil's disorder at its 6,000 identity sites, against its frozen healthy reference, tared against same-run healthy arrays. Commissioned on isolated neutrophils, EPIC v1.",
               ["Reading", "Value", "State"],
-              [["A_rel" if t.get("A_rel") is not None else "A (untared)", _f(t.get("A_rel") if t.get("A_rel") is not None else m.get("A")), str(t.get("state") or m.get("state") or "")[:160]]] if m.get("A") is not None else [],
+              [["A_rel" if t.get("A_rel") is not None else f"A ({_tl(o)})", _f(t.get("A_rel") if t.get("A_rel") is not None else m.get("A")), str(t.get("state") or m.get("state") or "")[:160]]] if m.get("A") is not None else [],
               ("" if m.get("A") is not None else "Not read: " + str(m.get("reason") or (o.get("refusal") or "")) [:200] + ".")))
     te = (o.get("territories") or {}).get("sets") or {}
     T.append(("v4-territories", "Territories: islands and loosely held domains",
               "Islands: sites every healthy cell type keeps unmarked, where a mark gained is a departure no healthy cell makes. Domains: marked sites some healthy cell types hold loosely, where a held mark is most easily lost. Each read against the atlas in this sample's mix; healthy reads 1.",
               ["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"],
               [[k, _f(v.get("A")), (f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else ""), _f(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()],
-              (DEV + ". State: " + str((o.get("territories") or {}).get("state") or "untared") + ".") if te else "Not read."))
+              (DEV + ". State: " + str((o.get("territories") or {}).get("state") or _tl(o)) + ".") if te else "Not read."))
     cl = []   # 2026-10-23: distance to the entropy ceiling (CAN-005), for every atlas reading that carries it
     def _cl(name, A, c):
         if c and c.get("A_sat"): cl.append([name, _f(A), _f(c.get("A_sat"), 3), _f(c.get("distance_to_ceiling"), 4), _f(c.get("turnover_share"), 4), "yes" if c.get("past_entropy_ceiling") else "no"])

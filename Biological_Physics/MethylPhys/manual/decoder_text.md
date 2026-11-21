@@ -1050,6 +1050,25 @@ Lock 1 of the anti-drift locks. Before any reading, each IAM-Atlas v2.1 file is 
 
 The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded. A limit term calibrated on outside healthy samples (the 450K C-Score platform term) is named the same way, under calibrated_terms.
 
+
+**What each sequencing reading is referenced to (no reading is tared with same-run healthy samples).** A laboratory rarely has three other healthy
+samples of the same cell run the same way, and samples merely labeled healthy cannot be trusted to be, so no sequencing reading uses them.
+Each reading is referenced to one of three things, and every laboratory or library difference is measured from the sample's own reads:
+
+| Reading | Healthy reference | Laboratory and library part |
+|---|---|---|
+| IAM-A | the sample itself: its own line, held error against its own loose share | none needed (self-referenced) |
+| CP1 run lengths, islands meter, clock sites, copy timing, TERR/GLB line locality | the sample against itself | none needed |
+| IAM-A C-Score, whole-genome sequencing globe | each region against the sample's own held error | none needed |
+| Deconvolver | the IAM Sequencing Atlas (identity: which cells, what shares) | the sample's own reads |
+| Coupling-A | the atlas: the type's healthy coupling | the sample's own reads |
+| Met-A sequencing (sorted cell, whole sample, each cell in the mix), Met-A-side C-Score, territories | the IAM Sequencing Atlas in the sample's own Deconvolver mix; for an atlas library, the other sealed donor half | the islands meter (the sample's own false-mark rate), the library floor at the sites read, the expectation at the sample's own read count |
+| IAM's Law Sphere | the law's expected point, with the sample's own line and the atlas angle beside it | the counting floor at the sample's own read counts |
+
+The bundle carries this table as `reference_rule`, and each atlas-referenced reading's state says "atlas ruler; laboratory part from this sample's own
+reads (no same-run healthy tare)". The word "untared" in older bundles, and the optional same-run tare in the code, are left from the array method
+this rule retired; on sequencing neither applies, and "untared" never meant a missing step. Group-A alone compares groups.
+
 ## Sex and the X chromosome, in every instrument
 
 <!-- SEX-SECTION:BEGIN -->
@@ -2486,6 +2505,12 @@ slope x loose share). Never extrapolated: outside the table's coupling range it 
 When band_v2.json exists (refused if edited after the chain wrote it), the reading also carries state_derived (Normal, above Normal or
 below Normal on band v2) and the band it used, marked 'in commissioning'.
 
+### stage_metaa_atlas.py::sequencing_reference
+For a sequenced sample, replaces the legacy state 'untared' in every atlas-referenced reading (Met-A sequencing, the territories, the Met-A-side C-Score) with what the reading is referenced to (the atlas ruler, the laboratory part from the sample's own reads) and puts SEQ_REFERENCE_RULE, one line per sequencing instrument, in the bundle as reference_rule; numbers are unchanged.
+
+### stage_metaa_atlas.py::sequencing_reference.fix
+Inside sequencing_reference: one reading's state. If the reading holds a value and its state is missing or the legacy 'untared', the state becomes SEQ_REFERENCE_STATE and the reading's name is recorded as changed; a reading not read is left as it is.
+
 ### stage_metaa_atlas.py::derived_held
 
 Met-A at a cell's held identity sites against the level derived from M alone: held sites are those where the
@@ -2760,6 +2785,9 @@ must not draw.
 The report's IAM's Law Sphere section (edit 206): every Law Sphere output for the whole sample and by job, beside its healthy
 (law) value, its unit and its basis (derived, calculated, measured, conjecture), and the whole-genome globe's numbers; 'not run' with
 the reason when the sample has no molecule file.
+
+### report_v4.py::_tl
+The words the report prints for what an atlas-referenced reading is referenced to: on sequencing, 'atlas ruler; laboratory part from this sample's own reads'; on arrays, the legacy 'untared'.
 
 ### report_v4.py::_uri
 A figure file as a data URI, so the page is self-contained.
