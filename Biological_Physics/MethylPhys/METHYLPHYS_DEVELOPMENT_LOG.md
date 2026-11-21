@@ -6821,3 +6821,6 @@ The public WHY_IAM.md is retired at the author's request; its content is kept in
 
 ### 2026-11-20 · OTH-086: The author's testing checklist and machine rules in the test design checklist
 The author's testing plan template, the 53-question checklist with its after-result list, the accepted methods for establishing a result, and the Google machine rules are added to CANON/TEST_DESIGN_CHECKLIST.md.
+
+### 2026-11-20 · GRP-019, GRP-017: correction, which healthy-pass readings were held out
+In healthy passes 5 to 7 only sorted-cell Met-A and the islands territory were read against the other donor half; whole-sample Met-A, Met-A in the mix, the domains and the C-Score pooled every donor of the cell, the input's own reads included, so those readings were in-reference. Healthy libraries the atlas does not contain (49 spent libraries of its own series, read as exploration) read Met-A whole 0.930 and domains 0.929 against the full atlas; the C-Score stays inside its derived limit in 45 of 49. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).

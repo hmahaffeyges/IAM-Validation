@@ -678,3 +678,11 @@ second reading's partial depth was not the cause of either laboratory's offset, 
 as the same-laboratory tare work found (DEV_ATLAS_V21_01.md). **Recorded, not scored:** the C-Score of all 12 within 0.9949 to 1.0085.
 The scorer's heading line says "second reading" (copied from the second reading's scorer); the readings and bars are the third reading's.
 Both series are spent. The same-laboratory tare's test on a laboratory not yet read is the Johns Hopkins CD4 test (running).
+
+### Correction (2026-11-20): which pass readings were held out
+
+Healthy passes 4 to 7 were run with `--dev-seq-ref-half` (each atlas input against the other sealed donor half). Two readings use that half: sorted-cell Met-A (`stage_metaa_atlas.read`, the donors mode) and the islands territory (`TERR_HALF`). The others, Met-A for the whole sample (`read_whole`), Met-A in the sample's mix (`read_in_mix`), the domains territory and the Met-A-side C-Score, take each cell's healthy level from `_col`, which pools every donor of the cell, the input's own reads included. Those readings in passes 5 to 7 are therefore in-reference, not held out, and are not evidence for a healthy band. Checked on the code as it stood on 2026-11-02 (`2e69c540`) and on main, and by reading one outside library (GSM5652214) against the full atlas and against each half: whole-sample Met-A 0.89447 and domains 0.92345 in all three. 
+
+A reading of healthy libraries the atlas does not contain, against the full atlas: the 49 libraries of the atlas's own GEO series that it never used (spent data, read 2026-11-19 as exploration; they are not a test set) read Met-A for the whole sample at a median of 0.930 and the domains at 0.929; the Met-A-side C-Score stays inside its derived limit in 45 of 49.
+
+Next: per-CpG donor-half tables from the atlas's 137 input files, so that every reading can be taken against the other donor half.

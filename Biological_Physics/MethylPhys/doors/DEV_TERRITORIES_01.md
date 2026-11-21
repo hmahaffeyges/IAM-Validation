@@ -164,3 +164,11 @@ planted change at full size: the slope of its island level change on delta is 1.
 rises at every step: 0.7248 at no change, 1.5342 at 0.01, 2.2959 at 0.02, 4.3476 at 0.05 and 7.0964 at 0.1. Whole-sample Met-A on the
 same reads moves from 1.1197 to 1.2682. Nothing is absorbed between the reads and the reading, and a gain of one point at the islands
 doubles their reading on this sample.
+
+### Correction (2026-11-20): which pass readings were held out
+
+Healthy passes 4 to 7 were run with `--dev-seq-ref-half` (each atlas input against the other sealed donor half). Two readings use that half: sorted-cell Met-A (`stage_metaa_atlas.read`, the donors mode) and the islands territory (`TERR_HALF`). The others, Met-A for the whole sample (`read_whole`), Met-A in the sample's mix (`read_in_mix`), the domains territory and the Met-A-side C-Score, take each cell's healthy level from `_col`, which pools every donor of the cell, the input's own reads included. Those readings in passes 5 to 7 are therefore in-reference, not held out, and are not evidence for a healthy band. Checked on the code as it stood on 2026-11-02 (`2e69c540`) and on main, and by reading one outside library (GSM5652214) against the full atlas and against each half: whole-sample Met-A 0.89447 and domains 0.92345 in all three. 
+
+A reading of healthy libraries the atlas does not contain, against the full atlas: the 49 libraries of the atlas's own GEO series that it never used (spent data, read 2026-11-19 as exploration; they are not a test set) read Met-A for the whole sample at a median of 0.930 and the domains at 0.929; the Met-A-side C-Score stays inside its derived limit in 45 of 49.
+
+Next: per-CpG donor-half tables from the atlas's 137 input files, so that every reading can be taken against the other donor half.

@@ -1,0 +1,12 @@
+held-out correction, 2026-11-20 (edit 221): which readings use --dev-seq-ref-half
+
+test library GSM5652214 (cardiomyocyte, outside the atlas), one command, three reads:
+read	metA_whole	domains	islands	cscore_whole
+full atlas	0.89447	0.92345	0.70795	1.0092
+half A	0.89447	0.92345	0.70399	1.0092
+half B	0.89447	0.92345	0.71555	1.0092
+
+49 spent libraries of the atlas's GEO series that it never used (read 2026-11-19, exploration), against the full atlas:
+metA_whole median	0.930
+domains median	0.929
+cscore within its derived limit	45 of 49

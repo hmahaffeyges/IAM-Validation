@@ -308,7 +308,8 @@ for f in [x for x in changed if x.startswith("Biological_Physics/MethylPhys/door
 _doors = [f for f in changed if f.startswith("Biological_Physics/MethylPhys/doors/") and f.endswith(".md")]
 if _doors:
     import datetime as _dt, subprocess as _sp
-    _d = _sp.run(["git", "log", "-1", "--format=%ad", "--date=format:%Y-%m-%d"], capture_output=True, text=True).stdout.strip()
+    import zoneinfo as _zi   # 2026-11-20: the Pacific day of the commit (the repo's days are Pacific, CANON/daylog.py today_pt)
+    _d = _dt.datetime.fromtimestamp(int(_sp.run(["git", "log", "-1", "--format=%at"], capture_output=True, text=True).stdout.strip() or 0), _zi.ZoneInfo("America/Los_Angeles")).date().isoformat()
     _p = os.path.join("CANON", "daylogs", _d + ".json")
     if not os.path.isfile(_p):
         fail.append(f"{_d}: this push changes {len(_doors)} record(s) but CANON/daylogs/{_d}.json does not exist - the day log is the "
