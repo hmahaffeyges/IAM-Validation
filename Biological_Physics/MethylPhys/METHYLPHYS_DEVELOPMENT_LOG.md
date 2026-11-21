@@ -6845,3 +6845,6 @@ The canary of the held-out switch (edit 222) on one atlas library read against t
 own cell in the mix from 1.038 to 0.761, while sorted-cell Met-A, already read at a common depth, held at 0.9507. Every cell's donor half is one library, so its
 pooled level, taken as exact, sits at 0 or 1 where it has few reads. Those readings now take their expectation from the reference's own reads at a common depth
 (counted_mix, the islands' rule), with equal site weights; on a thin-reference synthetic a healthy sample reads 1 within 0.02 and a planted loss still shows.
+
+### 2026-11-20 · GRP-019: the counted switch's module name
+Edit 226's switch referred to the Met-A module by a name the one button binds later, so its canary stopped before reading. It now uses the name the sequencing block already uses.

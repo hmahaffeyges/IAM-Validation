@@ -1360,7 +1360,7 @@ def main():
             _dsr = _SQd.deconv_reference_of(_dref or _SQd.DECONV_REF)
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
             if getattr(a, "dev_seq_counted_mix", False) or (getattr(a, "dev_seq_half_cols", None) and getattr(a, "dev_seq_ref_half", None)):   # 2026-11-20 (edit 226)
-                SA.COUNTED_MIX = True; o["counted_mix"] = "on: in-mix expectations from the reference's own reads at a common depth (edit 226)"
+                _SAd.COUNTED_MIX = True; o["counted_mix"] = "on: in-mix expectations from the reference's own reads at a common depth (edit 226)"
             if getattr(a, "dev_seq_half_cols", None) and getattr(a, "dev_seq_ref_half", None):   # 2026-11-20 (edit 222): every in-mix reading against one donor half
                 _hd = os.path.join(a.dev_seq_half_cols, f"array_sites_half{a.dev_seq_ref_half}")
                 if not os.path.exists(os.path.join(_hd, "mu_part1.parquet")): print(f"--dev-seq-half-cols: {_hd} has no mu_part1.parquet"); return 2
