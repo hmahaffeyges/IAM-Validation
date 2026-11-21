@@ -82,3 +82,92 @@ measurement, not a pass or fail; it becomes IAM-A's Normal mark when IAM-A is co
 The like-for-like numbers are those in the table above.
 
 **Power-system reading (analogy).** The pooled band is one system-wide voltage limit applied to every bus. The per-type band is each bus's own voltage schedule, with a deviation limit set from that bus's measured scatter. Where a schedule cannot be derived, the measured schedule stands in as a pseudo-measurement until it can be.
+
+## 2026-11-20 · The measured substitute for A8, in full: how it is built, the out-of-sample test, and why A8 is not yet derived
+
+This section exists so that a reader can check the substitute without asking anyone. It adds three things to the band comparison above.
+
+**1. How the type positions are built (`chain/Runtime Matrices/Seq_Atlas/law_sphere/type_positions_v1.json`, edit 212).**
+- **Data:** the one-button joint-run readings of the IAM Sequencing Atlas's own healthy libraries (GSE186458), 150 libraries in 56 cell types: 42 types with 3 libraries, 10 with 2, 4 with 1 (effector memory cd8 t cells, lung alveolar macrophages, naive cd4 t cells, naive cd8 t cells).
+- **Quantity:** each library's A_derived = its held error over IAM-A's derived line (the law's 0.04454 plus the measured slope on the loose share, section above).
+- **Position of a type:** the centre of its libraries' A_derived, with the relative uncertainty of that centre at k = 1 (GUM), stored with the number of libraries. Centres run from 0.804 to 1.171.
+- **Use in the chain:** the Law Sphere's hold alarm (`stage_law_sphere.hold_alarm`) compares a single-type library's held record with its own line multiplied by its type's position, judged against a measured floor (below). Mixtures are not read this way (NOT_RUN).
+- **Basis: measured.** It is a pseudo-measurement, the scheduled value a power-system operator substitutes for a lost meter, used until the value can be derived. It is never described as a derivation of A8.
+
+**2. The out-of-sample test (data: `doors/data/DEV_IAMA_BAND_01/hold_alarm_out_of_sample.csv`).**
+- **Libraries:** 41 healthy sequenced libraries in 21 types from the same GEO series that the atlas never used, so **none of them built the type positions**.
+- **Reading:** each library's held error on the Law Sphere's units, from its own molecules, against three references: the law alone (0.04454), IAM-A's own line alone, and the own line times the type's position (the substitute).
+- **Floor:** a block jackknife over the sphere's units, which carries the measured overdispersion between units (median standard error 0.034 in log), combined by GUM with the type position's own uncertainty. z = log(held / reference) over that floor.
+- **Result:**
+
+| Reference | Libraries within abs z <= 2 | Within 3 | Median abs z |
+|---|---|---|---|
+| The law alone | 24 of 41 (0.585) | 28 | 1.78 |
+| IAM-A's own line alone | 9 of 41 (0.22) | 17 | 3.53 |
+| Own line x type position (the substitute) | **40 of 41 (0.98)** | **41** | **0.98** |
+
+  The one library past 2 is pancreatic acinar, z +2.12. The substitute predicts unseen donors' held records within their measured uncertainty; the law alone and the line alone do not, which is A8 showing.
+- **Earlier step on the same libraries (exploration):** the spread of the sphere's held error over each reference (sd of log) fell from 0.139 (law) to 0.102 (own line) to 0.051 (substitute).
+- **Limits:** one sequencing source; the between-laboratory term is not in the floor; 4 types rest on one library; spent data, so this is exploration, not commissioning.
+
+**3. Why A8 is not yet derived: every candidate cause tested so far.** The derived part of IAM-A (the hold from M and the two-coin restore) predicts one held error for every cell. Healthy types sit at their own level, so the law is missing a per-type term (A8). Each row below was tested as that term or is listed to be. Status only: each result's numbers are in the project's findings ledger under the F-numbers given, and are published here only with their scripts, so that no number on this page lacks a committed derivation.
+
+| Candidate cause of A8 | Where it would enter IAM's Law | Status | Findings |
+|---|---|---|---|
+| Coin size (dG_ATP) | push = coins x M | closed | F026, F195 |
+| Temperature | M = dG_ATP / RT | closed | F195 |
+| Cell division rate | copy layer | closed | - |
+| Age within a type |  | closed | F034, F226 |
+| Eraser share by 5hmC (TAB-seq) and TET knockouts | eraser_share | closed | F031 |
+| Writer precision by type | D (selection) | closed | - |
+| Open-chromatin extent (traffic as extent) |  | closed | F035, F181 |
+| Packing (ChromHMM packed share) |  | closed | F037 |
+| Double loss, run lengths, damaged minority | coupling, CP1 | closed | F048 |
+| Location in late-replicating DNA | copy timing | closed | F168, F170 |
+| Tissue oxygen | loss rate | closed | F192, F193 |
+| Hormone and sugar uptake (GLUT4, INSR) |  | closed | F204 |
+| Synchronous orders (stretch or region rewrites) |  | closed | F200 |
+| Replication-independent histone H3.3 |  | closed | F218 |
+| Immediate-early (activity) genes |  | closed | F225 |
+| Within-type asynchrony |  | closed | F205 |
+| Cell lifespan across tissues |  | closed | F224 |
+| Donor effect |  | closed | F226 |
+| Repeats in unused dense tiles |  | closed | F227 |
+| Coupling (losses next to each other), corrected | coupling-A | closed | F200 |
+| Duty-cycle crew form |  | closed | - |
+| Own-programme dense places |  | closed | F220 |
+| Unused islands (written in no type) | write layer | closed | F241 |
+| Finite-time price (restore window by type) | the push family: a shorter restore window delivers less of each coin (the author's orders / duty-cycle idea) | closed | F249 |
+| Eraser route (islands gain vs held loss) | eraser_share, eraser_clean | lead or met | F195, F196, F228, F240 |
+| Crew expression, DNMT1 + UHRF1 RNA | restore rate g | lead or met | F201 |
+| Activation history, asynchronous orders | orders retarget the record | lead or met | F002, F013, F198, F200 |
+| Slow residue per day spent ordered |  | lead or met | F222, F223 |
+| Clock sites (call-up count) | clock layer | lead or met | F235 |
+| Dense-over-sparse held error (feeder slope) | hold by CpG density | lead or met | F219, F221 |
+| Open-chromatin held floor | hold layer | lead or met | F208 |
+| Delivery share (gentleness of restores) | phi, push | lead or met | F210, F211, F212, F242 |
+| Processive crew (recruitment saving) |  | lead or met | F216 |
+| Whole held record offset (Law Sphere, atlas side) | push by type | lead or met | F240, F242 |
+| Input fingerprints on three readings (push, eraser, writer) | held, block gain, island gain | lead or met | F243 |
+| One lever at a time in the simulator, with the pair triple's Koide reading | held, strays, U/H/M, Koide Q, angle, delta | lead or met | F244 |
+| Coins per restore by type (adenylate kinase away from equilibrium) | coins | candidate (untested) | F240 |
+| Restore and loss RATES by type (A8R) | g and f | candidate (untested) | F190 |
+| Double-strand (hairpin) snapshot by type | maintenance vs de novo in one sample | candidate (untested) | - |
+| Traffic as a RATE (not extent) |  | candidate (untested) | - |
+| Crew PROTEIN by type: DNMT1, UHRF1 | restore rate g | candidate (untested) | F201 |
+| Replication-independent DNMT1 recruitment (UHRF1 ubiquitylated H3, the backup mode) | restore in resting cells | candidate (untested) | - |
+| USP7 (deubiquitylates H3; helps and limits DNMT1) | restore rate g | candidate (untested) | - |
+| LIG1 and PAF15 (fork-coupled recruitment) | restore during copying | candidate (untested) | - |
+| H3K9me3 coverage (boosts UHRF1) | restore by region | candidate (untested) | - |
+| DNMT3A/3B (de novo backup; also at repair sites) | write layer and repair | candidate (untested) | - |
+| DNA damage and repair synthesis by type (restore at repair patches) | a loss-and-restore cycle without division | candidate (untested) | - |
+| Methylation potential SAM/SAH by tissue (MAT2A, AHCY) | the methyl donor's pressure | candidate (untested) | F026 |
+| Adenylate energy charge by tissue | coins per restore | candidate (untested) | - |
+| Light (UV) damage written by the cell, partly unrepairable | a record copied forward, not restored | candidate (untested) | F160 |
+| Restore speed vs energy vs error (speed-dissipation-error tradeoff) | how gently each restore is made | candidate (untested) | - |
+| UHRF1 sensing accuracy at the half-marked site (energy-speed-accuracy of sensing) | the reader that finds a lost mark | candidate (untested) | - |
+| Barrier hold vs paid pump (Kramers escape) | whether part of the hold is a wall, not a pump | candidate (untested) | - |
+| Opposite-value overwrite (flip) share by type | the price per held mark: erase-then-remark cycles cost about four times a restore | candidate (untested) | - |
+| 5hmC in neurons | meter | not assessed | - |
+
+The leads point to the hold itself (how well each type holds even where access is easiest), in the direction of the push family. The derivation route the long form names, the finite-time price of each restore, needs restore speeds measured by healthy cell type, which are not openly available. Until then the measured position stands in, labelled as measured, tested out of sample, and replaced as soon as a derivation passes.

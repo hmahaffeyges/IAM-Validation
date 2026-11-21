@@ -1,0 +1,34 @@
+{
+ "about": "summary written by the hold-alarm run (Google, 2026-11-20) on 41 never-used GSE186458 libraries; references: law, IAM-A's own line, own line x type position (the substitute)",
+ "law": {
+  "gum_share_within_2": 0.585,
+  "gum_share_within_3": 0.683,
+  "gum_median_abs_z": 1.78,
+  "median_se_jk": 0.034,
+  "sd_log_ratio_sphere": 0.1391
+ },
+ "line": {
+  "gum_share_within_2": 0.22,
+  "gum_share_within_3": 0.415,
+  "gum_median_abs_z": 3.53,
+  "median_se_jk": 0.034,
+  "sd_log_ratio_sphere": 0.1023
+ },
+ "pseudo": {
+  "gum_share_within_2": 0.976,
+  "gum_share_within_3": 1.0,
+  "gum_median_abs_z": 0.98,
+  "median_se_jk": 0.034,
+  "sd_log_ratio_sphere": 0.0511
+ },
+ "type_positions": {
+  "types": 56,
+  "libraries": 150,
+  "centre_min": 0.804,
+  "centre_max": 1.171
+ },
+ "worst_substitute": {
+  "cell": "pancreatic acinar",
+  "z": 2.12
+ }
+}

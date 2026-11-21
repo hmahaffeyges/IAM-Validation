@@ -1,0 +1,42 @@
+gsm,cell,z_law,z_line,z_pseudo,ratio_law,ratio_line,ratio_pseudo
+GSM5652197,pancreas endothelium,1.74,4.61,0.82,1.0735,1.2063,1.0492
+GSM5652211,smooth muscle,11.52,2.52,1.97,1.2522,1.0505,1.0962
+GSM5652214,cardiomyocyte,-0.29,2.46,0.7,0.9893,1.0966,1.0403
+GSM5652215,cardiomyocyte,0.34,2.36,1.07,1.0182,1.1338,1.0756
+GSM5652217,cardiomyocyte,-0.01,3.12,0.7,0.9998,1.0922,1.0361
+GSM5652222,oligodendrocytes,-3.33,1.76,0.45,0.9115,1.0503,1.0231
+GSM5652226,cortical neurons,-8.63,-4.68,-1.12,0.7268,0.841,0.9392
+GSM5652227,cortical neurons,-7.76,-3.87,-0.97,0.7119,0.844,0.9426
+GSM5652228,cortical neurons,-6.94,-3.64,-0.98,0.7197,0.8414,0.9397
+GSM5652229,cortical neurons,-8.53,-4.7,-1.19,0.7237,0.8367,0.9344
+GSM5652230,cortical neurons,-6.29,-3.55,-0.98,0.7345,0.8404,0.9385
+GSM5652236,hepatocyte,-3.38,-4.27,-1.47,0.9476,0.9344,0.9357
+GSM5652237,hepatocyte,-1.56,-1.53,-0.67,0.9666,0.9672,0.9685
+GSM5652238,hepatocyte,-1.4,1.91,1.25,0.9516,1.0696,1.0711
+GSM5652242,pancreatic duct,-0.25,1.49,0.39,0.9837,1.1025,1.0306
+GSM5652246,pancreatic acinar,7.82,2.19,2.12,1.2073,1.0542,1.1086
+GSM5652261,kidney tubular epithelium,0.18,3.53,1.55,1.0081,1.1697,1.1001
+GSM5652262,kidney tubular epithelium,0.21,4.01,1.27,1.0068,1.1378,1.07
+GSM5652263,kidney tubular epithelium,-1.68,2.25,0.31,0.943,1.0818,1.0174
+GSM5652270,fallopien tubes epithelium,-0.04,0.97,-0.04,0.9987,1.0329,0.9979
+GSM5652277,cd4 t cells,-0.5,3.5,1.6,0.9782,1.1684,1.1061
+GSM5652278,cd4 t cells,-2.1,1.63,0.41,0.8996,1.0855,1.0277
+GSM5652307,monocytes,-2.8,1.46,0.61,0.9004,1.0564,1.0349
+GSM5652321,tongue epithelium,1.98,4.65,0.62,1.0697,1.1714,1.0342
+GSM5652330,tongue epithelium,5.62,5.41,0.75,1.1853,1.1777,1.0398
+GSM5652331,tongue epithelium,7.01,5.99,0.54,1.1937,1.1632,1.0269
+GSM5652332,tongue epithelium,2.54,5.09,0.04,1.0654,1.1351,1.0021
+GSM5652333,tongue epithelium,2.35,5.69,0.21,1.0573,1.1443,1.0103
+GSM5652334,tonsil pharyngeal epithelium,5.76,2.87,0.22,1.2045,1.097,1.0125
+GSM5652341,prostate epithelium,-5.76,-0.51,-1.61,0.8417,0.9849,0.9198
+GSM5652345,bladder epithelium,-0.41,2.74,0.11,0.9841,1.1147,1.0066
+GSM5652353,breast basal epithelium,-1.88,0.35,0.26,0.9016,1.0193,1.0181
+GSM5652357,lung alveolar epithelium,1.18,3.98,1.47,1.0449,1.1597,1.0867
+GSM5652358,pancreatic duct,0.4,2.14,0.55,1.0191,1.1078,1.0355
+GSM5652368,gastric antrum epithelium,1.85,3.11,1.04,1.085,1.1476,1.0659
+GSM5652369,gastric antrum epithelium,1.56,4.31,1.22,1.0515,1.149,1.0672
+GSM5652374,colon epithelium,1.78,6.33,1.35,1.0257,1.0943,1.0623
+GSM5652376,colon epithelium,-1.62,6.53,1.19,0.9798,1.0858,1.054
+GSM5652377,colon epithelium,-0.55,6.24,1.75,0.9903,1.1161,1.0834
+GSM5652378,small intestine epithelium,0.96,6.56,1.4,1.0185,1.1332,1.0669
+GSM5652382,small intestine epithelium,-0.41,6.27,1.17,0.9926,1.1211,1.0556
