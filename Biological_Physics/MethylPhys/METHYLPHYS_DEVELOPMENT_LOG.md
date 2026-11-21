@@ -6927,3 +6927,6 @@ _Written after midnight from the day's record (the chat walked line by line, 34 
 - SP1RK2 (reverse Koide follow-up, exploration): constitutive sites and each type's held peak against IAM's Law (37152d5a).
 - SP1SIMK (the cell simulator, one lever at a time with Koide readings, exploration): the push family's members leave identical fingerprints; the pair triple separates restore completion from the eraser.
 - WGGLOBE (the sample's whole-genome globe): it was switched on before a GEO file was fetched, so it never ran on GEO files; now it does (41a43d17), and on mixtures too (7b993ff7).
+
+### 2026-11-21 · GRP-019: the three Met-A readings on sequencing explained in the SOP and the Decoder
+Sorted-cell Met-A, Met-A for each cell in the mix and whole-sample Met-A use different sites and different healthy expectations, so they can differ on one library; the SOP and the Decoder now say how, from one text in the chain (`stage_metaa_atlas.METAA_SEQ_READINGS`). Whole-sample Met-A stays development while the offset on never-used libraries is tested.

@@ -1069,6 +1069,22 @@ The bundle carries this table as `reference_rule`, and each atlas-referenced rea
 reads (no same-run healthy tare)". The word "untared" in older bundles, and the optional same-run tare in the code, are left from the array method
 this rule retired; on sequencing neither applies, and "untared" never meant a missing step. Group-A alone compares groups.
 
+### The three Met-A readings on a sequenced sample, and why they can differ on one library
+
+Met-A asks whether a cell's methylation record has become more disordered than a healthy cell of the same type holds it (normalized methylation entropy against a cell-type-matched healthy reference). On a sequenced sample the chain reads it three ways. Each uses a different set of sites and a different healthy expectation, so on one library the three need not agree.
+
+| Reading | Sites read | Healthy expectation | Question it answers |
+|---|---|---|---|
+| Sorted-cell Met-A | The identity sites of the library's own cell type (Met-A's site rule on IAM-Atlas v2.1) | That type's healthy people in the IAM Sequencing Atlas: each person's expected disorder at the sample's own read depth, averaged over the people, so the differences between healthy people enter as they are | Has this cell type's identity record moved? |
+| Met-A for each cell in the mix | Each found cell's identity sites | The atlas mixed in the sample's own cell shares (IAM-Deconvolver) at those sites | In a mixed sample, which cell has moved? |
+| Whole-sample Met-A | Every IAM-Atlas v2.1 site, each weighted by how firmly a healthy sample of this mix holds it, \|0.5 - e\| | The atlas mixed in the sample's own cell shares, each type's level pooled over its healthy people | Has the sample as a whole departed? |
+
+**Why "whole sample" on a sorted library.** The name comes from blood, where a sample is a mix of cells. On a sorted library the same route still runs, with the IAM-Deconvolver's shares: most of the share goes to the library's own type and a few percent to close relatives (on a sorted heart-muscle library, for example, a few percent to lung epithelium and heart fibroblasts). Sorted-cell Met-A uses the library's own type only.
+
+**Status.** Whole-sample Met-A is development. On healthy atlas libraries never used to build the reference it reads below sorted-cell Met-A in most types; two causes are being tested (the pooled healthy expectation, and the mix weights on a sorted library), and the measurements are in the development log.
+
+Source: `stage_metaa_atlas.METAA_SEQ_READINGS` (the SOP prints the same text).
+
 ## Sex and the X chromosome, in every instrument
 
 <!-- SEX-SECTION:BEGIN -->

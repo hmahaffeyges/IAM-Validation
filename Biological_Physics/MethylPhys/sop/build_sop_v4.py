@@ -14,6 +14,9 @@ def _seq_ref_rows():   # 2026-11-20 (edit 225): the sequencing reference table, 
     import importlib.util as _u; sp = _u.spec_from_file_location("_sma", os.path.join(CH, "stage_metaa_atlas.py")); src = open(sp.origin, encoding="utf-8").read()
     i = src.find("SEQ_REFERENCE_STATE = "); j = src.find("SEQ_ATLAS = None"); ns = {}; exec(src[i:j], ns); R = ns["SEQ_REFERENCE_RULE"]
     return ["| Reading | Referenced to |", "|---|---|"] + [f"| {k} | {v} |" for k, v in R.items() if k not in ("rule",)] + ["", R["rule"]]
+def _metaa_three():   # 2026-11-21 (edit 234): the three Met-A readings on sequencing, read from the chain, never typed twice
+    import importlib.util as _u; sp = _u.spec_from_file_location("_sma", os.path.join(CH, "stage_metaa_atlas.py")); src = open(sp.origin, encoding="utf-8").read()
+    i = src.find("METAA_SEQ_READINGS = "); j = src.find("\n", i); ns = {}; exec(src[i:j], ns); return ns["METAA_SEQ_READINGS"].rstrip("\n").split("\n")
 def text():
     K = J(os.path.join(ROOT, "CANON", "commissioning.json"))["instruments"]; F = J(os.path.join(CH, "FROZEN_INPUTS_v4.json"))["files"]
     S = J(os.path.join(CH, "chain_sequence.json")); SH = sorted(J(os.path.join(CH, "Runtime Matrices", "IAM_A_SelfRef", "shape_reference_v1.json"))["cells"])
@@ -56,7 +59,7 @@ def text():
           "There is no list of approved laboratories, and no reading is tared with same-run or same-laboratory healthy samples: a laboratory rarely has three healthy samples of the same cell, "
           "and samples labeled healthy cannot be trusted to be. Every reading is referenced to the sample itself, the atlas, or the law, and every laboratory or library difference "
           "is measured from the sample's own reads. On sequencing (the chain's own table, `stage_metaa_atlas.SEQ_REFERENCE_RULE`, also in every bundle as `reference_rule`):", "",
-          ] + _seq_ref_rows() + ["",
+          ] + _seq_ref_rows() + [""] + _metaa_three() + ["",
           "**Specimens intake accepts:** " + ", ".join(f"`{x}`" for x in sorted(set(_S0.ACCEPTED_SPECIMENS.values()))) + "; and an "
           "isolated, sorted or purified cell of any IAM-Atlas v2.1 type, read by Met-A against the atlas and flagged as not commissioned.", "",
           "## 4c. Public samples and whole series", "",
