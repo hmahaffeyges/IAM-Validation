@@ -1,0 +1,31 @@
+{
+ "kind": "known-answer reading record",
+ "library": "GSM5652214 (cardiomyocyte, spent; the chain's known-answer library)",
+ "read": "2026-11-22, the molecule pass, one button on Google",
+ "source_bundle": "bucket molpass/mp_GSM5652214.json",
+ "iam_a_islands": {
+  "n_probes": 66986,
+  "n_with_cpg_index": 66986,
+  "held_iso": 2,
+  "held_opp": 36,
+  "held_err": 0.05555555555555555,
+  "gain_iso": 741,
+  "gain_opp": 171550,
+  "gain_err": 0.004319440396385894,
+  "n_sites": 66986
+ },
+ "iam_a_count": {
+  "gain_err": 0.014103255350146544,
+  "gain_opp": 4731319,
+  "held_err": 0.04237530142627442,
+  "held_opp": 10018619,
+  "loose_share": 0.12683471601786853
+ },
+ "met_a_whole": {
+  "A": 0.98413,
+  "se_over_sites": 0.001487,
+  "sites": 790761,
+  "shift_per_1pct_loss": 0.14743,
+  "effective_sites": 716172
+ }
+}

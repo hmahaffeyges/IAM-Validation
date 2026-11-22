@@ -610,7 +610,7 @@
      ],
      [
       "Definition",
-      "Whole-sample Met-A: every IAM-Atlas v2.1 site (~790,000), each weighted by how firmly a healthy sample of this mix holds it, measured against the atlas mixed in the sample's own Deconvolver shares (each cell type pooled over its healthy people) — disorder at identity sites over the atlas's sites."
+      "Whole-sample Met-A: every IAM-Atlas v2.1 site (790,761 in the test library), each weighted by how firmly a healthy sample of this mix holds it, measured against the atlas mixed in the sample's own Deconvolver shares (each cell type pooled over its healthy people) — disorder at identity sites over the atlas's sites."
      ],
      [
       "What it does",
@@ -626,7 +626,7 @@
      ],
      [
       "Where it is read",
-      "Not a single locus: read across the atlas's roughly 790,000 identity CpG sites genome-wide (IAM-Atlas v2.1), each weighted by how firmly a healthy sample holds it."
+      "Not a single locus: read across the atlas's identity CpG sites (790,761 read in the test library) genome-wide (IAM-Atlas v2.1), each weighted by how firmly a healthy sample holds it."
      ],
      [
       "Where IAM's Law enters",
@@ -864,7 +864,7 @@
     "fields": [
      [
       "How it works",
-      "Met-A = the sample's methylation disorder (Shannon entropy of the CpG's methylated fraction) over the disorder a healthy cell of the same composition shows at the same read depth. Three readings: sorted-cell Met-A (the library's own type's identity sites, against each healthy person of that type separately, averaged); Met-A for each cell in the mix (each found cell's identity sites against the atlas in the sample's shares); whole-sample Met-A (every IAM-Atlas v2.1 site, about 790,000, weighted |0.5 - e|, against the atlas in the sample's shares). 1 is healthy; above 1 the record is more disordered than healthy holds it, below 1 more ordered."
+      "Met-A = the sample's methylation disorder (Shannon entropy of the CpG's methylated fraction) over the disorder a healthy cell of the same composition shows at the same read depth. Three readings: sorted-cell Met-A (the library's own type's identity sites, against each healthy person of that type separately, averaged); Met-A for each cell in the mix (each found cell's identity sites against the atlas in the sample's shares); whole-sample Met-A (every IAM-Atlas v2.1 site, 790,761 in the test library, weighted |0.5 - e|, against the atlas in the sample's shares). 1 is healthy; above 1 the record is more disordered than healthy holds it, below 1 more ordered."
      ],
      [
       "Why",

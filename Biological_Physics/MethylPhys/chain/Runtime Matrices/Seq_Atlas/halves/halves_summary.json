@@ -1,0 +1,19 @@
+{
+ "inputs": 137,
+ "cells": 48,
+ "halves_csv": "halves.csv",
+ "min_reads_each_half": 10,
+ "window": 50,
+ "read_every_half": 22033507,
+ "cpgs": 28217448,
+ "sets": {
+  "isl_05": 4039,
+  "isl_10": 124282,
+  "isl_20": 293980,
+  "domains": 2675894
+ },
+ "rule": "never-marked: every cell p + 2 sd < T, sd^2 = counting (binomial at the pooled reads) + donor variance (donor-half differences minus counting, 50-CpG windows); domains: mean >= 0.75, every cell p - 2 sd >= 0.2, one cell's interval inside [0.2, 0.7)",
+ "not_included": "granulocytes (no .beta input in the bucket); megakaryocytes (identification only)",
+ "kind": "IAM Sequencing Atlas halves and noise summary (seq_halves.py on Google, 2026-11-20)",
+ "source": "bucket halves/"
+}
