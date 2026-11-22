@@ -209,6 +209,41 @@
       "Is this an epigenetic clock?",
       "It reads the published epiTOC2 mitotic-clock sites on single molecules; it is a lead for mitotic age, not a calibrated age.",
       "Teschendorff 2020; register C3"
+     ],
+     [
+      "What exactly does this instrument measure?",
+      "It reads methylation 'held' and 'gain' errors directly on single DNA molecules at 163 published mitotic-clock CpGs (epiTOC2, Teschendorff 2020) plus 25 CpGs on either side of each — 3,107 CpGs total. Gain at these sites is used as a proxy for how many times the cells have divided.",
+      "field_term and field_how"
+     ],
+     [
+      "Is this a validated epigenetic clock that gives an age in years?",
+      "No. It reads the published mitotic-clock sites on single molecules, but the packet describes it as an open lead for mitotic age, not a calibrated clock with an age model.",
+      "existing_qa and rule limits, item 1"
+     ],
+     [
+      "What are the known limitations of this instrument?",
+      "Three: (1) it has no age calibration yet — it's an open lead, not a finished clock; (2) it shares CpG addresses with the island-methylation instrument, so general island gain can slightly inflate its reading; (3) a proposed weak link between this clock and each methylation type's level has a confidence interval that reaches zero, so it isn't established.",
+      "rules[0].limits"
+     ],
+     [
+      "What counts as a healthy reading on this clock?",
+      "Not yet recorded: the packet proposes that a healthy reading would be gain above the baseline set by the island-methylation meter, but this is described as only a lead — no settled healthy range has been determined.",
+      "outputs[0].healthy_how"
+     ],
+     [
+      "Does using this instrument require an external model of cell division rate or the donor's age?",
+      "No modeling is needed to take the raw reading — gain is read directly on molecules against the library's own measurement scale. But because the clock isn't calibrated, turning that reading into an actual division count or biological age isn't yet possible.",
+      "rules[0].why and rules[0].limits, item 1"
+     ],
+     [
+      "Could general background methylation gain be mistaken for a mitotic-division signal?",
+      "Yes. The clock shares some CpG addresses with the island-methylation instrument, so when islands gain methylation generally, that overlap raises the clock's reading somewhat too, independent of actual cell division history.",
+      "rules[0].limits, item 2"
+     ],
+     [
+      "What is the input to this instrument, and is it well characterized?",
+      "Not yet recorded: the input is described only as 'fixed addresses that gain with each division,' with the limits field explicitly marked as open and not yet documented in the records.",
+      "inputs[0].plain and inputs[0].limits"
      ]
     ],
     "status": "development (an open lead); healthy bar owed"

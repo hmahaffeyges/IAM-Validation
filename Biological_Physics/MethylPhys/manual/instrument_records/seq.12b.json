@@ -208,6 +208,41 @@
       "Why another number besides Met-A?",
       "Met-A says how much disorder rose; the headroom says how close to complete disorder, which read depth would otherwise distort.",
       "ceiling record"
+     ],
+     [
+      "What is this instrument actually telling us?",
+      "It shows how far a sample's methylation disorder is from the most disordered state that sample's own cells could reach at its particular sequencing depth. A result near 1 means the sample is still near the healthy baseline; a result near 0 means it has gone almost all the way to complete disorder.",
+      "job; rule description"
+     ],
+     [
+      "How is the headroom value calculated?",
+      "Headroom equals (the complete-disorder value minus the sample's reading) divided by (the complete-disorder value minus 1). The complete-disorder value is worked out at the sample's own read depth, and the reading used is either the main disorder score or the islands reading.",
+      "field_how; rule"
+     ],
+     [
+      "Why not just use the main disorder score on its own?",
+      "The main disorder score tells you how much disorder has increased, but it doesn't say how close the sample is to total disorder, because that distance depends on sequencing depth. This headroom measure corrects for depth so the two numbers answer different questions.",
+      "existing_qa"
+     ],
+     [
+      "What counts as a healthy versus concerning result?",
+      "A reading of about 1 is considered healthy (close to the normal, ordered floor). As the value drops toward 0, the sample is closer to the most disordered state its cells can reach. In development testing, the main-score version read 1.18, and the islands version read about 1.01, both flagged as OK.",
+      "outputs: healthy_how for both Met-A and islands versions"
+     ],
+     [
+      "Why did the main-score version read 1.18 instead of 1 in testing?",
+      "It inherits Met-A's expectation: in that test whole-sample Met-A read 0.894 (before Met-A's mix rule), so the ceiling distance read above 1. The instrument itself behaved as designed; its healthy range is set from the never-used libraries in the healthy-range step.",
+      "outputs: Met-A distance to ceiling healthy_how and limits"
+     ],
+     [
+      "What are the known limitations of this measure?",
+      "It depends entirely on the accuracy of the main disorder score's own expectations, so any bias there carries through. It places a sample's reading on a 0-to-1 scale but doesn't explain what caused that reading. It has not yet been tested against samples with known, confirmed abnormalities, and no healthy-range band has been set for the islands version.",
+      "rule limits; outputs limits for both Met-A and islands versions"
+     ],
+     [
+      "What inputs does it take, and has it been tested on samples with known departures?",
+      "Not yet recorded: no inputs of its own are listed (it reuses Met-A's reading and the depth-matched disorder ceiling), and it has not yet been read on samples with planted departures.",
+      "inputs (empty); rule limits, point (2)"
      ]
     ],
     "status": "development; follows Met-A's bar"

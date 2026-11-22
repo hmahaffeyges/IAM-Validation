@@ -8974,6 +8974,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 *Questions a researcher will ask:*
 
 - **Is this an epigenetic clock?** It reads the published epiTOC2 mitotic-clock sites on single molecules; it is a lead for mitotic age, not a calibrated age. *(Evidence: Teschendorff 2020; register C3)*
+- **What exactly does this instrument measure?** It reads methylation 'held' and 'gain' errors directly on single DNA molecules at 163 published mitotic-clock CpGs (epiTOC2, Teschendorff 2020) plus 25 CpGs on either side of each — 3,107 CpGs total. Gain at these sites is used as a proxy for how many times the cells have divided. *(Evidence: field_term and field_how)*
+- **Is this a validated epigenetic clock that gives an age in years?** No. It reads the published mitotic-clock sites on single molecules, but the packet describes it as an open lead for mitotic age, not a calibrated clock with an age model. *(Evidence: existing_qa and rule limits, item 1)*
+- **What are the known limitations of this instrument?** Three: (1) it has no age calibration yet — it's an open lead, not a finished clock; (2) it shares CpG addresses with the island-methylation instrument, so general island gain can slightly inflate its reading; (3) a proposed weak link between this clock and each methylation type's level has a confidence interval that reaches zero, so it isn't established. *(Evidence: rules[0].limits)*
+- **What counts as a healthy reading on this clock?** Not yet recorded: the packet proposes that a healthy reading would be gain above the baseline set by the island-methylation meter, but this is described as only a lead — no settled healthy range has been determined. *(Evidence: outputs[0].healthy_how)*
+- **Does using this instrument require an external model of cell division rate or the donor's age?** No modeling is needed to take the raw reading — gain is read directly on molecules against the library's own measurement scale. But because the clock isn't calibrated, turning that reading into an actual division count or biological age isn't yet possible. *(Evidence: rules[0].why and rules[0].limits, item 1)*
+- **Could general background methylation gain be mistaken for a mitotic-division signal?** Yes. The clock shares some CpG addresses with the island-methylation instrument, so when islands gain methylation generally, that overlap raises the clock's reading somewhat too, independent of actual cell division history. *(Evidence: rules[0].limits, item 2)*
+- **What is the input to this instrument, and is it well characterized?** Not yet recorded: the input is described only as 'fixed addresses that gain with each division,' with the limits field explicitly marked as open and not yet documented in the records. *(Evidence: inputs[0].plain and inputs[0].limits)*
 
 #### Input: clock sites
 
@@ -9684,6 +9691,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 *Questions a researcher will ask:*
 
 - **Why another number besides Met-A?** Met-A says how much disorder rose; the headroom says how close to complete disorder, which read depth would otherwise distort. *(Evidence: ceiling record)*
+- **What is this instrument actually telling us?** It shows how far a sample's methylation disorder is from the most disordered state that sample's own cells could reach at its particular sequencing depth. A result near 1 means the sample is still near the healthy baseline; a result near 0 means it has gone almost all the way to complete disorder. *(Evidence: job; rule description)*
+- **How is the headroom value calculated?** Headroom equals (the complete-disorder value minus the sample's reading) divided by (the complete-disorder value minus 1). The complete-disorder value is worked out at the sample's own read depth, and the reading used is either the main disorder score or the islands reading. *(Evidence: field_how; rule)*
+- **Why not just use the main disorder score on its own?** The main disorder score tells you how much disorder has increased, but it doesn't say how close the sample is to total disorder, because that distance depends on sequencing depth. This headroom measure corrects for depth so the two numbers answer different questions. *(Evidence: existing_qa)*
+- **What counts as a healthy versus concerning result?** A reading of about 1 is considered healthy (close to the normal, ordered floor). As the value drops toward 0, the sample is closer to the most disordered state its cells can reach. In development testing, the main-score version read 1.18, and the islands version read about 1.01, both flagged as OK. *(Evidence: outputs: healthy_how for both Met-A and islands versions)*
+- **Why did the main-score version read 1.18 instead of 1 in testing?** It inherits Met-A's expectation: in that test whole-sample Met-A read 0.894 (before Met-A's mix rule), so the ceiling distance read above 1. The instrument itself behaved as designed; its healthy range is set from the never-used libraries in the healthy-range step. *(Evidence: outputs: Met-A distance to ceiling healthy_how and limits)*
+- **What are the known limitations of this measure?** It depends entirely on the accuracy of the main disorder score's own expectations, so any bias there carries through. It places a sample's reading on a 0-to-1 scale but doesn't explain what caused that reading. It has not yet been tested against samples with known, confirmed abnormalities, and no healthy-range band has been set for the islands version. *(Evidence: rule limits; outputs limits for both Met-A and islands versions)*
+- **What inputs does it take, and has it been tested on samples with known departures?** Not yet recorded: no inputs of its own are listed (it reuses Met-A's reading and the depth-matched disorder ceiling), and it has not yet been read on samples with planted departures. *(Evidence: inputs (empty); rule limits, point (2))*
 
 #### Output: Met-A distance to ceiling
 
@@ -12082,6 +12096,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **How to rebuild it:** Read both files; compare at shared sites.
 - **History:** Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record.
 - **Files in the repository:** [run_sample.py](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py), [decoder_text.md](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/manual/decoder_text.md), [MethylPhys_CPG_SOP_v4.md](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md), [METHYLPHYS_DEVELOPMENT_LOG.md](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md)
+
+*Questions a researcher will ask:*
+
+- **What exactly is this test comparing?** It compares a later sample from a person against an earlier sample from that same person, looking at every CpG site that both samples happened to measure. *(Evidence: instrument record: field_how)*
+- **Why use the person's own earlier sample instead of comparing against a panel of healthy people?** Because the person acts as their own reference point, so a separate healthy reference group isn't needed for this comparison. *(Evidence: instrument record: rule 'why' explanation)*
+- **Is this comparison based on some established statistical law?** No. It is a comparison rule of the pipeline: the person's earlier sample serves as the reference; IAM's Law does not enter it. *(Evidence: instrument record: law field)*
+- **What are the limitations of this method that I should know about before relying on it?** Not yet recorded: the limits of serial comparison (how far apart the samples may be, and how depth differences are handled) have not been written for this instrument. *(Evidence: instrument record: rule 'limits' field)*
 
 ### 21. Candidates (catalogue): territory contrast; plasma fragment tail
 

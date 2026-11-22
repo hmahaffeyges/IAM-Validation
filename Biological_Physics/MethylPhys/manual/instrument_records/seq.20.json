@@ -72,7 +72,28 @@
      "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
      "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     ],
-    "questions": [],
+    "questions": [
+     [
+      "What exactly is this test comparing?",
+      "It compares a later sample from a person against an earlier sample from that same person, looking at every CpG site that both samples happened to measure.",
+      "instrument record: field_how"
+     ],
+     [
+      "Why use the person's own earlier sample instead of comparing against a panel of healthy people?",
+      "Because the person acts as their own reference point, so a separate healthy reference group isn't needed for this comparison.",
+      "instrument record: rule 'why' explanation"
+     ],
+     [
+      "Is this comparison based on some established statistical law?",
+      "No. It is a comparison rule of the pipeline: the person's earlier sample serves as the reference; IAM's Law does not enter it.",
+      "instrument record: law field"
+     ],
+     [
+      "What are the limitations of this method that I should know about before relying on it?",
+      "Not yet recorded: the limits of serial comparison (how far apart the samples may be, and how depth differences are handled) have not been written for this instrument.",
+      "instrument record: rule 'limits' field"
+     ]
+    ],
     "status": "not part of the sequencing readiness check (needs a prior sample of the same person)"
    }
   ],
