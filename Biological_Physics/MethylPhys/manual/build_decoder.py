@@ -48,6 +48,7 @@ def options():
     blk = src[i:j] if i >= 0 else ""; on = set(re.findall(r"a\.([a-z_]+)\s*=", blk))
     return sorted(rows), on
 
+sys.path.insert(0, H)
 def build():
     head, stages = parse(); inv = json.load(open(INV, encoding="utf-8"))
     key = {f"{f['file'].split('/')[-1]}::{x['function']}": x for f in inv["files"] for x in f["functions"]}
@@ -74,6 +75,8 @@ def build():
         out += ["## " + s["title"], "", s["prose"], ""]
         for k, txt in s["entries"].items():
             if k in key: out += [f"### `{k}`", "", txt, "", facts(key[k]), ""]
+    import instrument_records as _IR   # edit 243.7: every instrument's full record, inputs and outputs included
+    out += ["## Every sequencing instrument: full record, inputs and outputs", "", "Generated from the instruments database (manual/instrument_records/), never typed here.", ""] + _IR.markdown(level=3, io=True)
     return "\n".join(out).rstrip() + "\n", missing, unknown, undoc
 
 # ---- 2026-11-16 (author: the Decoder 'IS the CANON document for the chain code ... a researcher can take it and work out the chain and math

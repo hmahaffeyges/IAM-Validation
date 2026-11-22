@@ -130,6 +130,10 @@ def text():
           "- Clean clone: every chain change passes `release_check_v4.py` on a fresh clone, on a clean machine, before it is called tested.",
           "- One reading per instrument; no lines beyond Normal are printed until they are measured on the gauge.", "",
           "The earlier procedure, for chain v3, is kept as the record of how the chain was built: [MethylPhys_CPG_SOP_v3.md](MethylPhys_CPG_SOP_v3.md) (with its full version); neither is updated after 2026-11-12. This SOP is the one operating procedure.", ""]
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "manual")); import instrument_records as _IR   # edit 243.7
+    L += ["", "## 10. Every instrument's record", "", "Generated from the instruments database (manual/instrument_records/), never typed here: for each sequencing instrument, what it is in the field's terms, "
+          "how it measures, where IAM's Law enters, the tool it borrows, its credit, each rule's full record, the questions a researcher will ask with their answers and evidence, "
+          "and its files in the repository. Every input and output, with all their fields, is in the Decoder.", ""] + _IR.markdown(level=3, io=False)
     return "\n".join(L)
 if __name__ == "__main__":
     t = text()
