@@ -6936,3 +6936,62 @@ The sequencing report now prints, for every result, the field's name for the ins
 
 ### 2026-11-21 · GRP-019: Met-A's tare on sequencing (the Deconvolver's spill inside a tissue family)
 On 31 never-used healthy GSE186458 libraries of atlas types, whole-sample Met-A read a median 0.938 because the Deconvolver's near-miss spill onto near-identical references entered Met-A's expectation as real cells. Inside Met-A only, a share in the main cell's tissue family now counts as the main cell and other families count only at or above 0.05 (the Deconvolver's measured spill on pure libraries). Median 1.016 (sorted-cell 1.004), 27 of 31 within the GUM bar (each type's person-to-person spread from the held-out pass, Student's t coverage for small type counts); planted two-cell mixtures keep their mix. The Deconvolver and its reported shares are unchanged. Development, spent data.
+
+### 2026-11-21 · Day summary
+_Written after midnight from the day's record (the chat walked line by line, 17 checklist forms, the day's commits and the findings ledger), in the fixed outline; work in the private domains is kept off this public page._
+
+**Set out:**
+- Settle the one-way 6 % offset in whole-sample Met-A on sequencing (GRP-019) and centre it on 1 without changing the Deconvolver.
+- Measure every sequencing instrument's healthy centre and spread from held-out atlas libraries (pass 9) and from libraries never used to build the atlas.
+- Write every sequencing instrument's explanation once, in the field's terms, with the steps of IAM's Law it rests on and the credit for every borrowed method, and print it in the report, the SOP and the Decoder.
+- Start the new sequencing report: a PDF built from static figures and tables, every score beside its measured value and its normal operating range.
+
+**Ran, and how each came out:**
+- Own-type test on the 49 never-used libraries: with the whole-sample expectation's mix fixed to the library's own type the one-way offset disappears; the offset is the small shares the Deconvolver gives to relatives on a sorted library.
+- Share-rule test (support, lineage merge): neither rule separates real from spurious shares on split calls.
+- Planted mixtures (14 mixtures of two never-used libraries at known shares): the mix route reads correctly on true mixtures; near-pure samples read low.
+- Tare rule (Met-A's mix rule): shares in the main cell's tissue family count as the main cell, other families only at or above 0.05, the Deconvolver's own measured spill on pure libraries. Whole-sample Met-A on the 31 never-used atlas-type libraries moved from a median 0.938 to 1.016; 27 of 31 within each type's measured spread by the GUM. In the chain as 71d2275d, with a known-answer run: only Met-A's mix route moved, as predicted.
+- Label test on three libraries labelled podocytes that the Deconvolver calls tubular epithelium: reading against the label moved Met-A away from 1, so the label is flagged and never used.
+- Held-out pass 9: all 137 atlas inputs read against the other donor half; every levels reading centres on 1 (Met-A whole 0.994). The two halves mirror each other, so this design cannot resolve per-type centres; one pooled centre stands.
+- The 49 never-used libraries read again through the full chain on the current main, with every molecule count saved: cell types differ beyond their noise for IAM-A, run excess, copy timing, the islands meter and the Law Sphere's hold, so these get a normal operating range per type; Met-A, the territories, Coupling-A, the clock and the C-Scores get one pooled range.
+- The three Met-A readings on sequencing explained once in the chain and printed by the SOP and the Decoder (5eef178a); run-length excess fields reach single-type libraries (a37168db); every instrument explained in the report in the field's terms, with the steps of IAM's Law and the credits (520bd700).
+
+**Successes:**
+- Whole-sample Met-A on sequencing sits on 1 for never-used healthy libraries, with the Deconvolver untouched.
+- Every sequencing instrument has its explanation, physics and credit written once and printed everywhere from the same source.
+
+**Learned:**
+- The one-way offset was never thin donors: on a sorted library the Deconvolver's small shares to relatives entered the healthy expectation. Counting same-family spill as the main cell removes it.
+- The library's molecules side with the Deconvolver, not with its label, where the two disagree.
+- Some instruments differ between healthy cell types beyond their noise and need ranges per type; others do not.
+
+**Errors (the agent's own), and what caught each:**
+- The cell types used for the 49 never-used libraries in five findings were the Deconvolver's own calls, not the libraries' real types; caught by reading the molecule files' GEO names, corrected the same day.
+- A read-level marker route was built and run before the author was consulted; the author pointed out that the atlas and the Deconvolver already serve, and the route was closed with nothing of it entering the chain.
+- A molecule-level read was launched before its checklist passed; the form was completed before any result existed.
+- A pass-fail margin of 0.03 was chosen by hand; the author pointed to the agreed GUM rule and the results were rejudged by it.
+- A label-based naming step was added to the tare rule; its own test showed it wrong and it was removed before landing.
+
+**The author's instructions and corrections:**
+- Never stop or wait for the author; decide for the research and record every decision for review.
+- Bars come from measured uncertainty by the GUM, never a chosen number.
+- Every instrument that gives a 'what' must also give a 'where'.
+- The report is a professional PDF of static figures and tables that keeps every input and output, in the field's language, with IAM's scores beside the raw measurements and a normal operating range for each; the scoring is described as adopted from power-system practice (per-unit readings).
+- The work belongs to IAM; other groups' work is acknowledged as prior work, never as the source of IAM's.
+
+**Path changes:**
+- Met-A's share step is named Met-A's mix rule; 'tare' is kept for the final per-unit step.
+- The read-level marker route was closed.
+- The report builder is written new from a stored list of the author's requirements, not from the earlier HTML-era report code.
+
+**Data:**
+- IAM Sequencing Atlas (GSE186458, Loyfer et al. 2023) libraries, spent: 137 atlas inputs held out by donor half; 49 never-used libraries with their molecule files kept in the bucket; 14 planted mixtures built from them; test library GSM5652214.
+- The pediatric leukemia study (GSE116229): gene lists read for an independent check of the planned 'where' readings, acknowledged as prior work.
+
+**Machines:**
+- Google spot machines only (up to 32 at a time) for every read and test; GitHub runners for every chain edit's gate and smoke test. No calculation on the author's laptop.
+
+**Open at turnover:**
+- The molecule pass on the atlas's own 156 libraries: each molecule instrument's healthy centre and spread per cell type.
+- The 'where' stage; the Law Sphere's card inputs wired into its readings; the report's remaining pages; the sign-off audit; then the leukemia study.
+- Test ids worked today: GRP-019, GRP-017, OTH-069, DEV-SPHERE-01, PHY-035, DEV-IAMA-BAND-01.

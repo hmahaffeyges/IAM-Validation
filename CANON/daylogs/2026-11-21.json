@@ -1,0 +1,87 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-21",
+ "title": "Whole-sample Met-A centred on 1 by Met-A's mix rule; held-out pass 9; every instrument explained in the field's terms",
+ "set_out": "Settle the one-way offset in whole-sample Met-A on sequencing; measure every instrument's healthy centre and spread from held-out and never-used atlas libraries; write every instrument's explanation once in the field's terms; start the new sequencing report.",
+ "open_at_turnover": "The molecule pass on the atlas's own 156 libraries; the 'where' stage; the Law Sphere's card inputs wired into its readings; the report's remaining pages; the sign-off audit; then the leukemia study.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Met-A's mix rule (GRP-019)",
+     "what": "Same-family spill counted as the main cell in Met-A's healthy expectation; other families only at or above the measured 0.05.",
+     "status": "development",
+     "outcome": "31 never-used atlas-type libraries: median 0.938 to 1.016, 27 of 31 within the GUM bar; on main (71d2275d).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Own-type, share-rule and planted-mixture tests (GRP-019)",
+     "what": "The 49 never-used libraries read with the mix fixed to their own type, with two share rules, and 14 planted mixtures.",
+     "status": "diagnosis",
+     "outcome": "The one-way offset is the small shares to relatives on sorted libraries; the mix route reads true mixtures correctly.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Held-out pass 9 (GRP-019, GRP-017)",
+     "what": "All 137 atlas inputs read against the other donor half.",
+     "status": "development",
+     "outcome": "Every levels reading centres on 1 (Met-A whole 0.994); the halves mirror each other, so one pooled centre stands.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Which instruments need per-type ranges",
+     "what": "The 49 never-used libraries through the full chain on main with saved molecule counts.",
+     "status": "development",
+     "outcome": "IAM-A, run excess, copy timing, the islands meter and the Law Sphere's hold differ by type; the others take one pooled range.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "OTH-069: every instrument explained in the report",
+     "what": "Each instrument's field-language explanation, its steps of IAM's Law and its credits generated from the instruments database.",
+     "status": "structure",
+     "outcome": "On main (520bd700); the three Met-A readings explained once (5eef178a); run-length fields on sorted libraries (a37168db).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy)"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The offset was the mix, not thin donors",
+     "what": "On a sorted library the Deconvolver's small shares to relatives entered the healthy expectation.",
+     "status": "diagnosis",
+     "outcome": "Counting same-family spill as the main cell removes it; the molecules side with the Deconvolver where a label disagrees.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "loss",
+   "heading": "Our own mistakes and what caught them",
+   "entries": [
+    {
+     "title": "Cell types taken from the Deconvolver's calls",
+     "what": "Five findings used the chain's own calls as the 49 libraries' types instead of their GEO names.",
+     "status": "failed",
+     "outcome": "Caught by reading the molecule files' GEO names; corrected the same day.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}
