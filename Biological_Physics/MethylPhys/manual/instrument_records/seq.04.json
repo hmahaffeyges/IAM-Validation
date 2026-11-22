@@ -1,0 +1,1819 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.04",
+ "record": {
+  "cosmo_tool": "Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.",
+  "credit": "",
+  "field_how": "On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbours): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).",
+  "field_term": "Maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation",
+  "id": "seq.04",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "M = 20.94, \"the coin in kicks\""
+     ],
+     [
+      "In the field's terms",
+      "ATP free energy expressed in thermal-energy units (M = dG_ATP / R T)"
+     ],
+     [
+      "Definition",
+      "M = dG_ATP / (R T) = 20.94: the free energy delivered by one ATP (54 kJ/mol at 310.15 K), expressed as a multiple of the thermal energy k_B T. It is described as the coin's size in thermal kicks."
+     ],
+     [
+      "What it does",
+      "It enters IAM's Law as 'the coin in kicks' — the reserve-to-noise ratio that sets how large the maintenance 'payment' is compared with the constant thermal kicks hitting every mark."
+     ],
+     [
+      "Why the instrument needs it",
+      "It sets the coin's size in thermal kicks for IAM-A (how well the cell holds its record, against its own physics). From it the register derives the floor eps_floor = 1/(1 + e^M) (the floor (the best one coin can hold against heat), DERIVED): the best one coin could ever do."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed directly from measured inputs: M = dG_ATP / (R T) = 54,000 / (8.314 x 310.15) = 20.94, using dG_ATP = 54 kJ/mol (the coin's size (the energy of one ATP), measured, nameplate) and T = 310.15 K (the cell's temperature, measured)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "M enters IAM's Law at link 2 (long form section 2, 'the price': k_BT ln 2 per bit at the surface's own temperature). From M the register derives the floor eps_floor = 1/(1 + e^M) (the floor (the best one coin can hold against heat), DERIVED). M itself rests on two measured inputs: dG_ATP = 54 kJ/mol (the coin's size (the energy of one ATP), measured, nameplate) and T = 310.15 K (the cell's temperature, measured)."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is fixed at M = 20.94, set from the measured nameplate value dG_ATP = 54 kJ/mol (the coin's size (the energy of one ATP)) at the measured cell temperature T = 310.15 K; source_kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "dG_ATP"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "M by itself only sets the idealized floor (eps_floor = 1/(1 + e^M), the floor (the best one coin can hold against heat)) — 'the best one coin could ever do'; even at that floor noise still wins once in e^20.94 tries, so M does not by itself describe what an actual cell holds."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "M = 20.94 (dG_ATP 54 kJ/mol at 310.15 K)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "2 ATP per restore"
+     ],
+     [
+      "In the field's terms",
+      "ATP cost of one maintenance methylation event (one SAM methyl donor per restored mark, priced in ATP)"
+     ],
+     [
+      "Definition",
+      "One restore of a lost methyl mark uses one SAM, priced at two ATP: 1 restore = 1 SAM = 2 ATP (ATP -> AMP + 2 Pi, adenylate kinase at equilibrium; the price of one restore (two ATP))."
+     ],
+     [
+      "What it does",
+      "It sets the energetic input that funds each maintenance-methylation write: every restore event entering the system is costed as one SAM, i.e. two ATP."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law link 2b is the funding: the free energy that pays each write. This input fixes how many coins (ATP) pay each restore (card key: coins)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Derived (the price of one restore (two ATP)) by assuming adenylate kinase is at equilibrium: 1 restore = 1 SAM = 2 ATP (ATP -> AMP + 2 Pi, adenylate kinase at equilibrium). Its source_kind is 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 2b, long form section 2b ('where the free energy that pays each write comes from'). Status: DERIVED (given adenylate kinase at equilibrium)."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "It is a fixed input rather than a measured range: 1 restore = 1 SAM = 2 ATP, derived in the price of one restore (two ATP) from adenylate kinase equilibrium, and used as the funding value feeding the write step rather than something read per sample."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "coins"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "adenylate kinase equilibrium (standard biochemistry)"
+     ]
+    ],
+    "name": "2 ATP per restore"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "held error from M alone, 0.04454"
+     ],
+     [
+      "In the field's terms",
+      "Predicted baseline maintenance-methylation error rate per CpG (physics-only intercept, before any fitted line)"
+     ],
+     [
+      "Definition",
+      "The held error a healthy cell should show from physics alone at a given CpG, derived from the odds of a slow, steady two-coin close: odds (w = 2M) = 21.45 -> eps0 = 0.04454."
+     ],
+     [
+      "What it does",
+      "It enters the driven passage (slow-write rule, x = 2M) as the baseline intercept term against which observed held error is compared."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (IAM-A) needs this physics-derived baseline so that it can compare a sample's observed held error against what the cell's own physics predicts, rather than against an arbitrary or assumed value."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as: odds = (w/2)/(1 - (1 - e^-w)/w), with w = 2M = 41.88, giving odds 21.45; then eps0 = 1/(1 + odds) = 0.04454."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is part of IAM's Law, link 1d (long form section 1d: the hold is the same rule, slow — the slow-write rule). That section states the maintained hold follows the function held/lost = (x/2)/(1-(1-e^-x)/x), derived for the cell's restore at x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ~ ln M/M. Status: derived (from M, the derived 2-ATP price and the derived ceiling; status raised)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is fixed by the physics at 0.04454 (from M alone); the source_kind notes it is derived by IAM's Law, fixed by the physics, with a setting used only to test what-if."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "held"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "held error from M alone, 0.04454"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "IAM-A's self-reference line (line constants 0.0403 / 0.0346), card_key line_firm."
+     ],
+     [
+      "In the field's terms",
+      "Self-reference baseline for predicted held (maintenance) error: the intercept and slope that convert a sample's own loose-CpG share into its expected error."
+     ],
+     [
+      "Definition",
+      "eps_pred(L) = 0.0403 + 0.0346 x L, where L is the sample's own loose (intermediate-methylation) share. This is each library's own prediction of held error, built from its own looseness: the self-reference."
+     ],
+     [
+      "What it does",
+      "It turns a sample's loose share L into the held-error value a healthy cell of that same looseness would be expected to show. IAM-A then divides the sample's observed held error by this predicted value."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A needs an expectation tailored to the sample's own looseness, not a single fixed number, so that the observed-over-predicted ratio (1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly) isolates failed maintenance after DNA replication (DNMT1 with UHRF1) rather than ordinary background loss."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed from the formula eps_pred(L) = 0.0403 + 0.0346 x L, entering the chain's runtime line at code_ref stage_q2_selfref.predict. Basis: measured (the slope of IAM-A's line with loose share), within-sample part derived. The register's own slope figure for this line is given separately as 0.034625 per unit loose share (the slope of IAM-A's line with loose share, 'Baseline slope'), with the within-sample part derived from the pump and replicated in a second laborat[ory] (text as recorded); the intercept (the law's held error as IAM-A's counter counts it) is derived from M alone (intercept the held error set by the coin and the two-coin push) and a blind test a recorded test MET with the eraser shar[e] (text as recorded)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 1d (long-form section 1d, 'the maintained hold is the same rule, slow'): held/lost = (x/2)/(1-(1-e^{-x})/x), derived for the cell's restore with x = w = 2M, giving odds 21.45, E_hold = 3.066 kT, phi = 0.1464. Status per the long form: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). Within that frame, the intercept (the law's held error as IAM-A's counter counts it) is DERIVED from M alone (intercept the held error set by the coin and the two-coin push), passing a blind test a recorded test MET with the eraser share, and the slope is PARTLY DERIVED, its within-sample part coming from the pump and replicated in a second laborat[ory] (source text ends here)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Fixed line constants 0.0403 (intercept) and 0.0346 (slope), set per cell type or fixed, from a cited measurement (basis: measured, within-sample part derived)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "line_firm"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The within-sample part of the slope is derived from the pump; the remainder of the slope reflects each cell type's own healthy level rather than being further derived here. Beyond this, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "line constants 0.0403 / 0.0346"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Normal band"
+     ],
+     [
+      "In the field's terms",
+      "Normal reference range for the IAM-A score (maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation)"
+     ],
+     [
+      "Definition",
+      "The healthy range of the IAM-A score: 0.779 <= A <= 1.055, drawn from the register's measured figure, Normal band 0.7787-1.0551 (v1, healthy CD8)."
+     ],
+     [
+      "What it does",
+      "It is the yardstick that enters as 'healthy range of A': it sets the boundary an observed IAM-A reading is checked against. A reading inside the band reads as healthy; a reading outside it is flagged 'outside our observed normal operating range (limited healthy controls)'."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A reports how well a cell holds its methylation record against its own physics (1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly). Without this measured band there is no way to say whether an observed value counts as within normal maintenance or as a departure."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by measurement, not calculation: basis is measured, source_kind is 'set per cell type or fixed, from a cited measurement'. The formula is 0.779 <= A <= 1.055, drawn from the register's figure, Normal band 0.7787-1.0551 (v1, healthy CD8)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part marks this as 'not the law: statistics (a yardstick)', and its long-form section is 'not part of IAM's Law'. It is a statistical quantity -- a measured normal operating range -- not a physical quantity that enters IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "For this input, its own value is the healthy range itself: 0.779 <= A <= 1.055, status measured, source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Measured on healthy CD8 (the healthy range, v1: Normal band 0.7787-1.0551; the chain uses 0.779-1.055). Not yet on the card. Whether the band applies to other cell types: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Normal band 0.779-1.055"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "molecule rules (>= 80 % methylated, isolated loss)"
+     ],
+     [
+      "In the field's terms",
+      "Molecule-inclusion and isolated-loss calling rule for read-level discordance"
+     ],
+     [
+      "Definition",
+      "A molecule counts if >= 80 % methylated; a loss counts only with both neighbours marked."
+     ],
+     [
+      "What it does",
+      "Sets which molecules and which losses enter IAM-A's count (feeding QUAL_MIN_METH, QUAL_MIN_CALLS): only reads at or above 80 % methylated are counted, and within those, an unmethylated CpG counts as a loss only when both its neighbouring CpGs are marked."
+     ],
+     [
+      "Why the instrument needs it",
+      "So the meter's ends and loosely held molecules do not fake losses — IAM-A's job is counting isolated unmethylated CpGs against the sample's own prediction, and this rule keeps that count to genuinely isolated losses on molecules the cell is otherwise holding firmly."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is a rule, not measured: a fixed chain-rule setting (basis 'rule', source_kind 'setting with a default (a chain rule)'), carried in code as stage_q2_selfref.QUAL_MAX_METH."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (law_part: 'not the law: instrument or meter'; lf_section: 'not part of IAM's Law') — it is an instrument/meter setting that defines what IAM-A's counter is allowed to count, not a step in the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is a fixed rule rather than something measured on healthy samples: >= 80 % methylated for molecule inclusion, and both neighbours marked for a loss to count; source_kind is 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The rule only defines which molecules and losses are eligible to be counted; it does not itself correct for how the counter responds when losses cluster or sit at a molecule's end — that correction is handled separately and is calibrated (the counter's response to clustering and molecule ends: 'The counter's response (clustering, molecule ends)', status calibrated (meter))."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "molecule rules (>= 80 % methylated, isolated loss)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "donor stand-in"
+     ],
+     [
+      "In the field's terms",
+      "Donor-identity stand-in used to group sequencing libraries (lab, age, sex) in place of a true donor ID"
+     ],
+     [
+      "Definition",
+      "A chain-rule setting that stands in for donor identity: because GEO supplies no donor id, libraries are grouped instead by GEO lab, age, and sex."
+     ],
+     [
+      "What it does",
+      "Libraries sharing the same stand-in are treated as one donor and removed before a library's bands are rebuilt; the grouping is conservative and may merge two different donors into one."
+     ],
+     [
+      "Why the instrument needs it",
+      "When a library's healthy bands are rebuilt, libraries from the same donor are removed first. GEO gives no donor id, so this stand-in (GEO lab + age + sex) decides which libraries count as the same donor; it may merge two donors, which the row calls conservative."
+     ],
+     [
+      "How it is obtained or computed",
+      "A rule, not a measurement: GEO lab + age + sex (GEO gives no donor id); a setting with a default, used in analysis only (not in the chain); register reference an earlier finding."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row itself marks this as 'not the law: statistics (a yardstick)', and its long-form section is 'not part of IAM's Law'. It is a chain-rule bookkeeping setting for grouping samples, not a quantity entering the cell's maintenance-energy accounting."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input it has no measured value but a rule-based default: GEO lab + age + sex (since GEO gives no donor id), classed in the packet as a 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Because GEO provides no true donor id, this stand-in can merge two distinct donors under one grouping; the packet calls this conservative, but it means donor grouping feeding into IAM-A may be approximate rather than exact."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "donor stand-in"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "pooled within-type spread s"
+     ],
+     [
+      "In the field's terms",
+      "Pooled within-cell-type standard deviation (s) of the score across healthy libraries"
+     ],
+     [
+      "Definition",
+      "The healthy library-to-library scatter of a score inside one cell type, pooled across samples with df 94, measured at value 0.035; counting noise alone would give only about 0.0014."
+     ],
+     [
+      "What it does",
+      "It gives the healthy library-to-library scatter inside a type: 0.035 (df 94), for analysis only (not in the chain). Counting alone gives about 0.0014."
+     ],
+     [
+      "Why the instrument needs it",
+      "Counting alone gives about 0.0014, while healthy libraries inside a type scatter by 0.035; the measured pooled spread records that healthy scatter. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis: measured. Source_kind: 'set per cell type or fixed, from a cited measurement.' The record gives the value directly as 0.035 with 94 degrees of freedom; no further formula is given."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part reads 'not the law: statistics (a yardstick)' and lf_section is 'not part of IAM's Law'; this is a statistical quantity used in the analysis chain, not a term inside IAM's physical equation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its own stated value is 0.035 (df 94), basis measured, source_kind 'set per cell type or fixed, from a cited measurement' — this is its typical/default figure rather than an output healthy band."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Counting alone gives about 0.0014, far below the measured 0.035; the records do not say how much of the scatter is biological versus technical. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "pooled within-type spread s"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "band v2 (pooled, in commissioning)"
+     ],
+     [
+      "In the field's terms",
+      "Pooled healthy reference band for the maintenance-methylation fidelity (IAM-A) score"
+     ],
+     [
+      "Definition",
+      "A single numeric window, 0.8744-1.1783, covering the 2.5-97.5 % range of 150 atlas readings, used as one healthy band for the IAM-A score across cell types at once (pooled), currently in commissioning."
+     ],
+     [
+      "What it does",
+      "Gives one window for every cell type, built from the same libraries used to measure it (in-sample), against which an observed IAM-A score is checked."
+     ],
+     [
+      "Why the instrument needs it",
+      "It gives IAM-A's reading (observed held error over its prediction; 1 is healthy) one healthy window to be read against. It is in commissioning."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured directly from the IAM Sequencing Atlas: taken as the 2.5-97.5 % interval of 150 atlas readings, pooled across cell types rather than computed from a formula."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part is explicitly 'not the law: statistics (a yardstick)' and its lf_section is 'not part of IAM's Law' — this band is a measured statistical reference, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its own value is the band itself, 0.8744-1.1783, i.e. the 2.5-97.5 % range of 150 atlas readings; basis is 'measured', source the IAM Sequencing Atlas (measured healthy reference)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "One window for every type (pooled), built from the same libraries it is read on (in-sample), and in commissioning. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "band v2 (pooled, in commissioning)"
+   }
+  ],
+  "job": "how well the cell holds its record, against its own physics",
+  "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable).",
+  "link": "4. IAM-A",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Predicted held error (derived line)"
+     ],
+     [
+      "In the field's terms",
+      "Predicted maintenance-methylation fidelity baseline: the held error (isolated-unmethylated-CpG discordance on fully methylated molecules) expected for a cell of the sample's own looseness, from the derived line (intercept from M alone, slope measured)."
+     ],
+     [
+      "Definition",
+      "The held error that IAM-A's derived line predicts a healthy cell of the sample's own looseness should show: an intercept derived from M alone, with a slope that is measured rather than derived."
+     ],
+     [
+      "What it does",
+      "From the sample's own share of loosely held (intermediate) CpGs, it gives the held error a healthy cell of that same looseness would be expected to lose — the baseline the sample's observed held error is compared against to form the IAM-A score."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A needs a looseness-matched baseline rather than a flat threshold, so that a sample's observed held error (isolated unmethylated CpGs on reads at least 80% methylated) is judged against what a healthy cell this loose would itself lose; IAM-A is read as the observed held error over this prediction, with 1 as healthy and above 1 flagging marks lost on firmly held molecules."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's own molecules and its references: on every read at least 80% methylated, isolated unmethylated CpGs (unmethylated between two methylated neighbours) are counted as held error; the sample's own share of loosely held (intermediate) CpGs is then fed into a line measured on healthy cells, with intercept derived from M alone and slope measured, to give the predicted held error. The value read out is 0.040183."
+     ],
+     [
+      "Where it is read",
+      "Not a single locus: it is computed from the sample's own share of loosely held (intermediate) CpGs through IAM-A's derived line."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law link 1d, the maintained-hold link (long form section 1d): held/lost = (x/2) / (1 - (1 - e^{-x})/x), evaluated at the cell's restore position x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M / M — the same function the surfaces check derived for a ramp write. Status: identity confirmed symbolically on GitHub (sudden limit odds = 1); this particular predicted-value row is itself 'partly derived' (intercept from M alone, slope measured)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Owed: the healthy value/basis for this row is not yet set in the records — it is to be fixed 'by the 2026-11-07 rule from the held-out bar pass.'"
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This row's own basis is 'partly derived' — the line's intercept comes from M alone but its slope is only measured, not derived from the law — and its healthy range is 'owed,' not yet fixed (due by the 2026-11-07 rule from the held-out bar pass)."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Predicted held error (derived line)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Per-type band (each cell type's own healthy level's measured substitute)"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-specific healthy reference band for the IAM-A maintenance-fidelity score: a 95 % prediction interval (t x s x sqrt(1 + 1/n))"
+     ],
+     [
+      "Definition",
+      "A band set around each cell type's own healthy centre (the median A_derived of that type's healthy atlas libraries) plus or minus t(0.975, df) x s x sqrt(1 + 1/n), where s is the pooled within-type spread; half-width median 0.085. It replaces one shared healthy window with a separate one for each cell type."
+     ],
+     [
+      "What it does",
+      "It judges each cell type's held error against its own healthy level rather than against one window used for every type, so a sample reads as inside or outside its own type's normal operating range."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law derives the line's intercept from M, but each type's own offset (each cell type's own healthy level) is still an open, measured-not-derived item (each cell type's own healthy level: 'OPEN, the deciding item'), so the instrument needs a measured per-type band to stand in for that missing derivation."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain (stage_law_sphere.hold_alarm, type_positions_v1.json) as lo, hi = m (1 -/+ t_{0.975,94} x 0.035 x sqrt(1 + 1/n)), with m the type's healthy centre (median A_derived of its healthy atlas libraries) and s = 0.035 the pooled within-type spread; half-width median 0.085."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (long-form section 1d): the line's intercept is derived from M; the type's offset (each cell type's own healthy level) is measured, not derived, and that level is open: not yet tied to the law. The band itself has basis measured. In the chain: partly."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Basis is measured: with each library's donor left out, the band holds 113 of 123 healthy libraries, i.e. 91.9 % of healthy libraries inside (95 % intended); test check shows z +0.09, 'OK: z +0.09 within its type position' (test_value 0.09)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Leave-one-donor-out coverage is 91.9 % against an intended 95 %, and flags an 8.5 % rise in held error in every type; the pooled (non-per-type) band instead holds 115 of 123 but flags anywhere from 0.7 % to 47 % depending on the type. The underlying per-type level (each cell type's own healthy level) itself remains OPEN, 'not yet tied to the law', and the chain is only partly in_chain: the hold alarm reads against the type position, while IAM-A's state still uses band v1 and band v2."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Per-type band (the measured stand-in for each cell type's own healthy level)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Held error, length bias removed"
+     ],
+     [
+      "In the field's terms",
+      "Read-level maintenance discordance (isolated unmethylated CpGs) without the read-qualifying rule, corrected for read-length bias (short-molecule dropout)"
+     ],
+     [
+      "Definition",
+      "The held error with no qualifying rule: the per-call loss e solved so that the expected isolated losses of the molecules counted, length by length, equal those actually counted, returned as e(1-e)^2 (per-call loss in held_e_call)."
+     ],
+     [
+      "What it does",
+      "It gives the held error with no qualifying rule, corrected for short molecules that drop out of the count (test reading 0.048507599569027275, state: read)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Short molecules drop out of the count; solving the per-call loss length by length removes that bias. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Solved by an exact walk over patterns (nothing fitted): the per-call loss e is set so the expected isolated losses of the molecules counted, length by length, equal those counted, and the held error is returned as e(1-e)^2 (per-call loss in held_e_call). Status: derived."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: it is a statistic, a yardstick (law_part: 'not the law: statistics (a yardstick)'), not a step in the Law chain and carries no long-form section."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The healthy value is owed, to be set by the 2026-11-07 rule from the held-out bar pass; it is not yet fixed in these records."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Held error, length bias removed"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Molecule loose shares"
+     ],
+     [
+      "In the field's terms",
+      "Molecule-level loose/mid methylation share: the fraction of molecules falling below the loose-call cutoff (mol_low_share) and the fraction held neither fully marked nor unmarked (mol_mid_share)."
+     ],
+     [
+      "Definition",
+      "Of molecules with at least 6 calls, the share below the loose cut (mol_low_share) and the share held neither marked nor unmarked (mol_mid_share), out of mol_n molecules; they add linearly when cells mix."
+     ],
+     [
+      "What it does",
+      "How many molecules are loosely held, counted molecule by molecule."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A (instrument 4): the sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. This row counts that looseness molecule by molecule."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (stage_q2_selfref._mol): of molecules with at least 6 calls, the share below the loose cut (mol_low_share) and the share held neither marked nor unmarked (mol_mid_share), of mol_n molecules; they add linearly when cells mix. Test reading: mol_low_share = 0.27863497462890147 (state: read)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row's own law_part says this is 'not the law: a measured input the law uses,' and its lf_section is 'not part of IAM's Law.' It is a measured quantity (status: measured) that feeds the law's prediction rather than being a step within it."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy: by the 2026-11-07 rule from the held-out bar pass (owed). Test reading of mol_low_share: 0.27863497462890147 (state: read)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The healthy band is owed. Further limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Molecule loose shares"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Loss dispersion across molecules"
+     ],
+     [
+      "In the field's terms",
+      "Over-dispersion of methylation loss across molecules, relative to a binomial expectation at the pooled loss rate"
+     ],
+     [
+      "Definition",
+      "The observed spread of losses across held molecules, measured over the binomial spread expected at the pooled rate; it reads near 1 for an even rate, and is raised when a minority of molecules carries many of the losses."
+     ],
+     [
+      "What it does",
+      "It tells whether losses are spread evenly over molecules or piled onto a few."
+     ],
+     [
+      "Why the instrument needs it",
+      "It is carried as a statistics-only yardstick (nothing fitted), alongside the held-error count that IAM-A itself reports, so the chain can see whether a sample's excess loss looks evenly spread across its molecules (near the binomial expectation) or concentrated onto a minority of them."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (code_ref stage_q2_selfref._dispersion): the observed spread of losses across held molecules is taken over the binomial spread expected at the pooled rate. Basis: statistics, nothing fitted."
+     ],
+     [
+      "Where it is read",
+      "Not genome-located: it is read from the data chain at iam_a.count.loss_dispersion, computed across the sample's held molecules rather than at a genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked in the packet as 'not the law: statistics (a yardstick)', with long-form section 'not part of IAM's Law' — so it is not one of the links in IAM's Law. It is a statistical dispersion ratio (observed spread over binomial spread), not a physical quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value/range is given as 'by the 2026-11-07 rule from the held-out bar pass (owed)' — that is, still owed and not yet fixed in the records. The current reading is 0.800248252199848 (test_state: read)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The healthy band for this score is owed (not yet set, per the 2026-11-07 rule from the held-out bar pass), so there is not yet a reference range to judge a given reading against. It is explicitly a yardstick (statistics, nothing fitted) rather than part of IAM's Law, so on its own it carries no claim beyond the statistics."
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Loss dispersion across molecules"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "held_by_length / held_by_distance (the meter_end_damage check)"
+     ],
+     [
+      "In the field's terms",
+      "Read-level discordance (held error) on fully methylated molecules, broken out by molecule length and by distance from the molecule's end"
+     ],
+     [
+      "Definition",
+      "Isolated losses and chances per molecule length, and per distance from the molecule's end (held_by_distance); this is the base of the length correction and the end-damage check."
+     ],
+     [
+      "What it does",
+      "Counts isolated unmethylated CpGs (held error) and their chances, split out by molecule length and by distance from the molecule's end, so that length- and end-related effects can be separated out before the length correction and the end-damage check are applied."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A's job is to read how well the cell holds its record against its own physics; splitting the held error by molecule length and by distance from the molecule's end gives the base figures that the length correction and the end-damage check draw on."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured by the chain from the sample's molecules and its references, using the same counting IAM-A applies elsewhere: on every read at least 80% methylated, isolated unmethylated CpGs (held error) are counted, then tabulated here by molecule-length bin and by distance from the molecule's end."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law — the packet marks it plainly as 'not the law: instrument or meter' and 'not part of IAM's Law'; it is an instrument/meter quantity used downstream for corrections rather than a step in the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its healthy value is set 'by the 2026-11-07 rule from the held-out bar pass', with status 'owed' (not yet delivered); basis is measured."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The healthy band is still owed, so there is no settled healthy value to read this against yet; the counts (test_state: read) serve only as the base for the length correction and the end-damage check, not as a finished, independently interpretable score."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Held error by molecule length and by CpG distance"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Gain error (whole sample)"
+     ],
+     [
+      "In the field's terms",
+      "Methylation gain rate on mostly unmethylated reads (methylated calls per opportunity), whole sample"
+     ],
+     [
+      "Definition",
+      "Marks gained where a molecule is mostly unmarked, over the whole sample — methylated calls on mostly-unmethylated molecules over chances, whole sample, where the islands meter reads the same at the always-unmarked islands."
+     ],
+     [
+      "What it does",
+      "Counts methylated calls on mostly unmethylated molecules over their chances, across the whole sample. The islands meter reads the same quantity at the always-unmarked islands."
+     ],
+     [
+      "Why the instrument needs it",
+      "It reports marks gained where a molecule is mostly unmarked, over the whole sample, alongside IAM-A's count of marks lost. Why IAM-A needs it beyond that: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references: methylated calls on mostly unmethylated molecules over chances, whole sample (stage_q2_selfref._finish). Test reading (iam_a.count.gain_err): 0.014103255350146544, state 'read'."
+     ],
+     [
+      "Where it is read",
+      "Whole sample, on mostly unmethylated molecules; no single locus. (The islands meter reads the same quantity at the always-unmarked islands.)"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law' — this is a meter/instrument quantity, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value: by the 2026-11-07 rule from the held-out bar pass (owed). Basis: measured."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Gain error (whole sample)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Conversion meters"
+     ],
+     [
+      "In the field's terms",
+      "Bisulfite-conversion quality control: unconverted non-CpG cytosine rate, lambda spike-in unconversion rate, and T-to-C error rate"
+     ],
+     [
+      "Definition",
+      "Three library-level quality readings — unconverted cytosines outside CpG (conv_fail), the same measured on a lambda spike-in (conv_fail_lambda), and the T-to-C error (tc_err) — each null when the file carries no such reads to count."
+     ],
+     [
+      "What it does",
+      "Reports the library's own conversion errors, when the file carries the reads needed to count them."
+     ],
+     [
+      "Why the instrument needs it",
+      "They read the library's own conversion errors, when the file carries the reads to count them. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references; stated as 'measured when present' — test_value is None and test_state is 'read', so no formula beyond the count itself is given in the packet."
+     ],
+     [
+      "Where it is read",
+      "not genome-located for conv_fail and tc_err (library-wide read properties); conv_fail_lambda is read on a lambda spike-in reference rather than the sample's own genome."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not the law: an instrument or meter (law_part); not part of IAM's Law (lf_section)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is set 'by the 2026-11-07 rule from the held-out bar pass' and is noted as owed (not yet given in the packet); source_kind is 'computed by the chain from the sample's molecules and its references,' and the value is measured when the file carries the relevant reads."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "test_value is None here, so nothing is read in this instance; the quantity is null whenever the file carries no such reads to count, and the healthy rule is still owed rather than established."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Conversion meters"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Tile distribution"
+     ],
+     [
+      "In the field's terms",
+      "Tile distribution: lowest-decile methylation across 2,000-CpG tiles"
+     ],
+     [
+      "Definition",
+      "The lowest tenth of the methylation values across the sample's 2,000-CpG tiles; this shape check refuses a file whose lowest tenth falls below every healthy library's."
+     ],
+     [
+      "What it does",
+      "It characterizes how the sample's tiles are spread, and refuses a file with an impossible shape."
+     ],
+     [
+      "Why the instrument needs it",
+      "It shows how the sample's tiles are spread and refuses a file with an impossible shape (plain): a file whose lowest tenth falls below every healthy library's."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references; reported as the p10 value across the sample's 2,000-CpG tiles. The test value read is 0.6826149284639835."
+     ],
+     [
+      "Where it is read",
+      "Across 2,000-CpG tiles genome-wide (tile-level methylation summary), not a single locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: it is an instrument/meter quantity, not a law-part step."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy basis is by the 2026-11-07 rule from the held-out bar pass, owed (not yet filled in); status is measured."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Tile distribution"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Counting uncertainty of A"
+     ],
+     [
+      "In the field's terms",
+      "Counting uncertainty of A (binomial standard error)"
+     ],
+     [
+      "Definition",
+      "The binomial counting uncertainty of A, derived from A's own chances and losses (opportunities, holes, A_95), and its share of the band's width."
+     ],
+     [
+      "What it does",
+      "Gives how precisely A is counted in this sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs this because A is itself a count-derived quantity, and its precision depends on the number of opportunities and losses behind that count; this uncertainty is the yardstick for trusting a given A value."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, using counting statistics; obtained via code_ref stage_q2_selfref._finish. The recorded test value is 0.00143 (test_state: read)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law); its law_part states explicitly 'not the law: statistics (a yardstick)' — it is a statistical quantity, not a physical link in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is set by the 2026-11-07 rule from the held-out bar pass (owed) — this basis is counting statistics."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Counting uncertainty of A"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "A"
+     ],
+     [
+      "In the field's terms",
+      "Observed-over-expected maintenance-methylation discordance ratio (read-level discordance on fully methylated molecules over the sample's own expected value)"
+     ],
+     [
+      "Definition",
+      "The held error over the commissioned line's prediction: on every read that is at least 80% methylated, the isolated unmethylated CpGs (an unmethylated CpG sitting between two methylated neighbours) are counted as the held error, and IAM-A is that observed held error divided by what the sample's own share of loosely held (intermediate) CpGs predicts a healthy cell of that same looseness would show."
+     ],
+     [
+      "What it does",
+      "It counts lost marks on firmly-held (fully methylated) molecules and compares that count to a line fitted on healthy cells, so that 1 reads as healthy and values above 1 mean marks are being lost on molecules the cell is supposed to be holding firmly."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A reads how well the cell holds its record, against its own physics: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references: isolated unmethylated CpGs are counted on >=80%-methylated reads to get the held error, then that held error is divided by the value predicted from the sample's own intermediate-CpG share using a line measured on healthy cells. For this sample the test_value is 0.9489, test_state OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law at link 1d (long form section 1d), 'the hold is the same rule, slow': held/lost is one function of how slow a write is, x in kicks, (x/2)/(1-(1-e^{-x})/x); the surfaces check derived this for a ramp write, and the IAM-A derivation (the held error set by the coin and the two-coin push) derived the same function for the cell's restore with x=w=2M. At the cell's position x=2M=41.9, odds are 21.45, E_hold=3.066 kT, and phi=0.1464, approximately ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds=1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is within 0.779-1.055, with basis partly derived."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "A"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "A_derived"
+     ],
+     [
+      "In the field's terms",
+      "Observed-over-expected maintenance-methylation discordance against a physics-derived expected line"
+     ],
+     [
+      "Definition",
+      "Held error over the derived line's prediction. The held error is counted as in IAM-A (isolated unmethylated CpGs on reads at least 80 % methylated); the expected value comes from the derived line rather than the commissioned line."
+     ],
+     [
+      "What it does",
+      "It divides the sample's held error by the derived line's prediction (code stage_q2_selfref.derived_reading)."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A reads how well the cell holds its record against its own physics; A_derived states the held error against the derived line's prediction. Further reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (stage_q2_selfref.derived_reading): held error over the derived line's prediction. Basis partly derived. Test reading 1.0546 (iam_a.A_derived), state OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "It enters IAM's Law at link 1d, 'the hold is the same rule, slow' (long form section 1d). That section gives the held/lost ratio as one function of how slow a write is, x (in kicks): held/lost = (x/2)/(1-(1-e^-x)/x); the surfaces check derived this for a ramp write, and the IAM-A derivation derived the same function for the cell's restore, with x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464, approximately ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Within the type's band (type position); basis partly derived. Test reading 1.0546, state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "A_derived"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "State (derived), IAM-A."
+     ],
+     [
+      "In the field's terms",
+      "Pass/out-of-range call for maintenance-methylation fidelity on a derived band."
+     ],
+     [
+      "Definition",
+      "Normal or not on the derived band."
+     ],
+     [
+      "What it does",
+      "It states whether the IAM-A reading sits on the derived band (Normal) or not."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A reads how well the cell holds its record against its own physics; the state gives that reading a plain call against a band derived rather than only observed."
+     ],
+     [
+      "How it is obtained or computed",
+      "IAM-A is the observed held error over the sample's own prediction (1 is healthy); the state compares it with the derived band. The packet does not give the band's limits: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Reads at least 80 % methylated (held molecules), through the IAM-A reading."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The row's own basis is partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is \"Normal\". The development test reads \"Normal\" (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "A Normal state says the held error is on the band, not why; and the band's limits are not in the packet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "State (derived)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Held error (IAM-A)."
+     ],
+     [
+      "In the field's terms",
+      "Read-level discordance on fully methylated molecules: the rate of isolated unmethylated CpGs."
+     ],
+     [
+      "Definition",
+      "Isolated losses over chances on held molecules."
+     ],
+     [
+      "What it does",
+      "It is the observed numerator of IAM-A: IAM-A is the held error over the sample's own prediction."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A reads how well the cell holds its record against its own physics; marks lost on molecules the cell holds firmly are the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1)."
+     ],
+     [
+      "How it is obtained or computed",
+      "On every read at least 80 % methylated, count the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbours) and divide by the chances on those held molecules."
+     ],
+     [
+      "Where it is read",
+      "Held molecules: every read at least 80 % methylated."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The.04454 from M alone. The row's own basis is partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is about 0.04-0.05. The development test reads 0.042375 (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "On its own it does not account for how loosely the sample holds its record; that is why IAM-A divides it by the sample's own prediction from the loose share."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Held error"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Loose share (IAM-A)."
+     ],
+     [
+      "In the field's terms",
+      "Fraction of loosely held (intermediately methylated) CpGs or molecules in the sample."
+     ],
+     [
+      "Definition",
+      "Share of loosely held molecules."
+     ],
+     [
+      "What it does",
+      "It sets the sample's own prediction for IAM-A: the sample's share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A judges the cell against its own physics, so the expected held error must come from the sample itself rather than from an outside reference."
+     ],
+     [
+      "How it is obtained or computed",
+      "Counted from the sample's molecules; the prediction is then read from a line measured on healthy cells, and IAM-A is the observed held error over that prediction."
+     ],
+     [
+      "Where it is read",
+      "The sample's molecules (loosely held, intermediate CpGs)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The row's own basis is partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is type-dependent. The development test reads 0.1268 (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is a share, not a judgement: some types are loosely held by nature. The line it feeds is measured on healthy cells."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Loose share"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Counting error of A (IAM-A)."
+     ],
+     [
+      "In the field's terms",
+      "Sampling (counting) standard deviation of the fidelity ratio."
+     ],
+     [
+      "Definition",
+      "A's own counting uncertainty."
+     ],
+     [
+      "What it does",
+      "It gives the uncertainty of the IAM-A reading that comes from counting a finite number of molecules."
+     ],
+     [
+      "Why the instrument needs it",
+      "A departure only means something against the reading's own noise; the counting error tells whether a move is real or within counting."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's own counts (A_sd); the formula is not in the packet: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Held molecules (reads at least 80 % methylated), through the counts behind IAM-A."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Filed under IAM's Law, link 1d (the slow-write rule), long form section 1d, as the counting uncertainty of the IAM-A reading. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The row's own basis is partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is small against the band. The development test reads 0.00143 (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It covers counting only, not between-person or between-laboratory spread."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Counting error of A"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Shape check (IAM-A)."
+     ],
+     [
+      "In the field's terms",
+      "File-integrity check on the low tail of the tile distribution against healthy."
+     ],
+     [
+      "Definition",
+      "The lowest tenth of tiles against healthy; it refuses broken files."
+     ],
+     [
+      "What it does",
+      "It compares the lowest tenth of tiles with healthy and refuses a file whose shape shows it is broken."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM-A should only read a sound file; a broken file could pose as a change in the hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "The lowest tenth of tiles is compared with healthy; the exact rule is not in the packet: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Tiles across the sample; the lowest tenth."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Filed under IAM's Law, link 1d (the slow-write rule), long form section 1d, as a gate on the IAM-A reading. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The row's own basis is partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is 'read' (the file is read). The development test reads true (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It says the file is sound enough to read, not that the cell is healthy."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Shape check"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "On every read at least 80 % methylated (a held molecule), count each unmethylated CpG with methylated neighbors on both sides (an isolated loss) and the chances for one: the held error. Count the sample's share of loosely held molecules: the loose share. The healthy line predicts the held error of a healthy cell of that looseness: held = 0.0403 + 0.0346 x loose share (commissioned line). IAM-A = observed held error / predicted. A_derived uses the derived line (intercept 0.04454 from M alone). Refused for mixtures (then IAM-A in the mix, development)."
+     ],
+     [
+      "Why",
+      "A held molecule is one the cell actively maintains, so a loss on it is a maintenance failure (DNMT1 with UHRF1 after replication), not a cell-type difference. Reading against the sample's own loose share removes the cell type's and the laboratory's general level, so no healthy samples from the same run are needed (the 2026-11-07 reference rule) and every sample is its own standard."
+     ],
+     [
+      "Physics",
+      "IAM's Law in the cell (links 1, 1d, 2, 2b): the floor of held error is where thermal kicks beat one full coin, 1/(1 + e^M), M = dG_ATP / RT = 20.94 (derived); one restore costs one SAM = 2 ATP (derived, adenylate kinase at equilibrium); the best hold two coins buy is a constant push (derived ceiling); hence the held error from M alone, 0.04454 per site (derived intercept). The slope is partly derived (its within-sample part from the pump; replicated in a second laboratory). Each cell type's own level is not derived: it is measured from the atlas's healthy libraries and used as a substitute, labeled as such."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules (pat file: one row per read and its CpG pattern) - nothing else. The line constants 0.0403 / 0.0346 and the derived intercept 0.04454 from the chain (stage_q2_selfref). For A_derived's state: each type's measured healthy position (type_positions_v1.json, 56 types, from the IAM Sequencing Atlas's healthy libraries, GSE186458)."
+     ],
+     [
+      "The numbers",
+      "Band v1 (commissioned): Normal 0.7787-1.0551. Commissioning test, a laboratory IAM-A had never seen (GSE144691, sorted human CD8 T-cell subsets): 7 of 8 read samples Normal against a sealed bar of 0.75 with at least 8 read; the shape check declined 5 of 13 (four naive, one central memory). Band v2 (pooled, in commissioning): 0.8744-1.1783 from 150 atlas readings; pooled within-type spread s = 0.035 (94 df). Per-type band (the substitute): 113 of 123 healthy libraries inside with each donor left out (91.9 %, built for 95 %); out of sample, 40 of 41 healthy libraries that built neither band within (hold alarm, jackknife floor)."
+     ],
+     [
+      "Method and standard",
+      "Per-type band = the type's healthy center +/- t(0.975, df) x s x sqrt(1 + 1/n) (a Student's t prediction interval for one new library; GUM type A). The out-of-sample floor is a block jackknife over the Law Sphere's units (it measured spread about four times plain counting noise). Bars come from measured spread, never a chosen number."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20, test library GSM5652214, through the one button): planted single losses on held molecules moved IAM-A and no other instrument's main reading (partly met: the counter's pooled run ratio was blind to planted runs, fixed by a chain update run excess by length). Known-answer runs on the test library after every chain edit since 11-20: IAM-A unchanged."
+     ],
+     [
+      "Limits",
+      "(1) Each type's own healthy level is measured, not derived: IAM-A_derived's state rests on that substitute. (2) Coverage 91.9 % against 95 %: the within-type spread is a little underestimated; lab-to-lab scatter inside a type (about -5 %) is not in the band. (3) Commissioned only on blood CD8 T cells; other types are development. (4) Needs reads long enough to hold three CpGs; shallow libraries carry more counting error (reported). (5) Mixtures are not read by plain IAM-A."
+     ],
+     [
+      "Where the result goes",
+      "bundle iam_a: A, A_derived, held error, loose share, prediction, band and state, counting error, shape check; used by the report, the sign-off audit, IAM-A in the mix, the Law Sphere's hold alarm."
+     ],
+     [
+      "Code",
+      "stage_v4.stage_q2; stage_q2_selfref (the line, band, reading, predict); run_sample.py (Stage Q2 block); stage_law_sphere.hold_alarm and type_positions_v1.json (the per-type check)"
+     ],
+     [
+      "How to rebuild it",
+      "1. From each healthy atlas library's molecules, count held errors and the loose share (stage_q2_selfref counter rules). 2. Fit held error against loose share across healthy types: the commissioned line. 3. The band: 2.5-97.5 % of healthy readings (v1/v2), or per type: center +/- Student's t prediction interval. 4. Test on a laboratory not used to build it (GSE144691 CD8 T cells)."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R04-IAMA",
+    "name": "IAM-A: how it tares (against the sample's own line) and how it is defended",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/chain/stage_v4.py",
+     "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
+     "Biological_Physics/MethylPhys/doors/DEV_IAMA_BAND_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why doesn't IAM-A need healthy controls?",
+      "It reads each sample against its own loose share: the line says what held error a healthy cell of that looseness makes, so the sample's own data set the expectation. The healthy atlas is used only to build the line once.",
+      "commissioning note; register A7"
+     ],
+     [
+      "Is 'held error' just measurement noise?",
+      "Counting noise is part of it and is reported (IAM-A's own counting error). The loss is counted only on reads at least 80 % methylated and only for an unmethylated CpG with methylated neighbors on both sides; incomplete bisulfite conversion makes false methylated calls, not losses; the counter's response to clustering and molecule ends is calibrated. Separating every technical source of single losses is still open.",
+      "register A14; counter rules"
+     ],
+     [
+      "Which parts are derived and which measured?",
+      "Derived: the floor 1/(1 + e^M) with M = 20.94, the 2-ATP price, the ceiling, the intercept 0.04454. Partly derived: the slope. Measured: the coin dG_ATP 54 kJ/mol, 310.15 K, the band, and each type's own level.",
+      "register A1-A12"
+     ],
+     [
+      "Was it tested on data it never saw?",
+      "Yes: commissioned on a second laboratory's CD8 T cells (GSE144691), 7 of 8 Normal against a bar sealed in advance; the per-type check read 40 of 41 held-out healthy libraries within.",
+      "COMMISSIONING_NOTE_IAMA.md; DEV_IAMA_BAND_01.md"
+     ],
+     [
+      "What does IAM-A above 1 mean biologically?",
+      "More marks lost on molecules the cell holds firmly than its own looseness predicts: in the field's terms, reduced maintenance-methylation fidelity after replication (DNMT1 with UHRF1). Whether IAM-A also separates active demethylation (TET) is not yet tested; the planned test is the UHRF1 knockout pair in GSE116229.",
+      "field description; relay test"
+     ],
+     [
+      "How is the band set?",
+      "From measured healthy spread with a Student's t prediction interval (GUM type A), never a chosen number; band v1 0.779-1.055 is commissioned, the per-type band is the development substitute.",
+      "grand_rule.json; DEV_IAMA_BAND_01.md"
+     ]
+    ],
+    "status": "commissioned on healthy blood CD8 T cells (WGBS, second laboratory, 2026-10-17); development on other types"
+   }
+  ],
+  "report_section": "v4-iama",
+  "tools": [
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}

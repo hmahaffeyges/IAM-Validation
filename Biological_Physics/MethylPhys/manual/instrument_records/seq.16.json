@@ -1,0 +1,1717 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.16",
+ "record": {
+  "cosmo_tool": "A HEALPix sky map (Gorski et al. 2005): the genome laid out on equal-area pixels, as the microwave sky is mapped.",
+  "credit": "this work; HEALPix: Górski et al. (2005) ApJ 622:759",
+  "field_how": "Each region's held error against the sample's own predicted held error, drawn on a sphere of equal-area pixels.",
+  "field_term": "Genome-wide map of where maintenance fidelity departs, in 1,000-CpG regions",
+  "id": "seq.16",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Never-marked islands set, sequencing (shared by the globe and the Law Sphere)"
+     ],
+     [
+      "In the field's terms",
+      "Genome-wide set of never-marked (constitutively unmethylated) CpG islands"
+     ],
+     [
+      "Definition",
+      "The never-marked island set, one set read two ways: the Sequencing Globe asks WHERE (which islands and regions departed), IAM's Law Sphere asks HOW (stray writing against the writer's 1/(1 + D) with the meter, the eraser's clean-up, the hold at marked islands). Membership v2 uses the noise maps: a CpG is never marked only when every type's level sits below the threshold by more than its measured noise (counting noise from read halves; person-to-person noise from donor halves minus read halves). v2 counts: never-marked islands 293,980 at 0.20, 124,282 at 0.10, 4,039 at 0.05; domains 2,675,894; read in every cell's two halves 22,033,507. v1 (raw maximum) was 1,003,203 / 11,482,817, about 70 % and 77 % noise-made."
+     ],
+     [
+      "What it does",
+      "It enters the chain as 'located island gains': the reference island list against which an island gain level is scored, i.e. the baseline the globe and the Law Sphere both need before they can say a given island has gained marks it shouldn't have."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law scores stray writing at islands against the write layer's 1/(1 + D) and the hold; that scoring is only meaningful if the 'never-marked' baseline is real rather than an artifact of measurement noise — the v1 raw-maximum count was shown to be mostly noise (about 70% and 77%), so a noise-corrected set was needed before gains could be trusted."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by seq_halves.py on Google (iam-halves; bucket halves/) from 137 inputs, 48 cells. A CpG is kept only when every cell type's level sits below the threshold by more than its measured noise (counting from read halves, person-to-person from donor halves minus read halves); thresholds 0.20, 0.10 and 0.05 give the three counts. The working threshold is still to be set from the noise maps. Formula: island gain level against the island reference."
+     ],
+     [
+      "Where it is read",
+      "Genome-wide, at the never-marked islands and domains of the set (domains 2,675,894; 22,033,507 read in every cell's two halves). The globe's island layer (where) is owed, so it is not yet in the chain."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Sits in IAM's Law at the write layer (stray writes, 1/(1 + D)) and the hold step, but lf_section is 'open: not yet tied to the law' — it has not been assigned a long-form section. Status is open: basis is 'measured (atlas levels); threshold to be set from the noise maps', and in_chain is marked NO ('the globe's island layer (where) is owed')."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Expected value for a healthy sample: 'none' (no island gain). The set itself comes from the IAM Sequencing Atlas (57 cells; megakaryocytes left out, identification only), basis 'measured (atlas levels); threshold to be set from the noise maps'. The source field still reads 'v2 by measured noise owed', while the value field gives v2 counts."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet in the chain — the globe's island (where) layer is still owed, and the noise-derived threshold itself is still to be set, so which of the three counts (0.20/0.10/0.05) is final is open. The v1 raw-maximum definition was about 70% and 77% noise-made, so it cannot be relied on as the island set. card_key: not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "Never-marked islands set, sequencing (shared by the globe and the Law Sphere)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "CpG address (genome order)"
+     ],
+     [
+      "In the field's terms",
+      "CpG genomic coordinate (genome-order address)"
+     ],
+     [
+      "Definition",
+      "The fixed address every CpG carries in hg19 genome order: 28,217,448 hg19 CpGs in total, of which 813,951 sit on the array layout."
+     ],
+     [
+      "What it does",
+      "It is the map itself — it assigns each CpG a location so that every other reading about that CpG can be placed and compared."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe's job is WHERE the problem is located, so it needs each region's held error pinned to a real genomic address before it can be drawn on the sphere of equal-area pixels."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken directly from the established genome build: 28,217,448 hg19 CpGs in genome order (basis: established, genome build), with 813,951 of those addresses represented on the array layout."
+     ],
+     [
+      "Where it is read",
+      "Genome-wide, across all hg19 CpG positions in genome order; 813,951 of these addresses are the ones actually present on the array layout."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law — the packet marks this as 'not the law: a chain rule' and its long-form section as 'not part of IAM's Law'. It is a bookkeeping quantity (a fixed address list) that feeds the chain rather than a physical step of the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is fixed, not a measured health range: 28,217,448 hg19 CpGs in genome order, 813,951 on the array layout, set per cell type or fixed from a cited measurement (source_kind), with basis 'established (genome build)'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card (card_key: not yet on the card). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "CpG address (genome order)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Region size"
+     ],
+     [
+      "In the field's terms",
+      "Analysis-window size for regional methylation-fidelity scoring (1,000 consecutive CpGs)"
+     ],
+     [
+      "Definition",
+      "A region is 1,000 consecutive CpGs; the report globe uses 10-site blocks. It is the unit each departure is read in."
+     ],
+     [
+      "What it does",
+      "It fixes the counting unit each region's departure is read in — the window over which held error is compared against the sample's own predicted held error."
+     ],
+     [
+      "Why the instrument needs it",
+      "Held error is rare (about 4 %), so a region needs about 1,000 CpGs to count enough chances. Expected reading: within its counting floor."
+     ],
+     [
+      "How it is obtained or computed",
+      "A chain rule, a setting with a default: region = 1,000 consecutive CpGs."
+     ],
+     [
+      "Where it is read",
+      "Genome-wide, in regions of 1,000 consecutive CpGs; the report globe uses 10-site blocks. The Globe draws each region on a sphere of equal-area pixels."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This quantity is not part of IAM's Law — its own law_part is explicitly 'not the law: a chain rule,' i.e. a counting/windowing setting. (The globe instrument this feeds does carry the Law in elsewhere, through link 1d of IAM-A's line, with form derived and intercept set from M — but that status belongs to the instrument's scoring line, not to this region-size setting itself.)"
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its default/typical value is 1,000 CpGs per region, displayed in 10-site blocks, fixed by an internal chain rule — a setting with a default rather than a measured or law-derived value."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Because held error is rare (~4%), smaller windows than about 1,000 CpGs would not accumulate enough chances to a departure within the counting floor; the packet gives no finer resolution than the 1,000-CpG region / 10-site block scheme, and the globe instrument it feeds is still at DEVELOPMENT status."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Region size"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Holding error, law"
+     ],
+     [
+      "In the field's terms",
+      "Predicted methylation-maintenance (held-mark) error for a region, used as the healthy baseline against which observed error is judged"
+     ],
+     [
+      "Definition",
+      "The sample's own predicted held error, eps_pred(L), built from IAM-A's line (the law's held error as IAM-A's counter counts it intercept, the slope of IAM-A's line with loose share slope); the Sequencing Globe compares each 1,000-CpG region's actual held error against this prediction rather than a fixed external number."
+     ],
+     [
+      "What it does",
+      "It enters as the expectation that each region's held error is checked against; the expectation everywhere is that observed held error should be ≈ prediction."
+     ],
+     [
+      "Why the instrument needs it",
+      "The globe's job is WHERE the problem is located, so it needs a self-referenced expected value per region (the sample's own prediction) to know what counts as a departure rather than comparing against an arbitrary fixed target."
+     ],
+     [
+      "How it is obtained or computed",
+      "eps_pred(L) is computed from IAM-A's line: intercept 0.04454 (the held error set by the coin and the two-coin push, derived from M alone) read through the counter, plus a slope of 0.034625 per unit loose share, where L is the sample's own loose share: eps_pred(L) = firm + 0.034625 x L."
+     ],
+     [
+      "Where it is read",
+      "In 1,000-CpG regions across the genome, each drawn as an equal-area pixel on the globe."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d. That section gives held/lost = (x/2)/(1-(1-e^-x)/x) as one function of write slowness x; for the cell x = 2M = 41.88, giving odds 21.45 and intercept eps0 = 0.04454 (the held error set by the coin and the two-coin push, derived from M alone). The slope 0.034625 is only partly derived: the within-sample part comes from the pump and is derived, replicated in a second laboratory; status overall for this row is partly derived (the held error set by the coin and the two-coin push intercept derived, the slope of IAM-A's line with loose share slope partly)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Value as given: 0.04454 (the held error set by the coin and the two-coin push); the globe uses the sample's own prediction from IAM-A's line. Source/basis: partly derived (the held error set by the coin and the two-coin push intercept derived, the slope of IAM-A's line with loose share slope partly); source_kind: derived by IAM's Law (fixed by the physics; a setting only to test what-if)."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The slope is partly derived: its within-sample part comes from the pump and is derived (replicated in a second laboratory); the remainder is each type's own level, which is open. The whole-genome globe (GL1) is in development. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Holding error, law"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Loss blocks, part of the Sequencing Globe"
+     ],
+     [
+      "In the field's terms",
+      "A flagged 1,000-CpG region where methylation-maintenance loss (held error) exceeds the sample's own predicted rate — a 'loss block'."
+     ],
+     [
+      "Definition",
+      "A 1,000-CpG region flagged because its held error is greater than the sample's own predicted held error (eps_pred) plus its counting floor, detected from the sample's own molecules and drawn as alarms on the Sequencing Globe's equal-area sphere."
+     ],
+     [
+      "What it does",
+      "It enters wherever a region's held error sits above its held-error floor — flagging regions where the record is being lost faster than the cell's own physics predicts."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe's job is to show WHERE the problem is located; loss blocks are the alarms marking which 1,000-CpG regions depart from the sample's own expected line, read through IAM's Law (links 1d and 2) via geometry."
+     ],
+     [
+      "How it is obtained or computed",
+      "A region is flagged when held error > eps_pred + its counting floor. The expected value is none beyond counting noise, on the basis of counting statistics, read from the sample's own molecules."
+     ],
+     [
+      "Where it is read",
+      "1,000-CpG regions across the genome, plotted as equal-area pixels on the Sequencing Globe (read from the sample's own molecules)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This quantity reads IAM's Law through links 1d and 2, via geometry (the globe's equal-area projection). Per the register, status is DEVELOPMENT: the Law enters through IAM-A's line, with its form derived and its intercept set from M. Long-form section 1d states the maintained hold follows the same function as a slow write: held/lost = (x/2)/(1-(1-e^-x)/x); at the cell's position x = 2M = 41.9 this gives odds 21.45, E_hold = 3.066 kT, and phi = 0.1464. That identity is confirmed symbolically (GitHub run 44662887227). Long-form section 2, 'Step 2: the price', is referenced but not further detailed in the packet."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Expected: none beyond counting noise, on the basis of counting statistics — in a typical sample, flagged excess should not exceed what counting statistics alone would produce from the sample's own molecules."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is DEVELOPMENT and this entry is 'not yet on the card'; it only detects departure from the sample's own predicted held-error line through links 1d and 2. (The long-form's open item about mapping x toward infinity for the horizon's adiabatic limit concerns a different domain and is not a limit on this cell quantity.)"
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Loss blocks"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Write error, strays 1/(1 + D)"
+     ],
+     [
+      "In the field's terms",
+      "Background rate of spurious methylation marks at unmarked CpG sites (a write-error rate)"
+     ],
+     [
+      "Definition",
+      "The expected level of stray marks where none belong: the writer sometimes puts a mark where none belongs, and choosing the right site over 60 wrong ones gives about one stray mark in 61."
+     ],
+     [
+      "What it does",
+      "It enters the Sequencing Globe's working as the expected stray level at unmarked regions - a baseline that is counted into the calculation rather than itself drawn as a point on the map."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument compares each 1,000-CpG region's held error against the sample's own predicted held error; it needs this expected stray-mark baseline at unmarked regions to know what a region with no real signal should read."
+     ],
+     [
+      "How it is obtained or computed",
+      "u = 1/(1 + D) + meter, with D = 60: the write error alone is 1/61 = 0.0164 (before the meter), and the meter's own false-mark rate (the stray-mark rate after the meter's own false marks: meter = conv_fail + tc_err, about 0.0044 + 0.00046) is added to give the expected stray level the sequencer reads at unmarked regions. Basis: measured selection and meter."
+     ],
+     [
+      "Where it is read",
+      "Counted, not drawn: it is a genome-wide expected baseline at unmarked regions rather than a value plotted as its own point on the sphere map."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 1 (actualization: each write is one sudden write of a record), long-form section 1, 'Step 1: actualization, the moment a bit becomes part of the record.' The underlying stray rate is status ACCOUNTED, meter-corrected in blood (lead, 2026-11-15); the meter correction subtracted from it is explicitly not the law - it is an instrument/meter quantity, measured in blood 2026-11-15."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Typical/default value is 0.0164 before the meter (D = 60), set per cell type or fixed, from a cited measurement: basis is a measured selection and the meter correction."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "D"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This figure carries a lead status (meter-corrected in blood, 2026-11-15), so it is not yet closed; it is counted as a baseline rather than drawn on the map, so it cannot itself show where on the genome maintenance is departing - that is the job of the held-error comparison it feeds."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Write error, strays 1/(1 + D)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Eraser clean-up (eraser_clean, the question whether the eraser proofreads)"
+     ],
+     [
+      "In the field's terms",
+      "Eraser-mediated clean-up rate of stray methylation marks"
+     ],
+     [
+      "Definition",
+      "An 18 % clean-up applied to strays, value '18 % of strays', computed as strays x (1 - 0.18), i.e. expected = 0.82 x strays. Plain statement from the packet: 'The eraser cleans about 18 % of strays.'"
+     ],
+     [
+      "What it does",
+      "It enters the model by lowering the expected strays: the raw stray count is replaced by 0.82 x strays."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's simulator needs a measured correction for how much the eraser cleans up stray marks, but the row itself states this is 'not the law itself: a measured input the law uses', and it is explicitly marked in_chain 'NO (simulator only)' — it feeds the simulator, not the actual chain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis is 'measured'; applied via the formula strays x (1 - 0.18). Its source_kind is 'set per cell type or fixed, from a cited measurement.'"
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row's own law_part says this quantity is 'not the law itself: a measured input the law uses', and its long-form section is 'not part of IAM's Law.' The linked register entry, the question whether the eraser proofreads, asks whether the eraser is the cell's proofreading (a Hopfield discard step on wrongly written marks) and ties that question to IAM's Law, link 1 (actualization: each write is one sudden write of a record). Its status is 'READ: branch S (one selection step; the eraser is not proofreading the unmarked...)', based on a knockout-over-wild-type formula of 0.985-1.292, and its plain conclusion is: 'The eraser does not proofread wrongly written marks; the writer's single selection step is all there is.'"
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is fixed at 18 % of strays, basis 'measured', source_kind 'set per cell type or fixed, from a cited measurement' — not a per-sample healthy band, but a set measured value used by the simulator."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "eraser_clean"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is marked in_chain 'NO (simulator only)', so it shapes only the simulator's expected-strays figure, not the chain. Register the question whether the eraser proofreads (status READ: branch S, knockout over wild type 0.985-1.292) reads that the eraser does not proofread wrongly written marks; the writer's single selection step is all there is. Nothing further is in the records."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Eraser clean-up"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clock sites"
+     ],
+     [
+      "In the field's terms",
+      "Mitotic clock CpGs (epiTOC2 clock sites)"
+     ],
+     [
+      "Definition",
+      "Fixed CpG addresses that gain methylation marks with each cell division, read here as epiTOC2 163 ± 25 — a clock built from writer error that accumulates rather than resets."
+     ],
+     [
+      "What it does",
+      "It enters IAM's accounting as fixed addresses that gain with divisions, with an expected gain of 0.018 median; it is counted into the chain of readings but is 'counted, not drawn' — it does not appear plotted on the Sequencing Globe's sphere."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law needs it at link 5, the arrow describing records copied forward rather than restored; the mitotic clock (writer errors made heritable) frames the clock tick itself as IAM-A's writer error made heritable."
+     ],
+     [
+      "How it is obtained or computed",
+      "Gain measured at the epiTOC2 sites (163 ± 25; Teschendorff 2020), formula 'gain at epiTOC2 sites (163 +/- 25)'; basis measured (lead, the mitotic clock (writer errors made heritable)). Register the mitotic clock (writer errors made heritable) separately gives clock-site gain as writer 0.016-0.031 at failing-shield islands vs islands ~0. Source kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "Fixed epiTOC2 clock-site CpG addresses; the row itself states they are 'counted, not drawn,' so beyond being fixed addresses no further genomic coordinate is given in the records."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is part of IAM's Law at link 5, the arrow: records copied forward, not restored (long form section 5, 'the arrow'). Register the mitotic clock (writer errors made heritable) casts the clock tick as IAM-A's writer error made heritable; its status is OPEN, lead, measured 2026-11-16 from kept counts, with the clock-site gain itself read as writer 0.016-0.031 at failing-shield islands vs islands ~0."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its own reading is epiTOC2 163 ± 25, with an expected gain of 0.018 median; basis is measured (lead, the mitotic clock (writer errors made heritable)), and source_kind is set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is OPEN, lead — not yet closed. The register's own measured account of clock sites as failing-shield islands is cut off in the records ('clock sites are islands where '), so the full picture isn't available here. It is also only counted into the chain, not drawn onto the Sequencing Globe's map."
+     ],
+     [
+      "Credit",
+      "epiTOC2 mitotic clock: Teschendorff 2020"
+     ]
+    ],
+    "name": "Clock sites"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Copy timing"
+     ],
+     [
+      "In the field's terms",
+      "Late-vs-early replication-timing ratio of methylation maintenance error, from Repli-seq family tracks"
+     ],
+     [
+      "Definition",
+      "An input built from 15 Repli-seq tracks grouped by family, comparing held error (maintenance error) between late-copied and early-copied DNA, expressed as a late/early ratio with an expected value of 1.10."
+     ],
+     [
+      "What it does",
+      "It enters the Sequencing Globe as the late-copied excess: late/early held error by Repli-seq family tracks (expected late/early 1.10). It is counted, not drawn on the map."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Globe's job is to show WHERE the problem is. This input asks whether late-copied DNA loses more, so a late-replicating excess can be counted rather than mistaken for a located departure."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by measurement (basis: measured) from 15 Repli-seq tracks by family, computed as late/early held error; it is 'counted, not drawn' into the instrument's region-by-region map. A related register entry (the copier lag) notes that right after copying, the new strand's wait for its marks adds about 0.4% of held error in resting blood."
+     ],
+     [
+      "Where it is read",
+      "Not drawn as its own location on the Sequencing Globe's 1,000-CpG-region map; it is counted from genome-wide Repli-seq replication-timing tracks (late vs early, by family) rather than located to specific regions."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly not part of IAM's Law itself ('not part of IAM's Law'; 'not the law itself: a measured input the law uses') — it is a measured replication-timing quantity (a late/early held-error ratio, expected 1.10) that the law takes as input, not a link or section of the law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Expected value is late/early = 1.10, set per cell type or fixed from a cited measurement, derived from the 15 Repli-seq family tracks."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. Related register: the copier lag (copier lag about 0.4 % of held error in resting blood, bounded on the desk). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "Repli-seq replication-timing tracks (ENCODE)"
+     ]
+    ],
+    "name": "Copy timing"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Copier lag"
+     ],
+     [
+      "In the field's terms",
+      "Post-replication maintenance lag: the delay before the newly synthesised (daughter) strand is remethylated"
+     ],
+     [
+      "Definition",
+      "How long the new strand waits for its marks after copying; set to 0.10 cycles (assumed). It sets the size of the late excess."
+     ],
+     [
+      "What it does",
+      "It sets the size of the late excess in the simulator, expected to be larger in dividing types."
+     ],
+     [
+      "Why the instrument needs it",
+      "open: not in the records yet"
+     ],
+     [
+      "How it is obtained or computed",
+      "Assumed, not computed: lag = 0.10 cycles (assumed). Register the copier lag bounds copier lag at about 0.4 % of held error in resting blood (bounded on the desk); by type it is open."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not the law itself: it is a measured/assumed input the law uses (not part of IAM's Law, no long-form section). Its status is bounded via the copier lag (about 0.4 % of held error in resting blood), with the by-type value left open."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 0.10 cycles (assumed). Source: the copier lag, bounded at about 0.4 % of held error in resting blood; source_kind is 'set per cell type or fixed, from a cited measurement,' with the value for other cell types still open."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Marked NO for in_chain — it is simulator-only, not used in the live instrument chain. Its magnitude by cell type beyond resting blood is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Copier lag"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clustering (C-Score, coupling)"
+     ],
+     [
+      "In the field's terms",
+      "Spatial clustering of methylation-maintenance departures (C-Score) and nearest-neighbour coupling between CpGs"
+     ],
+     [
+      "Definition",
+      "Whether departures from the sample's own predicted held error bunch together along the genome, captured by a C-Score limit (expected C ≈ 1) and by whether neighbouring CpGs lose their marks together (nearest-neighbour coupling on held molecules, inside IAM-A)."
+     ],
+     [
+      "What it does",
+      "It enters whether departures bunch: the C-Score checks clustering at atlas sites, and the coupling check asks whether adjacent CpGs lose their marks in a correlated way, with the null (1) counted statistically."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe's job is WHERE the problem is located, so it needs to know whether departing regions are scattered noise or bunched clusters; this quantity is in the chain (C-Score sky on atlas sites; coupling inside IAM-A)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as 'C-Score and coupling': the C-Score limit, and nearest-neighbour coupling on held molecules with the null (1) counted; the basis is statistics, not IAM's Law."
+     ],
+     [
+      "Where it is read",
+      "On the Sequencing Globe's genome-wide map, in 1,000-CpG regions drawn on a sphere of equal-area pixels — the C-Score at atlas sites, the coupling check inside IAM-A."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly 'not part of IAM's Law' (lf_section), and its law_part is 'not the law: statistics (a yardstick)' for both the C-Score and the coupling check — a statistical measure of clustering, not a link in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its expected value is C ≈ 1; the register gives the healthy clustering value c_healthy = 1.0103, DERIVED from statistics (NOT IAM's Law). The coupling counterpart (CP1) is a DEVELOPMENT instrument with its null (1) counted statistically, and IAM's Law is not yet built into it."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "CP1 is marked a DEVELOPMENT instrument with IAM's Law not yet incorporated, and this row's card_key is 'not yet on the card' — so whether neighbouring CpGs truly lose marks together, beyond the counted statistical null, remains open."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Clustering (C-Score, coupling)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Suddenness by region"
+     ],
+     [
+      "In the field's terms",
+      "Burstiness of methylation-restore events across genomic regions"
+     ],
+     [
+      "Definition",
+      "Whether restores (methyl marks put back) happen in sudden bursts rather than steadily, assessed region by region; it needs both strands by type, and its basis is marked 'open (data gap)'."
+     ],
+     [
+      "What it does",
+      "It is meant to feed the Sequencing Globe (the instrument whose job is WHERE the problem is located) by flagging which regions show bursty versus steady restoration; it enters 'where restores are bursty', but per the packet it is 'NO: data gap' in the chain."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe needs to localize where maintenance fidelity departs, and IAM's Law (link 1d) ties the held/lost ratio directly to how sudden or slow a write is, so knowing which regions restore in bursts versus steadily would sharpen that localization."
+     ],
+     [
+      "How it is obtained or computed",
+      "The packet gives the value/formula simply as 'needs both strands by type'; the source_kind is 'no data yet (setting with a default, moved by hand)' and the basis is 'open (data gap)' — it is not yet computed from real data."
+     ],
+     [
+      "Where it is read",
+      "The Sequencing Globe reads held error across 1,000-CpG regions drawn on a sphere of equal-area pixels; this input would enter at that region level, but the packet gives no more specific genomic location for 'Suddenness by region' itself."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This enters IAM's Law at link 1d, 'the hold is the same rule, slow' (the slow-write rule), long-form section 1d: held/lost = (x/2)/(1-(1-e^{-x})/x), where sudden (x→0) gives kept = lost and the cell's own position x = 2M = 41.9 gives odds 21.45, E_hold = 3.066 kT, phi = 0.1464, an identity 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'. The 'Suddenness by region' row itself, however, carries the separate status 'open (data gap)' and is not yet part of the chain."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input it has no established default value beyond the placeholder 'needs both strands by type'; its basis is 'open (data gap)' and its source_kind is 'no data yet (setting with a default, moved by hand)', so any current value is a hand-set stand-in, not a measured default."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "push"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is an explicit data gap ('NO: data gap'): until both strands are available by type, the instrument cannot tell which regions' restores are bursty versus steady, so the Sequencing Globe's localization cannot yet draw on this input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Suddenness by region"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Meter"
+     ],
+     [
+      "In the field's terms",
+      "bisulfite non-conversion and T→C sequencing-error rate (instrument noise floor), plus molecule-end error"
+     ],
+     [
+      "Definition",
+      "The instrument's own false-mark rate: conv 0.0044, T→C 0.00046, plus molecule-end errors, subtracted before judging a region's held error."
+     ],
+     [
+      "What it does",
+      "It is subtracted before judging — the sample's held error is corrected for this meter artifact before being compared to the predicted held error."
+     ],
+     [
+      "Why the instrument needs it",
+      "The sequencing chemistry itself fakes a few marks, so the instrument needs this rate to remove that false signal before it can judge the true held-error rate; the false-mark rate measured here is a quarter to a third of the raw stray rate."
+     ],
+     [
+      "How it is obtained or computed",
+      "Per the stray-mark rate after the meter's own false marks, meter = conv_fail + tc_err (about 0.0044 + 0.00046), measured in blood 2026-11-15; per S2, each library's end-meter error is calibrated per library and set aside."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "not part of IAM's Law — law_part for this row, and for both the stray-mark rate after the meter's own false marks and S2, is explicitly 'not the law: instrument or meter'; it is an instrument/meter quantity, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is conv 0.0044, T→C 0.00046, molecule ends, basis measured (the stray-mark rate after the meter's own false marks, S2), source_kind set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is only partly in the chain: it is treated as meter state, but the molecule-ends correction is noted as not yet applied (in_chain: partly (meter state; ends not applied))."
+     ],
+     [
+      "Credit",
+      "False discovery rate (statistics): Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300"
+     ]
+    ],
+    "name": "Meter"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Healthy reference by address"
+     ],
+     [
+      "In the field's terms",
+      "Per-address healthy methylation reference (atlas level, range, and spread at each CpG address)"
+     ],
+     [
+      "Definition",
+      "The healthy value held at each address: the atlas's level, range, and spread, with one-library cell types borrowing their lineage's spread."
+     ],
+     [
+      "What it does",
+      "It enters as the healthy value per address: the atlas level, range and spread, with one-library types borrowing their lineage's spread."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe locates where the problem is; this row gives it the healthy value at each address. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from the IAM Sequencing Atlas: atlas level, range, and spread by address, with one-library cell types borrowing their lineage's spread."
+     ],
+     [
+      "Where it is read",
+      "It is in the chain for array sites; per-CpG islands are not yet included."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly flagged as not the law itself — a measured input the law uses — and its long-form status states plainly that it is not part of IAM's Law. It is the measured record of each cell type's variation and which sites it marks (its identity), a measured atlas quantity rather than a derived step of the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is the atlas level, range, and spread at that address, with status 'measured (atlas)', drawn from the IAM Sequencing Atlas, and one-library cell types borrow their lineage's spread."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Per-CpG island resolution is not yet in the chain — only array sites are covered — and this entry is not yet formalized on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Healthy reference by address"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Reads per site"
+     ],
+     [
+      "In the field's terms",
+      "Read depth per CpG site (reads per site)"
+     ],
+     [
+      "Definition",
+      "The sample's own count of reads covering each site, value given simply as 'the sample's own count.'"
+     ],
+     [
+      "What it does",
+      "It enters each region's counting floor — the statistical noise floor computed for each 1,000-CpG region on the Sequencing Globe map."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to know how much counting noise alone gives at this depth, so that apparent departures in held error aren't mistaken for real signal."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by counting statistics, using the formula floor ~ 1/(2 sqrt(n)) per site, where n is the read count at that site."
+     ],
+     [
+      "Where it is read",
+      "Counted at each CpG site and then entering each 1,000-CpG region's counting floor on the genome-wide map (not a single fixed locus)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked explicitly as not the law: it is statistics, described as 'a yardstick.' Its long-form section is 'not part of IAM's Law' — it is a measurement-noise quantity, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or expected value is given (expected: n/a); its value is simply the sample's own count, source kind 'read from the sample's own molecules.'"
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Reads per site"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coin, temperature, two coins (M = 20.94, SAM cost 2)"
+     ],
+     [
+      "In the field's terms",
+      "Free-energy-to-thermal-energy ratio of ATP hydrolysis (M), with the two-ATP price of one methyl restore (SAM)"
+     ],
+     [
+      "Definition",
+      "M = dG_ATP / (R T), the ratio of one ATP's free energy to one thermal kick, built from the measured dG_ATP = 54,000 J/mol and T = 310.15 K; one restore (one SAM) costs two ATP equivalents, since ATP is converted to AMP + 2 Pi at adenylate kinase equilibrium."
+     ],
+     [
+      "What it does",
+      "It sets the scale of the law's held error (epsilon) — fixing how many thermal kicks one coin's energy can withstand, and how many coins each restore actually spends."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to compute the floor and the baseline held-error intercept of the law — without M and the two-coin price, the predicted error has no scale."
+     ],
+     [
+      "How it is obtained or computed",
+      "M = dG_ATP / (R T) = 54,000 / (8.314 x 310.15) = 20.94. One restore = one SAM = 2 ATP (ATP -> AMP + 2 Pi, adenylate kinase at equilibrium)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 2 (the price: k_BT ln 2 per bit at the surface's own temperature), long-form section 2, which lays out the price of a restore. M itself is DERIVED from the measured inputs dG_ATP and T (the floor (the best one coin can hold against heat)); the two-ATP price of one restore is DERIVED given adenylate kinase at equilibrium; these feed the DERIVED baseline held-error intercept."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Input value M = 20.94, SAM cost 2 — set per cell type or fixed, from a cited measurement of dG_ATP and T; M and the two-coin push are derived from those measured inputs."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Coin, temperature, two coins"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Angular power spectrum of a sample's departure map"
+     ],
+     [
+      "In the field's terms",
+      "Angular power spectrum of a sample's departure map"
+     ],
+     [
+      "Definition",
+      "How much a sample's departure from healthy sits at each genomic scale, from single CpGs to whole chromosomes; a real change and counting noise have very different spectra."
+     ],
+     [
+      "What it does",
+      "It decomposes the sample's departure map into power at each scale (C_l by band), so that signals concentrated at different genomic length scales can be told apart from one another."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe's job is WHERE the problem is located; because a real change and counting noise have very different spectra, the instrument needs the scale-by-scale breakdown to tell them apart rather than just seeing a single aggregate departure."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as C_l by band on the genome sky, using HEALPix (equal-area pixels) laid out in genome order, with the scale l mapped to genomic length."
+     ],
+     [
+      "Where it is read",
+      "Across the whole genome, built from the sample's departure map tiled onto the HEALPix sphere in genome order — not a single locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Explicitly 'not the law: statistics and geometry (the instrument)', and marked 'not part of IAM's Law' at the long-form level — it is a statistical/geometric analysis tool for locating where departures sit, not a step in IAM's Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Basis is established method (established (CMB)), but in the chain this is still a candidate: band powers currently exist only for the noise maps. The reference point is the IAM Sequencing Atlas (measured healthy reference), against which the method is being built out."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Still at candidate stage: band powers exist only for the noise maps so far, not yet demonstrated for real departure signal; where it fits fully in the chain is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "the angular power spectrum of CMB analysis on the HEALPix sphere: Górski, K.M. et al. (2005) ApJ 622:759 (HEALPix)"
+     ]
+    ],
+    "name": "Angular power spectrum of a sample's departure map"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Cross-spectrum (held error x gain; sample read half A x read half B)"
+     ],
+     [
+      "In the field's terms",
+      "Cross-spectrum between two maps (held-error map crossed with gain map, or a sample's own split-half reads)"
+     ],
+     [
+      "Definition",
+      "Whether two maps share structure: held error with gain, or the two random halves of one sample's own reads, which share the signal but not the counting noise."
+     ],
+     [
+      "What it does",
+      "Computes C_l^{XY}; crossing two halves of the same sample removes the counting-noise bias."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sequencing Globe's job is WHERE the problem is located; crossing two independent halves of the same sample's reads cancels counting noise that is uncorrelated between the halves, leaving the shared structure needed to see where held error departs from the sample's own predicted held error."
+     ],
+     [
+      "How it is obtained or computed",
+      "The cross-spectrum C_l^{XY} of two maps: held error with gain, or read half A with read half B of the same sample. Crossing two halves of the same sample removes the counting-noise bias, following CMB practice of crossing independent detector halves. The maps use HEALPix (Górski et al. 2005, ApJ 622:759)."
+     ],
+     [
+      "Where it is read",
+      "Read from the sample's own molecules, drawn across 1,000-CpG regions on the Sequencing Globe's sphere of equal-area pixels."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked 'not the law: statistics and geometry (the instrument)', with long-form section 'not part of IAM's Law' — this is not an energy term in IAM's Law but a statistical/geometric instrument quantity used to strip counting noise from the map."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No fixed value is given: source is the )', source_kind is 'read from the sample's own molecules', and card_key shows it is 'not yet on the card', so no default or typical value is recorded yet."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Listed as 'candidate' in the chain and 'not yet on the card'; the cross-spectrum method itself is established practice from CMB work, but its status and any healthy range within IAM are open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "the cross-spectrum of two maps (CMB practice of crossing independent detector halves to remove the noise bias); HEALPix: Górski et al. (2005) ApJ 622:759"
+     ]
+    ],
+    "name": "Cross-spectrum (held error x gain; sample read half A x read half B)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Monopole and dipole of the departure map"
+     ],
+     [
+      "In the field's terms",
+      "Monopole (l=0) and dipole (l=1) terms of a genome-wide methylation departure map"
+     ],
+     [
+      "Definition",
+      "The monopole is one offset over the whole genome sky, the form each cell type's own healthy level takes (each type's whole held record a little different); the dipole is a tilt along genome order, a check for depth, GC or copy-timing effects."
+     ],
+     [
+      "What it does",
+      "It splits the genome-wide departure map into two terms: l = 0, a single overall offset applied across the whole sky, and l = 1, a directional tilt along genome order that is used to check for systematic effects from read depth, GC content, or copy timing."
+     ],
+     [
+      "Why the instrument needs it",
+      "The monopole is the form each type's own level takes (one offset over the whole genome sky: each type's whole held record a little different); the dipole is a tilt along genome order, a check for depth, GC or copy-timing effects. Both serve the globe's job of locating where the problem is."
+     ],
+     [
+      "How it is obtained or computed",
+      "l = 0: one offset computed over the whole sky; l = 1: a tilt computed along genome order and checked against systematics (depth, GC, copy timing). This follows the method of monopole and dipole extraction from a sky map in CMB analysis, with credit to HEALPix equal-area pixelization (Górski et al. 2005, ApJ 622:759)."
+     ],
+     [
+      "Where it is read",
+      "Not a single locus: the departure map is built from 1,000-CpG regions across the genome and drawn on a sphere of equal-area pixels (per instrument 16, the Sequencing Globe); the monopole and dipole are summary terms over that whole sky."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked explicitly as not the law: its law_part is 'not the law: statistics and geometry (the instrument)' and its long-form section is 'not part of IAM's Law.' It is a statistical and geometric quantity used by the instrument for localization, not a step in IAM's Law energy-accounting chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical numeric value is given in the packet. Its basis is 'established (CMB)', its source is the ). Its status in the chain is 'candidate', and it is not yet on the card (card_key: 'not yet on the card')."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This term is flagged as a candidate (in_chain: candidate), not yet integrated into the card, and the packet gives no quantitative value or healthy range for it — it functions as a check for systematic artifacts (depth, GC, copy timing) rather than as a settled measurement of fidelity itself."
+     ],
+     [
+      "Credit",
+      "monopole and dipole of a sky map (CMB analysis); HEALPix: Górski et al. (2005) ApJ 622:759"
+     ]
+    ],
+    "name": "Monopole and dipole of the departure map"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Minkowski functionals of the excursion set (area, boundary, Euler characteristic)"
+     ],
+     [
+      "In the field's terms",
+      "Minkowski functionals of the excursion set (area, boundary, Euler characteristic)"
+     ],
+     [
+      "Definition",
+      "The shape of the places that depart: how much area, how much edge, and how many separate clumps; it tells many small written islands from one broad region."
+     ],
+     [
+      "What it does",
+      "Computes V0, V1, V2 of the pixels above a threshold nu, plotted against nu; this separates many small clumps from one broad region."
+     ],
+     [
+      "Why the instrument needs it",
+      "It is carried as a candidate reading beside the C-Scores on the Sequencing Globe, the instrument whose job is WHERE the problem is located — so this reading would describe whether a departure shows up as many small clumps or one broad region across the sphere of equal-area pixels."
+     ],
+     [
+      "How it is obtained or computed",
+      "V0, V1, V2 (area, boundary, Euler characteristic) of the pixels above threshold nu, computed against nu."
+     ],
+     [
+      "Where it is read",
+      "On the Sequencing Globe: the genome-wide map of where maintenance fidelity departs, binned into 1,000-CpG regions and drawn on a sphere of equal-area pixels."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law — the packet marks this row's law_part as 'not the law: statistics and geometry (the instrument)', and its long-form section is 'not part of IAM's Law'. It is a statistical and geometric quantity belonging to the instrument, not a step in the Law's own chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet. Basis: established (CMB); source_kind: the IAM Sequencing Atlas (measured healthy reference)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is listed only as a candidate ('candidate: the clump-shape reading beside the C-Scores') with no card_key assigned, so its formal place in the chain and any healthy range are open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "Minkowski, H. (1903) (the functionals); Gott, J.R. et al. (1990) ApJ 352:1 (topology of microwave background fluctuations); Schmalzing, J. & Górski, K.M. (1998) MNRAS 297:355 (Minkowski functionals on the sphere, COBE)"
+     ]
+    ],
+    "name": "Minkowski functionals of the excursion set (area, boundary, Euler characteristic)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Island layer: gain at the never-marked islands (where) — the never-marked island set and the gain C-Score; not yet on the card"
+     ],
+     [
+      "In the field's terms",
+      "Methylation gain (hypermethylation) at normally unmethylated CpG islands, with tests for clustering (gain blocks, gain C-Score)"
+     ],
+     [
+      "Definition",
+      "The never-marked islands (most invisible to arrays) read on the globe: which ones gained marks beyond their measured noise, and whether the gains come in groups."
+     ],
+     [
+      "What it does",
+      "For each never-marked island it computes a z of gain over measured noise, using read-halves (a counting check) and donor-halves minus read-halves (a person-to-person check); it then assembles gain blocks, a gain C-Score, Minkowski measures, and a cross-spectrum with held error, testing significance with sign-flip, shuffle, and read-half nulls."
+     ],
+     [
+      "Why the instrument needs it",
+      "This instrument's job is WHERE the problem is located; this row supplies the piece of that localization that lives specifically in the never-marked islands — most invisible to arrays — asking whether they gained marks beyond their own measured noise and whether such gains cluster."
+     ],
+     [
+      "How it is obtained or computed",
+      "per island z of gain over measured noise (read halves: counting; donor halves minus read halves: person-to-person); gain blocks; gain C-Score; Minkowski; cross-spectrum with held error; sign-flip, shuffle and read-half nulls."
+     ],
+     [
+      "Where it is read",
+      "At the never-marked islands of the shared island set v2 (most invisible to arrays), read on the Sequencing Globe."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked 'not the law: statistics and geometry (the instrument)', with lf_section 'not part of IAM's Law.' It is not a link in IAM's Law chain at all, but a statistical/geometric instrument quantity used to locate departures."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No finalized healthy value is given; it is read against measured noise (via read-half and donor-half comparisons) using the IAM Sequencing Atlas (measured healthy reference), per the. Its chain status is 'candidate: owed (the shared island set v2)', and it is explicitly 'not yet on the card.'"
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Still a candidate ('owed', the shared island set v2) and 'not yet on the card', so it is not yet a settled part of the reference. Being statistics and geometry rather than the law itself, it can show where gains exceed measured noise and whether they cluster, but it is not part of IAM's Law chain."
+     ],
+     [
+      "Credit",
+      "IAM (this work): the never-marked island set and the gain C-Score; noise maps by the CMB split-halves method; HEALPix: Górski et al. (2005)"
+     ]
+    ],
+    "name": "Island layer: gain at the never-marked islands (where)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Forward-model demonstration (planted island clumps)"
+     ],
+     [
+      "In the field's terms",
+      "Planted-signal forward-model benchmark for island-gain (CIMP-like) detection"
+     ],
+     [
+      "Definition",
+      "A candidate check, placed after the bands, in which island gains of known rates and sizes are planted into a spent healthy library, both on and off the array, and each tool's detection limit is recorded beside an array-sited reading."
+     ],
+     [
+      "What it does",
+      "Plants CIMP-like island gains at known rates and sizes, on and off the array, into a spent healthy library, and measures each tool's detection limit beside an array-sited reading."
+     ],
+     [
+      "Why the instrument needs it",
+      "To measure what each tool detects: a planted test on healthy spent data adds island gains of known size, including off-array islands, and records each tool's detection limit beside an array-sited reading."
+     ],
+     [
+      "How it is obtained or computed",
+      "Plant CIMP-like island gains at known rates and sizes, on and off the array, into a spent healthy library; each tool's detection limit beside an array-sited reading. This is statistics (forward modeling, synthetic), credited as forward modeling (planted signals) as in CMB pipeline validation; this work."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "not the law: statistics and geometry (the instrument). It is not part of IAM's Law; it is a calculated-by-the-chain quantity (statistics or geometry), not a physical energy term."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "forward modeling (planted signals) as in CMB pipeline validation; this work"
+     ]
+    ],
+    "name": "Forward-model demonstration (planted island clumps)"
+   }
+  ],
+  "job": "WHERE the problem is located",
+  "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start. IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.",
+  "link": "16. Sequencing Globe",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Globe drawn (the whole-genome globe)"
+     ],
+     [
+      "In the field's terms",
+      "Run status of the genome-wide map of where maintenance fidelity departs (whether the whole-genome globe was produced)"
+     ],
+     [
+      "Definition",
+      "The record confirming that the whole-genome globe ran: a genome-wide map, built in 1,000-CpG regions, of where maintenance fidelity departs from the sample's own predicted held error."
+     ],
+     [
+      "What it does",
+      "Records that the whole-genome globe ran (one button). The globe draws each region's held error against the sample's own predicted held error on a sphere of equal-area pixels."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is WHERE the problem is located, so the chain needs this globe run to show, across the genome, where departures from the sample's own prediction occur."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references; the chain records the result at development.genome_globe.status, with test_value \"OK\" and test_state OK."
+     ],
+     [
+      "Where it is read",
+      "Genome-wide, drawn in 1,000-CpG regions across the whole genome, laid out as a sphere of equal-area pixels, rather than at one locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This output is tied to IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d. That section gives held/lost = (x/2)/(1-(1-e^{-x})/x); for the cell's restore, x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M/M. Status there: identity confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reading is \"OK\" (test_state OK); status basis is partly derived, and the step is in_chain as yes (one button)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The record only carries a pass/fail flag that the globe ran (\"OK\"); its basis is marked partly derived rather than fully derived, so beyond confirming the run, this entry does not itself carry the per-region values."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Globe drawn"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Globe regions"
+     ],
+     [
+      "In the field's terms",
+      "Number of genomic regions read and number changed (1,000-CpG regions whose maintenance fidelity departs from the sample's own prediction)"
+     ],
+     [
+      "Definition",
+      "Regions read and regions changed: each 1,000-CpG region's held error is compared against the sample's own predicted held error, and the result is drawn on a sphere of equal-area pixels."
+     ],
+     [
+      "What it does",
+      "It reports regions read and regions changed: each region's held error against the sample's own predicted held error, drawn on a sphere of equal-area pixels (recorded run: 20147 drawn, 16 changed: 15 more loss, 1 less loss)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to show WHERE the problem is located across the genome, rather than giving only a single whole-sample number."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, via test path development.genome_globe.self. In the recorded run: regions_drawn 20147, line 4.71, own_spread 1.286."
+     ],
+     [
+      "Where it is read",
+      "Genome-wide, not a single locus: the genome is divided into 1,000-CpG regions (20147 regions drawn in the recorded run) and each region's value is plotted as an equal-area pixel on a sphere."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Carried under IAM's Law, link 1d, long form section 1d ('the hold is the same rule, slow'). That section gives held/lost = (x/2) / (1 - (1-e^{-x})/x) as one function of how slow a write is, x, in kicks; for the cell's restore x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464, approximately ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is 'few changed', basis partly derived. In the recorded run this showed as changed: 16 regions (more_loss: 15, less_loss: 1) out of regions_drawn 20147, against a predicted value of 0.04466, with loose_share 0.1268."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The basis for 'few changed' is marked partly derived, and the recorded test_value is itself only a single run's snapshot (regions_drawn, line, own_spread, changed, predicted, loose_share as given); beyond what is in this record, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Globe regions"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "The sample's held error in 1,000-CpG regions over the whole genome against its own predicted held error (IAM-A's line at each region's loose share), and the report globe against the atlas with each site's healthy width from the atlas's person-to-person spread (cells with one library borrow their lineage's spread, a chain update)."
+     ],
+     [
+      "Why",
+      "It answers where the problem is located, beside the instruments that say what and how much."
+     ],
+     [
+      "Physics",
+      "The prediction per region is IAM's Law's slow-write held error through IAM-A (links 1, 1d, 2); the map tools are established cosmology (angular power spectrum, cross-spectrum, monopole and dipole, Minkowski functionals)."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; IAM-A's line; the atlas's levels and spreads; the never-marked islands set v2 (293,980 at 0.20)."
+     ],
+     [
+      "The numbers",
+      "Test library GSM5652214: 20,147 regions drawn, 16 changed."
+     ],
+     [
+      "Method and standard",
+      "Counting floor per region; the healthy distance bar owed (follows the bar pass)."
+     ],
+     [
+      "Known-answer test",
+      "Canary on the test library (2026-11-20); a planted regional-loss test is owed (part of the where stage)."
+     ],
+     [
+      "Limits",
+      "(1) Healthy bar owed. (2) Region size is a rule (1,000 CpGs, because held error is rare). (3) Positions not yet named with genes (the where stage)."
+     ],
+     [
+      "Where the result goes",
+      "bundle development.genome_globe; the globe page; the report's globe section."
+     ],
+     [
+      "Code",
+      "stage_q2_globe; MethylPhys_Interface/report_globe_v4.py"
+     ],
+     [
+      "How to rebuild it",
+      "Cut into 1,000-CpG regions; held error and prediction per region; draw departures on the sphere in genome order."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R16-GLOBE",
+    "name": "Sequencing Globe: where along the genome the record departs",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_globe.py",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "How is a region called changed?",
+      "Against its own predicted held error with a counting floor; the false-discovery control and gene names come with the where stage.",
+      "globe record; design of the where stage"
+     ],
+     [
+      "On the recorded test library, how many regions came back flagged, and in which direction?",
+      "On the recorded run of the known-answer library (cardiomyocyte), 16 of 20,147 regions were flagged: 15 with more loss than the sample's own expected held error (0.04466 at its loose share of 0.127) and 1 with less. This is one library's result, not a healthy range.",
+      "instrument record: outputs: 'Globe regions' entry (regions_drawn, changed: more_loss/less_loss, predicted, loose_share)"
+     ],
+     [
+      "Can the globe tell us which genes or chromosome locations these 16 changed regions actually fall in?",
+      "Not yet recorded: positions are not yet named with genes at this stage. The globe only reports that a region (by its address on the genome map) departed from the predicted held error; gene annotation is left to the next, separate 'where' stage.",
+      "instrument record: rules: R16-GLOBE limits, item (3) 'Positions not yet named with genes (the where stage)'"
+     ],
+     [
+      "Does the globe put an error bar or confidence band around each region's result so we know if a departure is real or just noise?",
+      "Not yet recorded: the rule calls for each site to get a 'healthy width' borrowed from the atlas's person-to-person spread (cells with one library borrowing their lineage's spread), but the limits note that this healthy bar is still owed and has not been delivered.",
+      "instrument record: rules: R16-GLOBE limits, item (1) 'Healthy bar owed'"
+     ],
+     [
+      "Why are regions defined as blocks of 1,000 CpGs instead of looking at single sites or smaller windows?",
+      "Because held error is rare (roughly 4%), a window needs about 1,000 CpGs to accumulate enough chances of a departure to clear the counting floor; smaller windows would not gather enough events to be statistically meaningful, and the packet does not give any finer resolution than this 1,000-CpG region (or 10-site block) scheme.",
+      "instrument record: inputs: 'Region size' plain and limits"
+     ]
+    ],
+    "status": "development; drawn on real files since a chain update"
+   }
+  ],
+  "report_section": "v4-globe-sum",
+  "tools": [
+   {
+    "credit": "Gross E. & Vitells O. (2010) Trial factors for the look elsewhere effect in high energy physics. Eur. Phys. J. C 70:525-530, doi 10.1140/epjc/s10052-010-1470-8",
+    "tool": "Look-elsewhere effect (trial factor for a search over many places)",
+    "what": ""
+   },
+   {
+    "credit": "Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)",
+    "tool": "Block-shuffle null (resampling blocks of neighbouring sites to keep their correlation)",
+    "what": ""
+   },
+   {
+    "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+    "tool": "HEALPix equal-area pixelization",
+    "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+   },
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+    "tool": "Null tests (shuffled and sign-flip nulls)",
+    "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+   },
+   {
+    "credit": "Hivon E. et al. (2002) ApJ 567:2, doi 10.1086/338126 (MASTER)",
+    "tool": "Angular power spectrum on a masked sky (pseudo-C_l, MASTER)",
+    "what": "whether departures along the genome have a scale: the spectrum of the departure map with the mask's coupling corrected"
+   },
+   {
+    "credit": "Mecke K.R., Buchert T. & Wagner H. (1994) A&A 288:697-704, arXiv astro-ph/9312028 (into cosmology); Schmalzing J. & Gorski K.M. (1998) MNRAS 297:355 (CMB maps)",
+    "tool": "Minkowski functionals (morphology of excursion sets)",
+    "what": "the shape of the regions where a sample departs (area, boundary length, number of patches) against those of noise"
+   },
+   {
+    "credit": "Monopole and dipole of a full-sky map, measured and removed before the finer structure is read: Bennett C.L. et al. (2003) First-year WMAP observations: preliminary maps and basic results, ApJS 148:1-27, doi 10.1086/377253 (a standard reference; dipole and quadrupole reported, the dipole subtracted in processing)",
+    "tool": "Monopole, dipole and low multipoles",
+    "what": "the mean and the large-scale tilt of the departure map (sex shows as a chrX patch)"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   },
+   {
+    "credit": "Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300",
+    "tool": "False discovery rate (statistics)",
+    "what": ""
+   }
+  ]
+ }
+}

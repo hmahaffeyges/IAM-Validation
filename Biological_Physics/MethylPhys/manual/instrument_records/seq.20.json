@@ -1,0 +1,82 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.20",
+ "record": {
+  "cosmo_tool": "Repeat observations of the same field (difference imaging).",
+  "credit": "",
+  "field_how": "A later sample against an earlier one of the same person at every CpG both measured.",
+  "field_term": "Longitudinal comparison: the person as their own control",
+  "id": "seq.20",
+  "inputs": [],
+  "job": "a later draw against an earlier one of the same person",
+  "law": "Not the law: a chain rule.",
+  "link": "20. Serial samples from one person",
+  "outputs": [],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "With --prior-pat, the later sample is read against the same person's earlier sample at every site both measured."
+     ],
+     [
+      "Why",
+      "The person is their own reference: no healthy reference group needed."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law: a chain rule."
+     ],
+     [
+      "Where the data comes from",
+      "Two molecule files of the same person."
+     ],
+     [
+      "The numbers",
+      "Not yet tested: public repeated-draw data are held for its test."
+     ],
+     [
+      "Method and standard",
+      "Site-by-site change between draws (test owed)."
+     ],
+     [
+      "Known-answer test",
+      "Owed."
+     ],
+     [
+      "Limits",
+      "Not part of this sign-off."
+     ],
+     [
+      "Where the result goes",
+      "bundle change between draws."
+     ],
+     [
+      "Code",
+      "run_sample.py (--prior-pat)"
+     ],
+     [
+      "How to rebuild it",
+      "Read both files; compare at shared sites."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R20-SERIAL",
+    "name": "Serial samples: a later sample against the same person's earlier one",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [],
+    "status": "not part of the sequencing readiness check (needs a prior sample of the same person)"
+   }
+  ],
+  "report_section": "v4-serial",
+  "tools": []
+ }
+}
