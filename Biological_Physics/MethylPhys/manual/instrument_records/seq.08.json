@@ -1,0 +1,236 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.08",
+ "record": {
+  "cosmo_tool": "A cosmic clock: age read from accumulated, irreversible change.",
+  "credit": "",
+  "field_how": "Held and gain errors at the 163 epiTOC2 CpGs and 25 CpGs either side, read on single molecules.",
+  "field_term": "Mitotic clock: methylation gain at the 163 epiTOC2 CpGs (Teschendorff 2020), a proxy for cumulative cell divisions",
+  "id": "seq.08",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clock sites"
+     ],
+     [
+      "In the field's terms",
+      "Mitotic clock: methylation gain at the 163 epiTOC2 CpGs (Teschendorff 2020), a proxy for cumulative cell divisions"
+     ],
+     [
+      "Definition",
+      "163 epiTOC2 CpGs, with 25 CpGs either side, for 3,107 CpGs in total — fixed addresses that gain methylation with each division."
+     ],
+     [
+      "What it does",
+      "It is the call-up count: activation history read directly."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law needs it to track link 5, the arrow — records copied forward, not restored — so the held and gain errors at these fixed addresses stand in for how many times the cell has divided."
+     ],
+     [
+      "How it is obtained or computed",
+      "Held and gain errors are read at the 163 epiTOC2 CpGs and the 25 CpGs either side, read on single molecules, from Runtime Matrices/Clock_Sites/epitoc2_sites.csv."
+     ],
+     [
+      "Where it is read",
+      "At the 163 epiTOC2 CpGs and the 25 CpGs either side (3,107 CpGs total), read from the sample's own molecules."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This enters IAM's Law at link 5 (long form section 5): the arrow — records copied forward, not restored. Its status there is measured (lead)."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Not a healthy-band quantity: a fixed list of addresses, 163 epiTOC2 CpGs and 25 CpGs either side (3,107 CpGs), from Runtime Matrices/Clock_Sites/epitoc2_sites.csv (Teschendorff 2020). The held and gain errors at these sites are read from the sample's own molecules."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "epiTOC2 mitotic clock: Teschendorff 2020; epiTOC2 mitotic clock sites (epigenetics): Teschendorff A.E. (2020) Genome Medicine 12:56, doi 10.1186/s13073-020-00752-3"
+     ]
+    ],
+    "name": "clock sites"
+   }
+  ],
+  "job": "the call-up count: activation history read directly",
+  "law": "IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+  "link": "8. Clock sites (the mitotic clock)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clock sites"
+     ],
+     [
+      "In the field's terms",
+      "Methylation gain and loss (held error) at the 163 epiTOC2 mitotic-clock CpGs (Teschendorff 2020); the mitotic clock, a proxy for cumulative cell divisions"
+     ],
+     [
+      "Definition",
+      "Held and gain error at the epiTOC2 sites."
+     ],
+     [
+      "What it does",
+      "It is the call-up count: activation history read directly — the mitotic clock, read as methylation gain at the 163 epiTOC2 CpGs, standing in for cumulative cell divisions."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law, link 5, treats these marks as records copied forward rather than restored at each division, so the accumulated held and gain error at these sites directly carries the call-up count of the cell's division history."
+     ],
+     [
+      "How it is obtained or computed",
+      "Held and gain errors are read at the 163 epiTOC2 CpGs and 25 CpGs either side, read on single molecules."
+     ],
+     [
+      "Where it is read",
+      "At the epiTOC2 mitotic-clock CpGs — 163 of them — with 25 CpGs either side (Runtime Matrices/Clock_Sites/epitoc2_sites.csv)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This enters IAM's Law at link 5, long form section 5 — the arrow: records copied forward, not restored. The long-form text for this step reads only as a header ([long form 5] ## 5. Step 5: the arrow), and the packet marks this connection as a lead, not yet a confirmed result."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The healthy reading is gain above the islands' meter; this basis is currently a lead, not yet a settled healthy range."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "epiTOC2 mitotic clock: Teschendorff 2020; epiTOC2 mitotic clock sites (epigenetics): Teschendorff A.E. (2020) Genome Medicine 12:56, doi 10.1186/s13073-020-00752-3"
+     ]
+    ],
+    "name": "Clock sites"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Held and gain errors on single molecules at the 163 epiTOC2 CpGs (Teschendorff 2020) and 25 CpGs either side (3,107 CpGs): gain there accumulates with cell divisions."
+     ],
+     [
+      "Why",
+      "Gain at these sites is a proxy for how many times the cells have divided (mitotic age); read on molecules, against the library's own meter, it needs no age model."
+     ],
+     [
+      "Physics",
+      "IAM's Law, link 5 (the arrow: records copied forward, not restored): the clock tick is read as the writer's error made heritable. Measured 2026-11-16: clock sites are islands where the shield fails."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; the 163 epiTOC2 CpGs (Teschendorff A.E. 2020, Genome Medicine 12:56, doi 10.1186/s13073-020-00752-3) with 25 CpGs either side; the islands meter as the zero."
+     ],
+     [
+      "The numbers",
+      "Relay test: planted clock gain moved clock gain 0.0123 -> 0.0505 with the other readings unchanged; island gain lifts it slightly (0.0123 -> 0.0140) because clock sites are islands."
+     ],
+     [
+      "Method and standard",
+      "Counted rates on molecules; the healthy bar by the 2026-11-07 rule from held-out libraries (owed)."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted clock gain moved the clock and nothing else (met)."
+     ],
+     [
+      "Limits",
+      "(1) An open lead, not a commissioned clock: no age calibration. (2) Shares sites with the islands, so island gain raises it slightly. (3) Its weak link to each type's level (+0.32, interval reaching 0) is not established."
+     ],
+     [
+      "Where the result goes",
+      "bundle iam_a.count clock fields; report."
+     ],
+     [
+      "Code",
+      "stage_q2_selfref counter (clock sites)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Take the 163 epiTOC2 CpGs and 25 either side. 2. Count held and gain errors on molecules covering them. 3. Read gain above the islands meter."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R08-CLOCK",
+    "name": "Clock sites: methylation gain at the epiTOC2 mitotic-clock CpGs",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Is this an epigenetic clock?",
+      "It reads the published epiTOC2 mitotic-clock sites on single molecules; it is a lead for mitotic age, not a calibrated age.",
+      "Teschendorff 2020; register C3"
+     ]
+    ],
+    "status": "development (an open lead); healthy bar owed"
+   }
+  ],
+  "report_section": "v4-clock",
+  "tools": [
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   },
+   {
+    "credit": "Teschendorff A.E. (2020) Genome Medicine 12:56, doi 10.1186/s13073-020-00752-3",
+    "tool": "epiTOC2 mitotic clock sites (epigenetics)",
+    "what": ""
+   }
+  ]
+ }
+}

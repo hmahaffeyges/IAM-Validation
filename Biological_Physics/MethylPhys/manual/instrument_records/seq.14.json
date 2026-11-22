@@ -1,0 +1,522 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.14",
+ "record": {
+  "cosmo_tool": "Regions of the sky read separately under their own masks.",
+  "credit": "",
+  "field_how": "Each territory read at its expected value for the sample's own read depth, against the atlas.",
+  "field_term": "Entropy change at CpG islands and at partially methylated (loosely held) domains",
+  "id": "seq.14",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "territory sets"
+     ],
+     [
+      "In the field's terms",
+      "CpG island and partially methylated domain (PMD) region sets"
+     ],
+     [
+      "Definition",
+      "An input identifying the site groups that lie outside the identity sites: the CpG islands and the loosely held (partially methylated) domains, as defined by the atlas's territory sets, with the value given as islands 66,986; loosely held domains."
+     ],
+     [
+      "What it does",
+      "It supplies the territory sets — the islands and the loosely held domains — so that the instrument's job, 'changes outside identity sites,' can be carried out across those site groups."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs a defined set of territories to know which sites count as islands versus loosely held domains before it can read entropy change outside the identity sites."
+     ],
+     [
+      "How it is obtained or computed",
+      "Each territory is read at its expected value for the sample's own read depth, against the atlas (field_how), drawing on the measured territories.sets input with basis measured (atlas)."
+     ],
+     [
+      "Where it is read",
+      "At CpG islands (islands 66,986) and at partially methylated (loosely held) domains across the genome, outside the identity sites."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly marked law_part: 'not the law itself: a measured input the law uses' and lf_section: 'not part of IAM's Law.' It is a measured territory-definition input — not a step in IAM's Law — that the law subsequently draws on."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The value is islands 66,986; loosely held domains, drawn from territories.sets with basis measured (atlas), sourced from the IAM Sequencing Atlas (measured healthy reference); card_key notes it is not yet on the card."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "territory sets"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "counted expectation"
+     ],
+     [
+      "In the field's terms",
+      "Read-depth-matched expected value (expectation at each site's read count) for territory readings"
+     ],
+     [
+      "Definition",
+      "A chain-rule input to the Territories instrument (CpG islands and loosely held/partially methylated domains) made of two values: TERR_COUNTED false and TERR_M 20, drawn from stage_metaa_atlas.TERR_COUNTED, TERR_M."
+     ],
+     [
+      "What it does",
+      "Recorded as the setting for the expectation at each site's read count (plain). Its recorded values are TERR_COUNTED false and TERR_M 20. What TERR_M 20 sets, and what the territories use while TERR_COUNTED is false: open: not in the records yet."
+     ],
+     [
+      "Why the instrument needs it",
+      "The territories instrument reads each territory at its expected value for the sample's own read depth, against the atlas; this setting governs the expectation at each site's read count."
+     ],
+     [
+      "How it is obtained or computed",
+      "A setting with a default (a chain rule), basis rule, from stage_metaa_atlas.TERR_COUNTED and TERR_M: TERR_COUNTED false; TERR_M 20."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The packet states this row's law_part is 'not the law: a chain rule' and its long-form section is 'not part of IAM's Law' — so it does not enter IAM's Law at all. It is a setting-type quantity (a chain-rule default), not an energy or probability term in the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is TERR_COUNTED false and TERR_M 20, sourced from stage_metaa_atlas.TERR_COUNTED, TERR_M, with source_kind 'setting with a default (a chain rule)'; no further computed default is given in the packet."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. The meaning of TERR_M 20 and the effect of TERR_COUNTED being false: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "counted expectation"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "minimum share (TERR_SHARE_MIN)"
+     ],
+     [
+      "In the field's terms",
+      "Minimum cell-type share threshold for Territories (CpG island / partially methylated domain) scoring"
+     ],
+     [
+      "Definition",
+      "A fixed cutoff, value 0.01, below which a cell type's share is excluded from the Territories reading; it is a chain rule, not part of IAM's Law."
+     ],
+     [
+      "What it does",
+      "Cells below this share are left out of the Territories instrument's reading of entropy change at CpG islands and at partially methylated (loosely held) domains."
+     ],
+     [
+      "Why the instrument needs it",
+      "The records say only that cells below this share are left out of the territories reading; the reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is not computed; it is a setting with a default (a chain rule), fixed at TERR_SHARE_MIN 0.01 in stage_metaa_atlas.TERR_SHARE_MIN."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part marks this explicitly as 'not the law: a chain rule', and its lf_section is 'not part of IAM's Law' — it is a pipeline setting with a default, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is 0.01, from stage_metaa_atlas.TERR_SHARE_MIN, and its source_kind is 'setting with a default (a chain rule)' — it is a fixed default, not a measured healthy range."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Being a chain rule rather than a measured quantity, it carries no biological reading on its own — it only decides which cell types are admitted to the Territories score. It is also 'not yet on the card' in the records, so it has no assigned card key."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "minimum share"
+   }
+  ],
+  "job": "changes outside identity sites",
+  "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+  "link": "14. Territories (islands and loosely held domains)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Territories, islands"
+     ],
+     [
+      "In the field's terms",
+      "Entropy change at CpG islands against the atlas (islands territory)"
+     ],
+     [
+      "Definition",
+      "Islands territory against the atlas: each territory is read at its expected value for the sample's own read depth, against the atlas."
+     ],
+     [
+      "What it does",
+      "It reads the islands territory against the atlas, one of instrument 14's readings of changes outside identity sites."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 14's job is changes outside identity sites; this is its islands reading (in the chain as one button)."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references, with each territory read at its expected value for the sample's own read depth, against the atlas; the test path is territories.sets.islands.A, with a recorded test value of 0.70795."
+     ],
+     [
+      "Where it is read",
+      "At CpG islands (the islands territory), read against the atlas at the expected value for the sample's own read depth (test_path territories.sets.islands.A)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law (lf_section: not part of IAM's Law); its law_part status is 'not the law itself: a measured input the law uses' — so it enters as a measured territory-level quantity that the law draws on, not as a derived law term."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is about 1 after the healthy zero, with basis measured. However, test_state notes: NO HEALTHY BAND YET — the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries, and the code's current 0.95-1.05 is only a holdover."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "No healthy band yet: as test_state records, the centre and width for this score still need to be set from the 152 atlas libraries, and the 0.95-1.05 figure in the code is a holdover, not an established healthy range."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Territories, islands"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Territories, domains — instrument 14, 'Territories (islands and loosely held domains)'"
+     ],
+     [
+      "In the field's terms",
+      "Entropy change at partially methylated (loosely held) domains against the atlas"
+     ],
+     [
+      "Definition",
+      "Loosely held domains against the atlas: the domains territory read at its expected value for the sample's own read depth, compared against the atlas."
+     ],
+     [
+      "What it does",
+      "Captures changes outside identity sites — the job is described as 'changes outside identity sites' — by reading each territory at its expected value for the sample's own read depth, against the atlas."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 14's job is changes outside identity sites; this is its loosely held domains reading (in the chain as one button)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (source_kind): each territory is read at its expected value for the sample's own read depth, against the atlas (field_how). The current test value recorded is 0.92345."
+     ],
+     [
+      "Where it is read",
+      "At the loosely held (partially methylated) domains, read against the atlas (test_path territories.sets.domains.A); no specific coordinates are given."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law itself (law_part: 'not the law itself: a measured input the law uses'; lf_section: 'not part of IAM's Law'). It is a measured-status input that the law draws on, with no long-form section number attached."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads about 1 after the healthy zero (basis: measured), but the test_state records NO HEALTHY BAND YET — the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; until then the code's 0.95-1.05 range stands as a holdover."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "No proper healthy band exists yet for this output: the present 0.95-1.05 range is only a holdover pending the centre and width being set from the 152 atlas libraries, so readings outside it cannot yet be judged against a real healthy band."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Territories, domains"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Territories state (instrument 14, islands and loosely held domains)."
+     ],
+     [
+      "In the field's terms",
+      "Pass/out-of-range call for CpG-island and partially methylated domain entropy against a cell-type-matched healthy reference width."
+     ],
+     [
+      "Definition",
+      "Whether the territories reading sits inside or outside its type's measured healthy width. Today's bundle still prints the legacy word 'untared', left from the retired same-run tare; it is not a missing step."
+     ],
+     [
+      "What it does",
+      "It turns the territories reading into a state: inside or outside the type's measured healthy width."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 14 reads changes outside identity sites; the state says whether those changes sit within what healthy cells of the same type show."
+     ],
+     [
+      "How it is obtained or computed",
+      "Each territory is read at its expected value for the sample's own read depth, against the atlas; the state compares the reading with the type's centre (its healthy median) and width (its measured spread). Both are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover."
+     ],
+     [
+      "Where it is read",
+      "CpG islands and partially methylated (loosely held) domains."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a measured input the law uses; the state is a band comparison on an entropy reading."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is within the type's measured width, being set from the held-out pass. NO HEALTHY BAND YET: the centre and width are to come from the 152 atlas libraries. The development test prints \"untared\"."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Until the band is set the state cannot yet say inside or outside; the 0.95-1.05 in the code is a holdover, not a measured band."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Territories state"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Two territories read separately against the IAM Sequencing Atlas, each at its expected value for the sample's own read count: CpG islands (66,986 sites every healthy type keeps unmarked) and loosely held (partially methylated) domains."
+     ],
+     [
+      "Why",
+      "Many departures from healthy occur outside the identity sites: island gain and domain loss. Reading them under their own masks keeps one from hiding the other."
+     ],
+     [
+      "Physics",
+      "IAM's Law, link 1d: islands carry only the meter; domains' healthy level is IAM-A's held error at the site's loose share."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; the territory sets; the atlas's sealed donor halves (terr_half_counts_v1) for held-out reading."
+     ],
+     [
+      "The numbers",
+      "Held-out pass 8: domains 0.993 +/- 0.234, islands 1.011 +/- 0.327. Healthy pass 5 (islands against the other donor half): met. Relay test: planted island gain moved island territories x9.96."
+     ],
+     [
+      "Method and standard",
+      "Counted expectation at the sample's read depth (synthetic met 2026-11-01); bars by the 2026-11-07 rule from held-out pass 9 (owed)."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted island gain moved the island territory x9.96 (met)."
+     ],
+     [
+      "Limits",
+      "(1) Site sets are array-sited; sequencing-sited sets owed. (2) Wide held-out widths (thin donors). (3) Domains depend on Met-A's expectation and move with the tare."
+     ],
+     [
+      "Where the result goes",
+      "bundle territories (islands, domains, state); report."
+     ],
+     [
+      "Code",
+      "stage_metaa_atlas territories; terr_half_counts_v1"
+     ],
+     [
+      "How to rebuild it",
+      "1. Take the island and domain sets. 2. Expected disorder at each site's read count from the atlas (or the other donor half). 3. Sample over expected per territory."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R14-TERR",
+    "name": "Territories: islands and loosely held domains, read outside the identity sites",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why read islands and domains separately?",
+      "Departures typically gain marks at islands and lose them in loosely held domains; mixed together, one change can hide the other.",
+      "territory record"
+     ],
+     [
+      "Is there currently an established healthy range for the islands and domains scores, or is the 0.95-1.05 window in the code a validated reference?",
+      "There is no healthy band yet. The centre (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries. The 0.95-1.05 figure currently in the code is only a holdover, not an established healthy range, and this applies to both the islands and domains outputs as well as to the overall territories state.",
+      "instrument record: outputs (Territories, islands / Territories, domains / Territories state) healthy_how and limits fields"
+     ],
+     [
+      "How many CpG island sites make up the islands territory reading?",
+      "66,986 sites, defined as sites that every healthy cell type keeps unmarked.",
+      "instrument record: rules[0].rule"
+     ],
+     [
+      "What happens to cell types that make up only a small share of a sample when computing the Territories score?",
+      "Cells below a minimum share of the sample are left out of the territories score. The minimum is a rule of the pipeline, not a measured quantity; its value is not yet printed beside the reading.",
+      "instrument record: inputs (minimum share) plain and limits fields"
+     ]
+    ],
+    "status": "development; bars from held-out pass 9 owed"
+   }
+  ],
+  "report_section": "v4-territories",
+  "tools": [
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+    "tool": "Split maps and half-mission null tests (noise from difference maps)",
+    "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+   },
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+    "tool": "Student's t interval (statistics, not cosmology)",
+    "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+   },
+   {
+    "credit": "Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x",
+    "tool": "Shannon entropy (information theory)",
+    "what": ""
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}

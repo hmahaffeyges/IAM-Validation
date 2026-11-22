@@ -1,0 +1,497 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.07",
+ "record": {
+  "cosmo_tool": "Blank-sky calibration (a dark frame): the detector's own false signal measured where the sky is known to be dark.",
+  "credit": "",
+  "field_how": "Reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated. In a healthy sample these are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands.",
+  "field_term": "Library false-methylation rate at CpG islands every healthy cell keeps unmethylated; island hypermethylation above it",
+  "id": "seq.07",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "islands set"
+     ],
+     [
+      "In the field's terms",
+      "Constitutively unmethylated CpG island set (CpG islands unmethylated in every healthy cell type)"
+     ],
+     [
+      "Definition",
+      "The set of 66,986 CpG island sites (IAM-Atlas v2.1 territory sets; source iam_a.sites.islands) that every healthy type keeps unmarked."
+     ],
+     [
+      "What it does",
+      "It defines the sites the islands meter reads. In a healthy sample, methylated calls at these sites are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands."
+     ],
+     [
+      "Why the instrument needs it",
+      "Because incomplete conversion and sequencing error produce some false methylated calls even in a healthy sample, the instrument needs a baseline of sites that should always read unmarked so it can tell the library's own noise apart from a genuine gain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken from iam_a.sites.islands (IAM-Atlas v2.1 territory sets), basis measured. The meter reads the sample's own molecules at these sites (source_kind: read from the sample's own molecules)."
+     ],
+     [
+      "Where it is read",
+      "66,986 island sites drawn from the IAM-Atlas v2.1 territory sets."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the packet marks this as not the law itself, but a measured input the law uses."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Not a reading with its own healthy band: it is a fixed set of 66,986 island sites that every healthy type keeps unmarked (iam_a.sites.islands, basis measured)."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "islands set"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "the gain-side molecule rule (QUAL_MAX_METH)"
+     ],
+     [
+      "In the field's terms",
+      "Per-read methylation cutoff for counting a molecule as unmethylated (maximum methylated share allowed on one read)"
+     ],
+     [
+      "Definition",
+      "A rule, value QUAL_MAX_METH 0.2, that marks a molecule as 'held unmarked' (plain: 'a molecule held unmarked') for the purposes of the islands meter's dust correction."
+     ],
+     [
+      "What it does",
+      "Each molecule is judged against QUAL_MAX_METH 0.2 to decide whether it counts as a molecule held unmarked (plain: 'a molecule held unmarked'). It is a rule inside the islands meter (instrument 7)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs this rule to do the dust correction: it reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated, and in a healthy sample these are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is read as real methylation gain at islands."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a rule (basis: rule) from stage_q2_selfref.QUAL_MAX_METH, read from the sample's own molecules (source_kind), value QUAL_MAX_METH 0.2; it is in_chain: yes."
+     ],
+     [
+      "Where it is read",
+      "Applied to calls at CpG islands that every healthy type in the atlas keeps unmethylated, per the instrument's job; no further genomic coordinate is given for this rule itself."
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law' — this is not a step in IAM's Law; it is an instrument/meter quality rule (a per-molecule threshold) feeding the islands meter's dust-correction calculation, not a law-linked quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: QUAL_MAX_METH 0.2, set as a rule, sourced from stage_q2_selfref.QUAL_MAX_METH and read from the sample's own molecules; card_key notes it is 'not yet on the card'."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "gain-side molecule rule"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "conversion spike-in"
+     ],
+     [
+      "In the field's terms",
+      "Conversion-efficiency spike-in control (a control DNA added to the library to measure incomplete conversion directly)"
+     ],
+     [
+      "Definition",
+      "An optional input that would measure each library's own conversion-failure rate directly; in every library in the atlas this input is absent, so conv_fail reads null (value: \"none in atlas libraries (conv_fail null)\")."
+     ],
+     [
+      "What it does",
+      "When a library carries one, it is a second meter of the library's own conversion failure, read from the sample's own molecules (source iam_a.count.conv_fail; card key conv). No atlas library carries one (conv_fail null), so for those libraries the islands meter (instrument 7) is the only reading of the false-mark rate."
+     ],
+     [
+      "Why the instrument needs it",
+      "The islands meter (instrument 7) reads each library's own false methylation calls (incomplete conversion, sequencing error), which correct the other readings. A conversion spike-in, when the library has one, is a second meter for that rate."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained, when present, by measurement from the sample's own molecules (source_kind: read from the sample's own molecules; source: iam_a.count.conv_fail; basis: measured when present). No formula is given in the record. In the atlas libraries this step yields nothing, since conv_fail is null."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part marks this as \"not the law: instrument or meter,\" and lf_section states it is \"not part of IAM's Law.\" It is a correction/calibration quantity for the instrument chain, not a physical step in the mark-restoration process the Law describes."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No typical or default value is recorded: the packet states value \"none in atlas libraries (conv_fail null)\" — i.e., this input simply is not present in any atlas library. When a library does carry it, it is measured from the sample's own molecules (source_kind: read from the sample's own molecules), with basis \"measured when present.\""
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "conv"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "No atlas library carries a spike-in (conv_fail null), so there is no second meter for those libraries. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "conversion spike-in"
+   }
+  ],
+  "job": "the dust correction: each library's own false-mark rate",
+  "law": "Not the law: instrument or meter.",
+  "link": "7. Islands meter",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Islands held error and gain"
+     ],
+     [
+      "In the field's terms",
+      "Methylation gain and held (maintenance) error at CpG islands every healthy cell keeps unmethylated; in a healthy sample the gain is the library's false-methylation rate"
+     ],
+     [
+      "Definition",
+      "The held error and gain error measured at CpG islands — the territory every healthy cell type always keeps unmarked."
+     ],
+     [
+      "What it does",
+      "It performs the dust correction: it reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated, giving each library its own false-mark rate; a rise above that level is read as real methylation gain at islands."
+     ],
+     [
+      "Why the instrument needs it",
+      "The chain needs to know a library's own false-call rate at a site that should never be marked, so that methylation signal seen elsewhere can be corrected against that library's background rather than mistaken for it."
+     ],
+     [
+      "How it is obtained or computed",
+      "It reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated. In a healthy sample these calls are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands. It is computed by the chain from the sample's molecules and its references, and in this run the test state came back OK."
+     ],
+     [
+      "Where it is read",
+      "At the islands territory (stage_metaa_atlas.territory_sets, IAM-Atlas v2.1) — each library's own meter, the islands every healthy cell type keeps unmarked — across 66986 probes, read at path iam_a.sites.islands."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part 'not the law: instrument or meter', long-form section 'not part of IAM's Law'. It is a measured meter reading of each library's own false-mark rate."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an output, its healthy value is gain = the meter (~0.004), established by measurement (basis: measured)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "In a healthy sample the island gain is the library's own false calls (incomplete conversion, sequencing error), so only a rise above that level (healthy gain ~0.004) is read as real methylation gain at islands. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Islands held error and gain"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Meter state — the record from the Islands meter indicating whether it was read and which meter was used."
+     ],
+     [
+      "In the field's terms",
+      "A quality-control flag confirming whether the CpG-island false-methylation-rate check (the dust-correction step) was run on this sample, and naming which meter was used."
+     ],
+     [
+      "Definition",
+      "A one-button, in-chain check that returns 'ok' together with the name of the meter used, confirming the islands meter was engaged for this sample."
+     ],
+     [
+      "What it does",
+      "It reports whether the meter was read and which meter was used; the healthy result is 'ok', naming the meter."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM needs this because the islands meter performs the dust correction — establishing each library's own false-mark rate at CpG islands that every healthy cell type keeps unmethylated — so the chain must confirm that correction step actually ran and record which meter supplied it before the other readings can be trusted."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references; recorded at test path iam_a.count.meter with test value \"ok\" and test state OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: its law_part is marked 'not the law: instrument or meter' and its long-form section is 'not part of IAM's Law'; it is an instrument/meter bookkeeping quantity, not a status-point cost term."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reading is 'ok', naming the meter used; its basis is measured."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Meter state"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Conversion failure"
+     ],
+     [
+      "In the field's terms",
+      "Bisulfite non-conversion rate at non-CpG cytosines (conversion-failure rate; measured with a spike-in)"
+     ],
+     [
+      "Definition",
+      "Non-CpG conversion failure, which needs a spike-in; read at iam_a.count.conv_fail. Healthy: a value, or a stated reason."
+     ],
+     [
+      "What it does",
+      "It reports the library's non-CpG conversion failure when a spike-in is present; otherwise it is null and the report states why (atlas libraries carry no spike-in)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 7's job is the dust correction, each library's own false-mark rate. This row is the non-CpG conversion failure, which needs a spike-in. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (iam_a.count.conv_fail): non-CpG conversion failure, when a spike-in is present. Test value null: OK because atlas libraries carry no spike-in."
+     ],
+     [
+      "Where it is read",
+      "Non-CpG cytosines (with a spike-in); not a genomic region."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law; it is an instrument or meter quantity, not a law step."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The test value is null: OK because atlas libraries carry no spike-in, and the report should state this reason rather than give a value."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Without a spike-in there is no measured value for this sample's non-CpG conversion failure; the record can only state that absence, not estimate the rate."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Conversion failure"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Reads methylated calls on mostly unmethylated molecules (at most 20 % methylated) at 66,986 CpG-island sites that every healthy type in the atlas keeps unmarked. In a healthy sample those calls are the library's own false marks (incomplete bisulfite conversion plus sequencing error): the meter, which corrects the other readings. A rise above it is real methylation gain at islands."
+     ],
+     [
+      "Why",
+      "Every library has its own false-mark rate; measuring it inside the sample, where the true answer is known to be unmarked, removes the laboratory part without healthy samples from the same run (the 2026-11-07 reference rule)."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law: the instrument's own calibration. It sets the zero that the gain-side readings and the law's floor are read above."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; the island set (IAM-Atlas v2.1 territory sets, 66,986 sites); a conversion spike-in when present (none in the atlas libraries, so conv_fail reads null and the meter is the island gain itself)."
+     ],
+     [
+      "The numbers",
+      "Test library GSM5652214: island gain 0.00432 (741 methylated calls on mostly unmethylated molecules over 171,550 chances at the always-unmarked islands; iam_a.sites.islands.gain_err), against the whole-sample gain 0.0141 (iam_a.count.gain_err, 4,731,319 chances); healthy islands expectation about 0.004 (T1). Relay test: planted island gain moved the meter 0.0043 -> 0.052 and territory islands x9.96, IAM-A x1.002 (independent)."
+     ],
+     [
+      "Method and standard",
+      "Counted rate at sites known to be unmarked (a dark frame); the healthy bar by the 2026-11-07 rule from held-out libraries (owed)."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted island gain moved the meter 0.0043 -> 0.052 and the island territories, not IAM-A (met). Cross-talk: clock sites that are islands rose 0.0123 -> 0.0140."
+     ],
+     [
+      "Limits",
+      "(1) No measured healthy bar yet. (2) Without a spike-in, conversion failure and sequencing error are not separated (the meter names which was used). (3) True island gain in a sample and a bad library look alike in one reading; a library's other readings and its ends separate them."
+     ],
+     [
+      "Where the result goes",
+      "bundle iam_a.count (gain_err, gain_opp, meter, conv_fail, tc_err); used as the zero for island gain, the territories and the clock; report."
+     ],
+     [
+      "Code",
+      "stage_q2_selfref counter (gain side, QUAL_MAX_METH 0.2); meter state in run_sample.py"
+     ],
+     [
+      "How to rebuild it",
+      "1. Pick island sites every healthy atlas type keeps unmarked. 2. On molecules at most 20 % methylated there, count methylated calls over chances. 3. Check slope against the spike-in where present."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R07-METER",
+    "name": "Islands meter: each library's own false-mark rate, read where no healthy cell marks",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why not use a spike-in for conversion?",
+      "Most public libraries have none; the islands every healthy type keeps unmarked are a spike-in already inside every sample.",
+      "register T1 (53 libraries)"
+     ],
+     [
+      "How is real island gain told from a bad library?",
+      "In one reading they look alike; a library's ends, its other readings and its depth separate them, and the planted test shows the meter moves only for island gain.",
+      "relay test"
+     ]
+    ],
+    "status": "development; healthy bar owed (bar pass 9)"
+   }
+  ],
+  "report_section": "v4-meter",
+  "tools": [
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}

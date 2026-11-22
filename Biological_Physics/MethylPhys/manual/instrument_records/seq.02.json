@@ -1,0 +1,452 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.02",
+ "record": {
+  "cosmo_tool": "A reference sky map with noise maps from donor and read halves, masks, a sign-flip null and structure by scale.",
+  "credit": "",
+  "field_how": "Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread and the 95 % range (from the donors' spread with Student's t interval; not a model fit). Split by donor halves so every reading can be tested out of sample. Used both to identify cells and as the healthy ruler.",
+  "field_term": "Cell-type-resolved healthy methylation reference: whole-genome bisulfite sequencing, 28.2 million CpGs, 58 cell types",
+  "id": "seq.02",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "per-CpG levels and reads"
+     ],
+     [
+      "In the field's terms",
+      "Per-CpG methylated and total read counts, by cell type"
+     ],
+     [
+      "Definition",
+      "The atlas's raw counts: methylated reads and total reads at each CpG, for each of the 58 cell types, with 65535 used as the code for blank (no data)."
+     ],
+     [
+      "What it does",
+      "Enters the chain as atlas pieces feeding the instrument that serves as the ruler for what healthy methylation looks like at every CpG across the 58 cell types."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs these measured counts to build, for each cell type and CpG, the level, the person-to-person spread, and the 95% range used both to identify cells and as the healthy ruler."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula: meth and reads per CpG and type (65535 = blank). Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources); for each type and CpG the methylated and total read counts give the level, the person-to-person spread and the 95% range, computed from the donors' spread with Student's t interval, not a model fit. Data are split by donor halves so every reading can be tested out of sample."
+     ],
+     [
+      "Where it is read",
+      "Per CpG, across 28.2 million CpGs, in whole-genome bisulfite sequencing data for 58 cell types."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: this is a measured input the law uses (law_part: 'not the law itself: a measured input the law uses'), registered at M4, with lf_section 'not part of IAM's Law'."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical form is set per cell type or fixed, from a cited measurement (source_kind): the counts themselves, as measured in healthy donors, are what define each cell type's own healthy level and its 95% range."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is 'measured (atlas)' at register M4 — this is each cell type's variation and which sites it marks (its fingerprint); it is not yet placed on the card ('not yet on the card'), and is explicitly not part of IAM's Law itself."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "per-CpG levels and reads"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "person-to-person spread (donor_sd)"
+     ],
+     [
+      "In the field's terms",
+      "Person-to-person (inter-individual) variation in methylation level at a CpG site (donor_sd)"
+     ],
+     [
+      "Definition",
+      "How much healthy people differ at each site: donor_sd per site, with one-library cell types borrowing their lineage's value."
+     ],
+     [
+      "What it does",
+      "It enters per site and feeds the Atlas's computation of the healthy range at that CpG for each of the 58 cell types."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Atlas is built to be the ruler of what healthy methylation looks like at every CpG, and doing that requires knowing not just the average level but how much healthy donors naturally vary at each site."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given as donor_sd per site; for one-library cell types it is borrowed from their lineage's value rather than measured directly. It is derived from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources), using methylated and total read counts per type and CpG, and combined with the level via a Student's t interval to form the 95 % range (not a model fit)."
+     ],
+     [
+      "Where it is read",
+      "Per CpG site, across the 28.2 million CpGs covered by the Atlas, for each of the 58 cell types."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law itself: register M4 and the row's own law_part both mark it as 'not the law itself: a measured input the law uses,' and its lf_section is 'not part of IAM's Law.' It is a measured quantity (status: measured, per the atlas) describing donor-to-donor spread, not a term in the Law's equation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Set per cell type (or, for one-library types, borrowed from their lineage) from measured donor WGBS data; source_kind is 'set per cell type or fixed, from a cited measurement,' with basis 'measured.' No single typical numeric value is given in the records — open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "For one-library cell types, donor_sd is not independently measured but borrowed from the lineage, so its real person-to-person spread for that specific type is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "person-to-person spread (donor_sd)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Identification-only columns (megakaryocytes; provisional)"
+     ],
+     [
+      "In the field's terms",
+      "Identification-only reference columns for megakaryocyte methylation (provisional)"
+     ],
+     [
+      "Definition",
+      "A set of columns added so that megakaryocyte DNA, known to be present in bone marrow, plasma, and CSF, is named as itself instead of having its share scattered over four or five other columns (lung interstitial macrophages, erythrocyte progenitors, MEP, eosinophils). It may only say which cell is there."
+     ],
+     [
+      "What it does",
+      "It lets the Deconvolver's second deconvolution (--dev-provisional) assign a sample's megakaryocyte fraction to its own named column for identification, rather than letting that fraction be misattributed across other cell-type columns."
+     ],
+     [
+      "Why the instrument needs it",
+      "Because megakaryocyte DNA is known to be present in bone marrow, plasma, and CSF, and without a dedicated column its share would otherwise scatter over several unrelated cell types, confusing identification."
+     ],
+     [
+      "How it is obtained or computed",
+      "megakaryocytes_v1/v2 (Runtime Matrices/Provisional_References), the 58th column of the IAM Sequencing Atlas v1.1. Sources: GSE87197 single cells (v1, v2), BLUEPRINT bulk (two donors); a recorded test, a recorded test. Basis: measured (identity only). Used in the Deconvolver's second deconvolution (--dev-provisional)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: instrument (identification)', and lf_section states it is 'not part of IAM's Law'. It is an identification quantity used by the instrument's deconvolution step, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "This is explicitly never a healthy reference: no instrument reads a sample against it, no band is set from it, and its share is left out of every expected-healthy mix. Its value is set per cell type from a cited measurement (source_kind: 'set per cell type or fixed, from a cited measurement'), drawn from GSE87197 single cells (v1, v2) and BLUEPRINT bulk (two donors)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It may only say which cell is there; NEVER a healthy reference: no instrument reads a sample against it, no band is set from it, and its share is left out of every expected-healthy mix. Provisional. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "Identification-only columns (megakaryocytes; provisional)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Atlas pieces: every per-CpG quantity (the sequencing atlas's accessories)"
+     ],
+     [
+      "In the field's terms",
+      "Per-CpG atlas accessory statistics: read counts, methylation level, cross-donor spread, disorder, donor count, and donor/read half-splits across 28,217,448 CpGs in 58 cell types"
+     ],
+     [
+      "Definition",
+      "113 parquet pieces covering 28,217,448 CpGs, each carrying per cell type: reads, meth, level, spread, disorder, donors, halfA, halfB, readA, readB."
+     ],
+     [
+      "What it does",
+      "It supplies the per-CpG reference quantities that other readings are built from; the chain's array_sites columns are built from them, though the halves and read halves are used by the noise maps and not yet by the in-mix readings."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs these accessories because they are the ruler itself: what healthy is, at every CpG, for 58 cell types, built from methylated and total read counts, the level, the person-to-person spread, and donor-half splits so every reading can be tested out of sample."
+     ],
+     [
+      "How it is obtained or computed",
+      "Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread and the 95% range (from the donors' spread with Student's t interval; not a model fit), split by donor halves. On 2026-11-20 the half levels were rebuilt from the.beta inputs without checking against the prior accessories; they agree exactly (corr 1.0000), the only addition being per-half read counts."
+     ],
+     [
+      "Where it is read",
+      "Every CpG across 113 parquet pieces, 28,217,448 CpGs total, in the Zenodo IAM Sequencing Atlas v1.2 (pieces57_set*_of_12.tar; bucket seq_atlas/pieces57/)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "not part of IAM's Law; this is the ruler (measured), read from the sample's own molecules, not a quantity derived from the law's links or long-form sections."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is the measured atlas itself — 113 parquet pieces, 28,217,448 CpGs, with per-cell reads, meth, level, spread, disorder, donors, halfA, halfB, readA, readB — sourced from the Zenodo IAM Sequencing Atlas v1.2, source_kind: read from the sample's own molecules."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Partly in the chain: the chain's array_sites columns are built from them; the donor halves and read halves are used by the noise maps, not yet by the in-mix readings."
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "Atlas pieces: every per-CpG quantity (the sequencing atlas's accessories)"
+   }
+  ],
+  "job": "the ruler: what healthy is, at every CpG, for 58 cell types",
+  "law": "Not the law itself: a measured input the law uses.",
+  "link": "2. Sequencing Atlas",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Sequencing ruler"
+     ],
+     [
+      "In the field's terms",
+      "Reference provenance check: which healthy reference atlas each sequencing analysis used"
+     ],
+     [
+      "Definition",
+      "Which ruler each sequencing instrument used. Healthy: the IAM Sequencing Atlas (test: deconvolver and in_mix_levels on the IAM Sequencing Atlas; metaa_sites chosen on IAM-Atlas v2.1, one instrument, one set of sites; state OK)."
+     ],
+     [
+      "What it does",
+      "It records which reference each downstream instrument drew on: the test_value shows the deconvolver and in_mix_levels both using the IAM Sequencing Atlas, while metaa_sites was chosen on IAM-Atlas v2.1, one instrument, one set of sites."
+     ],
+     [
+      "Why the instrument needs it",
+      "The chain needs a shared, named ruler so every instrument's readings are measured against the same healthy reference; this row is not the law itself but a measured input the law uses."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by the chain checking which atlas each component used, recorded at test_path sequencing_ruler; the test_value lists deconvolver: IAM Sequencing Atlas, in_mix_levels: IAM Sequencing Atlas, metaa_sites: chosen on IAM-Atlas v2.1 (one instrument, one set of sites), with test_state OK. The underlying atlas itself is built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread, and the 95% range from the donors' spread with a Student's t interval, not a model fit, split by donor halves so every reading can be tested out of sample."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "lf_section states this is not part of IAM's Law. It is a measured input that the law uses, computed by the chain from the sample's molecules and its references, rather than a step in the law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The healthy value for this row is simply the IAM Sequencing Atlas; its basis is measured, and the check against test_path sequencing_ruler reports test_state OK, meaning the instruments were found to be using the expected atlas(es)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Sequencing ruler"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "From the published sorted-cell libraries (GSE186458), pooled methylated calls and reads per CpG per cell type over 28,217,448 hg19 CpGs: each type's level, person-to-person spread, 95 % range, disorder, donors, and the sealed donor halves (halfA, halfB) and read halves (readA, readB); runtime pieces per use (Deconvolver markers, identity sites, islands, Law Sphere units)."
+     ],
+     [
+      "Why",
+      "Most methylation atlases are built to deconvolve; this one is also the healthy ruler: purified cells used as controls, so no instrument needs healthy samples from the same run, and the sealed halves let every atlas library be read against healthy it did not build."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law: measured healthy reference."
+     ],
+     [
+      "Where the data comes from",
+      "GSE186458 (Loyfer et al. 2023, Nature 613:355) sorted-cell WGBS libraries, aligned and counted by the chain's own pipeline."
+     ],
+     [
+      "The numbers",
+      "58 columns (57 healthy types plus megakaryocytes as identification only); 113 parquet pieces; 28,217,448 CpGs; type ranges with Student's t quantiles (stage_seq_atlas.range_of_average v3)."
+     ],
+     [
+      "Method and standard",
+      "Student's t interval from the donors' spread (Student 1908); sealed donor and read halves; two noise maps; null tests on the sphere."
+     ],
+     [
+      "Known-answer test",
+      "Healthy passes 3 to 8 read the atlas's own libraries against the other half; never-used libraries as out-of-sample checks."
+     ],
+     [
+      "Limits",
+      "(1) One laboratory. (2) 1-3 donors per type per half (the thin ruler). (3) Megakaryocytes are identification only."
+     ],
+     [
+      "Where the result goes",
+      "every atlas-referenced instrument; the Zenodo record."
+     ],
+     [
+      "Code",
+      "stage_seq_atlas (range_of_average, deconv_reference_of); jobs that build pieces"
+     ],
+     [
+      "How to rebuild it",
+      "Align GSE186458, count calls and reads per CpG per type and donor, split donors and reads into halves, compute levels, spreads and ranges."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R02-ATLAS",
+    "name": "The IAM Sequencing Atlas: the healthy ruler at every CpG",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_seq_atlas.py",
+     "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Where does the atlas come from?",
+      "Published sorted-cell libraries (GSE186458), aligned and counted by the chain; published on Zenodo with its own DOI.",
+      "Zenodo record; development log 2026-11-03"
+     ],
+     [
+      "How many healthy donors actually back the numbers for each cell type?",
+      "One to three donors per cell type in each half of the atlas, from one laboratory. That is a real but small sample, stated as a limit of the reference.",
+      "instrument record: the rule's limits (one laboratory; 1-3 donors per type per half)"
+     ],
+     [
+      "How is the 95% healthy range worked out - is it a statistical model?",
+      "No, it is not a model fit. It's calculated directly from the spread across the actual donors using a Student's t interval.",
+      "instrument record: field_how description of how the atlas was built"
+     ],
+     [
+      "For a cell type with just one sequencing library, how trustworthy is its person-to-person spread estimate?",
+      "Not very, for that specific type on its own: when only one library exists, the person-to-person spread isn't independently measured but is borrowed from related cell types in the same lineage. The true person-to-person spread for that individual type is not yet in the records.",
+      "instrument record: input describing person-to-person spread (donor_sd) and its limits"
+     ],
+     [
+      "Can the megakaryocyte columns be used to judge whether a sample's megakaryocyte DNA is at a healthy level?",
+      "No. Those columns exist only so megakaryocyte DNA can be named as itself instead of being wrongly spread across other cell types. No instrument reads a sample against it, no healthy band is set from it, and its share is left out of every expected-healthy mix - it is identification-only and still provisional.",
+      "instrument record: input on identification-only columns (megakaryocytes; provisional)"
+     ]
+    ],
+    "status": "built and published (Zenodo, 2026-11-03); used per instrument"
+   }
+  ],
+  "report_section": "v4-atlas",
+  "tools": [
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+    "tool": "Split maps and half-mission null tests (noise from difference maps)",
+    "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+   },
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+    "tool": "Null tests (shuffled and sign-flip nulls)",
+    "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+   },
+   {
+    "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+    "tool": "Student's t interval (statistics, not cosmology)",
+    "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+   }
+  ]
+ }
+}

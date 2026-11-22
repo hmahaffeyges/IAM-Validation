@@ -1,0 +1,567 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.13",
+ "record": {
+  "cosmo_tool": "Power at large scales: clustered against scattered structure.",
+  "credit": "",
+  "field_how": "Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered).",
+  "field_term": "Spatial clustering of methylation departures along the genome",
+  "id": "seq.13",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "CS_BLOCK"
+     ],
+     [
+      "In the field's terms",
+      "Genomic block size (number of CpG sites grouped per block)"
+     ],
+     [
+      "Definition",
+      "A rule-based setting that fixes how many CpG sites make up one genomic block for the Met-A-side C-Score instrument; the packet's default is CS_BLOCK 10 sites."
+     ],
+     [
+      "What it does",
+      "Sets the window used to group CpG sites in genome order so their departure values can be averaged into block means for the clustering test."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score instrument needs a block size to compute the variance of block means versus that of scattered departures, which is how it tests whether departures from each cell type's own healthy level cluster along the genome rather than scatter at random."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is not measured but set by a chain rule: the packet records it as 'CS_BLOCK 10 sites' from stage_metaa_atlas.CS_BLOCK, with basis 'rule'; no formula for deriving the block size itself is given."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The packet marks this explicitly as 'not the law: a chain rule' and 'not part of IAM's Law' (lf_section): it is a pipeline setting, not a step in the thermodynamic law IAM is built on."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is the packet's own default, CS_BLOCK 10 sites, drawn from stage_metaa_atlas.CS_BLOCK; its source_kind is recorded as 'a setting with a default (a chain rule)', not a measured or healthy-band quantity."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "block size"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "flag share"
+     ],
+     [
+      "In the field's terms",
+      "Tolerated share of genomic blocks beyond the clustering limit (outlier-block share)"
+     ],
+     [
+      "Definition",
+      "A setting within the instrument chain, CS_FLAG_SHARE, with value 0.01, giving the share of blocks allowed beyond the limit."
+     ],
+     [
+      "What it does",
+      "Sets the share of blocks allowed beyond the limit (0.01) in the Met-A-side C-Score, which asks whether departures lie clustered along the genome."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Met-A-side C-Score asks whether departures lie clustered along the genome; this rule sets what share of blocks is allowed beyond the limit. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given directly as a setting with a default: CS_FLAG_SHARE 0.01, sourced from stage_metaa_atlas.CS_FLAG_SHARE. Its basis is a rule, described as 'not the law: a chain rule.'"
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Explicitly not part of IAM's Law ('not the law: a chain rule'; lf_section: 'not part of IAM's Law'). It is a chain-side setting, not a law-linked quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its default/typical value is 0.01, from source stage_metaa_atlas.CS_FLAG_SHARE, with source_kind 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "flag share"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "the C-Score's 'limit'"
+     ],
+     [
+      "In the field's terms",
+      "Clustering threshold for the C-Score (methylation-departure spatial statistic)"
+     ],
+     [
+      "Definition",
+      "The C-Score value above which departures along the genome are called clumped rather than scattered ('C above it = clumped'). It is derived for the reading, not set by hand; on the test library it was 1.0078."
+     ],
+     [
+      "What it does",
+      "Acts as the cutoff dividing the C-Score's output into a 'scattered' call (near 1) and a 'clumped' call (above the limit) for a given cell's whole-genome departure map."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score itself is flagged as 'not the law: statistics (a yardstick)' — it measures whether departures along the genome cluster more than counting noise alone would produce — so a derived boundary value is needed to turn that continuous measure into a clumped/scattered judgment."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis 'derived' (source cscore_each_cell.whole_genome.limit). The C-Score is the variance of block means of the departure map in genome order over that of scattered departures (1 = scattered); the limit is derived and read 1.0078 on the test library. source_kind: 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)'. The records do not give the derivation itself."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part records this as 'not the law: statistics (a yardstick)', and lf_section confirms it is 'not part of IAM's Law'. So this limit is not a point where IAM's Law itself enters; it is a statistical yardstick laid over the law's output to decide whether the C-Score reading counts as clumped."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is derived, not directly measured: 1.0078, established on the test library, sourced from cscore_each_cell.whole_genome.limit, with source_kind 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)'."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "limit"
+   }
+  ],
+  "job": "whether departures lie clustered along the genome",
+  "law": "IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.",
+  "link": "13. Met-A-side C-Score on sequencing (levels against the atlas: each cell, whole genome, sky)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "C-Score whole genome"
+     ],
+     [
+      "In the field's terms",
+      "Spatial clustering of methylation departures along the genome"
+     ],
+     [
+      "Definition",
+      "Clumping of departures from the atlas: whether the sample's departures from the atlas lie clustered along the genome rather than scattered (1 = scattered)."
+     ],
+     [
+      "What it does",
+      "It tests whether departures lie clustered along the genome."
+     ],
+     [
+      "Why the instrument needs it",
+      "It serves as a statistical yardstick in the chain (in_chain: yes, one button) asking the same question a bad-data test asks of measurement residuals - whether the departures cluster beyond what counting noise alone would give."
+     ],
+     [
+      "How it is obtained or computed",
+      "Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered)."
+     ],
+     [
+      "Where it is read",
+      "whole genome (test_path: cscore_each_cell.whole_genome.C) - not a specific locus"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: statistics (a yardstick)', and lf_section confirms it is 'not part of IAM's Law.' It is a statistical quantity, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is defined as 'within its limit', with basis 'statistics'. The derived limit holds on the 49 outside libraries, 45/49 (91.8 %, binomial 95 % about 80-98 %); pass 7's 135/140 is in-reference (sample in its own ruler) and does not count. The test value 1.0092 is consistent with the expected ~5 % of healthy just outside."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The evidence base excludes in-reference samples: pass 7's 135/140 is in-reference and does not count toward the derived limit, so the held evidence rests only on the 49 outside libraries (45/49 passing)."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "C-Score whole genome"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "C-Score within limit (Met-A-side C-Score)"
+     ],
+     [
+      "In the field's terms",
+      "Pass/fail flag: whether the genome-wide clustering statistic of methylation departures is below its derived threshold"
+     ],
+     [
+      "Definition",
+      "Whether C, the clumping of departures from the atlas along the genome (1 = scattered), is below its derived limit. Healthy: true."
+     ],
+     [
+      "What it does",
+      "Reports whether the whole-genome C-Score is below its derived limit (one button; test path cscore_each_cell.whole_genome.within). In the recorded test it read false, with test state 'OK (see C-Score whole genome): evidence is the 49 outside libraries'."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A's C-Score asks whether departures lie clustered along the genome; this reading states whether C is within its derived limit. It is a statistic (a yardstick), not the law."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as the variance of block means of the departure map in genome order, divided by that of scattered departures, where 1 = scattered (field_how). The chain evaluates this at test_path cscore_each_cell.whole_genome.within, got test_value false, and records test_state as 'OK (see C-Score whole genome): evidence is the 49 outside libraries.'"
+     ],
+     [
+      "Where it is read",
+      "Read at the whole-genome level via test_path cscore_each_cell.whole_genome.within, built from block means of the departure map taken in genome order rather than from a single locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "lf_section is 'not part of IAM's Law', and law_part is 'not the law: statistics (a yardstick)'. So this quantity carries no link number in the long-form chain; it is a statistical screening quantity (a clustering test on departures), not a step of IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is true (basis: statistics). The recorded test value was false; the test state is 'OK (see C-Score whole genome): evidence is the 49 outside libraries'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The recorded test read false (C not below its derived limit); its test state refers to the C-Score whole-genome row, whose evidence is the 49 outside libraries. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "C-Score within limit"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "C-Score sky"
+     ],
+     [
+      "In the field's terms",
+      "Fraction of genome-map (sky) pixels with |z| > 3 for methylation departures"
+     ],
+     [
+      "Definition",
+      "Share of sky pixels beyond 3 sigma — one of the three levels (each cell, whole genome, sky) read by the Met-A-side C-Score on sequencing, whose job is whether departures lie clustered along the genome."
+     ],
+     [
+      "What it does",
+      "It reports the share of sky pixels beyond 3 sigma (test path cscore_sky.frac_abs_z_gt3). It is one of the three levels (each cell, whole genome, sky) of the Met-A-side C-Score on sequencing."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is whether departures lie clustered along the genome; this is its sky-level reading. Further reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references; read at test path cscore_sky.frac_abs_z_gt3, giving test_value 0 with test_state OK. The instrument's general method is the variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Explicitly marked law_part 'not the law: statistics (a yardstick)' and lf_section 'not part of IAM's Law' — this is a statistical QC quantity, not a step in IAM's Law equation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is about 0, with basis 'statistics'; the sample's own reading matches this, with test_value 0 and test_state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "C-Score sky"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A-side C-Score, own cell (instrument 13)."
+     ],
+     [
+      "In the field's terms",
+      "Spatial clustering of methylation departures along the genome, for the sample's own cell type."
+     ],
+     [
+      "Definition",
+      "The C-Score for the sample's own cell: whether its Met-A departures lie clustered along the genome."
+     ],
+     [
+      "What it does",
+      "It says whether departures for the cell cluster along the genome (above 1) or are scattered (1)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 13 asks whether departures lie clustered along the genome, beyond what counting noise gives."
+     ],
+     [
+      "How it is obtained or computed",
+      "Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered), compared with its derived limit."
+     ],
+     [
+      "Where it is read",
+      "The cell's departure map, in genome order."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: statistics (a yardstick)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is within its derived limit. The development test reads cardiomyocyte C 1.0071 (limit 1.0909, within) (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It says whether departures cluster, not where or why; how the limit is derived is not in the packet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A-side C-Score, own cell"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "The departure map (the sample's level against the atlas in its own shares, site by site) in genome order; C = the variance of block means (blocks of 10 sites) over that of scattered departures; 1 = scattered. Also per cell, and as the sky plate (share of sky pixels beyond 3 sigma)."
+     ],
+     [
+      "Why",
+      "Real biology moves regions together; noise scatters. Clustered departures are the first sign of a regional change and its location."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law; its healthy value c_healthy = 1.0103 is derived from the counting."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's levels; the atlas in the sample's own Deconvolver shares; the sample's own reads for the counting."
+     ],
+     [
+      "The numbers",
+      "Derived limit 1.0078 on the test library; the derived limit scored on two healthy sets (189 libraries) is the band (2026-11-20, pub_bands/seq_bands_summary.json). Healthy passes 3 and 5 met."
+     ],
+     [
+      "Method and standard",
+      "Limit derived from counting (value 1 for scattered departures); confirmed on healthy libraries by the 2026-11-07 rule."
+     ],
+     [
+      "Known-answer test",
+      "Healthy passes 3 and 5; a planted clustered-departure test on the test library is owed."
+     ],
+     [
+      "Limits",
+      "(1) Not commissioned on unseen data. (2) Uses the Deconvolver's shares (whole blood and plasma as found; sorted samples through Met-A's tare). (3) The legacy same-run tare option is to be retired."
+     ],
+     [
+      "Where the result goes",
+      "bundle cscore_each_cell (per cell, whole genome, sky); report."
+     ],
+     [
+      "Code",
+      "stage_metaa_atlas / C-Score block (CS_BLOCK 10, CS_FLAG_SHARE 0.01)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Departure map in genome order. 2. Block means of 10 sites. 3. Variance over the scattered expectation; limit from counting."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R13-METACS",
+    "name": "Met-A-side C-Score: are departures from the atlas clustered along the genome",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Is clustering just correlated noise?",
+      "Its healthy value is derived from the counting (1.0103) and confirmed on 189 healthy libraries.",
+      "seq_bands_summary.json"
+     ]
+    ],
+    "status": "development; derived limit confirmed on 189 healthy libraries"
+   }
+  ],
+  "report_section": "v4-cscores",
+  "tools": [
+   {
+    "credit": "Gross E. & Vitells O. (2010) Trial factors for the look elsewhere effect in high energy physics. Eur. Phys. J. C 70:525-530, doi 10.1140/epjc/s10052-010-1470-8",
+    "tool": "Look-elsewhere effect (trial factor for a search over many places)",
+    "what": ""
+   },
+   {
+    "credit": "Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)",
+    "tool": "Block-shuffle null (resampling blocks of neighbouring sites to keep their correlation)",
+    "what": ""
+   },
+   {
+    "credit": "Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x",
+    "tool": "Shannon entropy (information theory)",
+    "what": ""
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}

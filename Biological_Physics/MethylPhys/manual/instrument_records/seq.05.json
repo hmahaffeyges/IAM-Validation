@@ -1,0 +1,438 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.05",
+ "record": {
+  "cosmo_tool": "The two-point correlation function at the shortest separation.",
+  "credit": "",
+  "field_how": "Counts adjacent pairs of lost marks on single molecules and divides by the pairs expected if each loss were independent. 1 means independent losses; above 1 means losses arrive together.",
+  "field_term": "Neighboring-CpG co-loss: adjacent unmethylated pairs on single reads over the number expected if losses were independent",
+  "id": "seq.05",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "molecule rule (>= 6 calls, >= 80 % methylated)"
+     ],
+     [
+      "In the field's terms",
+      "Read-selection criteria: minimum number of CpG calls per read and minimum read-level methylation fraction (>= 6 CpG calls, >= 80 % methylated)"
+     ],
+     [
+      "Definition",
+      "A molecule (sequencing read) is counted only if it carries at least 6 CpG calls and at least 80 % of those calls are methylated (QUAL_MIN_CALLS 6, QUAL_MIN_METH 0.8)."
+     ],
+     [
+      "What it does",
+      "It decides which molecules are counted before the Coupling-A instrument looks for its double-loss signature; the packet describes this plainly as 'which molecules are counted (shared with IAM-A)'."
+     ],
+     [
+      "Why the instrument needs it",
+      "Coupling-A counts adjacent pairs of lost marks on single molecules, so it needs a fixed set of molecules to count on; this rule decides which molecules are counted and is shared with IAM-A. It is a chain rule (not the law). Why these particular values were chosen: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Each molecule's CpG calls are tallied; the molecule is kept only if the call count is >= 6 and the fraction of those calls that are methylated is >= 0.8 (QUAL_MIN_CALLS 6, QUAL_MIN_METH 0.8)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row marks it 'not the law: a chain rule' (long-form section: not part of IAM's Law). It decides which molecules are counted."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Not a measured value: a fixed chain rule, QUAL_MIN_CALLS 6 and QUAL_MIN_METH 0.8, set in stage_q2_selfref and applied to the sample's own molecules. A healthy value or range: open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "molecule rule (>= 6 calls, >= 80 % methylated)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "independence expectation"
+     ],
+     [
+      "In the field's terms",
+      "Independent-loss expectation (expected adjacent-CpG co-loss pairs)"
+     ],
+     [
+      "Definition",
+      "Pairs expected from each molecule's own loss rate — what a ratio value of 1 means in the Coupling-A measurement."
+     ],
+     [
+      "What it does",
+      "Serves as the denominator baseline against which observed adjacent lost-mark pairs on single molecules are compared, so that a ratio of 1 signals independent losses and a ratio above 1 signals losses arriving together."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs this expectation to tell whether neighboring unmethylated marks on the same molecule occur together more often than chance, which requires a yardstick for what 'independent' would look like given each molecule's own loss rate."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is read from the sample's own molecules (source: stage_q2_selfref, coupling) as the pairs expected if each loss were independent, given each molecule's own loss rate; the instrument then counts adjacent lost-mark pairs on single molecules and divides by this expectation."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly marked as not the law: statistics (a yardstick), and its long-form section is 'not part of IAM's Law' — it is a statistical comparison baseline, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its typical value is the pairs expected from each molecule's own loss rate, computed per sample (source: stage_q2_selfref, coupling), read directly from the sample's own molecules rather than from an external reference."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "independence expectation"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "coupling healthy reference (coupling_reference_v1)"
+     ],
+     [
+      "In the field's terms",
+      "Neighboring-CpG co-loss healthy reference"
+     ],
+     [
+      "Definition",
+      "The healthy baseline value that Coupling-A's measured neighboring-CpG co-loss ratio is divided by to produce a per-unit reading; for this input it is coupling_reference_v1 (cardiomyocyte 1.3293)."
+     ],
+     [
+      "What it does",
+      "It is the healthy value Coupling-A divides by: Coupling-A's ratio (adjacent lost pairs on single molecules over the pairs expected if losses were independent) is divided by this reference, so the reading is relative to healthy for that cell type."
+     ],
+     [
+      "Why the instrument needs it",
+      "Coupling-A needs a healthy co-loss level so its observed-over-expected ratio can be read as a fraction of that healthy base, the way every IAM score is read as a fraction of its cell type's healthy base."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is read from the sample's own molecules (source: coupling_a.healthy, basis: measured); the packet records it as coupling_reference_v1 for cardiomyocyte, value 1.3293. No further formula is given for deriving this reference in the packet."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law: the packet labels it 'not the law itself: a measured input the law uses,' and its lf_section is 'not part of IAM's Law.' It is a measured reference quantity that the instrument Coupling-A consumes, not a step within the law's own chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its listed value is coupling_reference_v1 (cardiomyocyte 1.3293), with source coupling_a.healthy, basis measured, obtained by reading from the sample's own molecules."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "coupling healthy reference"
+   }
+  ],
+  "job": "the double-loss signature: losses next to each other on one molecule",
+  "law": "Not the law: statistics (a yardstick).",
+  "link": "5. Coupling (Coupling-A)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "5. Coupling (Coupling-A)"
+     ],
+     [
+      "In the field's terms",
+      "Neighboring-CpG co-loss: adjacent unmethylated pairs on single reads over the number expected if losses were independent"
+     ],
+     [
+      "Definition",
+      "The double-loss signature: adjacent losses on one molecule, counted as the number of adjacent unmethylated pairs on single reads over the number expected if each loss were independent. A value of 1 means independent losses; above 1 means losses arrive together."
+     ],
+     [
+      "What it does",
+      "Measures adjacent losses over the independent expectation."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to capture the double-loss signature: losses next to each other on one molecule, distinguishing coupled loss events from independent ones."
+     ],
+     [
+      "How it is obtained or computed",
+      "Counts adjacent pairs of lost marks on single molecules and divides by the pairs expected if each loss were independent (computed by the chain from the sample's molecules and its references)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: it is a statistics yardstick, not a law part."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Near the type's healthy value, given as cardiomyocyte 1.33; basis is statistics. The test reading shown is 1.3787 (state: OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Coupling"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coupling-A"
+     ],
+     [
+      "In the field's terms",
+      "Neighbouring-CpG co-loss ratio (adjacent unmethylated pairs on single reads over the independent expectation), expressed relative to its healthy value"
+     ],
+     [
+      "Definition",
+      "Coupling over its healthy value. Coupling counts adjacent pairs of lost marks on single molecules over the pairs expected if each loss were independent (1 = independent; above 1 = losses arrive together); Coupling-A divides that by its healthy value."
+     ],
+     [
+      "What it does",
+      "It reports the double-loss signature: whether losses next to each other on one molecule occur more often than chance."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to ask whether neighbouring marks are lost together more often than independent losses would give, as one button in the chain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Counts adjacent pairs of lost marks on single molecules and divides by the pairs expected if each loss were independent; the result is taken over its healthy value. Computed by the chain from the sample's molecules and its references (test coupling_a.A: 1.0372, OK)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law: it is statistics (a yardstick), not a law_part quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is about 1, with basis statistics."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Coupling-A"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "On held molecules (at least 6 CpG calls, at least 80 % methylated), coupling = adjacent unmethylated pairs over the number independent placement gives each molecule from its own length and loss count (1 = independent losses, above 1 = clustered). Coupling-A = the sample's coupling over the healthy coupling of its own cell type, so a healthy sample reads 1."
+     ],
+     [
+      "Why",
+      "Maintenance failure that leaves scattered single losses and failure that strips neighbouring marks together are different processes; the independence expectation is computed from each molecule's own losses, so the instrument tares itself against the sample, and the type's healthy coupling removes the type's normal clustering."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law. Its role for the law: whether restores fail one site at a time or in runs."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules. coupling_reference_v1.json (chain Runtime Matrices/Coupling): each type's healthy coupling from 153 IAM Sequencing Atlas inputs (GSE186458, one laboratory), 56 types."
+     ],
+     [
+      "The numbers",
+      "Band 0.935-1.062 (0.025-0.975 quantiles of leave-one-out coupling-A on 150 healthy atlas inputs; median 0.999). On 30 healthy libraries the atlas never held: median 1.012, IQR 0.990-1.034; 27 of 30 inside (P 0.19 against 95 % coverage); outside: hepatocyte 1.080 and 1.074, fallopian tube 1.069. Test library GSM5652214: coupling 1.379, healthy 1.329, coupling-A 1.037, Normal. Gauge ends counted, not fitted: 0 (no two losses ever adjacent) and the sample's own most clustered arrangement (4.393 on the test library)."
+     ],
+     [
+      "Method and standard",
+      "Independence expectation counted per molecule (exact, from its own length and loss count); band by leave-one-out quantiles on healthy inputs; out-of-sample coverage checked by a binomial test."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted runs of losses raised Coupling-A x1.110 (met); uniform isolated losses at 1 % LOWERED it x0.945 (predicted unchanged: not met), because new single losses dilute the share of losses in neighbour pairs. Known-answer runs after each chain edit leave it unchanged."
+     ],
+     [
+      "Limits",
+      "(1) One laboratory (GSE186458); a second laboratory's healthy libraries are owed. (2) The band is a quantile range of 150 inputs, not yet per type; hepatocytes read near the top. (3) Whether coupling tracks the spread of held error across types (naive 1.29, central memory 1.43, effector 1.55) is open. (4) Coupling-A measures how loss arrives (clustered or scattered), not how much: a rise in independent loss lowers it (x0.945 at 1 %), so it is read beside IAM-A, never alone."
+     ],
+     [
+      "Where the result goes",
+      "bundle coupling_a (coupling, healthy, A, floor, ceiling, band, state); report."
+     ],
+     [
+      "Code",
+      "stage_coupling.read, reference; stage_q2_selfref counter (coupling, coupling_pairs, coupling_max)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Count held molecules' adjacent loss pairs and each molecule's independent expectation in every healthy atlas input. 2. Healthy coupling per type = its inputs' coupling. 3. Coupling-A leave-one-out on the inputs; band = its 2.5-97.5 quantile. 4. Check coverage on libraries the atlas never held."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R05-COUPLING",
+    "name": "Coupling-A: do neighbouring CpGs lose their marks together, against the type's healthy coupling",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_coupling.py",
+     "Biological_Physics/MethylPhys/chain/Runtime Matrices/Coupling/coupling_reference_v1.json",
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "What does coupling above 1 mean?",
+      "Lost marks arrive next to each other more often than chance on the same molecule: in the field's terms, neighbouring-CpG co-loss (correlated demethylation) rather than independent single-site failures.",
+      "stage_coupling docstring"
+     ],
+     [
+      "Is coupling just a read-length artefact?",
+      "No: the independence expectation is computed per molecule from its own length and loss count, so longer reads raise the expectation too.",
+      "stage_coupling counter"
+     ],
+     [
+      "Was the band tested on unseen data?",
+      "Yes: 27 of 30 healthy libraries the atlas never held fell inside (P 0.19 against 95 % coverage); the three outside are named.",
+      "inst_history 2026-11-20"
+     ]
+    ],
+    "status": "development (not commissioned); band confirmed on never-used libraries"
+   }
+  ],
+  "report_section": "v4-coupling",
+  "tools": [
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}

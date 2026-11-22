@@ -1,0 +1,358 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.11",
+ "record": {
+  "cosmo_tool": "A dispersion test against a Poisson field, as for galaxy clustering.",
+  "credit": "",
+  "field_how": "Per block of consecutive tiles, the squared excess of held errors over each tile's own prediction, over the binomial variance; independent errors give 1.",
+  "field_term": "Overdispersion of discordance along the genome: clumped or even (a dispersion index; 1 = independent)",
+  "id": "seq.11",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "region size"
+     ],
+     [
+      "In the field's terms",
+      "Block (window) length for the overdispersion test: number of consecutive CpGs grouped before computing clumping"
+     ],
+     [
+      "Definition",
+      "The number of consecutive CpGs that make up one block ('the globe's regions') over which the C-Score's clumping statistic is computed; set to 1,000 CpGs."
+     ],
+     [
+      "What it does",
+      "It sets the block length over which the C-Score (instrument 11) sums each tile's squared excess of held errors over its own prediction, divided by the binomial variance, to test whether excess discordance is even or clumped along the genome."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score needs a defined stretch of genome ('the blocks clumping is measured over') to sum per-tile squared departures into a single per-block statistic; without a fixed region size there is no consistent window for that sum."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set by rule at 1,000 CpGs via stage_q2_globe / run_sample, as a setting with a default (a chain rule) specified by the --genome-region option."
+     ],
+     [
+      "Where it is read",
+      "Not a specific locus; it is the block length (1,000 CpGs) over which consecutive tiles across the genome ('the globe's regions') are grouped for the C-Score calculation."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row's own law_part says 'not the law: a chain rule' and its lf_section is 'not part of IAM's Law'. It is a pipeline setting (a chain rule) that fixes block size, not a thermodynamic or physical quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 1,000 CpGs (the globe's regions; --genome-region), from stage_q2_globe / run_sample, as a setting with a default (a chain rule) — not an instrument output with a healthy band."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card (card_key: not yet on the card); the records do not say how changing this block size would affect detection of clumping versus evenness."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "region size"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "minimum opportunities per region"
+     ],
+     [
+      "In the field's terms",
+      "Minimum opportunity (coverage) threshold per genomic block"
+     ],
+     [
+      "Definition",
+      "A floor on the number of opportunities a region must have before it is used; the row's own plain statement is 'regions too thin are left out.'"
+     ],
+     [
+      "What it does",
+      "Leaves out any region with fewer than MIN_OPP 200 opportunities (regions too thin are left out) from IAM-A's C-Score."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score compares the squared excess of held errors over each tile's prediction with the binomial variance; the row states only that regions too thin are left out. The reason for the value 200: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is not computed from the law; it is a setting with a default (a chain rule), carrying the value MIN_OPP 200 from source stage_q2_globe.MIN_OPP."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: a chain rule' and lf_section states 'not part of IAM's Law'; it is a pipeline cutoff quantity (a minimum count), not a physical term entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is MIN_OPP 200, from source stage_q2_globe.MIN_OPP, source_kind 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Because regions too thin are left out, sparse parts of the genome are not assessed by the C-Score at all; beyond that, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "minimum opportunities per region"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "held error per region predicted"
+     ],
+     [
+      "In the field's terms",
+      "Expected (model-predicted) discordance per genomic tile — the per-region baseline held-error rate used as a reference value"
+     ],
+     [
+      "Definition",
+      "The sample's own prediction of held error (eps from IAM-A's line), used as each tile's predicted value in the C-Score. Independent losses give C = 1."
+     ],
+     [
+      "What it does",
+      "It supplies, for each block of consecutive tiles, that tile's own predicted held-error rate, so the squared excess of the actual held error over this prediction, divided by the binomial variance, can be summed to build the C-Score."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score compares, per block of consecutive tiles, the squared excess of held errors over each tile's own prediction with the binomial variance; it needs this per-tile prediction to do so."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from stage_q2_globe as 'the sample's own prediction (eps from IAM-A's line)'; basis is partly derived, and source_kind is 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)'."
+     ],
+     [
+      "Where it is read",
+      "Per block of consecutive tiles along the genome — each tile carries its own predicted value rather than this being read at one fixed locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d; basis partly derived. Long form 1d: held/lost = (x/2)/(1-(1-e^-x)/x) with x in kicks; for the cell x = 2M = 41.9, odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ~ ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). Open in 1d: the horizon's held share 1 as the adiabatic limit needs its own mapping of x."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, this has no single fixed default: it is derived per sample via IAM's Law from stage_q2_globe — 'the sample's own prediction (eps from IAM-A's line)' — with source_kind 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)'."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "held error per region predicted"
+   }
+  ],
+  "job": "whether each type's excess is even across the genome or clumped",
+  "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+  "link": "11. IAM-A C-Score (molecules: clumping of held errors)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "IAM-A C-Score on the globe (also called '11. IAM-A C-Score (molecules: clumping of held errors)')"
+     ],
+     [
+      "In the field's terms",
+      "Overdispersion of discordance along the genome: clumped or even (a dispersion index; 1 = independent)"
+     ],
+     [
+      "Definition",
+      "Clumping of held errors over the globe's regions: whether each type's excess held error is even across the genome or clumped (a dispersion index; independent errors give 1). As currently run, it uses one pooled held error for all ~20,000 regions and mostly measures ordinary healthy differences between regions (test value C = 2.1657; no healthy band yet)."
+     ],
+     [
+      "What it does",
+      "It tests whether each type's excess of held errors is even across the genome or clumped, by comparing the squared excess of held errors over each tile's own prediction against the binomial variance, per block of consecutive tiles; independent errors give 1."
+     ],
+     [
+      "Why the instrument needs it",
+      "An excess of held errors spread evenly across the genome is a different finding from the same excess clumped into particular regions; this reading tells them apart."
+     ],
+     [
+      "How it is obtained or computed",
+      "Per block of consecutive tiles, take the squared excess of held errors over each tile's own prediction, divided by the binomial variance; independent errors give 1. As run, it currently uses one pooled held error for all ~20,000 regions, giving C = 2.1657 (test_path: development.genome_globe.iama_cscore.C; basis: statistics)."
+     ],
+     [
+      "Where it is read",
+      "Computed per block of consecutive tiles across the genome, pooled over roughly 20,000 regions (development.genome_globe.iama_cscore.C); not a single-locus reading."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part is IAM's Law, link 1d, long form section 1d ('the hold is the same rule, slow: the slow-write rule'). That section derives held/lost = (x/2)/(1-(1-e^{-x})/x) for a slow write, with the cell's restore at x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M/M. Status given for that link: 'identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'; open item noted there is that the horizon's held share of 1 as the adiabatic limit (x→∞) still needs its own mapping of x."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No healthy band is set yet: the row's healthy field reads 'band not yet set (healthy atlas libraries)', and the value is computed by the chain from the sample's molecules and its references (source_kind). Test_state is flagged 'NO HEALTHY BAND (design finding 11-20)'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Design finding 11-20: C = 2.17 uses ONE pooled held error for all ~20,000 regions; the null spread is sqrt(2/20147) = 0.010, so C mostly measures ordinary healthy differences between regions rather than true clumping (the statistic's own docstring calls this 'clustering, or healthy differences between regions'). Two fixes are proposed but not yet done: Fix 1, save region counts in the bundle so a band can come from the atlas libraries in the full run; Fix 2, score each region against its own expected held error from IAM-A's line at that region's loose share (self-reference, no atlas), keeping the pooled form beside it."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "IAM-A C-Score on the globe"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Over the sequencing globe's regions (1,000 consecutive CpGs, at least 200 chances each): C = sum over regions of (observed held errors - predicted)^2 / sum of the binomial variance, the prediction for each region from the sample's own IAM-A line at that region's loose share. Independent errors give 1; above 1 the excess is clumped in some regions."
+     ],
+     [
+      "Why",
+      "A sample-wide IAM-A can rise because every region loses a little or because a few regions lose a lot; the second is the signature of local failure (and the base for a regional 'where')."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law; the prediction per region comes from the law's slow-write line (link 1d) through IAM-A."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; the globe's regions; IAM-A's line."
+     ],
+     [
+      "The numbers",
+      "On RRBS (2026-10-11) it failed its own null. On the test library it reads with one pooled healthy reference; no band. A band cannot be built from kept files (different blocks, about 14,000 against 20,000, and no loose share per block)."
+     ],
+     [
+      "Method and standard",
+      "Dispersion index against the binomial expectation (as galaxy counts against a Poisson field). Design fix owed first: each region against its own expected error from IAM-A's line, because the pooled form mixes healthy regional differences; then the band by the 2026-11-07 rule."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted isolated loss moved it 2.17 -> 1.74 (uniform loss dilutes clumping, as expected); a planted clumped-region test is owed."
+     ],
+     [
+      "Limits",
+      "(1) Design fix owed. (2) No healthy band. (3) Failed its null on RRBS."
+     ],
+     [
+      "Where the result goes",
+      "bundle development.genome_globe iama_cscore; report."
+     ],
+     [
+      "Code",
+      "stage_q2_globe.cscore_regions; run_sample.py (genome globe block, a chain update)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Cut into 1,000-CpG regions. 2. Held errors and chances per region; prediction from IAM-A's line at each region's loose share. 3. Sum of squared excess over binomial variance."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R11-IAMACS",
+    "name": "IAM-A C-Score: are held errors clumped along the genome or even",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_globe.py",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/doors/DEV_DIRECTION_AUDIT_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why per region and not just one number?",
+      "One number cannot tell many small losses from a few large ones; the dispersion across regions can.",
+      "IAM-A C-Score record"
+     ]
+    ],
+    "status": "development; ON in the one button (a chain update); design fix and healthy band owed"
+   }
+  ],
+  "report_section": "v4-cscores",
+  "tools": [
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}
