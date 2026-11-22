@@ -406,6 +406,41 @@
       "Why refuse rather than read with a warning?",
       "A partial or wrong-build file produces readings that look like biology; a plain refusal cannot be misread.",
       "relay test; a chain update"
+     ],
+     [
+      "What exactly does this intake step check before any methylation result is shown?",
+      "It checks that the file is readable and complete, aligned to the hg19 genome build, has bisulfite conversion of at least 98%, carries an accepted specimen word, has at least 100,000 informative opportunities, and shows CpG coverage on every chromosome. Nothing is read until all of these pass.",
+      "rules[0].rule; field_how"
+     ],
+     [
+      "Why refuse a problem file outright instead of flagging it with a warning?",
+      "A damaged, incomplete, or wrong-build file can still produce a reading that looks like real biology. A plain refusal removes that possibility entirely, whereas a warning attached to a result could be overlooked or mistaken for usable data.",
+      "rules[0].why; existing_qa"
+     ],
+     [
+      "What happens to a file that fails these checks?",
+      "It is refused with a stated, plain-language reason, returns a specific exit code, is labeled as an intake refusal, and no methylation reading is produced or shown at all.",
+      "rules[0].rule"
+     ],
+     [
+      "Does the specimen word (sorted, whole blood, plasma, tissue) tell the instrument which cell types are present in the sample?",
+      "No. It only sorts the sample into one of four categories so the file can be routed, accepted, or refused, and to decide which reference it is checked against. It does not say anything about which cells are actually present.",
+      "rules[0].limits; inputs (specimen word)"
+     ],
+     [
+      "Is 'healthy' at this stage a measured biological result, or something else?",
+      "Healthy simply means every individual check (file readable, correct build, conversion rate, specimen word, opportunity count) passed. That healthy status is based on a fixed rule, not on a measured or derived biological quantity.",
+      "outputs[0].healthy_how"
+     ],
+     [
+      "What did the chromosome coverage check actually confirm, and what doesn't it confirm?",
+      "In testing, all 22 autosomes passed with just over 33.9 million interior calls recorded as okay, confirming coverage was present and even across chromosomes. It does not confirm the methylation signal itself is healthy, and the records only mention autosomes, not sex chromosomes.",
+      "outputs[2].healthy_how; outputs[2].limits"
+     ],
+     [
+      "Are the 98% conversion and 100,000-opportunity thresholds derived from a specific study, or just chosen operationally?",
+      "Not yet recorded: the packet states these limits are operational choices rather than values derived from a calculation or external study, but it does not document how the specific 98% and 100,000 cutoffs were originally set.",
+      "rules[0].limits ('Limits are operational, not derived')"
      ]
     ],
     "status": "runs; development for sequencing"

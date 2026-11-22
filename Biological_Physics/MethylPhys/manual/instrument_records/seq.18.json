@@ -533,7 +533,43 @@
     "id": "R18-RATINGS",
     "name": "IAM's ratings methodology: per-unit readings and one observed normal operating range per instrument (adopted from power-system practice)",
     "paths": [],
-    "questions": [],
+    "questions": [
+     [
+      "Does this report make clinical claims about a sample?",
+      "No. The report has a built-in claim scan that refuses clinical claims. It only presents readings alongside their healthy values and basis — it is not a diagnostic test and sets no harm threshold.",
+      "existing_qa; rule R18-REPORT ('a claim scan that refuses clinical claims')"
+     ],
+     [
+      "What exactly appears on the one-page report?",
+      "Every reading from the sample's bundle, each with its healthy value and basis; each instrument explained in the reader's own field language including its physics and credits; the globe and Law Sphere pages; development-stage labels for uncommissioned readings; and the report's own safeguard checks.",
+      "rule R18-REPORT"
+     ],
+     [
+      "The instruments measure different things on different scales — how can their scores be compared?",
+      "Each score is put on a shared per-unit (pu) scale: the instrument is first centered so its healthy expectation truly lands on the healthy point, then divided by its own measured healthy center, so a healthy reading reads 1.00 pu regardless of instrument.",
+      "rule R18-RATINGS"
+     ],
+     [
+      "What is each score actually compared against to decide if it's normal?",
+      "One band per instrument: the 'observed normal operating range,' the range 95% of healthy controls fall in, computed from the pooled within-type spread of healthy controls (Student's t) and widened for the sample's own sequencing depth. It states what healthy libraries show and nothing beyond that.",
+      "rule R18-RATINGS"
+     ],
+     [
+      "If a reading falls outside that range, what does the report say, and what does that flag mean?",
+      "It is flagged as 'Outside our observed normal operating range (based on a limited set of healthy controls).' The rule is explicit that this flags deviation from the observed healthy range only, not a diagnostic test, and that the report's claim scan applies to prevent further interpretation.",
+      "rule R18-RATINGS, 'why' and 'limits'"
+     ],
+     [
+      "How many healthy samples support these reference ranges, and how solid are they?",
+      "As of the current pass: 137 libraries across 48 cell types, 2-3 libraries per type, with a never-used check showing 26 of 31 inside range. The packet states ranges are provisional while healthy controls remain few.",
+      "rule R18-RATINGS, 'limits' (pass 9 figures)"
+     ],
+     [
+      "Are the report's own safeguards (red flags, pass/fail checks) based on statistics from healthy samples, like the instrument readings are?",
+      "No — they are rule-based, not statistical. Red flags' healthy value is 'development notes only,' set by rule rather than measured; the safeguards' healthy value is 'all PASS,' a fixed pass/fail standard set by the chain itself, not a band drawn from healthy controls.",
+      "outputs: 'Red flags' and 'Safeguards' (healthy_how fields)"
+     ]
+    ],
     "status": "designed 2026-11-21; built after held-out pass 9"
    }
   ],

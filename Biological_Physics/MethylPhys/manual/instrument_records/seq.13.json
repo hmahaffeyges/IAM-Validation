@@ -535,6 +535,26 @@
       "Is clustering just correlated noise?",
       "Its healthy value is derived from the counting (1.0103) and confirmed on 189 healthy libraries.",
       "seq_bands_summary.json"
+     ],
+     [
+      "What does the C-Score actually measure, and how is it worked out?",
+      "It checks whether methylation departures from the reference atlas cluster together along the genome rather than scattering randomly. It is the variance of mean departures within consecutive blocks of 10 genome sites, divided by the variance expected if departures were scattered at random. A value of 1 means scattered; higher values mean clustering.",
+      "field_term, field_how, rule R13-METACS"
+     ],
+     [
+      "Has the 'healthy clustering' threshold been confirmed on genuinely independent samples, or only on the data used to set it?",
+      "The healthy value (1.0103) was derived statistically and confirmed on 189 healthy libraries. The only separate held-out check reported is 45 of 49 outside libraries passing (91.8%, 95% binomial interval roughly 80-98%). A 135/140 pass rate also exists but doesn't count, because those samples were measured against their own reference rather than independently.",
+      "existing_qa; outputs C-Score whole genome healthy_how and limits"
+     ],
+     [
+      "What caveats should I keep in mind before trusting this instrument's output?",
+      "Three are listed: it hasn't been commissioned on unseen data; it depends on the Deconvolver's cell-type share estimates for whole blood, plasma, and sorted samples; and the legacy same-run tare option is being retired. Block size, the allowed share of flagged blocks, and how the limit itself is derived are not recorded in the packet.",
+      "rule R13-METACS limits; inputs (block size, flag share, limit) limits"
+     ],
+     [
+      "Do the per-cell and sky-level readings tell us anything the whole-genome score doesn't?",
+      "The per-cell reading (cardiomyocyte) gave 1.0071 against a limit of 1.0909, within range. The sky reading (share of sky pixels beyond 3 sigma) was 0, matching the expected healthy value of about 0. Neither pinpoints where or why clustering occurs - the packet notes the whole-genome score tells you only whether departures cluster, not their location or cause.",
+      "outputs Met-A-side C-Score own cell; outputs C-Score sky; outputs Met-A-side C-Score own cell limits"
      ]
     ],
     "status": "development; derived limit confirmed on 189 healthy libraries"

@@ -475,6 +475,41 @@
       "How is real island gain told from a bad library?",
       "In one reading they look alike; a library's ends, its other readings and its depth separate them, and the planted test shows the meter moves only for island gain.",
       "relay test"
+     ],
+     [
+      "What exactly does this instrument measure?",
+      "It looks at methylated calls at 66,986 CpG-island sites that every healthy cell type in the reference atlas keeps unmethylated. In a healthy sample, any methylated call there isn't real biology — it's the library's own false call from incomplete bisulfite conversion or sequencing error, and that rate is used to correct the other readings.",
+      "field_how; rule description"
+     ],
+     [
+      "Why not just use a synthetic spike-in to measure conversion efficiency instead?",
+      "Most public libraries don't include a spike-in control at all. The always-unmethylated islands act as a spike-in that's already present in every sample, so this method doesn't depend on labs having added one.",
+      "existing_qa, first question; rule 'why' field"
+     ],
+     [
+      "Can this tell incomplete bisulfite conversion apart from sequencing error?",
+      "Not yet recorded: the packet states that without an added spike-in control, conversion failure and sequencing error can't be separated — the correction only reports which type of error correction was applied, not what fraction came from each source.",
+      "rule limits, point 2; outputs field 'Conversion failure'"
+     ],
+     [
+      "How do you distinguish a true rise in island methylation from a poorly performing library?",
+      "One reading alone cannot tell them apart; the library's other readings, depth and read-end quality are read beside it. Planted incomplete conversion (1% of unmethylated calls) raised this meter by 0.00973 against 0.0099 predicted while the biology readings stayed within 0.3%, and the same plant raised whole-sample Met-A by 4.3%, so this meter is what separates a laboratory effect from a biological one.",
+      "planted answer 2026-11-22 (incomplete conversion)"
+     ],
+     [
+      "What's the expected baseline reading in a healthy sample?",
+      "In a healthy sample, the expected island gain is about 0.004, which corresponds to the library's own false-call rate. This figure was established by direct measurement rather than estimated or assumed.",
+      "outputs field 'Islands held error and gain', healthy_how"
+     ],
+     [
+      "Is there a healthy range across the atlas libraries, beyond correcting each library against itself?",
+      "Not yet: it is being built now from the molecule pass over the atlas's healthy libraries (one observed normal operating range, Student's t), and checked on libraries never used to build it.",
+      "plan step 11"
+     ],
+     [
+      "Do any of the atlas libraries have a conversion spike-in that could sharpen this correction?",
+      "No. The packet states that none of the atlas libraries carry a conversion spike-in, so there is no secondary check available to separate conversion failure from sequencing error in any of these samples — this is recorded as a known gap, not estimated around.",
+      "inputs field 'conversion spike-in', limits"
      ]
     ],
     "status": "development; healthy bar owed (bar pass 9)"

@@ -471,6 +471,41 @@
       "Why no healthy samples from the same run?",
       "They cannot be certified healthy and are rarely available; the atlas is checkable by anyone, and each sample's own reads give its laboratory part.",
       "2026-11-07 rule; SOP"
+     ],
+     [
+      "What is each sample's methylation reading actually compared against to judge whether it looks healthy?",
+      "Readings are compared with the IAM Sequencing Atlas (recorded as IAM-Atlas v2.1 and the IAM Sequencing Atlas), not with healthy samples run alongside the sample. One instrument, IAM-A, uses no outside reference at all.",
+      "field_how; outputs[0] 'Healthy references used'"
+     ],
+     [
+      "If you're not using same-run healthy controls, how do you correct for differences between labs or sequencing runs?",
+      "Lab and library effects are worked out from the sample's own reads: its false-methylation rate at CpG islands no healthy cell methylates, the library's noise floor at the sites read, what's expected at its own read depth, and its own cell-type mixture.",
+      "field_how; rules[0].rule"
+     ],
+     [
+      "Why not just include healthy samples processed in the same run as controls, as is conventional?",
+      "Same-run samples can't be certified as truly healthy and are often unavailable. The atlas, by contrast, can be checked by any researcher, and each sample's own reads supply the lab-specific correction instead.",
+      "existing_qa; rules[0].why"
+     ],
+     [
+      "How do you guarantee the reference files used in a run are the genuine, unaltered ones?",
+      "Before a run starts, every runtime file is checked against its SHA-256 fingerprint listed in a reference manifest file. If a file is missing from that list or has been changed, the run is stopped.",
+      "rules[0].rule"
+     ],
+     [
+      "Has this file-fingerprint check ever actually caught or refused a bad file in practice?",
+      "Yes, once, by accident on 2026-11-22: a summary file was placed in the atlas reference folder without a manifest entry, and the check stopped every run (50 libraries) before any reading began, until the file was moved out. No reading was made against an unlisted file.",
+      "instrument history 2026-11-22; reference door record"
+     ],
+     [
+      "Is the older method, using same-run healthy samples as a tare, still sitting in the codebase?",
+      "No. On a sequenced sample the same-run tare options are refused, and the word 'untared' no longer appears in any reading or note: every atlas-referenced reading states the IAM Sequencing Atlas as its reference. The option stays only for arrays.",
+      "chain update of 2026-11-22 (reference block on sequencing)"
+     ],
+     [
+      "Has the laboratory correction been tested with a planted known answer?",
+      "Yes. Incomplete bisulfite conversion was planted in the known-answer library (1% of unmethylated calls turned methylated). The laboratory part, read at the always-unmarked islands, rose by 0.00973 against 0.0099 predicted, while IAM-A, the held error and the Law Sphere hold moved by less than 0.3%.",
+      "planted answer 2026-11-22 (incomplete conversion)"
      ]
     ],
     "status": "runs"

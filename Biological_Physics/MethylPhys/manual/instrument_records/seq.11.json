@@ -341,6 +341,41 @@
       "Why per region and not just one number?",
       "One number cannot tell many small losses from a few large ones; the dispersion across regions can.",
       "IAM-A C-Score record"
+     ],
+     [
+      "What is this test actually measuring, and why does the number 1 matter?",
+      "It checks whether a sample's excess of held (uncorrected) errors is spread evenly across the genome or bunched up in certain stretches. A result of 1 matches what independent, random errors would look like. A result above 1 means the excess is clumped in some regions rather than spread out evenly across the genome.",
+      "field_term; job"
+     ],
+     [
+      "How is the genome divided up for this calculation, and has that choice been checked?",
+      "The genome is split into blocks of 1,000 consecutive CpGs, keeping only blocks with at least 200 countable chances. There is no record yet of how changing this block size would affect the ability to tell clumped errors from evenly spread ones.",
+      "rules.rule; inputs 'region size' limits"
+     ],
+     [
+      "What happens to sparse stretches of the genome that don't have many countable sites?",
+      "Blocks with fewer than 200 countable chances are dropped from the calculation entirely. So the test gives no information about clumping in sparser parts of the genome, and what else this exclusion affects is not recorded.",
+      "inputs 'minimum opportunities per region'"
+     ],
+     [
+      "Is there a validated healthy range to compare a sample's result against?",
+      "Not yet recorded: no healthy range has been set for this score. The record explicitly states the healthy-range field reads 'band not yet set,' and the test status is flagged as having no healthy band, so results can't yet be judged against a normal reference range.",
+      "outputs.healthy_how; test_state"
+     ],
+     [
+      "A result of 2.17 is mentioned, with a note that it mostly reflects 'ordinary healthy differences between regions' — what does that mean?",
+      "That run used a single pooled held-error estimate applied to all roughly 20,000 regions, with a very small expected natural spread (about 0.01). Because of this, the elevated score mostly captures normal region-to-region variation rather than genuine clumping of errors — a known, unresolved design limitation.",
+      "outputs.limits (design finding 11-20)"
+     ],
+     [
+      "Did this test behave as expected across all sample types tried so far?",
+      "Not yet on every chemistry: on RRBS libraries it did not reach its independent-loss value of 1, which is open (the reduced-representation sampling clusters sites by design). Two design changes are owed and there is no healthy range yet.",
+      "rules.limits"
+     ],
+     [
+      "What changes are planned to make this score more trustworthy?",
+      "Two fixes are proposed but not yet done: saving region-level counts so a healthy comparison range can eventually be built from reference sample libraries, and scoring each region against its own locally predicted error rate instead of one shared pooled value across all regions.",
+      "outputs.limits (Fix 1, Fix 2)"
      ]
     ],
     "status": "development; ON in the one button (a chain update); design fix and healthy band owed"
