@@ -6995,3 +6995,16 @@ _Written after midnight from the day's record (the chat walked line by line, 17 
 - The molecule pass on the atlas's own 156 libraries: each molecule instrument's healthy centre and spread per cell type.
 - The 'where' stage; the Law Sphere's card inputs wired into its readings; the report's remaining pages; the sign-off audit; then the leukemia study.
 - Test ids worked today: GRP-019, GRP-017, OTH-069, DEV-SPHERE-01, PHY-035, DEV-IAMA-BAND-01.
+
+**Items worked, by name:**
+- FRAGSHARE (read-level evidence for each Deconvolver share, exploration): run on 49 never-used libraries and 14 planted mixtures; the route was closed by the author's decision and nothing of it entered the chain.
+- FRAGRULE (read-backed shares in whole-sample Met-A, exploration): centred whole-sample Met-A on 1 for atlas-type libraries; closed with FRAGSHARE.
+- PLANTMIX (planted mixtures of two never-used libraries at known shares): the mix route reads true mixtures correctly; near-pure samples read low.
+- TARERULE (Met-A's mix rule, test before the chain edit): 27 of 31 never-used atlas-type libraries within each type's measured spread by the GUM.
+- TARENAME (reading against the library's label instead of the Deconvolver's call): moved Met-A away from 1; the label step was removed.
+- TARECHAIN (Met-A's mix rule in the chain): on main (71d2275d).
+- HELDOUT9 (held-out pass 9, 137 atlas inputs against the other donor half): every levels reading centres on 1; the halves mirror each other.
+- LSRUN5 (the 49 never-used libraries through the full chain on main, molecule counts saved): which instruments need per-type ranges.
+- RENDER235 (render check of the report pages after the explanations edit): every page and layer drawn; two report fixes owed.
+- METAA3 (the three Met-A readings explained once): on main (5eef178a). RUNSV4 (run-length fields on single-type libraries): on main (a37168db).
+- REPORTSEQ, REPORTV1 (the new sequencing report builder, first pages rendered on Google); LEVERMAP (the Law Sphere's lever map on saved counts); LFCHECK (private check); CARDWIRE (the Law Sphere's card wiring, prepared).
