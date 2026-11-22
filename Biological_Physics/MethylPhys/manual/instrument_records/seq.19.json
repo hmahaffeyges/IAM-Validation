@@ -1,0 +1,1060 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.19",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "",
+  "field_how": "",
+  "field_term": "",
+  "id": "seq.19",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "held_marked.m (the 'restore' lever)"
+     ],
+     [
+      "In the field's terms",
+      "per-cycle maintenance (restore) success rate for methylation marks"
+     ],
+     [
+      "Definition",
+      "held_marked.m is one of the cell simulator's input levers (instrument 19, 'Cell simulator levers, minicell, public'), holding the value 0.9661 per cycle. It enters the chain as the restore success per cycle; the Law Sphere instrument instead reads the same physics through eps."
+     ],
+     [
+      "What it does",
+      "It enters the chain as the restore success per cycle (held_marked.m = 0.9661 per cycle, basis measured). The Law Sphere does not use this lever; it uses eps instead (same physics)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 19 lists every input of the cell simulator so each is considered for the chain and the sphere. This lever gives the chain its restore success per cycle; the sphere reads the same physics through eps."
+     ],
+     [
+      "How it is obtained or computed",
+      "Its source_kind is 'set per cell type or fixed, from a cited measurement'; basis is measured. It is entered directly as held_marked.m = 0.9661 per cycle, with no further computation given in this row."
+     ],
+     [
+      "Where it is read",
+      "Not a genomic site reading: a cell simulator lever, one value (0.9661 per cycle)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. That section gives held/lost = (x/2)/(1-(1-e^-x)/x) as one function of how slow a write is, and places the cell's restore at x = w = 2M (41.88 in the held error set by the coin and the two-coin push; 41.9 in the long form), giving odds 21.45; the held error set by the coin and the two-coin push gives the baseline held error eps0 = 1/(1 + odds) = 0.04454 from M alone. Register the held error set by the coin and the two-coin push status: DERIVED (from M, the derived 2-ATP price and the derived ceiling). Long form 1d: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is given directly as 0.9661 per cycle, basis measured, with source_kind 'set per cell type or fixed, from a cited measurement' — no separate healthy band is given for this lever in the packet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. The sphere does not read this lever; it uses eps instead (same physics). Long form 1d lists as open: the horizon's held share 1 as the adiabatic limit needs its own mapping of x."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "held_marked.m"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "held_marked.e (the cell simulator's 'eraser' lever)"
+     ],
+     [
+      "In the field's terms",
+      "Eraser (TET) demethylation rate per DNA strand per cell-division cycle"
+     ],
+     [
+      "Definition",
+      "A measured simulator input: held_marked.e = 0.1 per strand per cycle. It is not the law itself but a measured value the law uses."
+     ],
+     [
+      "What it does",
+      "It enters the chain as the eraser rate per strand per cycle (0.1). The Law Sphere uses the eraser share instead."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it because not all held loss is accidental decay — some is made on purpose by the eraser (TET). Register the eraser's share of the loss records that this share adds to held error in stem and progenitor types, while in mature blood this share drops out."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set as a simulator lever at held_marked.e = 0.1 per strand per cycle, source_kind 'set per cell type or fixed, from a cited measurement.' Register the eraser's share of the loss uses this eraser share s in eps = eps_restore / (1 - s), where s is the eraser's share of held losses."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part: 'not the law itself: a measured input the law uses'; lf_section: 'not part of IAM's Law'. Register the eraser's share of the loss (the eraser's share of the loss): eps = eps_restore / (1 - s), s = the eraser's share of held losses. the eraser's share of the loss status as recorded: 'MATURE BLOOD: DROPS OUT (LEAD, 2026-11-15 6:50 PM): with the chain's measured sl' (truncated in the record)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 0.1 per strand per cycle, set per cell type or fixed from a cited measurement (source_kind), rather than measured fresh in each sample."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Register the eraser's share of the loss: in mature blood the eraser's share drops out; in stem and progenitor types it adds to the held error. the eraser's share of the loss's status is recorded as a lead (truncated in the record). Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "held_marked.e"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "meter.false_mark"
+     ],
+     [
+      "In the field's terms",
+      "False-mark rate (bisulfite non-conversion plus sequencing error)"
+     ],
+     [
+      "Definition",
+      "A cell simulator lever: meter.false_mark = 0.004 per call, the meter's own false-mark rate. In the chain it is the sphere's meter (conv). Register the stray-mark rate after the meter's own false marks records the measured meter as conv_fail + tc_err (about 0.0044 + 0.00046), measured in blood 2026-11-15."
+     ],
+     [
+      "What it does",
+      "In the cell simulator it sets the meter's false-mark rate at 0.004 per call; in the chain it enters the sphere's meter (conv). Register the stray-mark rate after the meter's own false marks is the writer's stray-mark rate with the meter's own false marks (bisulfite conversion, sequencing error) subtracted."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it because bisulfite conversion failure and sequencing error themselves fake a few methyl calls; without subtracting this false-mark rate the meter's readings would be biased by the chemistry itself, not only by the underlying biology."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set as a simulator lever: meter.false_mark = 0.004 per call (source_kind: set per cell type or fixed, from a cited measurement; basis measured). Register the stray-mark rate after the meter's own false marks: meter = conv_fail + tc_err (about 0.0044 + 0.00046), measured per library; status 'MEASURED in blood 2026-11-15'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part is 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law'. It is an instrument/meter-correction quantity, not a link in the law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Lever value 0.004 per call (set per cell type or fixed, from a cited measurement). Register the stray-mark rate after the meter's own false marks measured the meter per library in blood at about 0.0044 + 0.00046. No healthy band is given."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It only accounts for the chemistry-induced fraction of false marks (conversion failure plus sequencing error), stated as a quarter to a third of the raw stray rate, not the full stray signal; it was measured in blood, per library."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "meter.false_mark"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "meter.end_m"
+     ],
+     [
+      "In the field's terms",
+      "Per-library read-end bias: excess at marked (methylated) sites by call position 1..k from the molecule end"
+     ],
+     [
+      "Definition",
+      "A cell-simulator lever recording molecule-end excess at marked sites, with value (0.198) excess per call 1..k; it is measured, but it is explicitly marked NOT in the chain and NOT in the sphere."
+     ],
+     [
+      "What it does",
+      "It carries the molecule-end excess at marked sites into the simulator as a lever to be considered, per the packet's own wording: 'molecule-end excess at marked sites; NOT in the sphere.'"
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (19. Cell simulator levers, minicell, public) has the job of taking every input of the cell simulator and considering each one for the chain and the sphere; this lever is one of those considered inputs, and register S2 frames it as each library's end-meter error, which is measured per library and set aside."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula: meter.end_m = (0.198) excess per call 1..k. Basis: measured. Source_kind: set per cell type or fixed, from a cited measurement. Register S2 gives its status as 'calibrated (meter, per library)' with formula 'each library's end-meter error (calibrated per library)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: it is read as molecule-end excess at marked sites, per call 1..k, per library, not at a stated genomic locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law', so this quantity does not enter IAM's Law at all. It is an instrument/meter quantity — a per-library end-of-molecule error, not a law term."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is (0.198) excess per call 1..k, basis measured, with source_kind 'set per cell type or fixed, from a cited measurement'; register S2 status is 'calibrated (meter, per library)', i.e. calibrated per library rather than drawn from a healthy band."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "in_chain is 'NO (simulator only)' and it enters as 'NOT in the sphere', so it does not feed the chain or the sphere computations; card_key is 'not yet on the card', so it has no place on the instrument's card yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "meter.end_m"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "meter.end_u (cell simulator lever 'meter')"
+     ],
+     [
+      "In the field's terms",
+      "molecule-end excess calls at unmarked sites (a library end-bias term)"
+     ],
+     [
+      "Definition",
+      "A simulator-only lever entering as molecule-end excess at unmarked sites, carrying the value (0.034, 0.009, 0.004) excess per call 1..k; it is explicitly NOT in the sphere."
+     ],
+     [
+      "What it does",
+      "It represents the excess calls occurring at the ends of molecules for sites that are unmarked, as a parameter the simulator can set, while being excluded from the chain itself (in_chain: NO, simulator only)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 19 lists every input of the cell simulator so that each is considered for the chain and the sphere; this is one of them. Register S2 records each library's end-meter error as measured per library and set aside."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given by the formula meter.end_u = (0.034, 0.009, 0.004) excess per call 1..k. Its basis is measured, and its source_kind is 'set per cell type or fixed, from a cited measurement'; the register records its status as 'calibrated (meter, per library)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law' — this quantity does not enter IAM's Law at all. It is an instrument/meter correction term, a calibrated per-library error value, not a physical step in the chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its stated value is (0.034, 0.009, 0.004) excess per call 1..k, with basis 'measured' and source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is marked NOT in the sphere and in_chain: NO (simulator only), so it cannot speak to anything beyond the library's own end-of-molecule artifact; beyond its calibrated-per-library status, nothing further is in the records yet — open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "meter.end_u"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "T_cell, entered on card T_K"
+     ],
+     [
+      "In the field's terms",
+      "Physiological temperature of the cell (body temperature)"
+     ],
+     [
+      "Definition",
+      "A measured input lever of the cell simulator, set to T_cell = 310.15 K, carried in the chain as card T_K."
+     ],
+     [
+      "What it does",
+      "It sets the size of one thermal kick, k_B T, that the simulator uses."
+     ],
+     [
+      "Why the instrument needs it",
+      "The law pays its minimum regulating energy on the DNA surface at a stated temperature: each methyl mark held or restored pays at least k_BT ln 2 on the DNA surface at 310 K, so the instrument needs this temperature value to fix that cost."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula T_cell = 310.15 K; basis measured, set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Register the cell's temperature, 'Cell temperature 310.15 K', status measured, formula T = 310.15 K: body temperature; it sets the size of one thermal kick, k_B T. Its law_part is explicit: 'not the law itself: a measured input the law uses', and lf_section confirms it is 'not part of IAM's Law' — it is a measured quantity the law draws on, not a step of the law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 310.15 K, basis measured, source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "T_cell"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "the coin (dG_ATP)"
+     ],
+     [
+      "In the field's terms",
+      "Free energy of ATP hydrolysis (ΔG_ATP)"
+     ],
+     [
+      "Definition",
+      "A measured constant used by the cell simulator: dG_ATP = 54000.0 J/mol, the free energy one ATP hands over in a living cell."
+     ],
+     [
+      "What it does",
+      "It enters the simulator as the card dG_ATP, supplying the lever value wherever the chain calls for the coin's size."
+     ],
+     [
+      "Why the instrument needs it",
+      "It is the cell simulator lever 'coin': the free energy one ATP hands over in a living cell. Instrument 19 lists every input of the cell simulator so each is considered for the chain and the sphere; in the chain this value is card dG_ATP."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is measured (nameplate): dG_ATP = 54000.0 J/mol, set per cell type or fixed from a cited measurement, entering as card dG_ATP."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked explicitly as 'not the law itself: a measured input the law uses', and its long-form section is 'not part of IAM's Law.' It is a measured input quantity (the coin's size (the energy of one ATP), 'The coin: dG_ATP 54 kJ/mol'), not a step of IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Value 54000.0 J/mol (the coin's size (the energy of one ATP) gives it as dG_ATP = 54 kJ/mol), basis measured, source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "dG_ATP"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "dG_ATP"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "phi (the sphere's phi layer reads it)"
+     ],
+     [
+      "In the field's terms",
+      "Fraction of one ATP's free energy kept as the held state (an energy-retention fraction of methylation maintenance)"
+     ],
+     [
+      "Definition",
+      "phi is a measured value of 0.1473 fraction of one coin, entered into the cell simulator lever 'restore' and read by the sphere's phi layer in the chain."
+     ],
+     [
+      "What it does",
+      "Sets the share of each coin (one ATP) that ends up kept as hold; in the register's words, 'a share of the coin, not the slow-close version of the energy half.' In the chain it is the measured phi that the sphere's phi layer reads."
+     ],
+     [
+      "Why the instrument needs it",
+      "It gives the chain and the sphere's phi layer the measured share of each coin the cell keeps as hold (0.1473). The register compares it with the 1/2 held by the black hole and the 1 held by the horizon."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured: phi = 0.1473 fraction of one coin. The register gives a derived companion formula for comparison: phi = ln(odds)/M ~ ln M / M = 0.1464 (measured 0.1473), with status 'DERIVED from M alone (phi_candidate 0.1464 vs measured 0.1473; the held error set by the coin and the two-coin push)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 3 (long form section 3, 'the virial half'), concerning 'the half, and the cell's derived departure from it.' The register (the share of each coin kept as hold) explains why the cell holds phi = 0.147 of its drive rather than the 1/2 that a black hole holds, and a horizon holds 1. Status of the derived companion value: DERIVED from M alone."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Source kind: set per cell type or fixed, from a cited measurement. Value as entered: 0.1473 fraction of one coin (measured), compared in the register to a derived value of 0.1464."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "phi"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "phi_derived (phi), the cell simulator lever 'restore'"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "phi_derived = 0.1464 fraction of one coin — the share of each coin kept as hold. It is a share of the coin, not the slow-close version of the energy half."
+     ],
+     [
+      "What it does",
+      "It enters the chain as the derived phi, serving as the sphere's healthy value, and functions as the cell simulator lever named 'restore'."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to carry every input of the cell simulator so each can be considered for the chain and the sphere; this value is normally fixed by the physics but is kept available as a setting so it can be used to test what-if scenarios."
+     ],
+     [
+      "How it is obtained or computed",
+      "phi = ln(odds)/M ~ ln M / M = 0.1464 (measured 0.1473), derived from M alone."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "It belongs to IAM's Law, link 3 — the half, and the cell's derived departure from it — long form section 3, titled 'Step 3: the virial half.' Its status there is derived from M alone."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is 0.1464 fraction of one coin, derived by IAM's Law (fixed by the physics; used here only as a setting to test what-if); the measured counterpart recorded alongside it is 0.1473."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The derived 0.1464 sits beside the measured 0.1473 (the share of each coin kept as hold); the chain uses the derived value as the sphere's healthy value. The the share of each coin kept as hold status line is cut short in the records; further limits are open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "phi_derived"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "SAM_cost, the simulator's 'coin' lever"
+     ],
+     [
+      "In the field's terms",
+      "ATP cost of one SAM (the methyl donor) used per restore"
+     ],
+     [
+      "Definition",
+      "SAM_cost = 2.0 ATP coins per SAM: the price, in ATP coins, that the cell simulator charges for one SAM molecule, the unit that funds a methylation write."
+     ],
+     [
+      "What it does",
+      "It enters the chain as 'card coins' — it sets how many ATP coins are spent whenever the simulator funds a SAM for a restore."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law needs a funding term (link 2b: the free energy that pays each write) priced in coins, so the simulator must know the exchange rate between ATP coins and one SAM before it can cost any write."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given directly by the formula SAM_cost = 2.0 ATP coins per SAM, basis 'derived' from the price of one restore (two ATP): 1 restore = 1 SAM = 2 ATP (ATP -> AMP + 2 Pi, adenylate kinase at equilibrium)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Sits at IAM's Law, link 2b, long-form section 2b, titled 'where the free energy that pays each write comes from.' Its source_kind is 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)' — so the value is fixed by the physics but is also used in the simulator as an adjustable lever for what-if tests."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 2.0 ATP coins per SAM, from the price of one restore (two ATP) (status DERIVED given adenylate kinase at equilibrium); source_kind: derived by IAM's Law, usable as a what-if setting."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "SAM_cost"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "eraser_share"
+     ],
+     [
+      "In the field's terms",
+      "TET (eraser)-attributed share of held demethylation losses"
+     ],
+     [
+      "Definition",
+      "The eraser's (TET) share of held losses (the eraser's share of the loss: s in eps = eps_restore / (1 - s)). The cell simulator lever is set at eraser_share = 0.0 fraction of held losses."
+     ],
+     [
+      "What it does",
+      "It is the quantity s in the formula eps = eps_restore / (1 - s), rescaling the held error (eps) according to how much of the loss is attributed to active erasure by the eraser versus passive restore failure. It enters the chain via card eraser_share."
+     ],
+     [
+      "Why the instrument needs it",
+      "Register the eraser's share of the loss: some losses are made on purpose by the eraser (TET); in mature blood that share drops out, in stem and progenitor types it adds to the held error. The lever lets the simulator and the card carry that share."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is a measured input, set per cell type or fixed from a cited measurement (source_kind: 'set per cell type or fixed, from a cited measurement'); here it is given directly as eraser_share = 0.0 fraction of held losses."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states plainly this is 'not the law itself: a measured input the law uses', and lf_section confirms it is 'not part of IAM's Law.' It is a measured input quantity -- a fraction of held losses -- that the law's chain (via eps = eps_restore / (1 - s)) consumes, rather than a step within IAM's Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Lever value eraser_share = 0.0 fraction of held losses; basis measured; source_kind 'set per cell type or fixed, from a cited measurement'. No healthy band is given."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The register entry the eraser's share of the loss carries the status 'MATURE BLOOD: DROPS OUT (LEAD, 2026-11-15 6:50 PM): with the chain's measured sl' -- a LEAD status, not a settled figure, and the text itself is cut off in the record. The same entry notes that in stem and progenitor cell types the eraser's share instead adds to the held error rather than dropping out, and no value for that case is given in the packet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "eraser_share"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "D_select"
+     ],
+     [
+      "In the field's terms",
+      "Methyltransferase site selectivity (odds of marking the correct site over a wrong one; sets the off-target stray-methylation rate)"
+     ],
+     [
+      "Definition",
+      "Simulator lever: cell simulator lever 'writer': D_select = 60.0 odds right site over wrong. In the chain: card D."
+     ],
+     [
+      "What it does",
+      "D_select sets the odds that the writer puts a mark at the right site rather than a wrong one (60.0 odds right over wrong); this value is the D used in the the writer's stray-mark rate formula u = 1/(1 + D)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Register the writer's stray-mark rate: the writer sometimes puts a mark where none belongs; choosing the right site over 60 wrong ones gives about one stray mark in 61 (u = 1/(1 + D), D = 60 -> 0.0164)."
+     ],
+     [
+      "How it is obtained or computed",
+      "D_select = 60.0 odds right site over wrong, entered on card D; it is basis 'measured' and feeds directly into the writer's stray-mark rate's formula u = 1/(1 + D), D = 60 -> 0.0164."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 1 (actualization: each write is one sudden write of a record), long form section 1, whose text states it is 'the moment a bit becomes part of the record.' Its basis/status as given is 'measured' (set per cell type or fixed, from a cited measurement); the downstream quantity it feeds, the writer's stray-mark rate, carries status 'ACCOUNTED, meter-corrected in blood (lead, 2026-11-15) (was: ACCOUNTED (measured)'."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is fixed at 60.0 odds right site over wrong, basis 'measured', source_kind 'set per cell type or fixed, from a cited measurement'; no separate healthy range is given for this input itself."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "D"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Register the writer's stray-mark rate status as recorded: 'ACCOUNTED, meter-corrected in blood (lead, 2026-11-15) (was: ACCOUNTED (measured' (truncated). Further limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "D_select"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "conv_fail (the 'conv' card lever)"
+     ],
+     [
+      "In the field's terms",
+      "Bisulfite non-conversion rate (conversion failure rate)"
+     ],
+     [
+      "Definition",
+      "A simulator input lever in IAM's cell simulator, card conv, set to the value 0.0044 per non-CpG cytosine; it represents false methylation calls produced by the bisulfite conversion/sequencing chemistry itself rather than true held marks."
+     ],
+     [
+      "What it does",
+      "It enters card conv and combines with tc_err to form the stray-mark rate after the meter's own false marks's 'meter' quantity, meter = conv_fail + tc_err (about 0.0044 + 0.00046), the meter's own false-mark rate."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it so that the stray-mark rate after the meter's own false marks can take the writer's stray-mark rate and subtract the meter's own false marks (bisulfite conversion plus sequencing error), i.e. so the chain can separate a genuinely held methyl mark from one the sequencing chemistry fakes."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula given in the packet: conv_fail = 0.0044 per non-CpG cytosine. Basis: measured. Source_kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is explicitly 'not the law: instrument or meter', and lf_section is 'not part of IAM's Law'. This is not a step in IAM's Law; it is an instrument/meter quantity recorded in the stray-mark rate after the meter's own false marks, used to correct the law-relevant measurement for sequencing-chemistry artifacts, not to derive it."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is set to 0.0044 per non-CpG cytosine (basis: measured; source_kind: set per cell type or fixed, from a cited measurement). Per the stray-mark rate after the meter's own false marks, it combines with tc_err (about 0.00046) to give the meter's total false-mark rate, described as a quarter to a third of the raw stray rate."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "conv"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "conv_fail"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "tc_err"
+     ],
+     [
+      "In the field's terms",
+      "sequencing (base-call) error rate"
+     ],
+     [
+      "Definition",
+      "Cell simulator lever 'meter': tc_err = 0.00046 per read T (top) / A (bottom). In the chain: part of the meter."
+     ],
+     [
+      "What it does",
+      "It is one of the cell simulator levers that make up the meter itself, entering the chain as 'part of the meter' rather than as a biological signal."
+     ],
+     [
+      "Why the instrument needs it",
+      "Register the stray-mark rate after the meter's own false marks is the writer's stray-mark rate (the unmarked side's stray-mark rate) with the meter's own false marks subtracted; tc_err is one of the two terms of that meter, meter = conv_fail + tc_err."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given directly as tc_err = 0.00046 per read T (top) / A (bottom); it combines with conv_fail in the formula meter = conv_fail + tc_err (about 0.0044 + 0.00046), measured in blood 2026-11-15."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part marks this as 'not the law: instrument or meter' and lf_section is 'not part of IAM's Law'; it is a meter/instrument quantity (a sequencing-error rate), not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is set per cell type or fixed, from a cited measurement: tc_err = 0.00046 per read T (top) / A (bottom), measured as part of the stray-mark rate after the meter's own false marks in blood on 2026-11-15."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "tc_err"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "clock_delta"
+     ],
+     [
+      "In the field's terms",
+      "Simulated per-site methylation gain per write-erase round at mitotic-clock sites (a model parameter)"
+     ],
+     [
+      "Definition",
+      "clock_delta is a cell simulator lever named 'writer': clock_delta = 5e-05 per site per write-erase round. It stands for the epigenetic mitotic clock read as writer error made heritable - a record copied forward, not restored (the mitotic clock (writer errors made heritable))."
+     ],
+     [
+      "What it does",
+      "It sets the per-site, per-write-erase-round rate at which clock-site marks drift from writer error. It enters the simulator's clock gain; it is not yet a sphere layer, and it is not yet in the chain (simulator only)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 19's job is every input of the cell simulator, so each is considered for the chain and the sphere; clock_delta is needed so the simulator can represent how the mitotic clock's writer error becomes heritable across write-erase rounds, per IAM's Law link 5 (records copied forward, not restored)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis: measured. Formula: clock_delta = 5e-05 per site per write-erase round. Source kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "Simulator only: applied per site in the cell simulator; not read from the genome by the chain (in_chain: NO). The chain's related reading, clock-site gain, is in register C3."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 5, long-form section 5 ('Step 5: the arrow'). Status: OPEN, lead, measured 2026-11-16 from kept counts (the mitotic clock (writer errors made heritable)). clock_delta itself is NOT in the chain (simulator only) and is not yet a sphere layer - it only enters the simulator's clock gain."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Input value: 5e-05 per site per write-erase round. Basis: measured; source kind: set per cell type or fixed, from a cited measurement. Not yet on the card."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is OPEN, lead - not a closed result. clock_delta is simulator-only (in_chain: NO) and has not yet been entered as a sphere layer, and it has no card_key yet ('not yet on the card'), so where it ultimately sits in the finished chain is still unresolved."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "clock_delta"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "eraser_stray_clean"
+     ],
+     [
+      "In the field's terms",
+      "Fraction of stray (wrongly written) methylation marks cleaned by the eraser (active demethylation of erroneous marks)"
+     ],
+     [
+      "Definition",
+      "A cell-simulator lever ('eraser'): eraser_stray_clean = 0.18, a fraction of stray marks, i.e. the share of stray marks the eraser cleans. In the chain it is card eraser_clean."
+     ],
+     [
+      "What it does",
+      "Supplies the measured fraction of stray marks cleaned by the eraser (0.18) to the simulator's 'eraser' lever and to the chain as card eraser_clean."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 19 lists every input of the cell simulator so each is considered for the chain and the sphere; this lever gives the measured share of stray marks the eraser cleans."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis is 'measured', with source_kind 'set per cell type or fixed, from a cited measurement'; the row's own formula is simply eraser_stray_clean = 0.18 fraction of stray marks — a fixed assigned value, with no further computation given in the records."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row's own law_part marks this as 'not the law itself: a measured input the law uses' — so eraser_stray_clean is not itself part of IAM's Law equations, only a measured input the Law draws on. A related register entry asks whether the eraser acts as the cell's proofreading (a Hopfield discard step on wrongly written marks); its status is READ, finding branch S — one selection step — and concludes 'the eraser does not proofread wrongly written marks; the writer's single selection step is all there is,' tying that finding to IAM's Law link 1 (actualization: each write is one sudden write of a record)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The value used is 0.18 fraction of stray marks, basis 'measured', source_kind 'set per cell type or fixed, from a cited measurement' — a fixed/measured default rather than a derived range."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The register's related question (the question whether the eraser proofreads, whether the eraser is the cell's proofreading) was read as branch S: one selection step (knockout over wild type 0.985-1.292); the eraser does not proofread wrongly written marks. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "eraser_stray_clean"
+   }
+  ],
+  "job": "every input of the cell simulator, so each is considered for the chain and the sphere",
+  "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED. IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+  "link": "19. Cell simulator levers (minicell, public)",
+  "outputs": [],
+  "records": [],
+  "report_section": "",
+  "tools": []
+ }
+}

@@ -1,0 +1,3595 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.04b",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "",
+  "field_how": "",
+  "field_term": "",
+  "id": "seq.04b",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coin size (dG_ATP)"
+     ],
+     [
+      "In the field's terms",
+      "ATP free energy of hydrolysis (dG_ATP)"
+     ],
+     [
+      "Definition",
+      "Tried as a source of each cell type's own healthy level; status: closed: not met alone; could carry up to ~40 %."
+     ],
+     [
+      "What it does",
+      "It enters the push term as coins x M."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (4b. each cell type's own healthy level inputs) tracks every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a measured range of 53.5-61.7 kJ/mol (source_kind: a setting with a default, a chain rule), expected to carry at most x1.14, entering the push term as coins x M."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 2, the price (k_BT ln 2 per bit at the surface's own temperature), long-form section 2, 'Step 2: the price'. Its basis is measured. As a candidate source of each cell type's own healthy level its status is closed: not met alone; could carry up to ~40 %. Each cell type's own healthy level itself is open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value is 53.5-61.7 kJ/mol, basis measured, source_kind a setting with a default (a chain rule)."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "dG_ATP"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met alone; could carry up to ~40 %. Expected effect x1.14 at most. Per the sphere-use note, the 'closed' status for each cell type's own healthy level does not exclude it as an input; it needs an outside table (one value per type)."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Coin size (dG_ATP)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Temperature (card key T_K)"
+     ],
+     [
+      "In the field's terms",
+      "Temperature (the T in M = ΔG_ATP / RT)"
+     ],
+     [
+      "Definition",
+      "A candidate per-type input tried as a source of each cell type's own healthy level. Temperature enters through M = dG_ATP / RT, with a sensitivity of x1.003 per K; basis measured."
+     ],
+     [
+      "What it does",
+      "It was tried as a source of each cell type's own fixed level — the open item where 81% of IAM-A's healthy spread sits between types. The test's status is closed: not met; the plain record states the spread would need ~134 K to be explained by temperature alone."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs a temperature value because M = dG_ATP / RT has T in the denominator, so any proposed explanation for each cell type's own healthy level must pass through this term; row 4b exists so every candidate input, including temperature, is tested once and tracked so nothing is tried twice."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is set per cell type or fixed, from a cited measurement (source_kind), entering the formula as M = dG_ATP / RT with sensitivity x1.003 per K; basis given as measured."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 2 (the price: k_BT ln 2 per bit at the surface's own temperature), long-form section 2, 'Step 2: the price'. As a candidate source of each cell type's own healthy level its status is closed: not met; that healthy-level item itself is open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value/sensitivity is x1.003 per K, set per cell type or fixed, from a cited measurement, per the row's own source and source_kind; no other default value is recorded."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "T_K"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "closed: not met: temperature cannot account for the between-type spread in each cell type's own healthy level — matching the observed spread this way would require a temperature range of about 134 K, which the record treats as not met; each cell type's own healthy level itself remains OPEN, the deciding item, with every candidate input (including this one) listed in row 4b so it isn't retested."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Temperature"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "One entry in the '4b' inventory of candidate inputs for each cell type's own healthy level, tried as this type-level explanation and closed: not met"
+     ],
+     [
+      "In the field's terms",
+      "Cell division rate (proliferation rate)"
+     ],
+     [
+      "Definition",
+      "Cell division rate was tried as a possible source of each cell type's own fixed healthy IAM-A level. It was proposed to enter at the copy layer as a per-type value drawn from an outside table, but the row's status is closed: not met (null test 11-13)."
+     ],
+     [
+      "What it does",
+      "A per-type input on the Law Sphere's card (by_type), one value per type from an outside table, watched against every layer. As a source of each cell type's own healthy IAM-A level it was tried and closed: not met (null test 11-13); the records state that this closed status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b instrument exists to catalogue every candidate input for each cell type's own level, tested or not, so none is tried twice and the sphere's card can carry whichever ones hold. This matters because that per-type spread makes up 81 % of IAM-A's healthy spread and is still the open, deciding item, so each candidate such as division rate gets checked against it."
+     ],
+     [
+      "How it is obtained or computed",
+      "The row's source_kind records it as set per cell type or fixed, from a cited measurement - one value per type, needing an outside table. It was evaluated by null test 11-13, whose result closed this candidate: not met."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row's law_part is 'open: not yet tied to the law' - division rate as a candidate input has not been connected into IAM's Law; the status is open."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met (null test 11-13) as the source of each cell type's own healthy level; that question stays open (the deciding item). The closed status does not exclude it as an input. It needs an outside table (one value per type) and its card_key reads 'not yet on the card'."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Cell division rate"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Age within a type"
+     ],
+     [
+      "In the field's terms",
+      "Donor age within one cell type (age as a candidate explanation of a type's methylation-maintenance level)"
+     ],
+     [
+      "Definition",
+      "Age within a type, measured on 19 libraries, tried as a source of each cell type's own healthy IAM-A level. Status: closed: not met."
+     ],
+     [
+      "What it does",
+      "It was tested as a possible source of each cell type's own healthy level; as a per-type input it is meant to sit on the card (by_type) and be watched against every layer, with medium 'one value per type' and a need for an outside table."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job (4b) is to hold every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and only the inputs that hold end up carried on the sphere's card."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from 19 libraries, basis measured; source_kind is 'set per cell type or fixed, from a cited measurement.' No formula is given for this input itself in the packet."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Open: not yet tied to the law (law_part and lf_section); no long-form section. A measured candidate tested as a source of each cell type's own healthy IAM-A level."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No typical value is recorded for this input; its source is 19 libraries, basis measured, source_kind 'set per cell type or fixed, from a cited measurement.' As a candidate explanation for each cell type's own healthy level it is closed: not met."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is closed: not met — age within a type did not hold up as an explanation for each cell type's own healthy level. The sphere note adds that this closed status does not exclude it as an input on the card, though it is not yet on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Age within a type"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Eraser share by 5hmC (TAB-seq) and TET knockouts"
+     ],
+     [
+      "In the field's terms",
+      "5hmC-based eraser share (TET enzyme contribution to demethylation)"
+     ],
+     [
+      "Definition",
+      "A candidate input tested as a possible source of each cell type's own healthy level, built from 5hmC measured by TAB-seq together with TET knockout data; its status is 'closed: not met by 5hmC or TET knockouts; see the eraser route row'."
+     ],
+     [
+      "What it does",
+      "It enters the model under the card key 'eraser_share', standing in for the eraser (demethylation) route as a possible driver of each cell type's own fixed level; the test found it did not meet that role."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b exists to hold every candidate input for each cell type's healthy level, tested or not, so that nothing is tried twice and so the sphere's card can carry forward only the inputs that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set per cell type or fixed, from a cited measurement — specifically 5hmC levels from TAB-seq and TET knockout results."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part marks it 'not the law itself: a measured input the law uses', and lf_section records it as 'not part of IAM's Law' — it is a measured input the law draws on, not a step within the law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No specific default value is given in the record; it is 'set per cell type or fixed, from a cited measurement' — the value itself is open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "eraser_share"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met by 5hmC or TET knockouts; the eraser route row carries the detail. As a candidate explanation for each cell type's own healthy level, it was tried and did not hold."
+     ],
+     [
+      "Credit",
+      "TAB-seq 5hmC values: Hohos et al. 2016 (as cited in the row)"
+     ]
+    ],
+    "name": "Eraser share by 5hmC (TAB-seq) and TET knockouts"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Writer precision by type (a candidate input on instrument 4b, the list of everything tried as a source of each cell type's own healthy level)."
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-specific writing precision: the error on the unmarked side, taken from a reference (referee) laboratory's measurement."
+     ],
+     [
+      "Definition",
+      "One value per cell type for how precisely marks are written, expressed as the unmarked-side error measured by a referee laboratory."
+     ],
+     [
+      "What it does",
+      "It enters the selection layer (card key D) of the Law Sphere's card as a per-type input (by_type), one value per type, and is watched against every layer. It was tried as a source of each cell type's own healthy level."
+     ],
+     [
+      "Why the instrument needs it",
+      "Each cell type's own level is the deciding open item: 81 % of IAM-A's healthy spread is between types, and after the self-reference each cell type still sits at its own fixed level. Instrument 4b keeps every candidate input for that level, tested or not, so nothing is tried twice and the card can carry the inputs that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken from a cited measurement, set per cell type or fixed, as one value per type from an outside table (the referee laboratory's unmarked-side error). It was tested against the per-type IAM-A level, A = eps_measured / eps_pred(L), which runs 0.80-1.17 across types."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: one value per cell type, read from an outside table."
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row is filed under IAM's Law, link 1 (actualization: each write is one sudden write of a record), long form section 1, 'Step 1: actualization, the moment a bit becomes part of the record'. The packet carries only that section's title, so what the step says beyond its title is open: not in the records yet. As a source of each cell type's own healthy level its status is closed: not met (11-15); that level itself is OPEN and, in the register's words, 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Input: set per cell type or fixed, from a cited measurement (source: unmarked-side error, referee lab; basis measured). The per-type values themselves are open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "D"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It did not explain each cell type's own healthy level (closed: not met, 11-15), although that status does not exclude it as an input on the card. It needs an outside table, so it is only as good as that laboratory's measurement, and it gives one value per type, not a value per sample."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Writer precision by type"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Open-chromatin extent (traffic as extent)"
+     ],
+     [
+      "In the field's terms",
+      "Open-chromatin extent (chromatin accessibility, from CATLAS cCREs)"
+     ],
+     [
+      "Definition",
+      "A candidate input, drawn from CATLAS cCREs, tested as a possible source for each cell type's own healthy level by treating open-chromatin extent as 'traffic.' Its status is closed: not met twice."
+     ],
+     [
+      "What it does",
+      "It was tried as a way to set each cell type's own healthy level, but testing closed it out for that purpose since it failed to meet the mark twice; the sphere_use notes this closure does not rule it out as an input elsewhere, e.g. as a per-unit map overlay and covariate for every reading."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b's job is to carry every candidate input for each cell type's own level, tested or not, so nothing is tried twice and the sphere's card can carry only the ones that hold; this row is the record of that attempt and its outcome."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from CATLAS cCREs (candidate cis-regulatory elements); basis is measured, source_kind being the IAM Sequencing Atlas (measured healthy reference); sphere_use describes it as a per-unit map on the sphere's units, used as an overlay layer and a covariate for every reading."
+     ],
+     [
+      "Where it is read",
+      "Read from CATLAS cCREs (candidate cis-regulatory elements); no specific genomic locus or coordinate is given in the record."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section both read 'open: not yet tied to the law'). As a candidate source of each cell type's own healthy level its status is closed: not met twice."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical numeric value is given in the record for this input; its source is CATLAS cCREs, with source_kind the IAM Sequencing Atlas (measured healthy reference)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met twice as a direct source for each cell type's own healthy level — this specific use failed testing twice. The sphere_use notes that this closure does not exclude it as an input in other roles, such as a per-unit overlay/covariate layer, where per-unit maps are said to make new buses observable."
+     ],
+     [
+      "Credit",
+      "CATLAS candidate cis-regulatory elements"
+     ]
+    ],
+    "name": "Open-chromatin extent (traffic as extent)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Packing (ChromHMM packed share)"
+     ],
+     [
+      "In the field's terms",
+      "ChromHMM packed-chromatin state share"
+     ],
+     [
+      "Definition",
+      "The packed share from the Roadmap Epigenomics ChromHMM 15-state model, tried as a source of each cell type's own healthy IAM-A level. Which ChromHMM states count as packed is open: not in the records yet. Status: closed: not met."
+     ],
+     [
+      "What it does",
+      "Tried as a source of each cell type's own level. For the sphere it is listed as a per-unit map on the sphere's units: a layer (overlay) and a covariate for every reading."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b keeps every candidate input for each type's own level, tested or not, so nothing is tried twice. Its sphere note rates it high because per-unit maps make new buses observable."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis: measured. Source: Roadmap 15-state (ChromHMM). Source_kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "Per unit of the sphere (a per-unit map on the sphere's units); exact genomic definition open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Both its link to IAM's Law (law_part) and its long-form section (lf_section) are marked 'open: not yet tied to the law' — this input has not been placed into the Law's mathematics. It stands as a measured chromatin-state covariate rather than a Law-side quantity, and it is closed: not met as a source of each cell type's own healthy level."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No typical or default value is recorded for this input beyond its source: Roadmap 15-state (ChromHMM), basis measured, set per cell type or fixed from that cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met as a source of each cell type's own level. That closed status does not exclude it as an input: the sphere note lists it as a per-unit layer. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "Roadmap Epigenomics ChromHMM 15-state model"
+     ]
+    ],
+    "name": "Packing (ChromHMM packed share)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Double loss, run lengths, damaged minority"
+     ],
+     [
+      "In the field's terms",
+      "Candidate covariates for each cell type's baseline maintenance discordance: double-loss events, run lengths and the damaged-minority fraction"
+     ],
+     [
+      "Definition",
+      "A per-library reading (double loss, run lengths, damaged minority) measured on 150 libraries and tried as a source of each cell type's own healthy IAM-A level. It enters as coupling and CP1."
+     ],
+     [
+      "What it does",
+      "It was tested as a candidate explanation for why each cell type sits at its own fixed level in IAM-A. Per the row's own in_chain status, the test is closed: not met."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument this row belongs to (4b) exists to hold every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and only the inputs that hold end up carried on the sphere's card."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis measured, from 150 libraries; source_kind 'set per cell type or fixed, from a cited measurement'. Enters as coupling and CP1. No formula is given in this row."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — the record describes it as a per-library reading in the bundle, counted from the same molecules and shown as a layer, not a genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Both law_part and lf_section for this row are given as open: not yet tied to the law, so this input has not been connected into any link of IAM's Law. It stands as a per-library layer in the sphere's reading rather than a quantity placed in the law's chain."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet — the row gives no default or typical value for this input; its status came back closed: not met rather than yielding a value."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Tried as a source of each cell type's own level: closed: not met. That status does not exclude it as an input: on the sphere it is a per-library reading in the bundle (already counted), shown as a layer, with overlap recorded as 'high: counted from the same molecules'. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Double loss, run lengths, damaged minority"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "4b.09 — Location in late-replicating DNA (input candidate for each cell type's own level)"
+     ],
+     [
+      "In the field's terms",
+      "Replication timing (late-replicating DNA)"
+     ],
+     [
+      "Definition",
+      "An input tried as a possible source of each cell type's own healthy level: location in late-replicating DNA (Repli-seq thirds, 12 libraries), entering as copy timing. Status: closed: not met; late excess is a family trait."
+     ],
+     [
+      "What it does",
+      "It enters the chain as 'copy timing' — assigning each site a replication-timing category that was tested as a possible explanation for why each cell type sits at its own fixed level."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b instrument exists to catalog every candidate input for each cell type's own healthy level, tested or not, so that no candidate is tried twice and so the sphere's card can carry forward only the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from Repli-seq thirds across 12 libraries; its source_kind is recorded as set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "Read from Repli-seq thirds (12 libraries) that assign replication-timing categories; no specific genomic coordinates are given in the records."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (the row's law_part and lf_section both read 'open: not yet tied to the law')."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is set per cell type or fixed, from a cited measurement (Repli-seq thirds, 12 libraries); no specific default numeric value is given in the records."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met as a source of each cell type's own healthy level; late excess is a family trait. Per the sphere-use note, the 'closed' status does not exclude it as an input (a per-unit map layer: overlay and covariate)."
+     ],
+     [
+      "Credit",
+      "Repli-seq replication-timing tracks (ENCODE)"
+     ]
+    ],
+    "name": "Location in late-replicating DNA"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Tissue oxygen"
+     ],
+     [
+      "In the field's terms",
+      "Tissue oxygen (pO2), tested as a candidate driver of each cell type's own healthy level"
+     ],
+     [
+      "Definition",
+      "A candidate input, drawn from Carreau pO2 data and dataset GSE197512, tried as something that might set each cell type's own healthy level. It enters the model through the loss rate term. Status: closed at this depth: sign as predicted, not significant."
+     ],
+     [
+      "What it does",
+      "It is a per-type or fixed value entered into the loss rate, watched against every layer on the sphere's card (sphere_use: per-type input, medium: one value per type, needs an outside table). It was tested as a possible explanation for why each cell type sits at its own fixed level, but at this depth it did not come out significant."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (4b. each cell type's own healthy level inputs) exists to list every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and the sphere's card can carry forward only the inputs that hold; each cell type's own level is the open, deciding item, carrying 81% of IAM-A's healthy spread."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from a cited outside measurement set (Carreau pO2; GSE197512). source_kind: set per cell type or fixed, from a cited measurement. No formula for this input is given in the record beyond the test of its sign and significance."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: it is a per-type physiological value pulled from an outside table (Carreau pO2; GSE197512), one value per cell type, rather than a genomic position."
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part and lf_section are both 'open: not yet tied to the law' for this row — it is not currently part of IAM's Law. It is being tested only as a candidate input into the loss-rate term that feeds each cell type's own healthy level."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical numeric value is given in this record. Its source is Carreau pO2; GSE197512, and its source_kind is 'set per cell type or fixed, from a cited measurement.' card_key: not yet on the card."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed at this depth: its sign came out as predicted but was not significant; the record notes this closed status does not exclude it as an input outright. It remains untied to the law (open), and each cell type's own healthy level itself is still OPEN as the deciding item, so row 4b keeps tracking every input tried, including this one."
+     ],
+     [
+      "Credit",
+      "tissue oxygen: Carreau et al. (pO2 review, as cited in the row)"
+     ]
+    ],
+    "name": "Tissue oxygen"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "One entry in instrument 4b, carrying the name 'Hormone and sugar uptake (GLUT4, INSR)', with in-chain status closed: not met."
+     ],
+     [
+      "In the field's terms",
+      "Cell-type expression of GLUT4 and the insulin receptor (INSR), from the Human Protein Atlas"
+     ],
+     [
+      "Definition",
+      "A candidate input, measured via HPA, that was tried as a possible source of each cell type's own healthy level. Its in_chain status is closed: not met, meaning the test was run and did not hold; its law_part is still open: not yet tied to the law."
+     ],
+     [
+      "What it does",
+      "As recorded, it would sit as a per-type input on the card (by_type), watched against every layer, with one value per cell type drawn from an outside table. Its closed status does not exclude it as an input, but no card_key has been assigned yet (card_key: not yet on the card)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Row 4b exists so that every candidate for each cell type's own level is tried and logged, tested or not, so that nothing is tried twice and the sphere's card can eventually carry the ones that hold. The register entry this candidate was tested against is titled 'Each cell type's own level (81 % of IAM-A's healthy spread is between types)', which is the deciding item this input was meant to help explain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis: measured. Source: HPA. Source_kind: set per cell type or fixed, from a cited measurement. The packet gives no further computation or formula for this particular candidate beyond this sourcing."
+     ],
+     [
+      "Where it is read",
+      "Not genome-located in this record: the row notes it needs an outside table, i.e. it is drawn from a cited external measurement (HPA) per cell type rather than read directly from a genomic site in the IAM data."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law. Both law_part and lf_section for this row read 'open: not yet tied to the law'; it is a measured outside quantity (HPA expression) tried as a source of each cell type's own healthy level."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No single healthy value is given in this record. Its intended form is one value per cell type (medium: by_type), sourced from HPA, source_kind: set per cell type or fixed, from a cited measurement — but since in_chain is closed: not met, this record does not establish a usable default or typical value from it."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: not met as a source of each cell type's own healthy level; that question stays open (the deciding item). The closed status does not exclude it as an input. It needs an outside table (one value per type) and its card_key reads 'not yet on the card'."
+     ],
+     [
+      "Credit",
+      "Human Protein Atlas (expression by tissue and cell type)"
+     ]
+    ],
+    "name": "Hormone and sugar uptake (GLUT4, INSR)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Synchronous orders (stretch or region rewrites)"
+     ],
+     [
+      "In the field's terms",
+      "Region-wide (processive, synchronous) remethylation as a source of cell-type-specific maintenance fidelity"
+     ],
+     [
+      "Definition",
+      "A candidate explanation for each cell type's own healthy level: that a cell receives 'orders' which make it rewrite whole stretches or regions of its methylation record at once, and that the time spent rewriting sets the type's held error."
+     ],
+     [
+      "What it does",
+      "It was tested as one possible input behind each cell type's own healthy level. It is listed so it is never tested again by accident, and it stays an input on the Law Sphere's card even though it is closed."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (row 4b) keeps every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Tested by injection on a real library through the one button: matched extra loss was planted into a real CD8 T-cell library. Scattered loss raised IAM-A (0.943 to 1.065), but stretch or region rewrites LOWERED it (0.898, 0.894) through the loose share. The synchronous form is therefore ruled out; the asynchronous form (orders reaching each cell on its own schedule, which looks like scattered loss at the molecule level) was supported."
+     ],
+     [
+      "Where it is read",
+      "Planted along the molecules of one real CD8 T-cell library; not tied to a genome region."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not yet tied to IAM's Law (open). It is a measured test result of a candidate mechanism, not a step of the derivation."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Closed: ruled out as the source of each cell type's own level. As a card setting it has no value yet: it would need one value per cell type from an outside table."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Only the synchronous (stretch or region) form is ruled out. An order-frequency table by cell type, the agreed next step for the asynchronous form, was not built."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Synchronous orders (stretch or region rewrites)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Replication-independent histone H3.3"
+     ],
+     [
+      "In the field's terms",
+      "Histone variant H3.3 (replication-independent) expression level by cell type (Human Protein Atlas)"
+     ],
+     [
+      "Definition",
+      "A measured histone H3.3 quantity (source: HPA) that was tried as a candidate explanation for each cell type's own healthy level, carried in instrument 4b's inventory of every input tested for that level."
+     ],
+     [
+      "What it does",
+      "It was tried as a source of each cell type's own healthy level. Status: closed: opposite sign, likely nuclei artefact."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b exists so that every candidate input for each cell type's own healthy level, tried or not, is tracked, so nothing is tested twice and the sphere's card can eventually carry only the inputs that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a measured value from HPA, with source_kind 'set per cell type or fixed, from a cited measurement'; when tested against each cell type's own healthy level it showed the opposite sign from what was expected, and was closed as likely a nuclei artefact."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section both read 'open: not yet tied to the law'). As a candidate source of each cell type's own healthy level: closed: opposite sign, likely nuclei artefact."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is recorded in this row. Source: Human Protein Atlas (HPA); source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed as a source of each cell type's own healthy level: opposite sign, likely nuclei artefact. Per the sphere-use note, the 'closed' status does not exclude it as an input (a per-unit map layer: overlay and covariate for every reading)."
+     ],
+     [
+      "Credit",
+      "Human Protein Atlas (expression by tissue and cell type)"
+     ]
+    ],
+    "name": "Replication-independent histone H3.3"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Immediate-early (activity) genes"
+     ],
+     [
+      "In the field's terms",
+      "Immediate-early (activity-dependent) gene expression by tissue and cell type (Human Protein Atlas), as a candidate covariate"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level in IAM-A. Status: closed: not met."
+     ],
+     [
+      "What it does",
+      "Tried as a source of each cell type's own healthy IAM-A level: closed: not met. On the sphere it is a per-unit map on the sphere's units (a layer: overlay, and a covariate for every reading)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to hold every candidate input for each cell type's own healthy IAM-A level, tested or not, so that no candidate is tried twice and the sphere's card can carry only the inputs that hold; immediate-early genes were tested in that role."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from HPA (basis: measured), with source_kind 'set per cell type or fixed, from a cited measurement.' It was carried through the chain and closed as 'not met' at an earlier finding."
+     ],
+     [
+      "Where it is read",
+      "Mapped per unit on the sphere's units (sphere_use). Genomic coordinates: open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section)."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No specific value is given in the record. Its source is HPA, with source_kind 'set per cell type or fixed, from a cited measurement.' Its status is closed: not met, meaning it did not hold as a source for each cell type's own healthy level."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Tried as a source of each cell type's own level: closed: not met. That status does not exclude it as an input; sphere_use rates it 'high: per-unit maps make new buses observable'. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "Human Protein Atlas (expression by tissue and cell type)"
+     ]
+    ],
+    "name": "Immediate-early (activity) genes"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Within-type asynchrony"
+     ],
+     [
+      "In the field's terms",
+      "Within-cell-type asynchrony (cell-to-cell heterogeneity within one cell type, from a single-cell atlas); the exact measure is open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "A measured candidate factor — drawn from Tabula Sapiens 2.0 — that was proposed and tested as a possible source of why each cell type sits at its own fixed healthy level. It is carried on the input inventory so the same idea is not tried again."
+     ],
+     [
+      "What it does",
+      "Tried as a source of each cell type's own level: closed: too weak. That closed status does not exclude it as an input: its sphere note lists it as a per-type input on the card (by_type), watched against every layer, one value per type, needing an outside table. It is not yet on the card."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b keeps every candidate input for each type's own level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold. Each type's own level is the open, deciding item (81 % of IAM-A's healthy spread is between types)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured per cell type (or fixed), one value per type, taken from an outside cited measurement (Tabula Sapiens 2.0) rather than computed from the instrument's own formula; it is not yet entered on the sphere's card."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Open: not yet tied to the law (law_part and lf_section); no long-form section. Tested as a source of each cell type's own level (A: eps_measured / eps_pred(L), per type 0.80-1.17), which is itself open."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value for this input is recorded in the row; its basis is 'measured,' its source is Tabula Sapiens 2.0, and its source_kind is 'set per cell type or fixed, from a cited measurement.' It was found too weak to serve as the source of each cell type's own healthy level, so no healthy value was adopted from it."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: too weak as a source of each cell type's own level. Closed does not exclude it as an input on the card. Which input sets each type's own level remains the open, deciding item."
+     ],
+     [
+      "Credit",
+      "Tabula Sapiens Consortium (single-cell atlas)"
+     ]
+    ],
+    "name": "Within-type asynchrony"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Cell lifespan across tissues"
+     ],
+     [
+      "In the field's terms",
+      "Cell lifespan across tissues"
+     ],
+     [
+      "Definition",
+      "A per-tissue measured value for cell lifespan, drawn from Sender-Milo 2021, that was tried as a possible explanation for why each cell type sits at its own fixed healthy level. After testing, it was closed: no relation."
+     ],
+     [
+      "What it does",
+      "It was tried as a source of each cell type's own healthy level (one value per type, from an outside table). Status: closed: no relation. Per the sphere-use note, the 'closed' status does not exclude it as an input: a per-type input on the card, watched against every layer."
+     ],
+     [
+      "Why the instrument needs it",
+      "The row 4b registry exists so every candidate input for each cell type's own healthy level is tried once and logged — held if it works, closed if not — so nothing gets tested twice; this entry records that cell lifespan was tried and ruled out."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a measured, per-type (or fixed) number from an outside cited measurement — Sender-Milo 2021 — rather than computed from IAM's own data. Source_kind is 'set per cell type or fixed, from a cited measurement'; no formula for this candidate is given in the record."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section both read 'open: not yet tied to the law'). Each cell type's own healthy level, the item it was tested against, is also open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No lifespan value for this candidate is recorded in the packet. Its source is Sender-Milo 2021, and its source_kind is 'set per cell type or fixed, from a cited measurement' — meant to be one value per cell type pulled from an outside table."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is closed: no relation — tested and ruled out as a driver of each cell type's own healthy level. It cannot account for the between-type spread ('81 % of IAM-A's healthy spread is between types'), and that spread remains the open, deciding item."
+     ],
+     [
+      "Credit",
+      "cell lifespans: Sender & Milo 2021, Nat. Med. 27:45-48"
+     ]
+    ],
+    "name": "Cell lifespan across tissues"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Donor effect"
+     ],
+     [
+      "In the field's terms",
+      "Donor-to-donor variation as a candidate source of each cell type's own healthy level"
+     ],
+     [
+      "Definition",
+      "A candidate input, measured on 152 libraries, tried as a source of each cell type's own healthy IAM-A level. Status: closed: the level is a type property."
+     ],
+     [
+      "What it does",
+      "Tried as a source of each cell type's own level and closed. On the sphere it is a per-type input on the card (by_type), watched against every layer."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job (card 4b) is to hold every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and only the inputs that hold get carried forward on the card."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured on 152 libraries; source_kind 'set per cell type or fixed, from a cited measurement'. sphere_use: one value per type; needs an outside table."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section)."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed as a source of each cell type's own level; that status does not exclude it as an input. The level itself remains open. sphere_use rates it medium: one value per type; needs an outside table. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Donor effect"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Repeats in unused dense tiles"
+     ],
+     [
+      "In the field's terms",
+      "Repeat content in unused, CpG-dense tiles"
+     ],
+     [
+      "Definition",
+      "Repeats in unused dense tiles, tried as a source of each cell type's own level. Status: closed: no effect. What 'unused' means is open: not in the records yet."
+     ],
+     [
+      "What it does",
+      "Tried as a source of each cell type's own level: closed: no effect. For the sphere it is listed as a per-unit map on the sphere's units: a layer (overlay) and a covariate for every reading; closed does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "Each cell type's own level is OPEN, the deciding item - 81 % of IAM-A's healthy spread is between types - so instrument 4b exists to test every candidate input for it, tried or not, so nothing is tried twice and only the inputs that hold make it onto the sphere's card."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained per the row's basis: measured, with source_kind 'set per cell type or fixed, from a cited measurement'; the test outcome is recorded as closed: no effect, and its law part is left open: not yet tied to the law."
+     ],
+     [
+      "Where it is read",
+      "In the dense tiles the records call unused, as a per-unit map on the sphere's units. Exact definition open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Open: not yet tied to the law (law_part and lf_section); no long-form section. Its sphere use is as a per-unit layer and covariate."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is recorded. Source kind: set per cell type or fixed, from a cited measurement. Closed: no effect as a source of each type's own level; closed does not exclude it as an input."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This closes off repeat content in unused dense tiles as an explanation; it does not say what does set each cell type's own level, which remains OPEN, the deciding item, with 81 % of IAM-A's healthy spread still sitting between cell types."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Repeats in unused dense tiles"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coupling (losses next to each other), corrected; enters as coupling-A"
+     ],
+     [
+      "In the field's terms",
+      "Co-occurrence of methylation losses at neighbouring CpGs on the same read (adjacent-loss coupling), corrected for loss level"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level, entering at coupling-A, with status 'closed: no order after the loss-level correction'."
+     ],
+     [
+      "What it does",
+      "It was tested as something that might set or explain each cell type's own fixed level, but after the loss-level correction it gave no order, so it is closed as a source for that."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (4b) exists to track every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry forward only the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured (basis: measured); entered as a per-library reading in the bundle (already counted), shown as a layer, counted from the same molecules (sphere_use: high)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Source: set per cell type or fixed, from a cited measurement (source_kind). No further default or value is given in the record."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: no order after the loss-level correction, as a source of each cell type's own healthy level; that question stays open. The records state the closed status does not exclude it as an input: it stays a per-library reading in the bundle, shown as a layer."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Coupling (losses next to each other), corrected"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Duty-cycle crew form"
+     ],
+     [
+      "In the field's terms",
+      "Cooperative (duty-cycle) maintenance-enzyme model of cell-type differences in maintenance fidelity"
+     ],
+     [
+      "Definition",
+      "A candidate explanation for each cell type's own healthy level: that the maintenance crew works in a duty cycle, a cooperative pump whose share of time on the job differs by cell type and sets the type's held error."
+     ],
+     [
+      "What it does",
+      "It was tested as one possible input behind each cell type's own healthy level and closed. It stays listed, and stays an input on the Law Sphere's card, so it is never tested again by accident."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (row 4b) keeps every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Calculated: the duty-cycle form, a cooperative pump applied across cell types, was tested out of sample on 11-14. It gave 0.0584 against 0.1377 measured, 2.4x too steep (the inventory of tests on each cell type's own level)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not yet tied to IAM's Law (open). It is a calculated candidate form, not a step of the derivation."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Closed: 2.4x too steep (11-14). As a card setting it has no value yet: it would need one value per cell type from an outside table."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Only this cooperative-pump form was tested. The related 'orders versus holding' duty cycle (asynchronous orders) is a separate, supported row."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Duty-cycle crew form"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Own-programme dense places"
+     ],
+     [
+      "In the field's terms",
+      "CpG-dense regions at a cell type's own genes (its own programme)"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a possible source of each cell type's own healthy level: the CpG-dense places sitting within genes that a cell type itself runs. Basis: measured. Status: closed — these own genes come out held best (most tightly maintained), but that does not link to what sets the level itself."
+     ],
+     [
+      "What it does",
+      "Marks the CpG-dense places in a cell type's own genes; it was tested as a possible source of each type's own healthy IAM-A level. The test closed: own genes are held best, with no link to the level. The sphere can still carry it as a per-unit map on its units (overlay and covariate for every reading)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument behind this row keeps every candidate input for each cell type's own healthy level, tested or not, so that no candidate is tried twice and the sphere's card can carry forward only the inputs that hold. This candidate was tried and its closed result is recorded here. Even though it is closed as a link to the level, the sphere still carries it as a per-unit map and covariate on every reading, since per-unit maps make new buses observable, and a closed status here does not exclude it as an input."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is set per cell type or fixed, taken from a cited measurement, per its source_kind. No formula for this quantity itself is given in the packet."
+     ],
+     [
+      "Where it is read",
+      "At CpG-dense places within a cell type's own genes (its own programme); no further genomic coordinate is given in the packet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (long-form section: open: not yet tied to the law). As a candidate for each type's own healthy level (itself the open, deciding item), it is closed; a closed status does not exclude it as an input."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input its basis is measured, and its source_kind is 'set per cell type or fixed, from a cited measurement.' No default or typical numeric value for this quantity is given in the packet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed: own genes are held best at these dense places, but that holding does not link to what sets each cell type's own healthy level — the deciding item for that level stays open, and row 4b exists so this tried-and-closed candidate is not tried again."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Own-programme dense places"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Eraser route (islands gain vs held loss)"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "An input tried as a possible source of each cell type's own healthy level: the eraser route (islands gain vs held loss). Status: partly: ~43 % (13-81 %) of the spread on the eraser route; no stray signature on the sphere's variable units; simulator cap x1.16; islands gain runs opposite to held loss, does not set A."
+     ],
+     [
+      "What it does",
+      "It enters as eraser_share and eraser_clean, a per-type input on the card (by_type, one value per type, needs an outside table), watched against every layer. The records state the 'partly' status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b instrument lists every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can keep only the inputs that hold; this row records what the eraser route explains and what it leaves unexplained."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis measured; source_kind set per cell type or fixed, from a cited measurement. The tests found ~43 % (13-81 %) of the spread on the eraser route, no stray signature on the sphere's variable units and a simulator cap of x1.16; islands gain runs opposite to held loss and does not set A."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is not part of IAM's Law itself: its law_part says plainly it is 'not the law itself: a measured input the law uses', and it is marked as not part of IAM's Law in the long-form. It is a measured, per-type input quantity (one value per cell type) supplied to the sphere's card rather than a step in the Law-Sphere chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or healthy value is given in the records; it would be one value per cell type from an outside table (source_kind: set per cell type or fixed, from a cited measurement)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status partly, not settled: ~43 % (13-81 %) of the spread on the eraser route; no stray signature on the sphere's variable units; simulator cap x1.16; islands gain runs opposite to held loss and does not set A. Each cell type's own level remains OPEN, the deciding item."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Eraser route (islands gain vs held loss)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Crew expression, DNMT1 + UHRF1 RNA"
+     ],
+     [
+      "In the field's terms",
+      "DNMT1 and UHRF1 transcript levels (maintenance-methylation machinery expression)"
+     ],
+     [
+      "Definition",
+      "The combined RNA expression level of DNMT1 and UHRF1, the maintenance-methylation 'crew', tried as a candidate source of each cell type's own healthy IAM-A level, entering the model as the restore rate g."
+     ],
+     [
+      "What it does",
+      "It is listed as a per-type input (by_type) feeding the restore rate g, meant to explain why each cell type sits at its own fixed level; it is watched against every layer on the sphere's card."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b catalogues every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice; that level is still the open, deciding item, and this row is one entry in the inventory."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken from HPA, 29 groups. In the chain it is checked as a lead with rho -0.37 against the target, noted as 'mostly the copying signal'; the row itself says it needs crew PROTEIN by type rather than RNA. source_kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part ties it to IAM's Law link 1d (long-form section 1d, 'the hold is the same rule, slow'): the maintained hold follows the same held/lost function as a slow write, with x=2M=41.9 giving odds 21.45, E_hold=3.066 kT, and phi=0.1464≈ln M/M, an identity confirmed symbolically (GitHub run 44662887227). That status belongs to the slow-write rule itself, not to this input: this candidate's own basis is 'lead', and each cell type's own healthy level is registered as 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input it carries no card value yet ('not yet on the card'); its source is HPA, 29 groups, source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The correlation is rho -0.37 and is mostly the copying signal; the row says it needs crew PROTEIN by type, and sphere_use notes it needs an outside table. Its status is 'lead', and each cell type's own level remains the open, deciding item."
+     ],
+     [
+      "Credit",
+      "Human Protein Atlas (expression by tissue and cell type)"
+     ]
+    ],
+    "name": "Crew expression, DNMT1 + UHRF1 RNA"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Activation history, asynchronous orders"
+     ],
+     [
+      "In the field's terms",
+      "T-cell activation history (naive versus memory), tested as a source of each cell type's own healthy maintenance-fidelity (IAM-A) level"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level: an activation history in T cells, framed as 'asynchronous orders' that enter by retargeting the methylation record. It sits in instrument 4b, whose job is to list every candidate input to each type's own level — tested or not — so nothing is tried twice and the sphere's card can keep only the ones that hold."
+     ],
+     [
+      "What it does",
+      "Its entry is 'orders retarget the record': activation orders, in an asynchronous form, retarget the record."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b exists to catalog every candidate source of each cell type's own healthy level, whether or not it has been tested, so the same candidate idea is not re-tried and the sphere's card only carries inputs that actually hold up; this entry is one such candidate."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis: lead. Naive low, memory high; the simulator and injection support the asynchronous form; the order-frequency table is not built. Source: T cells, same donors; source kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Open: not yet tied to the law (law_part and lf_section); no long-form section."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric default is given. The row records only a direction — naive low, memory high — drawn from T cells, same donors, with source_kind 'set per cell type or fixed, from a cited measurement.' Status remains 'lead,' so this is not yet an established default value."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Lead, not closed; the order-frequency table is not built; not yet on the card. Its sphere note says it needs an outside table and that the lead status does not exclude it as an input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Activation history, asynchronous orders"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Slow residue per day spent ordered"
+     ],
+     [
+      "In the field's terms",
+      "Accumulated methylation-maintenance error with time spent in a differentiated (memory) state, per day of cell lifespan"
+     ],
+     [
+      "Definition",
+      "A candidate explanation for each cell type's own healthy level: a small residue of held error gained per day a cell lives in its ordered (differentiated) state, so long-lived ordered cells sit higher."
+     ],
+     [
+      "What it does",
+      "It is a lead, kept as an input behind each cell type's own healthy level and as an input on the Law Sphere's card, to be tested further."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (row 4b) keeps every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured from CD4 T-cell lifespans. Current turnover (Macallan 2004: TEM 4.7 %/d > TCM 1.5 %/d > naive 0.2 %/d) mis-orders the immune top, where central memory CD4 sits highest (1.171) above effector memory (1.045). A residue gained per day alive as an ordered cell predicts TCM > TEM, met in 3 of 3 donors, with size 2.76 against 2.10 observed; a per-division residue predicts 0.88."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not yet tied to IAM's Law (open). It is a measured lead, not a step of the derivation."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Lead: central memory highest in 3 of 3 donors. As a card setting it needs one value per cell type from an outside lifespan table."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Donors were inferred from age, sex and lab. One shared constant fails across lineages: the per-day rate is about 3-4x lower in memory B than CD4 T cells. The orders simulator has no slow residue to make the pattern."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Slow residue per day spent ordered"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clock sites (call-up count); enters the clock layer"
+     ],
+     [
+      "In the field's terms",
+      "Mitotic-clock CpG sites (call-up count), tried as a per-unit covariate"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level: a count of 'call-ups' at clock sites, entering the clock layer. Current status: lead, weak, +0.32."
+     ],
+     [
+      "What it does",
+      "It enters the clock layer, used as a per-unit overlay and covariate on the sphere's units; per the sphere_use note, a high per-unit map of this kind can make new buses observable, and its 'lead' status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b instrument exists to hold every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry forward only the inputs that hold up; this row is one such candidate, currently a weak lead."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a value set per cell type or fixed, from a cited measurement (source_kind). The only quantitative trace given for this input itself is the lead value: lead: weak, +0.32. No separate formula is supplied for this row, and its card_key shows it is 'not yet on the card.'"
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 5 (the arrow: records copied forward, not restored), long form section 5. Separately, as a source of each cell type's own healthy level it is a lead: weak, +0.32; that level itself is 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or healthy value is given; source_kind reads 'set per cell type or fixed, from a cited measurement'. The +0.32 is the strength of the lead, not a value of the input."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status lead: weak, +0.32, as a source of each cell type's own healthy level; that level remains OPEN, the deciding item. The records state that the lead status does not exclude it as an input (a per-unit map on the sphere's units: overlay and covariate for every reading). card_key: not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Clock sites (call-up count)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Dense-over-sparse held error (feeder slope)"
+     ],
+     [
+      "In the field's terms",
+      "CpG-density dependence of baseline methylation-maintenance (held) error"
+     ],
+     [
+      "Definition",
+      "One of the candidate inputs catalogued under instrument 4b, whose job is to list every input — tested or not — that might set each cell type's own healthy level, so nothing is tried twice. This candidate asks whether held error differs between CpG-dense and CpG-sparse genomic locations."
+     ],
+     [
+      "What it does",
+      "Enters as 'hold by CpG density': held error in CpG-dense places over held error in sparse places (the feeder slope), tested as a source of each cell type's own healthy IAM-A level. The sphere can carry it as a per-unit map on its units (overlay and covariate for every reading)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b exists so that every candidate explanation for each cell type's own healthy level is recorded once, tested or not, and so the sphere's card can eventually carry only the inputs that hold up."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured by the chain on the IAM Sequencing Atlas libraries (set per cell type or fixed, from a cited measurement). Result for each type's own level: met, +0.36; the excess lies in dense places that no programme uses."
+     ],
+     [
+      "Where it is read",
+      "Not a single locus: the comparison is between CpG-dense tiles and CpG-sparse/isolated CpGs, per the row's 'hold by CpG density' entry; no further location detail is given in the record."
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (long-form section: open: not yet tied to the law). On the sphere it is a per-unit map (overlay and covariate for every reading); its 'met' status for each type's own level does not exclude it as an input."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No typical value for a healthy sample is in the records. Recorded result: met, +0.36; the excess lies in dense places that no programme uses. Source kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status for each type's own level: met, with the excess in dense places no programme uses. Not yet on the card; law link open: not yet tied to the law. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Dense-over-sparse held error (feeder slope)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Open-chromatin held floor (a candidate input on instrument 4b for each cell type's own healthy level)."
+     ],
+     [
+      "In the field's terms",
+      "Maintenance (held) error floor in open-chromatin regions, per cell type."
+     ],
+     [
+      "Definition",
+      "The held error that open-chromatin tiles show, used as a per-type input to the hold layer."
+     ],
+     [
+      "What it does",
+      "It enters the hold layer and is meant to sit on the Law Sphere as a per-unit map: an overlay layer and a covariate for every reading. When tested as a source of each cell type's own healthy level, the level follows the open-tile error (+0.42)."
+     ],
+     [
+      "Why the instrument needs it",
+      "Each cell type still sits at its own fixed level after the self-reference (81 % of IAM-A's healthy spread is between types), and instrument 4b keeps every candidate source so nothing is tried twice. Per-unit maps make new buses observable, so this map lets every sphere reading be read against how open its stretch is."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set per cell type or fixed, from a cited measurement; the tested statement is that the per-type level A = eps_measured / eps_pred(L) (per type 0.80-1.17) follows the open-tile error, +0.42. The packet does not give the formula of the floor itself: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Open-chromatin tiles, mapped onto the Law Sphere's units."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. Long form section 1d (link 1d, the maintained hold is the same rule, slow) gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^{-x})/x). Sudden (x->0): kept = lost. The cell sits at x = 2M = 41.9: odds 21.45, E_hold = 3.066 kT, phi = 0.1464, approximately ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The level this input tracks, each cell type's own level, is still OPEN and 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Input: set per cell type or fixed, from a cited measurement (basis measured). The packet names no source table and gives no default value: open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is not yet on the card. The result is 'met: the level follows the open-tile error +0.42', which does not by itself say why openness sets each type's level; that level remains open and not yet tied to the law."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Open-chromatin held floor"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Delivery share (gentleness of restores) — card_key \"push\""
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level: the delivery share (gentleness of restores), calculated by a counter by push and entering as phi and push. Status: partly: raw tracks the slope; self-referenced, no type above two coins, -0.86 vs A but largely by construction; push per restore by type 1.64-2.89 coins before self-reference."
+     ],
+     [
+      "What it does",
+      "It sits on the sphere's card as a per-type input (by_type), watched against every layer. It carries a medium strength as one value per type, needs an outside table to be used, and its 'partly' status for each cell type's own level does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (4b. each cell type's own healthy level inputs: what sets each type's own level) exists to hold every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold up."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is obtained by counting pushes (a counter by push) and is calculated rather than directly measured. Before self-reference, push per restore runs 1.64-2.89 coins by type; no explicit combining formula for this row is given beyond that it is calculated and self-referenced."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This quantity's law tie is IAM's Law, link 1d — the long-form section '1d. The maintained hold is the same rule, slow.' That section gives held/lost = (x/2)/(1-(1-e^{-x})/x); for the cell's restore, x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M/M, where phi is the share entering this row. Status: identity confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No single default is given; its typical values are the push-per-restore figures read from the sample's own molecules before self-reference, 1.64-2.89 coins by type, with source_kind 'read from the sample's own molecules' and basis 'calculated'."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "push"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "In_chain status is only 'partly': the raw count tracks the slope, but it is self-referenced, no type rises above two coins, and its -0.86 correlation vs A is largely by construction. The item it feeds, each cell type's own healthy level, remains OPEN and, per its own law_part, is 'open: not yet tied to the law.'"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Delivery share (gentleness of restores)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Processive crew (recruitment saving)"
+     ],
+     [
+      "In the field's terms",
+      "Recruitment-saving effect of processive enzymatic engagement at CpG-dense regions versus isolated CpGs"
+     ],
+     [
+      "Definition",
+      "One of the candidate inputs tried as a source of each cell type's own healthy level: the idea that a crew engaging processively saves on recruitment cost compared with sites needing fresh recruitment each time. Status: partly: viable in the simulator, no between-type support."
+     ],
+     [
+      "What it does",
+      "Proposed for the sphere as a per-type input on the card (by_type), watched against every layer; rated medium: one value per type, and it needs an outside table. Its 'partly' status for each type's own level does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "Row 4b holds every candidate input for each cell type's own healthy IAM-A level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold. That level is the open, deciding item (81 % of IAM-A's healthy spread is between types)."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is obtained from a cell simulator on a calculated basis, using a model choice described as 'a switch between published forms.' Its current standing is 'partly: viable in the simulator, no between-type support' — it runs in the simulator but has not shown support when compared across cell types."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (long-form section: open: not yet tied to the law). Calculated in the cell simulator as a model choice (a switch between published forms); status for each type's own level: partly."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical numeric value is given in the record. What is recorded is its source (cell simulator), its basis (calculated), and its status — the record stops there."
+     ],
+     [
+      "Where its value comes from",
+      "model choice (a switch between published forms)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is not yet tied to IAM's Law, is not yet on the sphere's card (card_key: 'not yet on the card'), and while it works in the simulator it has shown no support for explaining the differences between cell types. Whether it can be relied on as a source of each cell type's own healthy level remains unresolved."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Processive crew (recruitment saving)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Whole held record offset (Law Sphere, atlas side)"
+     ],
+     [
+      "In the field's terms",
+      "Cell-wide offset in held (maintenance) error, atlas side, tried as a contributor to each cell type's own healthy level"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each cell type's own healthy level: one cell-wide offset of the whole held record, calculated on the atlas side over 237,850 units, entering as push by type."
+     ],
+     [
+      "What it does",
+      "A per-type input on the card (by_type), watched against every layer; one value per type, needs an outside table. The records state the 'met' status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b exists to hold every candidate input for each cell type's own level, tested or not, so that no candidate is tried twice and the sphere's card can carry forward only the inputs that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis calculated, over 237,850 units of the IAM Sequencing Atlas (measured healthy reference). Status: met: one cell-wide offset; its coin span mixes the slope; self-referenced fit owed."
+     ],
+     [
+      "Where it is read",
+      "Not tied to a single genomic locus — it is a whole-record (whole-genome), cell-wide value, one per cell type, read from the IAM Sequencing Atlas rather than from a specific site."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked 'open: not yet tied to the law' both as the row's law_part and as its long-form section (lf_section), and no long-form text exists for it yet — so there is no established link or section where this enters IAM's Law at this time."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric value is given in the records. It is computed over 237,850 units from the IAM Sequencing Atlas (measured healthy reference) and enters as push by type."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is only 'met' at the level of one cell-wide offset; its coin span mixes the slope, and a self-referenced fit is still owed. sphere_use notes it needs an outside table, and card_key shows it is 'not yet on the card.' It remains 'open: not yet tied to the law,' and the item it is meant to explain, each cell type's own level, is itself still 'OPEN, the deciding item.'"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Whole held record offset (Law Sphere, atlas side)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coins per restore by type (adenylate kinase away from equilibrium)"
+     ],
+     [
+      "In the field's terms",
+      "ATP equivalents spent per methyl restore (per SAM), set by cell type, as when adenylate kinase is away from equilibrium"
+     ],
+     [
+      "Definition",
+      "Coins per restore set per cell type, as would follow if adenylate kinase were away from equilibrium (the price of one restore (two ATP) derives two coins per restore with adenylate kinase at equilibrium; band 1.967-2.033). Tried as a source of each cell type's own healthy level. Status: candidate: untested by type; the sphere reads 1.7-2.4 if that level is push."
+     ],
+     [
+      "What it does",
+      "It enters the card as 'coins', a per-type input (by_type) watched against every layer; it is a medium-weight input needing one value per type, supplied from an outside table, and its candidate status does not exclude it from being used as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law, link 2, sets the price — k_BT ln 2 per bit at the surface's own temperature — so the instrument needs a per-type figure here to test whether coins per restore can account for why each cell type still sits at its own fixed level after the self-reference is taken out."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken from the the price of one restore (two ATP) band 1.967-2.033, itself a derived band; the breakdown by type is still open. The value is derived by IAM's Law (fixed by the physics), used here only as a setting to test a what-if, not as a measured per-type result."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 2 (the price: k_BT ln 2 per bit at the surface's own temperature), long-form section 2 ('Step 2: the price'). As a source of each type's own level its status is candidate: untested by type."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No settled default yet for this per-type input: its value is drawn from the the price of one restore (two ATP) band 1.967-2.033 (a derived band), and the sphere reads 1.7-2.4 for it if each cell type's own level turns out to behave as a push quantity."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "coins"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Untested by type — the per-type breakdown is open; the input needs an outside table before it can be scored on the card, and its listing as a candidate neither confirms nor rules it out as a cause of each cell type's own level."
+     ],
+     [
+      "Credit",
+      "adenylate kinase equilibrium (standard biochemistry)"
+     ]
+    ],
+    "name": "Coins per restore by type (adenylate kinase away from equilibrium)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Restore and loss RATES by type (A8R)"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-specific methylation restore and loss rates (per hour)"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source of each type's own level: restore and loss rates by type, entering as g and f. Measured only in hESC so far: f 0.0228/h, g 0.420/h, g/f 18.4. Status: candidate: data gap (no open human rates by type)."
+     ],
+     [
+      "What it does",
+      "It enters as g and f, one pair per cell type (by_type on the card), watched against every layer."
+     ],
+     [
+      "Why the instrument needs it",
+      "The deciding item, each cell type's own healthy level, is still open, so this row tries restore and loss rates as a possible source of that per-type value; its candidate status does not exclude it as an input."
+     ],
+     [
+      "How it is obtained or computed",
+      "Only hESC has been measured so far: f 0.0228/h and g 0.420/h, g/f 18.4. Source kind: no data yet (setting with a default, moved by hand)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Tied to IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule). Long form 1d gives held/lost = (x/2)/(1-(1-e^{-x})/x), the same function derived for the surfaces' ramp write and for the cell's restore with x = w = 2M; for the cell this gives odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ≈ ln M/M. For this specific row, each cell type's own healthy level itself is marked 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No established default yet beyond the hESC figures: f 0.0228/h and g 0.420/h (g/f 18.4), source 'only hESC so far', source_kind 'no data yet (setting with a default, moved by hand)'."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Candidate: data gap by type; there are no open human rates by type, only the hESC measurement, so this cannot yet tell whether it explains each cell type's own fixed level; not yet placed on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Restore and loss RATES by type (A8R)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Double-strand (hairpin) snapshot by type (row, from the 4b each cell type's own healthy level-inputs card)"
+     ],
+     [
+      "In the field's terms",
+      "Hairpin (double-strand) bisulfite readout used to separate maintenance methylation from de novo methylation within one sample"
+     ],
+     [
+      "Definition",
+      "A candidate input tried as a source for each cell type's own level: a double-strand (hairpin) snapshot meant to enter as 'maintenance vs de novo in one sample.' Its own plain note: 'Tried as a source of each cell type's own healthy level (each type's own level). Status: candidate: data gap.'"
+     ],
+     [
+      "What it does",
+      "It is listed on the 4b card as one candidate among every input ever tried for each cell type's own healthy IAM-A level, so that the sphere's card can carry forward only the inputs that hold and nothing gets tried twice; this one would, if it worked, separate maintenance-held marks from newly (de novo) placed ones within a single sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job (4b) is to track every candidate input, tested or not, for each cell type's own level, because that level is 'OPEN, the deciding item' and accounts for 81% of IAM-A's healthy spread between types; this row is one attempt at supplying it."
+     ],
+     [
+      "How it is obtained or computed",
+      "Source: Laird 2004. Source_kind: 'no data yet (setting with a default, moved by hand)' — that is, there is no data yet, and any value used is a default set and moved by hand rather than computed."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — the row enters as one value per cell type ('medium: one value per type'), watched against every layer, and needs an outside table rather than a specific genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row ties itself to IAM's Law, link 1d, long-form section 1d ('the maintained hold is the same rule, slow: the slow-write rule'). That section gives held/lost as a function of x (write speed in kicks): held/lost = (x/2)/(1−(1−e^{−x})/x), derived first for a ramp write and then re-derived for the cell's restore at x = w = 2M. Sudden closes (x→0) give kept = lost; the cell's position x = 2M = 41.9 gives odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M/M. That identity is marked 'identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1),' with the horizon's adiabatic limit left open. This is the law-link claimed for the row itself; the quantity it is meant to feed, each cell type's own healthy level, is separately registered as 'open: not yet tied to the law,' so the law tie above supports the hypothesis for this input, not a confirmed value for each cell type's own healthy level."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is given for this input (basis: open); its source is Laird 2004 and its source_kind is 'no data yet (setting with a default, moved by hand)' — i.e., any current use is a hand-set default, not a measured default."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is basis: open, in_chain: 'candidate: data gap,' and card_key: 'not yet on the card' — it has not been placed on the sphere's card. It remains untested as an actual source of each cell type's own level; its inclusion as a candidate does not mean it has been shown to work, and each cell type's own healthy level itself is still the open, deciding item."
+     ],
+     [
+      "Credit",
+      "hairpin bisulfite sequencing: Laird et al. 2004"
+     ]
+    ],
+    "name": "Double-strand (hairpin) snapshot by type"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Traffic as a RATE (not extent)"
+     ],
+     [
+      "In the field's terms",
+      "Transcription/chromatin-remodelling activity rate (not extent)"
+     ],
+     [
+      "Definition",
+      "A candidate input for each cell type's own healthy level: traffic taken as a rate rather than as an extent. Status: candidate: untested; no data yet."
+     ],
+     [
+      "What it does",
+      "Proposed as an overlay layer on the per-unit map and as a covariate for every reading on the sphere's units; per-unit maps of this kind are said to make new buses observable. Its candidate status for each cell type's own healthy level does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "Row 4b exists to hold every candidate input for each cell type's own healthy level, tested or not, so that candidates like this one are not tried twice and the sphere's card can carry forward whichever ones hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "No data yet: source_kind is 'no data yet (setting with a default, moved by hand)' — it would be set with a default value moved by hand rather than computed from measurement."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Both law_part and lf_section for this row read 'open: not yet tied to the law' — this input is not yet part of IAM's Law. It is an untested candidate rate-type quantity (traffic, not extent) proposed for each cell type's own healthy level, which is itself OPEN, the deciding item in the register."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is set yet; source_kind is 'no data yet (setting with a default, moved by hand)', meaning any figure used would be a default moved by hand rather than a measured one."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Basis is open and in_chain is 'candidate: untested'; card_key is 'not yet on the card'. It is not yet known whether traffic-as-a-rate actually sets each cell type's own healthy level."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Traffic as a RATE (not extent)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "5hmC in neurons"
+     ],
+     [
+      "In the field's terms",
+      "5-hydroxymethylcytosine (5hmC) level in neurons, tried as a candidate source for each cell type's own healthy level"
+     ],
+     [
+      "Definition",
+      "Tried as a source of each cell type's own healthy level. Status: not assessed: source unusable (11-19)."
+     ],
+     [
+      "What it does",
+      "It enters at the meter stage as a per-type input on the card (by_type), meant to be watched against every layer, with one value per type and a need for an outside table; its 'not assessed' status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to hold every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and the sphere's card can carry forward only the inputs that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis is open and source_kind is 'no data yet (setting with a default, moved by hand)'; in_chain records it as 'not assessed: source unusable (11-19)', so no computation or formula has been applied to it."
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (long-form section: open: not yet tied to the law). As a source of each type's own level: not assessed, the data source was unusable (11-19)."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is given; source_kind marks it as 'no data yet (setting with a default, moved by hand)', meaning any figure used for it would be a hand-set default rather than a measured or sourced one."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not assessed: the data source was unusable (11-19). Whether it sets each type's own level is open; the 'not assessed' status does not exclude it as an input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "5hmC in neurons"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Crew PROTEIN by type: DNMT1, UHRF1"
+     ],
+     [
+      "In the field's terms",
+      "DNMT1 and UHRF1 protein levels across cell/tissue types (immunohistochemistry panel)"
+     ],
+     [
+      "Definition",
+      "A per-cell-type measurement of DNMT1 and UHRF1 protein abundance, taken from HPA tissue staining, being tried as a candidate source for each cell type's own healthy level. Its status is candidate: untested."
+     ],
+     [
+      "What it does",
+      "It is to enter as the restore rate g, one value per cell type, watched against every layer. It is not yet on the card."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b inventory instrument exists to hold every candidate input for each cell type's own healthy level, tested or not, so that no candidate is tried twice and so the sphere's card can keep only the inputs that hold up. This protein-by-type reading is one such candidate, meant to separate the crew (DNMT1/UHRF1) from the copying step."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is set per cell type, or fixed, from a cited measurement — here HPA tissue staining of DNMT1 and UHRF1 — rather than computed directly from the sequencing read itself."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Tied to IAM's Law link 1d (long form section 1d, the maintained hold is the same rule, slow): held/lost = (x/2)/(1-(1-e^-x)/x), x in kicks; derived for a ramp write, and by the IAM-A derivation (the held error set by the coin and the two-coin push) for the cell's restore at x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT and phi = 0.1464 ≈ ln M/M. Long-form status: identity confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1); open: the horizon's held share as the adiabatic limit. As a source of each type's own level this row is a candidate: untested."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is set yet — the basis is open. Its source is HPA tissue staining, entered as 'set per cell type or fixed, from a cited measurement,' but no typical or default number is recorded in these rows."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This is a candidate, untested input meant to separate the crew (DNMT1/UHRF1) from the copying step — an owed test not yet carried out. It is not yet on the sphere's card, and its candidate status does not exclude it as an input, but it also does not confirm it."
+     ],
+     [
+      "Credit",
+      "Human Protein Atlas (expression by tissue and cell type)"
+     ]
+    ],
+    "name": "Crew PROTEIN by type: DNMT1, UHRF1"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Replication-independent DNMT1 recruitment (UHRF1 ubiquitylated H3, the backup mode)"
+     ],
+     [
+      "In the field's terms",
+      "Replication-independent DNMT1 recruitment (UHRF1 ubiquitylated H3, the backup mode)"
+     ],
+     [
+      "Definition",
+      "A candidate source of each type's own level: replication-independent DNMT1 recruitment through UHRF1-ubiquitylated H3 (the backup mode), entering as restore in resting cells. Basis: established mechanism; by type open. Status: candidate: untested; resting types depend on it, dividing types also have the PAF15/PCNA mode."
+     ],
+     [
+      "What it does",
+      "It enters as restore in resting cells. It is a candidate (untested) source of each type's own level."
+     ],
+     [
+      "Why the instrument needs it",
+      "The basis is an established mechanism, open by type: resting types depend on it, while dividing types also have the PAF15/PCNA mode. The inventory carries every candidate so nothing is tried twice."
+     ],
+     [
+      "How it is obtained or computed",
+      "Established from cited literature rather than computed: NAR 2021 'Staying true to yourself'; Nat Commun 2020 'Two distinct modes of DNMT1 recruitment'; JCI Insight 2020 USP7; bioRxiv 2026.07.27.740930 repair sites. Its source_kind is 'set per cell type or fixed, from a cited measurement'; no formula is given for it in the record."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This input is tied to IAM's Law link 1d, the slow-write rule (long form section 1d): 'the hold is the same rule, slow.' That section gives held/lost = (x/2)/(1-(1-e^{-x})/x) as one function of write speed x; for the cell's restore x=2M=41.9, giving odds 21.45, E_hold=3.066 kT, phi=0.1464≈ln M/M. Status of that identity: confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). Whether this specific recruitment route is itself folded into the law is unresolved — the input's own place in the chain is marked candidate: untested."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical numeric value is given for this input in the record. Its source_kind is 'set per cell type or fixed, from a cited measurement,' drawn from the four cited sources above, and it is 'not yet on the card.'"
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Candidate: untested — not yet confirmed as a setter of each cell type's own healthy level. Resting types are said to depend on it, but dividing types also carry the separate PAF15/PCNA mode, so its distinct by-type contribution is open; the sphere's status note adds that candidate status does not exclude it as an input. Relatedly, which checkpoint actually reads the half-marked site before restoration in non-dividing cells is itself open."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Replication-independent DNMT1 recruitment (UHRF1 ubiquitylated H3, the backup mode)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Restore-rate (g) candidate for each cell type's own healthy level, carried on card 4b ('each cell type's own healthy level inputs: what sets each type's own level')"
+     ],
+     [
+      "In the field's terms",
+      "USP7 (deubiquitylates H3; helps and limits DNMT1)"
+     ],
+     [
+      "Definition",
+      "USP7 is a literature-based candidate for explaining why each cell type settles at its own fixed healthy level; it would enter the restore rate g. Its current status is candidate: untested."
+     ],
+     [
+      "What it does",
+      "USP7 deubiquitylates H3 and both helps and limits DNMT1, acting on the restore rate g that maintains methylation marks. Basis given: established mechanism; by type open."
+     ],
+     [
+      "Why the instrument needs it",
+      "The 4b instrument's job is to hold every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and the sphere's card can keep only the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Sourced as a setting with a default (a chain rule) from the literature: NAR 2021 'Staying true to yourself'; Nat Commun 2020 'Two distinct modes of DNMT1 recruitment'; JCI Insight 2020 USP7; and bioRxiv 2026.07.27.740930 on repair sites (web source dated 2026-11-20)."
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Filed under IAM's Law, link 1d (long-form section 1d), 'the hold is the same rule, slow: the slow-write rule.' That section gives the maintained hold as the same held/lost function derived for a slow write, x in kicks: held/lost = (x/2)/(1-(1-e^-x)/x); for the cell's restore, x = w = 2M = 41.9, giving E_hold = 3.066 kT and phi = 0.1464 (~ln M/M), and the cell's position x=2M gives about 21 restores per loss. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1); the horizon's held-share mapping as x to infinity remains open."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric default is given for USP7 itself in the records; its source_kind is 'setting with a default (a chain rule)', and its basis is recorded as 'established mechanism; by type open' — the mechanism is established in the literature, but its value by cell type is still open."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "in_chain status is 'candidate: untested.' It sits as a per-type input on the card (by_type), watched against every layer, in medium 'one value per type,' and needs an outside table. It is not yet on the card (card_key: not yet on the card), though candidate status does not exclude it as an input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "USP7 (deubiquitylates H3; helps and limits DNMT1)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "LIG1 and PAF15 (fork-coupled recruitment)"
+     ],
+     [
+      "In the field's terms",
+      "Fork-coupled DNMT1 recruitment via LIG1 and PAF15, considered as a determinant of each cell type's own baseline methylation level"
+     ],
+     [
+      "Definition",
+      "A candidate, untested entry in the inventory of things that might set each cell type's own fixed healthy IAM-A level — the idea that LIG1 and PAF15 couple DNMT1 recruitment to the replication fork, restoring methylation during copying."
+     ],
+     [
+      "What it does",
+      "It would enter as 'restore during copying': fork-coupled recruitment that restores marks as the DNA is copied, tried as a source of each cell type's own healthy level. Status: candidate: untested."
+     ],
+     [
+      "Why the instrument needs it",
+      "Each cell type's own level is the deciding open item (81% of IAM-A's healthy spread sits between types), so every candidate explanation, tested or not, is logged here — fork-coupled LIG1/PAF15 recruitment among them — so nothing gets tried twice and the sphere's card can later carry whichever candidates hold up."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis given as 'established mechanism; by type open', drawn from NAR 2021 'Staying true to yourself', Nat Commun 2020 'Two distinct modes of DNMT1 recruitment', JCI Insight 2020 (USP7), and bioRxiv 2026.07.27.740930 (repair sites). Its status in the chain is 'candidate: untested', with source kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row is tagged to IAM's Law link 1d (long-form section 1d), 'the hold is the same rule, slow: the slow-write rule'. That section shows the maintained hold follows one function of write speed, held/lost = (x/2)/(1-(1-e^-x)/x), with the cell's restore at x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464, about ln M/M. That identity's own status is 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)', with the adiabatic/horizon end still open. But the thing this row feeds — each cell type's own healthy level — is separately marked in the register as 'open: not yet tied to the law', so this candidate input has not itself been connected to that confirmed math."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric default is given for this input; its basis is 'established mechanism; by type open' — the recruitment mechanism is established in the cited literature, but its per-type value is still open. Per the row, it would be set per cell type or fixed, from a cited measurement, and it is not yet entered on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is 'candidate: untested' — it has not been run or confirmed as a driver of each cell type's level. It is not yet on the sphere's card; putting it to use would need an outside table (one value per type), and its candidate status neither excludes it as a future input nor establishes it now."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "LIG1 and PAF15 (fork-coupled recruitment)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "H3K9me3 coverage (boosts UHRF1)"
+     ],
+     [
+      "In the field's terms",
+      "H3K9me3 coverage (boosts UHRF1)"
+     ],
+     [
+      "Definition",
+      "H3K9me3 coverage by region (Roadmap/ENCODE ChIP), tried as a source of each cell type's own healthy level. It enters the restore by region because H3K9me3 boosts UHRF1 (basis: established mechanism; by type open). Status: candidate: untested."
+     ],
+     [
+      "What it does",
+      "Enters the restore by region, through its boost of UHRF1. On the sphere it would be a per-unit map on the sphere's units (overlay and covariate for every reading); its 'candidate' status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (4b) exists so that every candidate explanation for why each cell type sits at its own fixed level is tried and logged, so nothing is tested twice and the sphere's card can keep only the inputs that hold up; H3K9me3/UHRF1 boosting is one such candidate under test."
+     ],
+     [
+      "How it is obtained or computed",
+      "Region coverage from Roadmap/ENCODE ChIP (credit: Roadmap Epigenomics ChromHMM 15-state model), set per cell type or fixed, from a cited measurement. The mechanism is from the literature read on the web 2026-11-20: NAR 2021 'Staying true to yourself'; Nat Commun 2020 'Two distinct modes of DNMT1 recruitment'; JCI Insight 2020 (USP7); bioRxiv 2026.07.27.740930 (repair sites). How coverage becomes a per-region restore value: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Not pinned to a specific locus in the packet; it enters as a restore term 'by region', built from region-level ChIP coverage data rather than a single genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d: held/lost = (x/2)/(1 - (1 - e^-x)/x), with x = w = 2M for the cell's restore; identity confirmed symbolically on GitHub (run 44662887227). This input enters the restore by region. As a source of each type's own level its status is candidate: untested."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric default is given in the packet for this input; its source_kind is 'set per cell type or fixed, from a cited measurement', pulled from the ChIP and recruitment-mechanism literature listed above. No typical value is stated in the records."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Its basis is an established mechanism (H3K9me3 boosting UHRF1), but whether it accounts for differences 'by type' is explicitly left open; its chain status is 'candidate: untested', and it is 'not yet on the card' — not yet confirmed as one of the inputs the sphere keeps."
+     ],
+     [
+      "Credit",
+      "Roadmap Epigenomics ChromHMM 15-state model"
+     ]
+    ],
+    "name": "H3K9me3 coverage (boosts UHRF1)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "DNMT3A/3B (de novo backup; also at repair sites)"
+     ],
+     [
+      "In the field's terms",
+      "DNMT3A/3B — the de novo DNA methyltransferases, described in this row as a backup to maintenance methylation and as participants at repair sites."
+     ],
+     [
+      "Definition",
+      "DNMT3A/3B is one of the candidates tried as a source of each cell type's own healthy level. Its basis is 'established mechanism; by type open' and its in_chain status is 'candidate: untested' — the write mechanism itself is established, but whether it accounts for each type's own fixed level is still open."
+     ],
+     [
+      "What it does",
+      "It enters the 'write layer and repair' — that is, it contributes de novo methylation writing as a backup to maintenance methylation, and it also shows up at repair sites."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b lists every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold. DNMT3A/3B is on that list; its status is candidate: untested."
+     ],
+     [
+      "How it is obtained or computed",
+      "Per source_kind, an input like this would be 'set per cell type or fixed, from a cited measurement' — here drawn from NAR 2021 ('Staying true to yourself'), Nat Commun 2020 ('Two distinct modes of DNMT1 recruitment'), JCI Insight 2020 (USP7), and bioRxiv 2026.07.27.740930 (repair sites). It has not been run through IAM's test chain (in_chain: candidate: untested) and has no card_key yet."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1 (actualization: each write is one sudden write of a record), long form section 1 ('actualization, the moment a bit becomes part of the record'). Basis: established mechanism; by type open. As a source of each type's own level it is a candidate: untested."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No specific default or typical value is given in this row. source_kind indicates such a value would be 'set per cell type or fixed, from a cited measurement' drawn from the papers above, but card_key marks it 'not yet on the card' — open: not in the records yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Candidate: untested as a source of each type's own level; basis: established mechanism, by type open. Being a candidate does not exclude it as an input. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "DNMT3A/3B (de novo backup; also at repair sites)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "DNA damage and repair synthesis by type (restore at repair patches)"
+     ],
+     [
+      "In the field's terms",
+      "DNA damage and repair synthesis by type (restore at repair patches)"
+     ],
+     [
+      "Definition",
+      "Tried as a source of each cell type's own healthy level. Status: candidate: untested; a route for non-dividing types."
+     ],
+     [
+      "What it does",
+      "It enters as a loss-and-restore cycle without division (restore at repair patches); a candidate route for non-dividing types, untested."
+     ],
+     [
+      "Why the instrument needs it",
+      "The inventory carries every candidate source of each type's own level, tested or not, so nothing is tried twice; this row is recorded as a route for non-dividing types."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is drawn from a cited literature set (NAR 2021 'Staying true to yourself'; Nat Commun 2020 'Two distinct modes of DNMT1 recruitment'; JCI Insight 2020 USP7; bioRxiv 2026.07.27.740930 repair sites), with source_kind 'set per cell type or fixed, from a cited measurement.' Its basis is a lead from a preprint, and it is not yet entered on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Where it is read",
+      "One value per cell type on the card (by_type). The mechanism acts at repair patches; genomic coordinates: open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "The row ties this input to IAM's Law, link 1d (long-form section 1d, 'the maintained hold is the same rule, slow'). That section states the maintained hold follows the same function as a slow ramp write, held/lost = (x/2)/(1-(1-e^{-x})/x), with the cell's position at x = 2M = 41.9 giving about 21 restores per loss; that identity is confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). The register entry for each cell type's own healthy level itself, however, remains open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Basis: lead (preprint). In chain: candidate: untested; a route for non-dividing types. sphere_use: medium, one value per type; needs an outside table. The 'candidate' status does not exclude it as an input. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "DNA damage and repair synthesis by type (restore at repair patches)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "the methyl donor's pressure (an input candidate for each cell type's own healthy level)"
+     ],
+     [
+      "In the field's terms",
+      "Methylation potential (SAM/SAH ratio) by tissue, with MAT2A and AHCY"
+     ],
+     [
+      "Definition",
+      "A candidate input feeding IAM's Law at link 2b (the funding step: the free energy that pays each write) - published tissue values of the SAM/SAH ratio, one value per cell type, drawn from an outside table rather than measured directly by the instrument."
+     ],
+     [
+      "What it does",
+      "It is tried as a source of each cell type's own healthy level: a per-type (or fixed) value meant to enter the Law as 'the methyl donor's pressure,' to be watched against every layer on the sphere's card."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 4b lists every candidate input for each cell type's own healthy level, tested or not; this row tries the methyl donor's pressure (published tissue SAM/SAH values), which the row places at link 2b, the funding of each write."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set per cell type or fixed, from a cited measurement (source_kind: set per cell type or fixed, from a cited measurement); the packet gives no formula for deriving it, only that it comes from published tissue values."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 2b (long form section 2b: where the free energy that pays each write comes from). As a source of each cell type's own healthy level its status is candidate: untested by type; that level itself is 'open: not yet tied to the law'."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No specific numeric value is given in the packet; its source is published tissue values and its source_kind is 'set per cell type or fixed, from a cited measurement' - no default has been fixed yet."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Its basis is listed as open, and it is marked candidate: untested by type - checked only in the simulator so far, not yet tested against real per-type data, so whether it actually sets each cell type's own healthy level is still unresolved; it is also not yet placed on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Methylation potential SAM/SAH by tissue (MAT2A, AHCY)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Adenylate energy charge by tissue (enters as coins per restore)"
+     ],
+     [
+      "In the field's terms",
+      "Adenylate energy charge by tissue"
+     ],
+     [
+      "Definition",
+      "A published, per-tissue measurement of adenylate energy charge, entered into IAM as 'coins per restore' and tried as a candidate source for each cell type's own healthy level (link 2b, the funding that pays each write). Status: candidate: untested."
+     ],
+     [
+      "What it does",
+      "If it held up, it would supply a per-type value feeding the sphere's by-type card, watched against every layer, for the free energy that funds each write; right now it sits only as a listed candidate, not yet on the card."
+     ],
+     [
+      "Why the instrument needs it",
+      "Link 2b asks where the free energy that pays each write comes from. 81 % of IAM-A's healthy spread is between types, so the inventory for each cell type's own healthy level keeps every candidate, tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold."
+     ],
+     [
+      "How it is obtained or computed",
+      "Source: published; source_kind: set per cell type or fixed, from a cited measurement; it would enter as one value per cell type on the by_type card, needing an outside table. No formula is given in the records for this row, basis is marked 'open', and in_chain status is 'candidate: untested.'"
+     ],
+     [
+      "Where it is read",
+      "not genome-located — this is a per-tissue measurement meant to enter the card as one value per cell type, not a locus read from sequence."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 2b (the funding: the free energy that pays each write), long-form section 2b, 'where the free energy that pays each write comes from'. Basis open; in_chain 'candidate: untested'. Each cell type's own healthy level, the item it is tried against, is open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or typical value is given in the records for this candidate; what is given is source: published and source_kind: set per cell type or fixed, from a cited measurement. Status candidate: untested means no value has yet been adopted for any healthy band."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "As an untested candidate it cannot yet be said whether adenylate energy charge by tissue explains any part of each cell type's own healthy level; that item itself remains OPEN, the deciding item, with 81 % of IAM-A's healthy spread sitting between types. Its untested status does not exclude it as an input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Adenylate energy charge by tissue"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Unused islands (written in no type)"
+     ],
+     [
+      "In the field's terms",
+      "CpG islands unmethylated in every healthy cell type (island reference v0; 947 off-array)"
+     ],
+     [
+      "Definition",
+      "Islands written (methylated) in no cell type, from island reference v0 (947 off-array), tried as a source of each cell type's own healthy level. Basis: measured. It enters the write layer."
+     ],
+     [
+      "What it does",
+      "Tested as a source of each cell type's own healthy level: closed at atlas depth, no link, -0.15 (-0.36 to +0.09); strays there run at 0.48x the writer's rate. On the sphere it would be a per-unit map (overlay and covariate for every reading); the closed status does not exclude it as an input."
+     ],
+     [
+      "Why the instrument needs it",
+      "Row 4b exists to hold every candidate input for each cell type's own healthy level, tested or not, so nothing is tried twice and only the ones that hold go onto the sphere's card; this candidate was tried for that purpose."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from the island reference v0 source (947 off-array islands), basis measured, source_kind the IAM Sequencing Atlas (measured healthy reference). No formula is given for this input."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (long-form section: open: not yet tied to the law). On the sphere it is a per-unit map, overlay and covariate for every reading."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its recorded value from testing is closed at atlas depth: no link, -0.15 (-0.36 to +0.09), and it strays 0.48x the writer's rate; this comes from the island reference v0 (947 off-array), source_kind the IAM Sequencing Atlas (measured healthy reference)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Closed at atlas depth with no link found to each cell type's own healthy level, so it cannot currently explain that quantity; it strays 0.48x the writer's rate; card_key shows it is not yet on the sphere's card, and law_part remains open: not yet tied to the law."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Unused islands (written in no type)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Light (UV) damage written by the cell, partly unrepairable"
+     ],
+     [
+      "In the field's terms",
+      "UV-induced DNA damage that persists unrepaired and is carried forward (skin and eye cell types)"
+     ],
+     [
+      "Definition",
+      "A candidate per-type input for each cell type's own healthy level: UV-caused damage that the cell writes into its record, entering the chain as \"a record copied forward, not restored\" — i.e. damage carried forward rather than fully repaired."
+     ],
+     [
+      "What it does",
+      "It is tried as a possible source of each cell type's own healthy level; its status is candidate: untested, and it is considered only for skin and eye types."
+     ],
+     [
+      "Why the instrument needs it",
+      "It sits on the instrument's list of every candidate input for each type's own level, tested or not, so that this candidate is not tried twice and so the sphere's card can later carry it if it holds up."
+     ],
+     [
+      "How it is obtained or computed",
+      "No data yet: it is a setting carried with a default, moved by hand (source_kind), noted as a candidate in long form link 5; no formula is given."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters at IAM's Law link 5 (long form section 5, \"Step 5: the arrow\"), the step describing records copied forward rather than restored; status there is candidate, untested, with basis marked open."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No value is set yet; it is a default, moved by hand (source_kind), sourced as a candidate from long form link 5; it is not yet entered on the sphere's card (card_key: not yet on the card)."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status remains open and candidate: untested; it applies only to skin and eye types; and it is not yet on the card, so it cannot yet be read as an established per-type input."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Light (UV) damage written by the cell, partly unrepairable"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Restore speed vs energy vs error (speed-dissipation-error tradeoff)"
+     ],
+     [
+      "In the field's terms",
+      "restore speed / dissipation / error tradeoff (the speed-dissipation-error relation of maintenance kinetics)"
+     ],
+     [
+      "Definition",
+      "A candidate source of each type's own level: the published speed-dissipation-error tradeoff, entering as how gently each restore is made. Recorded as the published form of the suddenness idea."
+     ],
+     [
+      "What it does",
+      "It enters the sphere as 'how gently each restore is made' — a per-type input on the card (by_type), watched against every layer."
+     ],
+     [
+      "Why the instrument needs it",
+      "The inventory carries every candidate source of each type's own level, tested or not, so nothing is tried twice. Status: candidate: untested by type; the published form of the suddenness idea."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from the published source, not yet computed from data; it is a setting with a default, moved by hand (no data yet). It is tied to IAM's Law link 1d (the slow-write rule), where held/lost = (x/2) / (1 - (1-e^{-x})/x), with x in kicks."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits at IAM's Law, link 1d, long-form section 1d ('the hold is the same rule, slow'). That section states the held/lost ratio as a function of restore slowness x; for the cell, x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M / M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet — the row gives no default or typical numeric value for this input itself; its basis is 'established (published); by type open', with source_kind 'no data yet (setting with a default, moved by hand)' and card_key 'not yet on the card'."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Candidate: untested by type; basis established (published), by type open; no data yet (setting with a default, moved by hand). sphere_use: medium, one value per type; needs an outside table. The 'candidate' status does not exclude it as an input. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "Murugan, Huse & Leibler 2012, PNAS 109:12034-12039 (speed-dissipation-error trade-off)"
+     ]
+    ],
+    "name": "Restore speed vs energy vs error (speed-dissipation-error tradeoff)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "UHRF1 sensing accuracy at the half-marked site (energy-speed-accuracy of sensing), register E4 — a candidate input toward each cell type's own healthy level"
+     ],
+     [
+      "In the field's terms",
+      "UHRF1 hemimethylation-sensing accuracy (an energy-speed-accuracy-of-sensing quantity)"
+     ],
+     [
+      "Definition",
+      "A candidate input toward each cell type's own healthy level: the accuracy with which UHRF1 senses the half-marked (hemimethylated) site, framed through the energy-speed-accuracy-of-sensing work of Lan, Sartori and Tu 2012. Its status is 'candidate: untested', with basis given as 'established (published); by type open'."
+     ],
+     [
+      "What it does",
+      "It is meant to enter 'the reader that finds a lost mark' — the step that detects a half-marked site so it can later be restored."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument card '4b. each cell type's own healthy level inputs: what sets each type's own level' exists to hold every candidate input, tested or not, so nothing is tried twice and only the inputs that hold are carried onto the sphere's card; this row is logged there as such a candidate."
+     ],
+     [
+      "How it is obtained or computed",
+      "Its source_kind is 'no data yet (setting with a default, moved by hand)': no value has been read from data. The reference is Lan, Sartori and Tu 2012, basis 'established (published); by type open'. No formula for this quantity is given in these records."
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part is IAM's Law, link 1d ('the hold is the same rule, slow: the slow-write rule'), long-form section 1d. That section shows the maintained hold follows the same function as a slow ramp write, held/lost = (x/2)/(1-(1-e^{-x})/x); for the cell's restore at x = w = 2M = 41.9 this gives odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 (approx ln M/M), with the identity 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'. This particular row, however, is not itself part of that confirmed identity — it carries its own separate status within the link, 'candidate: untested' as a source of each cell type's own healthy level, with its by-type basis marked 'open'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No numeric default or value is recorded for this input in the row; its source_kind is 'no data yet (setting with a default, moved by hand)', drawn from Lan, Sartori and Tu 2012. Its card_key is 'not yet on the card', so no healthy value has been fixed yet."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is an untested candidate ('candidate: untested'), and its by-type basis is marked 'open', so whether it actually holds as a source of each cell type's own healthy level is not yet established. The sphere's use note says it still needs an outside table, and it is 'not yet on the card'."
+     ],
+     [
+      "Credit",
+      "Lan, Sartori, Neumann, Sourjik & Tu 2012 (energy-speed-accuracy of sensing)"
+     ]
+    ],
+    "name": "UHRF1 sensing accuracy at the half-marked site (energy-speed-accuracy of sensing)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Barrier hold vs paid pump (Kramers escape)"
+     ],
+     [
+      "In the field's terms",
+      "Kramers barrier-escape (thermal escape-over-a-barrier) kinetics, tested as a possible passive contributor to maintenance of a methylation mark"
+     ],
+     [
+      "Definition",
+      "A candidate input, drawn from Kramers 1940 barrier-escape theory, entered to test whether part of the hold on a mark is a wall, not a pump — that is, whether some of the maintained state is a passive energetic barrier rather than something actively paid for. Status: candidate, untested for the cell; basis established (published) but by-type use still open."
+     ],
+     [
+      "What it does",
+      "It sits on the instrument's list of every candidate input for each cell type's own healthy level, tested or not, so that nothing is tried twice and the sphere's card can eventually carry the ones that hold. On its own it does not yet supply a value: it is not yet on the card."
+     ],
+     [
+      "Why the instrument needs it",
+      "The inventory for each cell type's own healthy level catalogues every candidate input, tested or not, so nothing is retried and only the inputs that hold go on the sphere's card. This Kramers-escape candidate is logged there; its by-type basis is still open."
+     ],
+     [
+      "How it is obtained or computed",
+      "Its basis is the established, published Kramers 1940 escape theory; the by-type question is open. Per source_kind there is 'no data yet (setting with a default, moved by hand)' — i.e. no measured value, only a hand-set default. If accepted, sphere_use says it would enter as a per-type input on the card (by_type), one value per type, watched against every layer, but it needs an outside table to supply those per-type values."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "It enters IAM's Law at link 1d (long form section 1d), 'the hold is the same rule, slow: the slow-write rule.' That section's formula is held/lost = (x/2)/(1-(1-e^{-x})/x); at the cell's position x = 2M = 41.9 this gives odds 21.45 (about 21 restores per loss), an identity the records say is confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1). Whether this particular barrier-hold-vs-pump idea explains part of that hold, and whether that differs by cell type, is itself still open: basis is 'established (published); by type open,' and in_chain marks it 'candidate: untested for the cell.'"
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, no measured value exists yet for the cell: source_kind is 'no data yet (setting with a default, moved by hand)', with basis in the published Kramers 1940 source. The packet gives no specific default number, only that one would be set by hand pending data."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is only a candidate — 'untested for the cell' — with its by-type basis marked 'open,' and card_key shows it is 'not yet on the card,' so it does not currently feed any output. There is no data yet behind it, only a hand-set default, so nothing about its actual healthy value or its variation across cell types can be stated from the records."
+     ],
+     [
+      "Credit",
+      "Kramers 1940, Physica 7:284-304 (barrier escape)"
+     ]
+    ],
+    "name": "Barrier hold vs paid pump (Kramers escape)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Input fingerprints on three readings (push, eraser, writer)"
+     ],
+     [
+      "In the field's terms",
+      "Direction-of-change (signature) analysis: attributing a cell type's departure to candidate mechanisms by the angle between its departure vector and each mechanism's response vector"
+     ],
+     [
+      "Definition",
+      "Each input pushes a cell type's readings in its own direction. The angle between a type's departure and each direction says which input moved it."
+     ],
+     [
+      "What it does",
+      "It reads which family of inputs (push, eraser or writer) lies behind each cell type's own healthy level, using three readings: held error, block gain and island gain."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (row 4b) keeps every candidate input for each cell type's own healthy level; this method narrows which family of inputs to look in."
+     ],
+     [
+      "How it is obtained or computed",
+      "angle = arccos |y. v| / (|y||v|), where y is the type's departure and v the fingerprint, computed from spent libraries' saved counts. Types spread mostly on one axis (88 %), block and island gain together, 88 deg from the push direction: a gain trait, not the type's own level. The held axis sits 17 deg from push, 60 deg from the eraser and 76 deg from the writer."
+     ],
+     [
+      "Where it is read",
+      "Held error, block gain and island gain, each summed over the sample's molecules; not a single genome location."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the maintained hold is the same rule, slow: the slow-write rule), long-form section 1d: held/lost = (x/2)/(1-(1-e^-x)/x), with the cell at x = 2M = 41.9 (odds 21.45). The push direction is this rule's response. Status: identity confirmed symbolically on GitHub (run 44662887227)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Met: the held axis is 17 deg from push, 60 from the eraser and 76 from the writer, so each cell type's own level lies in the push family (coins per restore, coin size, temperature, suddenness)."
+     ],
+     [
+      "Where its value comes from",
+      "model choice (a switch between published forms)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "push"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The push family's members point in one direction on these three readings and cannot be separated; that needs a fourth reading. Per-job push agreement is low (-0.09 to +0.33), noisy at sphere-unit depth. Partial set: 34 of 49 libraries."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Input fingerprints on three readings (push, eraser, writer)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "One lever at a time in the simulator, with the pair triple's Koide reading"
+     ],
+     [
+      "In the field's terms",
+      "One-at-a-time parameter sensitivity analysis in the cell simulator (logarithmic sensitivities, d log reading / d log parameter) to test which parameters are identifiable from state readings, with a Koide ratio of the pair triple"
+     ],
+     [
+      "Definition",
+      "Each simulator lever moved alone shows which readings it moves; levers with the same fingerprint can't be told apart from the cell's state."
+     ],
+     [
+      "What it does",
+      "Moving one lever at a time, it records how held, strays, U/H/M, Koide Q, angle, and delta respond, giving a fingerprint = d log(reading) / d log(lever) for that lever."
+     ],
+     [
+      "Why the instrument needs it",
+      "Each lever moved alone shows which readings it moves; levers with the same fingerprint cannot be told apart from the cell's state. Result: the push family fits the type pattern; coins, coin size and temperature are inseparable by any state reading; the pair triple separates maintenance from eraser."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is calculated in the minicell (main) simulator: each lever is stepped alone and the fingerprint is computed as fingerprint = d log(reading) / d log(lever). The basis is 'calculated (simulator)', and the source_kind is a model choice (a switch between published forms)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row's law_part places it under IAM's Law, link 1d (long-form section 1d), the slow-write rule: the maintained hold is the same function as a ramp write, held/lost = (x/2)/(1-(1-e^-x)/x). For the cell, x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464, approximately ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No specific typical value is given in the records for this lever-test input; its source is the minicell (main) simulator, its basis is 'calculated (simulator)', and its source_kind is 'model choice (a switch between published forms)'. Its card_key is 'not yet on the card'."
+     ],
+     [
+      "Where its value comes from",
+      "model choice (a switch between published forms)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Coins, coin size and temperature are inseparable by any state reading; the pair triple separates maintenance from eraser. It is already applied as a method of reading the sphere; its 'met' status for each type's own level does not exclude it as an input. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "Koide 1983 (the lepton relation); Fortescue 1918 (symmetrical components)"
+     ]
+    ],
+    "name": "One lever at a time in the simulator, with the pair triple's Koide reading"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Finite-time price (restore window by type)"
+     ],
+     [
+      "In the field's terms",
+      "Finite-time (tau-dependent) thermodynamic cost of a maintenance methylation write"
+     ],
+     [
+      "Definition",
+      "The least energy a write of duration tau can spend at fixed chi, drawn from finite-time thermodynamics: a restore that must finish quickly wastes more of its coin as heat than one given more time to complete, because excess dissipation grows as tau shrinks."
+     ],
+     [
+      "What it does",
+      "It enters the push family: a shorter restore window delivers less of each coin (the ). If cell types give their maintenance crew different windows (busy vs quiet schedules), the same coin buys a different hold."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM needs it as the proposed route to deriving each cell type's own healthy level from the physics directly, by accounting for cell types giving their maintenance crew different restore windows (busy vs quiet schedules), rather than simply measuring that level empirically."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is set out in long form GAP 2.7 as the least energy a write of duration tau can spend at fixed chi, via finite-time thermodynamics, with excess dissipation growing as tau shrinks (a web check on this claim is still owed). No by-type restore-window data exists yet, so it is currently set as a default moved by hand rather than computed from measurements (source_kind: 'no data yet (setting with a default, moved by hand)')."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law link 2 (the price) and 1d (the slow write); long form section 2, 'Step 2: the price' (register IAM_LAW_DERIVATION 2.7, 1.8, 17.1(3)). Basis: open. Closed for one-type restore speeds; by-type restore windows: data gap."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, no numeric default is recorded in the packet: source_kind is 'no data yet (setting with a default, moved by hand)' and card_key is 'not yet on the card', meaning no working value has been assigned to it yet."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Open: by-type restore windows are a data gap, so this cannot yet tell IAM how restore-window length actually varies across cell types or how that would shift each cell type's own healthy level; the underlying finite-time-thermodynamics claim (excess dissipation grows as tau shrinks) still has a web check owed."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Finite-time price (restore window by type)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Opposite-value overwrite (flip) share by type"
+     ],
+     [
+      "In the field's terms",
+      "Share of marks turned over by erase-and-remethylate cycling (active demethylation and remethylation; 5hmC turnover), by cell type"
+     ],
+     [
+      "Definition",
+      "The share, by cell type, of opposite-value overwrites (flips): erasing a mark and writing it back. Long form table 1.8 and 17.1(3): an overwrite + to - costs 4U (Marcus); a same-sign write costs the half."
+     ],
+     [
+      "What it does",
+      "It enters the price per held mark: erase-then-remark cycles cost about four times a plain restore, so cell types that cycle their marks off and on pay more per held mark than types that simply restore the same value."
+     ],
+     [
+      "Why the instrument needs it",
+      "Restoring a mark on a half-marked site is a same-direction write and costs the usual half; erasing a mark and writing it back costs about four times as much (Marcus). Cell types that cycle their marks off and on pay more per held mark."
+     ],
+     [
+      "How it is obtained or computed",
+      "From the long form (table 1.8 and 17.1(3); IAM_LAW_DERIVATION 2.7): an overwrite + to - costs 4U (Marcus); a same-sign write costs the half. The share by type needs erase-and-remark rates by type (5hmC turnover), which are open."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law at link 2 (the price) and 1d (the slow write), long form section 2 ('Step 2: the price'), register IAM_LAW_DERIVATION 2.7, long form table 1.8 and 17.1(3). That step prices a same-sign restore at the usual half and an opposite-value flip at about 4U (Marcus); status is open — it is a candidate price term, not yet confirmed."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet. Basis: open; the share by type needs erase-and-remark rates by type (5hmC turnover; open)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This is a candidate input only, not yet on the sphere's card; it needs erase-and-remark rates by type (5hmC turnover), which are still open, before the flip share can be fixed and used in the price per held mark for each cell type's own healthy level."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Opposite-value overwrite (flip) share by type"
+   }
+  ],
+  "job": "every candidate input for each cell type's own healthy level (each type's healthy IAM-A level), tested or not, so nothing is tried twice and the sphere's card can carry the ones that hold",
+  "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+  "link": "4b. What sets each cell type's own healthy level",
+  "outputs": [],
+  "records": [],
+  "report_section": "",
+  "tools": []
+ }
+}

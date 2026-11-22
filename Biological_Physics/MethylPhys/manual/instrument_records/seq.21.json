@@ -1,0 +1,19 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.21",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "",
+  "field_how": "",
+  "field_term": "",
+  "id": "seq.21",
+  "inputs": [],
+  "job": "candidate instruments, not yet built",
+  "law": "Not the law: a chain rule.",
+  "link": "21. Candidates (catalogue): territory contrast; plasma fragment tail",
+  "outputs": [],
+  "records": [],
+  "report_section": "",
+  "tools": []
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.16b",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "",
+  "field_how": "",
+  "field_term": "",
+  "id": "seq.16b",
+  "inputs": [],
+  "job": "WHERE the sample departs from its own expected healthy profile (atlas cells mixed at its shares), in 10-site blocks",
+  "law": "Not the law: geometry (a yardstick).",
+  "link": "16b. Sample Globe (each site against the sample's own expected healthy profile)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Blocks changed (instrument 16b, Sample Globe)."
+     ],
+     [
+      "In the field's terms",
+      "Number of 10-CpG blocks departing from the sample's expected healthy profile."
+     ],
+     [
+      "Definition",
+      "The count of 10-site blocks where the sample departs from its own expected healthy profile."
+     ],
+     [
+      "What it does",
+      "It counts where the sample departs from its own expected healthy profile (atlas cells mixed at its shares), block by block."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Sample Globe shows WHERE the sample departs, so the count of changed blocks summarises how widespread the departure is."
+     ],
+     [
+      "How it is obtained or computed",
+      "Each site is read against the sample's own expected healthy profile in 10-site blocks, and changed blocks are counted; the change rule is not in the packet: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "10-site blocks across the genome."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: geometry (a yardstick)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is few; constructed healthy 1-2 of limit 50 (catalogue). The development test reads 36 of 79075; this reading is not used on sequencing."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not used on sequencing. A count says how many blocks changed, not why."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Blocks changed"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Width borrowed (one-library cells), instrument 16b, Sample Globe."
+     ],
+     [
+      "In the field's terms",
+      "Borrowed reference variance for cell types with a single reference library."
+     ],
+     [
+      "Definition",
+      "The healthy width borrowed for cells that have only one library in the reference."
+     ],
+     [
+      "What it does",
+      "It names, when used, which cells had their width borrowed because they have only one library."
+     ],
+     [
+      "Why the instrument needs it",
+      "A cell with one library has no spread of its own, so its width must be borrowed and the borrowing named."
+     ],
+     [
+      "How it is obtained or computed",
+      "Named when used; where the width is borrowed from is not in the packet: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: a list of cell types."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: geometry (a yardstick)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is 'named when used'. The development test reads {} (no width borrowed); this reading is not used on sequencing."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not used on sequencing. A borrowed width is not that cell's own measured spread."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Width borrowed (one-library cells)"
+   }
+  ],
+  "records": [],
+  "report_section": "",
+  "tools": []
+ }
+}
