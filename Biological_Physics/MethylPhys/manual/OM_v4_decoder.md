@@ -6470,6 +6470,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; records the specimen; refuses a damaged or incomplete file with a stated reason. Nothing is read until the file passes.
 - **Where IAM's Law enters:** Not the law: instrument or meter.
 - **Tool borrowed from cosmology:** Data-quality masks: a sky survey flags bad fields before anything is measured.
+- **Credit:** IAM's own intake rules. Bisulfite conversion is measured the standard way from non-CpG cytosines; the alignment reference is the UCSC hg19 build (Genome Reference Consortium GRCh37). The quality-mask idea is borrowed from survey astronomy, where it is common practice rather than one person's method.
 
 #### Intake: accept or refuse the file before anything is read
 
@@ -6589,6 +6590,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Atlas-referenced readings compare the sample with the healthy cell-type reference (the IAM Sequencing Atlas), measured once. Laboratory and library effects are corrected from the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates, the library's noise floor at the sites read, the expectation at its own read depth, and its own cell composition. No same-batch healthy controls are needed. IAM-A uses no outside reference at all.
 - **Where IAM's Law enters:** Not the law: a chain rule.
 - **Tool borrowed from cosmology:** Calibration against a fixed standard sky plus each exposure's own noise model, instead of comparison stars taken the same night.
+- **Credit:** The healthy reference is the IAM Sequencing Atlas, built on the sorted-cell methylation atlas of Loyfer N., Magenheim J., Peretz A. et al. (2023) A DNA methylation atlas of normal human cell types, Nature 613:355-364, acknowledged as prior work. Uncertainty combined by JCGM 100:2008 (GUM). Correcting each sample from its own reads, without same-batch healthy controls, is IAM's method.
 
 #### Reference block: which healthy each reading is compared with, and how files are checked
 
@@ -9100,6 +9102,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Firm and loosely held tiles counted with their opportunities, to test whether IAM-A's line holds locally, not only per sample.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).
 - **Tool borrowed from cosmology:** Local against global calibration (an isotropy test).
+- **Credit:** Uncertainty and the coverage of the test bars: Joint Committee for Guides in Metrology (2008) JCGM 100:2008 (GUM). The local-against-global test is IAM's method.
 - **Methods it uses (established, not IAM's Law):** Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM)
 
 #### Line locality: does IAM-A's line hold region by region, not only per sample
@@ -9224,7 +9227,8 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Per block of consecutive tiles, the squared excess of held errors over each tile's own prediction, over the binomial variance; independent errors give 1.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).
 - **Tool borrowed from cosmology:** A dispersion test against a Poisson field, as for galaxy clustering.
-- **Methods it uses (established, not IAM's Law):** Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM)
+- **Credit:** Index of dispersion: Fisher R.A. (1950) Biometrics 6:17-24. Uncertainty: JCGM 100:2008 (GUM). The C-Score on held errors is IAM's method.
+- **Methods it uses (established, not IAM's Law):** Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM); Index of dispersion (variance over the expected variance; 1 for independent counts) (Fisher R.A. (1950) The significance of deviations from expectation in a Poisson series. Biometrics 6:17-24)
 
 #### IAM-A C-Score: are held errors clumped along the genome or even
 
@@ -9628,6 +9632,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** (A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth: how much of the way to complete disorder the sample has gone.
 - **Where IAM's Law enters:** IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED.
 - **Tool borrowed from cosmology:** Distance to saturation (a detector's dynamic range).
+- **Credit:** Entropy: Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423, 623-656. The distance to the depth-matched disorder ceiling is IAM's method.
 - **Methods it uses (established, not IAM's Law):** Shannon entropy (information theory) (Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x)
 
 #### Distance to maximum disorder: how far the sample is from complete disorder
@@ -9694,7 +9699,8 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered).
 - **Where IAM's Law enters:** IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.
 - **Tool borrowed from cosmology:** Power at large scales: clustered against scattered structure.
-- **Methods it uses (established, not IAM's Law):** Look-elsewhere effect (trial factor for a search over many places) (Gross E. & Vitells O. (2010) Trial factors for the look elsewhere effect in high energy physics. Eur. Phys. J. C 70:525-530, doi 10.1140/epjc/s10052-010-1470-8); Block-shuffle null (resampling blocks of neighboring sites to keep their correlation) (Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)); Shannon entropy (information theory) (Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x); Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM)
+- **Credit:** Entropy: Shannon (1948). Dispersion of block means: Fisher (1950). Block-shuffle null: Kunsch H.R. (1989) Ann. Statist. 17:1217-1241. Look-elsewhere (trial factor): Gross E. & Vitells O. (2010) Eur. Phys. J. C 70:525-530. Uncertainty: JCGM 100:2008 (GUM). The Met-A-side C-Score is IAM's method.
+- **Methods it uses (established, not IAM's Law):** Look-elsewhere effect (trial factor for a search over many places) (Gross E. & Vitells O. (2010) Trial factors for the look elsewhere effect in high energy physics. Eur. Phys. J. C 70:525-530, doi 10.1140/epjc/s10052-010-1470-8); Block-shuffle null (resampling blocks of neighboring sites to keep their correlation) (Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)); Shannon entropy (information theory) (Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x); Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM); Index of dispersion (variance over the expected variance; 1 for independent counts) (Fisher R.A. (1950) The significance of deviations from expectation in a Poisson series. Biometrics 6:17-24)
 
 #### Met-A-side C-Score: are departures from the atlas clustered along the genome
 
@@ -11565,6 +11571,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 18. Report
 
 - **Where IAM's Law enters:** Not the law: a chain rule.
+- **Credit:** Blind analysis and pre-registration: Klein J.R. & Roodman A. (2005) Annu. Rev. Nucl. Part. Sci. 55:141-163. Per-unit scores adopted from power-system practice; documented ratings methodology structured the way the NERC facility-ratings standard (FAC-008) requires (not NERC approved). Uncertainty: JCGM 100:2008 (GUM).
 - **Methods it uses (established, not IAM's Law):** Blind analysis and pre-registration (Klein J.R. & Roodman A. (2005) Annu. Rev. Nucl. Part. Sci. 55:141-163, doi 10.1146/annurev.nucl.55.090704.151521)
 
 #### The report: every reading with its healthy value, basis and explanation
@@ -12013,6 +12020,8 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** A later sample against an earlier one of the same person at every CpG both measured.
 - **Where IAM's Law enters:** Not the law: a chain rule.
 - **Tool borrowed from cosmology:** Repeat observations of the same field (difference imaging).
+- **Credit:** Difference imaging: Alard C. & Lupton R.H. (1998) ApJ 503:325-331. The within-person comparison at every shared CpG is IAM's method.
+- **Methods it uses (established, not IAM's Law):** Difference imaging (subtracting a matched earlier image of the same field) (Alard C. & Lupton R.H. (1998) A method for optimal image subtraction. ApJ 503:325-331, doi 10.1086/305984)
 
 #### Serial samples: a later sample against the same person's earlier one
 

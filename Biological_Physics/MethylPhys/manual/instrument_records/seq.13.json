@@ -3,7 +3,7 @@
  "instrument": "seq.13",
  "record": {
   "cosmo_tool": "Power at large scales: clustered against scattered structure.",
-  "credit": "",
+  "credit": "Entropy: Shannon (1948). Dispersion of block means: Fisher (1950). Block-shuffle null: Kunsch H.R. (1989) Ann. Statist. 17:1217-1241. Look-elsewhere (trial factor): Gross E. & Vitells O. (2010) Eur. Phys. J. C 70:525-530. Uncertainty: JCGM 100:2008 (GUM). The Met-A-side C-Score is IAM's method.",
   "field_how": "Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered).",
   "field_term": "Spatial clustering of methylation departures along the genome",
   "id": "seq.13",
@@ -561,6 +561,11 @@
     "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
     "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
     "what": ""
+   },
+   {
+    "credit": "Fisher R.A. (1950) The significance of deviations from expectation in a Poisson series. Biometrics 6:17-24",
+    "tool": "Index of dispersion (variance over the expected variance; 1 for independent counts)",
+    "what": "overdispersion test of count data"
    }
   ]
  }

@@ -3,7 +3,7 @@
  "instrument": "seq.20",
  "record": {
   "cosmo_tool": "Repeat observations of the same field (difference imaging).",
-  "credit": "",
+  "credit": "Difference imaging: Alard C. & Lupton R.H. (1998) ApJ 503:325-331. The within-person comparison at every shared CpG is IAM's method.",
   "field_how": "A later sample against an earlier one of the same person at every CpG both measured.",
   "field_term": "Longitudinal comparison: the person as their own control",
   "id": "seq.20",
@@ -77,6 +77,12 @@
    }
   ],
   "report_section": "v4-serial",
-  "tools": []
+  "tools": [
+   {
+    "credit": "Alard C. & Lupton R.H. (1998) A method for optimal image subtraction. ApJ 503:325-331, doi 10.1086/305984",
+    "tool": "Difference imaging (subtracting a matched earlier image of the same field)",
+    "what": "within-person comparison of two samples at shared CpGs"
+   }
+  ]
  }
 }

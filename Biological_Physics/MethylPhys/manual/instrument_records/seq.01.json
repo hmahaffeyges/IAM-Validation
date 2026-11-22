@@ -3,7 +3,7 @@
  "instrument": "seq.01",
  "record": {
   "cosmo_tool": "Calibration against a fixed standard sky plus each exposure's own noise model, instead of comparison stars taken the same night.",
-  "credit": "",
+  "credit": "The healthy reference is the IAM Sequencing Atlas, built on the sorted-cell methylation atlas of Loyfer N., Magenheim J., Peretz A. et al. (2023) A DNA methylation atlas of normal human cell types, Nature 613:355-364, acknowledged as prior work. Uncertainty combined by JCGM 100:2008 (GUM). Correcting each sample from its own reads, without same-batch healthy controls, is IAM's method.",
   "field_how": "Atlas-referenced readings compare the sample with the healthy cell-type reference (the IAM Sequencing Atlas), measured once. Laboratory and library effects are corrected from the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates, the library's noise floor at the sites read, the expectation at its own read depth, and its own cell composition. No same-batch healthy controls are needed. IAM-A uses no outside reference at all.",
   "field_term": "Healthy reference and batch correction without matched controls",
   "id": "seq.01",

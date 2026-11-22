@@ -3,7 +3,7 @@
  "instrument": "seq.00",
  "record": {
   "cosmo_tool": "Data-quality masks: a sky survey flags bad fields before anything is measured.",
-  "credit": "",
+  "credit": "IAM's own intake rules. Bisulfite conversion is measured the standard way from non-CpG cytosines; the alignment reference is the UCSC hg19 build (Genome Reference Consortium GRCh37). The quality-mask idea is borrowed from survey astronomy, where it is common practice rather than one person's method.",
   "field_how": "Checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; records the specimen; refuses a damaged or incomplete file with a stated reason. Nothing is read until the file passes.",
   "field_term": "Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen",
   "id": "seq.00",

@@ -3,7 +3,7 @@
  "instrument": "seq.12b",
  "record": {
   "cosmo_tool": "Distance to saturation (a detector's dynamic range).",
-  "credit": "",
+  "credit": "Entropy: Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423, 623-656. The distance to the depth-matched disorder ceiling is IAM's method.",
   "field_how": "(A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth: how much of the way to complete disorder the sample has gone.",
   "field_term": "Headroom: distance from maximum methylation entropy",
   "id": "seq.12b",
