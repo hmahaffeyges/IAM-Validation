@@ -4,7 +4,7 @@
  "record": {
   "cosmo_tool": "Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.",
   "credit": "",
-  "field_how": "On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbours): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).",
+  "field_how": "On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbors): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).",
   "field_term": "Maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation",
   "id": "seq.04",
   "inputs": [
@@ -345,11 +345,11 @@
      ],
      [
       "Definition",
-      "A molecule counts if >= 80 % methylated; a loss counts only with both neighbours marked."
+      "A molecule counts if >= 80 % methylated; a loss counts only with both neighbors marked."
      ],
      [
       "What it does",
-      "Sets which molecules and which losses enter IAM-A's count (feeding QUAL_MIN_METH, QUAL_MIN_CALLS): only reads at or above 80 % methylated are counted, and within those, an unmethylated CpG counts as a loss only when both its neighbouring CpGs are marked."
+      "Sets which molecules and which losses enter IAM-A's count (feeding QUAL_MIN_METH, QUAL_MIN_CALLS): only reads at or above 80 % methylated are counted, and within those, an unmethylated CpG counts as a loss only when both its neighboring CpGs are marked."
      ],
      [
       "Why the instrument needs it",
@@ -373,7 +373,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Its value is a fixed rule rather than something measured on healthy samples: >= 80 % methylated for molecule inclusion, and both neighbours marked for a loss to count; source_kind is 'setting with a default (a chain rule)'."
+      "Its value is a fixed rule rather than something measured on healthy samples: >= 80 % methylated for molecule inclusion, and both neighbors marked for a loss to count; source_kind is 'setting with a default (a chain rule)'."
      ],
      [
       "Where its value comes from",
@@ -622,7 +622,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Computed by the chain from the sample's own molecules and its references: on every read at least 80% methylated, isolated unmethylated CpGs (unmethylated between two methylated neighbours) are counted as held error; the sample's own share of loosely held (intermediate) CpGs is then fed into a line measured on healthy cells, with intercept derived from M alone and slope measured, to give the predicted held error. The value read out is 0.040183."
+      "Computed by the chain from the sample's own molecules and its references: on every read at least 80% methylated, isolated unmethylated CpGs (unmethylated between two methylated neighbors) are counted as held error; the sample's own share of loosely held (intermediate) CpGs is then fed into a line measured on healthy cells, with intercept derived from M alone and slope measured, to give the predicted held error. The value read out is 0.040183."
      ],
      [
       "Where it is read",
@@ -675,7 +675,7 @@
      ],
      [
       "Definition",
-      "A band set around each cell type's own healthy centre (the median A_derived of that type's healthy atlas libraries) plus or minus t(0.975, df) x s x sqrt(1 + 1/n), where s is the pooled within-type spread; half-width median 0.085. It replaces one shared healthy window with a separate one for each cell type."
+      "A band set around each cell type's own healthy center (the median A_derived of that type's healthy atlas libraries) plus or minus t(0.975, df) x s x sqrt(1 + 1/n), where s is the pooled within-type spread; half-width median 0.085. It replaces one shared healthy window with a separate one for each cell type."
      ],
      [
       "What it does",
@@ -687,7 +687,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Computed by the chain (stage_law_sphere.hold_alarm, type_positions_v1.json) as lo, hi = m (1 -/+ t_{0.975,94} x 0.035 x sqrt(1 + 1/n)), with m the type's healthy centre (median A_derived of its healthy atlas libraries) and s = 0.035 the pooled within-type spread; half-width median 0.085."
+      "Computed by the chain (stage_law_sphere.hold_alarm, type_positions_v1.json) as lo, hi = m (1 -/+ t_{0.975,94} x 0.035 x sqrt(1 + 1/n)), with m the type's healthy center (median A_derived of its healthy atlas libraries) and s = 0.035 the pooled within-type spread; half-width median 0.085."
      ],
      [
       "Where it is read",
@@ -1260,7 +1260,7 @@
      ],
      [
       "Definition",
-      "The held error over the commissioned line's prediction: on every read that is at least 80% methylated, the isolated unmethylated CpGs (an unmethylated CpG sitting between two methylated neighbours) are counted as the held error, and IAM-A is that observed held error divided by what the sample's own share of loosely held (intermediate) CpGs predicts a healthy cell of that same looseness would show."
+      "The held error over the commissioned line's prediction: on every read that is at least 80% methylated, the isolated unmethylated CpGs (an unmethylated CpG sitting between two methylated neighbors) are counted as the held error, and IAM-A is that observed held error divided by what the sample's own share of loosely held (intermediate) CpGs predicts a healthy cell of that same looseness would show."
      ],
      [
       "What it does",
@@ -1467,7 +1467,7 @@
      ],
      [
       "How it is obtained or computed",
-      "On every read at least 80 % methylated, count the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbours) and divide by the chances on those held molecules."
+      "On every read at least 80 % methylated, count the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbors) and divide by the chances on those held molecules."
      ],
      [
       "Where it is read",
@@ -1564,7 +1564,7 @@
      ],
      [
       "Limits and what is open",
-      "It is a share, not a judgement: some types are loosely held by nature. The line it feeds is measured on healthy cells."
+      "It is a share, not a judgment: some types are loosely held by nature. The line it feeds is measured on healthy cells."
      ],
      [
       "Credit",

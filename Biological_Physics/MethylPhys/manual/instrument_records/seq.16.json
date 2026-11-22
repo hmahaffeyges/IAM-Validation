@@ -666,11 +666,11 @@
      ],
      [
       "In the field's terms",
-      "Spatial clustering of methylation-maintenance departures (C-Score) and nearest-neighbour coupling between CpGs"
+      "Spatial clustering of methylation-maintenance departures (C-Score) and nearest-neighbor coupling between CpGs"
      ],
      [
       "Definition",
-      "Whether departures from the sample's own predicted held error bunch together along the genome, captured by a C-Score limit (expected C ≈ 1) and by whether neighbouring CpGs lose their marks together (nearest-neighbour coupling on held molecules, inside IAM-A)."
+      "Whether departures from the sample's own predicted held error bunch together along the genome, captured by a C-Score limit (expected C ≈ 1) and by whether neighboring CpGs lose their marks together (nearest-neighbor coupling on held molecules, inside IAM-A)."
      ],
      [
       "What it does",
@@ -682,7 +682,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Computed as 'C-Score and coupling': the C-Score limit, and nearest-neighbour coupling on held molecules with the null (1) counted; the basis is statistics, not IAM's Law."
+      "Computed as 'C-Score and coupling': the C-Score limit, and nearest-neighbor coupling on held molecules with the null (1) counted; the basis is statistics, not IAM's Law."
      ],
      [
       "Where it is read",
@@ -714,7 +714,7 @@
      ],
      [
       "Limits and what is open",
-      "CP1 is marked a DEVELOPMENT instrument with IAM's Law not yet incorporated, and this row's card_key is 'not yet on the card' — so whether neighbouring CpGs truly lose marks together, beyond the counted statistical null, remains open."
+      "CP1 is marked a DEVELOPMENT instrument with IAM's Law not yet incorporated, and this row's card_key is 'not yet on the card' — so whether neighboring CpGs truly lose marks together, beyond the counted statistical null, remains open."
      ],
      [
       "Credit",
@@ -1674,7 +1674,7 @@
    },
    {
     "credit": "Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)",
-    "tool": "Block-shuffle null (resampling blocks of neighbouring sites to keep their correlation)",
+    "tool": "Block-shuffle null (resampling blocks of neighboring sites to keep their correlation)",
     "what": ""
    },
    {
