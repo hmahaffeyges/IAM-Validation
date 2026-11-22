@@ -93,7 +93,7 @@
      ],
      [
       "Why the instrument needs it",
-      "Met-A's job is to test whether a cell type's healthy entropy level is physics or a quirk of IAM-A, and the agreed note states plainly there is no reason to impose a plus-or-minus-5-percent band on anything — the instrument needs a range measured from real atlas donors (and confirmed on outside healthy people) so that an off-centre type can be explained rather than hidden inside an arbitrary band."
+      "Met-A's job is to test whether a cell type's healthy entropy level is physics or a quirk of IAM-A, and the agreed note states plainly there is no reason to impose a plus-or-minus-5-percent band on anything — the instrument needs a range measured from real atlas donors (and confirmed on outside healthy people) so that an off-center type can be explained rather than hidden inside an arbitrary band."
      ],
      [
       "How it is obtained or computed",
@@ -410,7 +410,7 @@
      ],
      [
       "Definition",
-      "The agreed method (2026-11-07: no fixed band, 1 is the middle): each cell's healthy width measured on the atlas's own donors, a reading's distance from 1 counted in those widths, an off-centre middle flagged, not hidden. Built for arrays; for sequencing the widths are being measured from the held-out pass of the IAM Sequencing Atlas's own libraries (each read against the other donor half). No same-run healthy samples are used."
+      "The agreed method (2026-11-07: no fixed band, 1 is the middle): each cell's healthy width measured on the atlas's own donors, a reading's distance from 1 counted in those widths, an off-center middle flagged, not hidden. Built for arrays; for sequencing the widths are being measured from the held-out pass of the IAM Sequencing Atlas's own libraries (each read against the other donor half). No same-run healthy samples are used."
      ],
      [
       "What it does",
@@ -418,7 +418,7 @@
      ],
      [
       "Why the instrument needs it",
-      "The instrument's job is the healthy height of each cell's identity sites and whether a type's level is physics or a quirk of IAM-A, so it needs this width to know, type by type, how far a reading can sit from 1 before it counts as off-centre rather than normal variation."
+      "The instrument's job is the healthy height of each cell's identity sites and whether a type's level is physics or a quirk of IAM-A, so it needs this width to know, type by type, how far a reading can sit from 1 before it counts as off-center rather than normal variation."
      ],
      [
       "How it is obtained or computed",
@@ -638,7 +638,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "No healthy band yet. Held-out testing (pass 4, other donor half) gives a sorted-cell median 1.0073, IQR 0.961-1.057, depth-dependent (open); outside-lab neurons read 0.911; today's 49 never-used atlas libraries read 0.930 whole-sample (full atlas). The band is to be set by the agreed method from these values, not the current code's 0.95-1.05, which is a holdover; the true centre and width are still to be set from the 152 atlas libraries."
+      "No healthy band yet. Held-out testing (pass 4, other donor half) gives a sorted-cell median 1.0073, IQR 0.961-1.057, depth-dependent (open); outside-lab neurons read 0.911; today's 49 never-used atlas libraries read 0.930 whole-sample (full atlas). The band is to be set by the agreed method from these values, not the current code's 0.95-1.05, which is a holdover; the true center and width are still to be set from the 152 atlas libraries."
      ],
      [
       "Where its value comes from",
@@ -654,7 +654,7 @@
      ],
      [
       "Limits and what is open",
-      "Test state is NO HEALTHY BAND YET: centre (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries, and the spread is depth-dependent, marked open. The 0.95-1.05 currently in the code is only a holdover, not a derived band."
+      "Test state is NO HEALTHY BAND YET: center (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries, and the spread is depth-dependent, marked open. The 0.95-1.05 currently in the code is only a holdover, not a derived band."
      ],
      [
       "Credit",
@@ -703,7 +703,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Healthy is defined as sitting within the type's measured width, with that width being set from the held-out pass (basis: measured). But test_state shows NO HEALTHY BAND YET: the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; the code's current 0.95-1.05 is only a holdover."
+      "Healthy is defined as sitting within the type's measured width, with that width being set from the held-out pass (basis: measured). But test_state shows NO HEALTHY BAND YET: the center (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; the code's current 0.95-1.05 is only a holdover."
      ],
      [
       "Where its value comes from",
@@ -719,7 +719,7 @@
      ],
      [
       "Limits and what is open",
-      "No healthy band yet: centre (type's healthy median) and width (measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The printed 'untared' is a legacy word from the retired same-run tare, not a missing step."
+      "No healthy band yet: center (type's healthy median) and width (measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The printed 'untared' is a legacy word from the retired same-run tare, not a missing step."
      ],
      [
       "Credit",
@@ -768,7 +768,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Output: healthy is about 1 after the healthy zero. NO HEALTHY BAND YET: centre (the type's healthy median) and width (its measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The development test reads cardiomyocyte 0.9258 (A 0.78955); lung alveolar epithelium 0.0332 (A 0.8652)."
+      "Output: healthy is about 1 after the healthy zero. NO HEALTHY BAND YET: center (the type's healthy median) and width (its measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The development test reads cardiomyocyte 0.9258 (A 0.78955); lung alveolar epithelium 0.0332 (A 0.8652)."
      ],
      [
       "Where its value comes from",
@@ -849,7 +849,7 @@
      ],
      [
       "Limits and what is open",
-      "It is a property of the reading in this sample, not a judgement of health; how it is computed is not in the packet."
+      "It is a property of the reading in this sample, not a judgment of health; how it is computed is not in the packet."
      ],
      [
       "Credit",
@@ -884,7 +884,7 @@
      ],
      [
       "Method and standard",
-      "Expected disorder computed at the sample's own read count at each site (counting noise modelled: exact draws, the counted expectation of 2026-11-20, common depth at most 20). Healthy bars by the 2026-11-07 rule: 1 is the middle; each type's width from its held-out person-to-person spread, Student's t coverage for few libraries (GUM). The 0.95-1.05 range in the code is a holdover from the old class method and is being retired."
+      "Expected disorder computed at the sample's own read count at each site (counting noise modeled: exact draws, the counted expectation of 2026-11-20, common depth at most 20). Healthy bars by the 2026-11-07 rule: 1 is the middle; each type's width from its held-out person-to-person spread, Student's t coverage for few libraries (GUM). The 0.95-1.05 range in the code is a holdover from the old class method and is being retired."
      ],
      [
       "Known-answer test",

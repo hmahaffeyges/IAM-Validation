@@ -248,7 +248,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Healthy is about 1 after the healthy zero, with basis measured. However, test_state notes: NO HEALTHY BAND YET — the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries, and the code's current 0.95-1.05 is only a holdover."
+      "Healthy is about 1 after the healthy zero, with basis measured. However, test_state notes: NO HEALTHY BAND YET — the center (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries, and the code's current 0.95-1.05 is only a holdover."
      ],
      [
       "Where its value comes from",
@@ -264,7 +264,7 @@
      ],
      [
       "Limits and what is open",
-      "No healthy band yet: as test_state records, the centre and width for this score still need to be set from the 152 atlas libraries, and the 0.95-1.05 figure in the code is a holdover, not an established healthy range."
+      "No healthy band yet: as test_state records, the center and width for this score still need to be set from the 152 atlas libraries, and the 0.95-1.05 figure in the code is a holdover, not an established healthy range."
      ],
      [
       "Credit",
@@ -313,7 +313,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Healthy reads about 1 after the healthy zero (basis: measured), but the test_state records NO HEALTHY BAND YET — the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; until then the code's 0.95-1.05 range stands as a holdover."
+      "Healthy reads about 1 after the healthy zero (basis: measured), but the test_state records NO HEALTHY BAND YET — the center (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; until then the code's 0.95-1.05 range stands as a holdover."
      ],
      [
       "Where its value comes from",
@@ -329,7 +329,7 @@
      ],
      [
       "Limits and what is open",
-      "No proper healthy band exists yet for this output: the present 0.95-1.05 range is only a holdover pending the centre and width being set from the 152 atlas libraries, so readings outside it cannot yet be judged against a real healthy band."
+      "No proper healthy band exists yet for this output: the present 0.95-1.05 range is only a holdover pending the center and width being set from the 152 atlas libraries, so readings outside it cannot yet be judged against a real healthy band."
      ],
      [
       "Credit",
@@ -362,7 +362,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Each territory is read at its expected value for the sample's own read depth, against the atlas; the state compares the reading with the type's centre (its healthy median) and width (its measured spread). Both are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover."
+      "Each territory is read at its expected value for the sample's own read depth, against the atlas; the state compares the reading with the type's center (its healthy median) and width (its measured spread). Both are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover."
      ],
      [
       "Where it is read",
@@ -378,7 +378,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Output: healthy is within the type's measured width, being set from the held-out pass. NO HEALTHY BAND YET: the centre and width are to come from the 152 atlas libraries. The development test prints \"untared\"."
+      "Output: healthy is within the type's measured width, being set from the held-out pass. NO HEALTHY BAND YET: the center and width are to come from the 152 atlas libraries. The development test prints \"untared\"."
      ],
      [
       "Where its value comes from",
@@ -473,7 +473,7 @@
      ],
      [
       "Is there currently an established healthy range for the islands and domains scores, or is the 0.95-1.05 window in the code a validated reference?",
-      "There is no healthy band yet. The centre (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries. The 0.95-1.05 figure currently in the code is only a holdover, not an established healthy range, and this applies to both the islands and domains outputs as well as to the overall territories state.",
+      "There is no healthy band yet. The center (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries. The 0.95-1.05 figure currently in the code is only a holdover, not an established healthy range, and this applies to both the islands and domains outputs as well as to the overall territories state.",
       "instrument record: outputs (Territories, islands / Territories, domains / Territories state) healthy_how and limits fields"
      ],
      [

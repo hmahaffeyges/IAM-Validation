@@ -549,7 +549,7 @@
    },
    {
     "credit": "Kunsch H.R. (1989) The jackknife and the bootstrap for general stationary observations. Ann. Statist. 17:1217-1241, doi 10.1214/aos/1176347265 (moving-block resampling)",
-    "tool": "Block-shuffle null (resampling blocks of neighbouring sites to keep their correlation)",
+    "tool": "Block-shuffle null (resampling blocks of neighboring sites to keep their correlation)",
     "what": ""
    },
    {

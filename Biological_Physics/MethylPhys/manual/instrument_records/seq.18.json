@@ -150,7 +150,7 @@
      ],
      [
       "Definition",
-      "A tag reading 'development, not commissioned' applied to a report entry, per the rule that every uncommissioned reading is labelled."
+      "A tag reading 'development, not commissioned' applied to a report entry, per the rule that every uncommissioned reading is labeled."
      ],
      [
       "What it does",
@@ -479,11 +479,11 @@
     "fields": [
      [
       "How it works",
-      "Every IAM score is reported per unit of its own healthy base: the instrument is first CENTRED (its healthy expectation corrected so healthy lands on its healthy point; an offset is never absorbed into a wider band), then TARED (divided by its measured healthy centre; one centre per instrument, or one per cell type where the types' centres differ by more than their noise, as for IAM-A), so healthy reads 1.00 pu. Each score carries ONE band: the observed normal operating range, the range 95 % of healthy controls are expected to fall in, from the pooled within-type spread of the healthy controls (Student's t coverage), widened for the sample's own read depth. A reading outside it is flagged: 'Outside our observed normal operating range (based on a limited set of healthy controls)'. No further tiers: where danger begins is not ours to set. The band's basis (number of healthy libraries and cell types) is printed beside it, and the raw measurement in field terms beside the score."
+      "Every IAM score is reported per unit of its own healthy base: the instrument is first CENTERED (its healthy expectation corrected so healthy lands on its healthy point; an offset is never absorbed into a wider band), then TARED (divided by its measured healthy center; one center per instrument, or one per cell type where the types' centers differ by more than their noise, as for IAM-A), so healthy reads 1.00 pu. Each score carries ONE band: the observed normal operating range, the range 95 % of healthy controls are expected to fall in, from the pooled within-type spread of the healthy controls (Student's t coverage), widened for the sample's own read depth. A reading outside it is flagged: 'Outside our observed normal operating range (based on a limited set of healthy controls)'. No further tiers: where danger begins is not ours to set. The band's basis (number of healthy libraries and cell types) is printed beside it, and the raw measurement in field terms beside the score."
      ],
      [
       "Why",
-      "A per-unit base lets readings on different scales be compared at a glance; one observed normal operating range says only what healthy controls show, like a laboratory reference range or a historical (PI) operating range, without claiming where harm begins. Per-type ranges from 2-3 libraries would be wider, not narrower (Student's t with 1-2 degrees of freedom), so the spread is pooled within types and each type keeps its own centre only where its offset is resolved."
+      "A per-unit base lets readings on different scales be compared at a glance; one observed normal operating range says only what healthy controls show, like a laboratory reference range or a historical (PI) operating range, without claiming where harm begins. Per-type ranges from 2-3 libraries would be wider, not narrower (Student's t with 1-2 degrees of freedom), so the spread is pooled within types and each type keeps its own center only where its offset is resolved."
      ],
      [
       "Physics",
@@ -491,7 +491,7 @@
      ],
      [
       "Where the data comes from",
-      "Each instrument's raw reading and its counting uncertainty; each cell type's healthy centre and person-to-person spread from held-out pass 9 (Student's t standard error of the centre for few libraries); the sample's read depth."
+      "Each instrument's raw reading and its counting uncertainty; each cell type's healthy center and person-to-person spread from held-out pass 9 (Student's t standard error of the center for few libraries); the sample's read depth."
      ],
      [
       "The numbers",
@@ -507,7 +507,7 @@
      ],
      [
       "Limits",
-      "The flag means outside the observed healthy range and nothing more; the report's claim scan applies. Readings of other kinds of samples are separate observations and never set a range. The per-unit and ratings structure is a method adopted from power-system practice, not a claim that NERC reviews IAM. Instruments not yet centred (run lengths, the Law Sphere's level alarm) get no range until they are. Ranges are provisional while the healthy controls are few (pass 9: 137 libraries, 48 types, 2-3 per type; never-used check 26 of 31 inside)."
+      "The flag means outside the observed healthy range and nothing more; the report's claim scan applies. Readings of other kinds of samples are separate observations and never set a range. The per-unit and ratings structure is a method adopted from power-system practice, not a claim that NERC reviews IAM. Instruments not yet centered (run lengths, the Law Sphere's level alarm) get no range until they are. Ranges are provisional while the healthy controls are few (pass 9: 137 libraries, 48 types, 2-3 per type; never-used check 26 of 31 inside)."
      ],
      [
       "Where the result goes",
@@ -523,7 +523,7 @@
      ],
      [
       "How to rebuild it",
-      "From pass 9's per-type centres and spreads; the formula above."
+      "From pass 9's per-type centers and spreads; the formula above."
      ],
      [
       "History",
