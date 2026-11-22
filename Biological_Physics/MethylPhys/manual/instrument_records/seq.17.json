@@ -1,0 +1,3462 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.17",
+ "record": {
+  "cosmo_tool": "Fisher-Rao angles on a HEALPix sphere; symmetrical components (Fortescue 1918), electrical engineering's three-phase decomposition.",
+  "credit": "IAM's Law (this work); Fisher-Rao geometry: Rao (1945); Bhattacharyya (1943); symmetrical components: Fortescue (1918); HEALPix: Górski et al. (2005)",
+  "field_how": "Each unit (an island, or 50 CpGs) read from molecules by IAM-A's rule; the law's expected state built in the sample's own composition; the departure judged against counting noise. The hold alarm compares each type's hold with its measured healthy level.",
+  "field_term": "Measured fidelity, gain and level region by region, against the state predicted from the energetics of maintenance in the sample's own cell mix",
+  "id": "seq.17",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Input card (CARD)"
+     ],
+     [
+      "In the field's terms",
+      "Model parameter settings: every law input set by name on the command line, with defaults (no standard field term in the records)"
+     ],
+     [
+      "Definition",
+      "A settings card that lets every law input bundle — T_K, dG_ATP, coins, push, held source, IAM-A line, D, eraser share and clean-up, conv, by_type, by_job — be set individually by name (--law-set KEY=VALUE), with defaults coming from the simulator's own law card (minicell.law_card); each value carries its own basis."
+     ],
+     [
+      "What it does",
+      "It supplies, or lets a user override, every numeric input the Law Sphere needs to build the predicted state against which a sample is judged, and the same inputs can then be fit or swept on saved counts."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere (instrument 17) measures how the cell is performing against the law by comparing measured fidelity, gain and level region by region to a state predicted from the energetics of maintenance in the sample's own cell mix. Building that predicted state requires values for T_K, dG_ATP, coins, push, held source, IAM-A line, D, eraser share and clean-up, conv, by_type and by_job, so this card exists to hold, or let someone override, those values."
+     ],
+     [
+      "How it is obtained or computed",
+      "By naming any law input on the command line as --law-set KEY=VALUE; anything not set takes its default from the simulator's law card (minicell.law_card). Its source_kind is recorded as 'setting with a default (a chain rule)', with basis 'rule (defaults from the simulator's law card; each value carries its own basis below)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This card is not part of IAM's Law — the packet marks it explicitly as 'not the law: a chain rule' and notes it is 'not part of IAM's Law'. It belongs to the chain that feeds values into the law's inputs rather than being one of the law's own links."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input it has no single healthy value of its own: each law input it carries takes its default from the simulator's law card (minicell.law_card), and each individual value's basis is tracked separately ('each value carries its own basis below'). This particular item is listed as 'not yet on the card' for its card_key."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "input card (CARD)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "runtime reference"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-resolved healthy reference methylation data (reference files from the IAM Sequencing Atlas)"
+     ],
+     [
+      "Definition",
+      "The atlas reference the Law Sphere reads against: units.npz, 4 reference parts and positions.npz. A measured input the law uses, not the law itself (basis: measured (atlas))."
+     ],
+     [
+      "What it does",
+      "It is the measured atlas reference the Law Sphere reads each sample against; it enters the run (in chain: yes)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere judges how the cell is performing against the law, region by region; it needs the measured atlas reference to read against."
+     ],
+     [
+      "How it is obtained or computed",
+      "Supplied as files, not computed by a stated formula: units.npz, 4 reference parts and positions.npz, measured by the chain on the IAM Sequencing Atlas libraries."
+     ],
+     [
+      "Where it is read",
+      "not genome-located as a single site — it is atlas-wide reference data (units.npz, 4 reference parts, positions.npz) used across all units (islands or 50-CpG blocks) rather than read at one locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law itself: a measured input the law uses', and lf_section confirms it is 'not part of IAM's Law.' So it carries no Law-Sphere physics step of its own; it is a measured reference quantity the law draws on when building its predicted state."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its basis is 'measured (atlas)', drawn from the IAM Sequencing Atlas (a measured healthy reference, source_kind: the IAM Sequencing Atlas); the packet gives no single typical numeric value beyond the three reference files themselves."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card (card_key: not yet on the card). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "runtime reference"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Site's job (units)"
+     ],
+     [
+      "In the field's terms",
+      "Genomic unit of analysis: CpG island vs 50-CpG bin"
+     ],
+     [
+      "Definition",
+      "An own-rule pool of 237,850 units, where each CpG island counts as one unit and all other regions are pooled into 50-CpG blocks, assembled by the sphere's own noise rule (chi-square 99 %)."
+     ],
+     [
+      "What it does",
+      "It places each unit within the sphere's reckoning, per the packet's 'enters: places each unit.'"
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere needs a defined set of units, region by region, to measure fidelity, gain and level against the state predicted from maintenance energetics, so each unit must first be placed (island vs 50-CpG block) before any reading can be judged against its own noise."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula: islands one unit; 50-CpG blocks elsewhere; pool by the sphere's own noise rule (chi-square 99 %)."
+     ],
+     [
+      "Where it is read",
+      "At CpG islands, each counted as one unit, and across the rest of the genome grouped into 50-CpG blocks, per the sphere's pooling plan."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: 'not part of IAM's Law'); law_part marks it explicitly 'not the law: statistics (a yardstick)' — this is a statistical/geometric binning quantity, not a step in the Law chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Value: own-rule pool, 237,850 units (islands one unit, 50-CpG blocks); source: register SEQSPHERE plan, OWN RULE; source_kind: calculated by the chain (statistics or geometry)."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Site's job (units)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Variable off-array islands"
+     ],
+     [
+      "In the field's terms",
+      "CpG islands not covered by the methylation array (seen only by sequencing) whose methylation level differs between cell types"
+     ],
+     [
+      "Definition",
+      "734 of 2,125 islands that are not on the array vary between cell types; islands only the sequencing atlas can see, placed by their own levels."
+     ],
+     [
+      "What it does",
+      "These islands enter the Law Sphere as units (islands are units), placed by their own levels."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads each unit (an island, or 50 CpGs). These islands are seen only by the sequencing atlas, and 734 of the 2,125 vary between types, so they are placed by their own levels. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by measurement and recorded as 734 of 2,125 off-array islands varying between types; it is carried in-chain because islands are counted as units in the Law Sphere."
+     ],
+     [
+      "Where it is read",
+      "Off-array CpG islands — sequencing-atlas-only island units not represented on the array; the packet gives no further genomic coordinates, so exact location is open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly flagged as not the law itself: its law_part is 'not the law itself: a measured input the law uses' and its lf_section is 'not part of IAM's Law.' It is a measured input quantity that the Law Sphere consumes, with islands serving as its in-chain counting unit."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Recorded value: 734 of 2,125 no-array islands vary between types, basis measured; source_kind is 'set per cell type or fixed, from a cited measurement' — so rather than one typical default, each island's level is set per cell type (or held fixed) from that measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Variable off-array islands"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "M, the coin"
+     ],
+     [
+      "In the field's terms",
+      "ATP hydrolysis free energy in units of RT (ΔG_ATP/RT, dimensionless)"
+     ],
+     [
+      "Definition",
+      "ΔG_ATP, the free energy released by one ATP at the cell's own temperature, expressed as M = dG_ATP/(R T) = 20.94 — the coin's size in thermal kicks."
+     ],
+     [
+      "What it does",
+      "It enters the held level as 1 − ε, fixing the size of the coin (M = 20.94) that stands behind each maintained mark and setting the expected held error ε = 0.0445."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law needs the coin's size to know how many thermal kicks one ATP's worth of energy buys a mark against noise — that number (M) sets the floor and the expected ε that the Law Sphere checks each region's measured fidelity against."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken from the card dG_ATP = 54 kJ/mol (the coin's size (the energy of one ATP), measured nameplate) and cell temperature T = 310.15 K (the cell's temperature, measured), combined as M = dG_ATP/(R T) = 54,000/(8.314 x 310.15) = 20.94."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is the input at IAM's Law, link 2 — the price step (long-form section 2, 'Step 2: the price'), where k_BT ln 2 per bit is charged at the surface's own temperature. ΔG_ATP (the coin's size (the energy of one ATP)) and T are themselves measured values the law uses, not the law itself; from them the derived quantity M (and the floor, the floor (the best one coin can hold against heat)) follow."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is dG_ATP = 54 kJ/mol (the coin's size (the energy of one ATP)) at T = 310.15 K (the cell's temperature): measured nameplate figures, set per cell type or fixed from the cited measurement (source_kind: set per cell type or fixed, from a cited measurement)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "dG_ATP"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "M, the coin"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Two coins per restore"
+     ],
+     [
+      "In the field's terms",
+      "ATP-equivalent cost per restored methyl mark (SAM priced as 2 ATP)"
+     ],
+     [
+      "Definition",
+      "The fixed count of coins (ATP-equivalents) spent to restore one lost methyl mark: value 2 (the price of one restore (two ATP); band 1.967–2.033). As the plain record puts it, 'Each restore of a lost mark costs two coins: that is how the cell's chemistry prices one methyl group.'"
+     ],
+     [
+      "What it does",
+      "It sets coins = 2 in the formula push = coins x M, so it enters the Law Sphere's calculation as 'push 2M' — the funding term that the law expects to pay for each write."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law needs a priced funding term for every restore (link 2b: the free energy that pays each write); this coin count is what turns M into the actual energy pushed into holding or restoring a mark, and it is expected to leave ε unchanged ('expected: same ε')."
+     ],
+     [
+      "How it is obtained or computed",
+      "Derived (basis: derived (the price of one restore (two ATP))) from the price of one restore (two ATP): '1 restore = 1 SAM = 2 ATP (ATP -> AMP + 2 Pi, adenylate kinase at equilibrium)', status DERIVED (given AK at equilibrium). It is carried in the chain as card coins, fit, with formula push = coins x M; coins = 2."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 2b (the funding: the free energy that pays each write), long-form section 2b, which states where the free energy that pays each write comes from. Status: derived (the price of one restore (two ATP)) / DERIVED (given AK at equilibrium) — this is the funding step of the law itself, not a quantity outside it."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: 2 (the price of one restore (two ATP); band 1.967–2.033). Source: derived by IAM's Law (fixed by the physics; a setting only to test what-if) — i.e. coins is not a free dial but a value the energetics fixes, only adjustable as a hypothetical."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "coins"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Two coins per restore"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "x = 2M, the slow-write rule (card: push; the held error set by the coin and the two-coin push)"
+     ],
+     [
+      "In the field's terms",
+      "Suddenness of restoration (ramp parameter governing kept-vs-lost mark ratio)"
+     ],
+     [
+      "Definition",
+      "How gently the restore is made: slow closes keep the record; a sudden close is a coin flip."
+     ],
+     [
+      "What it does",
+      "It enters the held level by setting odds = (x/2)/(1 - (1 - e^-x)/x) with x = 2M, which fixes the held-to-lost ratio at 21.45 : 1 (expected value: 21.45 : 1)."
+     ],
+     [
+      "Why the instrument needs it",
+      "It sets the law's expected held level in IAM's Law Sphere (enters: held level; in the chain as card push), the instrument that judges HOW the cell performs against the law."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed from the formula odds = (x/2)/(1 - (1 - e^-x)/x), with x = 2M, giving x = 2M → 21.45 : 1. Basis: derived (identity with the held error set by the coin and the two-coin push); source_kind: derived by IAM's Law (fixed by the physics; a setting only to test what-if)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d. That section gives one function of how slow a write is, x in kicks: held/lost = (x/2)/(1-(1-e^-x)/x); the surfaces check derived it for a ramp write, and the IAM-A derivation (the held error set by the coin and the two-coin push) derived the same function for the cell's restore at x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ≈ ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its expected/typical value is 21.45 : 1 (x = 2M), basis derived (identity with the held error set by the coin and the two-coin push), source_kind derived by IAM's Law (fixed by the physics; a setting only to test what-if)."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "push"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Suddenness (slow-write rule)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Holding error ε"
+     ],
+     [
+      "In the field's terms",
+      "Expected maintenance-methylation error rate at methylated (held) sites"
+     ],
+     [
+      "Definition",
+      "The expected held error at held sites: the self-referenced line by default."
+     ],
+     [
+      "What it does",
+      "It sets the expected value on the axis of held sites, against which the measured held error is checked, with the expectation that measured ÷ law ≈ 1."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads how the cell is performing against the law; this is the expected held error on the axis of held sites, with measured ÷ law expected ≈ 1."
+     ],
+     [
+      "How it is obtained or computed",
+      "Two routes are given: the law's own derivation, eps0 = 1/(1 + odds) with odds = (w/2)/(1-(1-e^-w)/w) and w = 2M = 41.88, giving odds 21.45 and eps0 = 0.04454 (the held error set by the coin and the two-coin push); or the sample's own line, eps_pred(L) = firm + 0.034625 × L, where L is the sample's loose share (the slope of IAM-A's line with loose share, partly derived)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — it enters as the expected value on the axis of held sites (units of 50 CpGs or islands), not a specific locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 1d, 'the hold is the same rule, slow' — the long-form section deriving held/lost = (x/2)/(1-(1-e^-x)/x) for a ramp write, then showing the cell's restore follows the same function with x = w = 2M = 41.9, giving odds 21.45. Status: identity confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1) — the held error set by the coin and the two-coin push's eps0 = 0.04454 from this is DERIVED, while the law's held error as IAM-A's counter counts it's translation through the counter and the slope of IAM-A's line with loose share's slope are, respectively, derived and partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default: the sample's own self-referenced line, eps_pred(L) = firm + 0.034625 x L (the slope of IAM-A's line with loose share, partly derived); alternative: the law's 0.04454 (the held error set by the coin and the two-coin push, derived; code stage_law_sphere.EPS_LAW = 0.04454). Expected: measured ÷ law ≈ 1."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Register the slope of IAM-A's line with loose share status: PARTLY DERIVED: the within-sample part of the slope comes from the pump, replicated in a second laboratory; the remainder is each cell type's own level, which is open. Not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Holding error ε"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "phi = ln(odds)/M ≈ ln M / M"
+     ],
+     [
+      "In the field's terms",
+      "Fraction of one ATP's free energy kept as the held state (an energy-retention fraction of methylation maintenance), derived from ΔG_ATP/RT"
+     ],
+     [
+      "Definition",
+      "The share of each coin kept as hold — a share of the coin, not the slow-close version of the energy half."
+     ],
+     [
+      "What it does",
+      "It enters the chain as the share of each coin (ATP) that ends up kept as hold — this is the layer called 'phi' in the chain."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to account for why the cell holds about 0.147 of its drive, as distinct from systems that hold 1/2 (the black hole) or 1 (horizon) of theirs."
+     ],
+     [
+      "How it is obtained or computed",
+      "phi = ln(odds)/M ~ ln M/M, derived from M alone at x = 2M; this gives a value of 0.1464 against a measured value of 0.1473, with an expected value of 0.146."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits at IAM's Law, link 3 (the half, and the cell's derived departure from it), long form section 3, titled 'Step 3: the virial half.' Status: derived (from M alone)."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its own derived value is 0.1464, with a measured value of 0.1473 and an expected value of 0.146; source kind: derived by IAM's Law (fixed by the physics; a setting only used to test what-if)."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "φ = ln(odds)/M ≈ ln M / M"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Held per paid"
+     ],
+     [
+      "In the field's terms",
+      "Held energy over energy paid per restore (E_hold / 2M), checked against a pump's 1/3 ceiling"
+     ],
+     [
+      "Definition",
+      "A calculated check, outside the chain, that divides the held energy E_hold by the price paid, 2M (two coins), giving 0.0732, and checks it stays below the 1/3 that a paid pump can keep."
+     ],
+     [
+      "What it does",
+      "It runs a ceiling check: E_hold / 2M = 0.0732 against the expected bound 'below 1/3', a check that the hold never exceeds what the pump can keep."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law Sphere judges HOW the cell performs against the law; this check confirms the hold the law gives stays inside what a paid pump can keep."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as E_hold / 2M = 0.0732, with the rule that a paid pump keeps <= 1/3; basis is 'calculated' and source_kind is 'calculated by the chain (statistics or geometry).' This quantity itself is not part of the main chain (in_chain: NO)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This enters IAM's Law at link 3 ('the half, and the cell's derived departure from it'), long-form section 3, titled 'Step 3: the virial half' (lf_section: link 3: long form section 3). The packet gives its basis only as 'calculated'; no further status (derived, measured, closed, etc.) is assigned to it in the records."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its own calculated value is E_hold / 2M = 0.0732, with the expected condition 'below 1/3'; this value and expectation come from being calculated by the chain (statistics or geometry), per the row's basis and source_kind."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is outside the chain (in_chain: NO) and not yet on the card; the records give no register text for X3 here. Nothing further is in the records."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Held per paid"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Write error 1/(1 + D)"
+     ],
+     [
+      "In the field's terms",
+      "Stray (off-target) methylation rate at unmarked CpG sites — the write error"
+     ],
+     [
+      "Definition",
+      "The expected stray level at unmarked sites: the writer sometimes puts a mark where none belongs, choosing the right site over 60 wrong ones, giving about one stray mark in 61."
+     ],
+     [
+      "What it does",
+      "It enters the axis of unmarked sites as the expected background rate of incorrect marks, read as 0.0164 before the meter correction."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law, link 1 (actualization: each write is one sudden write of a record) needs this write-error rate so the Law Sphere can judge how far a sample's measured state departs from the state the law predicts, since any single write can land on the wrong site."
+     ],
+     [
+      "How it is obtained or computed",
+      "u = 1/(1 + D), with D = 60, giving u = 0.0164; basis is measured selection, register A15."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is IAM's Law, link 1 (actualization: each write is one sudden write of a record), long-form section 1, which covers the moment a bit becomes part of the record. Its register status is ACCOUNTED, meter-corrected in blood (lead, 2026-11-15) — previously recorded as ACCOUNTED (measured)."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Expected value 0.0164 before meter correction; source_kind is 'set per cell type or fixed, from a cited measurement,' basis measured selection (the writer's stray-mark rate)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Register status (the writer's stray-mark rate): ACCOUNTED, meter-corrected in blood (lead, 2026-11-15); earlier ACCOUNTED (measured). The expected 0.0164 is the level before the meter correction. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Write error 1/(1 + D)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Gains toward another job"
+     ],
+     [
+      "In the field's terms",
+      "Directional components of the sample's methylation departure toward other cell identities ('jobs'), in the information-geometry (Fisher-Rao) sphere"
+     ],
+     [
+      "Definition",
+      "A geometric quantity — movement in the plane — expressed as angle components toward each possible job; it is part of the information sphere's layered angle construction (in_chain: yes: angle layers) and is explicitly geometry, not IAM's Law ('not the law: geometry (a yardstick)')."
+     ],
+     [
+      "What it does",
+      "It supplies one of the angle-layer components describing which job the sample is moving toward — the direction of drift of the sample's state within the sphere's geometric plane."
+     ],
+     [
+      "Why the instrument needs it",
+      "It says which job the sample is moving toward (plain). Register the information sphere: the information sphere is geometry; IAM's Law enters through the Law Sphere's expected point."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed from geometry (basis: geometry) using the formula 'angle components toward each job,' read from the sample's own molecules (source_kind)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — it is a geometric/directional quantity computed from the sample's own molecules as part of the layered angle construction, not tied to a single genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row and its register are explicit that it is 'not the law: geometry (a yardstick)' and 'not part of IAM's Law.' It belongs to the information sphere, whose status is DEVELOPMENT: the geometry (Fisher-Rao geometry of sites across cell types) is already established mathematics, but IAM's Law is NOT YET in it. IAM's Law enters only later, through the Law Sphere's expected point, built from the energetics of maintenance in the sample's own cell mix."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or expected value is set for this input (expected: none); its value is simply 'the sample' itself, read directly from the sample's own molecules (source_kind), so no fixed typical value is given in the records."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This row has not yet been assigned a formal card entry (card_key: not yet on the card), and the information sphere it belongs to is still in DEVELOPMENT status — the geometry is established but IAM's Law has not yet been incorporated into it, so what this angle component means against the Law is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Gains toward another job"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Eraser share by type"
+     ],
+     [
+      "In the field's terms",
+      "Share of methylation loss made by the eraser (TET, active demethylation), by cell type"
+     ],
+     [
+      "Definition",
+      "The fraction of a cell type's held methylation loss that is attributed to the eraser (TET) acting on purpose, rather than to failed maintenance; measured directly in only a few cell types, with 55 of 56 not measured. As the register puts it: 'Some losses are made on purpose by the eraser (TET). In mature blood that share drops out; in stem and progenitor types it adds to the held error.'"
+     ],
+     [
+      "What it does",
+      "It enters the error used by the Law Sphere as eps / (1 - share): the held error is obtained by dividing the restore error by one minus this share, so that deliberate erasure is separated from unmaintained loss. In mature blood this share drops out of the calculation; in stem and progenitor types it adds to the held error, with progenitors expected at ×1.10."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere judges how the cell is performing against the law's expected state; some losses are made on purpose by the eraser (TET), and the held error is eps = eps_restore / (1 - s), so the eraser's share by type enters that expected held error. In mature blood the share drops out; in stem and progenitor types it adds to the held error."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as eps = eps_restore / (1 - s), where s is the eraser's share of held losses. It is obtained by being set per cell type or fixed, from a cited measurement (basis: 'measured in few types'). The code reference stage_law_sphere.CARD.eraser_share currently carries code_value 0.0, with an expected adjustment of ×1.10 for progenitors."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The packet marks this explicitly as not the law itself: a measured input the law uses, and the long-form section lists it as 'not part of IAM's Law'. It is a measured share (a fraction, s, of held losses) that the law's error formula consumes, not a link or step of the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input: value is 'measured in few types; 55 of 56 not measured', current code_value 0.0, with an expected figure of ×1.10 in progenitors; source_kind is 'set per cell type or fixed, from a cited measurement', basis 'measured in few types'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "eraser_share"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Measured in few types; 55 of 56 types not measured (the card holds 0.0; no data for most). Register status (the eraser's share of the loss): MATURE BLOOD: DROPS OUT (lead, 2026-11-15 6:50 PM); in stem and progenitor types it adds to the held error (expected x1.10 in progenitors). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Eraser share by type"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Eraser clean-up (card eraser_clean)"
+     ],
+     [
+      "In the field's terms",
+      "Clean-up of spurious (stray) methylation by the eraser (active demethylation): fraction of strays removed"
+     ],
+     [
+      "Definition",
+      "A measured input value of 18 % representing how much of the stray (wrongly placed) methylation the eraser removes; it enters the Law Sphere's calculation by lowering the unmarked axis, with an expected effect of 0.82 x strays."
+     ],
+     [
+      "What it does",
+      "It reduces the strays term according to the formula strays x (1 - 0.18), i.e. it lowers the unmarked axis that the Law Sphere otherwise has to account for."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument (IAM's Law Sphere) needs it to build the law's expected state correctly within the sample's own composition before judging the departure of a measured region's fidelity/gain/level; this value is explicitly flagged as not the law itself but a measured input the law uses."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a fixed/measured card value (code_ref stage_law_sphere.CARD.eraser_clean, code_value 0.18), basis 'measured', applied through the formula strays x (1 - 0.18)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This 18 % value itself is explicitly marked 'not the law itself: a measured input the law uses' and its long-form section is 'not part of IAM's Law'. The related question of whether this eraser activity is the cell's proofreading step connects to IAM's Law, link 1 (actualization: each write is one sudden write of a record); the question whether the eraser proofreads's status there is 'READ: branch S (one selection step; the eraser is not proofreading the unmarked...)', with knockout-over-wild-type ratio 0.985-1.292 cited as the single selection step, branch S."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Typical/default value 18 %, basis 'measured', source_kind 'set per cell type or fixed, from a cited measurement' (card eraser_clean)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "eraser_clean"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Per the question whether the eraser proofreads, this clean-up is not a Hopfield-style proofreading/discard step on wrongly written marks — there is only the writer's single selection step (branch S); whether any further discard mechanism exists is not established by this value."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Eraser clean-up"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Copier lag"
+     ],
+     [
+      "In the field's terms",
+      "Post-replication maintenance lag: extra maintenance loss expected from the delay before the daughter strand is remethylated, by replication timing"
+     ],
+     [
+      "Definition",
+      "Right after copying, the new strand waits a short while for its marks; in resting blood that delay adds almost nothing to held error (about 0.4%). Expressed as a lag of 0.10 cycles."
+     ],
+     [
+      "What it does",
+      "It enters the expected hold value by copy timing: it is the extra hold loss the law's model expects to see because of the delay between replication and remethylation."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere builds the law's expected state in the sample's own composition before judging the measured departure against it; since this is not the law itself but a measured input the law uses, the instrument needs this lag value to set that expectation correctly, especially since dividing cell types are expected to show more of it than resting blood."
+     ],
+     [
+      "How it is obtained or computed",
+      "Given as lag 0.10 cycles; ~0.4% in resting blood, bounded on the desk per the copier lag (about 0.4% of held error in resting blood); for cell types other than resting blood the value is open."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part marks it explicitly as 'not the law itself: a measured input the law uses', and lf_section states it is 'not part of IAM's Law'. It is a measured input quantity the law consumes, not a step within the law's own derivation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is set per cell type or fixed, from a cited measurement: 0.10 cycles, ~0.4% of held error in resting blood, per the copier lag; the basis is bounded for resting blood but open for other cell types, where a larger lag is expected."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not in the chain yet (in_chain 'NO: owed layer'); not yet on the card. Bounded on the desk at about 0.4 % of held error in resting blood (the copier lag); by type it is open, and it is expected to be larger in dividing types."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Copy error / copier lag"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Meter (the stray-mark rate after the meter's own false marks)"
+     ],
+     [
+      "In the field's terms",
+      "Bisulfite non-conversion and sequencing (T>C) error rate — the library's false-methylation-call rate"
+     ],
+     [
+      "Definition",
+      "The sequencing chemistry's own false marks: a measured rate made of bisulfite conversion failure plus T->C sequencing error, about 0.0044 + 0.00046, that is added onto the unmarked level as read."
+     ],
+     [
+      "What it does",
+      "It is added to the unmarked level as read: the expected unmarked level as read is 0.0203, which includes the meter's own false marks (conv 0.0044 + T->C 0.00046)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere judges each region's measured state against the law's expected state; the meter's false marks are added to the expected unmarked level so that expectation is compared as read."
+     ],
+     [
+      "How it is obtained or computed",
+      "conv 0.0044 + T->C 0.00046 (the stray-mark rate after the meter's own false marks: meter = conv_fail + tc_err). Code: stage_law_sphere.CONV_DEFAULT = 0.0044. In the chain: card conv."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — it is a per-library instrument error rate, not a value read at a genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the register marks law_part as 'not the law: instrument or meter' and lf_section as 'not part of IAM's Law.' It is an instrument/meter quantity, with status MEASURED in blood 2026-11-15, recording meter = conv_fail + tc_err."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "conv 0.0044 (code default) + T->C 0.00046, basis measured (the stray-mark rate after the meter's own false marks); expected unmarked level as read 0.0203. source_kind: set per cell type or fixed, from a cited measurement."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. Register the stray-mark rate after the meter's own false marks status as recorded: 'MEASURED in blood 2026-11-15: meter = conv_fail + tc_err, a quarter to' (truncated); the stray-mark rate after the meter's own false marks's plain text gives the false-mark rate as a quarter to a third of the raw stray rate."
+     ],
+     [
+      "Credit",
+      "False discovery rate (statistics): Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300"
+     ]
+    ],
+    "name": "Meter (the sequencing chemistry's own false marks)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "5hmC"
+     ],
+     [
+      "In the field's terms",
+      "5-hydroxymethylcytosine (5hmC)"
+     ],
+     [
+      "Definition",
+      "5-hydroxymethylcytosine, an oxidized cytosine modification measured in blood at 0.012–0.022, that bisulfite sequencing reads as if it were a held (methylation) mark, even though it is not part of the law's measured chain."
+     ],
+     [
+      "What it does",
+      "Bisulfite sequencing reads 5hmC as a held mark ('read as held'); its expected effect is to lower readings. It is not in the chain (in_chain: NO)."
+     ],
+     [
+      "Why the instrument needs it",
+      "5hmC looks like a mark to bisulfite sequencing, so part of what is read as held can be 5hmC (blood 0.012-0.022). How the Law Sphere will treat it: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Its level is measured directly in blood (0.012–0.022) and is set per cell type or fixed, from a cited measurement, rather than computed from the law's own formula."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "5hmC is marked 'not the law: instrument or meter,' with its long-form section listed as 'not part of IAM's Law' and in_chain 'NO' — it is not a step in IAM's Law itself but an instrument-level quantity: a correction for how the measuring method reads the DNA, not a physical quantity the law predicts."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its typical value is measured in blood at 0.012–0.022, recorded as 'measured (blood)' and set per cell type or fixed, from a cited measurement — not derived from the law's own energetics."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not in the chain (in_chain: NO) and not yet on the card; measured in blood only (0.012-0.022). How it should be corrected for across cell types: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "5hmC"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Surge impedance loading (SIL)"
+     ],
+     [
+      "In the field's terms",
+      "Surge impedance loading (natural load), a power-engineering term; no methylation-field term is in the records"
+     ],
+     [
+      "Definition",
+      "SIL is the line at natural load, where the energy in the charge equals the energy in the current (1/2 CV^2 = 1/2 LI^2) and nothing is reflected. In IAM this is the sudden close onto a surface with no opposing record: held = spent, 50/50, Koide's 45 degrees (P = Q), also stated as a same-sign write onto a written field still splitting half (17.1(3))."
+     ],
+     [
+      "What it does",
+      "Not in the chain yet (owed: a natural-load reading on the Law Sphere). It names the sudden close onto a surface with no opposing record (held = spent, 50/50); the cell does NOT run at SIL: its slow close keeps 21.45 restores per loss."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads how the cell is performing against the law; a natural-load reading on the sphere is owed. The records give no further reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Established physics: a line at natural load has energy in the charge equal to energy in the current (1/2 CV^2 = 1/2 LI^2), nothing reflected (E = B energy of a free wave). IAM reading for the cell: the sudden close onto a surface with no opposing record (long form 1.8) gives held = spent, 50/50, Koide's 45 degrees (P = Q); a same-sign write onto a written field still splits half (17.1(3))."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly part of IAM's Law: link 1 (actualization, long-form section 1 — the moment a bit becomes part of the record, specifically the sudden write at natural load, long-form section 1.8) and link 4 (Koide, long-form section 4 — the record's compression from 3D to 2D, giving the 45-degree P=Q balance), with register reference X11, an earlier finding-an earlier finding, and the. Its status in the chain is 'not in the chain (owed: a natural-load reading on the Law Sphere)' — established as physics, but not yet entered as an active IAM reading."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1; link 4: long form section 4"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No healthy value: the cell does NOT run at SIL. SIL is held = spent, 50/50; the cell's slow close keeps 21.45 restores per loss, far from natural load."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "As a reading it is 'owed' rather than delivered: it is not yet in the Law Sphere's chain and has no card_key, so it cannot yet tell the instrument anything about an actual sample — it stands only as the theoretical zero-maintenance baseline (held = spent, 50/50) against which the cell's real, far-from-SIL hold (21.45 to 1) is meant to be judged once entered."
+     ],
+     [
+      "Credit",
+      "Koide 1983 (the lepton relation); Fortescue 1918 (symmetrical components); Koide's relation (particle physics): Koide Y. (1983) A fermion-boson composite model of quarks and leptons, Phys. Lett. B 120:161-165, doi 10.1016/0370-2693(83)90644-5 (the relation first appeared in 1981-82)"
+     ]
+    ],
+    "name": "Surge impedance loading (SIL)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Clock gain"
+     ],
+     [
+      "In the field's terms",
+      "Epigenetic mitotic-clock gain (writer-error rate at bare CpG islands)"
+     ],
+     [
+      "Definition",
+      "The slow clock gain: the epigenetic mitotic clock read as IAM-A's writer error made heritable, a record copied forward rather than restored, entering as a slow gain at bare islands."
+     ],
+     [
+      "What it does",
+      "It enters as a slow gain at bare islands, valued at 5e-5 per round, with the formula 'gain 5e-5 per round at bare islands'; the mitotic clock (writer errors made heritable) gives the related clock-site gain as writer 0.016-0.031 at failing-shield islands versus islands ~0."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law Sphere judges each region's fidelity, gain and level against the state the energetics of maintenance predict; the clock gain is the slow gain expected at bare islands under link 5 (records copied forward, not restored). In the chain it is an owed layer (NO: owed layer)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Basis is measured (lead, the mitotic clock (writer errors made heritable)), with source_kind 'set per cell type or fixed, from a cited measurement'; the value is 5e-5 per round, formula 'gain 5e-5 per round at bare islands', and the related register formula is 'clock-site gain: writer 0.016-0.031 at failing-shield islands vs islands ~0'."
+     ],
+     [
+      "Where it is read",
+      "At bare islands (formula: gain 5e-5 per round at bare islands)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 5 (the arrow: records copied forward, not restored), long-form section 5 ('[long form 5] ## 5. Step 5: the arrow'). Register the mitotic clock (writer errors made heritable) frames it as the epigenetic mitotic clock tick read as IAM-A's writer error made heritable. Its status is OPEN, lead, measured 2026-11-16 from kept counts (per the mitotic clock (writer errors made heritable) and the row's basis 'measured (lead, the mitotic clock (writer errors made heritable))'); it is currently flagged 'NO: owed layer', meaning it is not yet part of the Law Sphere's accounted chain."
+     ],
+     [
+      "Long-form section",
+      "link 5: long form section 5"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Expected value is 'small'; the measured default is 5e-5 per round, set per cell type or fixed from a cited measurement (source_kind), with basis measured (lead, the mitotic clock (writer errors made heritable))."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is open: lead, not closed - it is 'MEASURED 2026-11-16 from kept counts' but the mitotic clock (writer errors made heritable)'s own description trails off ('clock sites are islands where'), so the full basis is open: not in the records yet. It is also flagged 'NO: owed layer', meaning it is not yet included in the instrument's chain of accounted quantities."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Clock gain"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Pseudo value by type (coins per restore from each cell type's own healthy level)"
+     ],
+     [
+      "In the field's terms",
+      "Per-cell-type reference level for methylation-maintenance cost, expressed as coins (ATP-equivalent pushes) per restore"
+     ],
+     [
+      "Definition",
+      "A per-cell-type reference value used by the hold alarm: each of 56 cell types' own healthy level (centre and k=1 uncertainty) is written as the number of coins per restore it would take to produce that level, with the best-holding type set at the two-coin ceiling, via coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with no type allowed above 2 coins."
+     ],
+     [
+      "What it does",
+      "It supplies the per-type reference (type_positions_v1.json) loaded into the Law Sphere's runtime, giving the hold alarm a type-specific expectation to run against instead of one fixed value for all cell types."
+     ],
+     [
+      "Why the instrument needs it",
+      "Different cell types hold methylation at different natural levels, so the hold alarm needs a per-type benchmark: this pseudo-value lets it compare each type's measured hold against that type's own healthy level rather than a single universal threshold."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is measured, not derived: each type's own healthy level (centre and k=1 uncertainty, across 56 types) comes from private/web/a8_pseudo_card.json (built from a8_type_bands.csv), then converted into coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with a ceiling rule capping every type at no more than 2 coins. The card was re-anchored after the first version (1.69-2.52) set the median type near 2 and pushed low-level types above the ceiling, which the ceiling rule forbids."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — it is a per-cell-type reference value feeding the Law Sphere's runtime, not a locus read from the genome itself."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d. That section gives held/lost = (x/2)/(1-(1-e^-x)/x), and for the cell's restore x = 2M = 41.9 gives odds 21.45 (identity confirmed symbolically, GitHub run 44662887227). This row's own values are measured (each type's position), not derived: each type's measured level is rewritten as coins through that function, with the the best hold two coins can buy (a steady push) ceiling of 2 coins. What sets each type's level is still open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is each cell type's own healthy level (centre and k=1 uncertainty; 56 types), from private/web/a8_pseudo_card.json (from a8_type_bands.csv); source_kind: set per cell type or fixed, from a cited measurement. Basis: measured (each type's position), not derived."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "coins"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The card had to be re-anchored: the first version (1.69-2.52) placed the median type's coin value near 2 and pushed low-level types above the two-coin ceiling, which the ceiling rule forbids — so the current coin values are a corrected calibration against that ceiling rather than an independent physical measurement of coins themselves."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Coins per restore by type, from each cell type's measured healthy level"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Cell composition"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type composition — the deconvolved share of each cell type present in the sample."
+     ],
+     [
+      "Definition",
+      "The fitted proportion of each cell type in the sample, read from the sample's own molecules, used to build the law's expected point in that sample's own mix. It is not itself a law quantity — it is a measured input the law uses."
+     ],
+     [
+      "What it does",
+      "It supplies the per-type weights used to combine each cell type's own expected level into the single expected point for the sample, by the formula: expected point = sum of shares x each type's expected levels."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law Sphere judges HOW the cell is performing against the law by comparing measured fidelity, gain and level to a state predicted from the sample's own cell mix; since a real sample is a mixture of cell types each with its own expected level, the Sphere needs this composition to build the correct expected point before it can judge any departure against counting noise."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by IAM-Deconvolver: cell shares fitted on the atlas identity sites, read from the sample's own molecules (basis: measured (Deconvolver))."
+     ],
+     [
+      "Where it is read",
+      "Read from the sample's own molecules, fitted at the atlas identity sites used by the Deconvolver; not a single genomic location."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law). Its own law_part status says it plainly: 'not the law itself: a measured input the law uses.' It is a measured composition quantity that feeds the expected-point formula the Law Sphere compares measurements against, rather than being a step within the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No single healthy or default value is given for this row (expected: n/a) — it is measured per sample, read from the sample's own molecules (source_kind: read from the sample's own molecules), fitted by the Deconvolver on the atlas identity sites (status: measured (atlas identity); not a law quantity)."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "By its own record it is 'not a law quantity' — it does not itself report fidelity, gain, or level, only the mix used to build the expected baseline those comparisons are judged against; card_key is listed as 'not yet on the card.' Beyond this, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Cell composition"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "mu_se, per type and site"
+     ],
+     [
+      "In the field's terms",
+      "Standard error of the reference (atlas) methylation level, per cell type and CpG"
+     ],
+     [
+      "Definition",
+      "The atlas's own uncertainty, part of the floor, given per type and site."
+     ],
+     [
+      "What it does",
+      "It enters as the reference part of the floor: the atlas's own uncertainty, added to the counting floor. Used in the information sphere; in the Law Sphere it is still to confirm."
+     ],
+     [
+      "Why the instrument needs it",
+      "A departure is judged against noise, and part of that noise is the atlas's own uncertainty. mu_se supplies that reference part of the floor."
+     ],
+     [
+      "How it is obtained or computed",
+      "mu_se per type and site, from the IAM Sequencing Atlas; basis measured."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly not part of IAM's Law: its law_part is marked 'not the law: statistics (a yardstick)' and its long-form section is 'not part of IAM's Law'. It sits in the information sphere (Fisher-Rao geometry of sites across cell types), where the Law Sphere's use of it is noted as 'to confirm'."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is recorded as 'per type and site', with no separate expected value (expected: n/a), sourced from the IAM Sequencing Atlas as a measured healthy reference (source_kind)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Whether this uncertainty is formally confirmed as entering the Law Sphere is open ('information sphere yes; Law Sphere: to confirm'); the information sphere it belongs to is itself in development, with IAM's Law not yet incorporated into it, and it is not yet on the card (card_key: not yet on the card)."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Atlas uncertainty (mu_se)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Counting floor"
+     ],
+     [
+      "In the field's terms",
+      "The binomial counting-noise floor for a methylation read (the sampling error set by read depth alone)"
+     ],
+     [
+      "Definition",
+      "The exact binomial floor: the angle that counting alone gives a healthy sample read this deeply. It enters as the expected healthy distance; expected ratio ≈ 1."
+     ],
+     [
+      "What it does",
+      "It feeds into the expected healthy distance used by the hold alarm, and is marked in_chain: yes, alarm layer — so measured departures are judged against this counting baseline rather than against zero."
+     ],
+     [
+      "Why the instrument needs it",
+      "Its law_part is given as 'not the law: statistics (a yardstick)' — the instrument needs a yardstick of pure counting noise so the hold alarm can tell a real departure in hold from ordinary binomial sampling spread at a given read depth."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is calculated by the chain (statistics or geometry) using the formula 'exact binomial floor', on a basis of counting statistics."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly marked not the law: statistics (a yardstick), with lf_section 'not part of IAM's Law'. So it does not enter IAM's Law as a derivation step; it is a statistical quantity — a counting-noise yardstick — used only to calibrate the alarm layer's comparison."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is the exact binomial floor, computed on a basis of counting statistics, with an expected ratio ≈ 1 for a healthy sample read at this depth."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Its card_key is marked 'not yet on the card', so beyond what is given here: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Counting floor"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "each type's own level"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-specific baseline of maintenance-methylation discordance (ratio of measured to predicted error, by cell type)"
+     ],
+     [
+      "Definition",
+      "Each type's offset from the law: after the self-reference, each cell type still sits at its own fixed level, A = eps_measured / eps_pred(L). Row value 0.81 … 1.06, fixed with age; register gives per type 0.80-1.17. Register status: OPEN, the deciding item; row 4b lists every input tried."
+     ],
+     [
+      "What it does",
+      "It enters the Law Sphere's reckoning as the type's offset from the law — the term used to judge how far a given cell type's hold departs from what the law alone would predict."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere's hold alarm compares each type's hold with its measured healthy level; this row writes that level as each type's offset from the law."
+     ],
+     [
+      "How it is obtained or computed",
+      "Register formula A = eps_measured / eps_pred(L); per type 0.80-1.17. In the chain: tool yes (fit held_mult or coins by type, formula 'by_type held_mult or coins'); reading pending. Basis: open (measured)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "open: not yet tied to the law (law_part and lf_section). Register status: OPEN, the deciding item."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Row value 0.81 … 1.06, fixed with age; register per type 0.80-1.17 (MEASURED 2026-11-16, one command, 31 libraries). Basis open (measured); source_kind 'set per cell type or fixed, from a cited measurement'."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is flagged OPEN, the deciding item, measured 2026-11-16 from one command across 31 libraries, but what explains it — 'explained by which input?' — is unanswered; row 4b lists every input tried so far without resolving it."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Each cell type's own healthy level"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "SAM/SAH (the methyl donor's pressure)"
+     ],
+     [
+      "In the field's terms",
+      "SAM/SAH ratio (the cell's methylation potential: methyl-donor supply)"
+     ],
+     [
+      "Definition",
+      "SAM/SAH, the ratio tied to the methyl donor, which IAM's own plain language calls 'the methyl donor's pressure.' In this record its value is 'sealed test' and it is not yet part of the active chain (in_chain: NO)."
+     ],
+     [
+      "What it does",
+      "It would enter the Law Sphere as energy vs supply: the funding side, link 2b (the free energy that pays each write). It is not in the chain now (in_chain NO; value 'sealed test')."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 17, the Law Sphere, measures HOW the cell performs against the law by comparing the state predicted from the energetics of maintenance against what is measured; this input would supply the funding term that link 2b calls for, though it is presently held as a sealed test rather than live in that comparison."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula: SAM/SAH ratio. Basis: open; expected: n/a; source_kind 'set per cell type or fixed, from a cited measurement'. Not computed by the chain yet (in_chain NO)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 2b (the funding: the free energy that pays each write), long-form section 2b, 'where the free energy that pays each write comes from'. Its basis is open, its value is a sealed test, and it is not in the chain (in_chain NO). It is listed in the inventory for each cell type's own healthy level, which is open: not yet tied to the law."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its recorded value is 'sealed test,' with basis 'open' and source_kind 'set per cell type or fixed, from a cited measurement'; no expected value is given (expected: n/a)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not currently part of the chain (in_chain: NO) and not yet placed on the card (card_key: not yet on the card); basis remains open, so what this ratio would show once active is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "SAM/SAH"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Never-marked islands set, sequencing (shared by the globe and the Law Sphere)"
+     ],
+     [
+      "In the field's terms",
+      "CpG islands unmethylated in every healthy cell type (constitutively unmethylated islands), defined from sequencing with measured noise"
+     ],
+     [
+      "Definition",
+      "One island set, read two ways (the Sequencing Globe asks where, the Law Sphere asks how). Version v2, by measured noise (seq_halves.py; 137 inputs, 48 cells): never-marked islands 293,980 at 0.20, 124,282 at 0.10, 4,039 at 0.05; domains 2,675,894; read in every cell's two halves 22,033,507. Version v1 (raw maximum) was 1,003,203 / 11,482,817: about 70 % and 77 % noise-made."
+     ],
+     [
+      "What it does",
+      "It is the shared pool that feeds both the Sequencing Globe's WHERE question (which islands and regions departed, gain blocks, and whether written or lost marks come in clumps) and the Law Sphere's HOW question (stray writing judged against the writer's 1/(1 + D), the eraser's clean-up, and the hold)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere needs this shared set to test stray writes against IAM's Law, the write layer (stray writes 1/(1 + D)) and the hold; the packet notes it is only partly in that chain, since the unused-islands layer draws on its own separate pool."
+     ],
+     [
+      "How it is obtained or computed",
+      "Membership v2 uses the noise maps: a CpG is never marked only when every type's level sits below the threshold by more than its measured noise (counting noise from read halves; person-to-person noise from donor halves minus read halves). Counts at the three thresholds: 293,980 at 0.20, 124,282 at 0.10, 4,039 at 0.05. v1 used the raw maximum (seq_terr_sets_v1, 2026-11-20): 1,003,203 / 11,482,817, about 70 % and 77 % noise-made."
+     ],
+     [
+      "Where it is read",
+      "CpG islands genome-wide, from the IAM Sequencing Atlas (source: 57 cells, megakaryocytes left out: identification only; v2 run: 137 inputs, 48 cells); 22,033,507 read in every cell's two halves."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law at the write layer — stray writes 1/(1 + D) — and the hold, but the packet's own lf_section status for this tie is 'open: not yet tied to the law,' so the link is named but not yet worked out in the long form."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No single fixed value yet — basis is measured (atlas levels), with the threshold still to be set from the noise maps. Current v2 readings: 293,980 islands at 0.20, 124,282 at 0.10, 4,039 at 0.05, source IAM Sequencing Atlas (57 cells; megakaryocytes left out for identification only), source_kind read from the sample's own molecules."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The threshold is not yet fixed (to be set from the noise maps); card_key is 'not yet on the card'; the law tie is marked 'open: not yet tied to the law'; the set is only partly in the chain, since the unused-islands layer uses its own separate pool; and the older v1 (raw-maximum) count was about 70 % and 77 % noise-made, meaning it substantially overstated true never-marked islands."
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "Never-marked islands set, sequencing (shared by the globe and the Law Sphere)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coin by type"
+     ],
+     [
+      "In the field's terms",
+      "ΔG_ATP (free energy of ATP hydrolysis), varying by cell type"
+     ],
+     [
+      "Definition",
+      "The free energy of ATP hydrolysis measured by cell type, given as ΔG_ATP 53.5–61.7 (a ×1.14 range), based on measurement in a few tissues."
+     ],
+     [
+      "What it does",
+      "It enters a type's whole axis (a type's coin size). Recorded expectation: ruled out alone as the source of each type's own level (a different coin size by cell type: the body's range of ATP energy is too narrow to do it alone)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs to build the law's expected state in the sample's own cell-type composition, and this coin size is tested as a second route toward explaining each cell type's own healthy level."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is set per cell type or fixed, from a cited measurement (basis: measured, few tissues); the formula gives dG_ATP by type as a ×1.14 range, with an elasticity of -0.93, and notes that matching each cell type's own healthy level by this route alone would require a coin range of ×1.42, while the physiological band is only ×1.143."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law itself — it is explicitly marked as a measured input the law uses, not the law. It is carried in the open record with status OPEN, data-limited, including a later correction noted on 2026-11-17 whose text is cut off in the record."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is ΔG_ATP 53.5–61.7 (×1.14 range), set per cell type or fixed from a cited measurement in a few tissues."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is OPEN, data-limited. By its own formula, this coin-size route is ruled out alone: it would need a ×1.42 range to account for each cell type's own healthy level, but the body's physiological band of ΔG_ATP is only ×1.143 — too narrow to do it by itself."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Coin by type"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Dyad triple (U, H, M)"
+     ],
+     [
+      "In the field's terms",
+      "CpG dyad methylation state (unmethylated / hemimethylated / fully methylated)"
+     ],
+     [
+      "Definition",
+      "One CpG pair's U/H/M state — unmarked, half, or marked — the three possible methylation states of a single CpG dyad."
+     ],
+     [
+      "What it does",
+      "It enters the system as the three-phase record per site: the per-CpG-dyad state meant to feed the record that link 4 of IAM's Law compresses."
+     ],
+     [
+      "Why the instrument needs it",
+      "The row ties the dyad triple to IAM's Law link 4 (Koide: the record's compression) as the three-phase record per site; per-site data are missing (in_chain 'NO: data gap')."
+     ],
+     [
+      "How it is obtained or computed",
+      "Not yet obtained from real measurement: the value is listed as 'simulator only,' with source_kind 'no data yet (setting with a default, moved by hand)' — a hand-set default rather than a derived or measured quantity, and its basis is 'open (data gap)'."
+     ],
+     [
+      "Where it is read",
+      "Per CpG site: one CpG pair's U/H/M, entered as a three-phase record per site; no further genomic coordinate is given in the packet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 4 (Koide: the record's compression), long-form section 4, 'Koide as the record's compression from 3D to 2D'. It enters as the three-phase record per site. Basis: open (data gap); in_chain 'NO: data gap'; simulator only."
+     ],
+     [
+      "Long-form section",
+      "link 4: long form section 4"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No measured or derived default exists yet; the value is 'simulator only,' entered by hand as a placeholder (source_kind: 'no data yet (setting with a default, moved by hand)'), and the expected value by cell type is listed as 'unknown by type'."
+     ],
+     [
+      "Where its value comes from",
+      "no data yet (setting with a default, moved by hand)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This is an open data gap: in_chain is marked 'NO: data gap,' the expected level by cell type is unknown, and the item is 'not yet on the card.' It cannot currently feed the law's state estimate because there is no real measured value behind it yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Dyad triple (U, H, M)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Ceilings"
+     ],
+     [
+      "In the field's terms",
+      "Rate ceilings: the Bekenstein bound, the Margolus-Levitin bound, and kT/h, used as upper limits on any rate."
+     ],
+     [
+      "Definition",
+      "Upper limits on any rate, drawn from established quantities (Bekenstein, Margolus-Levitin, kT/h); held in the register as ceilings rather than computed inside the chain."
+     ],
+     [
+      "What it does",
+      "It bounds the rates ('enters': 'bound the rates') that other quantities in the chain can take, without itself being carried through the in-chain computation ('in_chain': 'NO (ledger only)')."
+     ],
+     [
+      "Why the instrument needs it",
+      "They bound the rates: upper limits on any rate. They are kept in the ledger only, not carried in the chain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Formula/value as given: Bekenstein, Margolus-Levitin, kT/h. Source kind: set per cell type or fixed, from a cited measurement. Basis: established."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This entry is filed under IAM's Law, link 2 (the price: k_BT ln 2 per bit at the surface's own temperature), long-form section 2 ('Step 2: the price'). Its basis is 'established', but it is marked 'NO (ledger only)' — it sits in the register as a boundary check on rates rather than being carried through the in-chain computation."
+     ],
+     [
+      "Long-form section",
+      "link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is simply 'Bekenstein, Margolus-Levitin, kT/h', its expected field reads 'n/a', and its source kind is 'set per cell type or fixed, from a cited measurement'; it is 'not yet on the card', so no specific healthy number is assigned to it here."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Expected is 'n/a' and it is 'not yet on the card', so it offers no comparable measured value of its own — it exists only to bound rates (ledger only), not to be read out or judged against counting noise the way in-chain quantities are."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Ceilings"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "The Law Sphere's (instrument 17) Fisher-Rao angle and fidelity, here reported under their standard genetic-distance statistics/information-geometry names"
+     ],
+     [
+      "In the field's terms",
+      "Bhattacharyya coefficient, Cavalli-Sforza chord distance, and fidelity"
+     ],
+     [
+      "Definition",
+      "The sample's distance from the law's point on the square-root sphere, given in three linked forms researchers already use: the Bhattacharyya coefficient (the cosine of the angle), the Cavalli-Sforza chord (the straight-line distance through the sphere), and fidelity (the cosine squared). These are the same numbers as the Fisher-Rao angle the Law Sphere already computes."
+     ],
+     [
+      "What it does",
+      "It restates the sample's departure from the law's predicted point as BC (cos of theta_FR), the chord distance 2 sin(theta/2), and fidelity F = BC^2, so the same geometric readout can be recognized under names already standard in genetic-distance statistics and information geometry."
+     ],
+     [
+      "Why the instrument needs it",
+      "The in_chain note says this is a candidate whose purpose is to report the same numbers as the Fisher-Rao angle and fidelity already computed by the Law Sphere, but 'under the names researchers know' — so results connect to established literature rather than requiring a new, instrument-specific vocabulary."
+     ],
+     [
+      "How it is obtained or computed",
+      "BC = sum sqrt(p q) = cos(theta_FR); chord = 2 sin(theta/2) (Cavalli-Sforza and Edwards 1967); fidelity F = BC^2. Credited to Bhattacharyya (1943, Bull. Calcutta Math. Soc. 35:99-110) for the coefficient, Rao (1945, Bull. Calcutta Math. Soc. 37:81-91) for the Fisher information metric, and Cavalli-Sforza & Edwards (1967) for the arc and chord distance on square roots of allele frequencies."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: it is a statistical/geometric recasting of the already-computed Fisher-Rao angle, not a quantity read at a specific genomic site, though its source_kind is 'read from the sample's own molecules.'"
+     ],
+     [
+      "Where IAM's Law enters",
+      "The packet's own law_part field marks this explicitly: 'not the law: statistics and geometry (the instrument),' and lf_section states 'not part of IAM's Law.' It is a geometric/statistical readout of what the Law Sphere already computes, not a step in IAM's Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No standalone default or typical numeric value is given in this row — it carries the same numbers as the Fisher-Rao angle and fidelity computed elsewhere in the Law Sphere. Source: ; standard references, basis 'established (information geometry; genetic-distance statistics)', source_kind 'read from the sample's own molecules.'"
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Status is candidate, with card_key 'not yet on the card.' The in_chain note states it is 'the same numbers as the Fisher-Rao angle and fidelity already computed,' so it adds no new measurement — only a renaming for comparability with the genetic-distance statistics and information-geometry literature."
+     ],
+     [
+      "Credit",
+      "Bhattacharyya, A. (1943) Bull. Calcutta Math. Soc. 35:99-110 (coefficient; the angle between square-root vectors); Rao, C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (the Fisher information metric); Cavalli-Sforza, L.L. & Edwards, A.W.F. (1967) (arc and chord distance on square roots of allele frequencies)"
+     ]
+    ],
+    "name": "Bhattacharyya coefficient and Cavalli-Sforza chord distance (named forms of the sphere's geometry)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Island units against the law (how) — read on IAM's Law Sphere (instrument 17)"
+     ],
+     [
+      "In the field's terms",
+      "Spurious (stray) methylation at never-methylated CpG islands against the predicted write-error rate plus the sequencing meter, with a common-mode versus island-specific split"
+     ],
+     [
+      "Definition",
+      "The same islands as units of the Law Sphere: how their stray writing compares with the law's writer rate plus the meter, and whether the change is the whole island record (common part) or one job (balanced part)."
+     ],
+     [
+      "What it does",
+      "Per never-marked island it compares the measured stray level with the expected stray level 1/(1 + D) + meter - eraser clean-up, and gives the Fisher-Rao angle, fidelity, power factor and an alarm over the counting floor, plus a Koide split into the common and balanced parts. Status: candidate: owed."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to show HOW the cell is performing against the law, so it needs a per-island readout judged against both the law's derived write-layer expectation and the measured background noise; this particular row is currently in_chain as 'candidate: owed', meaning it is proposed as a feed into that accounting but not yet settled."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as the expected stray level 1/(1 + D) plus the meter term, minus eraser clean-up, per never-marked island; from this are derived the Fisher-Rao angle, fidelity, power factor, an alarm set only above the counting floor, and a Koide split separating the common (whole-island) part from the balanced (single-job) part. Each unit is read from molecules by IAM-A's rule, with the law's expected state built from the sample's own composition and the departure judged against counting noise."
+     ],
+     [
+      "Where it is read",
+      "Per never-marked CpG island (each island one unit of the Law Sphere)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits within IAM's Law at the write layer (law_part: IAM's Law, the write layer), credited to IAM's Law (this work); however the long-form section tying it formally into the law is marked lf_section: 'open: not yet tied to the law', so its place in the law's derivation chain is still open."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Basis: the law (derived write layer) and measured noise; source_kind 'set per cell type or fixed, from a cited measurement'. No value is recorded yet (candidate: owed)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Candidate: owed (not in the chain yet); lf_section open: not yet tied to the law; not yet on the card. The Koide split reading cites Koide's formula, and the original paper is still to be confirmed before citing."
+     ],
+     [
+      "Credit",
+      "IAM's Law (this work); Koide split reading: Koide's formula (original paper to confirm before citing); symmetrical components: Fortescue, C.L. (1918) AIEE 34th Convention, 37:1027-1140"
+     ]
+    ],
+    "name": "Island units against the law (how)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Temperature"
+     ],
+     [
+      "In the field's terms",
+      "Cell (body) temperature"
+     ],
+     [
+      "Definition",
+      "Body temperature, fixed at T = 310.15 K (the cell's temperature)."
+     ],
+     [
+      "What it does",
+      "It sets the size of one thermal kick, k_B T, and enters the calculation M = dG_ATP / (R T)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere instrument reads HOW the cell is performing against the law by building the law's expected state from the sample's own energetics, and that calculation (via M) requires this temperature value as an input."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured (the cell's temperature): T = 310.15 K, entered in the chain as the card T_K, and used wherever M = dG_ATP / (R T) is computed."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Explicitly marked as not the law itself: a measured input the law uses (law_part), and it is not part of IAM's Law (lf_section). Status: measured."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is set per cell type or fixed, from a cited measurement (source_kind), with the cited value being 310.15 K (the cell's temperature)."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "T_K"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Temperature"
+   }
+  ],
+  "job": "HOW the cell is performing against the law",
+  "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED. IAM's Law, step 4 (Koide as the record): Koide's Q = (1 + CV^2)/3; the record keeps (scale, action) and drops the phase delta; axis share 1/(NQ): Q = 2/N holds exactly half, any N, any d; a sudden write gives Q = 2/3 with nothing fitted. Status: DERIVED (identities and the sudden-write split). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
+  "link": "17. IAM's Law Sphere",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Alarm"
+     ],
+     [
+      "In the field's terms",
+      "A standardized deviation score for how far the sample's measured methylation state sits from the law's predicted state, expressed in units of counting noise alone (an angle-to-model ratio)."
+     ],
+     [
+      "Definition",
+      "alarm = theta_law / theta_floor: the angle to the law divided by the counting floor. A value of 1 means the sample is indistinguishable from the law's prediction at this depth."
+     ],
+     [
+      "What it does",
+      "It measures how far the sample sits from the law's expected state, in units of what counting noise alone would give. 1 = indistinguishable from the law at this depth."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads how the cell is performing against the law; the alarm states the departure from the law's expected state in units of what counting noise alone gives."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references: alarm = theta_law / theta_floor, the angle to the law over the counting floor."
+     ],
+     [
+      "Where it is read",
+      "Whole-sample reading in the test (development.law_sphere.whole.alarm_law). The instrument reads each unit (an island, or 50 CpGs) from molecules; how the alarm is reported per unit: open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This output reads IAM's Law through links 1d and 2 by geometry. Link 1d ('The maintained hold is the same rule, slow') derives the held/lost ratio as one function of how slow the restore write is, x in kicks: held/lost = (x/2)/(1-(1-e^-x)/x); for the cell's restore x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 (~ln M/M). This identity is confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1). Link 2 ('Step 2: the price') is named but its content is not given here. On a healthy library the alarm itself tests at 2.49, status CHECK, unchanged by a later level-layer update: the level angle (0.075 rad) is 2.5x its floor because the law's level point does not yet carry each cell type's own healthy level or the copy terms."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 1, set by counting statistics alone — meaning at a given depth, a healthy sample's alarm should be indistinguishable from the law's prediction given measurement noise."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "On a healthy library this alarm tests at 2.49, not the healthy value of 1: the level angle (0.075 rad) is 2.5x its floor because the law's level point does not yet carry each cell type's own healthy level or the copy terms. This is marked CHECK and was unchanged by a later level-layer update, so the gap is still open at the level of this reading."
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Alarm"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Angle to the law (phase angle)"
+     ],
+     [
+      "In the field's terms",
+      "Fisher-Rao angle to the law's predicted methylation state"
+     ],
+     [
+      "Definition",
+      "The Fisher-Rao angle between the sample's state and IAM's Law's point, computed per unit and taken as an RMS over units; 0 means exactly in phase with the law."
+     ],
+     [
+      "What it does",
+      "It measures, by geometry, how far the sample's observed state sits from the state IAM's Law predicts, unit by unit, then summarizes that departure as a single RMS angle."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is HOW the cell is performing against the law, judging each unit's departure against counting noise; this angle is the geometric readout of that departure, built from the law's expected state in the sample's own composition."
+     ],
+     [
+      "How it is obtained or computed",
+      "theta = arccos sum sqrt(p q) per unit (Fisher-Rao angle), computed for each unit (an island, or 50 CpGs) and then taken as an RMS over units; it is computed by the chain from the sample's molecules and its references, comparing molecules read by IAM-A's rule against the law's expected state built in the sample's own cell mix."
+     ],
+     [
+      "Where it is read",
+      "Read per unit across the genome, where each unit is an island or a block of 50 CpGs, not a single locus (code_ref: stage_law_sphere.LAYERS.angle_law)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law through links 1d and 2 (long-form sections 1d and 2): the law's expected point is built using link 1d, the maintained-hold-as-slow-write rule (identity confirmed symbolically on GitHub, run 44662887227), and link 2, 'the price' (step 2, content not given in these records); this angle then reads that law point through Fisher-Rao geometry. Register the information sphere notes the geometry itself is established mathematics and is not itself the law - the law enters through the Law Sphere's expected point, which this angle measures against."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is 'within the floor', with the basis being geometry worked out against the derived law point. A computed check value of 0.07506 is recorded for this quantity, with test_state 'CHECK: follows o00'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "Rao 1945 (Fisher-Rao distance); Bhattacharyya 1943; Fisher-Rao information geometry (not cosmology): Rao C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (Fisher-Rao distance); Bhattacharyya A. (1943) Bull. Calcutta Math. Soc. 35:99-109; Cavalli-Sforza L.L. & Edwards A.W.F. (1967) Phylogenetic analysis: models and estimation procedures, Evolution 21:550-570, doi 10.1111/j.1558-5646.1967.tb03411.x (the chord distance on the sphere)"
+     ]
+    ],
+    "name": "Angle to the law (phase angle)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Fidelity (fidelity_law, within 17. IAM's Law Sphere)"
+     ],
+     [
+      "In the field's terms",
+      "Fidelity (a state fidelity: cos²θ to the predicted state)"
+     ],
+     [
+      "Definition",
+      "F = cos^2 theta: the cosine squared of the angle between the sample's measured state and the law's expected state, read through geometry."
+     ],
+     [
+      "What it does",
+      "It reads the law (links 1d and 2) through geometry, giving cos² of that angle; the packet's plain statement is 'Fidelity to the law: 1 is exactly the law's state.'"
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to show HOW the cell is performing against the law, judging the departure of the measured state from the state predicted from the energetics of maintenance in the sample's own cell mix; fidelity is the geometric readout of that departure."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (source_kind: computed by the chain from the sample's molecules and its references), using F = cos^2 theta; it is in_chain at a chain update, code_ref stage_law_sphere.LAYERS.fidelity_law. A test run recorded test_value 0.99438 with test_state OK."
+     ],
+     [
+      "Where it is read",
+      "Read region by region in the instrument's own units, an island or 50 CpGs, per the Law Sphere's method (field_how); not a single fixed genomic locus."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Reads the law through geometry (law_part: 'reads the law (links 1d and 2) through geometry'); long-form sections 1d and 2. Section 1d gives held/lost = (x/2)/(1-(1-e^-x)/x), with the cell's restore at x = 2M = 41.9 giving odds 21.45 (identity confirmed symbolically, GitHub run 44662887227). Section 2 is 'the price'. The geometry the information sphere is DEVELOPMENT, and IAM's Law is not yet in the information sphere; the law enters through the Law Sphere's expected point."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value ~1 (exactly the law's state), basis: geometry."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The register this output draws on (the information sphere, the information sphere behind the Law Sphere's geometry) is status DEVELOPMENT: its Fisher-Rao geometry across cell types is established mathematics, but IAM's Law is noted as NOT YET in it; beyond that, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Fidelity"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Power-factor reading (the power_factor layer of IAM's Law Sphere, code_ref stage_law_sphere.LAYERS.power_factor)"
+     ],
+     [
+      "In the field's terms",
+      "Cosine of the angle between the sample's state and the law's expected state (a cosine similarity; its square is the fidelity)"
+     ],
+     [
+      "Definition",
+      "PF = cos(theta), the cosine of the angle between the sample's state and the law's expected state, read through geometry (the cosine of the angle, the quantity electrical engineering calls power factor)."
+     ],
+     [
+      "What it does",
+      "Reads the law (links 1d and 2) through geometry: PF = cos theta, the cosine of the angle between the sample's state and the law's state. Fidelity is its square."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere shows how the cell is performing against the law; the power-factor reading condenses that into the cosine of the angle between the sample's state and the law's state (healthy ~1)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, using PF = cos theta. On the test path development.law_sphere.whole.power_factor it read 0.99718, state OK."
+     ],
+     [
+      "Where it is read",
+      "The Law Sphere reads each unit (an island, or 50 CpGs) from molecules by IAM-A's rule; the recorded test value is a whole-sample reading (development.law_sphere.whole.power_factor)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Reads the law (links 1d and 2) through geometry; long-form sections 1d ('The maintained hold is the same rule, slow') and 2 ('the price'). Section 1d: held/lost = (x/2)/(1 - (1 - e^-x)/x); for the cell x = 2M = 41.9, odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ~ ln M/M; identity confirmed symbolically (GitHub run 44662887227; sudden limit odds = 1). The geometry (the information sphere, Fisher-Rao) is 'not the law: geometry (a yardstick)', status DEVELOPMENT; IAM's Law is not yet in it and enters through the Law Sphere's expected point."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy ~1 (basis: geometry). The development test (development.law_sphere.whole.power_factor) read 0.99718, state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The geometry this reading runs on (the information sphere, Fisher-Rao sphere) is established mathematics but is explicitly 'not the law' by itself — only a yardstick — and is marked DEVELOPMENT, with IAM's Law not yet incorporated into that information-sphere geometry; the Law Sphere reading combines that yardstick with the law's expected point separately. Beyond this, open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Power-factor reading"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Angle between law and atlas"
+     ],
+     [
+      "In the field's terms",
+      "Angle between the law's predicted state and the measured healthy atlas"
+     ],
+     [
+      "Definition",
+      "The angle (theta) between the law's derived reference point and the atlas's measured reference point, with no sample included — how far healthy sits from the law, not how far any one sample sits from anything."
+     ],
+     [
+      "What it does",
+      "It measures how far healthy cells sit from the law. If the law layer were complete this angle would be near 0."
+     ],
+     [
+      "Why the instrument needs it",
+      "It shows how far healthy cells sit from the law, with no sample in it; if the law layer were complete it would be near 0."
+     ],
+     [
+      "How it is obtained or computed",
+      "Theta between the law's point and the atlas's, with no sample (basis: derived law point against the measured atlas); code stage_law_sphere.LAYERS.angle_law_atlas, in the chain; register reference an earlier finding."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This angle reads the law through links 1d and 2 (long-form sections 1d and 2). Section 1d gives the maintained-hold rule as one function of the slow-write parameter x (held/lost = (x/2)/(1-(1-e^-x)/x)); for the cell's restore x=2M=41.9, giving odds 21.45, E_hold=3.066 kT, and phi=0.1464≈ln M/M — an identity the records say was 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'. Link 2 is headed 'the price' in the long form but its content is not given here. The angle itself is marked derived: the law's point, built from this machinery, is compared geometrically to the atlas's point with no sample in it, and the test reading is 0.06958, stated as 'healthy sits 0.070 rad from the law (the law layer is incomplete)'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy: 0 (near 0 if the law layer were complete). Test reading 0.06958 (development.law_sphere.whole.angle_law_atlas_rms): healthy sits 0.070 rad from the law (the law layer is incomplete)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "No sample in it: it reads the law layer against the healthy atlas, not any one sample. The reading, 0.070 rad against a healthy 0, records that the law layer is incomplete."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Angle between law and atlas"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Angle to the atlas"
+     ],
+     [
+      "In the field's terms",
+      "Fisher-Rao (information-geometry) distance, expressed as an angle, between the sample and the healthy cell-type reference atlas"
+     ],
+     [
+      "Definition",
+      "The sample's state measured against the healthy atlas, expressed as the angle theta between the sample and the atlas, computed in the information sphere's own geometry (the information sphere: Fisher-Rao geometry of sites placed by how they behave across cell types)."
+     ],
+     [
+      "What it does",
+      "It computes theta, the angle separating the sample's measured state from the healthy atlas, unit by unit — each unit being an island or a block of 50 CpGs — within IAM's Law Sphere."
+     ],
+     [
+      "Why the instrument needs it",
+      "The sample against the healthy atlas (plain): a geometric yardstick (the information sphere) beside the law-based layers of the Law Sphere."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (code stage_law_sphere.LAYERS.angle_atlas): theta between the sample and the atlas, in the information sphere's Fisher-Rao geometry."
+     ],
+     [
+      "Where it is read",
+      "Read per unit across the genome — each island or each block of 50 CpGs, per the instrument's field_how — not at a single locus; register ref SP1."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its own law_part states plainly this is 'not the law: geometry (a yardstick)' — the angle itself is not part of IAM's Law, only the geometric measuring stick (Fisher-Rao geometry, the information sphere) used ahead of the law's expected point. the information sphere's status is DEVELOPMENT: the geometry is established mathematics, but 'IAM's Law NOT YET in it.' The row's own lf_section confirms this is 'not part of IAM's Law.'"
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is given as 'within the floor,' with basis 'measured (the atlas).' The test at development.law_sphere.whole.angle_atlas_rms currently reads 0.0511, test_state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Geometry only: the information sphere status 'DEVELOPMENT; geometry is established mathematics; IAM's Law NOT YET in it' (truncated). It reports distance from the atlas, not a law-based reading. Further limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Angle to the atlas"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Hold vs law"
+     ],
+     [
+      "In the field's terms",
+      "Held methylation error measured against the physics-only (energetics-of-maintenance) baseline error, region by region"
+     ],
+     [
+      "Definition",
+      "Held error divided by the law's own predicted error: 'Held error against physics alone (not self-referenced).'"
+     ],
+     [
+      "What it does",
+      "Computed as eps_read / eps0, with eps0 = 0.04454 — the measured hold error in a unit (an island, or 50 CpGs) is expressed as a ratio to the baseline hold error the law alone predicts."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law Sphere judges HOW the cell performs against the law. This layer compares held error with physics alone (eps0 = 0.04454 from the held error set by the coin and the two-coin push), not self-referenced; it reads 1 at the median type, and each cell type's own healthy level moves it."
+     ],
+     [
+      "How it is obtained or computed",
+      "formula: eps_read / eps0, eps0 = 0.04454; eps0 itself comes from the held error set by the coin and the two-coin push: odds = (w/2)/(1-(1-e^-w)/w), w = 2M = 41.88 → odds 21.45, eps0 = 1/(1+odds) = 0.04454. source_kind: computed by the chain from the sample's molecules and its references, in_chain yes."
+     ],
+     [
+      "Where it is read",
+      "Read region by region, each unit being an island or 50 CpGs, per the instrument's field_how; no single genomic coordinate is given beyond this."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters at IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d. That section states the maintained hold is one function of how slow a write is, held/lost = (x/2)/(1-(1-e^-x)/x); for the cell x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ≈ ln M / M, against the sudden limit where kept = lost. Status: 'DERIVED (from M, the derived 2-ATP price and the derived ceiling; status raised' [as recorded, the held error set by the coin and the two-coin push], with the identity further 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)' in the long form."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 1 at the median type; each cell type's own healthy level moves it, with basis 'derived ε (the held error set by the coin and the two-coin push)'. The recorded test value is 0.9548, test_state 'OK after a chain update: 0.9548 (healthy library near the law)'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The record shows test_value 0.9548 with test_state 'OK after a chain update: 0.9548 (healthy library near the law)'; beyond this validation point, further limits on this quantity are open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Hold vs law"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Hold vs self"
+     ],
+     [
+      "In the field's terms",
+      "Observed held (methylation) error measured against the sample's own predicted held error — a self-referenced fidelity ratio"
+     ],
+     [
+      "Definition",
+      "eps_read ÷ eps_pred(L): the sample's measured held error compared with the held error IAM-A's own baseline line predicts for that sample's loose share, L. Plain: 'Held error against the sample's own line: IAM-A's self-reference.'"
+     ],
+     [
+      "What it does",
+      "Gives held error ÷ IAM-A's own prediction for the sample. Caveat: on a mixture, IAM-A gives no loose share, so the sphere uses its own pooled value over the mix; this layer (and coins-per-restore built on it) is then not one cell's reading, so the per-job layers should be used instead."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is judging HOW the cell is performing against IAM's Law, with each reading checked against its own noise; the hold alarm compares each type's hold with its measured healthy level, so a self-referenced ratio is needed to judge a sample's held error against the line expected for that sample rather than a generic one."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as eps_read / eps_pred(L), where eps_pred(L) = firm + 0.034625 x L (L = the sample's loose share, the slope of IAM-A's line with loose share). It is computed by the chain from the sample's molecules and its references, is in_chain, under code_ref stage_law_sphere.LAYERS.hold_vs_self."
+     ],
+     [
+      "Where it is read",
+      "Not a single locus: read per unit (an island, or 50 CpGs) from molecules by IAM-A's rule, as part of the chain; no further genomic location is given in the records."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 1d (long form section 1d: 'the hold is the same rule, slow — the slow-write rule'), where held/lost = (x/2)/(1-(1-e^-x)/x); for the cell's restore x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, phi = 0.1464. For this specific row, status is partly derived (IAM-A's self-reference line: intercept derived, slope partly)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 1 (A within the band), with basis partly derived — from IAM-A's self-reference line, where the intercept is derived and the slope only partly so."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "On a mixture, IAM-A supplies no loose share, so the sphere substitutes its own pooled value over the mix; this makes the layer (and anything built on it, like coins per restore) not a reading of one cell type, so the per-job layers should be used instead. Also, in the baseline slope, only the within-sample part (from the pump) is derived; the remainder is each cell type's own healthy level and is not yet derived."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Hold vs self"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Kicks held"
+     ],
+     [
+      "In the field's terms",
+      "Free energy held per methylated CpG mark, expressed in thermal units (kT)"
+     ],
+     [
+      "Definition",
+      "The energy holding each mark, in thermal kicks: computed as ln((1 - eps)/eps) from the chain's measured hold-error (eps) for a unit (an island, or 50 CpGs), inside IAM's Law Sphere instrument (instrument 17)."
+     ],
+     [
+      "What it does",
+      "It turns the measured fraction of marks lost at a site or unit into the energy, in kT, needed to hold that mark in place against thermal kicks — the stored-energy reading the Law Sphere reports region by region."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads how the cell is performing against the law; kicks held gives the energy holding each mark in thermal kicks, to compare with the law's 3.07 kT (ln 21.45)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references using the formula ln((1 - eps)/eps); it is in_chain at a chain update (code_ref stage_law_sphere.LAYERS.kicks_held), with status 'derived (the share of each coin kept as hold)'."
+     ],
+     [
+      "Where it is read",
+      "Read per unit — an island, or 50 CpGs — from the sample's molecules by IAM-A's rule, as described by the instrument's own method; no single genomic coordinate is given beyond that unit size."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits in IAM's Law, link 1d — 'the hold is the same rule, slow' (the slow-write rule), long-form section 1d. That section gives held/lost = (x/2)/(1 - (1 - e^-x)/x) for a write of slowness x in kicks; for the cell's restore, x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464. Status: derived (the held error set by the coin and the two-coin push; the share of each coin kept as hold), with the identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 3.07 kT (ln 21.45), status derived (the share of each coin kept as hold), from M alone: w = 2M = 41.88 gives odds = (w/2)/(1-(1-e^-w)/w) = 21.45, and eps0 = 1/(1+odds) = 0.04454 (the held error set by the coin and the two-coin push) — two coins pushed steadily lose a mark about 4.5% of the time, set by the thermal part of M alone."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The chain's own test run gives Kicks held = 3.1141 kicks against the law's derived 3.07 kT, marked 'OK after a chain update'; beyond that check, how exactly the measured chain value and the derived healthy value should align is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Kicks held"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "φ (phi)"
+     ],
+     [
+      "In the field's terms",
+      "No standard field term in the records; in thermodynamic terms, the fraction of the ATP free-energy drive (M, in units of kT) retained as the hold: ln(odds)/M"
+     ],
+     [
+      "Definition",
+      "The share of each coin kept as hold. A share of the coin, not the slow-close version of the energy half."
+     ],
+     [
+      "What it does",
+      "It records, for the sample, the fraction of each coin's drive that ends up retained as held maintenance, computed as kicks held / M."
+     ],
+     [
+      "Why the instrument needs it",
+      "The register frames this as asking why the cell holds phi = 0.147 of its drive, contrasting it with the black hole (which hold 1/2) and the horizon (which holds 1) — IAM's Law Sphere instrument uses it to judge HOW the cell is performing against the law, region by region, against the state predicted from the energetics of maintenance in the sample's own cell mix."
+     ],
+     [
+      "How it is obtained or computed",
+      "Derived from M alone: phi = ln(odds)/M ~ ln M / M = 0.1464 (measured 0.1473), per the share of each coin kept as hold; the row's own formula states it as kicks held / M. In the test path (development.law_sphere.whole.phi) the chain produced 0.14872, logged as 'OK after a chain update: 0.14872 (law 0.1464)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits on IAM's Law, link 3 — 'the half, and the cell's derived departure from it' — corresponding to long-form section 3, titled 'the virial half' ([long form 3] ## 3. Step 3: the virial half). Its status there is DERIVED from M alone (phi_candidate 0.1464 vs measured 0.1473; the held error set by the coin and the two-coin push)."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 0.1464, basis 'derived (the share of each coin kept as hold)', obtained via phi = ln(odds)/M ~ ln M/M. It is in the chain and is computed by the chain from the sample's molecules and its references; the test path confirms the figure as 0.14872 against the law value 0.1464, marked OK after a chain update."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "φ"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Coins per restore"
+     ],
+     [
+      "In the field's terms",
+      "Inferred ATP equivalents per remethylation event (the energy cost per restore implied by the observed maintenance error)"
+     ],
+     [
+      "Definition",
+      "The coin count that would give the held error read: the number of ATP-equivalent coins that, run through the held-error formula, would produce the held error actually observed in a unit."
+     ],
+     [
+      "What it does",
+      "It is the coin count that gives the held error read."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere's job is to judge how the cell is performing against IAM's Law, region by region, against the state predicted from the energetics of maintenance. This quantity sits at link 2b of that Law, the funding step - the free energy that pays each write - so it lets the instrument express an observed held error back in terms of the coin cost that would explain it."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references, as the value c such that eps(c M) = eps_read, i.e. the inverse of the held error set by the coin and the two-coin push's held-error formula. In the development build this reads 2.1015, recorded as 'OK after a chain update: 2.1015 (law 2)'."
+     ],
+     [
+      "Where it is read",
+      "Whole-sample reading in the test (development.law_sphere.whole.coins_per_restore). Per-unit reporting: open: not in the records yet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is where IAM's Law enters at link 2b, the funding step (long form section 2b: 'where the free energy that pays each write comes from'). It is the inverse of the held error set by the coin and the two-coin push's held-error formula (eps(cM) = eps_read), and the held error set by the coin and the two-coin push itself rests on the price of one restore (two ATP), the derived price of one restore (1 SAM = 2 ATP, ATP -> AMP + 2 Pi, adenylate kinase at equilibrium). Status: derived."
+     ],
+     [
+      "Long-form section",
+      "link 2b: long form section 2b"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads 2 coins per restore, with basis 'derived' - the price of one restore fixed at 1 SAM = 2 ATP, given adenylate kinase at equilibrium. The chain's own test value sits at 2.1015, logged as OK after a chain update (law 2)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Coins per restore"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "koide_q (the Law Sphere's Koide layer, stage_law_sphere.LAYERS.koide_q)"
+     ],
+     [
+      "In the field's terms",
+      "Koide Q (held/lost record balance)"
+     ],
+     [
+      "Definition",
+      "Q = (1 + CV^2)/3, computed over the record's lost and held components (\"lost over held\")."
+     ],
+     [
+      "What it does",
+      "It gives a single balance reading of a region's held-versus-lost record, used by IAM's Law Sphere to show HOW that region is performing against the law."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law, link 4 (Koide: the record's compression), treats the held/lost record the way Koide's relation treats its three components, so the instrument needs this number to judge each region's departure from the state the law predicts."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as Q = (1 + CV^2)/3 over (lost, held), by the chain from the sample's molecules and its references. Long form 4.6 separately gives Q = (nu + 2)/(3 nu) for nu quadratic degrees of freedom, but that form is reading only here, not the one applied."
+     ],
+     [
+      "Where it is read",
+      "Not given for this quantity specifically; at the instrument level, the Law Sphere reads unit by unit (an island, or 50 CpGs) from molecules by IAM-A's rule."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits at IAM's Law, link 4 (Koide: the record's compression), long form section 4, \"Koide as the record's compression from 3D to 2D.\" Its status is conjecture (mapping): the sphere's Q = (1 + lost/held)/3 treats the held/lost record as Koide's own split, but Koide's split is derived only for a sudden write (long form 4.7), while the cell's hold is slow (1d) — so the mapping has not been derived for this case, only conjectured."
+     ],
+     [
+      "Long-form section",
+      "link 4: long form section 4"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 0.3489 (conjectured), set from the same conjecture (mapping) basis: the sphere's Q = (1 + lost/held)/3 applied to the held/lost record as if it were Koide's split."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Koide's split is derived only for a sudden write (long form 4.7), not for the cell's slow hold (1d), so the mapping is a conjecture, not a derived result. The form in long form 4.6 (Q = (nu + 2)/(3 nu)) is reading only. The healthy value 0.3489 is conjectured."
+     ],
+     [
+      "Credit",
+      "Koide 1983 (the lepton relation); Fortescue 1918 (symmetrical components); Koide's relation (particle physics): Koide Y. (1983) A fermion-boson composite model of quarks and leptons, Phys. Lett. B 120:161-165, doi 10.1016/0370-2693(83)90644-5 (the relation first appeared in 1981-82)"
+     ]
+    ],
+    "name": "Koide Q"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Write vs law (stage_law_sphere.LAYERS.write_vs_law)"
+     ],
+     [
+      "In the field's terms",
+      "Observed write-error (stray-mark) rate measured against the law-predicted write-error rate"
+     ],
+     [
+      "Definition",
+      "The ratio of stray marks actually read (u_read) to the law's expected write-error rate plus the meter's own false-mark rate (u_law + meter): formula u_read / (u_law + meter). In plain terms, stray marks against the writer's expected rate."
+     ],
+     [
+      "What it does",
+      "For each unit (an island, or 50 CpGs) it judges how far the observed rate of stray (wrongly placed) marks departs from what IAM's Law predicts for the write step, after subtracting the sequencing chemistry's own false-mark contribution."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere's job is to show HOW the cell is performing against the law. This layer checks the write step (link 1): stray marks read against the writer's expected rate 1/(1 + D) plus the meter."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (source_kind: computed by the chain from the sample's molecules and its references). u_law comes from the writer's stray-mark rate: u = 1/(1 + D), with D = 60, giving u_law = 0.0164 (one stray mark in about 61 when choosing the right site over 60 wrong ones). The meter term comes from the stray-mark rate after the meter's own false marks: meter = conv_fail + tc_err, about 0.0044 + 0.00046, the sequencing chemistry's own false-mark rate measured per library. The layer then reports u_read / (u_law + meter)."
+     ],
+     [
+      "Where it is read",
+      "Read region by region, each unit being an island or 50 CpGs, per the Law Sphere's field_how; confirmed in_chain through a chain update. Not tied to a single genomic locus beyond that unit definition."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits on IAM's Law, link 1 (actualization: each write is one sudden write of a record), long-form section 1, whose text reads: '## 1. Step 1: actualization, the moment a bit becomes part of the record.' The underlying write-error estimate the writer's stray-mark rate carries status ACCOUNTED, meter-corrected in blood (lead, 2026-11-15) (previously ACCOUNTED/measured), and its meter correction the stray-mark rate after the meter's own false marks carries status MEASURED in blood 2026-11-15. the stray-mark rate after the meter's own false marks itself is explicitly not the law but the instrument/meter."
+     ],
+     [
+      "Long-form section",
+      "link 1: long form section 1"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads 1 (basis: measured selection): strays read equal to the law's 1/(1 + D) plus the meter's own false-mark rate. Test reading 0.7696 ('strays 0.78x the law')."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "the writer's stray-mark rate (the write error) is at lead status: ACCOUNTED, meter-corrected in blood (2026-11-15). The test reading is 0.78x the law; known: unused islands read 0.48x."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Write vs law"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Loose share (a layer of IAM's Law Sphere)."
+     ],
+     [
+      "In the field's terms",
+      "Fraction of loosely held (intermediately methylated) molecules in the sample."
+     ],
+     [
+      "Definition",
+      "The share of the sample's molecules that are loosely held: how much of the record is loosely held."
+     ],
+     [
+      "What it does",
+      "It is one of the Law Sphere's layers and sets the sample's expected loss: in the baseline line eps_pred(L) = firm + 0.034625 x L, L is the sample's loose share, and cells with more loosely held territory lose more marks."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere reads how the cell is performing against the law, so it needs each sample's own expectation; that line is each library's self-reference, and the loose share is its input."
+     ],
+     [
+      "How it is obtained or computed",
+      "The share of loose molecules counted by IAM-A's rule from the sample's molecules; on the sphere the hold is pooled over all units with pile-ups taken out. It feeds eps_pred(L) = firm + 0.034625 x L (slope 0.034625 per unit loose share)."
+     ],
+     [
+      "Where it is read",
+      "The sample's molecules across the Law Sphere's units (each an island, or 50 CpGs), pooled for the whole sample."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a measured input the law uses. The baseline slope it feeds (0.034625 per unit loose share) is filed under link 1d (the slow-write rule) and is PARTLY DERIVED: the within-sample part comes from the pump and was replicated in a second laboratory; the remainder is each cell type's own level, which is open."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is type-dependent; no single healthy value. The development test reads 0.1793 (OK, with the hold pooled over all units and pile-ups out)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is a share, not a judgement: a high loose share is expected for some types. Only the within-sample part of its slope is derived; the between-type remainder is still open."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Loose share"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Halves"
+     ],
+     [
+      "In the field's terms",
+      "Read-half agreement check (split-read concordance)"
+     ],
+     [
+      "Definition",
+      "An instrument check between two halves of the sample's reads: the agreement of the two read halves over their floor (basis: statistics). Register the information sphere (the information sphere); computed by the chain from the sample's molecules and its references."
+     ],
+     [
+      "What it does",
+      "It measures how well the two halves of the reads agree with each other, judged against the floor set by counting statistics, and is carried in the chain as part of the Law Sphere stage's processing."
+     ],
+     [
+      "Why the instrument needs it",
+      "It is an instrument check ('not the law: instrument or meter'): it compares two halves of the reads against their floor. Further purpose: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its reference set, using the formula 'agreement of two read halves over their floor,' with basis given as statistics."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly marked 'not the law: instrument or meter,' and its long-form section is 'not part of IAM's Law' — it does not enter IAM's Law at all. It is a meter-level quantity: a quality-control agreement score on the reads themselves, not a physical quantity carrying the law's energetic content."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value 1 (basis: statistics): the agreement of the two read halves equals their floor."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Test state: MISSING (halves not in the whole-sample record). Its the information sphere (the information sphere) is DEVELOPMENT: the geometry is established mathematics; IAM's Law is not yet in it."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Halves"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Depth"
+     ],
+     [
+      "In the field's terms",
+      "Read depth (calls per unit)"
+     ],
+     [
+      "Definition",
+      "Calls per unit — the read depth: how many calls were made for each unit (an island or 50 CpGs) in the sample."
+     ],
+     [
+      "What it does",
+      "It reports calls per unit: the read depth."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Law Sphere judges each departure against counting noise; the read depth is the number of calls behind each unit. A further reason is open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references: calls per unit. Its check (development.law_sphere.whole.units) read 237850 units, state OK."
+     ],
+     [
+      "Where it is read",
+      "Not a single genomic coordinate — it is read per unit, where a unit is an island or a block of 50 CpGs."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly marked 'not the law: instrument or meter', with its long-form section given as 'not part of IAM's Law'. So Depth is not a step in IAM's Law itself (not part of the k_BT ln 2 energetics); it is a meter/instrument quantity — a coverage count — that the chain uses to run the Law Sphere."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is marked n/a — depth is not judged against a healthy band. Its basis is 'measured (the sample)': it is read directly from the sample at hand rather than compared to a range across people."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Depth"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Hold alarm (held error vs its reference, over the counting floor)"
+     ],
+     [
+      "In the field's terms",
+      "Per-library z-score of maintenance-methylation error against the cell type's healthy reference (jackknife standard error plus band uncertainty)"
+     ],
+     [
+      "Definition",
+      "The sphere's hold reading against the law, IAM-A's own line, or the substituted per-type position: a z-score showing how far the sample's held record sits from its reference, in units of its counting noise."
+     ],
+     [
+      "What it does",
+      "Compares each type's hold with its measured healthy level, judging the departure against counting noise."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to show HOW the cell is performing against the law, region by region, against the state predicted from the energetics of maintenance in the sample's own cell mix."
+     ],
+     [
+      "How it is obtained or computed",
+      "z = log(held / reference) / sqrt(se_jackknife^2 + u_band^2); reference = IAM-A line x the type's measured position. Source kind: computed by the chain from the sample's molecules and its references."
+     ],
+     [
+      "Where it is read",
+      "One z per library (healthy test: |z| <= 2 in 40 of 41 unseen libraries; test path development.law_sphere.hold_alarm.refs.type_position.z, z +0.09). In chain: a chain update (ed82de41), development, on in the full chain; single-type libraries only (mixtures NOT_RUN)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Enters IAM's Law at link 1d (the hold is the same rule, slow: the slow-write rule), long form section 1d. That section states the maintained hold follows the same function as a ramp write, held/lost = (x/2)/(1-(1-e^-x)/x), with x = w = 2M for the cell's restore; at the cell's position x=2M=41.9 this gives odds 21.45, E_hold = 3.066 kT, phi = 0.1464 ~ ln M/M. Status: identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1); open: the horizon's held share 1 as the adiabatic limit (x to infinity) needs its own mapping of x."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "healthy: |z| <= 2 against the substitute (40 of 41 unseen libraries); basis: calculated."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Applies to single-type libraries only; mixtures NOT_RUN, so the alarm's behavior on mixed-type samples is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard); Jackknife (statistics): Quenouille M.H. (1949) Approximate tests of correlation in time-series, J. R. Stat. Soc. B 11:68-84, doi 10.1111/j.2517-6161.1949.tb00023.x; Tukey J.W. (1958) Bias and confidence in not-quite large samples (abstract), Ann. Math. Stat. 29:614"
+     ]
+    ],
+    "name": "Hold alarm (held error vs its reference, over the counting floor)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Stray writing at the unused islands"
+     ],
+     [
+      "In the field's terms",
+      "Ectopic/stray methylation ratio at CpG islands that no healthy cell type ever methylates, scored against the law-predicted and atlas-observed baseline"
+     ],
+     [
+      "Definition",
+      "The pooled share of methylated calls at the 8,567 CpG islands that no healthy type writes (516 of them off every array), as a ratio and a z from counting only, against both the law's stray level and the atlas's own healthy level in the sample's cell shares."
+     ],
+     [
+      "What it does",
+      "It flags methylation appearing at islands that should stay unmarked in every healthy tissue, reporting how far the sample's pooled methylated share departs from the law-predicted stray level and from the atlas's healthy reference, using a ratio and a counting-noise z-score."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM's Law (the write side: the writer's selection 1/(1 + D), the eraser's clean-up, the meter) predicts how little stray methylation should accumulate at islands no healthy type ever writes; the instrument needs this reading to check whether the sample's write-side fidelity still matches that prediction or has drifted toward unwanted gain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references: the pooled methylated share at the 8,567 unused islands (516 off every array) is taken as a ratio against the atlas's healthy level and the law's derived stray level, with z from counting only. On the test the ratio read 1.0089, state OK (test_path development.law_sphere.unused_islands.all.atlas.ratio)."
+     ],
+     [
+      "Where it is read",
+      "The 8,567 CpG islands that no healthy cell type writes, 516 of them off every array; the records give no further coordinates."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits on the write side of IAM's Law — the writer's selection 1/(1 + D), the eraser's clean-up, and the meter — recorded at an earlier finding and tied to a chain update (44bccab2); its basis draws on the derived law level the writer's stray-mark rate and A17. The long-form section itself is 'open: not yet tied to the law', so that linkage's status is open."
+     ],
+     [
+      "Long-form section",
+      "open: not yet tied to the law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "There is no single healthy number given for this output itself; its expected level is set jointly by the atlas's own measured healthy level and by the law's derived stray level, each built in the sample's own cell-type mixture (basis: measured atlas reference and derived law level)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The z-score here reflects counting noise only, so it does not capture other sources of variability; the link from this reading into the law's long-form derivation is itself marked open: not yet tied to the law."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Stray writing at the unused islands"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Law Sphere status"
+     ],
+     [
+      "In the field's terms",
+      "Pipeline stage completion status (a run flag for the Law Sphere stage)"
+     ],
+     [
+      "Definition",
+      "A one-button status flag reporting whether the Law Sphere stage ran: the step that judges how the cell is performing against the law region by region, using each unit's measured hold compared with the state the law predicts from the sample's own composition."
+     ],
+     [
+      "What it does",
+      "It reports that the stage ran, reading 'OK' when the comparison between measured hold and the law's predicted state completed in the chain."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to judge HOW the cell is performing against the law, so the chain needs a status check confirming that this comparison (each unit's departure judged against counting noise, with a hold alarm comparing each type's hold to its measured healthy level) actually executed."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, read out at test_path development.law_sphere.status with test_value \"OK\"; each unit (an island, or 50 CpGs) is read from molecules by IAM-A's rule, the law's expected state is built in the sample's own composition, and the departure is judged against counting noise."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This status reads IAM's Law through links 1d and 2 (long-form sections 1d and 2). Section 1d gives the maintained hold as the same function as a slow write, held/lost = (x/2)/(1-(1-e^-x)/x); for the cell's restore x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464. Section 2 covers 'the price'. Basis for this status: partly derived."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d; link 2: long form section 2"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reading is \"OK\", basis partly derived, and it is in_chain as 'yes (one button)' — a single pass/fail check rather than a scored range."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "Law Sphere status"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Each unit (an island, or a block of 50 CpGs; 237,850 units) is read from molecules by IAM-A's rule; the law's expected point is built in the sample's own shares from the law's inputs (coin, two coins per restore, slow-write rule, write error, eraser, meter); 16 layers per unit, per job and whole: the angle between the sample and the law (Fisher-Rao), fidelity, hold against the law and against itself, kicks held, phi, coins per restore, Koide Q (a conjectured mapping), write against the law, and the hold alarm against each type's measured position."
+     ],
+     [
+      "Why",
+      "The other instruments compare with healthy cells; the Law Sphere compares with the physics, so it shows which part of the law the cell is failing (hold, write, eraser) rather than only that it departs."
+     ],
+     [
+      "Physics",
+      "IAM's Law (links 1, 1d, 2, 2b): the hold's derived values (held error 0.04454, odds 21.45, 3.066 kT, phi 0.1464) are the sphere's healthy points; each type's own level is measured and substituted, labelled as such."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; the input card (every law input by name, defaults from the cell simulator's law card); the runtime reference (units, never-marked islands, type_positions_v1.json)."
+     ],
+     [
+      "The numbers",
+      "Hold alarm against each type's measured position: 40 of 41 unseen healthy libraries within (jackknife floor). The level-side alarm reads 2.49 on a healthy library because the law's level point lacks each type's own level and the copy terms."
+     ],
+     [
+      "Method and standard",
+      "Fisher-Rao geometry (Rao 1945; Bhattacharyya 1943); exact binomial counting floor (a chain update); block jackknife over units (spread about four times plain counting)."
+     ],
+     [
+      "Known-answer test",
+      "Known-answer run after a chain update (test library): 9 expected moves, nothing else; relay test: planted isolated loss raised the hold alarm z 0.09 -> 2.58."
+     ],
+     [
+      "Limits",
+      "(1) The level layer is incomplete (each type's own level and the copy terms). (2) Koide Q is a conjectured mapping. (3) Mixtures use a pooled loose share (caveat in the layer table)."
+     ],
+     [
+      "Where the result goes",
+      "bundle development.law_sphere (layers, per job, whole, hold alarm); the Law Sphere page; the report."
+     ],
+     [
+      "Code",
+      "stage_law_sphere (reading, hold_alarm, CARD, LAYERS, fit, sweep, save_counts)"
+     ],
+     [
+      "How to rebuild it",
+      "Read each unit by IAM-A's rule; build the law's point from the card in the sample's shares; compute the layers; floor by the exact binomial and a jackknife."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R17-LAWSPHERE",
+    "name": "IAM's Law Sphere: how the cell is performing against the law",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_law_sphere.py",
+     "Biological_Physics/MethylPhys/chain/Runtime Matrices/Seq_Atlas/law_sphere/type_positions_v1.json",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Is the Koide reading established physics?",
+      "No: it is a conjectured mapping, labelled so in every layer table; the sphere's established geometry is the Fisher-Rao angle.",
+      "layer table; register"
+     ],
+     [
+      "What makes the Law Sphere different from the pipeline's other instruments?",
+      "The other instruments compare a sample against other healthy cells. The Law Sphere instead compares the sample against the state predicted by IAM's Law itself, so it can point to which part of the law is failing — the hold, the write, or the eraser — rather than just showing that the sample looks abnormal.",
+      "instrument record: rules[0].why"
+     ],
+     [
+      "How many units of DNA does the Law Sphere actually score for one sample?",
+      "237,850 units, where each unit is either an island or a block of 50 CpGs, each read from the molecules by IAM-A's rule.",
+      "instrument record: rules[0].rule"
+     ],
+     [
+      "Does the Law Sphere treat a sample made of mixed cell types the same way as a pure cell-type sample?",
+      "No. For the 'hold vs self' reading, IAM-A does not supply a separate expected value for each cell type in a mixture, so the sphere falls back to one pooled value applied across the whole mix. That means this layer (and anything built from it, like coins per restore) is not a true reading of any single cell type in a mixture — the per-job layers should be used instead.",
+      "instrument record: outputs (Hold vs self).limits"
+     ],
+     [
+      "Which layers does the Law Sphere report for each unit?",
+      "The angle between the sample and the law (Fisher-Rao distance) with its fidelity; the hold against the law and against the sample's own line; kicks held; the share of each coin kept as hold; coins per restore; the Koide balance (a conjectured mapping); writes against the law; and the hold alarm against each cell type's measured healthy level. Each is given per unit, per job and for the whole sample (16 layers in all).",
+      "instrument record: rules[0].rule"
+     ]
+    ],
+    "status": "development; hold alarm confirmed out of sample (40 of 41); level-side alarm owed"
+   }
+  ],
+  "report_section": "v4-lawsphere",
+  "tools": [
+   {
+    "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+    "tool": "HEALPix equal-area pixelization",
+    "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+   },
+   {
+    "credit": "Rao C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (Fisher-Rao distance); Bhattacharyya A. (1943) Bull. Calcutta Math. Soc. 35:99-109; Cavalli-Sforza L.L. & Edwards A.W.F. (1967) Phylogenetic analysis: models and estimation procedures, Evolution 21:550-570, doi 10.1111/j.1558-5646.1967.tb03411.x (the chord distance on the sphere)",
+    "tool": "Fisher-Rao information geometry (not cosmology)",
+    "what": "the distance between two methylation states measured as an angle between probability distributions"
+   },
+   {
+    "credit": "Fortescue C.L. (1918) Method of symmetrical co-ordinates applied to the solution of polyphase networks, Trans. AIEE 37:1027-1140, doi 10.1109/T-AIEE.1918.4765570",
+    "tool": "Symmetrical components (electrical engineering, not cosmology)",
+    "what": "three readings split into one common part and a balanced pair (the three-phase decomposition)"
+   },
+   {
+    "credit": "Koide Y. (1983) A fermion-boson composite model of quarks and leptons, Phys. Lett. B 120:161-165, doi 10.1016/0370-2693(83)90644-5 (the relation first appeared in 1981-82)",
+    "tool": "Koide's relation (particle physics)",
+    "what": ""
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   },
+   {
+    "credit": "Quenouille M.H. (1949) Approximate tests of correlation in time-series, J. R. Stat. Soc. B 11:68-84, doi 10.1111/j.2517-6161.1949.tb00023.x; Tukey J.W. (1958) Bias and confidence in not-quite large samples (abstract), Ann. Math. Stat. 29:614",
+    "tool": "Jackknife (statistics)",
+    "what": ""
+   },
+   {
+    "credit": "Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300",
+    "tool": "False discovery rate (statistics)",
+    "what": ""
+   }
+  ]
+ }
+}

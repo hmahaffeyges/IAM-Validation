@@ -1,0 +1,441 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.10",
+ "record": {
+  "cosmo_tool": "Local against global calibration (an isotropy test).",
+  "credit": "",
+  "field_how": "Firm and loosely held tiles counted with their opportunities, to test whether IAM-A's line holds locally, not only per sample.",
+  "field_term": "Whether the fidelity line holds region by region",
+  "id": "seq.10",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "tile size"
+     ],
+     [
+      "In the field's terms",
+      "Tile size for regional fidelity testing"
+     ],
+     [
+      "Definition",
+      "A region of 2,000 consecutive CpGs used as the unit over which IAM-A's line is tested region by region rather than only per sample."
+     ],
+     [
+      "What it does",
+      "Sets the size of each tile (2,000 consecutive CpGs). The instrument counts firm and loosely held tiles with their opportunities to test whether IAM-A's line holds locally, not only per sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to test whether IAM-A's line holds region by region or only per sample, and that test requires a defined regional unit to count firm and loosely held tiles with their opportunities."
+     ],
+     [
+      "How it is obtained or computed",
+      "A fixed chain rule: tiles of 2,000 consecutive CpGs (stage_q2_selfref.hg19_tiles). Firm and loosely held tiles are then counted, with their opportunities, from the sample's own molecules."
+     ],
+     [
+      "Where it is read",
+      "hg19 tiles of 2,000 consecutive CpGs"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row's law_part states this is 'not the law: a chain rule', and the lf_section confirms it is 'not part of IAM's Law'. It is a chain-rule quantity, not a step in the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "tile size"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "firm/loose cut"
+     ],
+     [
+      "In the field's terms",
+      "Firm versus loosely held (intermediate-methylation) tile classification"
+     ],
+     [
+      "Definition",
+      "The chain rule for which tiles count as firm or loose, using each tile's loose share (value 'tile loose share', source stage_q2_selfref), so firm and loosely held tiles can be counted with their opportunities."
+     ],
+     [
+      "What it does",
+      "It splits tiles into firm versus loose by tile loose share, feeding the test of whether IAM-A's line holds region by region, not only per sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to check whether IAM-A's line holds locally (region by region) rather than only at the whole-sample level, and this cut is what lets firm and loosely held tiles be counted separately with their opportunities to run that check."
+     ],
+     [
+      "How it is obtained or computed",
+      "Firm and loosely held tiles are counted with their opportunities, using the tile loose share value, read directly from the sample's own molecules; it is described as a chain rule, not part of IAM's Law."
+     ],
+     [
+      "Where it is read",
+      "open: not in the records yet"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: a chain rule', and lf_section states it is 'not part of IAM's Law'. So this cut is not a step in IAM's Law; it is a bookkeeping/sorting rule used in the chain of analysis, not a physical quantity tied to a link or long-form section."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "firm/loose cut"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "IAM-A's line"
+     ],
+     [
+      "In the field's terms",
+      "Expected read-level discordance (maintenance error) per tile as a linear function of the loosely held (intermediate-methylation) share"
+     ],
+     [
+      "Definition",
+      "The line firm + slope x loose share (line v1), from stage_q2_selfref.predict: the prediction each tile is compared with. Basis: partly derived (the law's held error as IAM-A's counter counts it)."
+     ],
+     [
+      "What it does",
+      "It supplies the per-tile predicted value against which the instrument checks the observed firm and loosely held tiles, so instrument 10 (TERR/GLB line locality) can ask whether IAM-A's line holds region by region or only per sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is specifically to test whether IAM-A's line holds region by region or only per sample; that test requires a predicted value at the tile level to set against the firm/loose tile counts and their opportunities, not just a single per-sample prediction."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from stage_q2_selfref.predict as a partly derived quantity, with source_kind 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)', using the form firm + slope × loose share (line v1)."
+     ],
+     [
+      "Where it is read",
+      "Read across genomic tiles (regions), where firm and loosely held tiles are counted together with their opportunities, so the comparison runs tile by tile rather than only per sample."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (long form section 1d, the maintained hold is the same rule, slow): held/lost = (x/2)/(1-(1-e^{-x})/x); the IAM-A derivation (the held error set by the coin and the two-coin push) derived the same function for the cell's restore, x = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT and phi = 0.1464 ~ ln M/M. The long form records the identity as confirmed symbolically on GitHub (run 44662887227). This row's own basis is partly derived (the law's held error as IAM-A's counter counts it; the slope of IAM-A's line with loose share)."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is the model form 'firm + slope x loose share (line v1)', from source stage_q2_selfref.predict, with source_kind 'derived by IAM's Law (fixed by the physics; a setting only to test what-if)' - no separate default number is given in the record."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "line_firm"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Partly derived (the law's held error as IAM-A's counter counts it; the slope of IAM-A's line with loose share). Whether the line holds region by region or only per sample is what instrument 10 tests; the outcome is not in this record."
+     ],
+     [
+      "Credit",
+      "IAM (this work): derived by IAM's Law"
+     ]
+    ],
+    "name": "IAM-A's line"
+   }
+  ],
+  "job": "whether IAM-A's line holds region by region or only per sample",
+  "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).",
+  "link": "10. Line locality",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Firm and loose tile held error (instrument 10, TERR/GLB line locality; test)"
+     ],
+     [
+      "In the field's terms",
+      "Held (maintenance) error in firmly vs loosely held (intermediate-methylation) tiles, with their CpG opportunities"
+     ],
+     [
+      "Definition",
+      "The count of firmly held versus loosely held tiles, together with their opportunities, used to test whether IAM-A's fidelity line holds region by region, or only per sample."
+     ],
+     [
+      "What it does",
+      "It counts firm and loosely held tiles along with their opportunities (firm 10946, firm_opp 7953103, loose 1588, loose_opp 1130721) to check whether the line holds locally, not only per sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "IAM needs to know whether its per-sample fidelity line also holds at the regional (tile) level; this test is 'one button' in the chain built to check that."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, read at iam_a.count.tile_line_n, test_state OK, with counts firm 10946, loose 1588, firm_opp 7953103, loose_opp 1130721."
+     ],
+     [
+      "Where it is read",
+      "Firm and loosely held tiles across the genome, counted with their opportunities (test: firm 10946 tiles, 7953103 opportunities; loose 1588 tiles, 1130721 opportunities)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This sits at IAM's Law, link 1d (long-form section 1d), 'the hold is the same rule, slow: the slow-write rule' — held/lost = (x/2)/(1-(1-e^-x)/x), with the cell's position x=2M=41.9 giving odds 21.45, E_hold=3.066 kT, and phi=0.1464≈ln M/M. The long form marks that identity 'confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'; the row's own basis for the firm/loose finding itself is 'lead'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is 'loose > firm', basis 'lead', source_kind 'computed by the chain from the sample's molecules and its references'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This finding is marked a 'lead', not yet measured or derived status; the test only reports counts of firm/loose tiles and their opportunities to see whether the fidelity line holds regionally versus per-sample, and does not by itself establish why. The long form's further open point — the horizon's adiabatic-limit mapping — concerns a different domain and is not about this cell quantity."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Firm and loose tile held error"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Held error by tile call"
+     ],
+     [
+      "In the field's terms",
+      "Tile-level held-error rate, binned by methylation band"
+     ],
+     [
+      "Definition",
+      "Held error by the tile's methylation band."
+     ],
+     [
+      "What it does",
+      "It reports held error by the tile's methylation band."
+     ],
+     [
+      "Why the instrument needs it",
+      "It feeds instrument 10 (TERR/GLB line locality), whose job is to test whether IAM-A's line holds region by region or only per sample; firm and loosely held tiles are counted with their opportunities for this test."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references, via test path iam_a.count.held_err_by_tile_call, giving held error by band: <0.5: 0.0546072603661086, 0.5-0.7: 0.047949726227328925, 0.7-0.85: 0.04291415386881472, >=0.85: 0.03591040545276614 (test_state OK)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 1d (the hold is the same rule, slow: the slow-write rule), long-form section 1d: held/lost = (x/2)/(1 - (1 - e^-x)/x), derived for the cell's restore at x = 2M. This reading's own basis is 'lead'."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "The healthy direction is that held error falls as the tile is more held (basis: lead), with values 0.0546072603661086 (<0.5), 0.047949726227328925 (0.5-0.7), 0.04291415386881472 (0.7-0.85), and 0.03591040545276614 (>=0.85) across the methylation bands (test_state OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Held error by tile call"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "The genome is cut into tiles of 2,000 consecutive CpGs; each tile is called firm or loose by its own loose share; held error and chances are counted per tile, and by the tile's methylation band."
+     ],
+     [
+      "Why",
+      "IAM-A's line predicts held error from looseness per sample; if the same line holds tile by tile, held error must fall as a tile is more firmly held. That is the test that the law acts locally, and the base for a regional 'where'."
+     ],
+     [
+      "Physics",
+      "IAM's Law, link 1d (the maintained hold): the held error at a site's own loose share."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; IAM-A's line (firm + slope x loose share, line v1)."
+     ],
+     [
+      "The numbers",
+      "Test library GSM5652214: 12,536 tiles (10,946 firm, 1,588 loose); held error firm 0.0411, loose 0.0483; by tile methylation band <0.5: 0.0546, 0.5-0.7: 0.0479, 0.7-0.85: 0.0429, >=0.85: 0.0359 (falls as the tile is more held, as the line predicts)."
+     ],
+     [
+      "Method and standard",
+      "Counted per tile; the per-region test against the line and the healthy bar from held-out libraries are owed."
+     ],
+     [
+      "Known-answer test",
+      "Owed: a planted-answer test (raise held error in chosen tiles and recover them)."
+     ],
+     [
+      "Limits",
+      "(1) A lead: the per-region test itself is owed. (2) Tile size is a rule (2,000 CpGs), not derived."
+     ],
+     [
+      "Where the result goes",
+      "bundle iam_a.count (tile_line_n, held_err_firm_tiles, held_err_loose_tiles, held_err_by_tile_call); report."
+     ],
+     [
+      "Code",
+      "stage_q2_selfref counter (tiles)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Cut the genome into tiles of 2,000 CpGs. 2. Loose share and held error per tile. 3. Compare with IAM-A's line at each tile's loose share."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R10-LOCALITY",
+    "name": "Line locality: does IAM-A's line hold region by region, not only per sample",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why tiles of 2,000 CpGs?",
+      "Large enough to count held error with useful precision in a typical library, small enough to see regions; it is a rule, not derived.",
+      "inst_inputs seq.10.i00"
+     ],
+     [
+      "Does held error actually go down as tiles become more firmly held, based on what's been measured so far?",
+      "Yes, in the data reported: going from the loosest methylation band (<0.5) to the firmest (>=0.85), held error drops from about 0.0546 to about 0.0480, then 0.0429, then 0.0359, i.e. a steady fall exactly in the direction the law predicts. But this pattern is flagged as a lead rather than a confirmed or derived result.",
+      "instrument record: outputs - 'Held error by tile call' (plain and healthy_how fields)"
+     ],
+     [
+      "What exact threshold decides whether a tile counts as firm or loose?",
+      "Not yet recorded: the packet only says tiles are called firm or loose by their own loose share, but it doesn't give the actual cutoff value used to make that split.",
+      "instrument record: inputs - 'firm/loose cut' (limits: open, not in the records yet)"
+     ],
+     [
+      "Does this test explain why held error falls region by region, or just whether it does?",
+      "Just whether it does. The test only reports counts of firm and loose tiles and their opportunities, to see if the fidelity line holds regionally as well as per sample; it doesn't by itself establish the reason for any pattern found.",
+      "instrument record: outputs - 'Firm and loose tile held error' (limits field)"
+     ],
+     [
+      "Has the core question of this instrument - whether the line holds tile by tile and not just sample by sample - actually been answered yet?",
+      "No. The rule's own limits note that the per-region test is still owed, and the inputs section says explicitly that whether the line holds region by region or only per sample is what this instrument is meant to test, with the outcome not yet in the record.",
+      "instrument record: rules - 'limits' field and inputs - 'IAM-A's line' (limits field)"
+     ]
+    ],
+    "status": "development; planted-answer test and bar owed"
+   }
+  ],
+  "report_section": "v4-locality",
+  "tools": [
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}
