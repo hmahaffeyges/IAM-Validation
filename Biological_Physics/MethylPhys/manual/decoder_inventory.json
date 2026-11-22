@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1777,
+   "lines": 1780,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -348,9 +348,9 @@
      "function": "main",
      "name": "main",
      "line": 658,
-     "end": 1774,
+     "end": 1777,
      "args": [],
-     "lines": 1117,
+     "lines": 1120,
      "doc": "",
      "constants": [
       "BIO",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1694,
-     "end": 1695,
+     "line": 1697,
+     "end": 1698,
      "args": [
       "b",
       "it",
@@ -7784,7 +7784,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 1375,
+   "lines": 1404,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -9114,6 +9114,27 @@
      "constants": [
       "IDENTITY_OF",
       "WIDTHS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "tare_shares",
+     "name": "tare_shares",
+     "line": 1379,
+     "end": 1402,
+     "args": [
+      "shares",
+      "floor",
+      "declared",
+      "support"
+     ],
+     "lines": 24,
+     "doc": "Met-A's mix for its healthy expectation on a sequenced sample. shares: {cell: share} from the Deconvolver. The largest share is the main cell; shares in the main cell's tissue family (stage_0_intake.lineage_group) count as the main cell (the Deconvolver's near-miss between near-identical references); a cell in another family keeps its share only at or above the floor; identification-only cells are",
+     "constants": [
+      "ID_ONLY",
+      "SPILL_FLOOR"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -11828,5 +11849,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 608
+ "n_functions": 609
 }

@@ -1443,10 +1443,13 @@ def main():
                     try: o["met_a_each_cell_selftare"] = SA.read_in_mix(_bs, {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}); o["met_a_each_cell_selftare"]["flag"] = "the self-tare path, for comparison (development)"
                     except Exception as e: o["met_a_each_cell_selftare"] = {"reason": f"{type(e).__name__}: {str(e)[:160]}"}
                     _bs = None
-                o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
-                                                      {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
+                _shr_d = {r["cell"]: r["share"] for r in o["cell_shares"]["cells"] if r.get("share")}   # edit 236: Met-A's tare on sequencing
+                _tare_on = bool(a._seqv and _S0spec.is_isolated(a.specimen))   # edit 236: sorted, isolated or purified sequenced samples only
+                if _tare_on: _shr_d, o["met_a_tare"] = SA.tare_shares(_shr_d, declared=_S0spec.atlas_cell_of(a.specimen), support={r["cell"]: (r.get("interval_95") or [0, 0])[0] for r in o["cell_shares"]["cells"]})
+                o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"), _shr_d, counts=getattr(a, "_seqc", None))
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else ("sequencing values (stage_seq_values); the self-tare is for arrays only" if getattr(a, "_seqv", None) else "Stage 1 (Stage T step 1 could not run)"))
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
+                if _tare_on: _shr = _shr_d   # edit 236: every Met-A reading of a sorted sequenced sample uses Met-A's tare mix
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
                 if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen) or _neu_iso): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
