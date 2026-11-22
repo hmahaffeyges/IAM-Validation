@@ -12,7 +12,7 @@ molecule classes, so no molecule is used twice). The law's expected point at eac
 Deconvolver): held CpGs at 1 - p, where p is IAM-A's own predicted held error (the self-reference line from the sample's loose share), unmarked
 CpGs at the law's stray level 1/(1 + D) less the eraser's clean-up, plus the meter. Every layer is per unit and per job, each judged against its
 own counting floor (stage_info_sphere.counting_floor, edit 198)."""
-import os, json, numpy as np, pandas as pd
+import os, json, math, numpy as np, pandas as pd
 import stage_q2_selfref as Q2
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -169,6 +169,9 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
     ls_src = "IAM-A"
     if loose_share is None:   # edit 210: the sphere's own loose share when IAM-A gives none
         _nm = C["held"][u] + C["unm"][u] + C["loose"][u]; loose_share = float(C["loose"][u].sum() / max(_nm.sum(), 1)); ls_src = "the sphere's own units (IAM-A gave none)"
+    M_c = float(card["dG_ATP"]) / (R_GAS * float(card["T_K"]))   # edit 237: the law's constants from the card, not fixed
+    x_c = float(card["push"]) if card["push"] is not None else float(card["coins"]) * M_c
+    eps_c = 1.0 / (1.0 + odds_of_push(x_c)); floor_c = 1.0 / (1.0 + math.exp(min(M_c, 700.0)))
     p = float(Q2.predict(loose_share)); cv = float(card["conv"]) if card["conv"] is not None else (CONV_DEFAULT if conv is None else float(conv))
     stray = (1 / (1 + float(card["D"]))) * (1 - float(card["eraser_clean"])); u_law = stray + cv * (1 - stray)
     pt = {c: eps_of(card, c, loose_share) for c in s}; terr0 = T["territory"].to_numpy()
@@ -190,7 +193,7 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
     okHv = (ca >= MIN_CALLS) & (cb >= MIN_CALLS); hfl = np.sqrt(np.where(okHv, IS.counting_floor(ca, e) + IS.counting_floor(cb, e), np.nan))
     kicks = np.log(odds)
     Lay = dict(angle_law=th, alarm_law=th / fl, fidelity_law=np.cos(th) ** 2, power_factor=np.cos(th), angle_law_atlas=th_la, angle_atlas=np.where(okL, _theta(b, a), np.nan),
-               hold_vs_self=h / p, hold_vs_law=h / EPS_LAW, kicks_held=kicks, phi=kicks / M_COIN, coins_per_restore=push_for_odds(odds) / M_COIN,
+               hold_vs_self=h / p, hold_vs_law=h / eps_c, kicks_held=kicks, phi=kicks / M_c, coins_per_restore=push_for_odds(odds) / M_c,
                koide_q=(1 + h / np.maximum(1 - h, 1e-12)) / 3, write_vs_law=np.where(okG, (gerr / np.maximum(gopp, 1)) / u_law, np.nan),
                loose_share=np.where(nm >= 20, C["loose"][u] / np.maximum(nm, 1), np.nan),
                halves=np.where(okHv, _theta(ba, bb) / hfl, np.nan), depth=calls)
@@ -208,8 +211,8 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
         mh = m & ~pile & (opp > 0)   # edit 218: all units of the set, pile-ups left out (was m & okH)
         if mh.any():
             hp = float(err[mh].sum() / max(opp[mh].sum(), 1)); od = (1 - hp) / max(hp, 1e-12)
-            r.update(held_err=round(hp, 5), hold_vs_self=round(hp / p, 4), hold_vs_law=round(hp / EPS_LAW, 4), kicks_held=round(float(np.log(od)), 4),
-                     phi=round(float(np.log(od)) / M_COIN, 5), coins_per_restore=round(float(push_for_odds(od)) / M_COIN, 4), koide_q=round((1 + hp / (1 - hp)) / 3, 5),
+            r.update(held_err=round(hp, 5), hold_vs_self=round(hp / p, 4), hold_vs_law=round(hp / eps_c, 4), kicks_held=round(float(np.log(od)), 4),
+                     phi=round(float(np.log(od)) / M_c, 5), coins_per_restore=round(float(push_for_odds(od)) / M_c, 4), koide_q=round((1 + hp / (1 - hp)) / 3, 5),
                      held_opp=int(opp[mh].sum()))
         mv = m & okHv & ~pile   # edit 218: halves, the strand-to-strand angle over its counting floor
         if mv.any():
@@ -222,9 +225,10 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
     terr = T["territory"].to_numpy(); jobs = {t: summ(terr == t) for t in sorted(set(terr))}
     rec = dict(stage="IAM's Law Sphere (sequencing; development, DEV-SPHERE-01)", status="OK", units_in_reference=int(len(T)), card=card, loose_share=round(float(loose_share), 4), loose_share_source=ls_src,
                predicted_held_err_by_type={c: round(v, 5) for c, v in pt.items()},
-               predicted_held_err=round(p, 5), law_held_err=EPS_LAW, law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
+               predicted_held_err=round(p, 5), law_held_err=round(eps_c, 6), law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
                whole=summ(np.ones(len(T), bool)), jobs=jobs, layers=[dict(key=k, name=nm_, unit=un, about=ab) for k, nm_, un, ab in LAYERS],
-               law=dict(eps=EPS_LAW, kicks_held=round(float(np.log((1 - EPS_LAW) / EPS_LAW)), 4), phi=0.1464, coins_per_restore=2.0, koide_q=0.349))
+               law=dict(eps=round(eps_c, 6), M=round(M_c, 5), push=round(x_c, 4), floor=floor_c, kicks_held=round(float(np.log((1 - eps_c) / eps_c)), 4),
+                        phi=round(float(np.log((1 - eps_c) / eps_c)) / M_c, 5), coins_per_restore=round(x_c / M_c, 4), koide_q=round((1 + eps_c / (1 - eps_c)) / 3, 5)))
     rec["_units"] = u.tolist()   # edit 208: unit order of the layers (popped before the bundle is written)
     return rec, Lay
 
