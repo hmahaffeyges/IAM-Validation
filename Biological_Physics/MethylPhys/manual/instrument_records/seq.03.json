@@ -1,0 +1,518 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.03",
+ "record": {
+  "cosmo_tool": "Component separation: the cosmic microwave background is separated from galactic foregrounds by their known spectra; here each cell type is a component with a known methylation spectrum.",
+  "credit": "this work (IAM-Deconvolver on the IAM Sequencing Atlas); atlas inputs: Loyfer et al. (2023) methylation atlas of normal human cell types (GSE186458)",
+  "field_how": "Fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types, giving each type's share. A mixture check stops a single-type reading when no one family dominates. The specimen label is recorded and compared with the fit, never obeyed.",
+  "field_term": "Reference-based cell-type deconvolution: composition, purity and cell of origin",
+  "id": "seq.03",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "deconv_reference_v1 marker sites (marker sites and atlas columns)"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type marker CpGs and reference atlas columns used for deconvolution"
+     ],
+     [
+      "Definition",
+      "The fingerprints used to tell cells apart: cell-type marker CpG sites drawn from the atlas's reference columns, which the Deconvolver fits the sample's methylation against."
+     ],
+     [
+      "What it does",
+      "Enters the Deconvolver's reference, deconv_reference_v1 (Sequencing Atlas); the Deconvolver fits the sample's methylation at these marker CpGs as a mixture of the atlas's cell types, yielding each type's share."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to establish purity — which cells are in the sample — so that a mixture of cell types cannot be mistaken for a true type difference; a mixture check stops a single-type reading when no one family dominates, and the specimen's own label is only compared against the fit, never obeyed."
+     ],
+     [
+      "How it is obtained or computed",
+      "Measured by the chain on the IAM Sequencing Atlas libraries and held as the marker sites and atlas columns of deconv_reference_v1. The Deconvolver then fits the sample's methylation at these marker CpGs as a mixture of the atlas types by weighted least squares, each site weighted by its expected spread, with no share allowed to be negative. How the marker sites are chosen from the atlas: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "At the cell-type marker CpG sites held in the atlas's deconv_reference_v1 columns; the packet does not give specific genomic loci beyond this."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row itself marks this as 'not the law itself: a measured input the law uses,' and the register record for the resulting cell shares states they are measured (atlas identity), not a law quantity. It is reference data the Law's instruments draw on, not a step within the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No typical numeric value is given for the marker set itself; its source is the IAM Sequencing Atlas, a measured healthy reference (source_kind: 'the IAM Sequencing Atlas (measured healthy reference)'), entering as deconv_reference_v1."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet, beyond what is stated: the fitted cell shares are a measured, atlas-based identity rather than a law quantity, and the specimen's own label is recorded for comparison but never trusted outright."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "marker sites and atlas columns"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "The mixture floor, carried in the chain as the family share floor (E2c)."
+     ],
+     [
+      "In the field's terms",
+      "The mixture-detection threshold in reference-based cell-type deconvolution — the share level at which a second cell family present in the sample is counted as making it a mixture rather than a true type difference."
+     ],
+     [
+      "Definition",
+      "A rule stating that once a second cell family's share rises above a set floor, the sample is treated as a mixture, so it cannot pose as a genuine cell-type difference; it enters the chain as the family share floor (E2c)."
+     ],
+     [
+      "What it does",
+      "It enters the family share floor (E2c) inside the Deconvolver's mixture check, stopping a single-type reading whenever a second cell family's fitted share exceeds the floor."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Deconvolver's job is purity: establishing which cells are actually in the sample, so that a mixture of cell families cannot masquerade as a difference between cell types."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is read from the sample's own molecules: the Deconvolver fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas's reference types, giving each type a share. The family share floor (E2c) is then applied as a chain rule to flag the sample as a mixture when no one family dominates; the specimen's own label is recorded alongside the fit but never obeyed."
+     ],
+     [
+      "Where it is read",
+      "At the cell-type marker CpGs the Deconvolver uses to fit the sample's family shares, not at one fixed genomic coordinate."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly not part of IAM's Law: its law_part is marked 'not the law: a chain rule', and its long-form section is given as 'not part of IAM's Law'. It lives instead in the register OVERHAUL plan, E2c; an earlier finding, as a purity rule applied to the Deconvolver's fitted family shares, not as a physical link in the Law Sphere."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet — the packet gives no numeric default or typical value for the floor, and its card_key is itself 'not yet on the card'."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet — beyond stating that a second family's share above the floor marks a mixture, the packet gives no numeric value for the floor and no further detail on what the rule cannot resolve."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "mixture floor"
+   }
+  ],
+  "job": "purity: which cells are in the sample, so a mix cannot pose as a type difference",
+  "law": "Not the law itself: a measured input the law uses.",
+  "link": "3. Deconvolver and the mixture check",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Cell shares"
+     ],
+     [
+      "In the field's terms",
+      "Estimated cell-type proportions from reference-based deconvolution (cell-type fractions)"
+     ],
+     [
+      "Definition",
+      "The Deconvolver's share of each atlas type: how much of the sample's signal is attributed to each reference cell type."
+     ],
+     [
+      "What it does",
+      "Establishes purity — which cells are in the sample — so that a mixture of cell types cannot pose as a true type difference; it is a measured input carried through the chain as one button (in_chain: yes)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs this so a mixture check can stop a single-type reading when no one family dominates, and so the specimen's recorded label can be compared against the fit rather than obeyed outright."
+     ],
+     [
+      "How it is obtained or computed",
+      "It fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types, solving for each type's share; the specimen label is recorded and compared with the fit, never obeyed."
+     ],
+     [
+      "Where it is read",
+      "At cell-type marker CpGs; no specific loci are named in the packet."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law); its law_part is explicitly 'not the law itself: a measured input the law uses.' It is computed by the chain from the sample's molecules and its references, and its status in the test run is OK."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is one type high in a sorted library (basis: measured). In the test run, cell shares read cardiomyocyte 0.9258 and lung alveolar epithelium 0.0332, both marked OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Cell shares"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Top share"
+     ],
+     [
+      "In the field's terms",
+      "Dominant cell-type fraction: the largest estimated cell-type proportion from reference-based deconvolution (purity of a sorted sample)"
+     ],
+     [
+      "Definition",
+      "The sample's leading cell and its share: among the cell types the Deconvolver fits, this is the one with the largest share and how large that share is."
+     ],
+     [
+      "What it does",
+      "It reports which cell type dominates the sample and what fraction it accounts for, so the instrument can tell whether the sample is effectively one cell type or a mixture."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is purity: establishing which cells are in the sample so that a mixture of cell types cannot be mistaken for a genuine type difference."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is obtained by fitting the sample's methylation at cell-type marker CpGs as a mixture of the atlas's reference cell types (weighted least squares), which gives each type's share; a mixture check stops a single-type reading from being reported when no one family dominates. The specimen's own label is recorded and compared against this fit, but never obeyed. Source kind: computed by the chain from the sample's molecules and its references."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law). Its law_part status is explicit: 'not the law itself: a measured input the law uses' — i.e. it is a measured quantity the Law draws on, not a term derived from the Law's own equations."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads >= 0.9 in a sorted library, with basis 'measured'. Example test values: cardiomyocyte 0.9258 (A 0.78955); lung alveolar epithelium 0.0332 (A 0.8652); test state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Top share"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Mixture check"
+     ],
+     [
+      "In the field's terms",
+      "Mixture check within reference-based cell-type deconvolution (purity check)"
+     ],
+     [
+      "Definition",
+      "Whether a second family holds more than 0.12."
+     ],
+     [
+      "What it does",
+      "A mixture check stops a single-type reading when no one family dominates, so a mixed sample cannot pose as a clean type difference."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is purity: establishing which cells are in the sample, so a mix cannot pose as a type difference."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references. The Deconvolver fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types by weighted least squares, each site weighted by its expected spread and no share negative, giving each type's share. The mixture check flags when a second family holds more than 0.12."
+     ],
+     [
+      "Where it is read",
+      "At the atlas's cell-type marker CpGs, where the mixture fit is made (not a single genome location)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law). The packet's own law_part label is 'not the law itself: a measured input the law uses' — so this is a measured input the law draws on, not a step within the law's chain, with basis 'measured'."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reading is false in a sorted library, and this is established by measurement (basis: measured)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Mixture check"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Label check (instrument 3, Deconvolver and the mixture check)."
+     ],
+     [
+      "In the field's terms",
+      "Specimen-label concordance with the deconvolved cell of origin."
+     ],
+     [
+      "Definition",
+      "The specimen word recorded with the file, compared with the cell the Deconvolver finds."
+     ],
+     [
+      "What it does",
+      "It records whether the specimen label and the Deconvolver's cell agree. The label is recorded and compared with the fit, never obeyed."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Deconvolver's job is purity, so a mix cannot pose as a type difference. The chain's rule is: 'A specimen's words choose the route only; which cells are in the sample, and the atlas reference each is read against, come only from the IAM-Deconvolver'."
+     ],
+     [
+      "How it is obtained or computed",
+      "The Deconvolver fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types, giving each type's share; the label check compares the specimen word with that result."
+     ],
+     [
+      "Where it is read",
+      "Cell-type marker CpGs, through the Deconvolver's fit."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a measured input the law uses; it is a bookkeeping comparison of a label with a fitted composition."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is \"agree\". The development test returns the rule above (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Agreement does not make the label authoritative and disagreement does not change the reading: the cells come only from the Deconvolver. It cannot check the label for a cell type the atlas does not hold."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Label check"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Splits a sample into the 57 healthy cell types of the IAM Sequencing Atlas. For every marker CpG it solves the sample's level as a non-negative mix of the types' healthy levels (non-negative least squares), each site weighted by the atlas's person-to-person spread at that site times the current shares, plus a laboratory term; three passes, each re-weighting from the last shares. Shares are normalized to 1. 95 % intervals from 200 resamplings of the marker sites, each also drawing that person's cells from the atlas's spread (seed 2026)."
+     ],
+     [
+      "Why",
+      "Every reading that compares a sample with its healthy expectation needs to know which healthy cells it is made of. In whole blood, plasma and tissue the Deconvolver decides what is there: no cell is assumed absent (the rule of 2026-11-07)."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law: linear unmixing (a sample's level at a site is the share-weighted sum of its cells' levels). The cosmology analogue is component separation of foregrounds (credited: Tegmark, de Oliveira-Costa & Hamilton 2003, Phys. Rev. D 68:123523)."
+     ],
+     [
+      "Where the data comes from",
+      "deconv_reference_v1.parquet (chain Runtime Matrices/Seq_Atlas): for each of 5,699 marker CpGs (named by array probe; mapped to the sequencing CpG index by atlas/v2.1/sites_sequencing_key.parquet) each type's healthy level (|mu) and person-to-person spread (|sd), from the IAM Sequencing Atlas's own donors. Markers: for each type, the 50 sites where it sits most above and the 50 most below its NEAREST other type, in units of their combined spread (stage_deconv_v21.markers_compute, PER_CELL = 50). The sample's level and read count at each marker."
+     ],
+     [
+      "The numbers",
+      "57 types, 5,699 markers (2026-10-30 build: 56 types, 5,599 markers; megakaryocytes added later as an identification-only column). On the build day 8 of 9 planted mixes read their shares; the ninth gave 8 % to close relatives; a pure cell gives others 1-2 % from counting alone (development log 2026-10-30). On 25 pure never-used healthy libraries (2026-11-21): median non-main share 0.006, 0.95 quantile 0.053, largest 0.305 (spill25.csv)."
+     ],
+     [
+      "Method and standard",
+      "Weighted non-negative least squares (scipy.optimize.nnls) with iterative re-weighting; intervals by resampling (bootstrap). Error bars are labeled 'information, not calibrated'. A share outside its own 95 % range is flagged 'not resolved from its close relatives'."
+     ],
+     [
+      "Known-answer test",
+      "Planted mixtures through the one button (2026-11-21, plantmix_14.csv): planted share recovered 0/0.043/0.134/0.159/0.216/0.320/0.522 (heart + liver) and 0/0.046/0.082/0.126/0.177/0.263/0.459 (oligodendrocytes + acinar) at 0/0.05/0.10/0.15/0.20/0.30/0.50."
+     ],
+     [
+      "Limits",
+      "Near-identical types trade share (kidney tubular and glomerular epithelium: podocyte libraries read tubular 0.48-0.69 and glomerular 0.21-0.26); types missing from the atlas appear as spread 'ghost' shares; same laboratory as the atlas."
+     ],
+     [
+      "Where the result goes",
+      "bundle cell_shares (each cell's share, 95 % interval, resampled median, status); used by Met-A, IAM-A in the mix, the mixture check, each cell's Met-A, the globe's weights, and the report."
+     ],
+     [
+      "Code",
+      "stage_v4.stage_d21; stage_deconv_v21.deconvolve, _solve, markers, markers_compute (LAB_SD 0.02, PER_CELL 50, BOOT 200, SEED 2026); stage_seq_atlas.deconv_reference_of, DECONV_REF, DECONV_DROP"
+     ],
+     [
+      "How to rebuild it",
+      "From the IAM Sequencing Atlas's per-type levels and spreads: run markers_compute (50 above and 50 below the nearest other type per type), keep those sites' |mu and |sd as deconv_reference_v1.parquet; deconvolve each sample with stage_deconv_v21.deconvolve (seed 2026)."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R03-DECONV",
+    "name": "How the sequencing Deconvolver works (Stage D21 on the IAM Sequencing Atlas)",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_deconv_v21.py",
+     "Biological_Physics/MethylPhys/chain/Runtime Matrices/Seq_Atlas/deconv_reference_v1.json",
+     "Biological_Physics/MethylPhys/chain/stage_v4.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "How are the marker sites chosen?",
+      "For each of the 57 types, the 50 CpGs where it sits furthest above, and the 50 furthest below, its nearest other type, measured in their combined person-to-person spread; 5,699 sites in all.",
+      "stage_deconv_v21.markers_compute (PER_CELL = 50)"
+     ],
+     [
+      "How is the mix solved?",
+      "Weighted non-negative least squares: each site weighted by the expected spread of a mixed healthy sample (the types' spreads times the shares) plus a laboratory term, re-weighted three times.",
+      "stage_deconv_v21._solve (LAB_SD 0.02)"
+     ],
+     [
+      "What do the 95 % intervals mean?",
+      "200 resamplings of the marker sites, each also drawing that person's cells from the atlas's spread; labeled information, not calibrated.",
+      "stage_deconv_v21.deconvolve (BOOT 200, SEED 2026)"
+     ],
+     [
+      "Does it assume which cells are in a sample?",
+      "No. In whole blood, plasma and tissue every atlas type is allowed and the data decide. A sorted label is never used to choose a cell; a disagreeing label is only flagged.",
+      "the rule of 2026-11-07; Met-A's tare"
+     ],
+     [
+      "How well does it recover known mixes?",
+      "Planted two-cell mixtures read 0.043-0.522 for planted 0.05-0.50 (heart + liver) and 0.046-0.459 (oligodendrocytes + acinar); pure healthy libraries give others a median 0.006.",
+      "plantmix_14.csv; spill25.csv"
+     ],
+     [
+      "What happens with a cell type the atlas lacks?",
+      "Its signal spreads over related types as small 'ghost' shares; an identification-only column (as for megakaryocytes) is added only when real samples show it.",
+      "megakaryocyte column; identification-only rule"
+     ]
+    ],
+    "status": "development on sequencing (the six-cell blood panel is commissioned on arrays)"
+   }
+  ],
+  "report_section": "v4-shares",
+  "tools": [
+   {
+    "credit": "internal linear combination: Tegmark M., de Oliveira-Costa A. & Hamilton A.J.S. (2003) Phys. Rev. D 68:123523, doi 10.1103/PhysRevD.68.123523; general reference: Planck Collaboration (2020) Planck 2018 results. IV. Diffuse component separation, A&A 641:A4, doi 10.1051/0004-6361/201833881",
+    "tool": "Component separation",
+    "what": "a mixed sample separated into its cell types by their known methylation spectra, so a change of mix is never read as a change of state"
+   },
+   {
+    "credit": "Lawson C.L. & Hanson R.J. (1974) Solving Least Squares Problems, Prentice-Hall, chapter 23 (reprinted SIAM 1995)",
+    "tool": "Non-negative least squares (numerical analysis)",
+    "what": ""
+   }
+  ]
+ }
+}

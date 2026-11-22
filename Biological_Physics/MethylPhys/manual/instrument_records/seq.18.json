@@ -1,0 +1,549 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.18",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "",
+  "field_how": "",
+  "field_term": "",
+  "id": "seq.18",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "report builder"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "The report builder is report_v4 (with the Law Sphere section), the component that assembles a single page showing every reading together with its healthy value and basis."
+     ],
+     [
+      "What it does",
+      "It produces one page carrying every reading, each reading's healthy value, and its basis, so all instrument outputs can be reviewed together in one place."
+     ],
+     [
+      "Why the instrument needs it",
+      "It sits in the chain as a rule-based setting (basis: rule), needed so that every reading is pulled together with its healthy value and basis rather than left scattered across separate instrument outputs."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is obtained by applying a fixed rule rather than by measurement or fitting: the setting used is report_v4 (with the Law Sphere section), implemented in MethylPhys_Interface/report_v4.py."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly marked 'not the law: a chain rule', and its long-form section is marked 'not part of IAM's Law'. It is a report-assembly setting, not a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its default/typical value is report_v4 (with the Law Sphere section), described as a setting with a default (a chain rule), sourced from MethylPhys_Interface/report_v4.py."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is 'not yet on the card', and no register entries or long-form notes are recorded for it beyond what is given here, so further detail on this setting remains open."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "report builder"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "claim scan"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "A chain rule applied to the rendered report text, which checks that no clinical or group-comparison words appear in the final output."
+     ],
+     [
+      "What it does",
+      "It scans the rendered report for clinical or group-comparison words, so the report cannot make claims the chain hasn't earned."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Report instrument's job is one page with every reading, its healthy value and basis; the row states plainly that 'the report cannot make claims the chain hasn't earned,' and this scan is how that limit is enforced on the rendered text."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is obtained as a setting with a default (a chain rule), sourced from report_v4.CLAIM_SCAN, held in_chain as part of the report's own process rather than computed from measured data; its basis is 'rule.'"
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part is explicitly 'not the law: a chain rule,' and its lf_section is 'not part of IAM's Law' — this is a governance setting on report wording, not a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is 'rendered-claim scan (no clinical or group-comparison words)', drawn from source report_v4.CLAIM_SCAN, with source_kind 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card (card_key 'not yet on the card')."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "claim scan"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "development label"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "A tag reading 'development, not commissioned' applied to a report entry, per the rule that every uncommissioned reading is labelled."
+     ],
+     [
+      "What it does",
+      "Marks a given reading on the report page as still in development rather than commissioned, so it carries this status alongside its value."
+     ],
+     [
+      "Why the instrument needs it",
+      "The Report instrument's job is one page with every reading, its healthy value and basis; this label is a chain rule (not the law itself) that ensures uncommissioned readings are flagged rather than presented as finished."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set by a chain rule rather than measured: it comes from source 'report_v4.DEV' as a setting with a default, with basis 'rule'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Explicitly 'not the law: a chain rule' and 'not part of IAM's Law' — it is a bookkeeping/status setting on the report, not a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its default/typical value is the string 'development, not commissioned', drawn from source 'report_v4.DEV' under source_kind 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "development label"
+   }
+  ],
+  "job": "one page with every reading, its healthy value and basis",
+  "law": "Not the law: a chain rule.",
+  "link": "18. Report",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Red flags"
+     ],
+     [
+      "In the field's terms",
+      "Report notes/QC flags"
+     ],
+     [
+      "Definition",
+      "Notes and flags shown at the top of the report."
+     ],
+     [
+      "What it does",
+      "It displays structured flag entries — each with a level, a code, and explanatory text — for example a NOTE entry coded DEVELOPMENT_FLAGS stating that development stages ran behind flags and that these are not part of the reading."
+     ],
+     [
+      "Why the instrument needs it",
+      "The report (instrument 18) is one page with every reading, its healthy value and basis; these notes and flags are shown at the top of it."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references, on a rule basis, produced in one button as part of the in-chain pipeline; entries are logged as structured objects with level, code and text, as seen at test_path red_flags (e.g. a NOTE coded DEVELOPMENT_FLAGS, plus a further NOTE entry that is cut off in the record)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is marked 'not the law: a chain rule', with lf_section 'not part of IAM's Law' — it is not a physical quantity entering IAM's Law at all, but a rule-based flag used by the reporting chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its healthy value is 'development notes only', set on a rule basis rather than measured from samples."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Healthy is 'development notes only'. The test entries shown: a NOTE coded DEVELOPMENT_FLAGS ('development stages ran behind flags: ; they are not part of the reading') and a second NOTE cut off in the record. The full set of possible flags: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Red flags"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Safeguards"
+     ],
+     [
+      "In the field's terms",
+      "Automated report quality-control checks (claim scan, formula self-test and others)"
+     ],
+     [
+      "Definition",
+      "The report's own checks (claim scan and others), run as part of the report (instrument 18)."
+     ],
+     [
+      "What it does",
+      "Confirms the report page is fit to show: the rendered-claim scan checks that no clinical or group-comparison words appear in the report prose, and a formula self-test runs alongside it; the whole set is wired into the chain as one button (in_chain: yes) and reads out 'all PASS' when healthy."
+     ],
+     [
+      "Why the instrument needs it",
+      "The report is one page with every reading, its healthy value and basis; these are its own checks, with healthy 'all PASS'. Further reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references (source_kind). Recorded at test_path 'safeguards' as a list of checks, including 'rendered-claim scan' (result: PASS, detail: no clinical or group-comparison words in the report prose) and a 'formula self-test' whose detail is cut off in this record; overall test_state is OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: 'not part of IAM's Law'); law_part is explicitly 'not the law: a chain rule'. It is a pipeline/report-level rule, not a physical quantity paid on the DNA surface."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy value is 'all PASS', with basis 'rule' — the standard is a fixed pass/fail rule set by the chain itself, not a statistical band drawn from healthy controls."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The packet's test_value list is truncated after the first two checks ('rendered-claim scan' and the start of a 'formula self-test'), so the full set of checks performed is not given in this record. No further limitations are stated — open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Safeguards"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Scope (a field of instrument 18, the Report)"
+     ],
+     [
+      "In the field's terms",
+      "open: not in the records yet"
+     ],
+     [
+      "Definition",
+      "Scope is the chain-rule field stating what the report covers, described in the row itself simply as: 'What the report covers.'"
+     ],
+     [
+      "What it does",
+      "Its recorded test value states that the report's figures are \"values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read them; the commissioned M…\" — the record itself cuts off at that point — and its test_state is logged as OK."
+     ],
+     [
+      "Why the instrument needs it",
+      "It is marked as a chain rule (law_part: 'not the law: a chain rule') and is in_chain 'yes (one button)', so the Report instrument can state, on its one page, what each reading covers alongside its healthy value and basis."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references (source_kind), read at test_path 'scope'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part records this as 'not the law: a chain rule', and lf_section confirms it is 'not part of IAM's Law'; it is a chain/reporting rule, not a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "For this output the healthy field is given as 'stated' rather than a numeric range, and its basis is 'rule' rather than a measured distribution."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Scope"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "One report per sample from the chain's bundle: every reading with its healthy value and basis, each instrument explained in the field's terms with its physics and credits (generated from the catalogue), the globe and Law Sphere pages, development labels, and the report's own safeguards (a claim scan that refuses clinical claims)."
+     ],
+     [
+      "Why",
+      "The reader sees every number with what it is compared against and why, in their own field's language, and nothing claimed beyond what was tested."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law: a chain rule."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's bundle; report_text.json (from CANON/catalogue.json); the globe and sphere pages."
+     ],
+     [
+      "The numbers",
+      "Known-answer and render check after a chain update: 0 of 1,279 readings moved."
+     ],
+     [
+      "Method and standard",
+      "Generated text only; rendered pages checked as images."
+     ],
+     [
+      "Known-answer test",
+      "Render and known-answer check after a chain update (passed)."
+     ],
+     [
+      "Limits",
+      "(1) The full records, repo links and appendix are owed (audit). (2) The HTML page as the report with print-to-PDF is owed."
+     ],
+     [
+      "Where the result goes",
+      "HTML report, JSON bundle, PDF."
+     ],
+     [
+      "Code",
+      "report_v4 (MethylPhys_Interface); CANON/report_text.py; CANON/catalogue.json"
+     ],
+     [
+      "How to rebuild it",
+      "Run the one button; the report is built from the bundle."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R18-REPORT",
+    "name": "The report: every reading with its healthy value, basis and explanation",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+     "CANON/catalogue.json",
+     "CANON/report_text.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Does the report make clinical claims?",
+      "No: its claim scan refuses clinical claims; it reports readings against healthy references.",
+      "report safeguards"
+     ]
+    ],
+    "status": "runs"
+   },
+   {
+    "fields": [
+     [
+      "How it works",
+      "Every IAM score is reported per unit of its own healthy base: the instrument is first CENTRED (its healthy expectation corrected so healthy lands on its healthy point; an offset is never absorbed into a wider band), then TARED (divided by its measured healthy centre; one centre per instrument, or one per cell type where the types' centres differ by more than their noise, as for IAM-A), so healthy reads 1.00 pu. Each score carries ONE band: the observed normal operating range, the range 95 % of healthy controls are expected to fall in, from the pooled within-type spread of the healthy controls (Student's t coverage), widened for the sample's own read depth. A reading outside it is flagged: 'Outside our observed normal operating range (based on a limited set of healthy controls)'. No further tiers: where danger begins is not ours to set. The band's basis (number of healthy libraries and cell types) is printed beside it, and the raw measurement in field terms beside the score."
+     ],
+     [
+      "Why",
+      "A per-unit base lets readings on different scales be compared at a glance; one observed normal operating range says only what healthy controls show, like a laboratory reference range or a historical (PI) operating range, without claiming where harm begins. Per-type ranges from 2-3 libraries would be wider, not narrower (Student's t with 1-2 degrees of freedom), so the spread is pooled within types and each type keeps its own centre only where its offset is resolved."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law: a measurement and reporting convention. Where an instrument's healthy point is derived (IAM-A's floor and line, the C-Score's counting limit), the raw reading against the derived point is kept beside the per-unit reading, because that distance is the physics test (for IAM-A, the open question of each type's own level)."
+     ],
+     [
+      "Where the data comes from",
+      "Each instrument's raw reading and its counting uncertainty; each cell type's healthy centre and person-to-person spread from held-out pass 9 (Student's t standard error of the centre for few libraries); the sample's read depth."
+     ],
+     [
+      "The numbers",
+      "Pending pass 9. Pass 8 (before Met-A's mix rule) for orientation: whole-sample Met-A 0.990 +/- 0.177, domains 0.993 +/- 0.234, islands 1.011 +/- 0.327."
+     ],
+     [
+      "Method and standard",
+      "Per-unit system of power-system analysis (quantities as fractions of a defined base). Tier boundaries from the measured spread by the GUM (JCGM 100:2008): combined standard uncertainty = person-to-person spread, the tare point's standard error and the sample's counting uncertainty in quadrature; coverage k = 2 and k = 3 (Student's t for few libraries). Structured as a documented ratings methodology in the manner NERC requires of facility ratings (FAC-008: a documented methodology, ambient conditions, at least Normal and Emergency ratings) and operating limits (FAC-011): our counterpart of ambient conditions is read depth."
+     ],
+     [
+      "Known-answer test",
+      "Owed: on the 31 never-used atlas-type libraries, healthy libraries fall Within healthy at about the stated coverage; planted departures cross the tiers in order."
+     ],
+     [
+      "Limits",
+      "The flag means outside the observed healthy range and nothing more; the report's claim scan applies. Readings of other kinds of samples are separate observations and never set a range. The per-unit and ratings structure is a method adopted from power-system practice, not a claim that NERC reviews IAM. Instruments not yet centred (run lengths, the Law Sphere's level alarm) get no range until they are. Ranges are provisional while the healthy controls are few (pass 9: 137 libraries, 48 types, 2-3 per type; never-used check 26 of 31 inside)."
+     ],
+     [
+      "Where the result goes",
+      "Every score's per-unit reading, tier, healthy range for the type at this depth, and raw measurement in field terms: the report's results table, the SOP and the Decoder."
+     ],
+     [
+      "Where on the DNA",
+      "Applies to each place's reading as well as the whole sample, once the where stage exists."
+     ],
+     [
+      "Code",
+      "(to be built: the final tare and ratings after pass 9)"
+     ],
+     [
+      "How to rebuild it",
+      "From pass 9's per-type centres and spreads; the formula above."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R18-RATINGS",
+    "name": "IAM's ratings methodology: per-unit readings and one observed normal operating range per instrument (adopted from power-system practice)",
+    "paths": [],
+    "questions": [],
+    "status": "designed 2026-11-21; built after held-out pass 9"
+   }
+  ],
+  "report_section": "",
+  "tools": [
+   {
+    "credit": "Klein J.R. & Roodman A. (2005) Annu. Rev. Nucl. Part. Sci. 55:141-163, doi 10.1146/annurev.nucl.55.090704.151521",
+    "tool": "Blind analysis and pre-registration",
+    "what": "the test and its pass line written down before the data are seen"
+   }
+  ]
+ }
+}

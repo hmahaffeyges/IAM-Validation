@@ -1,0 +1,1113 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.12",
+ "record": {
+  "cosmo_tool": "Entropy of the record against the reference sky, with the expectation computed at the sample's own read depth: counting noise modeled, not ignored.",
+  "credit": "",
+  "field_how": "Shannon entropy of methylation at each site, against the entropy a healthy cell of the same type shows at the same read depth. Sorted-cell Met-A: the type's identity CpGs against each healthy person of that type. Each cell in the mix: each found cell's identity CpGs against the atlas in the sample's composition. Whole sample: every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition.",
+  "field_term": "Normalized methylation entropy against a cell-type-matched healthy reference: sorted cell, each cell in a mixture, whole sample",
+  "id": "seq.12",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "identity sites rule"
+     ],
+     [
+      "In the field's terms",
+      "Identity CpG site-selection rule (the criteria that define a cell type's identity sites for Met-A)"
+     ],
+     [
+      "Definition",
+      "A chain rule — not part of IAM's Law — that sets which CpG sites count as a cell type's identity sites for Met-A: a site qualifies only if its healthy spread is <= 0.05, its mean methylation falls in the range 0.75-0.95 or in the range 0.05-0.25, and no more than 3,000 such sites are kept per side."
+     ],
+     [
+      "What it does",
+      "Filters the candidate CpG sites down to the set Met-A treats as a cell type's identity sites, using the spread, mean-level, and per-side count thresholds given in the rule."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A's job is to read the healthy height of each cell's identity sites and test whether a type's level is physics or a quirk of IAM-A; it needs a fixed rule for which sites count as 'identity sites' before that height can be measured consistently, which is what this rule (plain: 'which sites Met-A reads') provides."
+     ],
+     [
+      "How it is obtained or computed",
+      "A setting with a default (a chain rule) in stage_metaa_atlas.RULE, basis rule (metA_floors_v1_2): keep a site only if healthy spread <= 0.05 and mean is 0.75-0.95 or 0.05-0.25, at most 3,000 per side."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked explicitly as not part of IAM's Law (lf_section: 'not part of IAM's Law'; law_part: 'not the law: a chain rule'). Its source_kind is 'a setting with a default (a chain rule)' — a configuration threshold for the Met-A pipeline, not a physical link in the Law chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical setting: healthy spread <= 0.05; mean methylation 0.75-0.95 or 0.05-0.25; <= 3,000 sites per side — from stage_metaa_atlas.RULE, basis metA_floors_v1_2."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "identity sites rule"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Normal range (stage_metaa_atlas.RULE.normal)"
+     ],
+     [
+      "In the field's terms",
+      "Normal range (reference interval) for Met-A scores; under the agreed rule, each reading expressed as its distance from 1 in units of the cell type's measured healthy width"
+     ],
+     [
+      "Definition",
+      "The yardstick a Met-A entropy reading is judged against. The agreed rule is that there is no fixed plus-or-minus band — '1 is in the middle,' and each reading is recorded as its distance from 1 in units of that cell type's own measured healthy width. What currently sits in the code instead is '0.95-1.05,' a holdover from the old cell-class h_min method, explicitly marked as not the agreed method."
+     ],
+     [
+      "What it does",
+      "It is meant to turn a raw Met-A entropy score into a judgment of whether a reading sits at each cell type's own healthy level or outside it, expressed as a distance from 1 in units of a measured healthy width rather than a flat percentage band."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A's job is to test whether a cell type's healthy entropy level is physics or a quirk of IAM-A, and the agreed note states plainly there is no reason to impose a plus-or-minus-5-percent band on anything — the instrument needs a range measured from real atlas donors (and confirmed on outside healthy people) so that an off-centre type can be explained rather than hidden inside an arbitrary band."
+     ],
+     [
+      "How it is obtained or computed",
+      "Per the agreed rule: measured as the atlas's own donors read against the atlas (held out), then confirmed on outside healthy people; each reading is recorded as its distance from 1 in units of that measured width, and even '1 is the middle' is itself tested rather than assumed. Source: stage_metaa_atlas.RULE.normal; source_kind: setting with a default (a chain rule)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located — this row is a statistical rule derived from the atlas's donor readings, not a site in the genome itself (though the Met-A score it governs is read at each cell type's identity CpGs and atlas sites)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked in the packet as 'not the law: statistics (a yardstick)' and lf_section 'not part of IAM's Law' — this quantity does not enter IAM's Law; it is a statistical reference band used to interpret a measurement, not a thermodynamic or physical term in the chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default in the code today is 0.95-1.05 (source: stage_metaa_atlas.RULE.normal, source_kind: setting with a default — a chain rule), but this is flagged as a holdover from the old cell-class h_min method and explicitly not the agreed method. The agreed replacement — each cell type's own measured healthy width from atlas donors, held out and confirmed on outside healthy people, with 1 as a tested middle — is not yet set for Met-A (card_key: not yet on the card)."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "in_chain is 'yes, but NOT the agreed band: Met-A bands not yet set' — the measured, per-cell-type healthy width this instrument is supposed to use has not yet been established, so the 0.95-1.05 holdover must not be used to call any Met-A reading Normal."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Normal range"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "healthy zero (tare)"
+     ],
+     [
+      "In the field's terms",
+      "Healthy baseline (zero point) used to normalize readings; the legacy code setting required at least 3 same-run healthy control samples"
+     ],
+     [
+      "Definition",
+      "A chain rule setting the point against which Met-A's readings are zeroed: the value is 'LEGACY: >= 3 same-run healthy samples (min_refs 3); not our method (2026-11-07 rule)'. In the packet's own words: it sets the ruler's zero, while the atlas stays the ruler."
+     ],
+     [
+      "What it does",
+      "Sets the zero of Met-A's ruler; the atlas stays the ruler. The value in the code is a legacy rule (at least 3 same-run healthy samples, min_refs 3) that is not our method under the 2026-11-07 rule."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A reads the healthy height of each cell's identity sites, so its ruler needs a zero; the row states that the atlas stays the ruler. Why the legacy count of 3 was used: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained as a chain rule (basis: rule) from stage_metaa_atlas.RULE.min_refs: requires >= 3 same-run healthy samples (min_refs 3); the packet flags this as LEGACY and states it is 'not our method' as of the 2026-11-07 rule."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law (lf_section: not part of IAM's Law); its law_part is recorded plainly as 'not the law: a chain rule' — it is an administrative/method setting quantity (how the baseline sample count is chosen), not a physical quantity the Law governs."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its stated value/source is LEGACY: >= 3 same-run healthy samples (min_refs 3); not our method (2026-11-07 rule), drawn from stage_metaa_atlas.RULE.min_refs, with source_kind 'setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The rule is explicitly marked LEGACY and 'not our method' as of the 2026-11-07 rule, and it has no card_key yet (not yet on the card); what replaces it or its current standing is open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "healthy zero (tare)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "sequencing level"
+     ],
+     [
+      "In the field's terms",
+      "pooled methylation level / read count used for the atlas expectation"
+     ],
+     [
+      "Definition",
+      "The pooled meth/reads value (SEQ_LEVEL pooled) that feeds how the atlas's expected level is formed, sourced from stage_metaa_atlas.SEQ_LEVEL."
+     ],
+     [
+      "What it does",
+      "It sets how the atlas's expected level is formed, as part of the chain that supports Met-A sequencing's job of judging the healthy height of each cell's identity sites."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A compares each reading with the atlas's expected level; this setting says how that expected level is formed (pooled meth/reads)."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is a setting with a default, described as a chain rule, drawn from stage_metaa_atlas.SEQ_LEVEL as pooled meth/reads."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is not the law: a chain rule, and lf_section confirms it is not part of IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "open: not in the records yet"
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "sequencing level"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "read cover minimum (sequencing)"
+     ],
+     [
+      "In the field's terms",
+      "Minimum site coverage for calling a cell type in a sequenced sample (enough of its identity sites covered by reads)"
+     ],
+     [
+      "Definition",
+      "A chain-rule setting, READ_COVER_MIN_SEQ 0.1 (stage_metaa_atlas.READ_COVER_MIN_SEQ): a cell is read only with enough of its sites covered."
+     ],
+     [
+      "What it does",
+      "Gates whether a given cell is included in the analysis: a cell is only read if enough of its sites are covered, per the plain description 'a cell is read only with enough of its sites covered'."
+     ],
+     [
+      "Why the instrument needs it",
+      "So that a cell is read only with enough of its sites covered (plain). Further reason: open: not in the records yet."
+     ],
+     [
+      "How it is obtained or computed",
+      "Set as a fixed value: READ_COVER_MIN_SEQ 0.1, sourced from stage_metaa_atlas.READ_COVER_MIN_SEQ."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law — the packet states explicitly 'not the law: a chain rule', with lf_section 'not part of IAM's Law'. It is a chain rule (a setting with a default) rather than a quantity entering the Law's link/section structure."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is 0.1, with basis 'rule' and source_kind 'setting with a default (a chain rule)' — drawn from stage_metaa_atlas.READ_COVER_MIN_SEQ."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card. What is reported for a cell below the minimum: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "read cover minimum (sequencing)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "cell shares"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type mixture fractions (deconvolution 'cell shares')"
+     ],
+     [
+      "Definition",
+      "The per-cell-type proportions in a mixed sample, named 'cell shares' or 'the Deconvolver's shares,' that define the mix the atlas expectation is built in."
+     ],
+     [
+      "What it does",
+      "It sets the composition used to build the atlas's expected methylation pattern, so that each found cell's identity CpGs, and the whole sample's sites (weighted by how firmly healthy holds them), can be compared against the atlas in that sample's composition."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A compares each found cell's identity CpGs, and the whole sample, against the atlas in the sample's composition; the cell shares are that composition (the mix the atlas expectation is built in)."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is measured (basis: measured) via the source 'cell_shares,' obtained as set per cell type or fixed, from a cited measurement (source_kind: 'set per cell type or fixed, from a cited measurement')."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law; the packet marks it as 'not the law itself: a measured input the law uses' and its long-form section is 'not part of IAM's Law.' It is a measured compositional quantity (the cell-type mixture of the sample), not a derived physical state of the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is 'the Deconvolver's shares,' drawn from the source 'cell_shares,' obtained as set per cell type or fixed, from a cited measurement (basis: measured). No further default or typical numeric value is given in the records."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Not yet on the card (card_key: not yet on the card). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "cell shares"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Healthy width by cell (the agreed band method)"
+     ],
+     [
+      "In the field's terms",
+      "Per-cell-type healthy reference interval for the Met-A score (donor-based prediction interval around 1)"
+     ],
+     [
+      "Definition",
+      "The agreed method (2026-11-07: no fixed band, 1 is the middle): each cell's healthy width measured on the atlas's own donors, a reading's distance from 1 counted in those widths, an off-centre middle flagged, not hidden. Built for arrays; for sequencing the widths are being measured from the held-out pass of the IAM Sequencing Atlas's own libraries (each read against the other donor half). No same-run healthy samples are used."
+     ],
+     [
+      "What it does",
+      "It sets, per cell type, the width used to judge a Met-A reading: a reading is called normal if |A - 1| <= k x width, with k the prediction interval for one new reading from n donors; readings are reported as widths from 1, and a middle more than 2 widths from 1 is flagged."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is the healthy height of each cell's identity sites and whether a type's level is physics or a quirk of IAM-A, so it needs this width to know, type by type, how far a reading can sit from 1 before it counts as off-centre rather than normal variation."
+     ],
+     [
+      "How it is obtained or computed",
+      "Normal if |A - 1| <= k x width; k = prediction interval for one new reading from n donors; reported as widths from 1; a middle more than 2 widths from 1 is flagged."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part: not the law: statistics (a yardstick). lf_section: not part of IAM's Law. This width is not a step in IAM's Law; it is a statistical quantity, a yardstick for judging Met-A readings, not a link in the Law chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Value: arrays come from Runtime Matrices/Met_A_Widths/donor_widths_v1.json (IAM-Atlas v2.1's own donors); sequencing widths are NOT YET MEASURED. Source: stage_metaa_atlas.width_state (2026-11-08, array step 5), basis measured, source_kind the IAM Sequencing Atlas (measured healthy reference)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Arrays: in chain and usable. Sequencing: widths are still being measured from the held-out pass (each read against the other donor half), so this input is not yet in chain for sequencing; the bundle's 'untared' is a legacy word, not a missing tare."
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "Healthy width by cell (the agreed band method)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Sealed donor halves and noise maps (the atlas's held-out machinery)"
+     ],
+     [
+      "In the field's terms",
+      "Held-out healthy-donor reference splits and noise decomposition for a methylation atlas"
+     ],
+     [
+      "Definition",
+      "An atlas-level input: the healthy donor set split into sealed halves, each library's own read counts, and two deposited noise maps — one capturing donor-to-donor spread (donor halves) and one capturing counting noise (read halves) — held in metaa_half_counts_v1, metaa_donor_counts_v1, terr_half_counts_v1, metaa_inner_reference v1/t3, and noise_cols."
+     ],
+     [
+      "What it does",
+      "Reading each atlas library against the half it was held out of, or against the donors it was excluded from, gives the held-out healthy readings that set each cell type's middle and width for the entropy reference."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A sequencing needs a cell-type-matched healthy reference to test whether a type's methylation-entropy level is physics or a quirk of IAM-A, and this held-out machinery is what lets that reference be built without the atlas grading itself on data it already saw."
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained from Runtime Matrices/Seq_Atlas (plan 35.30) via stage_metaa_atlas.read(half=) and stage_seq_atlas.metaa_donors_of(exclude=); no formula is given in the record beyond this read/exclude splitting."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked 'not the law: statistics (a yardstick)' and 'not part of IAM's Law' — this is calibration statistics for setting a reference band, not a step in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Status is 'measured'; the value is metaa_half_counts_v1, metaa_donor_counts_v1, terr_half_counts_v1, metaa_inner_reference v1/t3, noise_cols, drawn from Runtime Matrices/Seq_Atlas (plan 35.30), with source_kind 'read from the sample's own molecules'."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Recorded as 'built; not yet used to set sequencing widths' — the machinery exists but has not yet been applied to fix the sequencing bands, and its card_key is 'not yet on the card'."
+     ],
+     [
+      "Credit",
+      "Split maps and half-mission null tests (noise from difference maps): Planck Collaboration (2020) Planck 2018 results III, A&A 641:the best hold two coins can buy (a steady push) (half-mission, ring and detset null tests and difference maps)"
+     ]
+    ],
+    "name": "Sealed donor halves and noise maps (the atlas's held-out machinery)"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Counted-mix expectation"
+     ],
+     [
+      "In the field's terms",
+      "Depth-matched expectation by exact hypergeometric subsampling (rarefaction) of sample and reference reads to a common depth"
+     ],
+     [
+      "Definition",
+      "The Met-A expectation built with the sample and the reference read at a common depth m = min(sample reads, 20, every kept cell's reference reads) from their own reads: the sample thinned without replacement, the expectation drawn from each cell's own reference reads; A = sum hm / sum he, equal weights."
+     ],
+     [
+      "What it does",
+      "Sets m = min(sample reads, 20, every kept cell's reference reads); the sample is thinned without replacement to that depth, and the expectation is drawn from each cell's own reference reads (expected_H_mix_counts; for one cell, thin_H), giving A = sum hm / sum he with equal weights."
+     ],
+     [
+      "Why the instrument needs it",
+      "A thin reference (one library per donor half) cannot be taken as exact; reading both the sample and the reference at the same depth from their own reads removes the bias. The islands already worked this way."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed as exact hypergeometric draws (sampling without replacement) at the common depth m described above; this generalises the donor_pair and islands_counted rules, with nothing fitted."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: this is statistics, described in the packet as \"the ruler's counting\" rather than a physical link in the chain. It is a derived counting correction, not a measured biophysical quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is \"common depth at most 20,\" sourced from the donor_pair (2026-10-31) and islands_counted (2026-11-01) rules, generalised; its source_kind is given as derived by IAM's Law (fixed by the physics; a setting only to test what-if)."
+     ],
+     [
+      "Where its value comes from",
+      "derived by IAM's Law (fixed by the physics; a setting only to test what-if)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Engaged only in the gate with --dev-seq-counted-mix or --dev-seq-half-cols. Not yet on the card. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "this work (counted_mix), generalising donor_pair (2026-10-31) and islands_counted (2026-11-01); hypergeometric thinning (exact sampling without replacement)"
+     ]
+    ],
+    "name": "Counted-mix expectation"
+   }
+  ],
+  "job": "the healthy height of each cell's identity sites; tests whether a type's level is physics or a quirk of IAM-A",
+  "law": "IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor.",
+  "link": "12. Met-A sequencing",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A whole sample"
+     ],
+     [
+      "In the field's terms",
+      "Normalized methylation entropy against a cell-type-matched healthy reference, read here as the whole-sample Met-A score"
+     ],
+     [
+      "Definition",
+      "Whole-sample Met-A: every IAM-Atlas v2.1 site (~790,000), each weighted by how firmly a healthy sample of this mix holds it, measured against the atlas mixed in the sample's own Deconvolver shares (each cell type pooled over its healthy people) — disorder at identity sites over the atlas's sites."
+     ],
+     [
+      "What it does",
+      "It produces one whole-sample score for disorder at identity sites, comparing what is seen against what a healthy mixture of that same composition should show."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs it to read the healthy height of each cell's identity sites, testing whether a type's level is physics or a quirk of IAM-A."
+     ],
+     [
+      "How it is obtained or computed",
+      "Shannon entropy of methylation is computed at each site and compared with the entropy a healthy cell of the same type shows at the same read depth. For the whole sample, every atlas site is weighted by how firmly a healthy sample of this mix holds it, against the atlas mixed in the sample's own Deconvolver shares. On 49 never-used atlas libraries this whole-sample read is a median 0.930 while sorted-cell reads 1.017, and this comparison is being tested."
+     ],
+     [
+      "Where it is read",
+      "Not a single locus: read across the atlas's roughly 790,000 identity CpG sites genome-wide (IAM-Atlas v2.1), each weighted by how firmly a healthy sample holds it."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the packet marks this as a measured input the law uses, not the law itself, and its long-form section is 'not part of IAM's Law.' It is a measured disorder score feeding the law, not a step within the law's own chain."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No healthy band yet. Held-out testing (pass 4, other donor half) gives a sorted-cell median 1.0073, IQR 0.961-1.057, depth-dependent (open); outside-lab neurons read 0.911; today's 49 never-used atlas libraries read 0.930 whole-sample (full atlas). The band is to be set by the agreed method from these values, not the current code's 0.95-1.05, which is a holdover; the true centre and width are still to be set from the 152 atlas libraries."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Test state is NO HEALTHY BAND YET: centre (the type's healthy median) and width (measured spread) still need to be set from the 152 atlas libraries, and the spread is depth-dependent, marked open. The 0.95-1.05 currently in the code is only a holdover, not a derived band."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A whole sample"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A state"
+     ],
+     [
+      "In the field's terms",
+      "Normalized methylation entropy band status (inside vs. outside the cell-type-matched healthy reference) — sorted cell, each cell in a mixture, or whole sample"
+     ],
+     [
+      "Definition",
+      "State: inside or outside the type's measured healthy width. This is the output of Met-A sequencing, which reads the healthy height of each cell's identity sites and tests whether a type's level is physics or a quirk of IAM-A. 'untared' in today's bundle is a legacy word from the retired same-run tare, not a missing step."
+     ],
+     [
+      "What it does",
+      "It flags whether a sample's Met-A reading sits inside or outside the cell type's measured healthy width, for a sorted cell, each cell found in a mixture, or the whole sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "Met-A reads the healthy height of each cell's identity sites and tests whether a type's level is physics or a quirk of IAM-A; this row says whether the reading sits inside its type's measured healthy width."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references. The underlying entropy comes from Shannon entropy of methylation at each site, compared against the entropy a healthy cell of the same type shows at the same read depth — for sorted cells, against each healthy person of that type; for each cell in a mixture, against the atlas in the sample's composition; for the whole sample, every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition. The result is then marked inside or outside that type's measured healthy width (test_path: met_a_whole.state; current test_value: \"untared\")."
+     ],
+     [
+      "Where it is read",
+      "not genome-located: this is a whole-sample/type-level state (test_path met_a_whole.state), not a single genomic coordinate; the entropy it draws on is read across each cell type's identity CpGs as described by the instrument."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (lf_section: not part of IAM's Law). Its law_part is 'not the law itself: a measured input the law uses' — i.e., a measured quantity the law draws on, not a step of the law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is defined as sitting within the type's measured width, with that width being set from the held-out pass (basis: measured). But test_state shows NO HEALTHY BAND YET: the centre (the type's healthy median) and width (measured spread) are still to be set from the 152 atlas libraries; the code's current 0.95-1.05 is only a holdover."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "No healthy band yet: centre (type's healthy median) and width (measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The printed 'untared' is a legacy word from the retired same-run tare, not a missing step."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A state"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A each cell."
+     ],
+     [
+      "In the field's terms",
+      "Normalized methylation entropy at each deconvolved cell type's identity CpGs, against the atlas mixed in the sample's own composition."
+     ],
+     [
+      "Definition",
+      "Met-A for each cell in the sample's mix: each found cell's identity sites against the atlas mixed in the sample's own shares."
+     ],
+     [
+      "What it does",
+      "It says which cell moved, giving one Met-A value per cell found in the sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 12 reads the healthy height of each cell's identity sites and tests whether a type's level is physics or a quirk of IAM-A; in a mixed sample that needs one reading per cell, not one for the whole."
+     ],
+     [
+      "How it is obtained or computed",
+      "Shannon entropy of methylation at each found cell's identity CpGs, against the entropy a healthy cell of the same type shows at the same read depth, with the atlas mixed in the sample's composition."
+     ],
+     [
+      "Where it is read",
+      "Each found cell type's identity CpGs."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a measured input the law uses; it is an entropy ratio against a healthy reference."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is about 1 after the healthy zero. NO HEALTHY BAND YET: centre (the type's healthy median) and width (its measured spread) are to be set from the 152 atlas libraries; the code's 0.95-1.05 is a holdover. The development test reads cardiomyocyte 0.9258 (A 0.78955); lung alveolar epithelium 0.0332 (A 0.8652)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Without each type's band it cannot yet say whether a cell's value is outside healthy. It depends on the Deconvolver's shares and on the atlas holding that cell type."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A each cell"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A shift per 1 % loss (whole sample)."
+     ],
+     [
+      "In the field's terms",
+      "Sensitivity of the whole-sample normalized methylation entropy to a 1 % loss of methylation."
+     ],
+     [
+      "Definition",
+      "The reading's sensitivity: how far whole-sample Met-A moves for a 1 % loss."
+     ],
+     [
+      "What it does",
+      "It gives the size of the Met-A move that a 1 % loss would make in this sample, so a reading's change can be read in units of loss."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 12 reads the healthy height of each cell's identity sites; to judge a move the instrument needs to know how much the reading responds to a given loss."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain for the whole-sample Met-A (every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition). The packet does not give the sensitivity formula: open: not in the records yet."
+     ],
+     [
+      "Where it is read",
+      "Every atlas site, for the whole sample."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a measured input the law uses; it is the sensitivity of an entropy reading."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is 'a value' (no band). The development test reads 0.13433 (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is a property of the reading in this sample, not a judgement of health; how it is computed is not in the packet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A shift per 1 % loss"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Met-A = the sample's methylation disorder (Shannon entropy of the CpG's methylated fraction) over the disorder a healthy cell of the same composition shows at the same read depth. Three readings: sorted-cell Met-A (the library's own type's identity sites, against each healthy person of that type separately, averaged); Met-A for each cell in the mix (each found cell's identity sites against the atlas in the sample's shares); whole-sample Met-A (every IAM-Atlas v2.1 site, about 790,000, weighted |0.5 - e|, against the atlas in the sample's shares). 1 is healthy; above 1 the record is more disordered than healthy holds it, below 1 more ordered."
+     ],
+     [
+      "Why",
+      "A cell that loses control of its record shows it first as disorder at sites a healthy cell holds firmly; comparing with the same type's healthy people at the same read depth removes the counting noise that depth alone would add, so a shallow library does not look disordered."
+     ],
+     [
+      "Physics",
+      "IAM's Law in the cell (link 1d, the maintained hold): the healthy level at held sites is set by the same hold as IAM-A's floor, 1/(1 + e^M) with M = 20.94; the gauge's floor and ceiling are derived (M1). Met-A reads the record's disorder; IAM-A reads its losses on held molecules: two views of the same hold."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's level and read count at each site (from its molecules). The IAM Sequencing Atlas (GSE186458, Zenodo record): each type's healthy level per person, the sealed donor halves and two noise maps (map 1 donor halves, map 2 read halves); the identity-site rule (healthy spread <= 0.05; mean 0.75-0.95 or 0.05-0.25; at most 3,000 per side). The Deconvolver's shares for the mix readings, through Met-A's tare on sorted samples."
+     ],
+     [
+      "The numbers",
+      "Held-out pass 8 (each of 137 atlas libraries read against its other donor half): whole sample 0.990 +/- 0.177; sorted cell and own cell in the mix measured (bucket bands8/held_out_pass8.csv). Never-used healthy libraries (31 atlas types): whole sample 0.938 before the tare, 1.016 with it; sorted cell 1.004. Planted mixtures: whole sample within 0.03 of 1 for planted fractions >= 0.15."
+     ],
+     [
+      "Method and standard",
+      "Expected disorder computed at the sample's own read count at each site (counting noise modelled: exact draws, the counted expectation of 2026-11-20, common depth at most 20). Healthy bars by the 2026-11-07 rule: 1 is the middle; each type's width from its held-out person-to-person spread, Student's t coverage for few libraries (GUM). The 0.95-1.05 range in the code is a holdover from the old class method and is being retired."
+     ],
+     [
+      "Known-answer test",
+      "Planted two-library mixtures (inject and recover) read through the one button: whole-sample Met-A right on true mixtures; the relay test planted a disorder fault in the test library and it moved Met-A. The test library GSM5652214 is re-read after every chain edit (known-answer run)."
+     ],
+     [
+      "Limits",
+      "(1) No commissioned bar yet on sequencing (held-out pass 9 owed). (2) The atlas has 1-3 donors per type per half (the thin-ruler effect, found 2026-11-01): held-out widths are wide. (3) Same laboratory as the atlas; a second laboratory's healthy libraries are owed. (4) Whole-sample Met-A depends on the Deconvolver's shares (see Met-A's tare). (5) The legacy same-run tare option and the word 'untared' remain in the code and are to be retired."
+     ],
+     [
+      "Where the result goes",
+      "bundle met_a_whole, met_a_each_cell, development.metaa_atlas (sorted cell); Met-A state; feeds the ceiling distance, the territories and the Met-A-side C-Score; the report."
+     ],
+     [
+      "Code",
+      "stage_metaa_atlas (read_whole, read_in_mix, expected_H_donors, expected_H_counted, METAA_SEQ_READINGS, tare_shares); run_sample.py (Met-A block); metaa_seq_reference_v1"
+     ],
+     [
+      "How to rebuild it",
+      "1. Build the identity sites per type from the atlas (the site rule). 2. For each sample, compute disorder at each site and the expected healthy disorder at its read count from each healthy person of the type (sorted cell) or the atlas in the sample's shares (mix, whole sample). 3. Met-A = sample over expected. 4. Bars: read every atlas library against its other donor half, take each type's spread, Student's t coverage."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R12-METAA",
+    "name": "Met-A on sequencing: its three readings, its healthy reference and how it is defended",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why entropy and not just the methylation level?",
+      "Two samples can have the same average level while one is ordered (every molecule alike) and the other disordered (molecules disagree); a cell losing control of its record shows the disorder first.",
+      "field description; Met-A record"
+     ],
+     [
+      "Doesn't low read depth make a sample look disordered?",
+      "It would, so the healthy expectation is computed at the sample's own read count at each site: counting noise is in the expectation, not mistaken for disorder.",
+      "counted expectation (2026-11-20); held-out passes"
+     ],
+     [
+      "Why three readings?",
+      "They answer different questions: has this cell type's identity record moved (sorted cell), which cell in a mixture moved (each cell), has the sample as a whole departed (whole sample). They use different sites and expectations, so they can differ on one library.",
+      "METAA_SEQ_READINGS (SOP and Decoder)"
+     ],
+     [
+      "How is Met-A's healthy range set?",
+      "Not by a fixed number: 1 is the middle and each type's width is its held-out person-to-person spread with Student's t coverage (GUM). The bars from the held-out pass with the tare are being measured.",
+      "the 2026-11-07 rule; pass 8 and pass 9"
+     ],
+     [
+      "Were the healthy references ever used to test themselves?",
+      "No: every atlas library is read against the other, sealed donor half, and never-used libraries are kept for the out-of-sample check.",
+      "sealed donor halves; never-used GSE186458 libraries"
+     ]
+    ],
+    "status": "development; never commissioned on sequencing (bars from held-out pass 9 owed)"
+   },
+   {
+    "fields": [
+     [
+      "How it works",
+      "SORTED (isolated, purified) sequenced samples only; in whole blood, plasma and tissue Met-A keeps the Deconvolver's shares and no cell is assumed absent. Inside Met-A's healthy expectation: the Deconvolver's largest share is the main cell; a share in the main cell's tissue family (stage_0_intake.lineage_group) counts as the main cell; a cell in another family keeps its share only at or above SPILL_FLOOR = 0.05; megakaryocytes are left out (identification only); the rest is renormalized. The sorted label is recorded but never used: when it names a different type, the Deconvolver's call is used and the disagreement is flagged (tested: reading against the label's type moved Met-A away from 1). The Deconvolver, its reported shares, IAM-A in the mix and the mixture check are unchanged."
+     ],
+     [
+      "Why",
+      "On healthy pure libraries the Deconvolver names the main cell but gives a few per cent to related references in the same tissue family (colon epithelium -> colon enteroendocrine 0.190; heart fibroblasts -> smooth muscle 0.238; tongue base -> tonsil palatine 0.305). Taken as real cells, those shares make Met-A's expected disorder too high at the sites where those references differ, so a healthy sample read low: median whole-sample Met-A 0.938 on 31 never-used healthy libraries (sorted-cell Met-A on the same libraries 1.004). In grid terms: the meter and relay are right; the setpoint was built with phantom load added in."
+     ],
+     [
+      "Physics",
+      "Not a step of IAM's Law: a calibration of the reference that Met-A (the disorder of the record against its healthy expectation) is read against. Met-A's expectation is the entropy of the atlas mixed in the sample's shares; entropy is steep near 0 and 1, so a few per cent of a related type at a firmly held site raises the expected disorder much more than it changes the level (the reason small shares bias Met-A, recorded 2026-11-21)."
+     ],
+     [
+      "Where the data comes from",
+      "(1) The Deconvolver's shares for the sample (Stage D21, deconv_reference_v1, 5,699 marker CpGs, 57 types). (2) The chain's tissue families (stage_0_intake.lineage_group, the same map the mixture check uses). (3) SPILL_FLOOR from spill25.csv: every non-main share on 25 pure healthy libraries of atlas types (GSE186458, never used to build the atlas; real types from each GEO file name, lib49_real_types.csv)."
+     ],
+     [
+      "The numbers",
+      "Spill on the 25 pure libraries: 326 non-main shares, median 0.006, 0.95 quantile 0.053, largest 0.305; 15 of 19 shares of 0.05 or more stay in the main cell's family. Whole-sample Met-A on the 31 never-used atlas-type libraries: median 0.938 with the Deconvolver's shares, 1.016 with the rule; correlation with sorted-cell Met-A 0.18 -> 0.51; 27 of 31 within the GUM bar. Outside: GSM5652341 Prostate-Epithelial 0.865 (z -6.27, k 4.3); GSM5652237 Liver-Hepatocytes 1.200 (z 2.33, k 2.0); GSM5652330 Tongue_base-Epithelial 1.166 (z 4.84, k 4.3); GSM5652261 Kidney-Glomerular-Podocytes 1.208 (z 5.30, k 4.3)."
+     ],
+     [
+      "Method and standard",
+      "Bar by the GUM (JCGM 100:2008): u = each cell type's person-to-person standard deviation of held-out sorted-cell Met-A (held-out pass 8, each atlas library read against the other donor half), pooled 0.086 over 137 libraries where a type has fewer than 3; coverage factor Student's t at n - 1 degrees of freedom for the type's library count (k = 4.30 for 3 libraries; Student 1908), 2 for large n. Not yet in u (both widen the bar): each read's counting noise and the shares' own uncertainty. The floor is the 0.95 quantile of measured spill, set from spill25.csv before the run; the prediction was written first."
+     ],
+     [
+      "Known-answer test",
+      "Inject and recover (jobs/plant_mix.py: two healthy libraries' molecules mixed at known fractions, seeded binomial thinning): cardiomyocyte GSM5652214 + hepatocyte GSM5652236, and oligodendrocytes GSM5652222 + pancreatic acinar GSM5652246, at 0/0.05/0.10/0.15/0.20/0.30/0.50, read through the one button. With the rule, pair 1 reads 0.984/1.055/0.969/0.993/0.994/0.998/1.015 and pair 2 1.016/1.098/1.019/1.015/1.005/0.999/0.988 (with the Deconvolver's shares: 0.894/0.897/0.922/0.956/0.973/0.996/0.996 and 0.952/0.969/0.977/0.980/0.974/0.974/0.976). The chain's tare_shares is checked to give exactly the tested mixes (a chain update smoke). Known-answer run after the edit: 62 of 1,216 numbers moved, all in Met-A's mix route; whole-sample Met-A 0.894 -> 0.984 on the test library, as predicted."
+     ],
+     [
+      "Limits",
+      "(1) A real admixture below 0.05 from another family reads as pure (the detection limit; the 5 % plantings read 1.055 and 1.098). (2) A real mixture inside one family (e.g. fibroblasts with smooth muscle) is read as the main cell: its size is not yet measured (owed: a planted within-family mixture). (3) A large false share from another family stays (cortex neuron GSM5652232: striated muscle 0.244 kept, Met-A 0.861). (4) The within-family name can be wrong (podocytes called kidney tubular epithelium) while the family is right: Met-A's mix is unaffected, the name is. (5) Same laboratory as the atlas; a second laboratory's healthy libraries are owed. (6) Sequencing only; arrays untested. (7) The tissue families are broad (all 26 epithelia are one family, hepatocytes and pancreatic acinar included): stromal (6): adipocytes, cardiomyocyte, colon fibroblasts, heart fibroblasts, smooth muscle, striated muscle; endothelial (6): aorta endothelium, kidney glomerular endothelium, kidney tubular endothelium, lung alveolar endothelium, pancreas endothelium, vascular saphenous endothelium; B cells (2): b cells, memory b cells; epithelial (26): bladder epithelium, breast basal epithelium, breast luminal epithelium, colon enteroendocrine, colon epithelium, endometrium epithelium, fallopien tubes epithelium, gastric antrum epithelium, gastric body epithelium, gastric fundus epithelium, hepatocyte, kidney glomerular epithelium, kidney tubular epithelium, lung alveolar epithelium, lung bronchus epithelium, pancreatic acinar, pancreatic alpha, pancreatic beta, pancreatic delta, pancreatic duct, prostate epithelium, small intestine epithelium, thyroid epithelium, tongue epithelium, tonsil palatine epithelium, tonsil pharyngeal epithelium; T cells (8): cd4 t cells, cd8 t cells, effector memory cd8 t cells, naive cd4 t cells, naive cd8 t cells, t central memory cd4, t effector cell cd8, t effector memory cd4; monocytes and macrophages (4): colon macrophages, lung alveolar macrophages, lung interstitial macrophages, monocytes; neural (2): cortical neurons, oligodendrocytes; erythrocyte progenitors (1): erythrocyte progenitors; granulocytes (1): granulocytes; nk cells (1): nk cells. (8) Labels can be wrong (outside 'sorted' samples were 24-80 % their label, 2026-11-06/07; three podocyte libraries read further from 1 against their label's type, 1.208 -> 1.271 and 1.016 -> 1.092): the label is never used, only flagged. (9) The test sets' 'real types' are GEO file names: the best available truth, still labels. (5) On a sorted sample the tare's mix also sets which cells 'Met-A for each cell in the mix' and the globe's per-cell layer read: the cells it leaves out are not read individually (on the test library they were spill at 2-3 % that read the main cell's DNA). Whole blood, plasma and tissue read every cell the Deconvolver finds."
+     ],
+     [
+      "Where the result goes",
+      "bundle met_a_tare (main cell, family, floor, shares counted as main, shares left out, the mix); every Met-A reading of a sorted sequenced sample (whole sample, each cell in the mix, departure and C-Score in the mix) uses that mix; the report states the shares the tare moved under Met-A."
+     ],
+     [
+      "Code",
+      "stage_metaa_atlas.tare_shares, SPILL_FLOOR, ID_ONLY (a chain update); MethylPhys_Interface/run_sample.py (the edit-236 lines in the Met-A block: the sorted-sample switch and the mix); stage_0_intake.lineage_group"
+     ],
+     [
+      "How to rebuild it",
+      "1. List every non-main Deconvolver share on pure healthy libraries whose real type (GEO name) is an atlas type -> spill25.csv; the floor is its 0.95 quantile. 2. For each library, apply the rule to its Deconvolver shares -> tare_rules.json. 3. Read each library through the one button with those shares (--dev-shares) on Google -> whole-sample Met-A. 4. Judge each against 1 with u from held-out pass 8 and Student's t coverage. 5. Plant two-library mixtures (plant_mix.py, seeds = CRC32 of the job name) and read them the same way."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R12-TARE",
+    "name": "Met-A's tare on sequencing: the Deconvolver's spill inside a tissue family",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why not fix the Deconvolver instead?",
+      "Its job is identification, and it names the main cell correctly; its shares are still reported unchanged. The bias comes only from how Met-A used near-miss shares between related references, so the correction sits in Met-A's tare.",
+      "tare_rule_judged.csv"
+     ],
+     [
+      "Was the 0.05 floor tuned to make Met-A read 1?",
+      "No. It is the 0.95 quantile (0.053) of every non-main share measured on 25 pure healthy libraries (spill25.csv), set before the run; the prediction was written in the design sheet before any read.",
+      "spill25.csv; the design sheet written before the run"
+     ],
+     [
+      "Doesn't this hide real mixtures?",
+      "Not across families at 10 % or more: planted mixtures keep their mix and read 0.969-1.019. Below 0.05 a cross-family admixture reads as pure (detection limit). Inside one family a real mixture is read as the main cell; its effect is not yet measured and is owed.",
+      "plantmix_14.csv; known-answer section"
+     ],
+     [
+      "Why is sorted-cell Met-A the comparison?",
+      "It reads only the type's identity sites against each healthy donor separately, so it does not depend on the shares. It is the independent route; the rule moved whole-sample Met-A toward it (correlation 0.18 -> 0.51).",
+      "frag_rule49.csv;"
+     ],
+     [
+      "How were the pass/fail bars set?",
+      "By the GUM (JCGM 100:2008): each type's person-to-person standard deviation from held-out readings, with Student's t coverage for small library counts. No chosen number.",
+      "tare_rule_judged.csv (sigma, n_libs, k, z)"
+     ],
+     [
+      "Which libraries, and were they used to build the atlas?",
+      "49 sorted GSE186458 libraries never used to build the IAM Sequencing Atlas; real types from each GEO file name; 31 are atlas types and are the test set.",
+      "lib49_real_types.csv;"
+     ],
+     [
+      "Why do four libraries fall outside?",
+      "GSM5652341 Prostate-Epithelial 0.865 (z -6.27, k 4.3); GSM5652237 Liver-Hepatocytes 1.200 (z 2.33, k 2.0); GSM5652330 Tongue_base-Epithelial 1.166 (z 4.84, k 4.3); GSM5652261 Kidney-Glomerular-Podocytes 1.208 (z 5.30, k 4.3). Two are read against a different site or the wrong type within the family, one is the prostate reference (thin donors), one matches its own sorted-cell reading.",
+      "tare_rule_judged.csv"
+     ],
+     [
+      "Is this independent of the atlas's own laboratory?",
+      "Not yet: every library here comes from the atlas's laboratory. A second laboratory's healthy libraries (already aligned cord-blood B cells and CD4 T cells) are the owed independent check.",
+      "owed list"
+     ],
+     [
+      "Does it change array readings?",
+      "No. It applies only to sorted sequenced samples; arrays are untested and unchanged.",
+      "a chain update (a._seqv)"
+     ],
+     [
+      "Can it be rebuilt from public data?",
+      "Yes: the libraries are public (GEO GSE186458), the chain is public, and the tables, job scripts and seeds are in the development record.",
+      "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (section 'Met-A's tare on sequencing, 2026-11-21'); data doors/data/DEV_METAA_ATLAS_CURVE_01/tare_rule/"
+     ],
+     [
+      "Isn't trusting the sorted label what went wrong before?",
+      "Yes, and it was tested here too. A step that let a sorted label name the main cell inside its family was tried on three podocyte libraries: read against the label's type, Met-A moved away from 1 (1.208 -> 1.271, 1.016 -> 1.092), so the molecules sided with the Deconvolver. The label is never used; a disagreeing label is only flagged.",
+      "Met-A tare record, limit 8; the podocyte test of 2026-11-21"
+     ],
+     [
+      "Why only sorted samples?",
+      "Because only there is one cell type expected; in whole blood, plasma and tissue a few per cent of any cell may be real (e.g. liver DNA in plasma), so dropping small shares there would assume absence. The rule was tested only on sorted libraries.",
+      "a chain update (_tare_on);"
+     ],
+     [
+      "What is a tissue family?",
+      "The chain's existing grouping (stage_0_intake.lineage_group), also used by the mixture check: stromal (6): adipocytes, cardiomyocyte, colon fibroblasts, heart fibroblasts, smooth muscle, striated muscle; endothelial (6): aorta endothelium, kidney glomerular endothelium, kidney tubular endothelium, lung alveolar endothelium, pancreas endothelium, vascular saphenous endothelium; B cells (2): b cells, memory b cells; epithelial (26): bladder epithelium, breast basal epithelium, breast luminal epithelium, colon enteroendocrine, colon epithelium, endometrium epithelium, fallopien tubes epithelium, gastric antrum epithelium, gastric body epithelium, gastric fundus epithelium, hepatocyte, kidney glomerular epithelium, kidney tubular epithelium, lung alveolar epithelium, lung bronchus epithelium, pancreatic acinar, pancreatic alpha, pancreatic beta, pancreatic delta, pancreatic duct, prostate epithelium, small intestine epithelium, thyroid epithelium, tongue epithelium, tonsil palatine epithelium, tonsil pharyngeal epithelium; T cells (8): cd4 t cells, cd8 t cells, effector memory cd8 t cells, naive cd4 t cells, naive cd8 t cells, t central memory cd4, t effector cell cd8, t effector memory cd4; monocytes and macrophages (4): colon macrophages, lung alveolar macrophages, lung interstitial macrophages, monocytes; neural (2): cortical neurons, oligodendrocytes; erythrocyte progenitors (1): erythrocyte progenitors; granulocytes (1): granulocytes; nk cells (1): nk cells.",
+      "stage_0_intake.FAMILY_OF / LINEAGE_OF"
+     ]
+    ],
+    "status": "development; in the chain (a chain update, 71d2275d); known-answer run and bar pass 9 next"
+   }
+  ],
+  "report_section": "v4-each",
+  "tools": [
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps)",
+    "tool": "Split maps and half-mission null tests (noise from difference maps)",
+    "what": "the reference split into halves (sealed donor halves, random read halves): the difference of halves measures the noise, and every reading can be held out against the half it was not built from"
+   },
+   {
+    "credit": "Two methods read on the same objects and their differences studied: Bland J.M. & Altman D.G. (1986) Statistical methods for assessing agreement between two methods of clinical measurement, Lancet 327(8476):307-310 (the standard method-comparison reference); in cosmology the same move is the cross-calibration of two distance ladders",
+    "tool": "Cross-calibration of two methods on the same objects (tension metrics)",
+    "what": "two routes to one reading pointed at the same samples; a uniform offset between them is a calibration error, not biology"
+   },
+   {
+    "credit": "Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1",
+    "tool": "Student's t interval (statistics, not cosmology)",
+    "what": "the 95 % range of a cell type's healthy level from its few donors, widened for the small number of donors"
+   },
+   {
+    "credit": "Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x",
+    "tool": "Shannon entropy (information theory)",
+    "what": ""
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   }
+  ]
+ }
+}
