@@ -531,13 +531,13 @@ def _law_sphere(a, cnt, o):
     ref = LS.load_ref(); umap = LS.unit_map(ref["isl_first"], ref["isl_last"], ref["block"], ref["n"])
     card = LS.card_of(json.load(open(a.law_card)) if getattr(a, "law_card", None) else None)
     if getattr(a, "law_set", None): card.update({k: v for k, v in LS.card_of(a.law_set).items() if v != LS.CARD.get(k)})
-    C = LS.count_pat_units(op(a.pat), umap); rec, Lay = LS.reading(C, ref, sh, cnt.get("loose_share"), card=card); rec["label"] = DV.DEV_LABEL
+    C = LS.count_pat_units(op(a.pat), umap); _qs = None if getattr(a, "no_lab_correction", False) else (((getattr(a, "_site_counts", None) or {}).get("islands") or {}).get("gain_err")); rec, Lay = LS.reading(C, ref, sh, cnt.get("loose_share"), conv=_qs, card=card); rec["conversion_used"] = dict(sample=_qs, source=("the sample's islands meter (edit 246)" if _qs is not None else "the card default")); rec["label"] = DV.DEV_LABEL
     if rec.get("status") == "OK":   # edit 212: the hold alarm (the level layers are blind to the hold)
         _ia = o.get("iam_a") or {}
         try: rec["hold_alarm"] = LS.hold_alarm(C, ref, _ia.get("cell") if _ia.get("A_derived") is not None else None, _ia.get("predicted_derived"))
         except Exception as e: rec["hold_alarm"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
     if rec.get("status") == "OK":   # edit 215: the islands no healthy cell type writes
-        try: rec["unused_islands"] = LS.unused_islands(C, sh)
+        try: import stage_conv_corr as _CCu; rec["unused_islands"] = LS.unused_islands(C, sh, conv=_qs, q_ref=(_CCu.load_ref()["q_ref"] if _qs is not None else None))
         except Exception as e: rec["unused_islands"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
     U_ = rec.pop("_units", None)
     if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
@@ -655,6 +655,20 @@ def _site_counts(pat):
         out["timing_by_family"] = dict(error=f"{type(e).__name__}: {str(e)[:160]}")
     return out
 
+def _lab_sites(a):
+    """Edit 246: the meter and clock counts, counted once (before the Deconvolver when the laboratory correction ran) and reused here, with the
+    clock's gain rate also on the atlas's conversion scale (stage_conv_corr.to_ref)."""
+    sc = getattr(a, "_site_counts", None) or _site_counts(a.pat)
+    try:
+        import stage_conv_corr as _CC; ref = _CC.load_ref(); q_s, _, _ = _CC.meter(sc)
+        e = sc.get("epitoc2")
+        if isinstance(e, dict) and e.get("gain_err") is not None and q_s is not None and not getattr(a, "no_lab_correction", False):
+            e["gain_err_on_atlas_scale"] = round(_CC.to_ref(e["gain_err"], q_s, ref["q_ref"]), 6)
+    except Exception as _e:
+        sc["lab_correction_error"] = f"{type(_e).__name__}: {str(_e)[:160]}"
+    return sc
+
+
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
     ap.add_argument("--grn", help="the array's green-channel raw file (IDAT, .gz allowed), with --red; Stage 1 calibrates it"); ap.add_argument("--red", help="the array's red-channel raw file (IDAT, .gz allowed), with --grn"); ap.add_argument("--betas", help="a per-site table of values (CSV: site id, value) read as an array; the Deconvolver and every reading run on it")
@@ -767,6 +781,7 @@ def main():
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-law-sphere", action="store_true", help="DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain")
     ap.add_argument("--law-set", action="append", default=None, metavar="KEY=VALUE", help="IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held=\"law\", by_type={...}); keys in stage_law_sphere.CARD")
+    ap.add_argument("--no-lab-correction", action="store_true", help="development: read without the laboratory correction from the sample's own reads (edit 246)")
     ap.add_argument("--law-card", default=None, metavar="FILE.json", help="IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD)")
     ap.add_argument("--law-counts-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit")
     ap.add_argument("--law-counts", default=None, metavar="FILE.npz", help="with --build law-sphere-sweep or law-sphere-fit: the saved counts")
@@ -1405,6 +1420,13 @@ def main():
                 print("Stage C: each design's response on its own calibrators: " + "; ".join(f"{k} {v.get('levels', 0)} levels, largest {v.get('largest_correction')}" if v.get("mapped") else f"{k} not mapped" for k, v in o["curve_cal"]["designs"].items()), flush=True)
             except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
+        if a.pat and getattr(a, "_seqv", None) and not getattr(a, "no_lab_correction", False):   # edit 246 (F275): the laboratory correction from the sample's own reads
+            try:
+                import stage_conv_corr as _CCv
+                a._site_counts = _site_counts(a.pat); beta, o["lab_correction"] = _CCv.apply_levels(beta, a._site_counts, _CCv.load_ref())
+                if o["lab_correction"].get("applied"): print(f"Laboratory correction: the sample's false-mark rate {o['lab_correction']['q_sample']:.5f}, the atlas's {o['lab_correction']['q_atlas']:.5f}; every site level put on the atlas's scale", flush=True)
+            except Exception as _e: o["lab_correction"] = dict(applied=False, status="ERROR", reason=f"{type(_e).__name__}: {str(_e)[:200]}")
+        elif a.pat and getattr(a, "_seqv", None): o["lab_correction"] = dict(applied=False, reason="--no-lab-correction (development)")
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
         if not a._seqv and (a.cell_panel or "blood") != "blood":   # 2026-11-09: the commissioned six-cell reading beside the atlas panel's
             try: o["cell_shares_blood6"] = dict(V4.stage_d21(_pd.Series(beta, dtype="float64"), None), note="the six blood cells the IAM-Deconvolver is commissioned on, beside the atlas panel the chain reads with")
@@ -1649,7 +1671,7 @@ def main():
                 o["iam_a"].update({k: (round(float(x), 6) if isinstance(x, float) else x) for k, x in _Q2.derived_reading(_cnt).items()})   # 2026-11-16: the derived line beside
                 o["iam_a"]["counting"] = V4.counting_error(_cnt, _A, _B)
             else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
-            if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
+            if a.pat: o["iam_a"]["sites"] = _lab_sites(a)   # register T1, C3: islands meter and clock sites, in every reading
             if a.dev_genome_globe and a.pat:   # edit 211: the whole-genome globe on mixtures too
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
         elif qi.get("refusal_code"):
@@ -1658,14 +1680,14 @@ def main():
                 _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
                 o["iam_a"]["count"] = {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "loss_runs", "loss_run_ratio", "loss_run_excess_2", "loss_run_excess_3")}
                 o["iam_a"]["count_note"] = "molecules counted for the other instruments (edit 239); IAM-A's number is not read for a refused mixture"
-                if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites
+                if a.pat: o["iam_a"]["sites"] = _lab_sites(a)   # register T1, C3: islands meter and clock sites
                 if a.dev_genome_globe and a.pat: o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
             o["iam_a"] = V4.stage_q2(_cnt, a.seq_cell, chemistry=a.seq_chemistry, source=src)
             import stage_coupling as _CP; o["coupling_a"] = _CP.read(o["iam_a"], a.seq_cell)   # 2026-10-28: coupling-A, in development (plan 49.5)
-            if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites, in every reading
+            if a.pat: o["iam_a"]["sites"] = _lab_sites(a)   # register T1, C3: islands meter and clock sites, in every reading
             if a.dev_genome_globe:   # 2026-10-22: the whole-genome globe, drawn by the one command (development)
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
             if getattr(a, "dev_law_sphere", False):   # edit 205: IAM's Law Sphere (development)

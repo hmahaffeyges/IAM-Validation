@@ -37,11 +37,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **38 Python files** holding **611 functions** (nested ones included); 611 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **39 Python files** holding **618 functions** (nested ones included); 618 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,789 | 21 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,811 | 22 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -74,7 +74,8 @@ Read from the code at build time: the one command can load **38 Python files** h
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 159 | 15 | 0 | 0 |
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
-| `stage_law_sphere.py` | 373 | 24 | 0 | 0 |
+| `stage_law_sphere.py` | 374 | 24 | 0 | 0 |
+| `stage_conv_corr.py` | 65 | 6 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -82,7 +83,7 @@ Read from the code at build time: the one command can load **38 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **136 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **137 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -199,6 +200,7 @@ Read from `run_sample.py`'s own option definitions at build time: **136 options*
 | `--no-bundle` | off |  | do not write the machine-readable bundle beside the report (it is written by default: a run that leaves only HTML cannot be pooled later) |
 | `--no-info-sphere` | none |  | skip the information sphere reading |
 | `--no-intake` | off |  | skip Stage 0 (recorded in the report as skipped) |
+| `--no-lab-correction` | off |  | development: read without the laboratory correction from the sample's own reads (edit 246) |
 | `--no-territories` | none |  | skip the territory readings |
 | `--out` | 'methylphys_report.html' |  | the report (HTML) to write |
 | `--pat` | None |  | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) |
@@ -1601,14 +1603,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 658 (1129 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 672 (1137 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1290 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1305 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1616,13 +1618,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1055 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1070 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1706 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1728 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -5714,7 +5716,7 @@ A unit read deeper than PILEUP_X (10) times the sample's median calls per unit i
 
 Stray writing at the islands no healthy cell type writes (edit 215). Physics: the write side of IAM's Law; a mark there is a stray from the writer (selection 1/(1 + D), D = 60, after the eraser's 18 % clean-up) plus the meter (conversion failure). The set (unused_islands_v1.json) is measured: 8,567 IAM Sequencing Atlas islands below 5 % methylated in all 58 types at >= 50 calls, 516 of them covered by no array probe. Reports the sample's pooled stray rate against the law and against the atlas's own healthy level in the sample's cell shares, z from counting only (a library floor is not yet in it). Development.
 
-*Code:* `stage_law_sphere.py` line 354 (19 lines) · arguments: C, shares, conv · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `ERASER_CLEAN`, `REF_DIR` · files named: `unused_islands_v1.json`
+*Code:* `stage_law_sphere.py` line 354 (20 lines) · arguments: C, shares, conv, q_ref · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `ERASER_CLEAN`, `REF_DIR` · files named: `unused_islands_v1.json`
 
 ### `stage_law_sphere.py::count_pat_units.flush`
 
@@ -6459,6 +6461,48 @@ Values to the stored uint16 form (times 10,000, clipped; blank 65535).
 Binary entropy in bits, 0 at a level of 0 or 1.
 
 *Code:* `stage_seq_atlas.py` line 124 (4 lines) · arguments: p · calls: not called on the traced runs
+
+### `stage_conv_corr.py::load_ref`
+
+Edit 246: reads Runtime Matrices/Lab_Correction/conversion_ref_v1.json, the atlas libraries' own false-mark rate (median islands meter) and the libraries it came from.
+
+*Code:* `stage_conv_corr.py` line 18 (2 lines) · arguments: path · calls: not called on the traced runs · constants read: `REF`
+
+### `stage_conv_corr.py::to_ref`
+
+Edit 246: puts one level or gain rate on the atlas's conversion scale: q_atlas + (o - q_sample)(1 - q_atlas)/(1 - q_sample), clipped to 0 and 1. Bisulfite non-conversion turns an unmethylated CpG into a methylated call with probability q; a methylated CpG always reads methylated.
+
+*Code:* `stage_conv_corr.py` line 21 (5 lines) · arguments: o, q_s, q_ref · calls: not called on the traced runs
+
+### `stage_conv_corr.py::meter`
+
+Edit 246: the sample's false-mark rate and its counting error from the islands meter (methylated calls at CpG islands no healthy cell type methylates, on the sample's own molecules).
+
+*Code:* `stage_conv_corr.py` line 27 (6 lines) · arguments: site_counts · calls: not called on the traced runs
+
+### `stage_conv_corr.py::record`
+
+Edit 246: the bundle record lab_correction: the sample's rate, its error and opportunities, the atlas's rate, the shift, what was corrected, the formula and the reference file.
+
+*Code:* `stage_conv_corr.py` line 34 (4 lines) · arguments: q_s, se, n, ref, applied, what · calls: not called on the traced runs · files named: `Runtime Matrices/Lab_Correction/conversion_ref_v1.json`
+
+### `stage_conv_corr.py::apply_levels`
+
+Edit 246: corrects every site level once, before the Deconvolver, so Met-A sequencing, the Met-A C-Score, the territories, the Deconvolver and mixture check and the distance to maximum disorder all read the sample on the atlas's conversion scale.
+
+*Code:* `stage_conv_corr.py` line 39 (10 lines) · arguments: beta, site_counts, ref · calls: not called on the traced runs
+
+### `stage_conv_corr.py::apply_rate`
+
+Edit 246: the same correction for one molecule-counted gain rate.
+
+*Code:* `stage_conv_corr.py` line 50 (4 lines) · arguments: rate, site_counts, ref · calls: not called on the traced runs
+
+### `run_sample.py::_lab_sites`
+
+Edit 246: the islands meter and clock counts, counted once and reused by the IAM-A step; the clock's gain rate is also given on the atlas's conversion scale (gain_err_on_atlas_scale).
+
+*Code:* `MethylPhys_Interface/run_sample.py` line 658 (12 lines) · arguments: a · calls: not called on the traced runs
 
 ## Every sequencing instrument: full record, inputs and outputs
 

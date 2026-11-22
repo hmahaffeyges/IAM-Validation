@@ -351,7 +351,7 @@ def hold_alarm(C, ref, cell, predicted_derived, blocks=100):
     return out
 
 # ---- edit 215: the islands no healthy cell type writes
-def unused_islands(C, shares, conv=None):
+def unused_islands(C, shares, conv=None, q_ref=None):
     """Stray writing at the islands written in no healthy cell type (unused_islands_v1.json, measured from the IAM Sequencing Atlas). Every
     methylated call there is a stray. Returns the sample's pooled rate, the law's stray level as read (writer 1/(1 + D) after the eraser's
     clean-up, plus conversion failure) and the atlas's healthy level in the sample's own cell shares, each as a ratio with z from counting."""
@@ -364,9 +364,10 @@ def unused_islands(C, shares, conv=None):
         ids = np.asarray(ids, int); m = float((np.asarray(C["meth_a"], float)[ids] + np.asarray(C["meth_b"], float)[ids]).sum())
         n = float((np.asarray(C["calls_a"], float)[ids] + np.asarray(C["calls_b"], float)[ids]).sum())
         if n < 1000: out[name] = dict(status="NOT_RUN", reason=f"too few calls ({int(n)})"); continue
-        r = m / n; rec = dict(calls=int(n), stray=round(r, 6))
+        r = m / n; r_at = r if (conv is None or q_ref is None) else max(0.0, q_ref + (r - float(conv)) * (1 - q_ref) / (1 - float(conv)))   # edit 246: on the atlas's conversion scale
+        rec = dict(calls=int(n), stray=round(r, 6), stray_on_atlas_scale=round(r_at, 6))
         for k, e in (("law", u_law), ("atlas", e_atlas)):
             if e is None: rec[k] = dict(status="NOT_RUN", reason="cell shares cover less than half the sample"); continue
-            z = (r - e) / np.sqrt(e * (1 - e) / n); rec[k] = dict(expected=round(e, 6), ratio=round(r / e, 4), z_counting=round(float(z), 2))
+            rr = r if k == "law" else r_at; z = (rr - e) / np.sqrt(e * (1 - e) / n); rec[k] = dict(expected=round(e, 6), ratio=round(rr / e, 4), z_counting=round(float(z), 2))
         out[name] = rec
     return out

@@ -4482,3 +4482,24 @@ Values to the stored uint16 form (times 10,000, clipped; blank 65535).
 
 ### stage_seq_atlas.py::_H
 Binary entropy in bits, 0 at a level of 0 or 1.
+
+### stage_conv_corr.py::load_ref
+Edit 246: reads Runtime Matrices/Lab_Correction/conversion_ref_v1.json, the atlas libraries' own false-mark rate (median islands meter) and the libraries it came from.
+
+### stage_conv_corr.py::to_ref
+Edit 246: puts one level or gain rate on the atlas's conversion scale: q_atlas + (o - q_sample)(1 - q_atlas)/(1 - q_sample), clipped to 0 and 1. Bisulfite non-conversion turns an unmethylated CpG into a methylated call with probability q; a methylated CpG always reads methylated.
+
+### stage_conv_corr.py::meter
+Edit 246: the sample's false-mark rate and its counting error from the islands meter (methylated calls at CpG islands no healthy cell type methylates, on the sample's own molecules).
+
+### stage_conv_corr.py::record
+Edit 246: the bundle record lab_correction: the sample's rate, its error and opportunities, the atlas's rate, the shift, what was corrected, the formula and the reference file.
+
+### stage_conv_corr.py::apply_levels
+Edit 246: corrects every site level once, before the Deconvolver, so Met-A sequencing, the Met-A C-Score, the territories, the Deconvolver and mixture check and the distance to maximum disorder all read the sample on the atlas's conversion scale.
+
+### stage_conv_corr.py::apply_rate
+Edit 246: the same correction for one molecule-counted gain rate.
+
+### run_sample.py::_lab_sites
+Edit 246: the islands meter and clock counts, counted once and reused by the IAM-A step; the clock's gain rate is also given on the atlas's conversion scale (gain_err_on_atlas_scale).
