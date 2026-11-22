@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1780,
+   "lines": 1786,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -348,9 +348,9 @@
      "function": "main",
      "name": "main",
      "line": 658,
-     "end": 1777,
+     "end": 1783,
      "args": [],
-     "lines": 1120,
+     "lines": 1126,
      "doc": "",
      "constants": [
       "BIO",
@@ -412,8 +412,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1697,
-     "end": 1698,
+     "line": 1703,
+     "end": 1704,
      "args": [
       "b",
       "it",
@@ -3278,7 +3278,7 @@
   },
   {
    "file": "dev_stages.py",
-   "lines": 391,
+   "lines": 400,
    "functions": [
     {
      "file": "dev_stages.py",
@@ -3669,8 +3669,8 @@
     },
     {
      "file": "dev_stages.py",
-     "function": "sky_in_mix",
-     "name": "sky_in_mix",
+     "function": "_sky_in_mix_core",
+     "name": "_sky_in_mix_core",
      "line": 271,
      "end": 293,
      "args": [
@@ -3815,6 +3815,23 @@
      "data_files": [
       "betas.csv"
      ],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "sky_in_mix",
+     "name": "sky_in_mix",
+     "line": 392,
+     "end": 399,
+     "args": [
+      "beta",
+      "shares",
+      "counts"
+     ],
+     "lines": 8,
+     "doc": "Edit 239: the sky in the sample's own composition (see _sky_in_mix_core), with identification-only cells (stage_metaa_atlas.ID_ONLY) left out of the healthy expectation and recorded as left out.",
+     "constants": [],
+     "data_files": [],
      "traced_calls": {}
     }
    ],
@@ -11845,5 +11862,5 @@
   }
  ],
  "n_files": 38,
- "n_functions": 609
+ "n_functions": 610
 }

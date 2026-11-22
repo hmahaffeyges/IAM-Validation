@@ -4303,10 +4303,13 @@ not move to one place is dropped and counted), each landing on the hg19 CpG whos
 The table the round-1 tools read (each cell's level, uncertainty and donor spread by site), served from the atlas the chain is using
 (IAM-Atlas v2.1, or the IAM Sequencing Atlas for a sequenced sample); a cell the active atlas lacks stops the reading with its name.
 
-### dev_stages.py::sky_in_mix
+### dev_stages.py::_sky_in_mix_core
 The residual sky against the sample's own mix of atlas cells (the Deconvolver's shares): each site's departure over its expected scatter
 (the cells' spreads, plus the array's 0.02 or, on sequencing, counting at the site's reads), mapped on the sphere, read against the
 within-chromosome block-shuffle null with the look-elsewhere statistic.
+
+### dev_stages.py::sky_in_mix
+The residual sky against the sample's own mix (edit 239): identification-only cells (stage_metaa_atlas.ID_ONLY, the megakaryocyte column) are left out of the healthy expectation, as in Met-A's mix rule, and recorded under left_out_id_only; the rest is _sky_in_mix_core unchanged.
 
 ### stage_seq_atlas.py::iama_in_mix
 IAM-A for a mixed sample: the sample's held errors over the number its own shares predict, tile by tile, from each cell's healthy held-error

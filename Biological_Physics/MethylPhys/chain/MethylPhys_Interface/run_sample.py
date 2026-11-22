@@ -1651,6 +1651,12 @@ def main():
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
         elif qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') in ('NO_CHAIN_CELL', 'MIXED_SAMPLE') else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
+            if qi.get("refusal_code") == "MIXED_SAMPLE" and (a.pat or a.bam):   # edit 239: IAM-A refused as a mixture; every other molecule reading still runs
+                _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
+                o["iam_a"]["count"] = {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "loss_runs", "loss_run_ratio", "loss_run_excess_2", "loss_run_excess_3")}
+                o["iam_a"]["count_note"] = "molecules counted for the other instruments (edit 239); IAM-A's number is not read for a refused mixture"
+                if a.pat: o["iam_a"]["sites"] = _site_counts(a.pat)   # register T1, C3: islands meter and clock sites
+                if a.dev_genome_globe and a.pat: o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)

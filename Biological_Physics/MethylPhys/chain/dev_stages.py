@@ -268,7 +268,7 @@ def atlas_frame(cells):
     A = pd.DataFrame(out); A.index = A.index.astype(str); _C[key] = A; return A
 
 
-def sky_in_mix(beta, shares, counts=None):
+def _sky_in_mix_core(beta, shares, counts=None):
     """2026-10-30 (plan 35.30, development): the residual sky (DEV-SKY-02's block-shuffle null and look-elsewhere statistic, sky_from_z,
     unchanged) against the sample's own composition: the Deconvolver's shares over the atlas the chain is using. z at each site =
     (beta - sum f mu) / sqrt(sum f^2 (sd^2 + donor_sd^2) + noise), noise the array's 0.02^2 (DEV-SKY-01) or, on sequencing, the counting
@@ -276,7 +276,7 @@ def sky_in_mix(beta, shares, counts=None):
     try: import healpy  # noqa: F401
     except ImportError: return _rec("sky", status="NOT_RUN", reason="healpy is not installed in this environment")
     import stage_metaa_atlas as SA
-    sh = {c: float(f) for c, f in (shares or {}).items() if f and f > 0}
+    sh = {c: float(f) for c, f in (shares or {}).items() if f and f > 0 and c not in SA.ID_ONLY}   # edit 239: identification-only cells are not a healthy reference
     if not sh: return _rec("sky", status="NOT_RUN", reason="no cell shares")
     A = atlas_frame(list(sh)); idx = beta.dropna().index.intersection(A.index); F = pd.Series(sh)
     MU = pd.concat([A[f"{c}_mean"].reindex(idx).rename(c) for c in sh], axis=1); have = MU.notna()   # 2026-10-30: mix over the cells with a level at the site
@@ -388,3 +388,12 @@ def epicv2_calibrate(grn, red, rscript, prep="QCDPB"):
                    "collapse": "replicate EPIC v2 probes of one CpG averaged into the EPIC v1 name"}
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+
+def sky_in_mix(beta, shares, counts=None):
+    """Edit 239: the sky in the sample's own composition (see _sky_in_mix_core), with identification-only cells (stage_metaa_atlas.ID_ONLY)
+    left out of the healthy expectation and recorded as left out."""
+    import stage_metaa_atlas as SA
+    left = {c: round(float(f), 4) for c, f in (shares or {}).items() if f and f > 0 and c in SA.ID_ONLY}
+    out = _sky_in_mix_core(beta, shares, counts)
+    if isinstance(out, dict) and left: out["left_out_id_only"] = left
+    return out
