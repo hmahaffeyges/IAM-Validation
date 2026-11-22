@@ -146,7 +146,7 @@
      ],
      [
       "In the field's terms",
-      "Maximum tolerated end-of-molecule damage rate (read-end artefact limit) above which the meter is marked noisy"
+      "Maximum tolerated end-of-molecule damage rate (read-end artifact limit) above which the meter is marked noisy"
      ],
      [
       "Definition",
@@ -431,7 +431,7 @@
      ],
      [
       "Where it is read",
-      "Along single reads, between neighbouring CpGs."
+      "Along single reads, between neighboring CpGs."
      ],
      [
       "Where IAM's Law enters",
@@ -476,7 +476,7 @@
      ],
      [
       "In the field's terms",
-      "Excess methylation loss at read ends (end-repair or fragment-end artefact check)."
+      "Excess methylation loss at read ends (end-repair or fragment-end artifact check)."
      ],
      [
       "Definition",

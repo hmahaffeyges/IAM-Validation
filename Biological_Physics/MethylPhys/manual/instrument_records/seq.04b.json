@@ -869,7 +869,7 @@
      ],
      [
       "What it does",
-      "It was tried as a source of each cell type's own healthy level. Status: closed: opposite sign, likely nuclei artefact."
+      "It was tried as a source of each cell type's own healthy level. Status: closed: opposite sign, likely nuclei artifact."
      ],
      [
       "Why the instrument needs it",
@@ -877,7 +877,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Obtained as a measured value from HPA, with source_kind 'set per cell type or fixed, from a cited measurement'; when tested against each cell type's own healthy level it showed the opposite sign from what was expected, and was closed as likely a nuclei artefact."
+      "Obtained as a measured value from HPA, with source_kind 'set per cell type or fixed, from a cited measurement'; when tested against each cell type's own healthy level it showed the opposite sign from what was expected, and was closed as likely a nuclei artifact."
      ],
      [
       "Where it is read",
@@ -885,7 +885,7 @@
      ],
      [
       "Where IAM's Law enters",
-      "open: not yet tied to the law (law_part and lf_section both read 'open: not yet tied to the law'). As a candidate source of each cell type's own healthy level: closed: opposite sign, likely nuclei artefact."
+      "open: not yet tied to the law (law_part and lf_section both read 'open: not yet tied to the law'). As a candidate source of each cell type's own healthy level: closed: opposite sign, likely nuclei artifact."
      ],
      [
       "Long-form section",
@@ -909,7 +909,7 @@
      ],
      [
       "Limits and what is open",
-      "Closed as a source of each cell type's own healthy level: opposite sign, likely nuclei artefact. Per the sphere-use note, the 'closed' status does not exclude it as an input (a per-unit map layer: overlay and covariate for every reading)."
+      "Closed as a source of each cell type's own healthy level: opposite sign, likely nuclei artifact. Per the sphere-use note, the 'closed' status does not exclude it as an input (a per-unit map layer: overlay and covariate for every reading)."
      ],
      [
       "Credit",
@@ -1251,7 +1251,7 @@
      ],
      [
       "In the field's terms",
-      "Co-occurrence of methylation losses at neighbouring CpGs on the same read (adjacent-loss coupling), corrected for loss level"
+      "Co-occurrence of methylation losses at neighboring CpGs on the same read (adjacent-loss coupling), corrected for loss level"
      ],
      [
       "Definition",
@@ -1377,11 +1377,11 @@
     "fields": [
      [
       "IAM's name",
-      "Own-programme dense places"
+      "Own-program dense places"
      ],
      [
       "In the field's terms",
-      "CpG-dense regions at a cell type's own genes (its own programme)"
+      "CpG-dense regions at a cell type's own genes (its own program)"
      ],
      [
       "Definition",
@@ -1401,7 +1401,7 @@
      ],
      [
       "Where it is read",
-      "At CpG-dense places within a cell type's own genes (its own programme); no further genomic coordinate is given in the packet."
+      "At CpG-dense places within a cell type's own genes (its own program); no further genomic coordinate is given in the packet."
      ],
      [
       "Where IAM's Law enters",
@@ -1436,7 +1436,7 @@
       "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
      ]
     ],
-    "name": "Own-programme dense places"
+    "name": "Own-program dense places"
    },
    {
     "fields": [
@@ -1787,7 +1787,7 @@
      ],
      [
       "How it is obtained or computed",
-      "Measured by the chain on the IAM Sequencing Atlas libraries (set per cell type or fixed, from a cited measurement). Result for each type's own level: met, +0.36; the excess lies in dense places that no programme uses."
+      "Measured by the chain on the IAM Sequencing Atlas libraries (set per cell type or fixed, from a cited measurement). Result for each type's own level: met, +0.36; the excess lies in dense places that no program uses."
      ],
      [
       "Where it is read",
@@ -1803,7 +1803,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "No typical value for a healthy sample is in the records. Recorded result: met, +0.36; the excess lies in dense places that no programme uses. Source kind: set per cell type or fixed, from a cited measurement."
+      "No typical value for a healthy sample is in the records. Recorded result: met, +0.36; the excess lies in dense places that no program uses. Source kind: set per cell type or fixed, from a cited measurement."
      ],
      [
       "Where its value comes from",
@@ -1819,7 +1819,7 @@
      ],
      [
       "Limits and what is open",
-      "Status for each type's own level: met, with the excess in dense places no programme uses. Not yet on the card; law link open: not yet tied to the law. Other limits: open: not in the records yet."
+      "Status for each type's own level: met, with the excess in dense places no program uses. Not yet on the card; law link open: not yet tied to the law. Other limits: open: not in the records yet."
      ],
      [
       "Credit",
