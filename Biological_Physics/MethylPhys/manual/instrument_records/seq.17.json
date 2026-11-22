@@ -1255,7 +1255,7 @@
      ],
      [
       "Definition",
-      "A per-cell-type reference value used by the hold alarm: each of 56 cell types' own healthy level (centre and k=1 uncertainty) is written as the number of coins per restore it would take to produce that level, with the best-holding type set at the two-coin ceiling, via coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with no type allowed above 2 coins."
+      "A per-cell-type reference value used by the hold alarm: each of 56 cell types' own healthy level (center and k=1 uncertainty) is written as the number of coins per restore it would take to produce that level, with the best-holding type set at the two-coin ceiling, via coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with no type allowed above 2 coins."
      ],
      [
       "What it does",
@@ -1267,7 +1267,7 @@
      ],
      [
       "How it is obtained or computed",
-      "It is measured, not derived: each type's own healthy level (centre and k=1 uncertainty, across 56 types) comes from private/web/a8_pseudo_card.json (built from a8_type_bands.csv), then converted into coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with a ceiling rule capping every type at no more than 2 coins. The card was re-anchored after the first version (1.69-2.52) set the median type near 2 and pushed low-level types above the ceiling, which the ceiling rule forbids."
+      "It is measured, not derived: each type's own healthy level (center and k=1 uncertainty, across 56 types) comes from private/web/a8_pseudo_card.json (built from a8_type_bands.csv), then converted into coins_c such that eps(coins_c x M) = eps(2M) x (that type's healthy level / the lowest type's healthy level), with a ceiling rule capping every type at no more than 2 coins. The card was re-anchored after the first version (1.69-2.52) set the median type near 2 and pushed low-level types above the ceiling, which the ceiling rule forbids."
      ],
      [
       "Where it is read",
@@ -1283,7 +1283,7 @@
      ],
      [
       "Healthy value and how it is set",
-      "Its value is each cell type's own healthy level (centre and k=1 uncertainty; 56 types), from private/web/a8_pseudo_card.json (from a8_type_bands.csv); source_kind: set per cell type or fixed, from a cited measurement. Basis: measured (each type's position), not derived."
+      "Its value is each cell type's own healthy level (center and k=1 uncertainty; 56 types), from private/web/a8_pseudo_card.json (from a8_type_bands.csv); source_kind: set per cell type or fixed, from a cited measurement. Basis: measured (each type's position), not derived."
      ],
      [
       "Where its value comes from",
@@ -2994,7 +2994,7 @@
      ],
      [
       "Limits and what is open",
-      "It is a share, not a judgement: a high loose share is expected for some types. Only the within-sample part of its slope is derived; the between-type remainder is still open."
+      "It is a share, not a judgment: a high loose share is expected for some types. Only the within-sample part of its slope is derived; the between-type remainder is still open."
      ],
      [
       "Credit",
@@ -3342,7 +3342,7 @@
      ],
      [
       "Physics",
-      "IAM's Law (links 1, 1d, 2, 2b): the hold's derived values (held error 0.04454, odds 21.45, 3.066 kT, phi 0.1464) are the sphere's healthy points; each type's own level is measured and substituted, labelled as such."
+      "IAM's Law (links 1, 1d, 2, 2b): the hold's derived values (held error 0.04454, odds 21.45, 3.066 kT, phi 0.1464) are the sphere's healthy points; each type's own level is measured and substituted, labeled as such."
      ],
      [
       "Where the data comes from",
@@ -3393,7 +3393,7 @@
     "questions": [
      [
       "Is the Koide reading established physics?",
-      "No: it is a conjectured mapping, labelled so in every layer table; the sphere's established geometry is the Fisher-Rao angle.",
+      "No: it is a conjectured mapping, labeled so in every layer table; the sphere's established geometry is the Fisher-Rao angle.",
       "layer table; register"
      ],
      [

@@ -281,7 +281,7 @@
      ],
      [
       "In the field's terms",
-      "Neighbouring-CpG co-loss ratio (adjacent unmethylated pairs on single reads over the independent expectation), expressed relative to its healthy value"
+      "Neighboring-CpG co-loss ratio (adjacent unmethylated pairs on single reads over the independent expectation), expressed relative to its healthy value"
      ],
      [
       "Definition",
@@ -293,7 +293,7 @@
      ],
      [
       "Why the instrument needs it",
-      "The instrument needs it to ask whether neighbouring marks are lost together more often than independent losses would give, as one button in the chain."
+      "The instrument needs it to ask whether neighboring marks are lost together more often than independent losses would give, as one button in the chain."
      ],
      [
       "How it is obtained or computed",
@@ -348,7 +348,7 @@
      ],
      [
       "Why",
-      "Maintenance failure that leaves scattered single losses and failure that strips neighbouring marks together are different processes; the independence expectation is computed from each molecule's own losses, so the instrument tares itself against the sample, and the type's healthy coupling removes the type's normal clustering."
+      "Maintenance failure that leaves scattered single losses and failure that strips neighboring marks together are different processes; the independence expectation is computed from each molecule's own losses, so the instrument tares itself against the sample, and the type's healthy coupling removes the type's normal clustering."
      ],
      [
       "Physics",
@@ -368,7 +368,7 @@
      ],
      [
       "Known-answer test",
-      "Relay test (2026-11-20): planted runs of losses raised Coupling-A x1.110 (met); uniform isolated losses at 1 % LOWERED it x0.945 (predicted unchanged: not met), because new single losses dilute the share of losses in neighbour pairs. Known-answer runs after each chain edit leave it unchanged."
+      "Relay test (2026-11-20): planted runs of losses raised Coupling-A x1.110 (met); uniform isolated losses at 1 % LOWERED it x0.945 (predicted unchanged: not met), because new single losses dilute the share of losses in neighbor pairs. Known-answer runs after each chain edit leave it unchanged."
      ],
      [
       "Limits",
@@ -392,7 +392,7 @@
      ]
     ],
     "id": "R05-COUPLING",
-    "name": "Coupling-A: do neighbouring CpGs lose their marks together, against the type's healthy coupling",
+    "name": "Coupling-A: do neighboring CpGs lose their marks together, against the type's healthy coupling",
     "paths": [
      "Biological_Physics/MethylPhys/chain/stage_coupling.py",
      "Biological_Physics/MethylPhys/chain/Runtime Matrices/Coupling/coupling_reference_v1.json",
@@ -404,11 +404,11 @@
     "questions": [
      [
       "What does coupling above 1 mean?",
-      "Lost marks arrive next to each other more often than chance on the same molecule: in the field's terms, neighbouring-CpG co-loss (correlated demethylation) rather than independent single-site failures.",
+      "Lost marks arrive next to each other more often than chance on the same molecule: in the field's terms, neighboring-CpG co-loss (correlated demethylation) rather than independent single-site failures.",
       "stage_coupling docstring"
      ],
      [
-      "Is coupling just a read-length artefact?",
+      "Is coupling just a read-length artifact?",
       "No: the independence expectation is computed per molecule from its own length and loss count, so longer reads raise the expectation too.",
       "stage_coupling counter"
      ],
