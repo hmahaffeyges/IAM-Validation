@@ -19,7 +19,7 @@ cell run the same way, reads Normal; a planted loss of the cell's pattern moves 
                          (conductor_v3.stage_t_tare's rule); it cancels any reference offset, whatever its size or sign. Never centered on the
                          sample itself (that hides a loss at every site: DEV-SELFTARE-03).
 """
-import os, json
+import os, json, re
 import numpy as np, pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -50,6 +50,16 @@ def sequencing_reference(o):
         if isinstance(d, dict) and (d.get("state") is None or str(d.get("state")).startswith("untared")) and (d.get("A") is not None or d.get("C") is not None or d.get("sets") or d.get("cells") or d.get("whole_genome")):
             d["state"] = SEQ_REFERENCE_STATE; changed.append(name)
     for k in ("met_a_whole", "met_a_each_cell", "territories", "cscore_each_cell"): fix(o.get(k), k)
+    def deep(d, name):   # edit 242: every nested reading and note, not only the top of each block
+        if isinstance(d, dict):
+            for kk, v in list(d.items()):
+                if kk == "state" and isinstance(v, str) and v.startswith("untared"): d[kk] = SEQ_REFERENCE_STATE; changed.append(name)
+                elif kk == "note" and isinstance(v, str) and (v.startswith("untared") or "same series are the comparison" in v):
+                    d[kk] = re.sub(r"^untared;?\s*", "", v).strip().replace("healthy samples of the same series are the comparison", "referenced to the IAM Sequencing Atlas in the sample's own mix (no same-run healthy samples)") or SEQ_REFERENCE_STATE; changed.append(name + ".note")
+                else: deep(v, name)
+        elif isinstance(d, list):
+            for v in d: deep(v, name)
+    for k in ("met_a_whole", "met_a_each_cell", "territories", "cscore_each_cell"): deep(o.get(k), k)
     fix((o.get("development") or {}).get("metaa_atlas"), "development.metaa_atlas")
     o["reference_rule"] = SEQ_REFERENCE_RULE
     return changed

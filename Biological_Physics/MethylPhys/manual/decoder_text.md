@@ -2584,6 +2584,9 @@ For a sequenced sample, replaces the legacy state 'untared' in every atlas-refer
 ### stage_metaa_atlas.py::sequencing_reference.fix
 Inside sequencing_reference: one reading's state. If the reading holds a value and its state is missing or the legacy 'untared', the state becomes SEQ_REFERENCE_STATE and the reading's name is recorded as changed; a reading not read is left as it is.
 
+### stage_metaa_atlas.py::sequencing_reference.deep
+Inside sequencing_reference (edit 242): walks every nested reading and note of Met-A sequencing, the territories and the Met-A-side C-Score. A nested state 'untared' becomes SEQ_REFERENCE_STATE; a note that begins 'untared' loses that word, and a note naming same-run healthy samples as the comparison names the IAM Sequencing Atlas in the sample's own mix instead. The rule text (SEQ_REFERENCE_RULE) keeps its record of the retired word.
+
 ### stage_metaa_atlas.py::_cnt
 One cell's reference reads at the given sites, methylated and total, from the sequencing atlas columns in use (the held-out donor half when --dev-seq-half-cols is given); NaN where the cell has none.
 

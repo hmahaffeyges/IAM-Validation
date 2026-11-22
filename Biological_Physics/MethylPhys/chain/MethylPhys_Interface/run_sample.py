@@ -853,6 +853,9 @@ def main():
             print("  REFERENCE_REFUSED - an atlas file does not match its published checksum: " + "; ".join(_rdc["refused"][:5]), flush=True)
             if a.bundle: json.dump({"status": "REFERENCE_REFUSED", "id": a.id, "reference": _rdc, "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1, default=str)
             sys.exit(7)
+    if any(getattr(a, _k, None) for _k in ("pat", "geo_pat", "bam", "site_table", "dev_seq_beta")) and (getattr(a, "slide_ref_A", None) or getattr(a, "slide_ref_table", None) or getattr(a, "iama_ref_table", None)):   # edit 242
+        print("REFUSED: a sequenced sample is referenced to the IAM Sequencing Atlas, with the laboratory part from its own reads (the 2026-11-07 rule); "
+              "same-run healthy references (--slide-ref-A, --slide-ref-table, --iama-ref-table) are an array option and are not used on sequencing", flush=True); sys.exit(3)
     a._full_chain = None
     if not getattr(a, "commissioned_only", False): a.full_chain = True   # 2026-11-08 (author: 'They should always run but just be marked as development, not turned off'): the full chain is the default
     if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
