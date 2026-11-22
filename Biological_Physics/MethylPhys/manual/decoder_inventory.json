@@ -9823,7 +9823,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 372,
+   "lines": 373,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -10013,7 +10013,7 @@
      "function": "reading",
      "name": "reading",
      "line": 160,
-     "end": 233,
+     "end": 234,
      "args": [
       "C",
       "ref",
@@ -10022,7 +10022,7 @@
       "conv",
       "card"
      ],
-     "lines": 74,
+     "lines": 75,
      "doc": "One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers).",
      "constants": [
       "CARD",
@@ -10054,8 +10054,8 @@
      "file": "stage_law_sphere.py",
      "function": "save_counts",
      "name": "save_counts",
-     "line": 237,
-     "end": 242,
+     "line": 238,
+     "end": 243,
      "args": [
       "path",
       "C",
@@ -10077,8 +10077,8 @@
      "file": "stage_law_sphere.py",
      "function": "load_counts",
      "name": "load_counts",
-     "line": 243,
-     "end": 248,
+     "line": 244,
+     "end": 249,
      "args": [
       "path",
       "ref"
@@ -10095,8 +10095,8 @@
      "file": "stage_law_sphere.py",
      "function": "sweep",
      "name": "sweep",
-     "line": 249,
-     "end": 257,
+     "line": 250,
+     "end": 258,
      "args": [
       "C",
       "ref",
@@ -10118,8 +10118,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit",
      "name": "fit",
-     "line": 258,
-     "end": 270,
+     "line": 259,
+     "end": 271,
      "args": [
       "C",
       "ref",
@@ -10144,8 +10144,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit.best",
      "name": "best",
-     "line": 263,
-     "end": 266,
+     "line": 264,
+     "end": 267,
      "args": [
       "get"
      ],
@@ -10159,8 +10159,8 @@
      "file": "stage_law_sphere.py",
      "function": "departure",
      "name": "departure",
-     "line": 281,
-     "end": 291,
+     "line": 282,
+     "end": 292,
      "args": [
       "key",
       "Lay"
@@ -10177,8 +10177,8 @@
      "file": "stage_law_sphere.py",
      "function": "texture",
      "name": "texture",
-     "line": 292,
-     "end": 299,
+     "line": 293,
+     "end": 300,
      "args": [
       "X",
       "v",
@@ -10195,8 +10195,8 @@
      "file": "stage_law_sphere.py",
      "function": "spec",
      "name": "spec",
-     "line": 300,
-     "end": 325,
+     "line": 301,
+     "end": 326,
      "args": [
       "rec",
       "Lay",
@@ -10216,8 +10216,8 @@
      "file": "stage_law_sphere.py",
      "function": "type_positions",
      "name": "type_positions",
-     "line": 328,
-     "end": 330,
+     "line": 329,
+     "end": 331,
      "args": [],
      "lines": 3,
      "doc": "Each healthy type's measured position on IAM-A's derived line (type_positions_v1.json; measured, not derived).",
@@ -10233,8 +10233,8 @@
      "file": "stage_law_sphere.py",
      "function": "hold_alarm",
      "name": "hold_alarm",
-     "line": 331,
-     "end": 350,
+     "line": 332,
+     "end": 351,
      "args": [
       "C",
       "ref",
@@ -10254,8 +10254,8 @@
      "file": "stage_law_sphere.py",
      "function": "unused_islands",
      "name": "unused_islands",
-     "line": 353,
-     "end": 371,
+     "line": 354,
+     "end": 372,
      "args": [
       "C",
       "shares",

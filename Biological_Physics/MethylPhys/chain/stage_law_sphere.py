@@ -228,7 +228,8 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
                predicted_held_err=round(p, 5), law_held_err=round(eps_c, 6), law_stray_as_read=round(u_law, 5), conversion=cv, shares_used={c: round(v, 4) for c, v in s.items()},
                whole=summ(np.ones(len(T), bool)), jobs=jobs, layers=[dict(key=k, name=nm_, unit=un, about=ab) for k, nm_, un, ab in LAYERS],
                law=dict(eps=round(eps_c, 6), M=round(M_c, 5), push=round(x_c, 4), floor=floor_c, kicks_held=round(float(np.log((1 - eps_c) / eps_c)), 4),
-                        phi=round(float(np.log((1 - eps_c) / eps_c)) / M_c, 5), coins_per_restore=round(x_c / M_c, 4), koide_q=round((1 + eps_c / (1 - eps_c)) / 3, 5)))
+                        phi=round(float(np.log((1 - eps_c) / eps_c)) / M_c, 5), coins_per_restore=round(x_c / M_c, 4), koide_q=round((1 + eps_c / (1 - eps_c)) / 3, 5),
+                        held_to_lost=round((1 - eps_c) / eps_c, 4), lost_over_held=round(eps_c / (1 - eps_c), 6)))   # edit 241
     rec["_units"] = u.tolist()   # edit 208: unit order of the layers (popped before the bundle is written)
     return rec, Lay
 
