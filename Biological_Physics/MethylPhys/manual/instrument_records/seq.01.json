@@ -1,0 +1,482 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.01",
+ "record": {
+  "cosmo_tool": "Calibration against a fixed standard sky plus each exposure's own noise model, instead of comparison stars taken the same night.",
+  "credit": "",
+  "field_how": "Atlas-referenced readings compare the sample with the healthy cell-type reference (the IAM Sequencing Atlas), measured once. Laboratory and library effects are corrected from the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates, the library's noise floor at the sites read, the expectation at its own read depth, and its own cell composition. No same-batch healthy controls are needed. IAM-A uses no outside reference at all.",
+  "field_term": "Healthy reference and batch correction without matched controls",
+  "id": "seq.01",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "LEGACY: same-run healthy references (>= 3), retired by the 2026-11-07 rule"
+     ],
+     [
+      "In the field's terms",
+      "Same-batch healthy control normalization (legacy; dividing by the median of matched healthy controls)"
+     ],
+     [
+      "Definition",
+      "A retired legacy option that tared a sample's reading by dividing it by the median of three or more same-run healthy samples (A_tared = A / median(A of >= 3 same-run healthy samples)), rather than comparing it to the atlas."
+     ],
+     [
+      "What it does",
+      "It entered as the '--refs' legacy option in the code, allowing taring against a lab's own same-run healthy samples instead of the atlas-based method."
+     ],
+     [
+      "Why the instrument needs it",
+      "open: not in the records yet"
+     ],
+     [
+      "How it is obtained or computed",
+      "Legacy formula: A_tared = A / median(A of >= 3 same-run healthy samples), entered with the legacy option --refs."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is not part of IAM's Law: it is a chain rule, not a law part."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No healthy band of its own: a retired legacy option. Under it, healthy was the median of >= 3 same-run healthy samples. The 2026-11-07 rule forbids taring with a lab's own 'healthy' samples; healthy now comes only from the atlas, and lab differences are measured from the sample's own reads."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It is marked as a legacy option in the code that is being retired; it is not the instrument's method, since healthy comes only from the atlas, and it is not yet on the card."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "LEGACY: same-run healthy references (>= 3), retired by the 2026-11-07 rule"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "the IAM Sequencing Atlas"
+     ],
+     [
+      "In the field's terms",
+      "Cell-type-resolved healthy methylation reference (reference atlas)"
+     ],
+     [
+      "Definition",
+      "The ruler for every reading that needs an outside healthy level: the IAM Sequencing Atlas gives the healthy level, range and spread per cell type and CpG, and underlies every instrument that needs an outside healthy level (Met-A, C-Score, territories)."
+     ],
+     [
+      "What it does",
+      "It supplies the healthy level, range and spread per cell type and CpG: the ruler for every reading that needs an outside healthy level (Met-A, C-Score, territories)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The reference block's job is to say what healthy each reading is compared with; atlas-referenced readings compare the sample with the healthy cell-type reference, measured once. (Laboratory and library effects are corrected separately, from the sample's own reads, with no same-batch healthy controls.)"
+     ],
+     [
+      "How it is obtained or computed",
+      "It is measured once, as each cell type's variation and identity sites (the atlas), giving healthy level, range and spread per type and CpG; corrections are then computed from the sample's own reads using that reference."
+     ],
+     [
+      "Where it is read",
+      "Per cell type and per CpG: healthy level, range and spread for each type and CpG."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part 'not the law itself: a measured input the law uses'; lf_section 'not part of IAM's Law'. Register M4, status measured (atlas)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Measured once, from the IAM Sequencing Atlas (measured healthy reference): each cell type's healthy level, range and spread per type and CpG, drawn from register M4 (each cell type's variation and which sites it marks)."
+     ],
+     [
+      "Where its value comes from",
+      "the IAM Sequencing Atlas (measured healthy reference)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM Sequencing Atlas, built from Loyfer et al. 2023, Nature 613:355-364 (GSE186458) sorted-cell libraries"
+     ]
+    ],
+    "name": "the IAM Sequencing Atlas"
+   }
+  ],
+  "job": "say what healthy each reading is compared with, and correct between-lab offsets",
+  "law": "Not the law: a chain rule.",
+  "link": "1. Reference and tare (the reference block)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Healthy references used"
+     ],
+     [
+      "In the field's terms",
+      "Reference datasets used for the run (provenance of the healthy reference)"
+     ],
+     [
+      "Definition",
+      "Which healthy references the run used to judge the sample — specifically, IAM-Atlas v2.1 and the IAM Sequencing Atlas — recorded through the chain's reference.healthy_reference step."
+     ],
+     [
+      "What it does",
+      "It is a one-button chain step (in_chain: yes) that records which healthy reference set(s) a given run drew on for comparison; for this run it returned [\"IAM-Atlas v2.1\", \"IAM Sequencing Atlas\"] with test_state OK."
+     ],
+     [
+      "Why the instrument needs it",
+      "The reference block's job is to say what healthy each reading is compared with; this reading records which healthy references the run used."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is computed by the chain from the sample's molecules and its references (source_kind: computed by the chain from the sample's molecules and its references), following a rule (basis: rule), and is read at the field reference.healthy_reference as a single chain step (in_chain: yes, one button). No formula is given for this entry."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This row is explicitly tagged 'not the law: a chain rule', and its lf_section is 'not part of IAM's Law' — it is a book-keeping/reference-tracking entry rather than a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its healthy/expected setting is 'IAM-Atlas v2.1 and the IAM Sequencing Atlas' (basis: rule); the run's actual recorded value matched this, test_value [\"IAM-Atlas v2.1\", \"IAM Sequencing Atlas\"], giving test_state OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "IAM-A uses no outside reference at all (instrument 1). Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Healthy references used"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Reference files checked"
+     ],
+     [
+      "In the field's terms",
+      "Reference-file integrity check"
+     ],
+     [
+      "Definition",
+      "Files the reference door checked against their fingerprints."
+     ],
+     [
+      "What it does",
+      "Lists the files the reference door checked against their fingerprints (test run: 70 files, OK); healthy is every runtime file checked and none refused."
+     ],
+     [
+      "Why the instrument needs it",
+      "The reference and tare instrument needs to say what healthy each reading is compared with and correct between-lab offsets, so this check is in_chain (yes, one button) to make sure that comparison step has what it needs."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references; recorded at test_path reference.files_checked, with test_value 70 and test_state OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is not the law: a chain rule, and lf_section states it is not part of IAM's Law. It is a chain-level QC gate on file checking, not a physical or regulating-energy quantity."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is every runtime file, none refused, with basis rule."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Reference files checked"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Reference files refused (the door)"
+     ],
+     [
+      "In the field's terms",
+      "Rejected reference files (reference input validation)"
+     ],
+     [
+      "Definition",
+      "The list of reference files that were refused by the door before the chain could use them."
+     ],
+     [
+      "What it does",
+      "Reports the files refused by the door."
+     ],
+     [
+      "Why the instrument needs it",
+      "The reference block says what healthy each reading is compared with; this output lists any reference file the door refused, so a reading is never compared with a refused reference. Healthy: none."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references; test path reference.refused, with test value [] and test state OK."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: this is a chain rule, not a law part."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is none (basis: rule) — no files refused."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Reference files refused"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Tares applied (instrument 1, reference and tare; legacy field name 'tares')."
+     ],
+     [
+      "In the field's terms",
+      "Within-sample batch corrections applied (conversion background, noise floor, depth expectation, composition), without matched controls."
+     ],
+     [
+      "Definition",
+      "The library corrections taken from the sample's own reads: meter, floor, read count and own mix."
+     ],
+     [
+      "What it does",
+      "It lists which of the sample's own library corrections were applied to the readings."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 1 says what healthy each reading is compared with and corrects between-lab offsets; these corrections let that be done without same-batch healthy controls."
+     ],
+     [
+      "How it is obtained or computed",
+      "From the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates (the meter), the library's noise floor at the sites read (the floor), the expectation at its own read depth (read count), and its own cell composition (own mix). The list is empty unless references are given."
+     ],
+     [
+      "Where it is read",
+      "CpG islands that no healthy cell methylates (for the meter), and the sites read (for the floor); depth and composition are whole-sample."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a chain rule (basis rule)."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is none unless references are given. The development test reads [] (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It records which corrections were applied, not how large each was. IAM-A uses no outside reference at all, so this list does not apply to it."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Tares applied"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "No same-run healthy tare: healthy comes only from the atlases. IAM-A references itself (its own line from its own loose share). Atlas-referenced readings take the healthy middle from the IAM Sequencing Atlas, and the laboratory part from the sample's own reads (islands meter, floor, own read count). Every runtime file is checked against its SHA-256 fingerprint in reference_manifest.json by the reference door before a run; an unlisted or changed file stops the run."
+     ],
+     [
+      "Why",
+      "Healthy samples from the same run cannot be certified healthy and are rarely available; a researcher can check the atlas. The fingerprint check guarantees every run used exactly the published reference."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law: the reference rule."
+     ],
+     [
+      "Where the data comes from",
+      "The IAM Sequencing Atlas and IAM-Atlas v2.1 runtime files; reference_manifest.json."
+     ],
+     [
+      "The numbers",
+      "Every runtime file checked on every run; none refused on the known-answer runs since a chain update (which added the type-positions file after a chain update stopped every run)."
+     ],
+     [
+      "Method and standard",
+      "SHA-256 fingerprints; the 2026-11-07 rule."
+     ],
+     [
+      "Known-answer test",
+      "a chain update (2026-11-20): an unlisted file stopped every run, as designed; a planted-answer test of the reference block is owed."
+     ],
+     [
+      "Limits",
+      "(1) The legacy same-run tare option and the word 'untared' remain in the code, to be retired. (2) A planted-answer test is owed."
+     ],
+     [
+      "Where the result goes",
+      "bundle healthy references used, files checked and refused, the sample's own corrections applied."
+     ],
+     [
+      "Code",
+      "reference_door.py; reference_manifest.json; run_sample.py reference block"
+     ],
+     [
+      "How to rebuild it",
+      "Hash every runtime file; compare with the manifest; refuse on any mismatch."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R01-REFERENCE",
+    "name": "Reference block: which healthy each reading is compared with, and how files are checked",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/reference_door.py",
+     "Biological_Physics/MethylPhys/chain/reference_manifest.json",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why no healthy samples from the same run?",
+      "They cannot be certified healthy and are rarely available; the atlas is checkable by anyone, and each sample's own reads give its laboratory part.",
+      "2026-11-07 rule; SOP"
+     ]
+    ],
+    "status": "runs"
+   }
+  ],
+  "report_section": "v4-reference",
+  "tools": []
+ }
+}

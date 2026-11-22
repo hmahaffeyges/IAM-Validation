@@ -1,0 +1,225 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.12b",
+ "record": {
+  "cosmo_tool": "Distance to saturation (a detector's dynamic range).",
+  "credit": "",
+  "field_how": "(A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth: how much of the way to complete disorder the sample has gone.",
+  "field_term": "Headroom: distance from maximum methylation entropy",
+  "id": "seq.12b",
+  "inputs": [],
+  "job": "how far the sample sits from the most disordered state its own cells can reach",
+  "law": "IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED.",
+  "link": "12b. Distance to maximum disorder (the ceiling)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Met-A distance to ceiling (instrument 12b, distance to maximum disorder)."
+     ],
+     [
+      "In the field's terms",
+      "Headroom: distance from maximum methylation entropy for the whole-sample reading."
+     ],
+     [
+      "Definition",
+      "How far the whole-sample Met-A sits from the most disordered state its own cells can reach."
+     ],
+     [
+      "What it does",
+      "It says how much of the way to complete disorder the sample has gone, for whole-sample Met-A."
+     ],
+     [
+      "Why the instrument needs it",
+      "A Met-A move means more when it is placed against the ceiling the sample's own cells can reach at its read depth."
+     ],
+     [
+      "How it is obtained or computed",
+      "(A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth."
+     ],
+     [
+      "Where it is read",
+      "Every atlas site, through the whole-sample Met-A."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 3 (the half and the ceiling), long form section 3, 'Step 3: the virial half'. The packet carries only that section's title, so what the step says and its status are open: not in the records yet."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is about 1 when healthy. The development test reads 1.18476: reading 1.185 because Met-A reads 0.894 (the offset); OK otherwise."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It inherits Met-A's offset: while Met-A reads 0.894 the distance reads 1.185. It places the reading on a scale, not a cause."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Met-A distance to ceiling"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Islands distance to ceiling (instrument 12b, distance to maximum disorder)."
+     ],
+     [
+      "In the field's terms",
+      "Headroom: distance from maximum methylation entropy at CpG islands."
+     ],
+     [
+      "Definition",
+      "How far the CpG-island reading sits from the most disordered state the sample's own cells can reach."
+     ],
+     [
+      "What it does",
+      "It says how much of the way to complete disorder the islands have gone."
+     ],
+     [
+      "Why the instrument needs it",
+      "Island changes are read outside identity sites, and placing them against the ceiling at the sample's own read depth shows how far they have gone."
+     ],
+     [
+      "How it is obtained or computed",
+      "(A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth, applied to the islands territory."
+     ],
+     [
+      "Where it is read",
+      "CpG islands."
+     ],
+     [
+      "Where IAM's Law enters",
+      "IAM's Law, link 3 (the half and the ceiling), long form section 3, 'Step 3: the virial half'. The packet carries only that section's title, so what the step says and its status are open: not in the records yet."
+     ],
+     [
+      "Long-form section",
+      "link 3: long form section 3"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is about 1 when healthy. The development test reads 1.00945 (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It places the island reading on a scale, not a cause; the band for the islands is not in the packet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Islands distance to ceiling"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Headroom = (A_sat - A) / (A_sat - 1), where A is Met-A (or the islands reading) and A_sat the value complete disorder would give, counted at the sample's own read depth: 1 = at the healthy floor, 0 = completely disordered."
+     ],
+     [
+      "Why",
+      "Met-A says how much disorder rose; the headroom says how much of the way to complete disorder the sample has gone, which counting depth would otherwise distort."
+     ],
+     [
+      "Physics",
+      "IAM's Law, link 3 (the half and the ceiling): the gauge's ends are derived, the floor a perfectly held record, the ceiling complete disorder."
+     ],
+     [
+      "Where the data comes from",
+      "Met-A's and the islands' readings and expectation; the sample's read counts."
+     ],
+     [
+      "The numbers",
+      "Test library GSM5652214: 1.185, because Met-A read 0.894 there before the tare; it moves with Met-A."
+     ],
+     [
+      "Method and standard",
+      "Counted saturation at the sample's own depth; its bar follows Met-A's (owed)."
+     ],
+     [
+      "Known-answer test",
+      "Follows Met-A's known answer (owed after a chain update)."
+     ],
+     [
+      "Limits",
+      "(1) Depends entirely on Met-A's expectation. (2) Not yet commissioned against samples with known departures."
+     ],
+     [
+      "Where the result goes",
+      "bundle met_a_whole.ceiling and the islands ceiling; report."
+     ],
+     [
+      "Code",
+      "stage_metaa_atlas (ceiling)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Compute Met-A and A_sat at the sample's read counts. 2. (A_sat - A) / (A_sat - 1)."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R12B-CEILING",
+    "name": "Distance to maximum disorder: how far the sample is from complete disorder",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why another number besides Met-A?",
+      "Met-A says how much disorder rose; the headroom says how close to complete disorder, which read depth would otherwise distort.",
+      "ceiling record"
+     ]
+    ],
+    "status": "development; follows Met-A's bar"
+   }
+  ],
+  "report_section": "v4-ceiling",
+  "tools": [
+   {
+    "credit": "Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x",
+    "tool": "Shannon entropy (information theory)",
+    "what": ""
+   }
+  ]
+ }
+}

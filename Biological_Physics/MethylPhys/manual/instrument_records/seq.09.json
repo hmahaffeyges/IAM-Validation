@@ -1,0 +1,386 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.09",
+ "record": {
+  "cosmo_tool": "Splitting the survey by epoch.",
+  "credit": "",
+  "field_how": "Held error in early-, mid- and late-replicating regions, as ratios within the sample.",
+  "field_term": "Loss by replication timing: early-, mid- and late-replicating DNA (the late-replicating loss seen with repeated cell division and with age)",
+  "id": "seq.09",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "replication timing (iam_a.sites.timing)"
+     ],
+     [
+      "In the field's terms",
+      "Replication timing (Repli-seq): early-, mid- and late-replicating classes"
+     ],
+     [
+      "Definition",
+      "An input that sorts each molecule into early, mid, or late thirds by the replication timing of its first CpG, built from 15 ENCODE UW Repli-seq tracks."
+     ],
+     [
+      "What it does",
+      "It classifies each molecule as early-, mid-, or late-replicating (plain: 'early, mid, late'), giving the instrument a basis for comparing held error across those thirds as ratios within the sample (field_how: held error in early-, mid- and late-replicating regions, as ratios within the sample)."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to test whether held error depends on when the DNA is copied; this input supplies the timing label each molecule needs before that comparison can be made."
+     ],
+     [
+      "How it is obtained or computed",
+      "Derived from 15 ENCODE UW Repli-seq tracks; molecules are split into thirds by the replication timing of each molecule's first CpG. Basis: measured; source: iam_a.sites.timing; source_kind: read from the sample's own molecules."
+     ],
+     [
+      "Where it is read",
+      "At each molecule's first CpG, using the 15 ENCODE UW Repli-seq tracks to assign the early/mid/late third."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law (law_part: 'not the law itself: a measured input the law uses'; lf_section: 'not part of IAM's Law'). It is a measured timing input the law draws on, not a term within the law's own equation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Typical/default form: the three-way split (early, mid, late) built from 15 ENCODE UW Repli-seq tracks, sourced as iam_a.sites.timing and read directly from the sample's own molecules (status: measured)."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "Repli-seq replication-timing tracks (ENCODE); Repli-seq replication timing (genomics): Hansen R.S. et al. (2010) PNAS 107:139-144, doi 10.1073/pnas.0912402107 (ENCODE, University of Washington)"
+     ]
+    ],
+    "name": "replication timing"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "family tracks"
+     ],
+     [
+      "In the field's terms",
+      "Cell-family-matched replication timing (blood, endothelial, epithelial) — the family track feeding the loss-by-replication-timing instrument"
+     ],
+     [
+      "Definition",
+      "The record of which cell family — blood, endothelial, or epithelial — a sample's replication-timing data is matched to: the closest family used to read its copy-timing values, read directly from the sample's own molecules via iam_a.sites.timing_by_family."
+     ],
+     [
+      "What it does",
+      "It supplies the family-specific timing values (blood, endothelial, epithelial) that instrument 9, Copy timing, uses to check whether held error depends on when DNA is copied, by comparing held error across early-, mid- and late-replicating regions."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 9's job is to tell whether held error depends on when DNA is copied; since replication timing differs by cell type, the instrument needs a measured value for the closest family (blood, endothelial, epithelial) rather than treating every sample the same. It is explicitly 'not the law itself: a measured input the law uses.'"
+     ],
+     [
+      "How it is obtained or computed",
+      "Obtained by measurement: read from the sample's own molecules, drawn from the source iam_a.sites.timing_by_family, yielding the family track blood, endothelial, epithelial."
+     ],
+     [
+      "Where it is read",
+      "Early-, mid- and late-replicating regions of the genome, as matched to the closest family among blood, endothelial, epithelial; no single fixed genomic coordinate is given."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law — the packet marks its lf_section as 'not part of IAM's Law' and its law_part as 'not the law itself: a measured input the law uses.' It is a measured input quantity feeding the instrument, not a step in the Law's own derivation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is the family track itself — blood, endothelial, epithelial — sourced from iam_a.sites.timing_by_family and obtained by reading the sample's own molecules (basis: measured); no separate default or healthy band is given for it."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "family tracks"
+   }
+  ],
+  "job": "whether held error depends on when the DNA is copied",
+  "law": "Not the law itself: a measured input the law uses.",
+  "link": "9. Copy timing",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Copy timing"
+     ],
+     [
+      "In the field's terms",
+      "Maintenance-methylation error by replication-timing class (early-, mid- and late-replicating DNA)"
+     ],
+     [
+      "Definition",
+      "Held error early, mid, late replicating."
+     ],
+     [
+      "What it does",
+      "It tests whether held error depends on when the DNA is copied, by measuring held error separately in early-, mid- and late-replicating regions."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 9's job: whether held error depends on when the DNA is copied."
+     ],
+     [
+      "How it is obtained or computed",
+      "Held error in early-, mid- and late-replicating regions, taken as ratios within the sample; computed by the chain from the sample's molecules and its references. Sites are assigned as replication-timing thirds of each molecule's first CpG (15 ENCODE UW Repli-seq tracks), with cut values including 44.937400817871094 and 63.5694529215494 (the source list is truncated in the record)."
+     ],
+     [
+      "Where it is read",
+      "Replication-timing thirds of each molecule's first CpG, as defined by 15 ENCODE UW Repli-seq tracks."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part marks it as 'not the law itself: a measured input the law uses', and lf_section states plainly 'not part of IAM's Law'. It is a measured input quantity that the law's chain draws on, entering as one button."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is 'late slightly higher' (than early/mid replicating), on a measured basis."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Copy timing"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Copy timing by family"
+     ],
+     [
+      "In the field's terms",
+      "Loss by replication timing: early-, mid- and late-replicating DNA (the late-replicating loss seen with repeated cell division and with age)"
+     ],
+     [
+      "Definition",
+      "The copy-timing reading repeated with family-specific Repli-seq tracks: held error (and gain error) in early-, mid- and late-replicating DNA, as ratios within the sample, by cell family (e.g. blood)."
+     ],
+     [
+      "What it does",
+      "It tests whether held error depends on when the DNA is copied, by comparing held error in early-, mid- and late-replicating regions as ratios within the sample."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to determine whether held error depends on when the DNA is copied."
+     ],
+     [
+      "How it is obtained or computed",
+      "Held error (and related held_iso, held_opp, gain_iso, gain_opp values) is worked out for early-, mid- and late-replicating regions, as ratios within the sample; it is computed by the chain from the sample's molecules and its references, recorded at test path iam_a.sites.timing_by_family (test_state: OK)."
+     ],
+     [
+      "Where it is read",
+      "Early-, mid- and late-replicating regions, using the Repli-seq tracks of the sample's cell family (the test output is keyed by family, e.g. blood, then early/mid/late)."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: law_part marks it as 'not the law itself: a measured input the law uses', and lf_section is 'not part of IAM's Law'. It is a measured quantity the Law draws on, not a step within the Law itself."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reading is 'late slightly higher' — late-replicating regions hold slightly higher error than the others — with basis 'measured'."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Copy timing by family"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Held error in early-, mid- and late-replicating DNA (thirds by each molecule's first CpG on 15 ENCODE UW Repli-seq tracks, also by blood, endothelial and epithelial family tracks), as ratios within the sample."
+     ],
+     [
+      "Why",
+      "Late-replicating DNA is restored with less time before the next division and loses marks first with repeated division and age; ratios within the sample tare themselves."
+     ],
+     [
+      "Physics",
+      "Not the law itself: a measured input the law uses: the time a restore has before the copy is copied again."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's molecules; 15 ENCODE UW Repli-seq tracks (ENCODE, University of Washington; Hansen R.S. et al. 2010, Sequencing newly replicated DNA reveals widespread plasticity in human replication timing, PNAS 107:139-144, doi 10.1073/pnas.0912402107) and family tracks."
+     ],
+     [
+      "The numbers",
+      "Healthy test library: late slightly above early. Relay test: planted late-replicating loss moved late/early 1.047 -> 1.174 (met)."
+     ],
+     [
+      "Method and standard",
+      "Counted held error per timing third; ratios within the sample; healthy bar from held-out libraries (owed)."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): planted late-replicating loss moved late/early 1.047 -> 1.174 and no other instrument (met)."
+     ],
+     [
+      "Limits",
+      "(1) Timing tracks come from cell lines, not each atlas type. (2) No measured healthy bar yet."
+     ],
+     [
+      "Where the result goes",
+      "bundle iam_a.count timing fields; report."
+     ],
+     [
+      "Code",
+      "stage_q2_selfref counter (timing thirds)"
+     ],
+     [
+      "How to rebuild it",
+      "1. Assign each molecule to early, mid or late by its first CpG on the Repli-seq tracks. 2. Held error per third. 3. Ratios to early."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R09-TIMING",
+    "name": "Copy timing: held error by replication timing (early, mid, late)",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why would late-replicating DNA lose more?",
+      "It is copied last, so its marks have the least time to be restored before the next division; late-replicating loss with age is reported in the field.",
+      "register A13"
+     ],
+     [
+      "How exactly is a region classified as early-, mid-, or late-replicating in this analysis?",
+      "Each molecule is assigned based on its first CpG site, and regions are split into thirds (early, mid, late) using 15 ENCODE UW Repli-seq tracks. The same split is also done separately using blood, endothelial, and epithelial family tracks.",
+      "instrument record: field_how and the rule description describing thirds by each molecule's first CpG on 15 ENCODE UW Repli-seq tracks, also by family tracks"
+     ],
+     [
+      "Do the replication-timing tracks actually come from the same tissue as the samples being tested?",
+      "No. The replication-timing tracks come from cell lines, not from each atlas tissue type, and the records state this mismatch as a limit of the instrument.",
+      "instrument record: rule limits, point (1) on timing tracks coming from cell lines, not each atlas type"
+     ],
+     [
+      "What counts as a normal, healthy result for this measure, and is that based on real data?",
+      "The expected healthy pattern is 'late slightly higher' than early or mid replicating regions, and this is described as being on a measured basis. However, no measured healthy baseline has been recorded yet, so this expected pattern isn't yet backed by a confirmed reference bar.",
+      "instrument record: outputs healthy_how fields and rule limits, point (2) on no measured healthy bar yet"
+     ],
+     [
+      "Why does the method use ratios within each sample instead of absolute error counts?",
+      "Ratios within the sample are self-normalizing ('tare themselves'), which avoids needing an external calibration and controls for sample-to-sample differences.",
+      "instrument record: rule 'why' field describing ratios within the sample tareing themselves"
+     ]
+    ],
+    "status": "development; healthy bar owed"
+   }
+  ],
+  "report_section": "v4-timing",
+  "tools": [
+   {
+    "credit": "An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)",
+    "tool": "End-to-end simulation (inject and recover)",
+    "what": "a known change planted in real data and read back through the whole pipeline"
+   },
+   {
+    "credit": "Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM",
+    "tool": "Guide to the expression of uncertainty in measurement (GUM, metrology)",
+    "what": ""
+   },
+   {
+    "credit": "Hansen R.S. et al. (2010) PNAS 107:139-144, doi 10.1073/pnas.0912402107 (ENCODE, University of Washington)",
+    "tool": "Repli-seq replication timing (genomics)",
+    "what": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,427 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.15",
+ "record": {
+  "cosmo_tool": "Fisher-Rao geometry (Rao 1945; Bhattacharyya 1943), the distance used to compare probability distributions.",
+  "credit": "this work; Fisher-Rao geometry: Rao (1945); Bhattacharyya (1943)",
+  "field_how": "Sites placed by their behavior across atlas types; the Fisher-Rao distance from the sample's expected self, with its counting floor. Array samples (parked for the array chain).",
+  "field_term": "Information-geometric (Fisher-Rao) distance of a sample from its expected healthy self, by groups of sites",
+  "id": "seq.15",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "sphere resolution (NSIDE 128)"
+     ],
+     [
+      "In the field's terms",
+      "Pixel resolution (NSIDE) of the sphere on which CpG sites are placed for the information-geometric (Fisher-Rao) distance"
+     ],
+     [
+      "Definition",
+      "A chain-rule setting, not a biological measurement: it fixes how finely instrument 15's information sphere is pixelated so that sites can be grouped by geometry. The packet calls it 'the sphere's pixels.'"
+     ],
+     [
+      "What it does",
+      "Sets the pixel grid (NSIDE 128) onto which sites are sited for instrument 15, which asks which group of sites moved, by geometry, using the Fisher-Rao distance of a sample from its expected healthy self."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 15 asks which group of sites moved, by geometry, using the Fisher-Rao distance of a sample from its expected healthy self; NSIDE sets the sphere's pixels on which the sites are placed. How the pixels relate to the groups of sites: open: not in the records yet. The instrument is for array samples, parked for the array chain."
+     ],
+     [
+      "How it is obtained or computed",
+      "Read from stage_info_sphere.NSIDE as a rule-based setting with a default (a chain rule); the packet gives the value as NSIDE 128, with no further formula supplied."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked in the packet as 'not the law: a chain rule', with long-form section 'not part of IAM's Law' — it does not enter IAM's Law at all. It is a pipeline/configuration quantity (a pixelization setting), not a physical quantity carrying k_BT or M."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input its value is NSIDE 128, drawn from stage_info_sphere.NSIDE, with source_kind 'a setting with a default (a chain rule)' rather than a measured or derived biological quantity."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Instrument 15 works on array samples, which are parked for the array chain. Other limits: open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "sphere resolution"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "CLEAR"
+     ],
+     [
+      "In the field's terms",
+      "Change-call threshold for the grouped-site (Fisher-Rao) distance in the Information sphere"
+     ],
+     [
+      "Definition",
+      "The minimum distance a group of sites (a 'territory') must move, in the Information sphere's Fisher-Rao sense, before instrument 15 counts it as changed; the chain rule fixes this at CLEAR 0.1."
+     ],
+     [
+      "What it does",
+      "It filters the continuous Fisher-Rao distance that instrument 15 computes for each group of sites, deciding which shifts are large enough to be called a change rather than treated as noise."
+     ],
+     [
+      "Why the instrument needs it",
+      "Instrument 15 measures how far a sample's grouped sites sit from their expected healthy self by geometry; because that distance is continuous, the chain needs a rule-based cutoff (not part of IAM's Law) to decide when a territory has 'moved' enough to count."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is a fixed chain-rule setting, not computed or measured: value CLEAR 0.1, taken from stage_info_sphere.CLEAR, described as 'a setting with a default (a chain rule)'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located - it is a chain-rule setting applied to the information-sphere's grouped-site distance, not a position read from the genome itself."
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly not part of IAM's Law: law_part reads 'not the law: a chain rule' and lf_section reads 'not part of IAM's Law'. It is a procedural cutoff value governing when a geometric distance is called a change, not an energy or thermodynamic term in the cell's methyl-mark equation."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Its value is CLEAR 0.1 by default, drawn from stage_info_sphere.CLEAR, a 'setting with a default (a chain rule)' rather than a measured biological quantity."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "The instrument it serves (15, Information sphere) is array-sited and is parked for the array chain; nothing further on what this threshold cannot resolve is in the records."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "change threshold"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "MIN_GROUP"
+     ],
+     [
+      "In the field's terms",
+      "Minimum group size (minimum number of CpG sites required to form an analyzed site-group)"
+     ],
+     [
+      "Definition",
+      "The smallest territory read: a group of sites must contain at least 100 sites (MIN_GROUP 100 sites) before the Information sphere instrument will treat it as a unit for analysis."
+     ],
+     [
+      "What it does",
+      "It sets a floor of 100 sites below which a set of sites is not read as a group by the Information sphere (array-sited) instrument, whose job is to determine which group of sites moved, by geometry."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to tell which group of sites moved, by geometry, computing the Fisher-Rao distance of a sample from its expected healthy self by groups of sites — this setting gives it a minimum group size to work from before that geometric read is attempted."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is not computed but set: MIN_GROUP = 100 sites, taken from stage_info_sphere.MIN_GROUP, applied as a chain rule (in_chain: yes, basis: rule) rather than derived from data."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Marked explicitly as 'not the law: a chain rule' and 'not part of IAM's Law' — this is a setting/threshold quantity used within the Information sphere instrument's chain, not a physical quantity entering IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Default/typical value: MIN_GROUP 100 sites, from source stage_info_sphere.MIN_GROUP, recorded as 'a setting with a default (a chain rule)'."
+     ],
+     [
+      "Where its value comes from",
+      "setting with a default (a chain rule)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "minimum group"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "counting floor"
+     ],
+     [
+      "In the field's terms",
+      "Sampling-noise floor: the exact binomial distance expected from healthy at the sample's read depth"
+     ],
+     [
+      "Definition",
+      "The exact binomial counting-statistics floor that sets the distance healthy gives at the current read depth, used within the Information sphere (array-sited) instrument that measures which group of sites moved, by geometry."
+     ],
+     [
+      "What it does",
+      "It gives the distance that healthy itself would show at this depth, serving as a yardstick for the Fisher-Rao distance calculation rather than a biological signal."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument needs this floor so the sample's distance can be judged against the distance healthy itself gives at the same read depth."
+     ],
+     [
+      "How it is obtained or computed",
+      "It is calculated by the chain using exact binomial counting statistics; the packet's basis is 'counting statistics'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This quantity is explicitly marked 'not the law: statistics (a yardstick)' and its long-form section is 'not part of IAM's Law' — it is a statistical counting floor, not a physical link in IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "As an input, its value is 'exact binomial', sourced from stage_info_sphere.counting_floor, with source_kind 'calculated by the chain (statistics or geometry)'."
+     ],
+     [
+      "Where its value comes from",
+      "calculated by the chain (statistics or geometry)"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "counting floor"
+   }
+  ],
+  "job": "which group of sites moved, by geometry",
+  "law": "Not the law: geometry (a yardstick).",
+  "link": "15. Information sphere (array-sited)",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Sphere distance over expected (instrument 15, Information sphere, array-sited)"
+     ],
+     [
+      "In the field's terms",
+      "Information-geometric (Fisher-Rao) distance of a sample from its expected healthy self, by groups of sites"
+     ],
+     [
+      "Definition",
+      "Distance from the expected self over its counting floor."
+     ],
+     [
+      "What it does",
+      "Tells which group of sites moved, by geometry."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to say which group of sites moved, by geometry. Dividing the distance from the expected self by its counting floor shows whether the distance is more than counting noise alone gives (healthy about 1)."
+     ],
+     [
+      "How it is obtained or computed",
+      "Sites are placed by their behavior across atlas types; the Fisher-Rao distance from the sample's expected self is computed, divided by its counting floor. It is computed by the chain from the sample's molecules and its references, via test_path info_sphere.fisher_rao_over_expected. Array samples are parked for the array chain. The sample's test_value is 1.0571, test_state OK (array-sited)."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: geometry (a yardstick)', and lf_section states 'not part of IAM's Law'. It is a geometric yardstick quantity — a Fisher-Rao distance normalized by its counting floor — rather than a step in IAM's Law; it belongs to the chain (link_id seq.15, in_chain: yes, one button) but carries no law content."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads about 1, set by geometry (basis: geometry). The sample's measured value is 1.0571, with test_state OK (array-sited)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This reading is parked for the array chain and applies to array-sited samples, per the packet's field_how note ('Array samples (parked for the array chain)'); beyond that scope note, limits are open: not in the records yet."
+     ],
+     [
+      "Credit",
+      "binomial counting statistics (standard)"
+     ]
+    ],
+    "name": "Sphere distance over expected"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Territories changed (15. Information sphere, array-sited)"
+     ],
+     [
+      "In the field's terms",
+      "Number of site groups (territories) whose Fisher-Rao distance from the expected healthy self exceeds the counting floor"
+     ],
+     [
+      "Definition",
+      "Groups of sites that moved: sites are placed by their behavior across atlas types, and the Fisher-Rao distance of the sample from its expected healthy self is read out by group rather than as one combined number."
+     ],
+     [
+      "What it does",
+      "It shows which group of sites moved, by geometry — this is described as a yardstick, not a law-derived quantity."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job is to say which group of sites moved, by geometry; this output counts those groups."
+     ],
+     [
+      "How it is obtained or computed",
+      "Sites are placed by their behavior across atlas types; the Fisher-Rao distance from the sample's expected self is computed, with its counting floor, by the chain from the sample's molecules and its references. For array samples this step is parked for the array chain."
+     ],
+     [
+      "Where it is read",
+      "Read from the data path info_sphere.territories_changed; not genome-located."
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part states this is 'not the law: geometry (a yardstick)' and its long-form section is 'not part of IAM's Law' — so this quantity does not enter IAM's Law; it is a geometric measure used as a yardstick."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy reads 0, with basis geometry. A recorded test gave test_value 2, but that test is PARKED for the array version: array-sited, not needed for sequencing."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "PARKED for the array version: array-sited, not needed for sequencing. The recorded test value (2) is from that parked path."
+     ],
+     [
+      "Credit",
+      "IAM (this work)"
+     ]
+    ],
+    "name": "Territories changed"
+   }
+  ],
+  "records": [],
+  "report_section": "v4-sphere",
+  "tools": [
+   {
+    "credit": "Gorski K.M. et al. (2005) ApJ 622:759 (HEALPix); Zonca A. et al. (2019) J. Open Source Softw. 4(35):1298, doi 10.21105/joss.01298 (healpy). HEALPix asks publications to state: 'Some of the results in this paper have been derived using the healpy and HEALPix package', with a footnote to the HEALPix website",
+    "tool": "HEALPix equal-area pixelization",
+    "what": "the genome laid on an equal-area sphere so clustered change shows as patches and scattered noise as speckle"
+   },
+   {
+    "credit": "Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3",
+    "tool": "Null tests (shuffled and sign-flip nulls)",
+    "what": "a statistic run where the answer must be nothing (shuffled sites, sign-flipped halves, healthy against healthy) so a reading is only believed when it beats its own null"
+   },
+   {
+    "credit": "Rao C.R. (1945) Bull. Calcutta Math. Soc. 37:81-91 (Fisher-Rao distance); Bhattacharyya A. (1943) Bull. Calcutta Math. Soc. 35:99-109; Cavalli-Sforza L.L. & Edwards A.W.F. (1967) Phylogenetic analysis: models and estimation procedures, Evolution 21:550-570, doi 10.1111/j.1558-5646.1967.tb03411.x (the chord distance on the sphere)",
+    "tool": "Fisher-Rao information geometry (not cosmology)",
+    "what": "the distance between two methylation states measured as an angle between probability distributions"
+   }
+  ]
+ }
+}

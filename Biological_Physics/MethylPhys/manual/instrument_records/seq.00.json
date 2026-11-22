@@ -1,0 +1,417 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.00",
+ "record": {
+  "cosmo_tool": "Data-quality masks: a sky survey flags bad fields before anything is measured.",
+  "credit": "",
+  "field_how": "Checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; records the specimen; refuses a damaged or incomplete file with a stated reason. Nothing is read until the file passes.",
+  "field_term": "Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen",
+  "id": "seq.00",
+  "inputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "conversion rate (Stage Q0 intake check)"
+     ],
+     [
+      "In the field's terms",
+      "Bisulfite conversion rate (sample quality control)"
+     ],
+     [
+      "Definition",
+      "The fraction of unmarked (unmethylated) cytosines successfully converted by bisulfite treatment, used as a pass/refuse gate before any methylation data is read."
+     ],
+     [
+      "What it does",
+      "Enters from the alignment report and refuses the file if conversion is below 0.98."
+     ],
+     [
+      "Why the instrument needs it",
+      "Stage Q0 must accept or refuse the file before anything is read; checking conversion is one of the checks (alongside genome build and CpG coverage) that ensures a damaged or incomplete file is refused with a stated reason before any reading happens."
+     ],
+     [
+      "How it is obtained or computed",
+      "Checked against the rule conversion >= 0.98: bisulfite conversion is confirmed to be at least 98 % of unmarked C."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the row itself states 'not the law: instrument or meter' — this is an instrument/meter quantity, not a step in the Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Set per cell type or fixed, from a cited measurement; its basis is a measured limit, with the threshold conversion >= 0.98."
+     ],
+     [
+      "Where its value comes from",
+      "set per cell type or fixed, from a cited measurement"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "conv"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "conversion rate"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "specimen word (stage_0_intake input)"
+     ],
+     [
+      "In the field's terms",
+      "Specimen identity declaration, part of sample quality control (genome build, bisulfite conversion, CpG coverage, specimen)"
+     ],
+     [
+      "Definition",
+      "The sample's own stated identity — a named atlas cell, 'sorted cells', a mixture word, or refused — which decides which reference the sample will be read against."
+     ],
+     [
+      "What it does",
+      "It enters stage_0_intake as one of four possible words: a named atlas cell, 'sorted cells', a mixture word, or refused, and that word sets the downstream reference comparison."
+     ],
+     [
+      "Why the instrument needs it",
+      "The instrument's job at this stage is to accept or refuse the file before anything is read, and it needs to know what the sample claims to be in order to decide what it will be checked and read against."
+     ],
+     [
+      "How it is obtained or computed",
+      "Taken at stage_0_intake from what the sample says it is (the instrument text: intake 'records the specimen'). Its basis is a rule, not a computation: named atlas cell / 'sorted cells' / mixture word / refused. The row's source_kind reads 'read from the sample's own molecules'."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "This is explicitly marked not the law: a chain rule, and its long-form section is 'not part of IAM's Law' — it is an intake/routing rule, not a quantity that enters IAM's Law."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "No default or healthy value: the input is one of the permitted words (named atlas cell, 'sorted cells', a mixture word) or the file is refused."
+     ],
+     [
+      "Where its value comes from",
+      "read from the sample's own molecules"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "not yet on the card"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "This word only sorts the specimen into one of four categories so the file can be accepted or refused; the instrument's actual checks at this stage are genome build alignment (hg19), bisulfite conversion of at least 98 %, and CpG coverage chromosome by chromosome, with nothing read until the file passes. Beyond routing and gating entry, nothing further about this word is in the records."
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "specimen word"
+   }
+  ],
+  "job": "accept or refuse the file before anything is read",
+  "law": "Not the law: instrument or meter.",
+  "link": "0. Intake",
+  "outputs": [
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Intake checks (Stage Q0, 0. Intake)"
+     ],
+     [
+      "In the field's terms",
+      "Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen"
+     ],
+     [
+      "Definition",
+      "Each intake check (readable, build, conversion, specimen, opportunities) with its result."
+     ],
+     [
+      "What it does",
+      "It accepts or refuses the file before anything is read: it checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome, and it records the specimen."
+     ],
+     [
+      "Why the instrument needs it",
+      "Nothing downstream is read until the file passes these checks, so the instrument needs this gate to refuse a damaged or incomplete file with a stated reason before any scoring happens."
+     ],
+     [
+      "How it is obtained or computed",
+      "By checking that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; it records the specimen; a damaged or incomplete file is refused with a stated reason."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: the packet marks this as 'not the law: a chain rule' and its long-form section is 'not part of IAM's Law'. It is a pass/fail intake rule, not a measured or derived physical quantity in the cell."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is all checks passing ('all pass'), and that healthy value's basis is given as 'rule' rather than a measured or derived quantity."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Intake checks"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Intake limits (Stage Q0)"
+     ],
+     [
+      "In the field's terms",
+      "Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen"
+     ],
+     [
+      "Definition",
+      "The limits intake applies: conversion >= 0.98, opportunities >= 100,000. This is the rule the file must clear before the chain accepts it."
+     ],
+     [
+      "What it does",
+      "It accepts or refuses the sample file before anything else is read: checking that reads are aligned to hg19, that bisulfite conversion is at least 98%, and CpG coverage chromosome by chromosome, while recording the specimen. A damaged or incomplete file is refused with a stated reason."
+     ],
+     [
+      "Why the instrument needs it",
+      "Nothing downstream is read until the file passes, so the chain needs this gate to keep every later score from being built on a file with too little conversion, too few covered opportunities, the wrong genome build, or a bad specimen."
+     ],
+     [
+      "How it is obtained or computed",
+      "Computed by the chain from the sample's molecules and its references. The recorded test values are conversion_min: 0.98 and min_opportunities: 100000, alongside the hg19 alignment and chromosome-by-chromosome CpG coverage checks named in the instrument's own description."
+     ],
+     [
+      "Where it is read",
+      "not genome-located"
+     ],
+     [
+      "Where IAM's Law enters",
+      "law_part is 'not the law: a chain rule' and lf_section is 'not part of IAM's Law' — this check is not a term in IAM's Law. It is a rule-based threshold, computed by the chain from the sample's molecules and its references, used to gate intake rather than to express a regulating-energy cost."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy is conversion >= 0.98, with basis 'rule'; the recorded test values pairing with it are conversion_min: 0.98 and min_opportunities: 100000, and the check currently reads test_state: OK."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "open: not in the records yet"
+     ],
+     [
+      "Credit",
+      "IAM (this work): a rule of the chain"
+     ]
+    ],
+    "name": "Intake limits"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "Genome coverage by chromosome (instrument 0, Intake)."
+     ],
+     [
+      "In the field's terms",
+      "Per-chromosome CpG coverage (sample quality control)."
+     ],
+     [
+      "Definition",
+      "CpG coverage chromosome by chromosome, checked before anything is read."
+     ],
+     [
+      "What it does",
+      "It checks that molecules are present on every autosome and refuses a partial file with a stated reason."
+     ],
+     [
+      "Why the instrument needs it",
+      "Intake accepts or refuses the file before anything is read; a partial file would make every later reading cover only part of the genome."
+     ],
+     [
+      "How it is obtained or computed",
+      "CpG coverage is counted chromosome by chromosome, alongside the checks that reads are aligned to hg19 and that bisulfite conversion is at least 98 %."
+     ],
+     [
+      "Where it is read",
+      "Every autosome."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Not part of IAM's Law: a chain rule."
+     ],
+     [
+      "Long-form section",
+      "not part of IAM's Law"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Output: healthy is every chromosome covered evenly; refuse a partial file. The development test reads all 22 autosomes: pass; 33,913,039 interior calls (OK)."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "It checks that coverage is present and even, not that the methylation is healthy; the packet names autosomes only."
+     ],
+     [
+      "Credit",
+      "IAM (this work): measured by the chain on the IAM Sequencing Atlas libraries"
+     ]
+    ],
+    "name": "Genome coverage by chromosome"
+   }
+  ],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Before any reading: the file must be readable and complete, on the hg19 build, with bisulfite conversion of at least 0.98, an accepted specimen word, at least 100,000 opportunities, and genome coverage on every chromosome. A failing file is refused with a plain reason (exit code 3, INTAKE_REFUSED), and no reading is shown."
+     ],
+     [
+      "Why",
+      "A reading from a damaged, partial or wrong-build file would look like biology; refusing it plainly protects every instrument downstream."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law: quality control."
+     ],
+     [
+      "Where the data comes from",
+      "The sample file; the specimen word; intake_thresholds_v2.json (Runtime Matrices/Intake)."
+     ],
+     [
+      "The numbers",
+      "Conversion >= 0.98; opportunities >= 100,000. Relay test: a truncated file stopped with a raw error, fixed by a full-file check in a later chain update."
+     ],
+     [
+      "Method and standard",
+      "Fixed limits from measured QC."
+     ],
+     [
+      "Known-answer test",
+      "Relay test (2026-11-20): a truncated molecule file is refused with a plain reason after a chain update (partly met before)."
+     ],
+     [
+      "Limits",
+      "(1) Limits are operational, not derived. (2) Specimen words decide the route (sorted, whole blood, plasma, tissue), not which cells are present."
+     ],
+     [
+      "Where the result goes",
+      "bundle intake checks and limits; refusal code and reason."
+     ],
+     [
+      "Code",
+      "stage_0_intake (specimen rules, thresholds, refusals); run_sample.py intake block (a chain update)"
+     ],
+     [
+      "How to rebuild it",
+      "Apply the listed checks in order; refuse on the first failure with its reason."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R00-INTAKE",
+    "name": "Intake: accept or refuse the file before anything is read",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_0_intake.py",
+     "Biological_Physics/MethylPhys/chain/Runtime Matrices/Intake/intake_thresholds_v2.json",
+     "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+     "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    ],
+    "questions": [
+     [
+      "Why refuse rather than read with a warning?",
+      "A partial or wrong-build file produces readings that look like biology; a plain refusal cannot be misread.",
+      "relay test; a chain update"
+     ]
+    ],
+    "status": "runs; development for sequencing"
+   }
+  ],
+  "report_section": "v4-intake",
+  "tools": []
+ }
+}
