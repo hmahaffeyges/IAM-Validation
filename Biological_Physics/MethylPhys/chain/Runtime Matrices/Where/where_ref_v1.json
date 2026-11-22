@@ -1,0 +1,19 @@
+{
+ "kind": "IAM 'where' positions reference v1",
+ "build": "hg19",
+ "cpgs": 28217448,
+ "units": 592067,
+ "regions": 28218,
+ "key_check": {
+  "key_rows": 813951,
+  "chromosome_agrees": 813951,
+  "position_within_1bp": 813951,
+  "position_column": "pos_hg19"
+ },
+ "sources": {
+  "cpg_index": "built from the UCSC hg19 sequence in wgbstools numbering (Loyfer et al. 2023), checked against the chain key",
+  "islands": "UCSC hg19 cpgIslandExt",
+  "genes": "UCSC hg19 refGene (nearest transcription start)"
+ },
+ "array_blind_islands": 3101
+}
