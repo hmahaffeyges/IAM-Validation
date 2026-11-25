@@ -1,0 +1,63 @@
+{
+ "kind": "IAM Locator positions reference v2 (gene relation and CpG-island context added to v1)",
+ "build": "hg19",
+ "definitions": {
+  "promoter": "transcription start +/- 2 kb (4-kb window centred on the start)",
+  "gene_body": "transcript span outside the gene's promoter windows",
+  "shore": "within 2 kb of a CpG island",
+  "shelf": "2 to 4 kb from a CpG island",
+  "open_sea": "farther than 4 kb",
+  "source_of_definitions": "Koldobskiy et al. 2021, Nature Biomedical Engineering, Methods"
+ },
+ "sources": {
+  "refseq": "UCSC hg19 refGene (NCBI RefSeq)",
+  "known": "UCSC hg19 knownGene with kgXref gene symbols",
+  "islands": "UCSC hg19 cpgIslandExt"
+ },
+ "stats": {
+  "where_units_v2": {
+   "places": 592067,
+   "nearest_gene_agrees_with_v1": 1.0,
+   "nearest_distance_agrees_with_v1": 1.0,
+   "relation_refseq": {
+    "gene body": 254895,
+    "intergenic": 232565,
+    "promoter": 104607
+   },
+   "relation_known": {
+    "promoter": 252105,
+    "gene body": 241020,
+    "intergenic": 98942
+   },
+   "cpg_context": {
+    "open sea": 439751,
+    "island": 95089,
+    "shore": 35892,
+    "shelf": 21335
+   },
+   "array_blind_promoter_places": 18755
+  },
+  "where_regions_v2": {
+   "places": 28218,
+   "nearest_gene_agrees_with_v1": 1.0,
+   "nearest_distance_agrees_with_v1": 1.0,
+   "relation_refseq": {
+    "promoter": 17741,
+    "gene body": 5432,
+    "intergenic": 5045
+   },
+   "relation_known": {
+    "promoter": 26925,
+    "gene body": 874,
+    "intergenic": 419
+   },
+   "cpg_context": {
+    "island": 15801,
+    "open sea": 11668,
+    "shore": 480,
+    "shelf": 269
+   },
+   "array_blind_promoter_places": 393
+  }
+ }
+}
