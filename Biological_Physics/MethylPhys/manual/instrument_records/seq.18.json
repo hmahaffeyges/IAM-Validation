@@ -4,8 +4,8 @@
  "record": {
   "cosmo_tool": "",
   "credit": "Blind analysis and pre-registration: Klein J.R. & Roodman A. (2005) Annu. Rev. Nucl. Part. Sci. 55:141-163. Per-unit scores adopted from power-system practice; documented ratings methodology structured the way the NERC facility-ratings standard (FAC-008) requires (not NERC approved). Uncertainty: JCGM 100:2008 (GUM).",
-  "field_how": "",
-  "field_term": "",
+  "field_how": "Every reading of the sample beside its measured value, its healthy range and how that range was set, with figures, the methods behind each instrument, and supplementary files (all inputs and outputs, the lever map, the full derivation, the reference files, the researcher questions).",
+  "field_term": "Per-sample research report (QC summary, results against healthy reference ranges, methods and supplementary data)",
   "id": "seq.18",
   "inputs": [
    {

@@ -3,7 +3,7 @@
  "instrument": "seq.06",
  "record": {
   "cosmo_tool": "Clustering statistics by scale (counts in cells).",
-  "credit": "",
+  "credit": "IAM (this work): lengths of unmarked runs along each molecule. Uncertainty and coverage: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Lengths of runs of lost marks along each molecule (1, 2, 3, 4, 5 or more), each observed over its independent expectation; also held error by read length and by distance.",
   "field_term": "Run-length spectrum of unmethylated stretches along single reads (processive versus scattered loss)",
   "id": "seq.06",

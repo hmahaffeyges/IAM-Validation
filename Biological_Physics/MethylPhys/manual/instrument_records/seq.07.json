@@ -3,7 +3,7 @@
  "instrument": "seq.07",
  "record": {
   "cosmo_tool": "Blank-sky calibration (a dark frame): the detector's own false signal measured where the sky is known to be dark.",
-  "credit": "",
+  "credit": "IAM (this work): the false-mark rate read at CpG islands no healthy cell type methylates, inside the sample. Established comparisons: conversion estimated from non-CpG cytosines or an unmethylated spike-in (standard WGBS practice). Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated. In a healthy sample these are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands.",
   "field_term": "Library false-methylation rate at CpG islands every healthy cell keeps unmethylated; island hypermethylation above it",
   "id": "seq.07",

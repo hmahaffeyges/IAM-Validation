@@ -3,7 +3,7 @@
  "instrument": "seq.12",
  "record": {
   "cosmo_tool": "Entropy of the record against the reference sky, with the expectation computed at the sample's own read depth: counting noise modeled, not ignored.",
-  "credit": "",
+  "credit": "IAM (this work): Met-A, the sample's entropy against the expectation from its own cell mix. Entropy: Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x. Donor ranges: Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1. Split-map noise: Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps). Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Shannon entropy of methylation at each site, against the entropy a healthy cell of the same type shows at the same read depth. Sorted-cell Met-A: the type's identity CpGs against each healthy person of that type. Each cell in the mix: each found cell's identity CpGs against the atlas in the sample's composition. Whole sample: every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition.",
   "field_term": "Normalized methylation entropy against a cell-type-matched healthy reference: sorted cell, each cell in a mixture, whole sample",
   "id": "seq.12",
