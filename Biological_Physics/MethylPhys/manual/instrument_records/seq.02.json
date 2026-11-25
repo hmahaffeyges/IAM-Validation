@@ -339,6 +339,7 @@
     "name": "Sequencing ruler"
    }
   ],
+  "reads_from": "counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)",
   "records": [
    {
     "fields": [
@@ -425,6 +426,11 @@
       "Can the megakaryocyte columns be used to judge whether a sample's megakaryocyte DNA is at a healthy level?",
       "No. Those columns exist only so megakaryocyte DNA can be named as itself instead of being wrongly spread across other cell types. No instrument reads a sample against it, no healthy band is set from it, and its share is left out of every expected-healthy mix - it is identification-only and still provisional.",
       "instrument record: input on identification-only columns (megakaryocytes; provisional)"
+     ],
+     [
+      "How pure are the atlas's own libraries, and were any donors ill?",
+      "The atlas inputs carry the.96; Supplementary Table S10), listed per library in supplement S4. About a third were collected during surgery for another condition (each donor's background is in the ); their readings did not differ from the others' (Met-A median 0.986 against 1.006, Mann-Whitney p 0.47).",
+      "finding"
      ]
     ],
     "status": "built and published (Zenodo, 2026-11-03); used per instrument"

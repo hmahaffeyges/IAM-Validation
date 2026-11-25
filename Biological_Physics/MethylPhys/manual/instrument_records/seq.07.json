@@ -404,6 +404,7 @@
     "name": "Conversion failure"
    }
   ],
+  "reads_from": "molecules (each read followed CpG by CpG; needs a molecule file)",
   "records": [
    {
     "fields": [

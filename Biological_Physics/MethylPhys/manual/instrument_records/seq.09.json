@@ -274,6 +274,7 @@
     "name": "Copy timing by family"
    }
   ],
+  "reads_from": "molecules (each read followed CpG by CpG; needs a molecule file)",
   "records": [
    {
     "fields": [
