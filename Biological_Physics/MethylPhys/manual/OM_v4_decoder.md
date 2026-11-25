@@ -12445,4 +12445,238 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **Reads from:** both: places for the molecule instruments come from molecules, places for the counts instruments from counts
 - **What it measures and how:** Per-place observed versus expected counts against an empirical healthy null with Benjamini-Hochberg control, annotated with CpG island, gene and promoter/gene-body/nearby relation from UCSC hg19 tracks
 - **Where IAM's Law enters:** .
-- **Credit:** (to verify at the publishers before printing) UCSC Genome Browser and its hg19 tracks; the CpG island definition used by the UCSC track; NCBI RefSeq gene table; Benjamini and Hochberg 1995 for false-discovery control.
+- **Credit:** Positions and genes: UCSC Genome Browser (Kent et al. 2002, Genome Res. 12:996-1006, doi 10.1101/gr.229102); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046). CpG islands: Gardiner-Garden & Frommer 1987 (J. Mol. Biol. 196:261-282), the definition of the UCSC track; shores: Irizarry et al. 2009 (Nat. Genet. 41:178-186). Promoter window and shore/shelf definitions as used by Koldobskiy et al. 2021 (Nat. Biomed. Eng.), so gene lists compare directly. False-discovery control: Benjamini & Hochberg 1995 (J. R. Stat. Soc. B 57:289-300). CpG numbering: wgbstools (Loyfer et al. 2023, Nature 613:355-364). IAM (this work): calling places per sample against the healthy atlas at the sample's own depth and mix, with a measured healthy null and a measured detection limit.
+
+#### The Locator: naming the places that changed, and the genes there
+
+*Status:* development
+
+- **How it works:** For each instrument, every place it reads (an island or block for the Law Sphere and the counts; a region for the globe) is tested: the sample's count at the place against the count the healthy atlas expects there at the sample's own read depth and cell mix, judged against the spread measured among healthy libraries (not counting alone), with Benjamini-Hochberg false-discovery control across that instrument's places. Each place named is given its chromosome and position, its CpG island context (island, shore, shelf, open sea), its genes (promoter: within 2 kb of a transcription start; gene body; or the nearest gene and its distance), and whether any array probe covers it.
+- **Why:** A score says how much a sample changed; a researcher also needs to know where, and which genes, to compare with expression, with other studies and across patients.
+- **The numbers:** 592,067 places (CpG islands, then 50-CpG blocks) and 28,218 regions; places by RefSeq relation: promoter 104,607, gene body 254,895, intergenic 232,565; by context: island 95,089, shore 35,892, shelf 21,335, open sea 439,751; 18,755 promoter places without an array probe. Planted tests on GSM5652214: 9 of 10 gain islands found, loss blocks named at 6.3 times their healthy level and above, none below 3.3; no place named in any healthy or unplanted read (every loss and gain unit tested).
+- **Method and standard:** Positions reference built from public UCSC hg19 files and checked against all 813,951 array probe positions; healthy null by leave-one-out over the 205 atlas libraries; planted-place tests for detection.
+- **Limits:** Detection depends on depth: at about 30-fold, a loss block expecting about 5 held errors is named once it shows about 4 to 6 times that (finding ); each report prints its own sample's limit, so 'nothing found' is read against it. Promoter calls depend on the gene table (both kept). Positions are hg19.
+- **How to rebuild it:** python3 'chain/Runtime Matrices/Where/build_where_ref.py' hg19.fa.gz cpgIslandExt.txt.gz refGene.txt.gz sites_sequencing_key.parquet units.npz OUT; then build_where_genes_v2.py OUT refGene.txt.gz knownGene.txt.gz kgXref.txt.gz cpgIslandExt.txt.gz OUT (public UCSC hg19 files from hgdownload.soe.ucsc.edu; both builds check themselves and stop on any disagreement)
+- **Files in the repository:** [build_where_ref.py](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/chain/Runtime%20Matrices/Where/build_where_ref.py), [build_where_genes_v2.py](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/chain/Runtime%20Matrices/Where/build_where_genes_v2.py), [README.md](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/chain/Runtime%20Matrices/Where/README.md), [where_ref_v2.json](https://github.com/hmahaffeyges/IAM-Validation/blob/main/Biological_Physics/MethylPhys/chain/Runtime%20Matrices/Where/where_ref_v2.json)
+
+*Questions a researcher will ask:*
+
+- **How do you know a named place is not just noise?** Each place is judged against how far healthy libraries actually stray there (measured on the 205 atlas libraries), not against counting alone, with false-discovery control. In every healthy and unplanted read so far, no place was named; planted places were found (9 of 10 planted gains; loss blocks at 6.3 times their healthy level and above). *(Evidence: findings)*
+- **Why do the gene calls follow one study's definitions?** So named genes compare directly with that study's published gene lists: promoter within 2 kb of a transcription start, shores within 2 kb of an island, shelves 2 to 4 kb. Both RefSeq and the UCSC known-genes table are given, since the second calls more promoters. *(Evidence: a chain update; finding)*
+- **What does 'array-blind' mean for a gene?** No array probe covers that place, so no array study could have measured it. 18,755 of the Locator's promoter places (RefSeq) have no probe. *(Evidence: finding)*
+
+#### Input: Positions reference v1
+
+- **IAM's name:** Positions reference v1
+- **In the field's terms:** Positions reference v1
+- **Definition:** every place's chromosome, start and end, CpG count, array probe count and CpG island
+- **What it does:** every place's chromosome, start and end, CpG count, array probe count and CpG island
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** built from the UCSC hg19 sequence and cpgIslandExt; key check against all 813,951 array probes
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Positions and genes: UCSC Genome Browser (Kent et al. 2002, Genome Res. 12:996-1006, doi 10.1101/gr.229102); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046). CpG islands: Gardiner-Garden & Frommer 1987 (J. Mol. Biol. 196:261-282), the definition of the UCSC track; shores: Irizarry et al. 2009 (Nat. Genet. 41:178-186). Promoter window and shore/shelf definitions as used by Koldobskiy et al. 2021 (Nat. Biomed. Eng.), so gene lists compare directly.
+
+#### Input: Gene relation v2
+
+- **IAM's name:** Gene relation v2
+- **In the field's terms:** Gene relation v2
+- **Definition:** each place's promoter genes, gene-body genes, nearest gene and distance, relation and CpG context, from RefSeq and from UCSC known genes
+- **What it does:** each place's promoter genes, gene-body genes, nearest gene and distance, relation and CpG context, from RefSeq and from UCSC known genes
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** built from UCSC refGene, knownGene and kgXref; nearest gene and distance agree with v1 at every place
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Positions and genes: UCSC Genome Browser (Kent et al. 2002, Genome Res. 12:996-1006, doi 10.1101/gr.229102); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046). CpG islands: Gardiner-Garden & Frommer 1987 (J. Mol. Biol. 196:261-282), the definition of the UCSC track; shores: Irizarry et al. 2009 (Nat. Genet. 41:178-186). Promoter window and shore/shelf definitions as used by Koldobskiy et al. 2021 (Nat. Biomed. Eng.), so gene lists compare directly.
+
+#### Input: Healthy expected count per place
+
+- **IAM's name:** Healthy expected count per place
+- **In the field's terms:** Healthy expected count per place
+- **Definition:** what a healthy library of the sample's mix would show at the place, at the sample's depth
+- **What it does:** what a healthy library of the sample's mix would show at the place, at the sample's depth
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** from the Sequencing Atlas, weighted by the Deconvolver's shares
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work)
+
+#### Input: Measured healthy spread per place
+
+- **IAM's name:** Measured healthy spread per place
+- **In the field's terms:** Measured healthy spread per place
+- **Definition:** how far healthy libraries stray from their expectation at each place, beyond counting
+- **What it does:** how far healthy libraries stray from their expectation at each place, beyond counting
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** leave-one-out over the 205 atlas libraries
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work)
+
+#### Input: False-discovery level
+
+- **IAM's name:** False-discovery level
+- **In the field's terms:** False-discovery level
+- **Definition:** the share of named places allowed to be false
+- **What it does:** the share of named places allowed to be false
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** Benjamini-Hochberg at 0.05, per instrument
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Benjamini & Hochberg 1995 (J. R. Stat. Soc. B 57:289-300)
+
+#### Output: Places named
+
+- **IAM's name:** Places named
+- **In the field's terms:** Places named
+- **Definition:** each place whose count departs from its healthy expectation beyond the measured healthy spread, after false-discovery control, with its direction (loss or gain)
+- **What it does:** each place whose count departs from its healthy expectation beyond the measured healthy spread, after false-discovery control, with its direction (loss or gain)
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work)
+
+#### Output: Genes at each place
+
+- **IAM's name:** Genes at each place
+- **In the field's terms:** Genes at each place
+- **Definition:** promoter genes (within 2 kb of a transcription start), gene-body genes, or the nearest gene and its distance
+- **What it does:** promoter genes (within 2 kb of a transcription start), gene-body genes, or the nearest gene and its distance
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Positions and genes: UCSC Genome Browser (Kent et al. 2002, Genome Res. 12:996-1006, doi 10.1101/gr.229102); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046). CpG islands: Gardiner-Garden & Frommer 1987 (J. Mol. Biol. 196:261-282), the definition of the UCSC track; shores: Irizarry et al. 2009 (Nat. Genet. 41:178-186). Promoter window and shore/shelf definitions as used by Koldobskiy et al. 2021 (Nat. Biomed. Eng.), so gene lists compare directly.
+
+#### Output: CpG context
+
+- **IAM's name:** CpG context
+- **In the field's terms:** CpG context
+- **Definition:** island, shore (within 2 kb of an island), shelf (2 to 4 kb) or open sea
+- **What it does:** island, shore (within 2 kb of an island), shelf (2 to 4 kb) or open sea
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Positions and genes: UCSC Genome Browser (Kent et al. 2002, Genome Res. 12:996-1006, doi 10.1101/gr.229102); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046). CpG islands: Gardiner-Garden & Frommer 1987 (J. Mol. Biol. 196:261-282), the definition of the UCSC track; shores: Irizarry et al. 2009 (Nat. Genet. 41:178-186). Promoter window and shore/shelf definitions as used by Koldobskiy et al. 2021 (Nat. Biomed. Eng.), so gene lists compare directly.
+
+#### Output: Array-blind
+
+- **IAM's name:** Array-blind
+- **In the field's terms:** Array-blind
+- **Definition:** whether any array probe covers the place; a place no probe covers cannot be measured in any array study
+- **What it does:** whether any array probe covers the place; a place no probe covers cannot be measured in any array study
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work), from the chain's array key
+
+#### Output: Detection limit
+
+- **IAM's name:** Detection limit
+- **In the field's terms:** Detection limit
+- **Definition:** the smallest change at a place this sample's depth can show, from planted-place tests
+- **What it does:** the smallest change at a place this sample's depth can show, from planted-place tests
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work)
+
+#### Output: In published gene lists
+
+- **IAM's name:** In published gene lists
+- **In the field's terms:** In published gene lists
+- **Definition:** for each gene named, whether it is in the comparison study's own gene lists (Koldobskiy et al. 2021, Supplementary Tables 2a and 10a); an independent check, never used to tune
+- **What it does:** for each gene named, whether it is in the comparison study's own gene lists (Koldobskiy et al. 2021, Supplementary Tables 2a and 10a); an independent check, never used to tune
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** Koldobskiy et al. 2021 (Nat. Biomed. Eng.), their published tables
+
+#### Output: Places across samples
+
+- **IAM's name:** Places across samples
+- **In the field's terms:** Places across samples
+- **Definition:** in a study report: in how many cases and controls each place and gene is named, and by how many instruments
+- **What it does:** in a study report: in how many cases and controls each place and gene is named, and by how many instruments
+- **Why the instrument needs it:** open: not written yet
+- **How it is obtained or computed:** open: not written yet
+- **Where it is read:** open: not written yet
+- **Where IAM's Law enters:** open: not written yet
+- **Long-form section:** open: not written yet
+- **Healthy value and how it is set:** open: not written yet
+- **Where its value comes from:** open: not written yet
+- **Its setting on IAM's Law Sphere:** open: not written yet
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** open: not written yet
+- **Credit:** IAM (this work)
