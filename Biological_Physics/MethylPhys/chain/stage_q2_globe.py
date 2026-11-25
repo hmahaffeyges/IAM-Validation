@@ -153,6 +153,9 @@ def cscore_regions(R, min_opp=None):
     e = float(k[ok].sum() / o[ok].sum())
     if not 0 < e < 1: return dict(status="NOT_RUN", reason="no held errors")
     t = (k[ok] - e * o[ok]) ** 2 / (e * (1 - e) * o[ok]); C = float(t.sum() / ok.sum()); top = np.sort(t)[::-1][:max(1, int(ok.sum()) // 100)]
+    _v = e * (1 - e) * o[ok]; _m2 = float(((e * o[ok]) ** 2).sum())   # edit 252: depth-free rho (Williams 1982), F285
+    rho = float((((k[ok] - e * o[ok]) ** 2) - _v).sum() / _m2); rho_se = float(np.sqrt(2.0 * (_v ** 2).sum()) / _m2)
     return dict(status="OK", C=round(C, 4), regions=int(ok.sum()), se_null=round(float(np.sqrt(2.0 / ok.sum())), 4), eps=round(e, 6),
+                rho=round(rho, 6), rho_se_null=round(rho_se, 6), rho_definition="squared coefficient of variation of the loss rate between regions, method of moments (Williams 1982); 0 for independent losses, free of read depth",
                 top1pct_share=round(float(top.sum() / t.sum()), 4), region_cpgs=int(R.get("region") or REGION),
                 definition="IAM-A C-Score (stage_q_iam_a.cscore) with the globe's regions as blocks; independent losses -> 1", band="none yet (healthy atlas libraries)")

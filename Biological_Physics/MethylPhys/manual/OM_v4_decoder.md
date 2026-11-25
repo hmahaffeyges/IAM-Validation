@@ -72,9 +72,9 @@ Read from the code at build time: the one command can load **39 Python files** h
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 1,414 | 70 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
-| `stage_q2_globe.py` | 159 | 15 | 0 | 0 |
+| `stage_q2_globe.py` | 162 | 15 | 0 | 0 |
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
-| `stage_law_sphere.py` | 379 | 24 | 0 | 0 |
+| `stage_law_sphere.py` | 381 | 24 | 0 | 0 |
 | `stage_conv_corr.py` | 65 | 6 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
@@ -5303,7 +5303,7 @@ The atlas sites that have a CpG index, with their atlas rows, for counting on th
 
 The IAM-A C-Score on the sequencing globe's regions (edit 216). Physics: IAM's Law prices each held mark independently, so losses of held marks should fall like independent coin flips; the C-Score asks whether they do. Same definition as stage_q_iam_a.cscore: C = sum over blocks of (k - eps o)^2 / sum eps (1 - eps) o, eps the sample's pooled held error, here with the globe's regions (1,000 CpGs by default) as the blocks. Independent losses give 1 with null spread sqrt(2 / regions). Each region's term is the globe's own departure, so the globe shows where C comes from. Healthy regions also differ by nature, so the healthy band is measured on the atlas libraries, not assumed. Development; on in the full chain.
 
-*Code:* `stage_q2_globe.py` line 147 (12 lines) · arguments: R, min_opp · calls: not called on the traced runs · constants read: `MIN_OPP`, `REGION`
+*Code:* `stage_q2_globe.py` line 147 (15 lines) · arguments: R, min_opp · calls: not called on the traced runs · constants read: `MIN_OPP`, `REGION`
 
 ### `stage_q2_globe.py::_owner_of`
 
@@ -5611,51 +5611,51 @@ The per-call loss whose isolated losses equal the counter's held error (independ
 
 Saves a sample's per-unit molecule counts with its shares and loose share, so any card can be read again without the file.
 
-*Code:* `stage_law_sphere.py` line 239 (9 lines) · arguments: path, C, ref, shares, loose_share, conv, sample · calls: not called on the traced runs · constants read: `COUNT_KEYS`, `REF_DIR` · files named: `unused_islands_v1.json`
+*Code:* `stage_law_sphere.py` line 241 (9 lines) · arguments: path, C, ref, shares, loose_share, conv, sample · calls: not called on the traced runs · constants read: `COUNT_KEYS`, `REF_DIR` · files named: `unused_islands_v1.json`
 
 ### `stage_law_sphere.py::load_counts`
 
 Reads saved counts back onto the sphere's units.
 
-*Code:* `stage_law_sphere.py` line 248 (6 lines) · arguments: path, ref · calls: not called on the traced runs · constants read: `COUNT_KEYS`
+*Code:* `stage_law_sphere.py` line 250 (6 lines) · arguments: path, ref · calls: not called on the traced runs · constants read: `COUNT_KEYS`
 
 ### `stage_law_sphere.py::sweep`
 
 One card input over a range (or one type's), every summary at each value.
 
-*Code:* `stage_law_sphere.py` line 254 (9 lines) · arguments: C, ref, shares, loose_share, key, values, base, conv, cell · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 256 (9 lines) · arguments: C, ref, shares, loose_share, key, values, base, conv, cell · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::fit`
 
 The value of one card input (whole or one type's) that brings the sample nearest its counting floor, whole and per job, with the curve.
 
-*Code:* `stage_law_sphere.py` line 263 (13 lines) · arguments: C, ref, shares, loose_share, key, lo, hi, n, base, conv, cell, target · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 265 (13 lines) · arguments: C, ref, shares, loose_share, key, lo, hi, n, base, conv, cell, target · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::fit.best`
 
 The minimum of one summary over the fit's grid, and whether it lies at the grid's edge.
 
-*Code:* `stage_law_sphere.py` line 268 (4 lines) · arguments: get · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 270 (4 lines) · arguments: get · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::departure`
 
 Each unit's departure from its healthy value for one output: the law's value where it gives one; the angles from what counting
 alone gives; loose share and depth from the sample's own median.
 
-*Code:* `stage_law_sphere.py` line 286 (11 lines) · arguments: key, Lay · calls: not called on the traced runs · constants read: `LAW_VALUE`
+*Code:* `stage_law_sphere.py` line 288 (11 lines) · arguments: key, Lay · calls: not called on the traced runs · constants read: `LAW_VALUE`
 
 ### `stage_law_sphere.py::texture`
 
 The mean of the units' values in each cell of an equirectangular grid on the sphere (the information sphere's direction convention).
 
-*Code:* `stage_law_sphere.py` line 297 (8 lines) · arguments: X, v, H, W · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 299 (8 lines) · arguments: X, v, H, W · calls: not called on the traced runs
 
 ### `stage_law_sphere.py::spec`
 
 The Law Sphere page's globe-viewer spec: one group per family of outputs, one coded-difference layer per output with its scale,
 its share above each step and its note.
 
-*Code:* `stage_law_sphere.py` line 305 (26 lines) · arguments: rec, Lay, positions, sample · calls: not called on the traced runs · constants read: `GROUPS`, `LAYERS`
+*Code:* `stage_law_sphere.py` line 307 (26 lines) · arguments: rec, Lay, positions, sample · calls: not called on the traced runs · constants read: `GROUPS`, `LAYERS`
 
 ### `stage_law_sphere.py::unit_map`
 
@@ -5693,19 +5693,19 @@ Inverts the slow-write rule held/lost = (x/2)/(1 - (1 - e^-x)/x) for the push x 
 One sample on the Law Sphere: the law's expected point in the sample's own shares, the 14 layers per unit, and per job and
 whole-sample summaries, each against its counting floor.
 
-*Code:* `stage_law_sphere.py` line 160 (76 lines) · arguments: C, ref, shares, loose_share, conv, card · calls: not called on the traced runs · constants read: `CARD`, `CONV_DEFAULT`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `R_GAS`
+*Code:* `stage_law_sphere.py` line 160 (78 lines) · arguments: C, ref, shares, loose_share, conv, card · calls: not called on the traced runs · constants read: `CARD`, `CONV_DEFAULT`, `LAYERS`, `MIN_CALLS`, `MIN_OPP`, `R_GAS`
 
 ### `stage_law_sphere.py::type_positions`
 
 Reads type_positions_v1.json: each healthy cell type's measured position on IAM-A's derived line (A8-POSITION), with its relative uncertainty and library count. Measured, not derived: a substitute for the underived A8, like a scheduled value for a missing meter. The between-lab term is not in it (edit 212).
 
-*Code:* `stage_law_sphere.py` line 333 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `type_positions_v1.json`
+*Code:* `stage_law_sphere.py` line 335 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `REF_DIR` · files named: `type_positions_v1.json`
 
 ### `stage_law_sphere.py::hold_alarm`
 
 The Law Sphere's hold alarm (edit 212). Physics: the held record is the potential side of IAM's Law in the cell (the slow close, A4); the level layers see the hold only as 1 - q, so they cannot confirm a reference for it. The alarm counts the sample's held error from the same molecules (IAM-A's rule) and compares it with three references: the law (two coins, 0.04454), IAM-A's own derived line at the sample's loose share, and that line times the type's measured position. z = log(held / reference) / sqrt(se^2 + u^2), with se from a block jackknife over the sphere's units (the measured spread between units and molecules, about four times plain counting noise) and u the type's band uncertainty (GUM). |z| <= 2 reads within. Mixtures are not read: the line is defined for one cell type. Development; on in the full chain with the Law Sphere.
 
-*Code:* `stage_law_sphere.py` line 336 (20 lines) · arguments: C, ref, cell, predicted_derived, blocks · calls: not called on the traced runs · constants read: `EPS_LAW`
+*Code:* `stage_law_sphere.py` line 338 (20 lines) · arguments: C, ref, cell, predicted_derived, blocks · calls: not called on the traced runs · constants read: `EPS_LAW`
 
 ### `stage_law_sphere.py::pileup_mask`
 
@@ -5717,7 +5717,7 @@ A unit read deeper than PILEUP_X (10) times the sample's median calls per unit i
 
 Stray writing at the islands no healthy cell type writes (edit 215). Physics: the write side of IAM's Law; a mark there is a stray from the writer (selection 1/(1 + D), D = 60, after the eraser's 18 % clean-up) plus the meter (conversion failure). The set (unused_islands_v1.json) is measured: 8,567 IAM Sequencing Atlas islands below 5 % methylated in all 58 types at >= 50 calls, 516 of them covered by no array probe. Reports the sample's pooled stray rate against the law and against the atlas's own healthy level in the sample's cell shares, z from counting only (a library floor is not yet in it). Development.
 
-*Code:* `stage_law_sphere.py` line 358 (21 lines) · arguments: C, shares, conv, q_ref · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `ERASER_CLEAN`, `REF_DIR` · files named: `unused_islands_v1.json`
+*Code:* `stage_law_sphere.py` line 360 (21 lines) · arguments: C, shares, conv, q_ref · calls: not called on the traced runs · constants read: `CONV_DEFAULT`, `D_SELECT`, `ERASER_CLEAN`, `REF_DIR` · files named: `unused_islands_v1.json`
 
 ### `stage_law_sphere.py::count_pat_units.flush`
 
@@ -5729,7 +5729,7 @@ Adds the buffered (CpG, weight) pairs into the per-unit sums and empties the buf
 
 The summary of every layer over a set of units (the whole sample, or one job), pooled before the ratio is taken.
 
-*Code:* `stage_law_sphere.py` line 202 (24 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `stage_law_sphere.py` line 202 (26 lines) · arguments: m · calls: not called on the traced runs
 
 ## 19. The reference globes and the series runner: `reference_globes.py`, `run_series.py`
 

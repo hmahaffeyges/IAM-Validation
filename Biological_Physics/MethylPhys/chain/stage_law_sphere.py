@@ -218,6 +218,8 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
         mv = m & okHv & ~pile   # edit 218: halves, the strand-to-strand angle over its counting floor
         if mv.any():
             _t = _theta(ba[mv], bb[mv]); r.update(halves=round(float(np.sqrt(np.nanmean(_t ** 2)) / np.sqrt(np.nanmean(hfl[mv] ** 2))), 3), halves_units=int(mv.sum()))
+            _b = (ma + mb)[mv] / np.maximum(calls[mv], 1); _f2 = IS.counting_floor(ca[mv], _b) + IS.counting_floor(cb[mv], _b)   # edit 252, F285
+            _ok = np.isfinite(_f2) & np.isfinite(_t); r.update(halves_excess=round(float(np.sqrt(max(0.0, float(np.mean(_t[_ok] ** 2) - np.mean(_f2[_ok]))))), 5))
         r.update(pileup_units=int((m & pile).sum()))
         mg = m & okG & ~pile
         if mg.any(): r.update(write_vs_law=round(float(gerr[mg].sum() / max(gopp[mg].sum(), 1)) / u_law, 4))
