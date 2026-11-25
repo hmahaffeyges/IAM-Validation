@@ -18,7 +18,7 @@ def markdown(ref="main", level=2, only=None, io=True):
     for lid in sorted(J, key=lambda k: [int(x) if x.isdigit() else x for x in k.replace("seq.", "").replace("b", ".5").split(".")] if k.startswith("seq.") else [k]):
         if only and lid not in only: continue
         x = J[lid]; L += [f"{h} {_e(x.get('link'))}", ""]
-        for k, lab in (("field_term", "In the field's terms"), ("field_how", "What it measures and how"), ("law", "Where IAM's Law enters"), ("cosmo_tool", "Tool borrowed from cosmology"), ("credit", "Credit")):
+        for k, lab in (("field_term", "In the field's terms"), ("reads_from", "Reads from"), ("field_how", "What it measures and how"), ("law", "Where IAM's Law enters"), ("cosmo_tool", "Tool borrowed from cosmology"), ("credit", "Credit")):
             if x.get(k): L.append(f"- **{lab}:** {_e(x[k])}")
         if x.get("tools"): L.append("- **Methods it uses (established, not IAM's Law):** " + "; ".join(_e(t if isinstance(t, str) else t.get("tool", "") + " (" + t.get("credit", "") + ")") for t in x["tools"]))
         L.append("")

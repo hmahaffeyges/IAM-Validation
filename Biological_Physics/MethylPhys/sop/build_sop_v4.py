@@ -124,6 +124,20 @@ def text():
     L += ["", "## 8. Frozen inputs", "", "Every reference the chain reads is a committed file; nothing is fitted at run time. The release check verifies each checksum.", "",
           "| File (in `chain/`) | SHA-256 |", "|---|---|"]
     L += [f"| `{k}` | `{v[:16]}…` |" for k, v in sorted(F.items())]
+    import re   # edit 255
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "manual")); import build_decoder as _BD   # edit 255
+    _rows, _on = _BD.options()
+    L += ["", "## 4f. Every option of the one button", "", "Read from `run_sample.py` when this SOP is built, so it cannot fall behind the code. "
+          "\"On in the default chain\" means the default run turns it on.", "", "| Option | What it does | Default | On in the default chain |", "|---|---|---|---|"]
+    L += [f"| `{o}` | {h.replace('|', '/')} | `{d}` | {'yes' if o[2:].replace('-', '_') in _on else ''} |" for o, h, d in _rows]
+    _RM = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "chain", "Runtime Matrices")
+    L += ["", "## 8b. Reference folders and how each was built", "", "Every folder under `chain/Runtime Matrices`, its README's opening paragraph and its files, read when this SOP is built.", ""]
+    for _d in sorted(x for x in os.listdir(_RM) if os.path.isdir(os.path.join(_RM, x)) and not x.startswith((".", "archive"))):
+        _rd = os.path.join(_RM, _d, "README.md"); _t = open(_rd, encoding="utf-8").read() if os.path.exists(_rd) else ""
+        _p = next((b.strip() for b in re.split(r"\n\s*\n", _t) if b.strip() and not b.lstrip().startswith("#")), "no README yet")
+        _f = sorted(f for f in os.listdir(os.path.join(_RM, _d)) if not f.startswith(".") and os.path.isfile(os.path.join(_RM, _d, f)))
+        _h = [x.strip("# ").strip() for x in _t.splitlines() if x.startswith("## ")]
+        L += [f"### {_d}", "", " ".join(_p.split())] + ([""] + ["Sections of its README: " + "; ".join(_h) + "."] if _h else []) + ["", "Files: " + (", ".join(f"`{f}`" for f in _f[:40]) + (f" and {len(_f) - 40} more" if len(_f) > 40 else "")), ""]
     L += ["", "## 9. Rules", "",
           "- Synthetic first: every new test runs on planted data, read by the chain's exact rule, before any real data is opened.",
           "- Sealed before read: a test's samples, rule and bars are committed before its data is downloaded; it is scored once.",

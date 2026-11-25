@@ -346,6 +346,296 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 | `Runtime Matrices/Replication_Timing/hg19_cpg_timing_thirds_v1.npz` | `f4a4835c8ff23dc7…` |
 | `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json` | `652906dff10a0c33…` |
 
+## 4f. Every option of the one button
+
+Read from `run_sample.py` when this SOP is built, so it cannot fall behind the code. "On in the default chain" means the default run turns it on.
+
+| Option | What it does | Default | On in the default chain |
+|---|---|---|---|
+| `--age` | declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72 | `none` |  |
+| `--alignment-qc` | Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction | `None` |  |
+| `--array-type` | declared array type; omit to take it from the IDAT header (Stage 0.1). The chain reads EPIC_v1 only | `None` |  |
+| `--assembly` | assembly of --bam (mm10: --dev-count-only only, 2026-11-14) | `'hg19'` |  |
+| `--atlas-v2` | atlas v2 parquet for the atlas-based development flags (not stored in the repository) | `os.environ.get('CPG_ATLAS_V2_PARQUET')` |  |
+| `--bam` | chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta) | `None` |  |
+| `--banner` | a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18) | `None` |  |
+| `--betas` | a per-site table of values (CSV: site id, value) read as an array; the Deconvolver and every reading run on it | `none` |  |
+| `--build` | build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the atlas globe's textures and slider pictures (reference_globes.py) | `None` |  |
+| `--build-about` | with --build info-globe: the explanation beside the picture (default: the one in run_sample.py) | `None` |  |
+| `--build-block` | --build seq-atlas (2026-10-29, development): the block of hg19 CpGs, 0-based, end excluded | `None` |  |
+| `--build-cell` | --build provisional: the cell's name | `None` |  |
+| `--build-construction` | --build info-sphere: v1 (default) or v5, the level taken out (DEV-SPHERE-01, development) | `None` |  |
+| `--build-depth` | --build constructed-draw: reads per site in each half (default 30,15) | `None` |  |
+| `--build-groups` | with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together ('pool': the sites random groups are drawn from) | `None` |  |
+| `--build-input` | with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first) | `None` |  |
+| `--build-mix` | --build constructed-draw: atlas tissues added to the plasma half and their shares (tests only) | `None` |  |
+| `--build-name` | the atlas's name on a picture built from --build-input (info-globe) | `None` |  |
+| `--build-out` | with --build: where the built reference is written (.npz) | `None` |  |
+| `--build-random` | with --build info-sphere: random groups per named group for its line (default 500) | `500` |  |
+| `--build-samples` | --build provisional: the samples CSV (gsm, file) of per-CpG read files to pool | `None` |  |
+| `--build-with-mk` | DEVELOPMENT: --build seq-deconv-ref keeps the provisional megakaryocyte column | `off` |  |
+| `--bundle` | also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report | `none` |  |
+| `--cell-panel` | the cells the IAM-Deconvolver splits the sample into: 'atlas' (all of IAM-Atlas v2.1's cell types; the default chain's choice, with the six-cell commissioned reading written beside it as cell_shares_blood6), 'blood' (the six blood cells it is commissioned on; the choice with --commissioned-only), or as before 'atlas' (all of IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for each cell reads every cell the panel finds (2026-10-22) | `None` | yes |
+| `--commissioned-only` | read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off) | `off` |  |
+| `--covariate` | a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose | `[]` |  |
+| `--covariates` | a JSON object of covariates, merged with any --covariate flags | `none` |  |
+| `--dev-allow-partial` | development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1) | `off` |  |
+| `--dev-allow-partial-genome` | development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged | `off` |  |
+| `--dev-count-genome` | --dev-count-only: the genome the .pat was made on (recorded) | `'hg19'` |  |
+| `--dev-count-only` | DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse) | `off` |  |
+| `--dev-count-sites` | a comma list counts each set from the same file (2026-11-16, e.g. islands,epitoc2: the clock and its islands meter in one reading); DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites); CELL = islands (2026-11-15, register T1): the islands territory, both the loss and the stray-mark side; CELL = epitoc2 (register C3): the mitotic clock's 163 CpGs and 25 CpGs either side | `None` |  |
+| `--dev-count-tiles` | DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules) | `None` |  |
+| `--dev-curve-cal` | DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal) | `off` |  |
+| `--dev-deconv-drop` | DEVELOPMENT, diagnosis only: hold these cells out of the Deconvolver's sequencing reference (the IAM Sequencing Atlas), so their share goes to the cells that remain; flagged in the bundle | `None` |  |
+| `--dev-deconv-ref` | DEVELOPMENT, diagnosis only: read a sequenced sample's cell shares against this Deconvolver reference instead of the committed one (e.g. one built with --build-with-mk); flagged in the bundle | `None` | yes |
+| `--dev-floor-class` | DEVELOPMENT (2026-11-07): the islands read with the sample's and the reference's floors each counted at the islands read, where the sample's own mix expects them unmarked, both at the higher (stage_metaa_atlas.FLOOR_CLASS) | `off` |  |
+| `--dev-floor-equal` | DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two) | `off` |  |
+| `--dev-genome-globe` | DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe (methylation level, held error and the change against the sample's own prediction; with --prior-pat, against an earlier reading too) | `off` | yes |
+| `--dev-globe-v21` | DEVELOPMENT (plan 35.30): draw a sequenced sample's globe and information sphere against IAM-Atlas v2.1 instead of the IAM Sequencing Atlas (for comparison) | `off` |  |
+| `--dev-iama-position` | development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2) | `off` |  |
+| `--dev-info-sphere` | DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe). On by default since 2026-10-23 (author: 'it still gets created by the chain and we learn each time it does') | `off` | yes |
+| `--dev-input-floors` | DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics | `None` |  |
+| `--dev-law-sphere` | DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain | `off` | yes |
+| `--dev-line-censored` | DEVELOPMENT (2026-11-07, DEV-METAA-HEALTHY-01): the array's line at the anchor sites measured with readings at exactly 0 or 1 counted as censored | `off` | yes |
+| `--dev-line-wide` | DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): the array's line measured on every site this sample's own mix holds firmly (below 0.05 or above 0.95), the identity sites of the cells found set aside, instead of only the ruler's anchors | `off` | yes |
+| `--dev-metaa-allsites` | DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make (stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading | `off` |  |
+| `--dev-metaa-atlas` | DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); written under bundle['development']['metaa_atlas'], not part of the reading | `None` |  |
+| `--dev-metaa-curve` | DEVELOPMENT (plan 14.14, 2026-10-25): with --dev-metaa-atlas CELL, read Met-A with the atlas as the ruler on the array's own response curve (stage_metaa_atlas.read_on_curve) instead of the same-run tare | `off` |  |
+| `--dev-metaa-sites` | DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis | `off` |  |
+| `--dev-metaa-specific` | DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel | `None` |  |
+| `--dev-one-scale` | DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare | `off` |  |
+| `--dev-plant` | TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted') | `None` |  |
+| `--dev-plant-ends` | TESTS ONLY (2026-11-10, the self-calibration synthetic): on a .pat input, at each molecule's outermost call a C read T with probability END_CT and a T read C with END_TC, and at every call a C read T with ALL_CT (stage_seq_values.plant_ends); a PLANTED banner | `None` |  |
+| `--dev-plant-territory` | TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain | `None` |  |
+| `--dev-pred-raw` | development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's | `off` | yes |
+| `--dev-provisional` | DEVELOPMENT (plan 40.18): with the full atlas panel, a second deconvolution with provisional columns (stage_provisional) beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged | `None` | yes |
+| `--dev-ruler` | DEVELOPMENT (plan 0.2): put the array on IAM-Atlas v2.1's scale (stage_t_selftare.ruler_map) before the whole-sample Met-A and the territories. Off until the many-level ruler passes (the two-anchor line overcorrects: healthy 1.113 untared, 0.938 on it) | `off` | yes |
+| `--dev-selftare-ii` | no-op alias, kept so recorded commands still run: self-tare II (DEV-SELFTARE-02) is Stage T step 1 since 2026-10-04 and always runs (bundle tare.selftare_ii); the flag only copies that record to bundle['development']['selftare_ii'] and changes nothing else | `off` |  |
+| `--dev-seq-atlas-dir` | DEVELOPMENT (2026-11-09): on sequencing, read against a rebuilt IAM Sequencing Atlas in DIR (DIR/array_sites/ for the in-mix readings, DIR/deconv_reference_v1.parquet for the Deconvolver) instead of the committed one; e.g. the atlas counted with the molecules' end calls left out, for samples read with --dev-seq-trim-ends; the bundle names it and the reference door records it as not door-checked | `None` |  |
+| `--dev-seq-beta` | DEVELOPMENT (40.10): read a .beta file of per-CpG counts (hg19 CpG numbering) as values at IAM-Atlas v2.1's sites; every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value; or CALL.bw,COV.bw, a GRCh38 bigWig pair of per-CpG levels and coverage (2026-10-24) | `None` |  |
+| `--dev-seq-copies` | DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01) | `off` | yes |
+| `--dev-seq-counted-mix` | DEVELOPMENT (edit 226): Met-A whole and in the mix, and the territories, with the expectation from the reference's own reads at a common depth (counted_mix); on with --dev-seq-half-cols | `off` |  |
+| `--dev-seq-donors` | DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics | `None` |  |
+| `--dev-seq-end-cal` | DEVELOPMENT (2026-11-12, with --dev-seq-self-cal; the self-calibration's eighth form): before the cell shares, a first Deconvolver pass finds the cells, the library's two molecule-end error rates are measured where those cells agree on the atlas (agree_rates), every site's level is corrected for them (end_corrected_levels), and the shares and every reading then use the corrected levels | `off` |  |
+| `--dev-seq-half-cols` | DEVELOPMENT (edit 222): a folder with array_sites_halfA/B; with --dev-seq-ref-half every in-mix reading (Met-A whole and in the mix, territories, C-Score) is read against that donor half only | `None` |  |
+| `--dev-seq-level` | DEVELOPMENT: on sequencing, the healthy level the expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule) | `None` | yes |
+| `--dev-seq-noise-weight` | DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met | `off` |  |
+| `--dev-seq-ref` | DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1 | `None` | yes |
+| `--dev-seq-ref-half` | with --dev-seq-ref: that sealed donor half only (for a sample of the other half) | `None` |  |
+| `--dev-seq-self-cal` | DEVELOPMENT (2026-11-10, sequencing step 1): on a .pat input, Met-A's healthy expectation is the IAM Sequencing Atlas's inner level (its donors without their molecule-end calls) moved by this library's own measured end error per side (stage_metaa_atlas.self_calibrated); nothing cut, nothing borrowed from other samples | `off` |  |
+| `--dev-seq-self-cal-agree` | DEVELOPMENT (2026-11-11, with --dev-seq-self-cal): the fifth form; the library's two molecule-end error rates measured where every found cell agrees (all at most 0.1 or all at least 0.9 on IAM-Atlas v2.1; stage_metaa_atlas.agree_rates), put into the mixed forward model (mix_forward); every read records A_agree beside the other forms | `off` |  |
+| `--dev-seq-self-cal-data` | DEVELOPMENT (2026-11-10, with --dev-seq-self-cal): Met-A read on this library's own calls with its measured molecule-end error taken out, against the IAM Sequencing Atlas's inner level (stage_metaa_atlas.read_in_mix); every read also records A_without, A_expectation_side and A_data_side | `off` |  |
+| `--dev-seq-self-cal-disorder` | DEVELOPMENT (2026-11-10, with --dev-seq-self-cal): Met-A as the observed disorder minus the disorder this library's measured molecule-end error adds (in expectation under counting), against the IAM Sequencing Atlas's inner level; every read records A_disorder_side beside the other forms | `off` |  |
+| `--dev-seq-self-cal-dump` | DEVELOPMENT (2026-11-12, with --dev-seq-self-cal): write each read cell's per-site self-calibration inputs (reads, end reads, end and all marked calls, the measured level, the atlas's inner and published levels mixed in the sample's shares) to PREFIX_<cell>.csv.gz, for diagnosis; changes no reading | `None` |  |
+| `--dev-seq-self-cal-mix` | DEVELOPMENT (2026-11-10, with --dev-seq-self-cal): Met-A's expectation is every found cell's IAM Sequencing Atlas inner level mixed in this sample's shares, with this library's measured molecule-end error flipping calls in proportion to each state's share at each site (stage_metaa_atlas.mix_forward); every read records A_mix_forward beside the other forms | `off` |  |
+| `--dev-seq-self-cal-own` | DEVELOPMENT (2026-11-12, with --dev-seq-self-cal): the sixth form; the disorder the library's molecule-end error adds, computed at the library's own level at each of the cell's identity sites, the end error measured at those sites by mixed atlas level (stage_metaa_atlas.own_level_added), taken out of the observed disorder; every read records A_own_level beside the other forms | `off` |  |
+| `--dev-seq-self-cal-reach` | DEVELOPMENT (2026-11-12, with --dev-seq-self-cal; the seventh form): Met-A read on the library's calls past each side's reach (marked side: past the last call; unmarked side: past the last N calls), against the IAM Sequencing Atlas's level past the same reach (its inner references at one and N calls); nothing corrected; every read records A_reach beside the other forms | `None` |  |
+| `--dev-seq-trim-ends` | DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat) | `None` |  |
+| `--dev-seq-values` | DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against the atlas and the globe read the same sequencing run IAM-A reads. The commissioned array readings (Met-A on neutrophils, the C-Score) are not applied to sequencing values; every reading is flagged | `None` |  |
+| `--dev-shares` | DEVELOPMENT, diagnosis only: read every share-based reading against these declared shares instead of the Deconvolver's (which are kept under cell_shares_read) | `None` |  |
+| `--dev-terr-counted` | DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given | `off` | yes |
+| `--dev-terr-counts` | DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics | `None` |  |
+| `--dev-terr-sites` | DEVELOPMENT: write each territory set's per-site table beside the bundle (NAME_terr_sites_islands.csv.gz, NAME_terr_sites_domains.csv.gz) | `off` |  |
+| `--dev-territories` | DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix. On by default since 2026-10-23 (author: 'wire in the territories score') | `off` | yes |
+| `--dev-thin` | TESTS ONLY (step 40): read a seeded thinned copy of --pat, each molecule kept with this probability (stage_seq_values.thin_pat), so a deep sample stands in for a shallow one; IAM-A and the sequencing values both read the thinned copy; recorded and bannered | `None` |  |
+| `--dev-tiles` | DEVELOPMENT (plan 14.9): Stage Q2's tiles from the commissioned table (default) or from the genome dictionary's chromosome ranges | `'table'` |  |
+| `--dev-whole-sites` | DEVELOPMENT: write Met-A for the whole sample's per-site table (level, expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz) | `off` |  |
+| `--engine` | kept so recorded commands still run: v3 names the conductor (conductor_v3.py), which chain v4 runs; the class-floor engine was retired 2026-10-03 | `'v3'` |  |
+| `--explorer-spec` | also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew | `None` |  |
+| `--full-chain` | every development reading that applies to the input, beside the commissioned ones, each flagged; a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it) | `off` |  |
+| `--genome-region` | with --dev-genome-globe: CpGs per region (default 1000) | `1000` |  |
+| `--geo-dir` | where --geo-pat files are written (default: a temporary folder) | `None` |  |
+| `--geo-pat` | fetch this GEO sample's .pat file and read it as --pat; the chain takes the file on the build it reads (hg19), never another build (stage_q0_intake.geo_pat; Decoder: genome builds) | `None` |  |
+| `--grn` | the array's green-channel raw file (IDAT, .gz allowed), with --red; Stage 1 calibrates it | `none` |  |
+| `--iama-ref-table` | CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare | `None` |  |
+| `--id` | the sample's name in the report and bundle | `None` |  |
+| `--intake-log` | append intake and integrity records here | `None` |  |
+| `--lambda-bam` | PHY-091 amendment 3 (development): the same reads aligned to the lambda spike-in genome alone; with --lambda-fasta, the meter read on lambda | `None` |  |
+| `--lambda-fasta` | the lambda genome FASTA (NC_001416.1) for --lambda-bam | `None` |  |
+| `--law-card` | IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD) | `None` |  |
+| `--law-counts` | with --build law-sphere-sweep or law-sphere-fit: the saved counts | `None` |  |
+| `--law-counts-out` | with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit | `None` |  |
+| `--law-set` | IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held="law", by_type={...}); keys in stage_law_sphere.CARD | `None` |  |
+| `--law-sphere-out` | with the Law Sphere: save the per-unit layers | `None` |  |
+| `--law-vary` | with --build law-sphere-sweep or law-sphere-fit: the input varied and its range | `None` |  |
+| `--law-vary-cell` | with --law-vary: vary the input for this cell type only (by_type) | `None` |  |
+| `--ledger` | append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report | `None` |  |
+| `--manifest-dir` | write the immutable per-sample manifest here | `None` |  |
+| `--metaa-atlas-ref-A` | with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare) | `None` |  |
+| `--no-bundle` | do not write the machine-readable bundle beside the report (it is written by default: a run that leaves only HTML cannot be pooled later) | `off` |  |
+| `--no-floor-class` | development: read the islands without the islands floor route (on for sequencing since edit 248) | `off` |  |
+| `--no-info-sphere` | skip the information sphere reading | `none` |  |
+| `--no-intake` | skip Stage 0 (recorded in the report as skipped) | `off` |  |
+| `--no-lab-correction` | development: read without the laboratory correction from the sample's own reads (edit 246) | `off` |  |
+| `--no-territories` | skip the territory readings | `none` |  |
+| `--out` | the report (HTML) to write | `'methylphys_report.html'` |  |
+| `--pat` | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) | `None` |  |
+| `--pat-max-bytes` | development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial | `None` |  |
+| `--patient-id` | already-hashed identifier; a cleartext one is hashed here | `None` |  |
+| `--prior-betas` | stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle | `None` |  |
+| `--prior-bundle` | stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline | `None` |  |
+| `--prior-geo-pat` | the same for --prior-pat | `None` |  |
+| `--prior-name` | with --prior-pat: what the other file is, as the globe names it | `'the earlier reading'` |  |
+| `--prior-pat` | with --dev-genome-globe: a .pat file of an earlier reading of the same person or specimen | `None` |  |
+| `--red` | the array's red-channel raw file (IDAT, .gz allowed), with --grn | `none` |  |
+| `--ref-fasta` | the reference FASTA the --bam was aligned to (indexed) | `None` |  |
+| `--save-betas` | also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle | `None` |  |
+| `--seq-cell` | cell type of the sequenced specimen (Stage Q); default: for --pat and --bam, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words); a --site-table has no Deconvolver, so name the cell | `None` |  |
+| `--seq-chemistry` | chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite) | `'whole-genome bisulfite'` |  |
+| `--seq-pipeline` | the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it | `None` |  |
+| `--sesame-rscript` | Rscript of an environment with Bioconductor sesame (--dev-epic-v2) | `os.environ.get('METHYLPHYS_SESAME_RSCRIPT')` |  |
+| `--sex` | declared sex (F/M), optional; when given Stage 0.8 compares it with the array, otherwise the array's sex is recorded | `None` |  |
+| `--site-table` | v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline | `None` |  |
+| `--slide-ref-A` | comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils | `None` |  |
+| `--slide-ref-table` | CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted) | `None` |  |
+| `--specimen` | what the sample is (whole blood, plasma, tissue, sorted cells, ...); picks the route only, never the cell: the Deconvolver decides what is in it | `'whole blood'` |  |
+| `--workers` | processes for counting --bam | `4` |  |
+
+## 8b. Reference folders and how each was built
+
+Every folder under `chain/Runtime Matrices`, its README's opening paragraph and its files, read when this SOP is built.
+
+### Atlas_V21
+
+no README yet
+
+Files: `sequencing_term_v1.json`, `sex_chromosome_sites_v21.json`, `sky_order_v21.npz`, `territories_seq_band_v1.json`
+
+### CScore_Limits
+
+no README yet
+
+Files: `cell_factors_v1.json`, `platform_term_450k.json`
+
+### Celltype_Marker
+
+Toolkit panels: the NILC marker file (stage 4), the foreign-cell detection panel (stage 3c) and the atlas v2 twin/family thresholds.
+
+Sections of its README: What is in here.
+
+Files: `README.md`, `detection_panel_v3.json`, `iamatlas_celltype_markers_v0_2.json`, `iamatlas_celltype_markers_v0_3_TRIAL.json`, `percell_exclusivity_v0.json`, `twin_family_thresholds_v1.json`
+
+### Clock_Sites
+
+no README yet
+
+Files: `epitoc2_sites.csv`
+
+### Coupling
+
+no README yet
+
+Files: `coupling_reference_v1.json`
+
+### Development
+
+no README yet
+
+Files: `dev_foreign_placenta_EPIC_v1.json`, `dev_metA_450K_neutrophils_v0.json`, `dev_selftare_450K_v0.json`
+
+### Directional Panel
+
+no README yet
+
+Files: `bidirectional_decomposition.py`, `directional_panels_v1_0.json`
+
+### Gauge
+
+no README yet
+
+Files: `cell_gauge_marks_v1.json`
+
+### IAM_A_Positions
+
+no README yet
+
+Files: `hg19_cpg_chrom_ranges.json`, `iama_positions_v1.json`, `iama_positions_v2.json`
+
+### IAM_A_SelfRef
+
+no README yet
+
+Files: `band_v1.json`, `band_v2.json`, `derived_line_v1.json`, `selfref_line_v1.json`, `shape_reference_v1.json`
+
+### Info_Sphere
+
+no README yet
+
+Files: `layout_v5.npz`
+
+### Intake
+
+no README yet
+
+Files: `intake_thresholds_v1.json`, `intake_thresholds_v2.json`
+
+### Lab_Correction
+
+no README yet
+
+Files: `conversion_ref_v1.json`
+
+### Met_A_Floors
+
+Chain v3's frozen inputs: the neutrophil Met-A floor and its leave-one-out record, the neutrophil reference, the EPIC blood-composition profiles, and the noise sites and gate. Hashes checked by chain/release_check_v3.py.
+
+Sections of its README: What is in here.
+
+Files: `README.md`, `blood_composition_EPIC_v1.json`, `metA_floors_v1_2_ALLCELLS_development.json`, `metA_floors_v1_3.json`, `metA_floors_v1_3_loo.csv`, `neutrophil_reference_v1_1.json`, `neutrophil_reference_v1_2.json`, `noise_gate_EPIC_v1.json`, `noise_sites_EPIC_v1.json`
+
+### Met_A_Widths
+
+no README yet
+
+Files: `donor_widths_v1.json`
+
+### Patient_CMB
+
+Toolkit, stage 11 (sky map): the CpG-to-pixel mapping, its builder, and the presence floors.
+
+Sections of its README: What is in here.
+
+Files: `README.md`, `build_healpix_mapping.py`, `iamatlas_cpg_to_healpix_nside128.npz`, `presence_floors_v1.json`
+
+### Provisional_References
+
+no README yet
+
+Files: `megakaryocytes_v1.json`, `megakaryocytes_v1.parquet`, `megakaryocytes_v2.json`, `megakaryocytes_v2.parquet`
+
+### Replication_Timing
+
+no README yet
+
+Files: `hg19_cpg_timing_thirds_blood_v1.npz`, `hg19_cpg_timing_thirds_endothelial_v1.npz`, `hg19_cpg_timing_thirds_epithelial_v1.npz`, `hg19_cpg_timing_thirds_v1.npz`
+
+### Report
+
+no README yet
+
+Files: `report_text.json`
+
+### Seq_Atlas
+
+no README yet
+
+Files: `deconv_reference_mk_dev.json`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.json`, `deconv_reference_v1.parquet`, `floor_sites_v1.json`, `floor_sites_v1.parquet`, `held_reference_v1.json`, `held_reference_v1.parquet`, `input_floors_v1.json`, `input_floors_v1.parquet`, `metaa_seq_reference_v1.json`, `metaa_seq_reference_v1.parquet`
+
+### Stage_T
+
+no README yet
+
+Files: `atlas_ruler_v1.json`, `selftare_typeII_EPIC_v1.json`
+
+### Where
+
+Built by `build_where_ref.py` from public files (UCSC hg19 sequence, cpgIslandExt, refGene) and the chain's sequencing key and Law Sphere units. `where_units_v1.parquet`: every Law Sphere unit (islands, then 50-CpG blocks) with chromosome, hg19 start and end, CpG count, array probe count (0 = arrays blind), the UCSC CpG island, the nearest gene by transcription start and the signed distance to it. `where_regions_v1.parquet`: the same for every Sequencing Globe region (1,000 consecutive CpG indexes). `where_ref_v1.json`: sizes, sources and the key check (all 813,951 array probes on their recorded chromosome and position).
+
+Sections of its README: The Locator's gene relation (v2).
+
+Files: `README.md`, `build_where_genes_v2.py`, `build_where_ref.py`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
+
+
 ## 9. Rules
 
 - Synthetic first: every new test runs on planted data, read by the chain's exact rule, before any real data is opened.
@@ -363,6 +653,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 0. Intake
 
 - **In the field's terms:** Sample quality control: genome build, bisulfite conversion, CpG coverage, specimen
+- **Reads from:** both: reads either input and says which it received
 - **What it measures and how:** Checks that reads are aligned to hg19, that bisulfite conversion is at least 98 %, and CpG coverage chromosome by chromosome; records the specimen; refuses a damaged or incomplete file with a stated reason. Nothing is read until the file passes.
 - **Where IAM's Law enters:** Not the law: instrument or meter.
 - **Tool borrowed from cosmology:** Data-quality masks: a sky survey flags bad fields before anything is measured.
@@ -400,6 +691,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 1. Reference and tare (the reference block)
 
 - **In the field's terms:** Healthy reference and batch correction without matched controls
+- **Reads from:** counts per CpG for the reference; the laboratory correction uses the islands meter, which needs molecules (a counts-only sample gets no correction from its own reads)
 - **What it measures and how:** Atlas-referenced readings compare the sample with the healthy cell-type reference (the IAM Sequencing Atlas), measured once. Laboratory and library effects are corrected from the sample's own reads: its false-methylation rate at CpG islands that no healthy cell methylates, the library's noise floor at the sites read, the expectation at its own read depth, and its own cell composition. No same-batch healthy controls are needed. IAM-A uses no outside reference at all.
 - **Where IAM's Law enters:** Not the law: a chain rule.
 - **Tool borrowed from cosmology:** Calibration against a fixed standard sky plus each exposure's own noise model, instead of comparison stars taken the same night.
@@ -437,6 +729,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 2. Sequencing Atlas
 
 - **In the field's terms:** Cell-type-resolved healthy methylation reference: whole-genome bisulfite sequencing, 28.2 million CpGs, 58 cell types
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread and the 95 % range (from the donors' spread with Student's t interval; not a model fit). Split by donor halves so every reading can be tested out of sample. Used both to identify cells and as the healthy ruler.
 - **Where IAM's Law enters:** Not the law itself: a measured input the law uses.
 - **Tool borrowed from cosmology:** A reference sky map with noise maps from donor and read halves, masks, a sign-flip null and structure by scale.
@@ -473,6 +766,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 3. Deconvolver and the mixture check
 
 - **In the field's terms:** Reference-based cell-type deconvolution: composition, purity and cell of origin
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Fits the sample's methylation at cell-type marker CpGs as a mixture of the atlas types, giving each type's share. A mixture check stops a single-type reading when no one family dominates. The specimen label is recorded and compared with the fit, never obeyed.
 - **Where IAM's Law enters:** Not the law itself: a measured input the law uses.
 - **Tool borrowed from cosmology:** Component separation: the cosmic microwave background is separated from galactic foregrounds by their known spectra; here each cell type is a component with a known methylation spectrum.
@@ -509,6 +803,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 4. IAM-A
 
 - **In the field's terms:** Maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbors): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable).
 - **Tool borrowed from cosmology:** Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.
@@ -544,11 +839,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 
 ### 4b. What sets each cell type's own healthy level
 
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.
 
 ### 5. Coupling (Coupling-A)
 
 - **In the field's terms:** Neighboring-CpG co-loss: adjacent unmethylated pairs on single reads over the number expected if losses were independent
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Counts adjacent pairs of lost marks on single molecules and divides by the pairs expected if each loss were independent. 1 means independent losses; above 1 means losses arrive together.
 - **Where IAM's Law enters:** Not the law: statistics (a yardstick).
 - **Tool borrowed from cosmology:** The two-point correlation function at the shortest separation.
@@ -582,6 +879,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 6. Run lengths
 
 - **In the field's terms:** Run-length spectrum of unmethylated stretches along single reads (processive versus scattered loss)
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Lengths of runs of lost marks along each molecule (1, 2, 3, 4, 5 or more), each observed over its independent expectation; also held error by read length and by distance.
 - **Where IAM's Law enters:** Not the law: statistics (a yardstick).
 - **Tool borrowed from cosmology:** Clustering statistics by scale (counts in cells).
@@ -615,6 +913,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 7. Islands meter
 
 - **In the field's terms:** Library false-methylation rate at CpG islands every healthy cell keeps unmethylated; island hypermethylation above it
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Reads methylated calls at CpG islands that every healthy type in the atlas keeps unmethylated. In a healthy sample these are the library's own false calls (incomplete conversion, sequencing error), which correct the other readings; a rise above that level is real methylation gain at islands.
 - **Where IAM's Law enters:** Not the law: instrument or meter.
 - **Tool borrowed from cosmology:** Blank-sky calibration (a dark frame): the detector's own false signal measured where the sky is known to be dark.
@@ -654,6 +953,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 8. Clock sites (the mitotic clock)
 
 - **In the field's terms:** Mitotic clock: methylation gain at the 163 epiTOC2 CpGs (Teschendorff 2020), a proxy for cumulative cell divisions
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Held and gain errors at the 163 epiTOC2 CpGs and 25 CpGs either side, read on single molecules.
 - **Where IAM's Law enters:** IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.
 - **Tool borrowed from cosmology:** A cosmic clock: age read from accumulated, irreversible change.
@@ -692,6 +992,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 9. Copy timing
 
 - **In the field's terms:** Loss by replication timing: early-, mid- and late-replicating DNA (the late-replicating loss seen with repeated cell division and with age)
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Held error in early-, mid- and late-replicating regions, as ratios within the sample.
 - **Where IAM's Law enters:** Not the law itself: a measured input the law uses.
 - **Tool borrowed from cosmology:** Splitting the survey by epoch.
@@ -727,6 +1028,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 10. Line locality
 
 - **In the field's terms:** Whether the fidelity line holds region by region
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file)
 - **What it measures and how:** Firm and loosely held tiles counted with their opportunities, to test whether IAM-A's line holds locally, not only per sample.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).
 - **Tool borrowed from cosmology:** Local against global calibration (an isotropy test).
@@ -762,6 +1064,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 11. IAM-A C-Score (molecules: clumping of held errors)
 
 - **In the field's terms:** Overdispersion of discordance along the genome: clumped or even (a dispersion index; 1 = independent)
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file) (the genome globe's per-region counts of held molecules)
 - **What it measures and how:** Per block of consecutive tiles, the squared excess of held errors over each tile's own prediction, over the binomial variance; independent errors give 1.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).
 - **Tool borrowed from cosmology:** A dispersion test against a Poisson field, as for galaxy clustering.
@@ -800,6 +1103,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 12. Met-A sequencing
 
 - **In the field's terms:** Normalized methylation entropy against a cell-type-matched healthy reference: sorted cell, each cell in a mixture, whole sample
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Shannon entropy of methylation at each site, against the entropy a healthy cell of the same type shows at the same read depth. Sorted-cell Met-A: the type's identity CpGs against each healthy person of that type. Each cell in the mix: each found cell's identity CpGs against the atlas in the sample's composition. Whole sample: every atlas site, weighted by how firmly healthy holds it, against the atlas in the sample's composition.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor.
 - **Tool borrowed from cosmology:** Entropy of the record against the reference sky, with the expectation computed at the sample's own read depth: counting noise modeled, not ignored.
@@ -869,6 +1173,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 12b. Distance to maximum disorder (the ceiling)
 
 - **In the field's terms:** Headroom: distance from maximum methylation entropy
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** (A_sat - A) / (A_sat - 1), with the saturation level A_sat counted at the sample's own read depth: how much of the way to complete disorder the sample has gone.
 - **Where IAM's Law enters:** IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED.
 - **Tool borrowed from cosmology:** Distance to saturation (a detector's dynamic range).
@@ -907,6 +1212,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 13. Met-A-side C-Score on sequencing (levels against the atlas: each cell, whole genome, sky)
 
 - **In the field's terms:** Spatial clustering of methylation departures along the genome
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Variance of block means of the departure map in genome order, over that of scattered departures (1 = scattered).
 - **Where IAM's Law enters:** IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.
 - **Tool borrowed from cosmology:** Power at large scales: clustered against scattered structure.
@@ -942,6 +1248,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 14. Territories (islands and loosely held domains)
 
 - **In the field's terms:** Entropy change at CpG islands and at partially methylated (loosely held) domains
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Each territory read at its expected value for the sample's own read depth, against the atlas.
 - **Where IAM's Law enters:** IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity).
 - **Tool borrowed from cosmology:** Regions of the sky read separately under their own masks.
@@ -976,6 +1283,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 15. Information sphere (array-sited)
 
 - **In the field's terms:** Information-geometric (Fisher-Rao) distance of a sample from its expected healthy self, by groups of sites
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Sites placed by their behavior across atlas types; the Fisher-Rao distance from the sample's expected self, with its counting floor. Array samples (parked for the array chain).
 - **Where IAM's Law enters:** Not the law: geometry (a yardstick).
 - **Tool borrowed from cosmology:** Fisher-Rao geometry (Rao 1945; Bhattacharyya 1943), the distance used to compare probability distributions.
@@ -1004,6 +1312,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 16. Sequencing Globe
 
 - **In the field's terms:** Genome-wide map of where maintenance fidelity departs, in 1,000-CpG regions
+- **Reads from:** counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)
 - **What it measures and how:** Each region's held error against the sample's own predicted held error, drawn on a sphere of equal-area pixels.
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start. IAM's Law, step 7 (The ledger): heat k_BT ln2 at a horizon adds exactly 4 ln2 l_P^2 (one tile). BOOKING SETTLED (register R13, HORIZON BOOKINGS): the book's booking, heat crossing at T_GH (eq:Sdot), is self-consistent with weight 1 and gives an IDENTICAL Friedmann equation with the Kodama-Hayward temperature inside the unified first law; it does not by itself produce Omega_m (beta_m is input, link 8). The TALLY (Misner-Sharp, booked at once) is real: each bit at exactly half, no signal needed; but its half is Smarr's degree-2 half, equal to the virial half only in D = 4, and the two bookings cannot both hold for a growing record; the book's phantom result needs the heat booking. Status: DERIVED for the tile and for both bookings' consistency.
 - **Tool borrowed from cosmology:** A HEALPix sky map (Gorski et al. 2005): the genome laid out on equal-area pixels, as the microwave sky is mapped.
@@ -1038,11 +1347,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 
 ### 16b. Sample Globe (each site against the sample's own expected healthy profile)
 
+- **Reads from:** counts per CpG (the sample globe appears in a counts-only read)
 - **Where IAM's Law enters:** Not the law: geometry (a yardstick).
 
 ### 17. IAM's Law Sphere
 
 - **In the field's terms:** Measured fidelity, gain and level region by region, against the state predicted from the energetics of maintenance in the sample's own cell mix
+- **Reads from:** molecules (each read followed CpG by CpG; needs a molecule file) (every Law Sphere reading and the unused islands)
 - **What it measures and how:** Each unit (an island, or 50 CpGs) read from molecules by IAM-A's rule; the law's expected state built in the sample's own composition; the departure judged against counting noise. The hold alarm compares each type's hold with its measured healthy level.
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED. IAM's Law, step 4 (Koide as the record): Koide's Q = (1 + CV^2)/3; the record keeps (scale, action) and drops the phase delta; axis share 1/(NQ): Q = 2/N holds exactly half, any N, any d; a sudden write gives Q = 2/3 with nothing fitted. Status: DERIVED (identities and the sudden-write split). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.
 - **Tool borrowed from cosmology:** Fisher-Rao angles on a HEALPix sphere; symmetrical components (Fortescue 1918), electrical engineering's three-phase decomposition.
@@ -1078,6 +1389,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 18. Report
 
 - **In the field's terms:** Per-sample research report (QC summary, results against healthy reference ranges, methods and supplementary data)
+- **Reads from:** both: prints each reading under its input group
 - **What it measures and how:** Every reading of the sample beside its measured value, its healthy range and how that range was set, with figures, the methods behind each instrument, and supplementary files (all inputs and outputs, the lever map, the full derivation, the reference files, the researcher questions).
 - **Where IAM's Law enters:** Not the law: a chain rule.
 - **Credit:** Blind analysis and pre-registration: Klein J.R. & Roodman A. (2005) Annu. Rev. Nucl. Part. Sci. 55:141-163. Per-unit scores adopted from power-system practice; documented ratings methodology structured the way the NERC facility-ratings standard (FAC-008) requires (not NERC approved). Uncertainty: JCGM 100:2008 (GUM).
@@ -1135,11 +1447,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 
 ### 19. Cell simulator levers (minicell, public)
 
+- **Reads from:** not a reading: the cell simulator's inputs
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 3 (The virial half): the write's half, the 1/r binding half, the capacitor's half and Smarr's half are ONE Euler identity (degree ratio 1:2). Status: DERIVED. IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.
 
 ### 20. Serial samples from one person
 
 - **In the field's terms:** Longitudinal comparison: the person as their own control
+- **Reads from:** both: an earlier draw as a molecule file (--prior-pat) or as counts (--prior-betas), each instrument as its own input
 - **What it measures and how:** A later sample against an earlier one of the same person at every CpG both measured.
 - **Where IAM's Law enters:** Not the law: a chain rule.
 - **Tool borrowed from cosmology:** Repeat observations of the same field (difference imaging).
@@ -1173,11 +1487,13 @@ Generated from the instruments database (manual/instrument_records/), never type
 
 ### 21. Candidates (catalogue): territory contrast; plasma fragment tail
 
+- **Reads from:** candidates: set when built (the plasma fragment tail would need molecules with their fragment ends)
 - **Where IAM's Law enters:** Not the law: a chain rule.
 
 ### 22. The Locator (where it changed: places and genes)
 
 - **In the field's terms:** Differential methylation at regions and genes (DMRs and DMGs), called per sample against a healthy reference, with gene annotation
+- **Reads from:** both: places for the molecule instruments come from molecules, places for the counts instruments from counts
 - **What it measures and how:** Per-place observed versus expected counts against an empirical healthy null with Benjamini-Hochberg control, annotated with CpG island, gene and promoter/gene-body/nearby relation from UCSC hg19 tracks
 - **Where IAM's Law enters:** .
 - **Credit:** (to verify at the publishers before printing) UCSC Genome Browser and its hg19 tracks; the CpG island definition used by the UCSC track; NCBI RefSeq gene table; Benjamini and Hochberg 1995 for false-discovery control.

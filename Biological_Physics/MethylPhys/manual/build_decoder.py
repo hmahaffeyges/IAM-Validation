@@ -76,6 +76,14 @@ def build():
         for k, txt in s["entries"].items():
             if k in key: out += [f"### `{k}`", "", txt, "", facts(key[k]), ""]
     import instrument_records as _IR   # edit 243.7: every instrument's full record, inputs and outputs included
+    _RM = os.path.join(H, "..", "chain", "Runtime Matrices")   # edit 255: every reference folder, its README and its files, read at build time
+    out += ["## Reference folders and how each was built", "", "Every folder under `chain/Runtime Matrices`, with its README in full and its files, read when this Decoder is built "
+            "(a reference built before any chain code reads it is documented here from the day it lands).", ""]
+    for _d in sorted(x for x in os.listdir(_RM) if os.path.isdir(os.path.join(_RM, x)) and not x.startswith((".", "archive"))):
+        _rd = os.path.join(_RM, _d, "README.md"); _t = open(_rd, encoding="utf-8").read().strip() if os.path.exists(_rd) else "No README yet."
+        _t = re.sub(r"(?m)^(#+) ", lambda m: "#" * min(6, len(m.group(1)) + 3) + " ", _t)
+        _f = sorted(f for f in os.listdir(os.path.join(_RM, _d)) if not f.startswith(".") and os.path.isfile(os.path.join(_RM, _d, f)))
+        out += [f"### {_d}", "", _t, "", "Files: " + (", ".join(f"`{f}`" for f in _f[:60]) + (f" and {len(_f) - 60} more" if len(_f) > 60 else "")), ""]
     out += ["## Every sequencing instrument: full record, inputs and outputs", "", "Generated from the instruments database (manual/instrument_records/), never typed here.", ""] + _IR.markdown(level=3, io=True)
     return "\n".join(out).rstrip() + "\n", missing, unknown, undoc
 
