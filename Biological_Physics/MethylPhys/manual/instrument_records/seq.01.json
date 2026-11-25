@@ -404,6 +404,7 @@
     "name": "Tares applied"
    }
   ],
+  "reads_from": "counts per CpG for the reference; the laboratory correction uses the islands meter, which needs molecules (a counts-only sample gets no correction from its own reads)",
   "records": [
    {
     "fields": [

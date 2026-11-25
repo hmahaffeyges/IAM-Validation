@@ -143,6 +143,7 @@
     "name": "Width borrowed (one-library cells)"
    }
   ],
+  "reads_from": "counts per CpG (the sample globe appears in a counts-only read)",
   "records": [],
   "report_section": "",
   "tools": []

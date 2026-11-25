@@ -143,6 +143,7 @@
     "name": "Islands distance to ceiling"
    }
   ],
+  "reads_from": "counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)",
   "records": [
    {
     "fields": [
