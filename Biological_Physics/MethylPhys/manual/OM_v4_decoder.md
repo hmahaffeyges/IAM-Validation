@@ -12200,3 +12200,10 @@ Generated from the instruments database (manual/instrument_records/), never type
 ### 21. Candidates (catalogue): territory contrast; plasma fragment tail
 
 - **Where IAM's Law enters:** Not the law: a chain rule.
+
+### 22. The Locator (where it changed: places and genes)
+
+- **In the field's terms:** Differential methylation at regions and genes (DMRs and DMGs), called per sample against a healthy reference, with gene annotation
+- **What it measures and how:** Per-place observed versus expected counts against an empirical healthy null with Benjamini-Hochberg control, annotated with CpG island, gene and promoter/gene-body/nearby relation from UCSC hg19 tracks
+- **Where IAM's Law enters:** .
+- **Credit:** (to verify at the publishers before printing) UCSC Genome Browser and its hg19 tracks; the CpG island definition used by the UCSC track; NCBI RefSeq gene table; Benjamini and Hochberg 1995 for false-discovery control.

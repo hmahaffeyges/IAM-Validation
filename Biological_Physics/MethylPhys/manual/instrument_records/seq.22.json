@@ -1,0 +1,20 @@
+{
+ "_source": "generated from the instruments database; do not edit by hand",
+ "instrument": "seq.22",
+ "record": {
+  "cosmo_tool": "",
+  "credit": "(to verify at the publishers before printing) UCSC Genome Browser and its hg19 tracks; the CpG island definition used by the UCSC track; NCBI RefSeq gene table; Benjamini and Hochberg 1995 for false-discovery control.",
+  "field_how": "Per-place observed versus expected counts against an empirical healthy null with Benjamini-Hochberg control, annotated with CpG island, gene and promoter/gene-body/nearby relation from UCSC hg19 tracks",
+  "field_term": "Differential methylation at regions and genes (DMRs and DMGs), called per sample against a healthy reference, with gene annotation",
+  "id": "seq.22",
+  "inputs": [],
+  "job": "Names the places a sample changed and the genes there: for each instrument's own statistic, every place whose count departs from what the healthy atlas expects at the sample's depth and cell mix, judged against the measured healthy spread, named with chromosome, coordinates, CpG island, gene and its relation to the gene (promoter, gene body, nearby with distance), and whether an array can see it.",
+  "law": ".",
+  "link": "22. The Locator (where it changed: places and genes)",
+  "outputs": [],
+  "reads_from": "both: places for the molecule instruments come from molecules, places for the counts instruments from counts",
+  "records": [],
+  "report_section": "v4-locator",
+  "tools": []
+ }
+}
