@@ -404,7 +404,72 @@
     "name": "Territories changed"
    }
   ],
-  "records": [],
+  "records": [
+   {
+    "fields": [
+     [
+      "How it works",
+      "Sites are placed on a sphere by how they behave across the atlas's healthy cell types (each site's square-root level vector, its departure from a flat profile at its own mean level, the three leading principal directions; frozen layout v5). For one sample, the Fisher-Rao (Bhattacharyya) angle between its level and its own expected healthy level at every measured site, theta = arccos(sqrt(b e) + sqrt((1 - b)(1 - e))), and its root mean square over the sphere's sites, divided by the rms expected from counting alone at each site's read depth (the exact binomial sum below 200 reads, 1/(4n) above). Each family's clearly marking sites (margin at least 0.10, at least 100 measured) are read as territories, each judged in the sample's own spread of territories (median and MAD), changed beyond the 5 % family-wise line."
+     ],
+     [
+      "Why",
+      "A departure that is small at every single site can still be large in one group of sites that share a job. Placing sites by behavior, not by position on the DNA, puts sites with one job together, so a group that moved is seen as a region of the sphere; the counting floor keeps read depth from looking like change."
+     ],
+     [
+      "Physics",
+      "Not IAM's Law: information geometry, the yardstick the Law Sphere also uses. The squared Fisher-Rao angle is, to second order, the relative entropy between the sample and its expectation."
+     ],
+     [
+      "Where the data comes from",
+      "The sample's site levels and read counts; its expected healthy levels from its own cell mix (the Deconvolver's shares on the IAM Sequencing Atlas); the frozen layout (Runtime Matrices/Info_Sphere/layout_v5.npz)."
+     ],
+     [
+      "The numbers",
+      "Layout v5; HEALPix NSIDE 128; margin 0.10; at least 100 sites per territory; 5 % family-wise line over the territories read."
+     ],
+     [
+      "Method and standard",
+      "Fisher-Rao distance (Rao 1945; Bhattacharyya 1943); exact binomial counting floor; robust spread (median, MAD x 1.4826); Bonferroni line."
+     ],
+     [
+      "Known-answer test",
+      "A healthy sample reads near 1 on distance over expected; the planted tests for this instrument are owed."
+     ],
+     [
+      "Limits",
+      "(1) Development, not commissioned. (2) The layout's sites are array-sited; a sequencing-sited layout is owed. (3) A territory's change is relative to the sample's own territories, so a change shared by every territory is not seen here (the whole-sample readings see it)."
+     ],
+     [
+      "Where the result goes",
+      "bundle info_sphere (distance, expected, measured over expected, territories changed); page OUT_info_sphere.html; report."
+     ],
+     [
+      "Where on the DNA",
+      "Each changed territory names its family and direction; the site-level 'where' is owed."
+     ],
+     [
+      "Code",
+      "stage_info_sphere: info_vectors, level_free, counting_floor, sample_reading"
+     ],
+     [
+      "How to rebuild it",
+      "1. Square-root level vectors of every site across the atlas types. 2. Subtract the flat profile at each site's mean level; normalise. 3. Three leading principal directions; place each site. 4. For a sample: the angle at each measured site, its rms, and the counting floor at each site's depth. 5. Territories: mean change per family group, judged in the sample's own spread."
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
+     ]
+    ],
+    "id": "R15-SPHERE",
+    "name": "Information sphere: the sample's distance from its own expected healthy self, by groups of sites",
+    "paths": [
+     "Biological_Physics/MethylPhys/chain/stage_info_sphere.py",
+     "Biological_Physics/MethylPhys/chain/Runtime Matrices/Info_Sphere/layout_v5.npz"
+    ],
+    "questions": [],
+    "status": "development"
+   }
+  ],
   "report_section": "v4-sphere",
   "tools": [
    {

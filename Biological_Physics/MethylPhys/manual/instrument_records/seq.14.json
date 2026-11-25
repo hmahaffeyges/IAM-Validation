@@ -3,7 +3,7 @@
  "instrument": "seq.14",
  "record": {
   "cosmo_tool": "Regions of the sky read separately under their own masks.",
-  "credit": "",
+  "credit": "IAM (this work): islands and loosely held domains read under their own masks. Entropy: Shannon C.E. (1948) A Mathematical Theory of Communication, Bell System Technical Journal 27:379-423 and 623-656, doi 10.1002/j.1538-7305.1948.tb01338.x. Donor ranges: Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1. Split-map noise: Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps). Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Each territory read at its expected value for the sample's own read depth, against the atlas.",
   "field_term": "Entropy change at CpG islands and at partially methylated (loosely held) domains",
   "id": "seq.14",

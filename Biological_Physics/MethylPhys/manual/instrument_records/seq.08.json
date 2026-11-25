@@ -3,7 +3,7 @@
  "instrument": "seq.08",
  "record": {
   "cosmo_tool": "A cosmic clock: age read from accumulated, irreversible change.",
-  "credit": "",
+  "credit": "Clock sites: Teschendorff A.E. (2020) Genome Medicine 12:56, doi 10.1186/s13073-020-00752-3. IAM (this work): the gain read molecule by molecule at those sites. Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Held and gain errors at the 163 epiTOC2 CpGs and 25 CpGs either side, read on single molecules.",
   "field_term": "Mitotic clock: methylation gain at the 163 epiTOC2 CpGs (Teschendorff 2020), a proxy for cumulative cell divisions",
   "id": "seq.08",

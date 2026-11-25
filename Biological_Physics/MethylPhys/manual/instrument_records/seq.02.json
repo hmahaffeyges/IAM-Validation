@@ -3,7 +3,7 @@
  "instrument": "seq.02",
  "record": {
   "cosmo_tool": "A reference sky map with noise maps from donor and read halves, masks, a sign-flip null and structure by scale.",
-  "credit": "",
+  "credit": "IAM (this work): the atlas's healthy level, spread and noise maps at every CpG. Data: Loyfer N., Magenheim J., Peretz A. et al. (2023) A DNA methylation atlas of normal human cell types. Nature 613:355-364, doi 10.1038/s41586-022-05580-6 (GEO GSE186458). Donor ranges: Student (Gosset W.S.) (1908) The probable error of a mean, Biometrika 6:1-25, doi 10.1093/biomet/6.1.1. Split-map noise and null tests: Planck Collaboration (2020) Planck 2018 results III, A&A 641:A3 (half-mission, ring and detset null tests and difference maps).",
   "field_how": "Built from published sorted-cell WGBS of healthy donors (Loyfer et al. 2023 and other sources): for each type and CpG, methylated and total read counts, the level, the person-to-person spread and the 95 % range (from the donors' spread with Student's t interval; not a model fit). Split by donor halves so every reading can be tested out of sample. Used both to identify cells and as the healthy ruler.",
   "field_term": "Cell-type-resolved healthy methylation reference: whole-genome bisulfite sequencing, 28.2 million CpGs, 58 cell types",
   "id": "seq.02",
