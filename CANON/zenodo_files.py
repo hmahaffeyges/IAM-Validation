@@ -5,7 +5,7 @@ Usage: python3 CANON/zenodo_files.py   (needs the network; run after any deposit
 import os, json, tarfile, io, requests
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 RECORDS = {"24051846": "IAM Sequencing Atlas v1.2 (with its globe and noise maps)", "24029332": "Sequencing Atlas Globe", "23441999": "IAM-Atlas v2.1",
-           "23422688": "IAM-Atlas v2.1 fit outputs"}
+           "23422688": "IAM-Atlas v2.1 fit outputs", "24518180": "IAM Sequencing Atlas molecule files: the 205 healthy libraries (wgbstools .pat, hg19), one archive per cell type"}
 RELEASES = {"hg19-bwameth-index-v1": "GitHub release: the hg19 bwa-meth index, its CpG dictionary references/hg19/CpG.bed.gz inside"}
 out = dict(records={}, inside={}, releases=RELEASES)
 for rid, what in RECORDS.items():

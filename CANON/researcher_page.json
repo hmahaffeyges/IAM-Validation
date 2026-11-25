@@ -22,6 +22,10 @@
    "doi": "10.5281/zenodo.24051846"
   },
   {
+   "what": "IAM Sequencing Atlas molecule files: the 205 healthy libraries (wgbstools .pat, hg19), one archive per cell type (every reading of the sequencing chain can be reproduced from these molecules)",
+   "doi": "10.5281/zenodo.24518180"
+  },
+  {
    "what": "The book, IAM's Law and Order: The Actualization of Reality",
    "doi": "10.5281/zenodo.23151068"
   }
