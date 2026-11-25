@@ -118,12 +118,12 @@ against it, 140 of 140.
 | experiment | status | newest update |
 |---|---|---|
 | Building a bigger map of healthy cells: IAM-Atlas v2.1 | Result is in | Commissioned. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
-| A healthy middle for every cell in a regular blood draw | Running now | This week the work went under the healthy line itself. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| Does our second instrument read the same DNA the same way everywhere? | On hold | Still paused while we finish deriving this instrument's healthy level from physics. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| Brain cells: does healthy order hold in cells that never divide? | On hold | Still paused and still blind. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| Lung cancer: waiting for a better map of the lung | On hold | Still on hold for the same reason: the map needs measured lung support cells first. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| Can a tube of blood tell us about a GROUP of people? | On hold | Still paused behind the per-cell readings and the derivation of each cell type's healthy level. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| Testing the physics itself: the levers | On hold | Moving on the desk. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
+| A healthy middle for every cell in a regular blood draw | Running now | Paused while we finish the sequencing chain and its report. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
+| Does our second instrument read the same DNA the same way everywhere? | On hold | Still on hold. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
+| Brain cells: does healthy order hold in cells that never divide? | On hold | Still on hold. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
+| Lung cancer: waiting for a better map of the lung | On hold | Still on hold for the same reason. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
+| Can a tube of blood tell us about a GROUP of people? | On hold | Still on hold behind the sequencing chain's sign-off and the leukemia study. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
+| Testing the physics itself: the levers | On hold | The input card's levers now move the readings they should and no others, measured on one library's saved molecule counts. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 
 <!-- NOW_RUNNING:END -->
 

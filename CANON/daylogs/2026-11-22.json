@@ -1,0 +1,69 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-22",
+ "title": "The Law Sphere's card wired; every instrument's record printed in the SOP and Decoder; the laboratory correction from the sample's own reads; planted answers",
+ "set_out": "Wire the Law Sphere's input card into its readings; print every sequencing instrument's full record in the SOP and the Decoder; build the positions reference for the 'where' stage; correct each sequenced sample onto the atlas's conversion scale from its own reads; test instruments with planted answers.",
+ "open_at_turnover": "The counted readings (islands territory, Met-A at islands) still carry a planted conversion error; healthy ranges for atlas-referenced readings must be rebuilt held-out; the 'where' losses must be re-planted; the report; the sign-off audit; then the leukemia study.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Law Sphere input card wired (edits 237, 241)",
+     "what": "The card's coin size, temperature, coins per restore and push reach the law-referenced readings; the law block prints held:lost within the write and lost over held.",
+     "status": "development",
+     "outcome": "Lever map on the known-answer library's saved counts: every input moves the readings it should and no others (coin size 53.5-61.7 kJ/mol moves hold vs law -0.9 % to +13.3 %).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Full-chain readiness (edit 239)",
+     "what": "The sky reading leaves out identification-only cells; sorted libraries refused as mixtures still get the molecule count, genome globe and site counts.",
+     "status": "development",
+     "outcome": "The sky reading had stopped on 18 of 49 never-used libraries; it now reads them.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Instrument records in the SOP and Decoder (edits 243.1-243.11)",
+     "what": "Every sequencing instrument's full record, generated from the instruments database, printed in the SOP and the Decoder with US spelling and every printed number traced to a measurement record.",
+     "status": "structure",
+     "outcome": "On main (1ea2f439); researcher questions attached (57 had not printed).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Positions reference for 'where' (edit 244)",
+     "what": "Every Law Sphere unit and globe region with hg19 coordinates, UCSC island, nearest gene and array probe count, built from public UCSC files.",
+     "status": "development",
+     "outcome": "28,217,448 CpGs rebuilt; all 813,951 array probes land on their recorded positions.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); positions from UCSC hg19"
+    },
+    {
+     "title": "Laboratory correction from the sample's own reads (edit 246)",
+     "what": "Each sequenced sample's site levels and gain rates put on the atlas's conversion scale from its own islands meter.",
+     "status": "development",
+     "outcome": "Planted 1 % non-conversion: the Law Sphere strays x1.61 -> x1.04, unused islands x1.84 -> x1.05, the clock's gain x1.82 -> x1.03; the counted islands readings not corrected (owed).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Planted answers",
+     "what": "Incomplete conversion, losses in fully methylated molecules, losses in firm tiles, planted places for 'where'.",
+     "status": "development",
+     "outcome": "Conversion met (islands meter +0.00973 against +0.0099); firm-tile losses partly met (+0.00516 against +0.005 to +0.007); 'where' null clean, planted losses missed the counted units (re-plant owed).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    }
+   ]
+  }
+ ]
+}

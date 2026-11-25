@@ -4,6 +4,8 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-23](2026-11-23.md) | No work recorded |
+| [2026-11-22](2026-11-22.md) | The Law Sphere's card wired; every instrument's record printed in the SOP and Decoder; the laboratory correction from the sample's own reads; planted answers |
 | [2026-11-21](2026-11-21.md) | Whole-sample Met-A centred on 1 by Met-A's mix rule; held-out pass 9; every instrument explained in the field's terms |
 | [2026-11-20](2026-11-20.md) | IAM's Law Sphere in the chain; each type's measured healthy level documented; every sequencing instrument has a planted-answer test |
 | [2026-11-19](2026-11-19.md) | Each type's level is a property of the type; the cell's hold is the slow-write rule; the chain's sequencing instruments read again |

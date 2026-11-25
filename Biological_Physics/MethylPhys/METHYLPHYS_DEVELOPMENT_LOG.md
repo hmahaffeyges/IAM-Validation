@@ -7008,3 +7008,82 @@ _Written after midnight from the day's record (the chat walked line by line, 17 
 - RENDER235 (render check of the report pages after the explanations edit): every page and layer drawn; two report fixes owed.
 - METAA3 (the three Met-A readings explained once): on main (5eef178a). RUNSV4 (run-length fields on single-type libraries): on main (a37168db).
 - REPORTSEQ, REPORTV1 (the new sequencing report builder, first pages rendered on Google); LEVERMAP (the Law Sphere's lever map on saved counts); LFCHECK (private check); CARDWIRE (the Law Sphere's card wiring, prepared).
+
+### 2026-11-22 · Day summary
+_Written from the day's record (the commits on main, the findings ledger and the instruments history), in the fixed outline; work in the private domains is kept off this public page._
+
+**Set out:**
+- Wire the Law Sphere's input card into its readings.
+- Print every sequencing instrument's full record in the SOP and the Decoder.
+- Build the positions reference for the 'where' stage.
+- Correct each sequenced sample onto the atlas's conversion scale from its own reads.
+- Test instruments with planted answers.
+
+**Ran, and how each came out:**
+- Law Sphere card wired (edits 237, 241): every input now moves the readings it should and no others (lever map on the known-answer library).
+- Full-chain readiness (edit 239): the sky reading no longer stops on identification-only cells (it had stopped on 18 of 49 libraries); refused mixtures still get their molecule counts.
+- Instrument records (edits 243.1-243.11): every record printed in the SOP and the Decoder; researcher questions attached.
+- Positions reference (edit 244): all 813,951 array probes land on their recorded positions.
+- Laboratory correction (edit 246): a planted 1 % non-conversion is corrected in the molecule-counted readings; not yet in the counted islands readings.
+- Planted answers: conversion met; firm-tile losses partly met; 'where' null clean, planted losses mis-aimed.
+
+**Successes:**
+- The card's levers are live and isolated.
+- The islands meter reads a planted conversion error to within 2 %.
+
+**Learned:**
+- Readings counted at sites read only about 7 times cannot be corrected by lowering a level; the correction has to enter the healthy expectation.
+- Healthy ranges for readings measured against the atlas must come from libraries held out of their own reference.
+
+**Errors (the agent's own), and what caught each:**
+- A measurement record placed in the atlas reference folder (edit 243.8): the reference guard refused every one-button read; edit 245 moved it.
+- British spellings in generated records: the US-spelling check refused the edit; fixed at the source.
+
+**The author's instructions and corrections:**
+- Name every term by what it does, never by an internal code.
+- Everything signed off before the leukemia study.
+
+**Path changes:**
+- The halves summary moved to doors/data.
+
+**Data:**
+- GSE186458 (spent libraries), UCSC hg19 public tables.
+
+**Machines:**
+- Google spot machines for the molecule pass and planted reads; GitHub for edits and checks.
+
+**Open at turnover:**
+- The counted islands readings' laboratory correction; held-out healthy ranges; the 'where' re-plant; the report; the sign-off audit; then the leukemia study.
+
+### 2026-11-23 · Day summary
+_Written from the day's record: no commits, findings or runs on this day._
+
+**Set out:**
+- None today.
+
+**Ran, and how each came out:**
+- None today.
+
+**Successes:**
+- None today.
+
+**Learned:**
+- None today.
+
+**Errors (the agent's own), and what caught each:**
+- None today.
+
+**The author's instructions and corrections:**
+- None today.
+
+**Path changes:**
+- None today.
+
+**Data:**
+- None today.
+
+**Machines:**
+- None today.
+
+**Open at turnover:**
+- As at the end of 2026-11-22.

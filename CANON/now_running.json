@@ -77,6 +77,11 @@
      "date": "2026-11-15",
      "text": "This week the work went under the healthy line itself. In mature blood cells, the sorted healthy samples of two laboratories sit on the level computed from the cell's energy budget alone, with no measured correction. That is an exploration; a test sealed before new data are read comes next.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "Paused while we finish the sequencing chain and its report. Blood is read again with the finished chain, after the leukemia study, together with plasma.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -135,6 +140,11 @@
      "date": "2026-11-15",
      "text": "Still paused while we finish deriving this instrument's healthy level from physics. The derivation now covers the healthy line in mature blood; the next step is a sealed prediction, then commissioning.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "Still on hold. On sequencing, this instrument's healthy ranges are now being rebuilt from libraries held out of its own reference; commissioning follows the chain's sign-off.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -180,6 +190,11 @@
     {
      "date": "2026-11-15",
      "text": "Still paused and still blind. Deriving the instruments from physics comes first, then the sequencing steps these neurons need.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "Still on hold. The finished sequencing chain comes first; never-used cortical neuron libraries are already read in our healthy checks.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
@@ -227,6 +242,11 @@
      "date": "2026-11-15",
      "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "Still on hold for the same reason. Whole lung tissue is now being read through the sequencing chain as a test of mixed samples; the tumors stay unread.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   },
@@ -265,6 +285,11 @@
     {
      "date": "2026-11-15",
      "text": "Still paused behind the per-cell readings and the derivation of each cell type's healthy level.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "Still on hold behind the sequencing chain's sign-off and the leukemia study.",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
@@ -312,12 +337,17 @@
      "date": "2026-11-15",
      "text": "Moving on the desk. The erasers' share of the losses is now measured cell type by cell type: about 14 % in stem cells, a few percent in blood progenitors, none in mature B cells.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "date": "2026-11-24",
+     "text": "The input card's levers now move the readings they should and no others, measured on one library's saved molecule counts.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ],
    "why": "A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it."
   }
  ],
- "as_of": "2026-11-08",
+ "as_of": "2026-11-24",
  "off_board": [
   {
    "id": "temperature_law",

@@ -35,9 +35,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Paused while we finish the sequencing chain and its report. Blood is read again with the finished chain, after the leukemia study, together with plasma. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | This week the work went under the healthy line itself. In mature blood cells, the sorted healthy samples of two laboratories sit on the level computed from the cell's energy budget alone, with no measured correction. That is an exploration; a test sealed before new data are read comes next. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most cells read about 1 percent below it, because the chain credits part of each blood to bone-marrow cells that are not there. We fix that first, then run the sealed test. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
-| | We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. 913 of 939 cell readings landed inside the healthy range measured on the other donors, and every cell type passed. Next: a sealed test on healthy blood from laboratories the atlas has never seen. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#blood-normal).*
 
@@ -50,9 +50,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still on hold. On sequencing, this instrument's healthy ranges are now being rebuilt from libraries held out of its own reference; commissioning follows the chain's sign-off. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused while we finish deriving this instrument's healthy level from physics. The derivation now covers the healthy line in mature blood; the next step is a sealed prediction, then commissioning. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused. We are finishing the chain on arrays first, the cheapest and most common test; this instrument's turn comes after the array instruments are commissioned. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
-| | Still paused, and still unread. The chain's readings for sequenced cells come first: healthy sequenced cells now read close to 1 on each of them, including the CpG islands, which read slightly high until we counted their healthy reference from its own reads. [record](Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#iama-commission).*
 
@@ -65,9 +65,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still on hold. The finished sequencing chain comes first; never-used cortical neuron libraries are already read in our healthy checks. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused and still blind. Deriving the instruments from physics comes first, then the sequencing steps these neurons need. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
-| | Still paused and still blind. Meanwhile neurons from an outside laboratory, read against the new sequencing atlas, read slightly low; the reading follows each library's own disorder, and the atlas holds only three neuron donors, so more donors come first. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#neurons).*
 
@@ -80,8 +80,8 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still on hold for the same reason. Whole lung tissue is now being read through the sequencing chain as a test of mixed samples; the tumors stay unread. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
-| | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 | | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#lung).*
@@ -95,9 +95,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still on hold behind the sequencing chain's sign-off and the leukemia study. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused behind the per-cell readings and the derivation of each cell type's healthy level. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
-| | Still paused while the chain is finished for sequenced samples. The CpG island reading now reads healthy sequenced cells close to 1, after we counted its healthy reference from its own reads. [record](Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#blood-group).*
 
@@ -110,9 +110,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | The input card's levers now move the readings they should and no others, measured on one library's saved molecule counts. [record](Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md) |
 | | Moving on the desk. The erasers' share of the losses is now measured cell type by cell type: about 14 % in stem cells, a few percent in blood progenitors, none in mature B cells. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 | | Still waiting its turn behind the chain. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
-| | Waiting its turn behind the chain's readings for sequenced cells, which come first. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#levers).*
 

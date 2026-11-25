@@ -1,0 +1,29 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-23",
+ "title": "No work recorded",
+ "set_out": "None today.",
+ "open_at_turnover": "As at the end of 2026-11-22.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "No runs",
+     "what": "No commits, findings or runs on this day.",
+     "status": "metadata only",
+     "outcome": "None today.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    }
+   ]
+  }
+ ]
+}

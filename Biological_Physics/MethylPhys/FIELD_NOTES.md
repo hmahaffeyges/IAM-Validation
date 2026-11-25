@@ -65,6 +65,10 @@ Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
+### · Paused while we finish the sequencing chain and its report. Blood is read again with the finished chain, after the leukemia study, together with plasma.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
@@ -112,6 +116,10 @@ Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
+### · Still on hold. On sequencing, this instrument's healthy ranges are now being rebuilt from libraries held out of its own reference; commissioning follows the chain's sign-off.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
@@ -144,6 +152,10 @@ Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 ### · Still paused and still blind. Deriving the instruments from physics comes first, then the sequencing steps these neurons need.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
+### · Still on hold. The finished sequencing chain comes first; never-used cortical neuron libraries are already read in our healthy checks.
 
 Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
@@ -182,6 +194,10 @@ Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
 Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
+### · Still on hold for the same reason. Whole lung tissue is now being read through the sequencing chain as a test of mixed samples; the tumors stay unread.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
 <a id="blood-group"></a>
 ## Can a tube of blood tell us about a GROUP of people?
 
@@ -208,6 +224,10 @@ Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 ### · Still paused behind the per-cell readings and the derivation of each cell type's healthy level.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
+
+### · Still on hold behind the sequencing chain's sign-off and the leukemia study.
 
 Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
 
@@ -245,3 +265,7 @@ Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
 ### · Moving on the desk. The erasers' share of the losses is now measured cell type by cell type: about 14 % in stem cells, a few percent in blood progenitors, none in mature B cells.
 
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
+
+### · The input card's levers now move the readings they should and no others, measured on one library's saved molecule counts.
+
+Record: [METHYLPHYS_DEVELOPMENT_LOG.md](METHYLPHYS_DEVELOPMENT_LOG.md)
