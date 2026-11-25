@@ -11615,6 +11615,24 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **Limits and what is open:** Test state: MISSING (halves not in the whole-sample record). Its the information sphere (the information sphere) is DEVELOPMENT: the geometry is established mathematics; IAM's Law is not yet in it.
 - **Credit:** IAM (this work)
 
+#### Output: Halves, strand difference beyond counting
+
+- **IAM's name:** Halves, depth-free
+- **In the field's terms:** Strand (read-half) concordance beyond sampling noise (bias-corrected angular distance)
+- **Definition:** The root-mean-square Fisher-Rao angle between the levels of the two halves of the sample's reads at each unit, with the expected angle from counting alone subtracted in quadrature; the counting floor is taken at the sample's own pooled level, the null for two halves of one sample.
+- **What it does:** It shows the real disagreement between the two halves of the reads, in a unit (radians) that does not depend on how deeply the library was read.
+- **Why the instrument needs it:** Halves over its floor grows with depth because a fixed real difference is divided by a floor that shrinks as 1 over the square root of the reads (correlation with depth +0.79 over 205 healthy libraries); the difference beyond counting does not (-0.07).
+- **How it is obtained or computed:** At every unit read at least MIN_CALLS times in each half: the squared angle between the halves' levels and its exact counting expectation at the unit's pooled level; the square root of the difference of their means.
+- **Where it is read:** not genome-located
+- **Where IAM's Law enters:** This row is explicitly marked 'not the law: instrument or meter,' and its long-form section is 'not part of IAM's Law' — it does not enter IAM's Law at all. It is a meter-level quantity: a quality-control agreement score on the reads themselves, not a physical quantity carrying the law's energetic content.
+- **Long-form section:** not part of IAM's Law
+- **Healthy value and how it is set:** Healthy range per cell type, from healthy libraries read the same way; owed with the held-out pass.
+- **Where its value comes from:** computed by the chain from the sample's molecules and its references
+- **Its setting on IAM's Law Sphere:** a reading, not a setting (the lever map shows which settings move it)
+- **Lever range (what moves, by how much):** open: not written yet
+- **Limits and what is open:** Test state: MISSING (halves not in the whole-sample record). Its the information sphere (the information sphere) is DEVELOPMENT: the geometry is established mathematics; IAM's Law is not yet in it.
+- **Credit:** IAM (this work); the counting floor is the exact binomial expectation of the squared Fisher-Rao angle (stage_info_sphere.counting_floor).
+
 #### Output: Depth
 
 - **IAM's name:** Depth
