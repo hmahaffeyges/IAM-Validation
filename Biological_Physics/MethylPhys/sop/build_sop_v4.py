@@ -121,6 +121,21 @@ def text():
           "- `S001_bundle.json`: every stage's output, with the chain's commit.", "- one row appended to `evidence_ledger.jsonl` beside the report.", "",
           "## 7. Stages in the live path", "", f"{len(S['live_path'])} steps, in order (from `chain/chain_sequence.json`):", "", "| Step | Code |", "|---|---|"]
     L += [f"| {x['step']} | `{x['where']}` |" for x in S["live_path"]]
+    import ast as _ast, re as _re7   # edit 256
+    _CHD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "chain")
+    _ust = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON", "us_spelling.py"), encoding="utf-8").read()
+    _i7 = _ust.index("MAP = {"); _US = _ast.literal_eval(_ust[_i7 + 6: _ust.index("}", _i7) + 1])
+    _rx7 = _re7.compile(r"(?<![\w.])(" + "|".join(sorted(map(_re7.escape, _US), key=len, reverse=True)) + r")(?![\w])", _re7.I)
+    L += ["", "## 7b. Every file of the chain", "", "Every Python file in `chain/` and `chain/MethylPhys_Interface/`, with the first line of its own description, read when this SOP is built. "
+          "Each function in them has its entry in the Decoder.", "", "| File | What it does |", "|---|---|"]
+    for _sub in ("", "MethylPhys_Interface"):
+        for _f in sorted(x for x in os.listdir(os.path.join(_CHD, _sub)) if x.endswith(".py")):
+            try: _ds = _ast.get_docstring(_ast.parse(open(os.path.join(_CHD, _sub, _f), encoding="utf-8").read())) or ""
+            except Exception: _ds = ""
+            _ds = " ".join(_ds.strip().split("\n\n")[0].split())[:300].replace("|", "/") or "no description in the file yet"
+            _ds = _re7.sub(r"\s*\([^()]*(?:PRIVATE-|\bF\d{3}\b|finding|edit \d|plan \d)[^()]*\)", "", _ds)
+            _ds = _rx7.sub(lambda m: _US[m.group(0).lower()] if m.group(0).islower() else _US[m.group(0).lower()].capitalize(), _ds)
+            L.append(f"| `{(_sub + '/') if _sub else ''}{_f}` | {_ds} |")
     L += ["", "## 8. Frozen inputs", "", "Every reference the chain reads is a committed file; nothing is fitted at run time. The release check verifies each checksum.", "",
           "| File (in `chain/`) | SHA-256 |", "|---|---|"]
     L += [f"| `{k}` | `{v[:16]}…` |" for k, v in sorted(F.items())]
