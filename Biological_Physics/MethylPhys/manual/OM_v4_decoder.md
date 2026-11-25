@@ -9069,6 +9069,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** Held error in early-, mid- and late-replicating regions, as ratios within the sample.
 - **Where IAM's Law enters:** Not the law itself: a measured input the law uses.
 - **Tool borrowed from cosmology:** Splitting the survey by epoch.
+- **Credit:** Replication timing: Hansen R.S. et al. (2010) PNAS 107:139-144, doi 10.1073/pnas.0912402107 (ENCODE, University of Washington). IAM (this work): the held error split by copy timing. Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.
 - **Methods it uses (established, not IAM's Law):** End-to-end simulation (inject and recover) (An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)); Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM); Repli-seq replication timing (genomics) (Hansen R.S. et al. (2010) PNAS 107:139-144, doi 10.1073/pnas.0912402107 (ENCODE, University of Washington))
 
 #### Copy timing: held error by replication timing (early, mid, late)
@@ -11027,7 +11028,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **Its setting on IAM's Law Sphere:** not yet on the card
 - **Lever range (what moves, by how much):** open: not written yet
 - **Limits and what is open:** Not yet on the card. Register the stray-mark rate after the meter's own false marks status as recorded: 'MEASURED in blood 2026-11-15: meter = conv_fail + tc_err, a quarter to' (truncated); the stray-mark rate after the meter's own false marks's plain text gives the false-mark rate as a quarter to a third of the raw stray rate.
-- **Credit:** False discovery rate (statistics): Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300
+- **Credit:** IAM (this work): the islands meter reads non-conversion at CpG islands no healthy cell type methylates, inside the sample. Established comparisons: conversion estimated from non-CpG cytosines or an unmethylated lambda spike-in (standard WGBS practice), and BCREval (Zhou et al. 2019).
 
 #### Input: 5hmC
 
@@ -11297,7 +11298,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **Its setting on IAM's Law Sphere:** not yet on the card
 - **Lever range (what moves, by how much):** open: not written yet
 - **Limits and what is open:** Candidate: owed (not in the chain yet); lf_section open: not yet tied to the law; not yet on the card. The Koide split reading cites Koide's formula, and the original paper is still to be confirmed before citing.
-- **Credit:** IAM's Law (this work); Koide split reading: Koide's formula (original paper to confirm before citing); symmetrical components: Fortescue, C.L. (1918) AIEE 34th Convention, 37:1027-1140
+- **Credit:** IAM's Law (this work); Koide's relation: Koide Y. (1983); symmetrical components: Fortescue C.L. (1918) AIEE Transactions 37:1027-1140
 
 #### Input: Temperature
 
@@ -11554,7 +11555,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 #### Output: Loose share
 
 - **IAM's name:** Loose share (a layer of IAM's Law Sphere).
-- **In the field's terms:** Fraction of loosely held (intermediately methylated) molecules in the sample.
+- **In the field's terms:** Fraction of the genome in partially methylated (intermediately methylated) regions, read from the sample's own reads: the share of 2,000-CpG tiles whose mean methylation is below 0.70 (comparable to the partially methylated domain, PMD, fraction).
 - **Definition:** The share of the sample's molecules that are loosely held: how much of the record is loosely held.
 - **What it does:** It is one of the Law Sphere's layers and sets the sample's expected loss: in the baseline line eps_pred(L) = firm + 0.034625 x L, L is the sample's loose share, and cells with more loosely held territory lose more marks.
 - **Why the instrument needs it:** The Law Sphere reads how the cell is performing against the law, so it needs each sample's own expectation; that line is each library's self-reference, and the loose share is its input.

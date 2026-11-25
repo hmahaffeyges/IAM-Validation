@@ -3,7 +3,7 @@
  "instrument": "seq.09",
  "record": {
   "cosmo_tool": "Splitting the survey by epoch.",
-  "credit": "",
+  "credit": "Replication timing: Hansen R.S. et al. (2010) PNAS 107:139-144, doi 10.1073/pnas.0912402107 (ENCODE, University of Washington). IAM (this work): the held error split by copy timing. Uncertainty: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "Held error in early-, mid- and late-replicating regions, as ratios within the sample.",
   "field_term": "Loss by replication timing: early-, mid- and late-replicating DNA (the late-replicating loss seen with repeated cell division and with age)",
   "id": "seq.09",

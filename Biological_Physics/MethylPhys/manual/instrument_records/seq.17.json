@@ -1043,7 +1043,7 @@
      ],
      [
       "Credit",
-      "False discovery rate (statistics): Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300"
+      "IAM (this work): the islands meter reads non-conversion at CpG islands no healthy cell type methylates, inside the sample. Established comparisons: conversion estimated from non-CpG cytosines or an unmethylated lambda spike-in (standard WGBS practice), and BCREval (Zhou et al. 2019)."
      ]
     ],
     "name": "Meter (the sequencing chemistry's own false marks)"
@@ -2018,7 +2018,7 @@
      ],
      [
       "Credit",
-      "IAM's Law (this work); Koide split reading: Koide's formula (original paper to confirm before citing); symmetrical components: Fortescue, C.L. (1918) AIEE 34th Convention, 37:1027-1140"
+      "IAM's Law (this work); Koide's relation: Koide Y. (1983); symmetrical components: Fortescue C.L. (1918) AIEE Transactions 37:1027-1140"
      ]
     ],
     "name": "Island units against the law (how)"
@@ -2946,7 +2946,7 @@
      ],
      [
       "In the field's terms",
-      "Fraction of loosely held (intermediately methylated) molecules in the sample."
+      "Fraction of the genome in partially methylated (intermediately methylated) regions, read from the sample's own reads: the share of 2,000-CpG tiles whose mean methylation is below 0.70 (comparable to the partially methylated domain, PMD, fraction)."
      ],
      [
       "Definition",
