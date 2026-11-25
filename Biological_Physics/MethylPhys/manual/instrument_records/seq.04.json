@@ -3,7 +3,7 @@
  "instrument": "seq.04",
  "record": {
   "cosmo_tool": "Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.",
-  "credit": "",
+  "credit": "IAM (this work): the held error read from the sample's own molecules and its line. Uncertainty and coverage: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.",
   "field_how": "On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbors): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).",
   "field_term": "Maintenance-methylation fidelity: read-level discordance on fully methylated molecules, against the sample's own expectation",
   "id": "seq.04",
@@ -1516,7 +1516,7 @@
      ],
      [
       "In the field's terms",
-      "Fraction of loosely held (intermediately methylated) CpGs or molecules in the sample."
+      "Fraction of the genome in partially methylated (intermediately methylated) regions, read from the sample's own reads: the share of 2,000-CpG tiles whose mean methylation is below 0.70 (comparable to the partially methylated domain, PMD, fraction)."
      ],
      [
       "Definition",

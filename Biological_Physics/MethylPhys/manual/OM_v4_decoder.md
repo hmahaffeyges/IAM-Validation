@@ -7055,6 +7055,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **What it measures and how:** On every read at least 80 % methylated, counts the isolated unmethylated CpGs (an unmethylated CpG between two methylated neighbors): the held error. The sample's own share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes, from a line measured on healthy cells. IAM-A is the observed held error over that prediction: 1 is healthy; above 1 means marks are being lost on molecules the cell holds firmly, the footprint of failed maintenance after DNA replication (DNMT1 with UHRF1).
 - **Where IAM's Law enters:** IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable).
 - **Tool borrowed from cosmology:** Self-calibration: each sample is its own standard candle, read against the line its own loose share predicts.
+- **Credit:** IAM (this work): the held error read from the sample's own molecules and its line. Uncertainty and coverage: Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM.
 - **Methods it uses (established, not IAM's Law):** End-to-end simulation (inject and recover) (An established practice with no single originator; credited to its standard reference in astronomy: Christiansen J.L., Clarke B.D., Burke C.J. et al. (2013) Measuring transit signal recovery in the Kepler pipeline. I. Individual events, ApJS 207:35, doi 10.1088/0067-0049/207/2/35 (simulated signals injected into the real data and recovered through the full pipeline)); Guide to the expression of uncertainty in measurement (GUM, metrology) (Joint Committee for Guides in Metrology (2008) JCGM 100:2008, Evaluation of measurement data: Guide to the expression of uncertainty in measurement (GUM 1995 with minor corrections), BIPM)
 
 #### IAM-A: how it tares (against the sample's own line) and how it is defended
@@ -7501,7 +7502,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 #### Output: Loose share
 
 - **IAM's name:** Loose share (IAM-A).
-- **In the field's terms:** Fraction of loosely held (intermediately methylated) CpGs or molecules in the sample.
+- **In the field's terms:** Fraction of the genome in partially methylated (intermediately methylated) regions, read from the sample's own reads: the share of 2,000-CpG tiles whose mean methylation is below 0.70 (comparable to the partially methylated domain, PMD, fraction).
 - **Definition:** Share of loosely held molecules.
 - **What it does:** It sets the sample's own prediction for IAM-A: the sample's share of loosely held (intermediate) CpGs predicts the held error a healthy cell of that looseness makes.
 - **Why the instrument needs it:** IAM-A judges the cell against its own physics, so the expected held error must come from the sample itself rather than from an outside reference.
@@ -10467,7 +10468,7 @@ Generated from the instruments database (manual/instrument_records/), never type
 - **Its setting on IAM's Law Sphere:** not yet on the card
 - **Lever range (what moves, by how much):** open: not written yet
 - **Limits and what is open:** It is only partly in the chain: it is treated as meter state, but the molecule-ends correction is noted as not yet applied (in_chain: partly (meter state; ends not applied)).
-- **Credit:** False discovery rate (statistics): Benjamini Y. & Hochberg Y. (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing, J. R. Stat. Soc. B 57:289-300
+- **Credit:** IAM (this work): the islands meter reads non-conversion at CpG islands no healthy cell type methylates, inside the sample. Established comparisons: conversion estimated from non-CpG cytosines or an unmethylated lambda spike-in (standard WGBS practice), and BCREval (Zhou et al. 2019).
 
 #### Input: Healthy reference by address
 
