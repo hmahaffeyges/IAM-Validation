@@ -380,6 +380,42 @@ Every Python file in `chain/` and `chain/MethylPhys_Interface/`, with the first 
 | `MethylPhys_Interface/run_sample.py` | run_sample.py - one command: IDAT pair (or a beta table, or single-molecule reads) to a MethylPhys report. |
 | `MethylPhys_Interface/run_series.py` | run_series.py - the one command over a series of arrays (chain v4, 2026-10-22). Every reading is chain/MethylPhys_Interface/run_sample.py, run unchanged on the array's two IDATs from GEO; this file only fetches the files, chooses each array's same-run references and collects the bundles. Nothing is  |
 
+## 7c. How the references are split and loaded
+
+Generated from the reference files when this document is built. `chain/Runtime Matrices/` holds 784.2 MB; `atlas/` holds 512.8 MB. A copy of the repository carries every reference. A table that holds cell types as columns can be read for the cell types a sample needs only; the last column lists the readers whose code reads selected columns of a table. A large table is split into row parts so that each file stays under the repository's 100 MB file limit.
+
+| Folder | Files | Size | Row parts | Tables and how they hold cell types | Read by | Readers that read selected columns |
+|---|---|---|---|---|---|---|
+| `chain/Runtime Matrices/Atlas_V21` | 4 | 3.0 MB | no | no tables | `MethylPhys_Interface/report_globe_v4.py`, `stage_metaa_atlas.py`, `stage_q2_globe.py` | `MethylPhys_Interface/report_globe_v4.py`, `stage_metaa_atlas.py` |
+| `chain/Runtime Matrices/CScore_Limits` | 2 | 1 kB | no | no tables | `stage_metaa_atlas.py` | `stage_metaa_atlas.py` |
+| `chain/Runtime Matrices/Celltype_Marker` | 6 | 1.1 MB | no | no tables | `toolkit_foreign_detection.py` | none |
+| `chain/Runtime Matrices/Clock_Sites` | 1 | 4 kB | no | no tables | `MethylPhys_Interface/run_sample.py` | `MethylPhys_Interface/run_sample.py` |
+| `chain/Runtime Matrices/Coupling` | 1 | 3 kB | no | no tables | `stage_coupling.py` | none |
+| `chain/Runtime Matrices/Development` | 3 | 2.6 MB | no | no tables | `dev_stages.py`, `stage_t_selftare.py` | none |
+| `chain/Runtime Matrices/Directional Panel` | 2 | 28 kB | no | no tables | none found by name | none |
+| `chain/Runtime Matrices/Gauge` | 1 | 5 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py` | none |
+| `chain/Runtime Matrices/IAM_A_Positions` | 3 | 4 kB | no | no tables | `MethylPhys_Interface/run_sample.py`, `stage_q0_intake.py`, `stage_q2_selfref.py`, `stage_q_iam_a.py` | `MethylPhys_Interface/run_sample.py`, `stage_q_iam_a.py` |
+| `chain/Runtime Matrices/IAM_A_SelfRef` | 5 | 80 kB | no | no tables | `stage_metaa_atlas.py`, `stage_q2_selfref.py`, `stage_v4.py` | `stage_metaa_atlas.py` |
+| `chain/Runtime Matrices/Info_Sphere` | 1 | 2.7 MB | no | no tables | `stage_info_sphere.py` | none |
+| `chain/Runtime Matrices/Intake` | 2 | 5 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/run_sample.py`, `stage_0_intake.py` | `MethylPhys_Interface/run_sample.py` |
+| `chain/Runtime Matrices/Lab_Correction` | 1 | 18 kB | no | no tables | `stage_conv_corr.py` | none |
+| `chain/Runtime Matrices/Met_A_Floors` | 9 | 5.0 MB | no | no tables | `MethylPhys_Interface/reference_globes.py`, `MethylPhys_Interface/report_globe_v4.py`, `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `MethylPhys_Interface/run_sample.py`, `conductor_v3.py` and 4 more | `MethylPhys_Interface/report_globe_v4.py`, `MethylPhys_Interface/run_sample.py`, `stage_atlas_u3.py` |
+| `chain/Runtime Matrices/Met_A_Widths` | 1 | 5 kB | no | no tables | `stage_metaa_atlas.py` | `stage_metaa_atlas.py` |
+| `chain/Runtime Matrices/Patient_CMB` | 4 | 3.5 MB | no | no tables | `dev_stages.py`, `stage_4_6_patient_cmb.py` | `stage_4_6_patient_cmb.py` |
+| `chain/Runtime Matrices/Provisional_References` | 4 | 8.4 MB | no | `megakaryocytes_v1.parquet`: not by cell type; `megakaryocytes_v2.parquet`: not by cell type | `MethylPhys_Interface/run_sample.py`, `stage_provisional.py` | `MethylPhys_Interface/run_sample.py` |
+| `chain/Runtime Matrices/Replication_Timing` | 4 | 43 kB | no | no tables | `MethylPhys_Interface/run_sample.py`, `stage_q2_selfref.py` | `MethylPhys_Interface/run_sample.py` |
+| `chain/Runtime Matrices/Report` | 1 | 50 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `build_chain_sequence.py` | none |
+| `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet`, `meth_part*.parquet`, `mu_hi_part*.parquet`, `mu_lo_part*.parquet`, `mu_part*.parquet`, `mu_se_part*.parquet`, `reads_part*.parquet`, `seq_sphere_ref_part*.parquet` | `deconv_reference_mk_dev.parquet`: one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: not by cell type; `floor_sites_v1.parquet`: not by cell type; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` |
+| `chain/Runtime Matrices/Stage_T` | 2 | 26.3 MB | no | no tables | `dev_stages.py`, `release_check_v3.py`, `stage_metaa_atlas.py`, `stage_t_selftare.py` | `stage_metaa_atlas.py` |
+| `chain/Runtime Matrices/Where` | 9 | 41.9 MB | no | `where_regions_v1.parquet`: not by cell type; `where_regions_v2.parquet`: not by cell type; `where_units_v1.parquet`: not by cell type; `where_units_v2.parquet`: not by cell type | none found by name | none |
+| `atlas/external_manifests` | 3 | 44.4 MB | no | no tables | none found by name | none |
+| `atlas/healpix_mapping` | 4 | 2.0 MB | no | no tables | none found by name | none |
+| `atlas/sources` | 10 | 97 kB | no | no tables | `MethylPhys_Interface/run_draw.py` | none |
+| `atlas/tools` | 7 | 64 kB | no | no tables | `MethylPhys_Interface/reference_globes.py`, `MethylPhys_Interface/report_globe_v4.py`, `MethylPhys_Interface/report_v4.py`, `preflight.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/report_globe_v4.py`, `stage_seq_atlas.py` |
+| `atlas/v2` | 94 | 28.7 MB | no | no tables | `stage_atlas_u3.py` | `stage_atlas_u3.py` |
+| `atlas/v2.1` | 25 | 437.6 MB | `donor_sd_part*.parquet`, `mu_hi_part*.parquet`, `mu_lo_part*.parquet`, `mu_part*.parquet` | `donor_sd_part*.parquet`: not by cell type; `mu_hi_part*.parquet`: not by cell type; `mu_lo_part*.parquet`: not by cell type; `mu_part*.parquet`: not by cell type; and 3 more tables | `MethylPhys_Interface/reference_globes.py`, `MethylPhys_Interface/report_globe_v4.py`, `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `release_check_v4.py`, `stage_0_intake.py` and 5 more | `MethylPhys_Interface/report_globe_v4.py`, `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_values.py` |
+
+
 ## 8. Frozen inputs
 
 Every reference the chain reads is a committed file; nothing is fitted at run time. The release check verifies each checksum.

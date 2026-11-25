@@ -136,6 +136,8 @@ def text():
             _ds = _re7.sub(r"\s*\([^()]*(?:PRIVATE-|\bF\d{3}\b|finding|edit \d|plan \d)[^()]*\)", "", _ds)
             _ds = _rx7.sub(lambda m: _US[m.group(0).lower()] if m.group(0).islower() else _US[m.group(0).lower()].capitalize(), _ds)
             L.append(f"| `{(_sub + '/') if _sub else ''}{_f}` | {_ds} |")
+    import sys as _s9; _s9.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "manual")); import reference_inventory as _RI   # edit 257
+    L += [""] + _RI.markdown(level=2, title="7c. How the references are split and loaded", counts=False)
     L += ["", "## 8. Frozen inputs", "", "Every reference the chain reads is a committed file; nothing is fitted at run time. The release check verifies each checksum.", "",
           "| File (in `chain/`) | SHA-256 |", "|---|---|"]
     L += [f"| `{k}` | `{v[:16]}…` |" for k, v in sorted(F.items())]

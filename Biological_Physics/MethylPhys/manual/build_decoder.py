@@ -77,6 +77,8 @@ def build():
             if k in key: out += [f"### `{k}`", "", txt, "", facts(key[k]), ""]
     import instrument_records as _IR   # edit 243.7: every instrument's full record, inputs and outputs included
     _RM = os.path.join(H, "..", "chain", "Runtime Matrices")   # edit 255: every reference folder, its README and its files, read at build time
+    import reference_inventory as _RI   # edit 257
+    out += _RI.markdown(level=2, counts=True)
     out += ["## Reference folders and how each was built", "", "Every folder under `chain/Runtime Matrices`, with its README in full and its files, read when this Decoder is built "
             "(a reference built before any chain code reads it is documented here from the day it lands).", ""]
     for _d in sorted(x for x in os.listdir(_RM) if os.path.isdir(os.path.join(_RM, x)) and not x.startswith((".", "archive"))):
