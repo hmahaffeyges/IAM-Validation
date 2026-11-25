@@ -1,0 +1,93 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-24",
+ "title": "The sequencing report rebuilt one page per test from the instruments database; the islands floor route corrects the counted readings; the atlas molecule files go to Zenodo",
+ "set_out": "Rebuild the sequencing report so a researcher can read every test; draw every globe and sphere reading as a sphere under its test; ship the full derivation linked step by step; correct the counted islands readings for each laboratory's own non-conversion; deposit the atlas molecule files on Zenodo.",
+ "open_at_turnover": "Chain edit for the islands floor route, megakaryocytes and far-island counts (written and dry-run, not yet sent); depth-free C-Score; held-out healthy ranges; 'where' re-planted and printed; lung and liver reports; the page-by-page check and the outside-reader audit; sign-off; the leukemia study; the last 18 Zenodo archives after a quota increase.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Laboratory correction test reads (edit 246)",
+     "what": "Planted 1 % non-conversion and the unplanted known-answer library through the one button on main.",
+     "status": "development",
+     "outcome": "Molecule-counted readings corrected (Law Sphere strays x1.04, unused islands x1.05, clock gain x1.03); counted islands readings not (islands territory x2.77).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Islands floor route, four reads",
+     "what": "The chain's existing route (floors of the sample and the reference counted at the islands read, both read at the higher) on the planted and unplanted library.",
+     "status": "development",
+     "outcome": "Islands territory planted over unplanted 2.765 -> 1.027 (F282).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Islands floor route, 31 never-used healthy libraries",
+     "what": "Each read twice on main, with and without the route.",
+     "status": "development",
+     "outcome": "Islands territory centre 1.021 -> 1.010, spread 0.154 -> 0.060; the 26 other readings identical (F283).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Depth check",
+     "what": "Each reading's correlation with the molecules read, over the never-used libraries.",
+     "status": "development",
+     "outcome": "The IAM-A C-Score, the Law Sphere halves and the islands territory follow read depth (F281); depth-free forms owed.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Full-output reads",
+     "what": "The known-answer, whole lung and whole liver libraries read keeping every output file (globe, spheres, explorer, counts).",
+     "status": "development",
+     "outcome": "All three read; their pictures feed the report.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); GSM5652214, GSM2103014, GSM2103010"
+    },
+    {
+     "title": "Far-island counts",
+     "what": "Per-island counts at the 8,567 unused islands with the chain's own counter, for the three libraries.",
+     "status": "development",
+     "outcome": "Totals match the chain's own unused-island reading exactly (GSM5652214: 96,848 calls off the array, stray 0.012132).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Sequencing report, five builds",
+     "what": "Built on Google from the instruments database, line by line: score page, one page per test, every reading and input, globes and spheres under their readings, contents and glossary, supplement S3 printed and linked.",
+     "status": "structure",
+     "outcome": "213 pages; 296 of 296 database rows printed; no process history; every 'step N' links into S3.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Methods check",
+     "what": "Every credited method searched for in the chain's code on main.",
+     "status": "audit",
+     "outcome": "Each method now classed by where it is used; array-only and unused methods left out of the report's methods table; two credits corrected.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    },
+    {
+     "title": "Zenodo deposit",
+     "what": "The 205 molecule files of the Sequencing Atlas, one archive per cell type, uploaded from a Google machine to an unpublished draft.",
+     "status": "metadata only",
+     "outcome": "62 of 80 archives (49.2 GB) in; the record's 50 GB limit reached; the rest wait for a quota increase.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458)"
+    }
+   ]
+  }
+ ]
+}

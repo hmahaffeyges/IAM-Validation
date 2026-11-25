@@ -7087,3 +7087,75 @@ _Written from the day's record: no commits, findings or runs on this day._
 
 **Open at turnover:**
 - As at the end of 2026-11-22.
+
+### 2026-11-24 · Day summary
+_Written from the day's record (the chat walked line by line, the findings ledger, the day's runs on Google and the instruments database), in the fixed outline; work in the private domains is kept off this public page._
+
+**Set out:**
+- Rebuild the sequencing report so that a researcher who opens it can tell what every score is testing. The day began with the report's figures grouped by kind, which only works for a reader who already knows each instrument; the agreed layout became one page with every score, anything outside its healthy range flagged, then one section per test in the instruments database's order.
+- Put the Sequencing Atlas, the Deconvolver, intake and the laboratory self-tare first, since a researcher's first question is how one sample can be calibrated from its own reads, without other samples.
+- Explain the energy scale M early: one ATP is about 21 kicks of thermal noise, the energy that holds order against the energy that causes disorder, and a mark is lost only when a jolt large enough to undo it arrives.
+- Draw every reading that is a layer on the globe or the sphere as a sphere, under its own test: the islands, the far islands the arrays cannot see, the territories, the C-Scores, the information sphere and every Law Sphere reading (the angles, the Fisher-Rao distance, fidelity, power factor, hold, Koide, strays, loose share, halves and depth).
+- Ship the full derivation of IAM's Law and Koide's relation with the report as supplement S3, and link every physics pointer in the report to its step.
+- Correct the counted islands readings for each laboratory's own bisulfite non-conversion.
+- Deposit the Sequencing Atlas's molecule files on Zenodo.
+- Bring every request of the day and the open audit into one working list to the leukemia study.
+
+**Ran, and how each came out:**
+- Laboratory correction test reads (edit 246, one button on main, known-answer library GSM5652214): with a planted 1 % non-conversion, the readings counted molecule by molecule came back to the unplanted read (Law Sphere strays from x1.61 to x1.04, unused islands from x1.84 to x1.05, the clock's gain from x1.82 to x1.03). The islands territory and Met-A at islands did not (islands territory x2.77): they count calls at sites read about 7 times, where lowering a level cannot remove a false call.
+- Islands floor route (the chain's own route from November 7, until now off): four reads of the same library, planted and unplanted, with and without it. The islands territory's planted-over-unplanted ratio fell from 2.765 to 1.027, and the healthy unplanted read moved from 0.718 to 0.940 (finding F282).
+- The same route on the 31 healthy libraries never used to build the atlas, each read twice: the islands territory's centre went from 1.021 to 1.010 and its person-to-person spread from 0.154 to 0.060, 2.6 times narrower. The widest healthy departures pulled in: a cardiomyocyte from 0.718 to 0.940, a breast basal library from 0.693 to 0.954, a colon library from 0.800 to 1.019, a bladder library from 1.416 to 1.132. The other 26 readings were identical to the last digit (finding F283). The counted readings had been carrying each library's own non-conversion.
+- Depth check over the never-used libraries: the IAM-A C-Score, the Law Sphere halves and the islands territory follow how deeply a library was read (finding F281). Depth-free forms are owed.
+- Full-output reads of three libraries (the known-answer cardiomyocyte, whole lung GSM2103014 and whole liver GSM2103010), keeping every globe, sphere and count file, so the report can carry their pictures and the multi-cell test can be judged.
+- Far-island counts: the chain's saved counts keep only the sphere's units, and the far islands are not among them, so the first picture of them was empty. A recount with the chain's own counter matched the chain's own reading exactly (96,848 calls off the array, stray rate 0.012132, for GSM5652214), and a chain fix to keep them is written.
+- The sequencing report, built five times on Google from the instruments database: 213 pages, all 296 database rows printed (25 instruments, 86 readings, 185 inputs), each reading's globe or sphere picture above it, a clickable contents with bookmarks, a glossary of the cell and chain terms from the canon glossary, 'look deeper' links to the chain, the Decoder, the SOP and the Zenodo records, and supplement S3 printed at the end, with every 'step N' in the text a link to that step.
+- Methods check: every method the report credits was searched for in the chain's code on main and classed by where it is used (when a sample is read, to build the references, in validation, or as physics behind the derivation). Methods used only by the array chain, or not in the chain, were taken out of the report's methods table; two credits that named a false discovery rate for the non-conversion meter were corrected.
+- Zenodo: the 205 molecule files grouped one archive per cell type (80 archives) and uploaded from a Google machine to an unpublished draft. 62 archives, 49.2 GB, are in; the record reached Zenodo's 50 GB limit.
+
+**Successes:**
+- The counted islands readings now have a correction that works on a planted error and narrows the healthy spread 2.6 times, without touching any other reading.
+- The report prints every line of the instruments database, refuses to build if a row is missing or if working notes appear, and links its physics to the derivation.
+- The far-island reading was confirmed against an independent recount.
+
+**Learned:**
+- A level correction cannot fix a reading that counts calls at sparsely read sites; the correction has to enter the healthy expectation, which is what the islands floor route does.
+- The saved per-unit counts must carry every set of sites a picture or a 'where' result needs.
+- A derivation shipped to researchers must read as the finished result: corrections belong in their steps, not in a section of corrections.
+
+**Errors (the agent's own), and what caught each:**
+- Supplement S3 first printed the working master of the derivation, with process notes and a section of corrections; the author caught it. The two corrections were folded into Steps 4 and 8 of the master, and S3 now prints a researcher edition kept beside the master and checked by code for every equation and number.
+- The first globe pictures were flat maps; the author caught it, and they are now drawn as spheres seen from two sides.
+- Only supplement S3 was given in the chat; the author caught it, and all five supplements were delivered.
+- Page images of each report build were unpacked into the app's workspace, hundreds per build, and the app restarted; the author reported it. Page images now stay on the Google machine.
+- The far-island picture first showed nothing read; the rendered page showed it, and the recount fixed it.
+
+**The author's instructions and corrections:**
+- One page with every score and anything outside normal flagged, then one section per test, going down the instruments database line by line, in the field's language.
+- The Atlas, the Deconvolver and the self-tare first, explained thoroughly.
+- A detailed clickable contents; a glossary of the cell and chain terms only; the chain, the Decoder, the Zenodo DOIs and the noise maps referenced.
+- Every globe and sphere reading with its picture, as a sphere, under its test; the full derivation linked step by step.
+- The final report is a final draft, not a working draft.
+- Every result needs its 'where' location ready.
+- Megakaryocytes show in the Deconvolver's results but are never a healthy reference.
+- Keep machine jobs short and watched so a recalled machine loses little; keep the molecule files in the bucket as well as on Zenodo.
+- Confirm every credited method is actually used.
+
+**Path changes:**
+- The report layout changed from figure groups to one section per test, built from the instruments database.
+- The islands floor route moves from a development option to the default for sequencing (edit written).
+- One combined working list to the leukemia study replaces the plan of November 22.
+
+**Data:**
+- GSE186458 (Loyfer et al. 2023), spent libraries only: the known-answer library and the 31 never-used healthy libraries.
+- Whole lung and liver tissue libraries GSM2103014 and GSM2103010, for the multi-cell test.
+- No unspent data used.
+
+**Machines:**
+- Google spot machines: 62 islands-floor reads (all done), three full-output reads, three far-island counts, five report builds and the Zenodo upload, each watched and relaunched when recalled.
+- GitHub: the day-summary edit for November 22 and 23.
+
+**Open at turnover:**
+- The chain edit switching the islands floor route on, keeping megakaryocytes out of every healthy expectation and keeping the far-island counts, then its two known-answer reads.
+- Depth-free C-Score; held-out healthy ranges for the readings measured against the atlas; the 'where' losses re-planted and every result's location printed; the lung and liver reports.
+- The page-by-page check of the report, then the outside-reader audit, then sign-off at 100 %, then the leukemia study.
+- The last 18 Zenodo archives, after a quota increase; publication only on the author's yes.
