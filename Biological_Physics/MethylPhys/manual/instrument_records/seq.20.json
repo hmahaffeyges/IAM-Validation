@@ -12,6 +12,7 @@
   "law": "Not the law: a chain rule.",
   "link": "20. Serial samples from one person",
   "outputs": [],
+  "reads_from": "both: an earlier draw as a molecule file (--prior-pat) or as counts (--prior-betas), each instrument as its own input",
   "records": [
    {
     "fields": [

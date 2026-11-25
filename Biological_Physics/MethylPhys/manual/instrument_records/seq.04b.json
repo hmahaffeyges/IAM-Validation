@@ -3588,6 +3588,7 @@
   "law": "IAM's Law, step 1 (Actualization): a sudden write of an einselected pointer into a blank Gaussian surface splits the energy exactly: held = spent = U = k_BT times the two relative entropies. Status: DERIVED GIVEN the four write conditions (sudden, no opposing record, Gaussian, einselected). IAM's Law, step 1d (The maintained hold (the slow write)): held/lost = (x/2)/(1 - (1 - e^-x)/x); sudden x -> 0 kept = lost; the cell at x = 2M: odds 21.45, E_hold 3.066 kT, phi = 0.1464 ~ ln M/M. Status: DERIVED (identity). IAM's Law, step 2 (The price): each nat costs at least k_BT held and k_BT spent; k_BT ln 2 per bit is the floor, paid at the receiving surface's own T. Status: DERIVED (Landauer) for the floor. IAM's Law, step 2b (The funding): the payment is free energy degraded to heat, traced to the low-entropy start (ATP <- food <- sunlight; stars <- fusion and contraction). Status: DERIVED given the Past Hypothesis, which is a postulate of established physics too (gap 16, not closable). IAM's Law, step 5 (The arrow): per record, beta W_diss = U/k_BT >= chi; the arrow lives in the dropped coordinate (the Koide phase); a record that drops delta cannot be inverted. Status: DERIVED GIVEN the low-entropy start.",
   "link": "4b. What sets each cell type's own healthy level",
   "outputs": [],
+  "reads_from": "molecules (each read followed CpG by CpG; needs a molecule file)",
   "records": [],
   "report_section": "",
   "tools": []
