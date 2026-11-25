@@ -272,8 +272,74 @@
      ]
     ],
     "name": "IAM-A C-Score on the globe"
+   },
+   {
+    "fields": [
+     [
+      "IAM's name",
+      "IAM-A C-Score, depth-free"
+     ],
+     [
+      "In the field's terms",
+      "Extra-binomial variation of the discordance rate between genomic regions (squared coefficient of variation; overdispersion parameter)"
+     ],
+     [
+      "Definition",
+      "The squared coefficient of variation of the held-error rate between the globe's regions, estimated by the method of moments: each region's squared departure from its expected losses, less the binomial counting variance, over the squared expected losses."
+     ],
+     [
+      "What it does",
+      "It says how much the loss rate itself differs from region to region, after removing the counting noise; unlike the C-Score it does not grow when a library is read more deeply."
+     ],
+     [
+      "Why the instrument needs it",
+      "The C-Score compares the spread between regions to counting noise alone, so the same biology reads higher in a deeper library (correlation with depth +0.76 over 42 never-used libraries). rho removes the counting term: over 205 healthy libraries its correlation with depth is +0.02, and 80 % of its variance is between cell types."
+     ],
+     [
+      "How it is obtained or computed",
+      "Per region, the squared difference between the counted held errors and the errors expected at the sample's own pooled held error, less the binomial variance, summed and divided by the summed squared expected errors."
+     ],
+     [
+      "Where it is read",
+      "Computed per block of consecutive tiles across the genome, pooled over roughly 20,000 regions (development.genome_globe.iama_cscore.C); not a single-locus reading."
+     ],
+     [
+      "Where IAM's Law enters",
+      "Its law_part is IAM's Law, link 1d, long form section 1d ('the hold is the same rule, slow: the slow-write rule'). That section derives held/lost = (x/2)/(1-(1-e^{-x})/x) for a slow write, with the cell's restore at x = w = 2M = 41.9, giving odds 21.45, E_hold = 3.066 kT, and phi = 0.1464 ≈ ln M/M. Status given for that link: 'identity confirmed symbolically on GitHub (run 44662887227; sudden limit odds = 1)'; open item noted there is that the horizon's held share of 1 as the adiabatic limit (x→∞) still needs its own mapping of x."
+     ],
+     [
+      "Long-form section",
+      "link 1d: long form section 1d"
+     ],
+     [
+      "Healthy value and how it is set",
+      "Healthy range per cell type (80 % of its variance is between types), from healthy libraries read the same way; owed with the held-out pass."
+     ],
+     [
+      "Where its value comes from",
+      "computed by the chain from the sample's molecules and its references"
+     ],
+     [
+      "Its setting on IAM's Law Sphere",
+      "a reading, not a setting (the lever map shows which settings move it)"
+     ],
+     [
+      "Lever range (what moves, by how much)",
+      "open: not written yet"
+     ],
+     [
+      "Limits and what is open",
+      "Design finding 11-20: C = 2.17 uses ONE pooled held error for all ~20,000 regions; the null spread is sqrt(2/20147) = 0.010, so C mostly measures ordinary healthy differences between regions rather than true clumping (the statistic's own docstring calls this 'clustering, or healthy differences between regions'). Two fixes are proposed but not yet done: Fix 1, save region counts in the bundle so a band can come from the atlas libraries in the full run; Fix 2, score each region against its own expected held error from IAM-A's line at that region's loose share (self-reference, no atlas), keeping the pooled form beside it."
+     ],
+     [
+      "Credit",
+      "Method of moments for extra-binomial variation: Williams D.A. (1982) Extra-binomial variation in logistic linear models, Applied Statistics 31:144-148, doi 10.2307/2347977. IAM (this work): its use on held errors over the globe's regions."
+     ]
+    ],
+    "name": "IAM-A C-Score on the globe, depth-free (rho)"
    }
   ],
+  "reads_from": "molecules (each read followed CpG by CpG; needs a molecule file) (the genome globe's per-region counts of held molecules)",
   "records": [
    {
     "fields": [

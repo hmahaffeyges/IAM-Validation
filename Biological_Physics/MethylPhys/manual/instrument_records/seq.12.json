@@ -859,6 +859,7 @@
     "name": "Met-A shift per 1 % loss"
    }
   ],
+  "reads_from": "counts per CpG (methylated and unmethylated reads at each CpG; a molecule file is counted into them, and arrays or per-CpG files supply them directly)",
   "records": [
    {
     "fields": [
@@ -933,19 +934,19 @@
       "counted expectation (2026-11-20); held-out passes"
      ],
      [
-      "Why three readings?",
-      "They answer different questions: has this cell type's identity record moved (sorted cell), which cell in a mixture moved (each cell), has the sample as a whole departed (whole sample). They use different sites and expectations, so they can differ on one library.",
-      "METAA_SEQ_READINGS (SOP and Decoder)"
+      "Some healthy libraries read high on Met-A. Is the healthy range wrong?",
+      "No. The atlas. 2023, Supplementary Tables S1 and S10, independent of our Deconvolver). The healthy libraries that read high are the less pure sorts (about 77 to 85 % of the intended cell) or tissue collected during surgery for another condition (each donor's background is in the ). On libraries the ). Met-A falls as purity rises (correlation about -0.4 to -0.5).",
+      "findings held-out pass 10"
      ],
      [
-      "How is Met-A's healthy range set?",
-      "Not by a fixed number: 1 is the middle and each type's width is its held-out person-to-person spread with Student's t coverage (GUM). The bars from the held-out pass with the tare are being measured.",
-      "the 2026-11-07 rule; pass 8 and pass 9"
+      "Why would impurity raise Met-A if the Deconvolver accounts for the cells it finds?",
+      "Met-A weights each site by how far its healthy level sits from one half, and entropy rises steeply near fully marked and fully unmarked sites. A few percent of another cell, too small for the Deconvolver to report, therefore adds disorder at exactly the sites Met-A weights most. Planted mixtures measured it: an uncounted 5 % of another cell raised Met-A by about 0.08, while mixtures the Deconvolver sees read correctly.",
+      "findings"
      ],
      [
-      "Were the healthy references ever used to test themselves?",
-      "No: every atlas library is read against the other, sealed donor half, and never-used libraries are kept for the out-of-sample check.",
-      "sealed donor halves; never-used GSE186458 libraries"
+      "My sample reads high on Met-A. How do I tell impurity from a real change?",
+      "The report gives each flag a cause check: the Deconvolver's shares and the share it left out, the sample's purity if you supply it, each cell's own Met-A beside the whole sample, and whether the self-referenced instruments (IAM-A and the other molecule readings, which do not use the atlas) also depart. Impurity raises Met-A without moving the self-referenced readings; a change in the cells' own copying moves both.",
+      "RS50; finding"
      ]
     ],
     "status": "development; never commissioned on sequencing (bars from held-out pass 9 owed)"

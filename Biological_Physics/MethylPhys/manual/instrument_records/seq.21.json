@@ -12,6 +12,7 @@
   "law": "Not the law: a chain rule.",
   "link": "21. Candidates (catalogue): territory contrast; plasma fragment tail",
   "outputs": [],
+  "reads_from": "candidates: set when built (the plasma fragment tail would need molecules with their fragment ends)",
   "records": [],
   "report_section": "",
   "tools": []
