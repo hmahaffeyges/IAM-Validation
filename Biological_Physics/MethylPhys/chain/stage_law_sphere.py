@@ -162,7 +162,8 @@ def reading(C, ref, shares, loose_share, conv=None, card=None):
     the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers)."""
     import stage_info_sphere as IS
     T = ref["table"]; cells = ref["cells"]; u = T["unit"].to_numpy()
-    s = {c: float(v) for c, v in (shares or {}).items() if c in cells and v and v > 0}; tot = sum(s.values())
+    import stage_metaa_atlas as _SA   # edit 248: identification-only cells (megakaryocytes) are never part of the healthy expectation
+    s = {c: float(v) for c, v in (shares or {}).items() if c in cells and v and v > 0 and c not in _SA.ID_ONLY}; tot = sum(s.values())
     if not s: return {"status": "NOT_RUN", "reason": "no cell share in the reference"}, None
     s = {c: v / tot for c, v in s.items()}
     card = card_of(card) if not isinstance(card, dict) or set(card) != set(CARD) else card
@@ -239,7 +240,10 @@ def save_counts(path, C, ref, shares, loose_share, conv=None, sample=""):
     """Edit 207: the sample's per-unit molecule counts on the sphere's units, with its shares and loose share, so any card can be read again
     in seconds without the molecule file (count once, evaluate many)."""
     u = ref["table"]["unit"].to_numpy()
-    np.savez_compressed(path, unit=u, **{k: C[k][u].astype(np.float32) for k in COUNT_KEYS},
+    try: uu = np.asarray(json.load(open(os.path.join(REF_DIR, "unused_islands_v1.json"), encoding="utf-8"))["units"], int)   # edit 248: the far islands too
+    except Exception: uu = np.zeros(0, int)
+    np.savez_compressed(path, unit=u, uu_unit=uu, **{"uu_" + k: C[k][uu].astype(np.float32) for k in ("meth_a", "calls_a", "meth_b", "calls_b")},
+                        **{k: C[k][u].astype(np.float32) for k in COUNT_KEYS},
                         meta=np.array(json.dumps(dict(shares=shares, loose_share=loose_share, conv=conv, sample=sample))))
 def load_counts(path, ref):
     """The saved counts, laid back onto unit indexes as count_pat_units returns them; and the saved shares, loose share, conversion."""
@@ -358,7 +362,8 @@ def unused_islands(C, shares, conv=None, q_ref=None):
     J = json.load(open(os.path.join(REF_DIR, "unused_islands_v1.json"), encoding="utf-8"))
     out = dict(status="OK", label="DEVELOPMENT - not commissioned", basis=J.get("basis"), islands=len(J["units"]), off_array=len(J["off_array"]))
     cv = CONV_DEFAULT if conv is None else float(conv); u_law = (1 / (1 + D_SELECT)) * (1 - ERASER_CLEAN); u_law = u_law + cv * (1 - u_law)
-    S = {c: float(w) for c, w in (shares or {}).items() if w and c in J["atlas_stray_by_type"]}; tw = sum(S.values())
+    import stage_metaa_atlas as _SA   # edit 248
+    S = {c: float(w) for c, w in (shares or {}).items() if w and c in J["atlas_stray_by_type"] and c not in _SA.ID_ONLY}; tw = sum(S.values())
     e_atlas = sum(w * J["atlas_stray_by_type"][c] for c, w in S.items()) / tw if tw > 0.5 else None
     for name, ids in (("all", J["units"]), ("off_array", J["off_array"])):
         ids = np.asarray(ids, int); m = float((np.asarray(C["meth_a"], float)[ids] + np.asarray(C["meth_b"], float)[ids]).sum())

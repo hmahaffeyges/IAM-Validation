@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1811,
+   "lines": 1812,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -363,9 +363,9 @@
      "function": "main",
      "name": "main",
      "line": 672,
-     "end": 1808,
+     "end": 1809,
      "args": [],
-     "lines": 1137,
+     "lines": 1138,
      "doc": "",
      "constants": [
       "BIO",
@@ -397,8 +397,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1070,
-     "end": 1074,
+     "line": 1071,
+     "end": 1075,
      "args": [
       "r"
      ],
@@ -414,8 +414,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1305,
-     "end": 1312,
+     "line": 1306,
+     "end": 1313,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -427,8 +427,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1728,
-     "end": 1729,
+     "line": 1729,
+     "end": 1730,
      "args": [
       "b",
       "it",
@@ -9856,7 +9856,7 @@
   },
   {
    "file": "stage_law_sphere.py",
-   "lines": 374,
+   "lines": 379,
    "functions": [
     {
      "file": "stage_law_sphere.py",
@@ -10046,7 +10046,7 @@
      "function": "reading",
      "name": "reading",
      "line": 160,
-     "end": 234,
+     "end": 235,
      "args": [
       "C",
       "ref",
@@ -10055,7 +10055,7 @@
       "conv",
       "card"
      ],
-     "lines": 75,
+     "lines": 76,
      "doc": "One sample on IAM's Law Sphere. C: count_pat_units output; ref: load_ref(); shares: {type: share} from the Deconvolver (types outside the reference are left out and the rest renormalised); loose_share: IAM-A's. Returns (record, per-unit layers).",
      "constants": [
       "CARD",
@@ -10072,8 +10072,8 @@
      "file": "stage_law_sphere.py",
      "function": "reading.summ",
      "name": "summ",
-     "line": 201,
-     "end": 224,
+     "line": 202,
+     "end": 225,
      "args": [
       "m"
      ],
@@ -10087,8 +10087,8 @@
      "file": "stage_law_sphere.py",
      "function": "save_counts",
      "name": "save_counts",
-     "line": 238,
-     "end": 243,
+     "line": 239,
+     "end": 247,
      "args": [
       "path",
       "C",
@@ -10098,20 +10098,23 @@
       "conv",
       "sample"
      ],
-     "lines": 6,
+     "lines": 9,
      "doc": "Edit 207: the sample's per-unit molecule counts on the sphere's units, with its shares and loose share, so any card can be read again in seconds without the molecule file (count once, evaluate many).",
      "constants": [
-      "COUNT_KEYS"
+      "COUNT_KEYS",
+      "REF_DIR"
      ],
-     "data_files": [],
+     "data_files": [
+      "unused_islands_v1.json"
+     ],
      "traced_calls": {}
     },
     {
      "file": "stage_law_sphere.py",
      "function": "load_counts",
      "name": "load_counts",
-     "line": 244,
-     "end": 249,
+     "line": 248,
+     "end": 253,
      "args": [
       "path",
       "ref"
@@ -10128,8 +10131,8 @@
      "file": "stage_law_sphere.py",
      "function": "sweep",
      "name": "sweep",
-     "line": 250,
-     "end": 258,
+     "line": 254,
+     "end": 262,
      "args": [
       "C",
       "ref",
@@ -10151,8 +10154,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit",
      "name": "fit",
-     "line": 259,
-     "end": 271,
+     "line": 263,
+     "end": 275,
      "args": [
       "C",
       "ref",
@@ -10177,8 +10180,8 @@
      "file": "stage_law_sphere.py",
      "function": "fit.best",
      "name": "best",
-     "line": 264,
-     "end": 267,
+     "line": 268,
+     "end": 271,
      "args": [
       "get"
      ],
@@ -10192,8 +10195,8 @@
      "file": "stage_law_sphere.py",
      "function": "departure",
      "name": "departure",
-     "line": 282,
-     "end": 292,
+     "line": 286,
+     "end": 296,
      "args": [
       "key",
       "Lay"
@@ -10210,8 +10213,8 @@
      "file": "stage_law_sphere.py",
      "function": "texture",
      "name": "texture",
-     "line": 293,
-     "end": 300,
+     "line": 297,
+     "end": 304,
      "args": [
       "X",
       "v",
@@ -10228,8 +10231,8 @@
      "file": "stage_law_sphere.py",
      "function": "spec",
      "name": "spec",
-     "line": 301,
-     "end": 326,
+     "line": 305,
+     "end": 330,
      "args": [
       "rec",
       "Lay",
@@ -10249,8 +10252,8 @@
      "file": "stage_law_sphere.py",
      "function": "type_positions",
      "name": "type_positions",
-     "line": 329,
-     "end": 331,
+     "line": 333,
+     "end": 335,
      "args": [],
      "lines": 3,
      "doc": "Each healthy type's measured position on IAM-A's derived line (type_positions_v1.json; measured, not derived).",
@@ -10266,8 +10269,8 @@
      "file": "stage_law_sphere.py",
      "function": "hold_alarm",
      "name": "hold_alarm",
-     "line": 332,
-     "end": 351,
+     "line": 336,
+     "end": 355,
      "args": [
       "C",
       "ref",
@@ -10287,15 +10290,15 @@
      "file": "stage_law_sphere.py",
      "function": "unused_islands",
      "name": "unused_islands",
-     "line": 354,
-     "end": 373,
+     "line": 358,
+     "end": 378,
      "args": [
       "C",
       "shares",
       "conv",
       "q_ref"
      ],
-     "lines": 20,
+     "lines": 21,
      "doc": "Stray writing at the islands written in no healthy cell type (unused_islands_v1.json, measured from the IAM Sequencing Atlas). Every methylated call there is a stray. Returns the sample's pooled rate, the law's stray level as read (writer 1/(1 + D) after the eraser's clean-up, plus conversion failure) and the atlas's healthy level in the sample's own cell shares, each as a ratio with z from counti",
      "constants": [
       "CONV_DEFAULT",

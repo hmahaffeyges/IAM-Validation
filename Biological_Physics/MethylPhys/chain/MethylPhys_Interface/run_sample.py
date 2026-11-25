@@ -216,7 +216,7 @@ def _metaa_atlas(a, b):
         if getattr(a, "dev_seq_donors", None): import stage_seq_atlas as _SQdf; _SQdf.DONORS_FILE = a.dev_seq_donors   # 2026-10-31: a constructed donor file
         if getattr(a, "dev_input_floors", None): import stage_seq_atlas as _SQff; _SQff.FLOORS_FILE = a.dev_input_floors   # 2026-11-02: a constructed floors file
         if getattr(a, "dev_floor_equal", False): import stage_metaa_atlas as _SAfe; _SAfe.FLOOR_EQUAL = True   # 2026-11-02: the common library floor
-        if getattr(a, "dev_floor_class", False): import stage_metaa_atlas as _SAfc; _SAfc.FLOOR_CLASS = True   # 2026-11-07: the floor counted at the islands read
+        import stage_metaa_atlas as _SAfc; _SAfc.FLOOR_CLASS = not getattr(a, "no_floor_class", False)   # edit 248: on for sequencing (was --dev-floor-class, 2026-11-07)
         if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc; _SAlc.LINE_CENSORED = True   # 2026-11-07
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
@@ -781,6 +781,7 @@ def main():
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-law-sphere", action="store_true", help="DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain")
     ap.add_argument("--law-set", action="append", default=None, metavar="KEY=VALUE", help="IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held=\"law\", by_type={...}); keys in stage_law_sphere.CARD")
+    ap.add_argument("--no-floor-class", action="store_true", help="development: read the islands without the islands floor route (on for sequencing since edit 248)")
     ap.add_argument("--no-lab-correction", action="store_true", help="development: read without the laboratory correction from the sample's own reads (edit 246)")
     ap.add_argument("--law-card", default=None, metavar="FILE.json", help="IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD)")
     ap.add_argument("--law-counts-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit")
@@ -1000,7 +1001,7 @@ def main():
             import stage_seq_atlas as _SQf0, stage_metaa_atlas as _SAf0; _lf0 = _SQf0.library_floor(_vb, _vc)
             _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
             if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
-            if getattr(a, "dev_floor_class", False): _SAf0.FLOOR_CLASS = True   # 2026-11-07
+            _SAf0.FLOOR_CLASS = not getattr(a, "no_floor_class", False)   # edit 248: on for every sequencing input
             if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc; _SAlc.LINE_CENSORED = True   # 2026-11-07
             if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
             if getattr(a, "dev_seq_copies", False):   # 2026-11-06 (DEV-ONE-DRAW-01): the sample's own copy process, before any reading
