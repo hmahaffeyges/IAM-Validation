@@ -752,6 +752,7 @@ def main():
     ap.add_argument("--pat", default=None, help="chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--dev-allow-partial-genome", action="store_true", help="development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged")
     ap.add_argument("--dev-v21-cells", default=None, metavar="CELLS", help="DEVELOPMENT (edit 268): on sequencing, read these cells (comma-separated; underscores for spaces) on IAM-Atlas v2.1 in sequencing units even where the IAM Sequencing Atlas holds them: the agreement test before the v2.1 fallback is trusted")
+    ap.add_argument("--dev-v21-conv", default=None, choices=("linear", "bounded", "none"), help="DEVELOPMENT (edit 269): how an IAM-Atlas v2.1 level is put in sequencing units for Met-A and the readings built on it: linear (default), bounded (the adopted transfer) or none")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
     ap.add_argument("--iama-ref-table", default=None, help="CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
@@ -1405,6 +1406,7 @@ def main():
                     sha256={f: _hl.sha256(open(os.path.join(_hd, f), "rb").read()).hexdigest() for f in sorted(os.listdir(_hd)) if f.endswith(".parquet")},
                     about=(json.load(open(os.path.join(_hd, f"array_sites_half{a.dev_seq_ref_half}.json"))) if os.path.exists(os.path.join(_hd, f"array_sites_half{a.dev_seq_ref_half}.json")) else None))
             if getattr(a, "dev_v21_cells", None): _SAd.V21_FORCE = {x.strip().replace("_", " ") for x in a.dev_v21_cells.split(",") if x.strip()}   # edit 268
+            if getattr(a, "dev_v21_conv", None): _SAd.V21_CONV = a.dev_v21_conv   # edit 269
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["v21_levels"] = _SAd.V21_USED   # edit 268: the cells read on v2.1, filled as the readings run
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",

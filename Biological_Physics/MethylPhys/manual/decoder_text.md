@@ -4537,3 +4537,6 @@ Edit 268: whether IAM-Atlas v2.1 holds a cell; a cell neither atlas holds (megak
 
 ### stage_metaa_atlas.py::_col_v21
 Edit 268: one cell's IAM-Atlas v2.1 column on the array scale, whichever atlas is in use; _col puts it in sequencing units (sequencing_term_v1) for a found cell the IAM Sequencing Atlas lacks (V21_FALLBACK, on) or a shared cell named by the development option (V21_FORCE), and records the cell in V21_USED (bundle field v21_levels). Array sites only: no far islands for such a cell.
+
+### stage_metaa_atlas.py::_bounded
+Edit 269: the adopted bounded transfer of IAM-Atlas v2.1 (transfer_bounded_v21.json: monotone piecewise-linear, 42 knots, 22 cells; finding F108), an array level to a sequencing level. seq_units uses it when V21_CONV is 'bounded' (development option); the default 'linear' is sequencing_term_v1; 'none' passes levels through, as the Deconvolver reads.

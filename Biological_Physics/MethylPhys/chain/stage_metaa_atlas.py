@@ -184,10 +184,24 @@ def specific_sites(cell, others, delta):
     _cache[k] = out; return out
 
 N_EXACT = 400   # expected_H_counts: above this many reads the k-of-n bias is below 0.2 % of H and H(p) is used (stated)
+V21_CONV = "linear"   # edit 269: linear (sequencing_term_v1) | bounded (transfer_bounded_v21.json, F108) | none; development choice for the agreement test
+_BOUNDED = None
+
+def _bounded(v):
+    """Edit 269: the adopted bounded transfer (monotone piecewise-linear, 42 knots, array level to sequencing level), F108."""
+    global _BOUNDED
+    if _BOUNDED is None:
+        B = json.load(open(os.path.join(HERE, "..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_bounded_v21.json"))); _BOUNDED = (np.asarray(B["knots_x"], float), np.asarray(B["knots_y"], float))
+    return np.interp(np.asarray(v, dtype="float64"), *_BOUNDED)
+
 def seq_units(p):
     """2026-10-28 (DEV-METAA-ATLAS-CURVE-01): an atlas level (array scale) in sequencing units, by the conversion the atlas's own build measured
     for the published sequencing atlas (sequencing_term_v1: a + b x level), clipped to 0 to 1. Used for every comparison of a sequencing sample
     against the atlas: its unmarked sites sit near 0.055 on the array scale, where sequencing reads 0."""
+    if V21_CONV == "none": return pd.Series(p, dtype="float64") if isinstance(p, pd.Series) else np.asarray(p, dtype="float64")
+    if V21_CONV == "bounded":
+        if isinstance(p, pd.Series): q = pd.Series(p, dtype="float64"); return pd.Series(np.where(q.notna(), _bounded(q.fillna(0).to_numpy()), np.nan), index=q.index)
+        return _bounded(p)
     return (pd.Series(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"]).clip(0, 1) if isinstance(p, pd.Series) else np.clip(np.asarray(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"], 0, 1)
 
 COPIES = None   # 2026-11-06 (development, run_sample.py --dev-seq-copies): the sample's own copy distribution (stage_seq_copies.copy_distribution);
