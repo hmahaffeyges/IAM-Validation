@@ -1446,6 +1446,11 @@ def main():
                 _v21["commissioning"] = {"status": "DEVELOPMENT", "use": "which cells are present in a sequenced sample, against IAM-Atlas v2.1 (79 types)",
                                          "note": "presence only: every score stays on the IAM Sequencing Atlas; under test on known answers"}
                 _v21["purpose"] = "presence"; o["cell_shares_v21"] = _v21
+                try:
+                    import stage_metaa_atlas as _SAf   # edit 270: the v2.1-only cells found here may take v2.1 levels
+                    _SAf.V21_FOUND = {c["cell"] for c in (_v21.get("cells") or []) if (c.get("share") or 0) >= 0.01 and _SAf._in_v21(c["cell"]) and not (_SAf.SEQ_ATLAS and _SAf._in_seq_atlas(c["cell"]))}
+                    _v21["v21_only_found"] = sorted(_SAf.V21_FOUND)
+                except Exception as _e270: _v21["v21_only_found"] = f"not set: {type(_e270).__name__}"
                 _f21 = [c["cell"] for c in (_v21.get("cells") or []) if (c.get("share") or 0) >= 0.01]
                 _seqn = {c["cell"] for c in (o.get("cell_shares") or {}).get("cells", []) if (c.get("share") or 0) >= 0.01}
                 print("Stage D21 (development): also against IAM-Atlas v2.1 for which cells are present: " + ", ".join(f"{c['cell']} {c['share']:.3f}" for c in (_v21.get("cells") or []) if (c.get("share") or 0) >= 0.01)

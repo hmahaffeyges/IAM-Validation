@@ -1760,6 +1760,11 @@
    "chain_sha": "999c3fd263320683b61db7990d253fd51a410c59cc583752204b694eb284a814",
    "first_commit_after": "1ae76e45",
    "date": "2026-11-26"
+  },
+  {
+   "chain_sha": "a048961a50c7d0ebe5757f15f53ac1eadbbbc9cdb0d6246ef4156b6d29b530f5",
+   "first_commit_after": "f8c5b996",
+   "date": "2026-11-26"
   }
  ]
 }
