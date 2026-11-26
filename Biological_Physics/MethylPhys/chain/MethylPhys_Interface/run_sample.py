@@ -918,9 +918,9 @@ def main():
             with _gzc.open(a.pat, "rb") as _fhc:
                 while _fhc.read(1 << 24): pass
         except (EOFError, OSError) as _ec:
-            _why = f"the molecule file is damaged or incomplete ({type(_ec).__name__}: {str(_ec)[:160]}); nothing was read from it"
-            print("  INTAKE_REFUSED - " + _why, flush=True)
-            if a.bundle: json.dump({"status": "INTAKE_REFUSED", "id": a.id, "reason": _why, "file": os.path.basename(a.pat), "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1)
+            _dmg = f"the molecule file is damaged or incomplete ({type(_ec).__name__}: {str(_ec)[:160]}); nothing was read from it"
+            print("  INTAKE_REFUSED - " + _dmg, flush=True)
+            if a.bundle: json.dump({"status": "INTAKE_REFUSED", "id": a.id, "reason": _dmg, "file": os.path.basename(a.pat), "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1)
             sys.exit(3)
     seq = bool(a.pat or a.site_table or a.bam)
     # 2026-11-07 (the Deconvolver decides what is in a sample; stage_0_intake.LABEL_RULE): a cell set by the operator is recorded as such, and on a
