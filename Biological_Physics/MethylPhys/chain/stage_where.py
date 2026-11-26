@@ -84,7 +84,9 @@ def read(C, shares):
     for nm, e, o in (("loss", "err", "opp"), ("gain", "gerr", "gopp")):
         obs = np.zeros(len(u)); opp = np.zeros(len(u)); obs[inr] = np.asarray(C[e])[u[inr]]; opp[inr] = np.asarray(C[o])[u[inr]]
         Rt = R[nm].astype(np.float64); W = np.where(np.isfinite(Rt), w[:, None], 0.0); r = np.nansum(np.nan_to_num(Rt) * W, 0) / np.maximum(W.sum(0), 1e-12)
-        s = float(np.asarray(C[e]).sum() / max(np.asarray(C[o]).sum(), 1)); E = opp * s * r; m = inr & (W.sum(0) > 0) & (E > 0)
+        # the sample's own rate over the reference's units only, as the reference and its measured null were built (edit 266; edit 259 took it
+        # over every unit the Law Sphere counts, about 592,000, which lowered the gain side's rate and the expected counts)
+        ref_u = inr & (W.sum(0) > 0); s = float(obs[ref_u].sum() / max(opp[ref_u].sum(), 1)); E = opp * s * r; m = ref_u & (E > 0)
         bins = R["null"]["bins"][nm]; p = np.ones(len(u)); p[m] = pval(obs[m], E[m], bins)
         keep, qv, cut = bh(p[m]); idx = np.where(m)[0]; P = idx[keep]
         z = (obs[P] - E[P]) / np.sqrt(E[P]); order = np.argsort(-z); qm = dict(zip(idx, qv))

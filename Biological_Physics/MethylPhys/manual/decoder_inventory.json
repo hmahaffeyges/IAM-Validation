@@ -10449,7 +10449,7 @@
   },
   {
    "file": "stage_where.py",
-   "lines": 127,
+   "lines": 129,
    "functions": [
     {
      "file": "stage_where.py",
@@ -10529,12 +10529,12 @@
      "function": "read",
      "name": "read",
      "line": 76,
-     "end": 94,
+     "end": 96,
      "args": [
       "C",
       "shares"
      ],
-     "lines": 19,
+     "lines": 21,
      "doc": "C: the Law Sphere's counts by unit index (err, opp, gerr, gopp); shares: {cell type: share} from the Deconvolver. Returns, per side, the units tested, the places called (unit, observed, expected, z, q, p), the p cut and the detection limit.",
      "constants": [
       "FDR"
@@ -10546,8 +10546,8 @@
      "file": "stage_where.py",
      "function": "name",
      "name": "name",
-     "line": 97,
-     "end": 110,
+     "line": 99,
+     "end": 112,
      "args": [
       "out"
      ],
@@ -10567,8 +10567,8 @@
      "file": "stage_where.py",
      "function": "run",
      "name": "run",
-     "line": 113,
-     "end": 126,
+     "line": 115,
+     "end": 128,
      "args": [
       "C",
       "shares",

@@ -76,7 +76,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
 | `stage_law_sphere.py` | 381 | 24 | 0 | 0 |
 | `stage_conv_corr.py` | 65 | 6 | 0 | 0 |
-| `stage_where.py` | 127 | 7 | 0 | 0 |
+| `stage_where.py` | 129 | 7 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -6531,21 +6531,21 @@ Edit 259: the Locator's detection limit for this sample: at the median expected 
 
 ### `stage_where.py::read`
 
-Edit 259: reads both sides of every Law Sphere unit from the Law Sphere's own counts (loss: held errors err of opp; gain: stray marks gerr of gopp). Expected count E = opp x s x r: s the sample's own rate on that side, r the unit's healthy relative rate mixed from the cell types at the Deconvolver's shares (types without a healthy reference, such as megakaryocytes, drop out and the rest are renormalized).
+Edit 259: reads both sides of every Law Sphere unit from the Law Sphere's own counts (loss: held errors err of opp; gain: stray marks gerr of gopp). Expected count E = opp x s x r: s the sample's own rate on that side, r the unit's healthy relative rate mixed from the cell types at the Deconvolver's shares (types without a healthy reference, such as megakaryocytes, drop out and the rest are renormalized). Edit 266: the sample's own rate s is taken over the reference's units only, as the reference and its measured null were built.
 
-*Code:* `stage_where.py` line 76 (19 lines) · arguments: C, shares · calls: not called on the traced runs · constants read: `FDR`
+*Code:* `stage_where.py` line 76 (21 lines) · arguments: C, shares · calls: not called on the traced runs · constants read: `FDR`
 
 ### `stage_where.py::name`
 
 Edit 259: names each called place from the positions reference v2 (where_units_v2.parquet): chromosome, hg19 start and end, kind (island or 50-CpG block), CpG and array-probe counts, island, nearest gene, relation and distance to its start, promoter and gene-body genes, CpG context; reads only the rows of the called units. The columns printed are NAME_COLS.
 
-*Code:* `stage_where.py` line 97 (14 lines) · arguments: out · calls: not called on the traced runs · constants read: `NAME_COLS`, `POSITIONS`, `REF_DIR` · files named: `pyarrow.parquet`
+*Code:* `stage_where.py` line 99 (14 lines) · arguments: out · calls: not called on the traced runs · constants read: `NAME_COLS`, `POSITIONS`, `REF_DIR` · files named: `pyarrow.parquet`
 
 ### `stage_where.py::run`
 
 Edit 259: the Locator in the one button, after the Law Sphere: read, name, write the full place list beside the report (<report>_where_places.csv) and keep the first TOP_IN_BUNDLE (300) places per side in the bundle block 'where', with each side's units tested, places called, p cut and detection limit, and the reference files read. Switched off with --no-locator.
 
-*Code:* `stage_where.py` line 113 (14 lines) · arguments: C, shares, places_csv · calls: not called on the traced runs · constants read: `NULL`, `POSITIONS`, `RATES`, `TOP_IN_BUNDLE`
+*Code:* `stage_where.py` line 115 (14 lines) · arguments: C, shares, places_csv · calls: not called on the traced runs · constants read: `NULL`, `POSITIONS`, `RATES`, `TOP_IN_BUNDLE`
 
 ### `stage_q0_intake.py::sex_reading`
 
