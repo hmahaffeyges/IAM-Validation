@@ -6580,6 +6580,9 @@ Edit 269: the adopted bounded transfer of IAM-Atlas v2.1 (transfer_bounded_v21.j
 ### Edit 271 (run_sample.main, sequencing)
 On a sequenced mixture, Stage Q0's file checks and per-chromosome counts run (only IAM-A is turned away), so the sex reading reads mixtures too. The IAM-Atlas v2.1 presence reading puts the sample's sequencing levels on v2.1's array scale by the inverse of the adopted bounded transfer (transfer_bounded_v21.json) before the IAM-Deconvolver reads them; the reading on the levels as they are is kept as cell_shares_v21_unconverted.
 
+### Edit 273 (stage_law_sphere.save_counts)
+The saved per-unit counts keep every Law Sphere unit (592,067 over the 28,217,448 CpGs), not only the 237,850 the sphere uses, so the Locator's reference can be built over every place, including places alike in every healthy cell type. No reading changes.
+
 *Code:* `stage_metaa_atlas.py` line 191 (6 lines) · arguments: v · calls: not called on the traced runs · constants read: `HERE`, `_BOUNDED` · files named: `transfer_bounded_v21.json`
 
 ## How the references are split and loaded

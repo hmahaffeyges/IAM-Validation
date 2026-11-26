@@ -241,7 +241,7 @@ COUNT_KEYS = ("err", "opp", "gerr", "gopp", "meth_a", "calls_a", "meth_b", "call
 def save_counts(path, C, ref, shares, loose_share, conv=None, sample=""):
     """Edit 207: the sample's per-unit molecule counts on the sphere's units, with its shares and loose share, so any card can be read again
     in seconds without the molecule file (count once, evaluate many)."""
-    u = ref["table"]["unit"].to_numpy()
+    u = np.arange(len(C["err"]), dtype=np.int64)   # edit 273: every unit the counter counts (592,067), not only the sphere's 237,850
     try: uu = np.asarray(json.load(open(os.path.join(REF_DIR, "unused_islands_v1.json"), encoding="utf-8"))["units"], int)   # edit 248: the far islands too
     except Exception: uu = np.zeros(0, int)
     np.savez_compressed(path, unit=u, uu_unit=uu, **{"uu_" + k: C[k][uu].astype(np.float32) for k in ("meth_a", "calls_a", "meth_b", "calls_b")},
