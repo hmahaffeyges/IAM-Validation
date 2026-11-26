@@ -4540,3 +4540,6 @@ Edit 268: one cell's IAM-Atlas v2.1 column on the array scale, whichever atlas i
 
 ### stage_metaa_atlas.py::_bounded
 Edit 269: the adopted bounded transfer of IAM-Atlas v2.1 (transfer_bounded_v21.json: monotone piecewise-linear, 42 knots, 22 cells; finding F108), an array level to a sequencing level. seq_units uses it when V21_CONV is 'bounded' (development option); the default 'linear' is sequencing_term_v1; 'none' passes levels through, as the Deconvolver reads.
+
+### Edit 271 (run_sample.main, sequencing)
+On a sequenced mixture, Stage Q0's file checks and per-chromosome counts run (only IAM-A is turned away), so the sex reading reads mixtures too. The IAM-Atlas v2.1 presence reading puts the sample's sequencing levels on v2.1's array scale by the inverse of the adopted bounded transfer (transfer_bounded_v21.json) before the IAM-Deconvolver reads them; the reading on the levels as they are is kept as cell_shares_v21_unconverted.

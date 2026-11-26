@@ -1442,7 +1442,12 @@ def main():
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
         if a._seqv and _dsr is not None:   # edit 267: which cells are present, also read against IAM-Atlas v2.1 (79 types), development
             try:
-                _v21 = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=True, seqref=None)
+                import numpy as _np71   # edit 271: the sample's sequencing levels on v2.1's array scale (inverse of the adopted bounded transfer, F108)
+                _TB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_bounded_v21.json")))
+                _bs = _pd.Series(beta, dtype="float64"); _ba = _pd.Series(_np71.interp(_bs.fillna(0).to_numpy(), _np71.asarray(_TB["knots_y"], float), _np71.asarray(_TB["knots_x"], float)), index=_bs.index).where(_bs.notna())
+                _v21 = V4.stage_d21(_ba, _panel(), sequencing=True, seqref=None); _v21["sample_levels"] = "on v2.1's array scale: inverse of the adopted bounded transfer (transfer_bounded_v21.json)"
+                _v21u = V4.stage_d21(_bs, _panel(), sequencing=True, seqref=None)
+                o["cell_shares_v21_unconverted"] = {"cells": [c for c in (_v21u.get("cells") or []) if (c.get("share") or 0) >= 0.01], "note": "the same reading on the sequencing levels as they are (before edit 271), kept for the presence test"}
                 _v21["commissioning"] = {"status": "DEVELOPMENT", "use": "which cells are present in a sequenced sample, against IAM-Atlas v2.1 (79 types)",
                                          "note": "presence only: every score stays on the IAM Sequencing Atlas; under test on known answers"}
                 _v21["purpose"] = "presence"; o["cell_shares_v21"] = _v21
@@ -1602,7 +1607,18 @@ def main():
             import stage_0_intake as _S0m; _mx = _S0m.mixture_check(o.get("cell_shares")); o["mixture_check"] = _mx
             if _mx.get("mixed"): _noq2 = _mx["refusal"]; _noq2c = "MIXED_SAMPLE"; print("Stage Q2: " + _noq2, flush=True)
         src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
-        if _noq2: o["iam_a_intake"] = {"stage": "Q0", "status": "refused", "refusal_code": _noq2c, "refusal": _noq2}
+        if _noq2:
+            o["iam_a_intake"] = {"stage": "Q0", "status": "refused", "refusal_code": _noq2c, "refusal": _noq2}
+            if a.pat:   # edit 271: the file checks and per-chromosome counts run on a mixture too; only IAM-A is turned away
+                import stage_q0_intake as Q0
+                print(f"Stage Q0: intake checks on {os.path.basename(a.pat)} (a mixture: IAM-A is not read; the file is still checked)", flush=True)
+                _q0m = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc)
+                o["iam_a_intake"].update(checks=[c for c in _q0m.get("checks", []) if c.get("step") != "Q0.7 specimen"], measured=_q0m.get("measured"))
+                _ff = [c for c in o["iam_a_intake"]["checks"] if c.get("result") == "REFUSED"]
+                if _ff: o["iam_a_intake"]["file_checks_failed"] = [f"{c['step']}: {c['value']}" for c in _ff]; print("  file checks failed: " + "; ".join(o["iam_a_intake"]["file_checks_failed"]), flush=True)
+                _sxr = Q0.sex_reading(((o.get("iam_a_intake") or {}).get("measured") or {}).get("per_chrom_molecules"), a.sex, a.age); o["sex_reading"] = _sxr
+                print(f"Stage Q0: sex read from the molecules: {_sxr.get('read_sex')} (chrX {_sxr.get('x_ratio')}, chrY {_sxr.get('y_ratio')} of the autosomes); declared {a.sex or 'not declared'}: {_sxr.get('check')}", flush=True)
+                if _sxr.get("check") == "MISMATCH": o.setdefault("flags", []).append("SEX_MISMATCH")
         elif a.pat:
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
