@@ -1769,8 +1769,13 @@ def main():
     o = _redact(o, _rtyped, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
     if _gf: o["geo_fetch"] = _gf
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
-    print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
-          f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
+    if getattr(a, "pat", None) or getattr(a, "counts", None) or o.get("sequencing_values"):   # edit 261: the sequencing summary line
+        _cs = sorted(((r["cell"], r["share"]) for r in ((o.get("cell_shares") or {}).get("cells") or [])), key=lambda x: -x[1])[:1]; _mw = o.get("met_a_whole") or {}; _wh = o.get("where") or {}
+        print(f"\n{sid}: main cell {(_cs[0][0] + ' ' + format(_cs[0][1], '.3f')) if _cs else 'none found'} | whole-sample Met-A {_mw.get('A')} | "
+              f"IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" + (f" | the Locator: {_wh['loss']['called']} loss and {_wh['gain']['called']} gain places" if _wh.get('status') == 'OK' else ""))
+    else:
+        print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
+              f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
     if a._full_chain: o["full_chain"] = a._full_chain
     if getattr(a, "_copies", None): o.setdefault("development", {})["copies"] = a._copies
     if getattr(a, "_seqc", None) is not None and getattr(a, "betas", None):   # 2026-10-29 (plan 35.30): the library floor of every sequenced sample, flagged
