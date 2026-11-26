@@ -65,6 +65,9 @@ def sequencing_reference(o):
     return changed
 
 METAA_SEQ_READINGS = '### The three Met-A readings on a sequenced sample, and why they can differ on one library\n\nMet-A asks whether a cell\'s methylation record has become more disordered than a healthy cell of the same type holds it (normalized methylation entropy against a cell-type-matched healthy reference). On a sequenced sample the chain reads it three ways. Each uses a different set of sites and a different healthy expectation, so on one library the three need not agree.\n\n| Reading | Sites read | Healthy expectation | Question it answers |\n|---|---|---|---|\n| Sorted-cell Met-A | The identity sites of the library\'s own cell type (Met-A\'s site rule on IAM-Atlas v2.1) | That type\'s healthy people in the IAM Sequencing Atlas: each person\'s expected disorder at the sample\'s own read depth, averaged over the people, so the differences between healthy people enter as they are | Has this cell type\'s identity record moved? |\n| Met-A for each cell in the mix | Each found cell\'s identity sites | The atlas mixed in the sample\'s own cell shares (IAM-Deconvolver) at those sites | In a mixed sample, which cell has moved? |\n| Whole-sample Met-A | Every IAM-Atlas v2.1 site, each weighted by how firmly a healthy sample of this mix holds it, \\|0.5 - e\\| | The atlas mixed in the sample\'s own cell shares, each type\'s level pooled over its healthy people | Has the sample as a whole departed? |\n\n**Why "whole sample" on a sorted library.** The name comes from blood, where a sample is a mix of cells. On a sorted library the same route still runs, with the IAM-Deconvolver\'s shares: most of the share goes to the library\'s own type and a few percent to close relatives (on a sorted heart-muscle library, for example, a few percent to lung epithelium and heart fibroblasts). Sorted-cell Met-A uses the library\'s own type only.\n\n**Status.** Whole-sample Met-A is development. On healthy atlas libraries never used to build the reference it reads below sorted-cell Met-A in most types; two causes are being tested (the pooled healthy expectation, and the mix weights on a sorted library), and the measurements are in the development log.\n'   # 2026-11-21 (edit 234): the three Met-A readings on sequencing, for the SOP, Decoder and report
+V21_FALLBACK = True   # edit 268: a found cell the IAM Sequencing Atlas lacks is read on IAM-Atlas v2.1 in sequencing units, flagged
+V21_FORCE = set()     # edit 268, development: shared cells read on v2.1 instead (the agreement test of design PRIVATE-V21SEQ)
+V21_USED = []         # edit 268: the cells read on v2.1 in this run (a list, so the bundle records it as JSON)
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
 SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule); "donors" reads sorted-cell Met-A donor by donor (donor_pair) and every column reading on the pooled level
 SEQ_COUNTED = False   # 2026-10-31: the counted-reference expectation (expected_H_counted) is off: its synthetic was not met (DEV_METAA_ATLAS_CURVE_01)
@@ -81,6 +84,9 @@ def _col(stem, cell):
     k = (stem, cell, SEQ_ATLAS)
     if k in _cache: return _cache[k]
     if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    if SEQ_ATLAS and (cell in V21_FORCE or (V21_FALLBACK and not _in_seq_atlas(cell) and _in_v21(cell))):   # edit 268: v2.1's column in sequencing units
+        V21_USED.append(cell) if cell not in V21_USED else None; v = _col_v21(stem, cell)
+        _cache[k] = (v * SEQ_TERM["b"]) if stem == "donor_sd" else seq_units(v); return _cache[k]
     if SEQ_ATLAS:   # 2026-10-30 (plan 35.30): a sequenced sample's in-mix readings from the IAM Sequencing Atlas's counted levels, same sites
         s = "donor_sd" if stem == "donor_sd" else "mu"   # the sequencing atlas counts one level per site; mu_lo and mu_hi read it too
         if s == "mu" and SEQ_LEVEL in ("pooled", "donors") and os.path.exists(os.path.join(SEQ_ATLAS, "meth_part1.parquet")):
@@ -106,6 +112,36 @@ def _col(stem, cell):
             u = pq.read_table(p, columns=[cell]).column(0).to_numpy(); v = u.astype("float64") / 1e4; v[u == NA] = np.nan
             _cache[k] = pd.Series(v, index=_cache["ids"]); return _cache[k]
     raise KeyError(f"'{cell}' is not a cell of IAM-Atlas v2.1")
+
+def _in_seq_atlas(cell):
+    """Edit 268: whether the IAM Sequencing Atlas folder in use holds this cell (its level files at v2.1's sites)."""
+    import pyarrow.parquet as pq
+    kk = ("in_seq", cell, SEQ_ATLAS)
+    if kk not in _cache:
+        names = set()
+        for t in ("meth", "mu"):
+            for part in (1, 2, 3):
+                p = os.path.join(SEQ_ATLAS, f"{t}_part{part}.parquet")
+                if os.path.exists(p): names |= set(pq.read_schema(p).names)
+        _cache[kk] = cell in names
+    return _cache[kk]
+
+def _in_v21(cell):
+    """Edit 268: whether IAM-Atlas v2.1 holds this cell (megakaryocytes, for one, it does not: no level from either atlas)."""
+    import pyarrow.parquet as pq
+    kk = ("in_v21", cell)
+    if kk not in _cache: _cache[kk] = any(cell in pq.read_schema(os.path.join(ATLAS, f"mu_part{part}.parquet")).names for part in (1, 2, 3))
+    return _cache[kk]
+
+def _col_v21(stem, cell):
+    """Edit 268: one cell's IAM-Atlas v2.1 column (array scale), whatever atlas is in use."""
+    import pyarrow.parquet as pq
+    for part in (1, 2, 3):
+        p = os.path.join(ATLAS, f"{stem}_part{part}.parquet")
+        if cell in pq.read_schema(p).names:
+            u = pq.read_table(p, columns=[cell]).column(0).to_numpy(); v = u.astype("float64") / 1e4; v[u == NA] = np.nan
+            return pd.Series(v, index=_cache["ids"])
+    raise KeyError(f"'{cell}' is in neither atlas")
 
 def width(cell):
     """The healthy width at each site: the person-to-person spread and the atlas's own uncertainty, combined."""
