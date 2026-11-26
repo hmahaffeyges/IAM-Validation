@@ -382,7 +382,7 @@ Every Python file in `chain/` and `chain/MethylPhys_Interface/`, with the first 
 
 ## 7c. How the references are split and loaded
 
-Generated from the reference files when this document is built. `chain/Runtime Matrices/` holds 784.2 MB; `atlas/` holds 512.8 MB. A copy of the repository carries every reference. A table that holds cell types as columns can be read for the cell types a sample needs only; the last column lists the readers whose code reads selected columns of a table. A large table is split into parts so that each file stays under the repository's 100 MB file limit, in one of two ways, read from the files: split by cell types (every part holds every site for a group of cell types, so a reader opens only the parts holding the cell types it needs) or split by rows (every part holds every cell type for a range of sites).
+Generated from the reference files when this document is built. `chain/Runtime Matrices/` holds 843.0 MB; `atlas/` holds 512.8 MB. A copy of the repository carries every reference. A table that holds cell types as columns can be read for the cell types a sample needs only; the last column lists the readers whose code reads selected columns of a table. A large table is split into parts so that each file stays under the repository's 100 MB file limit, in one of two ways, read from the files: split by cell types (every part holds every site for a group of cell types, so a reader opens only the parts holding the cell types it needs) or split by rows (every part holds every cell type for a range of sites).
 
 | Folder | Files | Size | Split into parts | Tables and how they hold cell types | Read by | Readers that read selected columns |
 |---|---|---|---|---|---|---|
@@ -407,7 +407,7 @@ Generated from the reference files when this document is built. `chain/Runtime M
 | `chain/Runtime Matrices/Report` | 1 | 50 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `build_chain_sequence.py` | none |
 | `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet` (6 parts, split by cell types), `meth_part*.parquet` (3 parts, split by cell types), `mu_hi_part*.parquet` (3 parts, split by cell types), `mu_lo_part*.parquet` (3 parts, split by cell types), `mu_part*.parquet` (6 parts, split by cell types), `mu_se_part*.parquet` (3 parts, split by cell types), `reads_part*.parquet` (3 parts, split by cell types), `seq_sphere_ref_part*.parquet` (4 parts, split by rows) | `deconv_reference_mk_dev.parquet`: one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: one column per cell type, the cell types split across the parts (57 cell types); `floor_sites_v1.parquet`: columns not named by cell type and field; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` |
 | `chain/Runtime Matrices/Stage_T` | 2 | 26.3 MB | no | no tables | `dev_stages.py`, `release_check_v3.py`, `stage_metaa_atlas.py`, `stage_t_selftare.py` | `stage_metaa_atlas.py` |
-| `chain/Runtime Matrices/Where` | 9 | 41.9 MB | no | `where_regions_v1.parquet`: columns not named by cell type and field; `where_regions_v2.parquet`: columns not named by cell type and field; `where_units_v1.parquet`: columns not named by cell type and field; `where_units_v2.parquet`: columns not named by cell type and field | none found by name | none |
+| `chain/Runtime Matrices/Where` | 13 | 100.7 MB | no | `where_regions_v1.parquet`: columns not named by cell type and field; `where_regions_v2.parquet`: columns not named by cell type and field; `where_units_v1.parquet`: columns not named by cell type and field; `where_units_v2.parquet`: columns not named by cell type and field | none found by name | none |
 | `atlas/external_manifests` | 3 | 44.4 MB | no | no tables | none found by name | none |
 | `atlas/healpix_mapping` | 4 | 2.0 MB | no | no tables | none found by name | none |
 | `atlas/sources` | 10 | 97 kB | no | no tables | `MethylPhys_Interface/run_draw.py` | none |
@@ -735,7 +735,7 @@ Built by `build_where_ref.py` from public files (UCSC hg19 sequence, cpgIslandEx
 
 Sections of its README: The Locator's gene relation (v2).
 
-Files: `README.md`, `build_where_genes_v2.py`, `build_where_ref.py`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
+Files: `README.md`, `build_where_genes_v2.py`, `build_where_ref.py`, `where_null_v1.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
 
 
 ## 9. Rules
