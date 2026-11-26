@@ -1435,6 +1435,17 @@ def main():
             except Exception as _e: o["lab_correction"] = dict(applied=False, status="ERROR", reason=f"{type(_e).__name__}: {str(_e)[:200]}")
         elif a.pat and getattr(a, "_seqv", None): o["lab_correction"] = dict(applied=False, reason="--no-lab-correction (development)")
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
+        if a._seqv and _dsr is not None:   # edit 267: which cells are present, also read against IAM-Atlas v2.1 (79 types), development
+            try:
+                _v21 = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=True, seqref=None)
+                _v21["commissioning"] = {"status": "DEVELOPMENT", "use": "which cells are present in a sequenced sample, against IAM-Atlas v2.1 (79 types)",
+                                         "note": "presence only: every score stays on the IAM Sequencing Atlas; under test on known answers"}
+                _v21["purpose"] = "presence"; o["cell_shares_v21"] = _v21
+                _f21 = [c["cell"] for c in (_v21.get("cells") or []) if (c.get("share") or 0) >= 0.01]
+                _seqn = {c["cell"] for c in (o.get("cell_shares") or {}).get("cells", []) if (c.get("share") or 0) >= 0.01}
+                print("Stage D21 (development): also against IAM-Atlas v2.1 for which cells are present: " + ", ".join(f"{c['cell']} {c['share']:.3f}" for c in (_v21.get("cells") or []) if (c.get("share") or 0) >= 0.01)
+                      + ("; found only here: " + ", ".join(sorted(set(_f21) - _seqn)) if set(_f21) - _seqn else ""), flush=True)
+            except Exception as _e21: o["cell_shares_v21"] = {"status": "ERROR", "reason": f"{type(_e21).__name__}: {str(_e21)[:200]}"}
         if not a._seqv and (a.cell_panel or "blood") != "blood":   # 2026-11-09: the commissioned six-cell reading beside the atlas panel's
             try: o["cell_shares_blood6"] = dict(V4.stage_d21(_pd.Series(beta, dtype="float64"), None), note="the six blood cells the IAM-Deconvolver is commissioned on, beside the atlas panel the chain reads with")
             except Exception as e: o["cell_shares_blood6"] = {"reason": f"{type(e).__name__}: {str(e)[:160]}"}
