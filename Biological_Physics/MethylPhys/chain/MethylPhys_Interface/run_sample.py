@@ -539,6 +539,13 @@ def _law_sphere(a, cnt, o):
     if rec.get("status") == "OK":   # edit 215: the islands no healthy cell type writes
         try: import stage_conv_corr as _CCu; rec["unused_islands"] = LS.unused_islands(C, sh, conv=_qs, q_ref=(_CCu.load_ref()["q_ref"] if _qs is not None else None))
         except Exception as e: rec["unused_islands"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
+    if rec.get("status") == "OK" and not getattr(a, "no_locator", False):   # edit 259: the Locator, from the same counts
+        try:
+            import stage_where as _SW; _wcsv = (os.path.splitext(os.path.abspath(a.out))[0] + "_where_places.csv") if getattr(a, "out", None) else None
+            print("The Locator: where the sample changed (loss and gain per Law Sphere unit, measured healthy null, 5 % false discovery rate)", flush=True)
+            o["where"] = _SW.run(C, sh, places_csv=_wcsv)
+        except Exception as e: o["where"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
+    elif getattr(a, "no_locator", False): o["where"] = dict(status="NOT_RUN", reason="switched off (--no-locator)")
     U_ = rec.pop("_units", None)
     if getattr(a, "out", None) and Lay is not None and U_ is not None:   # edit 208: the Law Sphere page beside the report
         try:
@@ -782,6 +789,7 @@ def main():
     ap.add_argument("--dev-law-sphere", action="store_true", help="DEVELOPMENT (DEV-SPHERE-01, edit 205): with --pat, IAM's Law Sphere: each sequencing-sphere unit from the sample's molecules against the law's expected point (14 layers); on in the full chain")
     ap.add_argument("--law-set", action="append", default=None, metavar="KEY=VALUE", help="IAM's Law Sphere input card: set one input (repeatable; JSON values, e.g. coins=1.9, held=\"law\", by_type={...}); keys in stage_law_sphere.CARD")
     ap.add_argument("--no-floor-class", action="store_true", help="development: read the islands without the islands floor route (on for sequencing since edit 248)")
+    ap.add_argument("--no-locator", action="store_true", help="skip the Locator (where the sample changed, place by place), which runs with the Law Sphere")
     ap.add_argument("--no-lab-correction", action="store_true", help="development: read without the laboratory correction from the sample's own reads (edit 246)")
     ap.add_argument("--law-card", default=None, metavar="FILE.json", help="IAM's Law Sphere input card from a file (any keys of stage_law_sphere.CARD)")
     ap.add_argument("--law-counts-out", default=None, metavar="OUT.npz", help="with the Law Sphere: save the sample's per-unit molecule counts, so any card can be read again with --build law-sphere-sweep/-fit")

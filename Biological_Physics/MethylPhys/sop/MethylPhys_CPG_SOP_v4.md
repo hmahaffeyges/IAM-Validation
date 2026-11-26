@@ -365,6 +365,7 @@ Every Python file in `chain/` and `chain/MethylPhys_Interface/`, with the first 
 | `stage_t_selftare.py` | stage_t_selftare.py - Stage T step 1, the self-tare (self-tare II; adopted 2026-10-04 and run by conductor_v3.stage_t_selftare_ii on every reading). Moved here unchanged from dev_stages.py on 2026-10-22: the step is commissioned and runs on every reading, so it does not belong  |
 | `stage_temperature.py` | Chain stage TL: the temperature law on single molecules (PRED-TEMPERATURE-01, PHY-057). Written 2026-10-17, before any read is opened. |
 | `stage_v4.py` | Chain v4 stages (2026-10-17): the commissioned instruments that ran from their own scripts, brought into the one run. |
+| `stage_where.py` | The Locator (instrument 22): where the sample changed, place by place, and the name of each place. |
 | `toolkit_foreign_detection.py` | toolkit_foreign_detection.py - stage 3c, foreign-cell detection: one joint NNLS of the specimen's panel markers on [blood reference columns / foreign-cell templates], read against each template's measured noise floor. |
 | `toolkit_surface_brightness.py` | toolkit_surface_brightness.py - stage 11b, surface brightness: a 95 % interval on a reading from the atlas's per-CpG brightness posteriors (mean, sd, ci_lo, ci_hi per CpG, one CSV inside each per-class archive in atlas/iamatlas_class_archives/*_REBUILD.tar.xz), propagated through A = H(beta_mean) /  |
 | `trace_chain.py` | trace_chain.py - the order the chain actually runs (2026-10-20, for the Chain Decoder, to-do step 25). Runs run_sample.py unchanged in this process with a profiler attached and records, in first-call order, every chain function called (file, function, line, how many calls) and every file the chain o |
@@ -407,7 +408,7 @@ Generated from the reference files when this document is built. `chain/Runtime M
 | `chain/Runtime Matrices/Report` | 1 | 50 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `build_chain_sequence.py` | none |
 | `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet` (6 parts, split by cell types), `meth_part*.parquet` (3 parts, split by cell types), `mu_hi_part*.parquet` (3 parts, split by cell types), `mu_lo_part*.parquet` (3 parts, split by cell types), `mu_part*.parquet` (6 parts, split by cell types), `mu_se_part*.parquet` (3 parts, split by cell types), `reads_part*.parquet` (3 parts, split by cell types), `seq_sphere_ref_part*.parquet` (4 parts, split by rows) | `deconv_reference_mk_dev.parquet`: one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: one column per cell type, the cell types split across the parts (57 cell types); `floor_sites_v1.parquet`: columns not named by cell type and field; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` |
 | `chain/Runtime Matrices/Stage_T` | 2 | 26.3 MB | no | no tables | `dev_stages.py`, `release_check_v3.py`, `stage_metaa_atlas.py`, `stage_t_selftare.py` | `stage_metaa_atlas.py` |
-| `chain/Runtime Matrices/Where` | 13 | 100.7 MB | no | `where_regions_v1.parquet`: columns not named by cell type and field; `where_regions_v2.parquet`: columns not named by cell type and field; `where_units_v1.parquet`: columns not named by cell type and field; `where_units_v2.parquet`: columns not named by cell type and field | none found by name | none |
+| `chain/Runtime Matrices/Where` | 14 | 100.7 MB | no | `where_regions_v1.parquet`: columns not named by cell type and field; `where_regions_v2.parquet`: columns not named by cell type and field; `where_units_v1.parquet`: columns not named by cell type and field; `where_units_v2.parquet`: columns not named by cell type and field | `stage_where.py` | `stage_where.py` |
 | `atlas/external_manifests` | 3 | 44.4 MB | no | no tables | none found by name | none |
 | `atlas/healpix_mapping` | 4 | 2.0 MB | no | no tables | none found by name | none |
 | `atlas/sources` | 10 | 97 kB | no | no tables | `MethylPhys_Interface/run_draw.py` | none |
@@ -569,6 +570,7 @@ Read from `run_sample.py` when this SOP is built, so it cannot fall behind the c
 | `--no-info-sphere` | skip the information sphere reading | `none` |  |
 | `--no-intake` | skip Stage 0 (recorded in the report as skipped) | `off` |  |
 | `--no-lab-correction` | development: read without the laboratory correction from the sample's own reads (edit 246) | `off` |  |
+| `--no-locator` | skip the Locator (where the sample changed, place by place), which runs with the Law Sphere | `off` |  |
 | `--no-territories` | skip the territory readings | `none` |  |
 | `--out` | the report (HTML) to write | `'methylphys_report.html'` |  |
 | `--pat` | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) | `None` |  |
@@ -733,9 +735,9 @@ Files: `atlas_ruler_v1.json`, `selftare_typeII_EPIC_v1.json`
 
 Built by `build_where_ref.py` from public files (UCSC hg19 sequence, cpgIslandExt, refGene) and the chain's sequencing key and Law Sphere units. `where_units_v1.parquet`: every Law Sphere unit (islands, then 50-CpG blocks) with chromosome, hg19 start and end, CpG count, array probe count (0 = arrays blind), the UCSC CpG island, the nearest gene by transcription start and the signed distance to it. `where_regions_v1.parquet`: the same for every Sequencing Globe region (1,000 consecutive CpG indexes). `where_ref_v1.json`: sizes, sources and the key check (all 813,951 array probes on their recorded chromosome and position).
 
-Sections of its README: The Locator's gene relation (v2).
+Sections of its README: The Locator's gene relation (v2); The healthy reference and measured null (edit 259).
 
-Files: `README.md`, `build_where_genes_v2.py`, `build_where_ref.py`, `where_null_v1.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
+Files: `README.md`, `build_where_genes_v2.py`, `build_where_null.py`, `build_where_ref.py`, `where_null_v1.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
 
 
 ## 9. Rules

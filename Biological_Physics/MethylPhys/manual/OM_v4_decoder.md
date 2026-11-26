@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **39 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,817 | 22 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,825 | 22 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -83,7 +83,7 @@ Read from the code at build time: the one command can load **39 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **138 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **139 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -202,6 +202,7 @@ Read from `run_sample.py`'s own option definitions at build time: **138 options*
 | `--no-info-sphere` | none |  | skip the information sphere reading |
 | `--no-intake` | off |  | skip Stage 0 (recorded in the report as skipped) |
 | `--no-lab-correction` | off |  | development: read without the laboratory correction from the sample's own reads (edit 246) |
+| `--no-locator` | off |  | skip the Locator (where the sample changed, place by place), which runs with the Law Sphere |
 | `--no-territories` | none |  | skip the territory readings |
 | `--out` | 'methylphys_report.html' |  | the report (HTML) to write |
 | `--pat` | None |  | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) |
@@ -1457,7 +1458,7 @@ Register T1 and C3: in every sequencing reading, the held and absent sides count
 (count_pat_sites) at the islands territory (sites every healthy cell type keeps unmarked, so what is counted there is the library's own
 meter) and at the epiTOC2 mitotic-clock CpGs with 25 CpGs either side. Written as iam_a.sites; it never changes a reading.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 623 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 630 (34 lines) · arguments: pat · calls: not called on the traced runs · files named: `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `_v1.npz`, `epitoc2_sites.csv`, `pyarrow.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::_bio_root`
 
@@ -1565,7 +1566,7 @@ layers summarised per job and for the whole sample; `--law-sphere-out` saves the
 share or the Deconvolver's shares (the reason is written).
 With `--out`, also writes the Law Sphere page `<report>_law_sphere.html` (edit 208). In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209). It also reads samples IAM-A does not read as one cell type (mixtures), in their own shares; without IAM-A's loose share it takes the sphere's own (edit 210).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 522 (30 lines) · arguments: a, cnt, o · calls: not called on the traced runs · files named: `positions.npz`
+*Code:* `MethylPhys_Interface/run_sample.py` line 522 (37 lines) · arguments: a, cnt, o · calls: not called on the traced runs · files named: `_where_places.csv`, `positions.npz`
 
 ### `run_sample.py::_genome_globe`
 
@@ -1574,7 +1575,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file. In the full chain it runs on every sequenced sample, including a file fetched from GEO with --geo-pat (edit 209). It draws for mixtures too, each region against the sample's own prediction from its loose share (edit 211).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 553 (23 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 560 (23 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -1590,7 +1591,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 578 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 585 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -1604,14 +1605,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 672 (1143 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 679 (1144 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1306 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1314 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1619,13 +1620,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1071 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1079 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1729 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1737 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -6503,7 +6504,7 @@ Edit 246: the same correction for one molecule-counted gain rate.
 
 Edit 246: the islands meter and clock counts, counted once and reused by the IAM-A step; the clock's gain rate is also given on the atlas's conversion scale (gain_err_on_atlas_scale).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 658 (12 lines) · arguments: a · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 665 (12 lines) · arguments: a · calls: not called on the traced runs
 
 ## How the references are split and loaded
 
@@ -6532,7 +6533,7 @@ Generated from the reference files when this document is built. `chain/Runtime M
 | `chain/Runtime Matrices/Report` | 1 | 50 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `build_chain_sequence.py` | none |
 | `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet` (6 parts, split by cell types), `meth_part*.parquet` (3 parts, split by cell types), `mu_hi_part*.parquet` (3 parts, split by cell types), `mu_lo_part*.parquet` (3 parts, split by cell types), `mu_part*.parquet` (6 parts, split by cell types), `mu_se_part*.parquet` (3 parts, split by cell types), `reads_part*.parquet` (3 parts, split by cell types), `seq_sphere_ref_part*.parquet` (4 parts, split by rows) | `deconv_reference_mk_dev.parquet`: 5,799 rows, 117 columns, one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: 5,699 rows, 115 columns, one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: 813,951 rows, 19 columns, one column per cell type, the cell types split across the parts (57 cell types); `floor_sites_v1.parquet`: 46,947 rows, 3 columns, columns not named by cell type and field; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` |
 | `chain/Runtime Matrices/Stage_T` | 2 | 26.3 MB | no | no tables | `dev_stages.py`, `release_check_v3.py`, `stage_metaa_atlas.py`, `stage_t_selftare.py` | `stage_metaa_atlas.py` |
-| `chain/Runtime Matrices/Where` | 13 | 100.7 MB | no | `where_regions_v1.parquet`: 28,218 rows, 9 columns, columns not named by cell type and field; `where_regions_v2.parquet`: 28,218 rows, 20 columns, columns not named by cell type and field; `where_units_v1.parquet`: 592,067 rows, 10 columns, columns not named by cell type and field; `where_units_v2.parquet`: 592,067 rows, 21 columns, columns not named by cell type and field | none found by name | none |
+| `chain/Runtime Matrices/Where` | 14 | 100.7 MB | no | `where_regions_v1.parquet`: 28,218 rows, 9 columns, columns not named by cell type and field; `where_regions_v2.parquet`: 28,218 rows, 20 columns, columns not named by cell type and field; `where_units_v1.parquet`: 592,067 rows, 10 columns, columns not named by cell type and field; `where_units_v2.parquet`: 592,067 rows, 21 columns, columns not named by cell type and field | `stage_where.py` | `stage_where.py` |
 | `atlas/external_manifests` | 3 | 44.4 MB | no | no tables | none found by name | none |
 | `atlas/healpix_mapping` | 4 | 2.0 MB | no | no tables | none found by name | none |
 | `atlas/sources` | 10 | 97 kB | no | no tables | `MethylPhys_Interface/run_draw.py` | none |
@@ -6732,7 +6733,20 @@ Built by `build_where_genes_v2.py` from v1 and public UCSC hg19 files (refGene, 
 
 Sources: UCSC Genome Browser hg19 (Kent et al. 2002, Genome Res. 12:996-1006); NCBI RefSeq (O'Leary et al. 2016, Nucleic Acids Res. 44:D733-D745); UCSC known genes (Hsu et al. 2006, Bioinformatics 22:1036-1046).
 
-Files: `README.md`, `build_where_genes_v2.py`, `build_where_ref.py`, `where_null_v1.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
+##### The healthy reference and measured null (edit 259)
+
+`where_rates_v1_part1.npz` to `where_rates_v1_part3.npz`: each Law Sphere unit's healthy relative rate on the loss side (held errors) and the gain side (stray marks), for 57 cell types over 237,850 units, split by groups of 19 cell types (every part holds every unit) so each file stays under the repository's upload limit. `where_null_v1.json`: the measured null, in bins of expected count, from 156 healthy atlas libraries, each read against the reference built without it (leave one out): each bin's variance inflation and upper-tail quantiles.
+
+Built by `build_where_null.py build` (then `split`) from the per-unit counts the one button writes with `--law-counts-out` for each healthy GSE186458 library (Loyfer et al. 2023; molecule files: Zenodo 10.5281/zenodo.24518180). Read by `stage_where.py`, which the one button runs after the Law Sphere.
+
+| File | SHA-256 |
+|---|---|
+| where_rates_v1_part1.npz | c0bd371ea48e580e59a8b02c1ad0e073b55f07b00c1167b794609366445c3fc3 |
+| where_rates_v1_part2.npz | c17c72f081037781d97ea54283f61cda472dd8ae1eb561358dadc4df9485ddd9 |
+| where_rates_v1_part3.npz | 1157d17af0b1afb1d7d35e098be50094ac8ca7c4588ae8efe042277dea7f91b8 |
+| where_null_v1.json | 1059ff2fbed78b37ca52b250176f67f65e03873de7a049abb4eee4e5b3b484a1 |
+
+Files: `README.md`, `build_where_genes_v2.py`, `build_where_null.py`, `build_where_ref.py`, `where_null_v1.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
 
 ## Every sequencing instrument: full record, inputs and outputs
 
