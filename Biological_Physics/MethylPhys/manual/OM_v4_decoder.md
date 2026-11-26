@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **39 Python files** holding **618 functions** (nested ones included); 618 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **40 Python files** holding **625 functions** (nested ones included); 625 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -76,6 +76,7 @@ Read from the code at build time: the one command can load **39 Python files** h
 | `stage_info_sphere.py` | 216 | 16 | 0 | 0 |
 | `stage_law_sphere.py` | 381 | 24 | 0 | 0 |
 | `stage_conv_corr.py` | 65 | 6 | 0 | 0 |
+| `stage_where.py` | 127 | 7 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -6505,6 +6506,48 @@ Edit 246: the same correction for one molecule-counted gain rate.
 Edit 246: the islands meter and clock counts, counted once and reused by the IAM-A step; the clock's gain rate is also given on the atlas's conversion scale (gain_err_on_atlas_scale).
 
 *Code:* `MethylPhys_Interface/run_sample.py` line 665 (12 lines) · arguments: a · calls: not called on the traced runs
+
+### `stage_where.py::load_ref`
+
+Edit 259: reads Runtime Matrices/Where once: the healthy relative rates from where_rates_v1_part1-3.npz (split by groups of 19 cell types; every part holds all 237,850 units, checked to agree) and the measured null where_null_v1.json.
+
+*Code:* `stage_where.py` line 32 (9 lines) · arguments: none · calls: not called on the traced runs · constants read: `NULL`, `RATES`, `RATE_PARTS`, `REF_DIR`, `_REF`
+
+### `stage_where.py::pval`
+
+Edit 259: the upper-tail p of an observed count at one unit: negative binomial with mean E and variance phi x E, phi the variance inflation measured on the healthy leave-one-out null in the same bin of expected count (Poisson where phi <= 1).
+
+*Code:* `stage_where.py` line 43 (12 lines) · arguments: obs, E, bins · calls: not called on the traced runs · constants read: `EB`
+
+### `stage_where.py::bh`
+
+Edit 259: Benjamini and Hochberg (1995) at the false discovery rate FDR (5 %), per sample and per side: which units pass, each unit's q-value and the p cut.
+
+*Code:* `stage_where.py` line 57 (7 lines) · arguments: p, q · calls: not called on the traced runs · constants read: `FDR`
+
+### `stage_where.py::detection_limit`
+
+Edit 259: the Locator's detection limit for this sample: at the median expected count of the tested units, the smallest count whose p passes the cut, and that count over the expected count (printed per side).
+
+*Code:* `stage_where.py` line 66 (8 lines) · arguments: E, bins, cut · calls: not called on the traced runs
+
+### `stage_where.py::read`
+
+Edit 259: reads both sides of every Law Sphere unit from the Law Sphere's own counts (loss: held errors err of opp; gain: stray marks gerr of gopp). Expected count E = opp x s x r: s the sample's own rate on that side, r the unit's healthy relative rate mixed from the cell types at the Deconvolver's shares (types without a healthy reference, such as megakaryocytes, drop out and the rest are renormalized).
+
+*Code:* `stage_where.py` line 76 (19 lines) · arguments: C, shares · calls: not called on the traced runs · constants read: `FDR`
+
+### `stage_where.py::name`
+
+Edit 259: names each called place from the positions reference v2 (where_units_v2.parquet): chromosome, hg19 start and end, kind (island or 50-CpG block), CpG and array-probe counts, island, nearest gene, relation and distance to its start, promoter and gene-body genes, CpG context; reads only the rows of the called units. The columns printed are NAME_COLS.
+
+*Code:* `stage_where.py` line 97 (14 lines) · arguments: out · calls: not called on the traced runs · constants read: `NAME_COLS`, `POSITIONS`, `REF_DIR` · files named: `pyarrow.parquet`
+
+### `stage_where.py::run`
+
+Edit 259: the Locator in the one button, after the Law Sphere: read, name, write the full place list beside the report (<report>_where_places.csv) and keep the first TOP_IN_BUNDLE (300) places per side in the bundle block 'where', with each side's units tested, places called, p cut and detection limit, and the reference files read. Switched off with --no-locator.
+
+*Code:* `stage_where.py` line 113 (14 lines) · arguments: C, shares, places_csv · calls: not called on the traced runs · constants read: `NULL`, `POSITIONS`, `RATES`, `TOP_IN_BUNDLE`
 
 ## How the references are split and loaded
 

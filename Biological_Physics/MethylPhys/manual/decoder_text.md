@@ -4503,3 +4503,25 @@ Edit 246: the same correction for one molecule-counted gain rate.
 
 ### run_sample.py::_lab_sites
 Edit 246: the islands meter and clock counts, counted once and reused by the IAM-A step; the clock's gain rate is also given on the atlas's conversion scale (gain_err_on_atlas_scale).
+
+
+### stage_where.py::load_ref
+Edit 259: reads Runtime Matrices/Where once: the healthy relative rates from where_rates_v1_part1-3.npz (split by groups of 19 cell types; every part holds all 237,850 units, checked to agree) and the measured null where_null_v1.json.
+
+### stage_where.py::pval
+Edit 259: the upper-tail p of an observed count at one unit: negative binomial with mean E and variance phi x E, phi the variance inflation measured on the healthy leave-one-out null in the same bin of expected count (Poisson where phi <= 1).
+
+### stage_where.py::bh
+Edit 259: Benjamini and Hochberg (1995) at the false discovery rate FDR (5 %), per sample and per side: which units pass, each unit's q-value and the p cut.
+
+### stage_where.py::detection_limit
+Edit 259: the Locator's detection limit for this sample: at the median expected count of the tested units, the smallest count whose p passes the cut, and that count over the expected count (printed per side).
+
+### stage_where.py::read
+Edit 259: reads both sides of every Law Sphere unit from the Law Sphere's own counts (loss: held errors err of opp; gain: stray marks gerr of gopp). Expected count E = opp x s x r: s the sample's own rate on that side, r the unit's healthy relative rate mixed from the cell types at the Deconvolver's shares (types without a healthy reference, such as megakaryocytes, drop out and the rest are renormalized).
+
+### stage_where.py::name
+Edit 259: names each called place from the positions reference v2 (where_units_v2.parquet): chromosome, hg19 start and end, kind (island or 50-CpG block), CpG and array-probe counts, island, nearest gene, relation and distance to its start, promoter and gene-body genes, CpG context; reads only the rows of the called units. The columns printed are NAME_COLS.
+
+### stage_where.py::run
+Edit 259: the Locator in the one button, after the Law Sphere: read, name, write the full place list beside the report (<report>_where_places.csv) and keep the first TOP_IN_BUNDLE (300) places per side in the bundle block 'where', with each side's units tested, places called, p cut and detection limit, and the reference files read. Switched off with --no-locator.

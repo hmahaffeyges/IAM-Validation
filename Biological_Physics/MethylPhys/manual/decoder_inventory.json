@@ -10428,6 +10428,147 @@
    "first_entered": null
   },
   {
+   "file": "stage_where.py",
+   "lines": 127,
+   "functions": [
+    {
+     "file": "stage_where.py",
+     "function": "load_ref",
+     "name": "load_ref",
+     "line": 32,
+     "end": 40,
+     "args": [],
+     "lines": 9,
+     "doc": "The healthy relative rates, the measured null and the positions table (read once).",
+     "constants": [
+      "NULL",
+      "RATES",
+      "RATE_PARTS",
+      "REF_DIR",
+      "_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "pval",
+     "name": "pval",
+     "line": 43,
+     "end": 54,
+     "args": [
+      "obs",
+      "E",
+      "bins"
+     ],
+     "lines": 12,
+     "doc": "Upper-tail p of an observed count: negative binomial with mean E and variance phi x E, phi measured on the healthy leave-one-out null of the same expected-count bin (phi <= 1: Poisson). P(X >= obs).",
+     "constants": [
+      "EB"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "bh",
+     "name": "bh",
+     "line": 57,
+     "end": 63,
+     "args": [
+      "p",
+      "q"
+     ],
+     "lines": 7,
+     "doc": "Benjamini and Hochberg (1995): which p-values pass at false discovery rate q, the q-value of each, and the p cut used.",
+     "constants": [
+      "FDR"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "detection_limit",
+     "name": "detection_limit",
+     "line": 66,
+     "end": 73,
+     "args": [
+      "E",
+      "bins",
+      "cut"
+     ],
+     "lines": 8,
+     "doc": "At the median expected count of the tested units: the smallest count whose p passes the cut, and that count over the expected count.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "read",
+     "name": "read",
+     "line": 76,
+     "end": 94,
+     "args": [
+      "C",
+      "shares"
+     ],
+     "lines": 19,
+     "doc": "C: the Law Sphere's counts by unit index (err, opp, gerr, gopp); shares: {cell type: share} from the Deconvolver. Returns, per side, the units tested, the places called (unit, observed, expected, z, q, p), the p cut and the detection limit.",
+     "constants": [
+      "FDR"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "name",
+     "name": "name",
+     "line": 97,
+     "end": 110,
+     "args": [
+      "out"
+     ],
+     "lines": 14,
+     "doc": "Adds each called place's name from the positions reference v2 (reads only the rows of the called units).",
+     "constants": [
+      "NAME_COLS",
+      "POSITIONS",
+      "REF_DIR"
+     ],
+     "data_files": [
+      "pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "run",
+     "name": "run",
+     "line": 113,
+     "end": 126,
+     "args": [
+      "C",
+      "shares",
+      "places_csv"
+     ],
+     "lines": 14,
+     "doc": "The Locator in the one button: read, name, write the full place list beside the report (places_csv), keep the top places in the bundle.",
+     "constants": [
+      "NULL",
+      "POSITIONS",
+      "RATES",
+      "TOP_IN_BUNDLE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
    "file": "MethylPhys_Interface/reference_globes.py",
    "lines": 279,
    "functions": [
@@ -12011,6 +12152,6 @@
    "first_entered": null
   }
  ],
- "n_files": 39,
- "n_functions": 618
+ "n_files": 40,
+ "n_functions": 625
 }
