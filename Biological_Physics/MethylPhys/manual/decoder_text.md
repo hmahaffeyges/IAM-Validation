@@ -4525,3 +4525,6 @@ Edit 259: names each called place from the positions reference v2 (where_units_v
 
 ### stage_where.py::run
 Edit 259: the Locator in the one button, after the Law Sphere: read, name, write the full place list beside the report (<report>_where_places.csv) and keep the first TOP_IN_BUNDLE (300) places per side in the bundle block 'where', with each side's units tested, places called, p cut and detection limit, and the reference files read. Switched off with --no-locator.
+
+### stage_q0_intake.py::sex_reading
+Edit 265: the sample's sex read from its own molecules: chrX and chrY molecules per CpG, each over the autosomes' (Stage Q0's per-chromosome counts). Male when chrY is at least 0.08 and chrX at most 0.75 of the autosomes; female when chrY is at most 0.04 and chrX at least 0.80; otherwise unclear. The rule (SEX_RULE) was measured on 54 GSE186458 libraries with GEO's sex (female chrX 0.87-1.13, chrY 0.014-0.021; male chrX 0.44-0.56, chrY 0.17-0.37). A declared sex that disagrees is flagged SEX_MISMATCH and printed; the reading continues, because loss of chrY occurs in blood cancers and in older men's blood. The bundle block sex_reading also records the declared sex and age.

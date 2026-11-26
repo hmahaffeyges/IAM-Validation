@@ -37,11 +37,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **40 Python files** holding **625 functions** (nested ones included); 625 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **40 Python files** holding **626 functions** (nested ones included); 626 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,825 | 22 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,829 | 22 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -62,7 +62,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
-| `stage_q0_intake.py` | 189 | 8 | 0 | 0 |
+| `stage_q0_intake.py` | 212 | 9 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
@@ -84,7 +84,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **139 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **137 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -115,7 +115,6 @@ Read from `run_sample.py`'s own option definitions at build time: **139 options*
 | `--commissioned-only` | off |  | read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off) |
 | `--covariate` | [] |  | a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose |
 | `--covariates` | none |  | a JSON object of covariates, merged with any --covariate flags |
-| `--dev-allow-partial` | off |  | development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1) |
 | `--dev-allow-partial-genome` | off |  | development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged |
 | `--dev-count-genome` | 'hg19' |  | --dev-count-only: the genome the .pat was made on (recorded) |
 | `--dev-count-only` | off |  | DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse) |
@@ -207,7 +206,6 @@ Read from `run_sample.py`'s own option definitions at build time: **139 options*
 | `--no-territories` | none |  | skip the territory readings |
 | `--out` | 'methylphys_report.html' |  | the report (HTML) to write |
 | `--pat` | None |  | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) |
-| `--pat-max-bytes` | None |  | development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial |
 | `--patient-id` | None |  | already-hashed identifier; a cleartext one is hashed here |
 | `--prior-betas` | None |  | stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle |
 | `--prior-bundle` | None |  | stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline |
@@ -1606,14 +1604,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 679 (1144 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 679 (1148 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1314 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1312 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1621,13 +1619,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1079 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1077 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1737 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1741 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -6548,6 +6546,12 @@ Edit 259: names each called place from the positions reference v2 (where_units_v
 Edit 259: the Locator in the one button, after the Law Sphere: read, name, write the full place list beside the report (<report>_where_places.csv) and keep the first TOP_IN_BUNDLE (300) places per side in the bundle block 'where', with each side's units tested, places called, p cut and detection limit, and the reference files read. Switched off with --no-locator.
 
 *Code:* `stage_where.py` line 113 (14 lines) · arguments: C, shares, places_csv · calls: not called on the traced runs · constants read: `NULL`, `POSITIONS`, `RATES`, `TOP_IN_BUNDLE`
+
+### `stage_q0_intake.py::sex_reading`
+
+Edit 265: the sample's sex read from its own molecules: chrX and chrY molecules per CpG, each over the autosomes' (Stage Q0's per-chromosome counts). Male when chrY is at least 0.08 and chrX at most 0.75 of the autosomes; female when chrY is at most 0.04 and chrX at least 0.80; otherwise unclear. The rule (SEX_RULE) was measured on 54 GSE186458 libraries with GEO's sex (female chrX 0.87-1.13, chrY 0.014-0.021; male chrX 0.44-0.56, chrY 0.17-0.37). A declared sex that disagrees is flagged SEX_MISMATCH and printed; the reading continues, because loss of chrY occurs in blood cancers and in older men's blood. The bundle block sex_reading also records the declared sex and age.
+
+*Code:* `stage_q0_intake.py` line 195 (17 lines) · arguments: per_chrom, declared, age · calls: not called on the traced runs · constants read: `AUTOSOMES`, `SEX_RULE`
 
 ## How the references are split and loaded
 

@@ -482,7 +482,6 @@ Read from `run_sample.py` when this SOP is built, so it cannot fall behind the c
 | `--commissioned-only` | read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off) | `off` |  |
 | `--covariate` | a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose | `[]` |  |
 | `--covariates` | a JSON object of covariates, merged with any --covariate flags | `none` |  |
-| `--dev-allow-partial` | development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1) | `off` |  |
 | `--dev-allow-partial-genome` | development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged | `off` |  |
 | `--dev-count-genome` | --dev-count-only: the genome the .pat was made on (recorded) | `'hg19'` |  |
 | `--dev-count-only` | DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse) | `off` |  |
@@ -574,7 +573,6 @@ Read from `run_sample.py` when this SOP is built, so it cannot fall behind the c
 | `--no-territories` | skip the territory readings | `none` |  |
 | `--out` | the report (HTML) to write | `'methylphys_report.html'` |  |
 | `--pat` | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) | `None` |  |
-| `--pat-max-bytes` | development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial | `None` |  |
 | `--patient-id` | already-hashed identifier; a cleartext one is hashed here | `None` |  |
 | `--prior-betas` | stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle | `None` |  |
 | `--prior-bundle` | stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline | `None` |  |

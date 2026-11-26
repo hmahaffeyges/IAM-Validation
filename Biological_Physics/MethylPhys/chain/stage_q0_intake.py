@@ -186,3 +186,26 @@ def intake(path, specimen, cell="neutrophils", alignment_qc=None, selfref_cells=
         if c["result"] == "pass" and c["rule"] == "limit not set": c["result"] = "recorded (limit not set)"
     rec["decision"] = "stop" if "refusal_code" in rec else "proceed to Stage Q"
     return rec
+
+
+SEX_RULE = {"male": {"y_min": 0.08, "x_max": 0.75}, "female": {"y_max": 0.04, "x_min": 0.80},
+            "measured_on": "54 GSE186458 libraries with GEO's sex (2026-11-26): female chrX 0.87-1.13, chrY 0.014-0.021; male chrX 0.44-0.56, chrY 0.17-0.37"}
+
+
+def sex_reading(per_chrom, declared=None, age=None):
+    """The sample's sex read from its own molecules: chrX and chrY molecules per CpG, each over the autosomes' (Stage Q0's per-chromosome counts).
+    Male: chrY at least SEX_RULE male y_min and chrX at most x_max; female: chrY at most y_max and chrX at least x_min; otherwise unclear (mixed
+    donors, loss of chrY, an extra X). A declared sex that disagrees with a male or female reading is a mismatch, flagged and printed, not stopped."""
+    rec = {"declared_sex": declared, "declared_age": float(age) if age is not None else None, "rule": SEX_RULE}
+    R = _ranges()
+    if not per_chrom or R is None or "chrX" not in R or "chrY" not in R:
+        rec.update(read_sex=None, check="NOT_READ", reason="no per-chromosome molecule counts (Stage Q0 reads them from a molecule file)"); return rec
+    n = {c: R[c][1] - R[c][0] + 1 for c in R}; aut = sum(per_chrom.get(c, 0) for c in AUTOSOMES); an = sum(n[c] for c in AUTOSOMES if c in n)
+    if not aut: rec.update(read_sex=None, check="NOT_READ", reason="no autosome molecules"); return rec
+    d = aut / an; x = per_chrom.get("chrX", 0) / n["chrX"] / d; y = per_chrom.get("chrY", 0) / n["chrY"] / d
+    M, F = SEX_RULE["male"], SEX_RULE["female"]
+    s = "M" if (y >= M["y_min"] and x <= M["x_max"]) else ("F" if (y <= F["y_max"] and x >= F["x_min"]) else None)
+    rec.update(x_ratio=round(x, 4), y_ratio=round(y, 4), read_sex=s or "unclear")
+    dc = str(declared or "").strip().upper()[:1] or None
+    rec["check"] = "NOT_DECLARED" if not dc else ("UNCLEAR" if not s else ("PASS" if dc == s else "MISMATCH"))
+    return rec

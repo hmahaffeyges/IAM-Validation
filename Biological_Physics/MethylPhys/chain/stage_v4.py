@@ -41,7 +41,7 @@ def stage_d21(beta, panel=None, sequencing=False, seqref=None, counts=None):
     b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str)
     have = int(b.reindex(M).notna().sum()); rec = {"stage": "D21", "reading": "cell shares", "tool": "IAM-Deconvolver (version 2)",
         "reference": ref, "panel": panel, "markers": len(M), "markers_measured": have,
-        "commissioning": D21.DECONV_V21_COMMISSIONING, "error_bars": "information, not calibrated"}
+        "commissioning": (D21.DECONV_V21_COMMISSIONING if seqref is None else {"status": "DEVELOPMENT", "use": "cell shares of a sequenced sample against the IAM Sequencing Atlas", "note": "not commissioned by our standards; the IAM-Deconvolver's commissioning (2026-10-17) covers blood-cell shares on arrays only"}), "error_bars": "information, not calibrated"}
     if sequencing and SEQ_READ_MARKERS <= have < MIN_MARKER_SHARE * len(M):   # 2026-10-23: shallow sequencing (plasma), read and flagged
         rec["coverage_flag"] = (f"read on {have} of {len(M)} marker sites ({have / len(M):.0%}; below the half an array needs): shallow sequencing, "
                                 "each site from a few molecules; shares read and flagged")

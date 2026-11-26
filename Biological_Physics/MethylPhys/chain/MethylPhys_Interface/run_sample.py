@@ -751,10 +751,8 @@ def main():
     ap.add_argument("--geo-dir", default=None, help="where --geo-pat files are written (default: a temporary folder)")
     ap.add_argument("--pat", default=None, help="chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
     ap.add_argument("--dev-allow-partial-genome", action="store_true", help="development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged")
-    ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
     ap.add_argument("--iama-ref-table", default=None, help="CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare")
-    ap.add_argument("--dev-allow-partial", action="store_true", help="development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
     ap.add_argument("--seq-cell", default=None, help="cell type of the sequenced specimen (Stage Q); default: for --pat and --bam, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words); a --site-table has no Deconvolver, so name the cell")
@@ -1588,6 +1586,9 @@ def main():
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
             o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc, selfref_cells=cells)
+            _sxr = Q0.sex_reading(((o.get("iam_a_intake") or {}).get("measured") or {}).get("per_chrom_molecules"), a.sex, a.age); o["sex_reading"] = _sxr   # edit 265
+            print(f"Stage Q0: sex read from the molecules: {_sxr.get('read_sex')} (chrX {_sxr.get('x_ratio')}, chrY {_sxr.get('y_ratio')} of the autosomes); declared {a.sex or 'not declared'}: {_sxr.get('check')}", flush=True)
+            if _sxr.get("check") == "MISMATCH": o.setdefault("flags", []).append("SEX_MISMATCH"); print("  SEX_MISMATCH: the declared sex disagrees with the molecules (a sample swap, a wrong manifest, or loss of chrY); the reading continues and the report flags it", flush=True)
         else:   # 2026-10-20 (Chain Decoder finding F3): say that Stage Q0 did not run and why, instead of leaving no intake record
             o["iam_a_intake"] = {"stage": "Q0", "status": "not run", "reason": "Stage Q0's file checks are written for the .pat format; on an aligned BAM, "
                                  "Stage Q2's counter records the bisulfite conversion failure (non-CpG calls) and the substitution rate (A and T), and the "
@@ -1709,9 +1710,12 @@ def main():
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
             o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc)
+            _sxr = Q0.sex_reading(((o.get("iam_a_intake") or {}).get("measured") or {}).get("per_chrom_molecules"), a.sex, a.age); o["sex_reading"] = _sxr   # edit 265
+            print(f"Stage Q0: sex read from the molecules: {_sxr.get('read_sex')} (chrX {_sxr.get('x_ratio')}, chrY {_sxr.get('y_ratio')} of the autosomes); declared {a.sex or 'not declared'}: {_sxr.get('check')}", flush=True)
+            if _sxr.get("check") == "MISMATCH": o.setdefault("flags", []).append("SEX_MISMATCH"); print("  SEX_MISMATCH: the declared sex disagrees with the molecules (a sample swap, a wrong manifest, or loss of chrY); the reading continues and the report flags it", flush=True)
             print(f"Stage Q: extracting per-site copy-error counts from {os.path.basename(a.pat)} ({Q.PAT_PIPELINE})", flush=True)
-            T = Q.pat_site_table(a.pat, max_bytes=a.pat_max_bytes); pipe = Q.PAT_PIPELINE
-            src = {"pat": os.path.abspath(a.pat), "max_bytes": a.pat_max_bytes, **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
+            T = Q.pat_site_table(a.pat); pipe = Q.PAT_PIPELINE
+            src = {"pat": os.path.abspath(a.pat), **{k: T.attrs.get(k) for k in ("n_lines", "n_qualifying_lines", "n_molecules")}}
         else:
             T = _pd.read_csv(a.site_table); pipe = a.seq_pipeline; src = {"site_table": os.path.abspath(a.site_table)}
         qi = o.get("iam_a_intake") or {}
@@ -1719,7 +1723,7 @@ def main():
             o["iam_a"] = {"stage": "Q", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"],
                           "refusal": (f"IAM-A not read: {qi['refusal']}" if qi.get('refusal_code') in ('NO_CHAIN_CELL', 'MIXED_SAMPLE') else f"Stage Q0 stopped the file: {qi['refusal']}"), "input": src}
         else:
-            o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=bool(getattr(a, "dev_allow_partial", False))); o["iam_a"]["input"] = src
+            o["iam_a"] = Q.read(T, cell=a.seq_cell, pipeline=pipe, allow_partial=False); o["iam_a"]["input"] = src
             if getattr(a, "iama_ref_table", None):
                 _rt = _pd.read_csv(a.iama_ref_table)
                 if "A" not in _rt.columns: sys.exit(f"--iama-ref-table {a.iama_ref_table}: needs a column A")
