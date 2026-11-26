@@ -7159,3 +7159,76 @@ _Written from the day's record (the chat walked line by line, the findings ledge
 - Depth-free C-Score; held-out healthy ranges for the readings measured against the atlas; the 'where' losses re-planted and every result's location printed; the lung and liver reports.
 - The page-by-page check of the report, then the outside-reader audit, then sign-off at 100 %, then the leukemia study.
 - The last 18 Zenodo archives, after a quota increase; publication only on the author's yes.
+
+### 2026-11-25 · Day summary
+_Written from the day's record (the chat walked line by line, the findings ledger, the day's commits on main, the day's runs on Google and the instruments database), in the fixed outline; work in the private domains is kept off this public page._
+
+**Set out:**
+- Switch the islands floor route on for every sequenced sample, keep megakaryocytes out of every healthy expectation, and keep the far-island counts, then check the change on the known-answer library.
+- Give the readings that follow sequencing depth a depth-free form, and finish the 'where' tests: re-plant the losses on the counted units and measure the loss side's detection limit.
+- Publish the Sequencing Atlas's molecule files on Zenodo on the author's yes, and put the researcher edition of the derivation of IAM's Law and Koide's relation in the repository as its own file.
+- Build the Locator's gene relation: for every place, promoter, gene body or intergenic with distance, and its CpG-island context.
+- Make the Decoder and the SOP cover everything the chain does, and keep them covering it.
+- Start a route map: samples made to take every route through the one button, each step logged, to show a researcher everything the chain does.
+
+**Ran, and how each came out:**
+- Islands floor route on by default (edit 248, main 1366756c): planted and unplanted reads of the known-answer library GSM5652214 matched the development reads on all 54 readings. With a planted 1 % non-conversion, the islands territory reads 1.027 of the unplanted read (it was 2.77 without the route), Law Sphere writes against the law 1.042, unused-island strays 1.050, the clock's gain 1.032. Three readings are still not corrected: whole-sample Met-A 1.039, the Deconvolver's second lineage share 1.129 and the Law Sphere halves 0.597 (finding F284).
+- Depth-free forms over the 205 healthy GSE186458 libraries' saved counts (edit 252, main 89d8317a): the IAM-A C-Score's rho, the squared coefficient of variation of the true loss rate between blocks (Williams 1982), correlates +0.02 with log depth (the C-Score itself +0.21), and 80 % of its variance lies between cell types. The Law Sphere halves still follow depth (finding F285).
+- 'Where' re-plant with every planted change counted (192 losses in 20 held blocks, 288 gains in 10 islands): no false places in the unplanted read (0 of 165,285 loss units and 0 of 46,973 gain units), 9 of 10 gain islands named, losses moved the right way but none was named (finding F286). The same blocks planted at three times the loss: 9 of 20 named, 8 of 10 gain islands, still no false places; at this depth the loss side names a block once it shows about 4 to 6 times its healthy loss (finding F287).
+- Held-out healthy ranges and purity: whole-sample Met-A is wide in mixed samples because small shares the Deconvolver drops read as disorder (finding F289). The never-used healthy libraries that read high are the less pure sorts or cells from cancer surgeries, according to the depositors' own table (finding F288). A planted-cancer check showed IAM-A catches loss of marks inside a mixed library.
+- Which instruments need molecules (finding F290): 22 readings appear only when the chain reads molecule files; the Deconvolver, whole-sample Met-A, both territories and the globes read per-CpG counts as well.
+- Zenodo: the molecule files of the 205 healthy libraries were published on the author's yes, DOI 10.5281/zenodo.24518180, and added to the repository's record list (main da921f5c).
+- The derivation of IAM's Law and Koide's relation, researcher edition, is in the repository as its own generated file (main e505e852).
+- The Locator's positions reference v2 (edit 254, main 25e4dfc2): every place's relation to genes from RefSeq and UCSC known genes, by the definitions of Koldobskiy et al. 2021, and its CpG-island context, built on GitHub from public UCSC hg19 files and checked against v1 at every place. 18,755 promoter places have no array probe (finding F293).
+- Documentation catch-up (edits 255 to 258): the SOP and the Decoder now generate every option, every chain file and every reference folder from the code; the Locator's full record, the depth-free readings and the purity questions entered the instrument records; a reference inventory reads each reference table's shape and tells a table split by cell types from a table split by rows. The documentation gate on main finds nothing the chain added missing from either document.
+- Route map, wave 1 (12 samples on Google, the one button unchanged, every function, file and message logged): the known-answer library at full depth (exit 0, 618 functions, 164 files, 72 minutes, 3.1 GB) and thinned to about 2 calls per site (still cardiomyocyte, 0.94); the empty, non-molecule, one-chromosome and truncated files were refused for the right reason (findings F294, F295). Still reading at turnover: the three mixtures, the declared-sex mismatch, the partial read and the GEO route.
+- Two chain fixes from the route map: every refusal writes its WHY record again (edit 260, main a058baf8), and the last console line on a sequencing sample prints the main cell, whole-sample Met-A and IAM-A (edit 261, main c582d620).
+
+**Successes:**
+- The counted islands readings are corrected for each laboratory's own non-conversion by default.
+- The C-Score has a form that does not follow depth.
+- The 'where' engine names planted places with no false places, and its loss-side detection limit is measured.
+- The documentation can no longer fall behind the chain: a gate refuses new chain work until every addition is in the Decoder and the SOP.
+- The route map found a defect no single-library test could find.
+
+**Learned:**
+- A local variable that takes a function's name disables that function across the whole function body; one refusal path had silently broken every other refusal path since November 20.
+- The atlas tables are split by groups of cell types, not by rows; the table shapes, not the file names, say how.
+- A test that passes on one library shows one route only; every route needs a sample made to take it.
+- A healthy reference library's purity has to be known before its reading is called healthy.
+
+**Errors (the agent's own), and what caught each:**
+- Edits 244 to 254 reached main without full Decoder and SOP coverage, because the checklist's documentation answer was copied forward from earlier forms instead of checked. The author's question caught it; a documentation gate in code now enforces it.
+- Edit 230 (November 20) gave the damaged-file refusal's reason the WHY function's name. The route map caught it, and edit 260 fixed it.
+- The first reference inventory said the tables were split by rows. Reading the tables' column counts caught it, and edit 258 corrected it.
+- The Locator's record was first stored with its file paths as text, not a list (the export caught it), and with three counts that are in no committed file (the gate's number tracer caught them); the file list in the SOP carried British spelling and internal codes (the gate caught them).
+- Two of the evening's forms still carried the copied-forward documentation answer; the day-log check caught it, and both were corrected.
+
+**The author's instructions and corrections:**
+- Update the Decoder, the SOP and every other document whenever anything is added to or wired into the chain.
+- The old flowchart is not to be used; a new one is made when the chain is complete, from its own steps and refusals and from real datasets sent down every route.
+- Build code that sends synthetic samples down every route of the chain and logs everything it does.
+- Packaging, a local interface and a slimmer report come after the array chain is signed off.
+- Keep two copies of the working folder in two places, refreshed every day; Zenodo is the permanent public record.
+- Next: the sequencing chain fully working, the Locator included, tested on several cell types, every open item done, audited and signed off; then the outside-reader audit of the report; then the leukemia study; then plasma and cell-free DNA; then the arrays.
+
+**Path changes:**
+- The islands floor route became the default for sequencing.
+- A documentation gate now runs before every chain item.
+- The route map joined the work list (G0), feeding the new flowchart, the Decoder and the SOP, and a rerun after every chain edit.
+
+**Data:**
+- GSE186458 (Loyfer et al. 2023), spent libraries only: the known-answer library GSM5652214, the 205 healthy libraries' saved counts, the never-used healthy libraries, and for the route map's mixtures GSM5652313, GSM5652278, GSM5652302, GSM5652301, GSM5652237 and GSM5652190.
+- Public UCSC hg19 tables (refGene, knownGene with kgXref, cpgIslandExt) for the Locator.
+- No unspent data used.
+- Test ids in the day's forms: PHY-035 (the information sphere, the geometry of healthy order) and PHY-084 (the law's held error), named only in a documentation answer carried forward from earlier forms; neither was worked today.
+
+**Machines:**
+- Google spot machines: the depth-free pass, the 'where' re-plant reads, the Zenodo upload, and route map wave 1 (twelve samples, nine done; the mixtures relaunched with a longer time limit), each watched and relaunched when recalled.
+- GitHub: 23 commits on main through the gate: edits 248, 250 (four parts), 251 to 254, 255 (seven parts), 256 (two parts), 257, 258, 260 and 261, and the day summary of November 24 (edit 249). Edit 259 is not yet sent.
+
+**Open at turnover:**
+- The Locator in the one button (edit 259: the stage, its healthy reference and measured null, and the detection limit per sample), then its planted-places test, its report page and its book section.
+- Route map: the three mixtures, then the summary and the Decoder and SOP section from it.
+- The declared sex on sequencing samples (recorded, and checked against the reads), and the partial-read option.
+- Held-out healthy ranges for the readings measured against the atlas; the multi-cell test; the remaining sign-off cells; the outside-reader audit; then the leukemia study.

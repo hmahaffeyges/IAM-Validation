@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-25](2026-11-25.md) | The islands floor route on by default; depth-free C-Score; the Locator's gene relation; the Decoder and SOP generated from the code; the route map finds a refusal defect |
 | [2026-11-24](2026-11-24.md) | The sequencing report rebuilt one page per test from the instruments database; the islands floor route corrects the counted readings; the atlas molecule files go to Zenodo |
 | [2026-11-23](2026-11-23.md) | No work recorded |
 | [2026-11-22](2026-11-22.md) | The Law Sphere's card wired; every instrument's record printed in the SOP and Decoder; the laboratory correction from the sample's own reads; planted answers |

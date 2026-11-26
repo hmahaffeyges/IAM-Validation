@@ -1,0 +1,109 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-25",
+ "title": "The islands floor route on by default; depth-free C-Score; the Locator's gene relation; the Decoder and SOP generated from the code; the route map finds a refusal defect",
+ "set_out": "Switch the islands floor route on for every sequenced sample, keep megakaryocytes out of every healthy expectation, and keep the far-island counts, then check the change on the known-answer library. Give the readings that follow sequencing depth a depth-free form, and finish the 'where' tests: re-plant the losses on the counted units and measure the loss side's detection limit. Publish the Sequencing Atlas's molecule files on Zenodo on the author's yes, and put the researcher edition of the derivation of IAM's Law and Koide's relation in the repository as its own file. Build the Locator's gene relation: for every place, promoter, gene body or intergenic with distance, and its CpG-island context. Make the Decoder and the SOP cover everything the chain does, and keep them covering it. Start a route map: samples made to take every route through the one button, each step logged, to show a researcher everything the chain does.",
+ "open_at_turnover": "The Locator in the one button (edit 259: the stage, its healthy reference and measured null, and the detection limit per sample), then its planted-places test, its report page and its book section. Route map: the three mixtures, then the summary and the Decoder and SOP section from it. The declared sex on sequencing samples (recorded, and checked against the reads), and the partial-read option. Held-out healthy ranges for the readings measured against the atlas; the multi-cell test; the remaining sign-off cells; the outside-reader audit; then the leukemia study.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "entries": [
+    {
+     "title": "Islands floor route on by default (edit 248, main 1366756c)",
+     "what": "Islands floor route on by default (edit 248, main 1366756c)",
+     "status": "development",
+     "outcome": "planted and unplanted reads of the known-answer library GSM5652214 matched the development reads on all 54 readings. With a planted 1 % non-conversion, the islands territory reads 1.027 of the unplanted read (it was 2.77 without the route), Law Sphere writes against the law 1.042, unused-island strays 1.050, the clock's gain 1.032. Three readings are still not corrected: whole-sample Met-A 1.039, the Deconvolver's second lineage share 1.129 and the Law Sphere halves 0.597 (finding F284).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Depth-free forms over the 205 healthy GSE186458 libraries' saved counts (edit 252, main 89",
+     "what": "Depth-free forms over the 205 healthy GSE186458 libraries' saved counts (edit 252, main 89d8317a)",
+     "status": "development",
+     "outcome": "the IAM-A C-Score's rho, the squared coefficient of variation of the true loss rate between blocks (Williams 1982), correlates +0.02 with log depth (the C-Score itself +0.21), and 80 % of its variance lies between cell types. The Law Sphere halves still follow depth (finding F285).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "'Where' re-plant with every planted change counted (192 losses in 20 held blocks, 288 gain",
+     "what": "'Where' re-plant with every planted change counted (192 losses in 20 held blocks, 288 gains in 10 islands)",
+     "status": "development",
+     "outcome": "no false places in the unplanted read (0 of 165,285 loss units and 0 of 46,973 gain units), 9 of 10 gain islands named, losses moved the right way but none was named (finding F286). The same blocks planted at three times the loss: 9 of 20 named, 8 of 10 gain islands, still no false places; at this depth the loss side names a block once it shows about 4 to 6 times its healthy loss (finding F287).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Held-out healthy ranges and purity",
+     "what": "Held-out healthy ranges and purity",
+     "status": "development",
+     "outcome": "whole-sample Met-A is wide in mixed samples because small shares the Deconvolver drops read as disorder (finding F289). The never-used healthy libraries that read high are the less pure sorts or cells from cancer surgeries, according to the depositors' own table (finding F288). A planted-cancer check showed IAM-A catches loss of marks inside a mixed library.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Which instruments need molecules (finding F290)",
+     "what": "Which instruments need molecules (finding F290)",
+     "status": "diagnosis",
+     "outcome": "22 readings appear only when the chain reads molecule files; the Deconvolver, whole-sample Met-A, both territories and the globes read per-CpG counts as well.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Zenodo",
+     "what": "Zenodo",
+     "status": "metadata only",
+     "outcome": "the molecule files of the 205 healthy libraries were published on the author's yes, DOI 10.5281/zenodo.24518180, and added to the repository's record list (main da921f5c).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "The derivation of IAM's Law and Koide's relation, researcher edition, is in the repository",
+     "what": "The derivation of IAM's Law and Koide's relation, researcher edition, is in the repository as its own generated file (main e505e852).",
+     "status": "structure",
+     "outcome": "The derivation of IAM's Law and Koide's relation, researcher edition, is in the repository as its own generated file (main e505e852).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "The Locator's positions reference v2 (edit 254, main 25e4dfc2)",
+     "what": "The Locator's positions reference v2 (edit 254, main 25e4dfc2)",
+     "status": "structure",
+     "outcome": "every place's relation to genes from RefSeq and UCSC known genes, by the definitions of Koldobskiy et al. 2021, and its CpG-island context, built on GitHub from public UCSC hg19 files and checked against v1 at every place. 18,755 promoter places have no array probe (finding F293).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Documentation catch-up (edits 255 to 258)",
+     "what": "Documentation catch-up (edits 255 to 258)",
+     "status": "structure",
+     "outcome": "the SOP and the Decoder now generate every option, every chain file and every reference folder from the code; the Locator's full record, the depth-free readings and the purity questions entered the instrument records; a reference inventory reads each reference table's shape and tells a table split by cell types from a table split by rows. The documentation gate on main finds nothing the chain added missing from either document.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Route map, wave 1 (12 samples on Google, the one button unchanged, every function, file an",
+     "what": "Route map, wave 1 (12 samples on Google, the one button unchanged, every function, file and message logged)",
+     "status": "in progress",
+     "outcome": "the known-answer library at full depth (exit 0, 618 functions, 164 files, 72 minutes, 3.1 GB) and thinned to about 2 calls per site (still cardiomyocyte, 0.94); the empty, non-molecule, one-chromosome and truncated files were refused for the right reason (findings F294, F295). Still reading at turnover: the three mixtures, the declared-sex mismatch, the partial read and the GEO route.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Two chain fixes from the route map",
+     "what": "Two chain fixes from the route map",
+     "status": "development",
+     "outcome": "every refusal writes its WHY record again (edit 260, main a058baf8), and the last console line on a sequencing sample prints the main cell, whole-sample Met-A and IAM-A (edit 261, main c582d620).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    }
+   ],
+   "heading": "What ran, and how each came out"
+  }
+ ]
+}
