@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,878 | 22 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,882 | 22 | 11 | 10 |
 | `stage_0_intake.py` | 1,281 | 48 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -84,7 +84,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **139 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **140 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -176,6 +176,7 @@ Read from `run_sample.py`'s own option definitions at build time: **139 options*
 | `--dev-tiles` | 'table' |  | DEVELOPMENT (plan 14.9): Stage Q2's tiles from the commissioned table (default) or from the genome dictionary's chromosome ranges |
 | `--dev-v21-cells` | None |  | DEVELOPMENT (edit 268): on sequencing, read these cells (comma-separated; underscores for spaces) on IAM-Atlas v2.1 in sequencing units even where the IAM Sequencing Atlas holds them: the agreement test before the v2.1 fallback is trusted |
 | `--dev-v21-conv` | None |  | DEVELOPMENT (edit 269): how an IAM-Atlas v2.1 level is put in sequencing units for Met-A and the readings built on it: linear (default), bounded (the adopted transfer) or none |
+| `--dev-v21-presence` | off |  | DEVELOPMENT (edit 280): on sequencing, also read which cells are present against IAM-Atlas v2.1 and let cells only v2.1 holds take v2.1 levels. Off by default: on sequenced samples v2.1 misreads blood (presence test, finding F307) and is not a healthy ruler (agreement test, F301); the IAM Sequencing Atlas is the only reference |
 | `--dev-whole-sites` | off |  | DEVELOPMENT: write Met-A for the whole sample's per-site table (level, expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz) |
 | `--engine` | 'v3' |  | kept so recorded commands still run: v3 names the conductor (conductor_v3.py), which chain v4 runs; the class-floor engine was retired 2026-10-03 |
 | `--explorer-spec` | None |  | also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew |
@@ -1606,14 +1607,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 685 (1191 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 685 (1195 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `FILE.json`, `FILE.npz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `OUT.npz`, `Runtime Matrices/Clock_Sites/epitoc2_sites.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1320 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1321 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -1621,13 +1622,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1085 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 1086 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1790 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1794 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -6597,6 +6598,9 @@ Edit 276 (finding F302): puts a healthy expectation built from the atlas onto th
 ### `stage_where.py::variant_check`
 
 Edit 277 (finding F304): the Locator's variant guard. For each named place, one pass over the sample's own molecule file (named places' CpGs only) counts the changed calls CpG by CpG: T calls on held molecules for the loss side, C calls on unmarked molecules for the gain side, with the same molecule rule as the counter. A genetic variant at a CpG (for example C>T) changes that one CpG on every molecule that carries it (about half the molecules for one copy, all for two), while a change of methylation spreads over the place. A place whose top one or two CpGs carry at least VARIANT_TOP (60 %) of its changed calls, each changed on at least VARIANT_T_MIN (35 %) of the molecules covering it, is marked 'probable genetic variant at a CpG' with the CpGs, and counted apart (called_changes, probable_variants). Found on the healthy known-answer library: an island in ABCA2 with 147 of its 160 errors at one CpG, changed on 97 % of held molecules.
+
+### Atlas route on sequenced samples (edit 280)
+Sequenced samples are read against the IAM Sequencing Atlas only: which cells are present, their shares, every level reading and every healthy range. IAM-Atlas v2.1 is the array atlas, built on array sites and the array scale. Two tests decided this. The presence test (six in-silico mixtures of real healthy molecules through the one button, finding F307): the Sequencing Atlas read granulocytes 0.59-0.64 of a planted 0.60, T cells 0.22-0.25 of 0.25, monocytes 0.05-0.11 of 0.08, NK 0.05-0.07 of 0.07, with no false presence, also at plasma depth; v2.1 on the same samples read monocytes and NK at 0 and lung macrophages at 0.26-0.36 in every blood mixture. The agreement test (51 reads of 17 never-used healthy libraries, F301): a sequenced sample's level on v2.1's scale differs from the Sequencing Atlas by an amount that depends on the cell type (about 2-3 % for cardiomyocytes, up to 23 % for cortical neurons), so no single conversion makes v2.1 a healthy ruler for sequencing. The v2.1 side reading and the v2.1 level fallback remain as the development option --dev-v21-presence for later tests. Cells only v2.1 holds (marrow progenitors, eosinophils, basophils, some T and NK subsets) have no open sequenced data of their own; the report says so under 'What we could not test, and why'.
 
 *Code:* `stage_where.py` line 134 (43 lines) · arguments: pat_path, out, isl_first, isl_last, block, min_calls, min_meth · calls: not called on the traced runs · constants read: `VARIANT_TOP`, `VARIANT_T_MIN`
 
