@@ -4546,3 +4546,6 @@ On a sequenced mixture, Stage Q0's file checks and per-chromosome counts run (on
 
 ### Edit 273 (stage_law_sphere.save_counts)
 The saved per-unit counts keep every Law Sphere unit (592,067 over the 28,217,448 CpGs), not only the 237,850 the sphere uses, so the Locator's reference can be built over every place, including places alike in every healthy cell type. No reading changes.
+
+### Edit 272 (stage_v4.stage_q2)
+IAM-A's sample-shape check no longer stops the reading: a sample outside its type's healthy shape, or of a type with no shape reference, is read and carries shape_flag beside A (with explained_shape); the derived line and the Law Sphere's hold alarm follow.

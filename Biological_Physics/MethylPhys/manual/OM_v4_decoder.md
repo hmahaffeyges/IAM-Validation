@@ -51,7 +51,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 400 | 30 | 1 | 0 |
-| `stage_v4.py` | 192 | 11 | 4 | 2 |
+| `stage_v4.py` | 191 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
 | `stage_q2_selfref.py` | 613 | 49 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
@@ -2738,7 +2738,7 @@ observed runs / expected runs: 1 for independent point losses, below 1 when loss
 `meter`), all from `stage_q2_selfref.count_pat`. This function's count list passes them on to the bundle with every reading. Development, recorded only, never used in A (register CP1; book
 Part VI, 'Run-length spectrum of losses').
 
-*Code:* `stage_v4.py` line 99 (31 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 99 (30 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_q2_selfref.py::_runs_expected`
 
@@ -2767,26 +2767,26 @@ firm tiles read the line at loose share 0 and loose tiles at loose share 1. Deve
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 137 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 136 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 140 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 139 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 151 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 150 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 190 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 189 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -6582,6 +6582,9 @@ On a sequenced mixture, Stage Q0's file checks and per-chromosome counts run (on
 
 ### Edit 273 (stage_law_sphere.save_counts)
 The saved per-unit counts keep every Law Sphere unit (592,067 over the 28,217,448 CpGs), not only the 237,850 the sphere uses, so the Locator's reference can be built over every place, including places alike in every healthy cell type. No reading changes.
+
+### Edit 272 (stage_v4.stage_q2)
+IAM-A's sample-shape check no longer stops the reading: a sample outside its type's healthy shape, or of a type with no shape reference, is read and carries shape_flag beside A (with explained_shape); the derived line and the Law Sphere's hold alarm follow.
 
 *Code:* `stage_metaa_atlas.py` line 191 (6 lines) · arguments: v · calls: not called on the traced runs · constants read: `HERE`, `_BOUNDED` · files named: `transfer_bounded_v21.json`
 

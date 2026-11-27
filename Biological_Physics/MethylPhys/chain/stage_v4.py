@@ -108,14 +108,13 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
                                "the file holds no molecules IAM-A can count, so there is neither a held error nor a loose share", "check that the file is whole-genome bisulfite of the right build (hg19 CpG index) and not a small region")
         return out
     s = Q2.shape_check(rec, cell); out["shape_check"] = s
-    if not s["read"]:
-        out["refusal"] = s["reason"]
-        out["explained"] = _ex("sample shape (Stage Q2)", "not read", f"lowest tenth of tiles {s.get('tile_p10')}" if s.get("tile_p10") is not None else s["reason"],
-                               f"at least {s['limit']:.4f} (the lowest healthy {cell} minus the margin {s['margin']:.4f})" if s.get("limit") is not None else "a healthy shape reference for this cell type",
+    if not s["read"]:   # edit 272: read anyway; the shape is printed beside A, never a stop
+        out["shape_flag"] = s["reason"].replace("not read: ", "") + "; IAM-A is read and the self-reference line is used beyond the range of shapes it was measured on"
+        out["explained_shape"] = _ex("sample shape (Stage Q2)", "read, flagged", f"lowest tenth of tiles {s.get('tile_p10')}" if s.get("tile_p10") is not None else s["reason"],
+                               f"healthy at least {s['limit']:.4f} (the lowest healthy {cell} minus the margin {s['margin']:.4f})" if s.get("limit") is not None else "a healthy shape reference for this cell type",
                                "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json (healthy samples of GSE186458; the margin is computed from them, never typed)",
-                               "the sample's spread of methylation across the genome is outside what healthy samples of its type show, so its own loose share is not a healthy state the line can be read from",
-                               "check the cell type given with --seq-cell; a sample outside the healthy shape is reported, not read")
-        return out
+                               "the sample's spread of methylation across the genome is outside what healthy samples of its type show (or the type has no shape reference); A is read and flagged",
+                               "read A beside its shape; a sample far from healthy is expected to sit outside the healthy shape")
     r = Q2.reading(rec); A = float(r["A"])
     _d = Q2.derived_reading(rec)   # 2026-11-16: A on the derived line, beside A on the measured line
     if _d: out.update({k: (round(float(x), 6) if isinstance(x, float) else x) for k, x in _d.items()})

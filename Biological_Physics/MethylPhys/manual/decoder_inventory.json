@@ -3858,7 +3858,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 192,
+   "lines": 191,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3985,14 +3985,14 @@
      "function": "stage_q2",
      "name": "stage_q2",
      "line": 99,
-     "end": 129,
+     "end": 128,
      "args": [
       "rec",
       "cell",
       "chemistry",
       "source"
      ],
-     "lines": 31,
+     "lines": 30,
      "doc": "",
      "constants": [
       "CD8_TYPES"
@@ -4008,8 +4008,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 137,
-     "end": 139,
+     "line": 136,
+     "end": 138,
      "args": [
       "v"
      ],
@@ -4025,8 +4025,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 140,
-     "end": 149,
+     "line": 139,
+     "end": 148,
      "args": [
       "nside",
       "ipix"
@@ -4046,8 +4046,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 151,
-     "end": 188,
+     "line": 150,
+     "end": 187,
      "args": [
       "z",
       "out_png",
@@ -4067,8 +4067,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 190,
-     "end": 191,
+     "line": 189,
+     "end": 190,
      "args": [
       "path"
      ],
