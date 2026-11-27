@@ -735,7 +735,7 @@ Files: `atlas_ruler_v1.json`, `selftare_typeII_EPIC_v1.json`
 
 Built by `build_where_ref.py` from public files (UCSC hg19 sequence, cpgIslandExt, refGene) and the chain's sequencing key and Law Sphere units. `where_units_v1.parquet`: every Law Sphere unit (islands, then 50-CpG blocks) with chromosome, hg19 start and end, CpG count, array probe count (0 = arrays blind), the UCSC CpG island, the nearest gene by transcription start and the signed distance to it. `where_regions_v1.parquet`: the same for every Sequencing Globe region (1,000 consecutive CpG indexes). `where_ref_v1.json`: sizes, sources and the key check (all 813,951 array probes on their recorded chromosome and position).
 
-Sections of its README: The Locator's gene relation (v2); The healthy reference and measured null (edit 259).
+Sections of its README: The Locator's gene relation (v2); The healthy reference and measured null (edit 259); Reference v2 over every unit (edit 275).
 
 Files: `README.md`, `build_where_genes_v2.py`, `build_where_null.py`, `build_where_ref.py`, `where_null_v1.json`, `where_null_v2.json`, `where_rates_v1_part1.npz`, `where_rates_v1_part2.npz`, `where_rates_v1_part3.npz`, `where_rates_v2_part1.npz`, `where_rates_v2_part2.npz`, `where_rates_v2_part3.npz`, `where_rates_v2_part4.npz`, `where_rates_v2_part5.npz`, `where_rates_v2_part6.npz`, `where_rates_v2_part7.npz`, `where_rates_v2_part8.npz`, `where_ref_v1.json`, `where_ref_v2.json`, `where_regions_v1.parquet`, `where_regions_v2.parquet`, `where_units_v1.parquet`, `where_units_v2.parquet`
 

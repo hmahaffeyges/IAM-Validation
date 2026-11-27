@@ -22,3 +22,8 @@ Built by `build_where_null.py build` (then `split`) from the per-unit counts the
 | where_rates_v1_part2.npz | c17c72f081037781d97ea54283f61cda472dd8ae1eb561358dadc4df9485ddd9 |
 | where_rates_v1_part3.npz | 1157d17af0b1afb1d7d35e098be50094ac8ca7c4588ae8efe042277dea7f91b8 |
 | where_null_v1.json | 1059ff2fbed78b37ca52b250176f67f65e03873de7a049abb4eee4e5b3b484a1 |
+
+
+## Reference v2 over every unit (edit 275)
+
+`where_rates_v2_part1.npz` to `where_rates_v2_part3.npz` and `where_null_v2.json` replace the v1 files in the Locator. They cover every Law Sphere unit (592,067 units: each CpG island and each block of 50 CpGs between islands, over the 28,217,448 hg19 CpGs), built from the 156 healthy Sequencing Atlas input libraries (GSE186458) recounted on every unit with the chain's own counter (`doors/data/DEV_WHERE_01/recount_units.py`), by the same builder as v1 (`build_where_null.py`), rates split by groups of about 8 cell types into eight files (every part holds every unit; eight so each file stays under the repository's upload limit). v1 read only the 237,850 units whose level differs between cell types (the Law Sphere's units), so places alike in every healthy type, such as islands every healthy cell keeps unmethylated, were not read. On the units both share, the v2 rates correlate with v1 at 0.9999 (loss side) and 0.999 (gain side); they sit higher by a constant factor (about 1.05 and 1.55) because each library's own rate is now taken over every unit, which cancels in the reading (the sample's rate is taken over the same units). The v1 files stay for comparison.

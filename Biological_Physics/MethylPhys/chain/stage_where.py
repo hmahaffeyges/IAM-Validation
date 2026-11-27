@@ -20,7 +20,7 @@ gain units); 9 of 10 planted gain islands named; loss blocks named from about 4 
 import os, json, numpy as np
 
 REF_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Where")
-RATES = "where_rates_v1_part{}.npz"; RATE_PARTS = 3; NULL = "where_null_v1.json"; POSITIONS = "where_units_v2.parquet"
+RATES = "where_rates_v2_part{}.npz"; RATE_PARTS = 8; NULL = "where_null_v2.json"; POSITIONS = "where_units_v2.parquet"
 EB = np.array([0, 0.5, 1, 2, 4, 8, 16, 32, 64, 1e12])
 FDR = 0.05
 TOP_IN_BUNDLE = 300
