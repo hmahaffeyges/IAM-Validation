@@ -345,7 +345,7 @@
     "fields": [
      [
       "How it works",
-      "Before any reading: the file must be readable and complete, on the hg19 build, with bisulfite conversion of at least 0.98, an accepted specimen word, at least 100,000 opportunities, and genome coverage on every chromosome. A failing file is refused with a plain reason (exit code 3, INTAKE_REFUSED), and no reading is shown."
+      "Before any reading: the file must be readable and complete, on the hg19 build, with bisulfite conversion of at least 0.98, an accepted specimen word, at least 100,000 opportunities, and genome coverage on every chromosome. A failing file is refused with a plain reason (exit code 3, INTAKE_REFUSED), and no reading is shown. Since a chain update a sequenced sample's declared sex and age are recorded, and its sex is read from its own chrX and chrY molecules (each per CpG over the autosomes'); a mismatch with the declared sex is flagged, never refused (loss of Y occurs in blood cancers). Since a chain update intake runs on mixtures too."
      ],
      [
       "Why",
@@ -369,7 +369,7 @@
      ],
      [
       "Known-answer test",
-      "Relay test (2026-11-20): a truncated molecule file is refused with a plain reason after a chain update (partly met before)."
+      "Relay test (2026-11-20): a truncated molecule file is refused with a plain reason after a chain update (partly met before). Sex reading on 49 never-used healthy libraries with GEO sex: agreed in every case it judged (handoff sex_ratios)."
      ],
      [
       "Limits",

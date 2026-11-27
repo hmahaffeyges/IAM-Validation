@@ -410,7 +410,7 @@
     "fields": [
      [
       "How it works",
-      "Splits a sample into the 57 healthy cell types of the IAM Sequencing Atlas. For every marker CpG it solves the sample's level as a non-negative mix of the types' healthy levels (non-negative least squares), each site weighted by the atlas's person-to-person spread at that site times the current shares, plus a laboratory term; three passes, each re-weighting from the last shares. Shares are normalized to 1. 95 % intervals from 200 resamplings of the marker sites, each also drawing that person's cells from the atlas's spread (seed 2026)."
+      "Splits a sample into the 57 healthy cell types of the IAM Sequencing Atlas. For every marker CpG it solves the sample's level as a non-negative mix of the types' healthy levels (non-negative least squares), each site weighted by the atlas's person-to-person spread at that site times the current shares, plus a laboratory term; three passes, each re-weighting from the last shares. Shares are normalized to 1. 95 % intervals from 200 resamplings of the marker sites, each also drawing that person's cells from the atlas's spread (seed 2026). On sequenced samples the IAM Sequencing Atlas is the only reference (a chain update): IAM-Atlas v2.1, the array atlas, is not read on sequenced samples by default (development option --dev-v21-presence)."
      ],
      [
       "Why",
@@ -434,7 +434,7 @@
      ],
      [
       "Known-answer test",
-      "Planted mixtures through the one button (2026-11-21, plantmix_14.csv): planted share recovered 0/0.043/0.134/0.159/0.216/0.320/0.522 (heart + liver) and 0/0.046/0.082/0.126/0.177/0.263/0.459 (oligodendrocytes + acinar) at 0/0.05/0.10/0.15/0.20/0.30/0.50."
+      "Planted mixtures through the one button (2026-11-21, plantmix_14.csv): planted share recovered 0/0.043/0.134/0.159/0.216/0.320/0.522 (heart + liver) and 0/0.046/0.082/0.126/0.177/0.263/0.459 (oligodendrocytes + acinar) at 0/0.05/0.10/0.15/0.20/0.30/0.50. Presence test (six in-silico mixtures of real healthy molecules through the one button): three blood repeats, granulocytes 0.59-0.64 of 0.60, CD3 T 0.24-0.25 of 0.25, monocytes 0.05-0.09 of 0.08, NK 0.05-0.07 of 0.07, no false presence at 5 %; at plasma depth (3) 0.60/0.22/0.11/0.05; erythrocyte progenitors 0.078 of 0.10; liver mixture hepatocytes 0.59 of 0.70. IAM-Atlas v2.1 on the same sequenced blood read monocytes and NK at 0 and lung macrophages at 0.26-0.36."
      ],
      [
       "Limits",
