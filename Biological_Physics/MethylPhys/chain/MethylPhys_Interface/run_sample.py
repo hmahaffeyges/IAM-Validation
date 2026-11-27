@@ -1432,19 +1432,25 @@ def main():
                 print("Stage C: each design's response on its own calibrators: " + "; ".join(f"{k} {v.get('levels', 0)} levels, largest {v.get('largest_correction')}" if v.get("mapped") else f"{k} not mapped" for k, v in o["curve_cal"]["designs"].items()), flush=True)
             except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
+        _beta_raw = _beta_fit = None   # edit 276
         if a.pat and getattr(a, "_seqv", None) and not getattr(a, "no_lab_correction", False):   # edit 246 (F275): the laboratory correction from the sample's own reads
             try:
                 import stage_conv_corr as _CCv
-                a._site_counts = _site_counts(a.pat); beta, o["lab_correction"] = _CCv.apply_levels(beta, a._site_counts, _CCv.load_ref())
+                a._site_counts = _site_counts(a.pat); _beta_raw = beta; beta, o["lab_correction"] = _CCv.apply_levels(beta, a._site_counts, _CCv.load_ref(), clip=False)   # edit 276 (F302)
+                if o["lab_correction"].get("applied"):
+                    _beta_fit = beta; beta = ({k: (None if v is None else min(1.0, max(0.0, v))) for k, v in beta.items()} if (hasattr(beta, "items") and not hasattr(beta, "clip")) else beta.clip(0, 1))
+                    import stage_metaa_atlas as _SAl; _SAl.LAB = dict(q_sample=o["lab_correction"]["q_sample"], q_atlas=o["lab_correction"]["q_atlas"])
+                    o["lab_correction"]["applied_as"] = "level fits (Deconvolver readings): corrected levels unclipped; Met-A family: the sample's own levels against expectations put on its conversion; other readings: corrected levels clipped to [0, 1] (edit 276)"
+                else: _beta_raw = None
                 if o["lab_correction"].get("applied"): print(f"Laboratory correction: the sample's false-mark rate {o['lab_correction']['q_sample']:.5f}, the atlas's {o['lab_correction']['q_atlas']:.5f}; every site level put on the atlas's scale", flush=True)
             except Exception as _e: o["lab_correction"] = dict(applied=False, status="ERROR", reason=f"{type(_e).__name__}: {str(_e)[:200]}")
         elif a.pat and getattr(a, "_seqv", None): o["lab_correction"] = dict(applied=False, reason="--no-lab-correction (development)")
-        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
+        o["cell_shares"] = V4.stage_d21(_pd.Series(beta if _beta_fit is None else _beta_fit, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
         if a._seqv and _dsr is not None:   # edit 267: which cells are present, also read against IAM-Atlas v2.1 (79 types), development
             try:
                 import numpy as _np71   # edit 271: the sample's sequencing levels on v2.1's array scale (inverse of the adopted bounded transfer, F108)
                 _TB = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_bounded_v21.json")))
-                _bs = _pd.Series(beta, dtype="float64"); _ba = _pd.Series(_np71.interp(_bs.fillna(0).to_numpy(), _np71.asarray(_TB["knots_y"], float), _np71.asarray(_TB["knots_x"], float)), index=_bs.index).where(_bs.notna())
+                _bs = _pd.Series(beta if _beta_fit is None else _beta_fit, dtype="float64"); _ba = _pd.Series(_np71.interp(_bs.fillna(0).to_numpy(), _np71.asarray(_TB["knots_y"], float), _np71.asarray(_TB["knots_x"], float)), index=_bs.index).where(_bs.notna())
                 _v21 = V4.stage_d21(_ba, _panel(), sequencing=True, seqref=None); _v21["sample_levels"] = "on v2.1's array scale: inverse of the adopted bounded transfer (transfer_bounded_v21.json)"
                 _v21u = V4.stage_d21(_bs, _panel(), sequencing=True, seqref=None)
                 o["cell_shares_v21_unconverted"] = {"cells": [c for c in (_v21u.get("cells") or []) if (c.get("share") or 0) >= 0.01], "note": "the same reading on the sequencing levels as they are (before edit 271), kept for the presence test"}
@@ -1462,7 +1468,7 @@ def main():
                       + ("; found only here: " + ", ".join(sorted(set(_f21) - _seqn)) if set(_f21) - _seqn else ""), flush=True)
             except Exception as _e21: o["cell_shares_v21"] = {"status": "ERROR", "reason": f"{type(_e21).__name__}: {str(_e21)[:200]}"}
         if not a._seqv and (a.cell_panel or "blood") != "blood":   # 2026-11-09: the commissioned six-cell reading beside the atlas panel's
-            try: o["cell_shares_blood6"] = dict(V4.stage_d21(_pd.Series(beta, dtype="float64"), None), note="the six blood cells the IAM-Deconvolver is commissioned on, beside the atlas panel the chain reads with")
+            try: o["cell_shares_blood6"] = dict(V4.stage_d21(_pd.Series(beta if _beta_fit is None else _beta_fit, dtype="float64"), None), note="the six blood cells the IAM-Deconvolver is commissioned on, beside the atlas panel the chain reads with")
             except Exception as e: o["cell_shares_blood6"] = {"reason": f"{type(e).__name__}: {str(e)[:160]}"}
         import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded
         o["label_check"] = _S0L.label_check(a.specimen, o["cell_shares"])
@@ -1486,7 +1492,7 @@ def main():
             o["cell_shares"]["declared"] = "the shares were declared with --dev-shares for diagnosis; the Deconvolver's own shares are under cell_shares_read"
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
-            try: o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
+            try: o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta if _beta_fit is None else _beta_fit, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
             except Exception as e: o["cell_shares_provisional"] = {"flag": "development", "reason": f"not read: {type(e).__name__}: {str(e)[:160]}"}   # 2026-11-15 (PHY-093 synthetic): a development reading that fails is recorded, never stops the run
         _neu_iso = _S0spec.ACCEPTED_SPECIMENS.get(_S0spec.normalise_specimen(a.specimen)) == "isolated neutrophils"   # 2026-11-09: sorted neutrophils get the atlas readings too (the first commissioning's branch still runs)
         _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen) or _neu_iso)
@@ -1504,9 +1510,9 @@ def main():
                 _shr_d = {r["cell"]: r["share"] for r in o["cell_shares"]["cells"] if r.get("share")}   # edit 236: Met-A's tare on sequencing
                 _tare_on = bool(a._seqv and _S0spec.is_isolated(a.specimen))   # edit 236: sorted, isolated or purified sequenced samples only
                 if _tare_on: _shr_d, o["met_a_tare"] = SA.tare_shares(_shr_d, declared=_S0spec.atlas_cell_of(a.specimen), support={r["cell"]: (r.get("interval_95") or [0, 0])[0] for r in o["cell_shares"]["cells"]})
-                o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"), _shr_d, counts=getattr(a, "_seqc", None))
+                o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta if _beta_raw is None else _beta_raw, dtype="float64"), _shr_d, counts=getattr(a, "_seqc", None))
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else ("sequencing values (stage_seq_values); the self-tare is for arrays only" if getattr(a, "_seqv", None) else "Stage 1 (Stage T step 1 could not run)"))
-                _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
+                _vals = _bs if _bs is not None else _pd.Series(beta if _beta_raw is None else _beta_raw, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 if _tare_on: _shr = _shr_d   # edit 236: every Met-A reading of a sorted sequenced sample uses Met-A's tare mix
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
                 if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen) or _neu_iso): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"

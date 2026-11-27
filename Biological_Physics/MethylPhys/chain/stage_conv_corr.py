@@ -36,15 +36,15 @@ def record(q_s, se, n, ref, applied, what):
                 q_atlas=ref.get("q_ref"), q_atlas_libraries=ref.get("libraries"), shift=None if q_s is None else round(q_s - ref["q_ref"], 6), corrected=what,
                 formula="o_ref = q_atlas + (o - q_sample)(1 - q_atlas)/(1 - q_sample)", reference_file="Runtime Matrices/Lab_Correction/conversion_ref_v1.json")
 
-def apply_levels(beta, site_counts, ref):
+def apply_levels(beta, site_counts, ref, clip=True):   # edit 276: clip=False returns the corrected levels unclipped (F302)
     """Correct the sample's site levels (dict or Series of CpG -> level) once, before the Deconvolver; every level reading after it inherits."""
     q_s, se, n = meter(site_counts)
     if q_s is None: return beta, record(None, None, 0, ref, False, "not applied: the islands meter was not counted")
     q_r = ref["q_ref"]; f = (1.0 - q_r) / (1.0 - q_s)
     if hasattr(beta, "items") and not hasattr(beta, "clip"):
-        out = {k: (None if v is None or (isinstance(v, float) and math.isnan(v)) else min(1.0, max(0.0, q_r + (v - q_s) * f))) for k, v in beta.items()}
+        out = {k: (None if v is None or (isinstance(v, float) and math.isnan(v)) else ((min(1.0, max(0.0, q_r + (v - q_s) * f))) if clip else (q_r + (v - q_s) * f))) for k, v in beta.items()}
     else:
-        out = (q_r + (beta - q_s) * f).clip(0, 1)
+        out = (q_r + (beta - q_s) * f); out = out.clip(0, 1) if clip else out
     return out, record(q_s, se, n, ref, True, "every site level, before the Deconvolver (Met-A, Met-A C-Score, territories, Deconvolver and mixture check, distance to maximum disorder)")
 
 def apply_rate(rate, site_counts, ref):

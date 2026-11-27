@@ -647,6 +647,15 @@ def derived_held(x, n, mu):
     return dict(A_derived_held=round(hx / he, 5), derived_held_sites=int(k.sum()), eps0=eps0,
                 derived_held_rule="held identity sites (the cell's atlas level >= 0.80); expectation: the disorder of 1 - eps0 (M alone) at each site's own read count")
 
+LAB = None   # edit 276: {"q_sample", "q_atlas"} when the one button applied the laboratory correction to this sample (F302)
+
+def _lab(e):
+    """Edit 276: a healthy expectation from the atlas put on the sample's own conversion (the sample's levels stay uncorrected for entropy
+    readings, which have no value below 0): e' = q_s + (e - q_atlas)(1 - q_s)/(1 - q_atlas); unchanged when the correction was not applied."""
+    if not LAB: return e
+    qs, qr = float(LAB["q_sample"]), float(LAB["q_atlas"])
+    return (qs + (e - qr) * (1.0 - qs) / (1.0 - qr)).clip(0.0, 1.0)
+
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -675,7 +684,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         # hold at least MIX_COVER of the shares (on the full 79-cell panel a single small cell without a value had dropped about half the sites)
         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-        e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
+        e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
         if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
         _rmin = READ_COVER_MIN_SEQ if counts is not None else READ_COVER_MIN
@@ -771,7 +780,7 @@ def departure_in_mix(beta, shares, cell):
     cells = [c for c, f in shares.items() if f is not None]
     MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
     have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
+    e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)); x = beta.reindex(S)
     ok = x.notna() & e.notna() & (cover >= MIX_COVER)
     return pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)   # site ids kept
 
@@ -790,7 +799,7 @@ def read_in_mix_allsites(beta, shares):
     x = pd.Series(beta, dtype="float64"); idx = x.dropna().index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
     have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+    e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0))
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
     Hx = np.asarray(_H(xs), dtype="float64"); He = np.asarray(_H(es), dtype="float64")
     for c in cells:
@@ -849,7 +858,7 @@ def cscore_in_mix(beta, shares, deps=None):
     x = pd.Series(beta, dtype="float64").dropna(); idx = x.index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
     have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); ok = e.notna() & (cover >= MIX_COVER)
+    e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)); ok = e.notna() & (cover >= MIX_COVER)
     dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
     C = _clustering(dw.reindex(_genome_order(dw.index)).to_numpy()) if len(dw) >= 10 * CS_BLOCK else None
     out["whole_genome"] = dict(C=None if C is None else round(C, 4), n_sites=int(len(dw)))
@@ -867,7 +876,7 @@ def cscore_whole_departures(beta, shares):
     x = pd.Series(beta, dtype="float64").dropna(); idx = x.index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
     have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); ok = e.notna() & (cover >= MIX_COVER)
+    e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)); ok = e.notna() & (cover >= MIX_COVER)
     dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
     return dw.reindex(_genome_order(dw.index)) if len(dw) >= 10 * CS_BLOCK else None
 
@@ -942,7 +951,7 @@ def territory_reading(beta, shares, counts=None):
     for name, S in territory_sets().items():
         idx = pd.Index(S).intersection(x.dropna().index)
         MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
-        cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+        cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0))
         if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
@@ -1221,7 +1230,7 @@ def read_whole(beta, shares, counts=None, raw=None):
     if not cells: out["reason"] = "no cell shares"; return out
     idx = x.dropna().index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
-    cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+    cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0))
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
     _ab = absent_cells(cells)
     if _ab: out["absent_from_ruler"] = {k: round(float(F[k]), 4) for k in _ab}   # 2026-11-09: cells with no column at these sites, set aside from the cover
@@ -1382,7 +1391,7 @@ def cell_prediction(each, beta, shares, blur):
         try:
             S = identity_sites(r["cell"]); MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1)
             have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
-            e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
+            e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)); x = beta.reindex(S)
             ok = x.notna() & e.notna() & (cover >= MIX_COVER); x, e = x[ok], e[ok]; w = pd.Series(1.0, index=e.index)
             Ar = float(np.asarray(_H(x), dtype="float64").mean() / np.asarray(_H(e), dtype="float64").mean())
             hp = predicted_healthy(x, e, w, blur=blur, min_sites=500)
@@ -1407,7 +1416,7 @@ def territory_prediction(terr, beta, shares, blur):
         if not r or r.get("A") is None: continue
         try:
             idx = pd.Index(S).intersection(x0.dropna().index); MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
-            cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+            cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = _lab(MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0))
             ok = e.notna() & (cover >= MIX_COVER); xs, es = x0.reindex(idx)[ok], e[ok]; w = pd.Series(1.0, index=es.index)
             Ar = float(np.asarray(_H(xs), dtype="float64").mean() / np.asarray(_H(es), dtype="float64").mean()); hp = predicted_healthy(xs, es, w, blur=blur, min_sites=500)
             if not hp.get("A_pred"): r["prediction"] = "not made: " + str(hp.get("reason")); continue
