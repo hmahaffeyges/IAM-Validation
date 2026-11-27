@@ -283,6 +283,12 @@ Evidence: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md),
 
 ## Measurement quality
 
+**Why are sequenced samples read only against the IAM Sequencing Atlas?**
+IAM-Atlas v2.1 is built on array sites and the array scale. Read on sequenced samples, it misread blood: in five in-silico blood mixtures of real healthy molecules (planted granulocytes 0.60, T cells 0.25, monocytes 0.08, NK cells 0.07) it read monocytes and NK cells at 0 and put 0.26 to 0.36 in lung macrophages, while the IAM Sequencing Atlas read every mixture within a few points of the planted shares with no false cell, also at plasma depth. Its levels are not a healthy ruler for sequencing either: on 17 never-used healthy libraries the gap depended on the cell type (about 2 % for cardiomyocytes, up to 23 % for cortical neurons). So a sequenced sample has one ruler, the one that measured right; IAM-Atlas v2.1 stays the atlas for arrays. Cells only v2.1 holds (marrow progenitors, eosinophils, basophils, some T and NK subsets) have no open sequenced data of their own; the report says so. Evidence: the Decoder's section 'Atlas route on sequenced samples (edit 280)' and the [development log](METHYLPHYS_DEVELOPMENT_LOG.md).
+
+**Can a genetic variant look like a change of methylation?**
+Yes. Bisulfite turns every unmarked C into T, so a C that is really a T in the person's DNA reads as a missing mark, on every molecule that carries it. The Locator tells the two apart from the molecules: a change of methylation spreads over a place and varies from molecule to molecule, a variant changes one CpG on about half the molecules (one copy) or nearly all (two). In the healthy known-answer library (GSM5652214) one island in ABCA2 had 147 of its 160 lost marks at one CpG, changed on 147 of 152 molecules; the Locator now prints such a place as a probable genetic variant and does not count it. Evidence: `stage_where.variant_check` in the [Decoder](manual/OM_v4_decoder.md).
+
 **Batch effects, slide position, laboratory?**
 The same-run tare divides by healthy references from the same run, so the batch cancels instead of being modeled afterward. Identical DNA run
 at three laboratories read alike: Met-A's technical repeats agreed within 0.0114 (bar 0.012, 10 of 10), and after the same-run tare the three
