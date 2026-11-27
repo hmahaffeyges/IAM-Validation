@@ -7282,6 +7282,8 @@ _Written from the day's record (the chat, the findings ledger, the day's commits
 - Spread tests over GitHub and Google machines.
 - Depth over breadth: show reproducible results on the data we can get, and state plainly what open data cannot show and what data would close it.
 - A Locator supplement in the report, linked from every 'where' result.
+- Every test sample runs the whole chain with one button push, so each run also checks every instrument and the report; a run that tests one thing only is the exception.
+- The 200-plus earlier validation tests are run again once the chain works on plasma cell-free DNA, buffy coat and whole-blood arrays, and compared with their first results; until then the work stays on making the chain work.
 
 **Path changes:**
 - The Sequencing Atlas is the presence and level ruler for sequenced samples; v2.1 is a side reading on sequencing (awaiting the author's confirmation).
