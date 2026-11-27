@@ -1,0 +1,4 @@
+unit,gse,gsm,genotype,genome,title,srr,spots,specimen,rsflags,keep
+ALL,GSE116229,GSM4914800,cord-blood B cells,hg19,WGBS CD19-1,SRR13085132,147786979,sorted cells,--specimen sorted_cells,"lbeta,counts"
+ALL,GSE116229,GSM4914801,cord-blood B cells,hg19,WGBS CD19-2,SRR13085135,168309510,sorted cells,--specimen sorted_cells,"lbeta,counts"
+ALL,GSE116229,GSM4914802,cord-blood B cells,hg19,WGBS CD19-3,SRR13085136,144349730,sorted cells,--specimen sorted_cells,"lbeta,counts"

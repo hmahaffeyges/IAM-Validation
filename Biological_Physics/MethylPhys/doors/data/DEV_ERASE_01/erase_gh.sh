@@ -182,8 +182,12 @@ fi
 if [ "${FULL:-0}" = 1 ]; then   # 2026-10-23: the full reading by the one command (plasma_seq_01)
 # 2026-10-29: an rsflags column in the sample list adds that sample's own flags (e.g. --dev-seq-ref auto --dev-seq-ref-half B)
 RSX=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])) if x['gsm']==sys.argv[2]]; print((r[0].get('rsflags') or '') if r else '')" ${SAMPLES:-$E/erase_samples.csv} $GSM)
-( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "${SPECIMEN:-plasma}" --id $GSM --dev-seq-values 1 ${THIN:+--dev-thin $THIN} $RSX \
+# 2026-11-27 (edit 281): a 'keep' column (lbeta, counts) keeps the chain's per-CpG count file and the Law Sphere counts of the same molecules
+KEEP=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])) if x['gsm']==sys.argv[2]]; print((r[0].get('keep') or '') if r else '')" ${SAMPLES:-$E/erase_samples.csv} $GSM)
+KEEPC=""; case ",$KEEP," in (*,counts,*) KEEPC="--law-counts-out $OUT/${GSM}_counts.npz";; esac
+( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "${SPECIMEN:-plasma}" --id $GSM --dev-seq-values 1 ${THIN:+--dev-thin $THIN} $RSX $KEEPC \
     --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
+case ",$KEEP," in (*,lbeta,*) ( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --build seq-pat-lbeta --build-out $OUT/${GSM}.lbeta --bundle $OUT/${GSM}_lbeta.json > $OUT/${GSM}_lbeta.log 2>&1 ) || exit 36;; esac
 echo "{\"gsm\": \"$GSM\", \"pairs\": $n1, \"index_s\": $((TI-T0)), \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA)), \"threads\": $T, \"genome\": \"$gen\"}" > $OUT/${GSM}_timing.json; cat $OUT/${GSM}_timing.json; exit 0
 fi
 # 2026-11-12 (PHY-085 canary, exit 35): the genome-coverage check (2026-11-04, after the recount) measures coverage at IAM-Atlas v2.1's
