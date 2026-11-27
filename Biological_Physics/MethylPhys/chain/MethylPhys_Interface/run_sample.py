@@ -544,6 +544,12 @@ def _law_sphere(a, cnt, o):
             import stage_where as _SW; _wcsv = (os.path.splitext(os.path.abspath(a.out))[0] + "_where_places.csv") if getattr(a, "out", None) else None
             print("The Locator: where the sample changed (loss and gain per Law Sphere unit, measured healthy null, 5 % false discovery rate)", flush=True)
             o["where"] = _SW.run(C, sh, places_csv=_wcsv)
+            if getattr(a, "pat", None) and any(((o["where"].get(k) or {}).get("called") or 0) for k in ("loss", "gain")):   # edit 277 (F304): the variant guard
+                _SW.variant_check(a.pat, o["where"], ref["isl_first"], ref["isl_last"], ref["block"])
+                if _wcsv and os.path.exists(_wcsv):
+                    import pandas as _pdw; _T = _pdw.read_csv(_wcsv); _V = {(k, p_["unit"]): p_.get("probable_variant", "") for k in ("loss", "gain") for p_ in (o["where"].get(k) or {}).get("places") or []}
+                    _T["probable_variant"] = [_V.get((sd, un), "") for sd, un in zip(_T["side"], _T["unit"])]; _T.to_csv(_wcsv, index=False)
+                print("The Locator: " + "; ".join(f"{k} {(o['where'].get(k) or {}).get('called_changes')} changes and {(o['where'].get(k) or {}).get('probable_variants')} probable genetic variants" for k in ("loss", "gain")), flush=True)
         except Exception as e: o["where"] = dict(status="ERROR", reason=f"{type(e).__name__}: {e}"[:200])
     elif getattr(a, "no_locator", False): o["where"] = dict(status="NOT_RUN", reason="switched off (--no-locator)")
     U_ = rec.pop("_units", None)

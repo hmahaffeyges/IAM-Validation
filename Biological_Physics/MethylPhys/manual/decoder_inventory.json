@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1872,
+   "lines": 1878,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -270,13 +270,13 @@
      "function": "_law_sphere",
      "name": "_law_sphere",
      "line": 522,
-     "end": 558,
+     "end": 564,
      "args": [
       "a",
       "cnt",
       "o"
      ],
-     "lines": 37,
+     "lines": 43,
      "doc": "Edit 205 (DEV-SPHERE-01): IAM's Law Sphere. Each sequencing-sphere unit read from the sample's molecules by IAM-A's own rule and set against the law's expected point in the sample's own cell shares (stage_law_sphere.reading). Written under bundle development.law_sphere.",
      "constants": [],
      "data_files": [
@@ -289,8 +289,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 560,
-     "end": 582,
+     "line": 566,
+     "end": 588,
      "args": [
       "a",
       "cnt",
@@ -306,8 +306,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 585,
-     "end": 626,
+     "line": 591,
+     "end": 632,
      "args": [
       "a",
       "o",
@@ -327,8 +327,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_site_counts",
      "name": "_site_counts",
-     "line": 630,
-     "end": 663,
+     "line": 636,
+     "end": 669,
      "args": [
       "pat"
      ],
@@ -348,8 +348,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_lab_sites",
      "name": "_lab_sites",
-     "line": 665,
-     "end": 676,
+     "line": 671,
+     "end": 682,
      "args": [
       "a"
      ],
@@ -363,8 +363,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 679,
-     "end": 1869,
+     "line": 685,
+     "end": 1875,
      "args": [],
      "lines": 1191,
      "doc": "",
@@ -398,8 +398,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 1079,
-     "end": 1083,
+     "line": 1085,
+     "end": 1089,
      "args": [
       "r"
      ],
@@ -415,8 +415,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1314,
-     "end": 1321,
+     "line": 1320,
+     "end": 1327,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -428,8 +428,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1784,
-     "end": 1785,
+     "line": 1790,
+     "end": 1791,
      "args": [
       "b",
       "it",
@@ -10552,7 +10552,7 @@
   },
   {
    "file": "stage_where.py",
-   "lines": 129,
+   "lines": 177,
    "functions": [
     {
      "file": "stage_where.py",
@@ -10684,6 +10684,30 @@
       "POSITIONS",
       "RATES",
       "TOP_IN_BUNDLE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_where.py",
+     "function": "variant_check",
+     "name": "variant_check",
+     "line": 134,
+     "end": 176,
+     "args": [
+      "pat_path",
+      "out",
+      "isl_first",
+      "isl_last",
+      "block",
+      "min_calls",
+      "min_meth"
+     ],
+     "lines": 43,
+     "doc": "Edit 277: for each place the Locator named, the calls of the sample's own molecules CpG by CpG (one pass over the molecule file, only the named places' CpGs). Loss side: T calls on held molecules (at least min_calls calls, at least min_meth of them C); gain side: C calls on unmarked molecules (at most 1 - min_meth C). A place where the top one or two CpGs carry at least VARIANT_TOP of the changed ",
+     "constants": [
+      "VARIANT_TOP",
+      "VARIANT_T_MIN"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -12276,5 +12300,5 @@
   }
  ],
  "n_files": 40,
- "n_functions": 631
+ "n_functions": 632
 }

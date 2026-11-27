@@ -126,3 +126,51 @@ def run(C, shares, places_csv=None):
     out["reference"] = dict(rates=RATES, null=NULL, positions=POSITIONS, types=len(load_ref()["types"]), units=int(len(load_ref()["unit"])),
                             libraries=load_ref()["null"].get("libraries"))
     return out
+
+# ---- edit 277 (finding F304): a genetic variant at a CpG reads, through bisulfite, as a lost mark on every molecule that carries it ----
+VARIANT_TOP = 0.6     # the one or two CpGs that carry at least this share of a place's changed calls (operational, from F304: 0.92 at one CpG)
+VARIANT_T_MIN = 0.35  # and read changed on at least this share of the molecules covering them (one copy about 0.5, both copies about 1)
+
+def variant_check(pat_path, out, isl_first, isl_last, block, min_calls=4, min_meth=0.75):
+    """Edit 277: for each place the Locator named, the calls of the sample's own molecules CpG by CpG (one pass over the molecule file, only the
+    named places' CpGs). Loss side: T calls on held molecules (at least min_calls calls, at least min_meth of them C); gain side: C calls on unmarked
+    molecules (at most 1 - min_meth C). A place where the top one or two CpGs carry at least VARIANT_TOP of the changed calls, each read changed on
+    at least VARIANT_T_MIN of the molecules covering it, is marked 'probable genetic variant at a CpG' (the CpGs printed) and counted apart from the
+    changes: a variant changes one CpG on every molecule that carries it, a change of methylation spreads over the place."""
+    import gzip, bisect, collections
+    nI = len(isl_first); R = []
+    for side in ("loss", "gain"):
+        for p in (out.get(side) or {}).get("places") or []:
+            u = int(p["unit"]); a, b = (int(isl_first[u]), int(isl_last[u])) if u < nI else ((u - nI) * block + 1, (u - nI + 1) * block)
+            R.append((a, b, side, p))
+    if not R: return out
+    R.sort(key=lambda r: r[0]); starts = [r[0] for r in R]; ch = collections.defaultdict(collections.Counter); cov = collections.defaultdict(collections.Counter)
+    with gzip.open(pat_path, "rt") as f:
+        for line in f:
+            q = line.split("\t")
+            if len(q) < 4: continue
+            s, pat, w = int(q[1]), q[2], int(q[3]); e = s + len(pat) - 1
+            j = bisect.bisect_right(starts, e) - 1
+            while j >= 0 and R[j][1] >= s - 2000:
+                a, b, side, p = R[j]
+                if a <= e and b >= s:
+                    n = sum(1 for x in pat if x != "."); nc = pat.count("C")
+                    keep = (n >= min_calls) and ((nc >= min_meth * n) if side == "loss" else (nc <= (1 - min_meth) * n))
+                    if keep:
+                        bad = "T" if side == "loss" else "C"
+                        for k, x in enumerate(pat):
+                            i = s + k
+                            if a <= i <= b and x in "CT": cov[(side, p["unit"])][i] += w; ch[(side, p["unit"])][i] += w if x == bad else 0
+                j -= 1
+    for side in ("loss", "gain"):
+        o = out.get(side) or {}; nv = 0
+        for p in o.get("places") or []:
+            c, v = ch[(side, p["unit"])], cov[(side, p["unit"])]; tot = sum(c.values())
+            top = sorted(c, key=lambda i: -c[i])[:2]; top = [i for i in top if v[i] and c[i] / v[i] >= VARIANT_T_MIN]
+            p["changed_calls"] = tot; p["top_cpgs"] = [dict(cpg=i, changed=c[i], covered=v[i]) for i in sorted(c, key=lambda i: -c[i])[:2]]
+            if tot and top and sum(c[i] for i in top) >= VARIANT_TOP * tot:
+                p["probable_variant"] = ("probable genetic variant at a CpG: " + ", ".join(f"CpG {i} changed on {c[i]} of {v[i]} molecules" for i in top) +
+                                         "; a variant changes one CpG on every molecule that carries it, so this place is not counted as a change of methylation"); nv += 1
+        if o: o["probable_variants"] = nv; o["called_changes"] = int(o.get("called") or 0) - nv
+    out["variant_check"] = dict(rule=f"top one or two CpGs carry at least {VARIANT_TOP:.0%} of the place's changed calls, each changed on at least {VARIANT_T_MIN:.0%} of the molecules covering it", source="the sample's own molecules, named places only")
+    return out
