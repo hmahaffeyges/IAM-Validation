@@ -1,0 +1,85 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-26",
+ "title": "The Locator in the one button and on every place; the variant guard; presence on two atlases; the laboratory correction without the clip",
+ "set_out": "Put the Locator (where a sample changed, place by place, with the genes) into the one button and test it on the known-answer library, planted and unplanted. Fix what the route map found: the sequencing route dropped the declared sex and age, the partial-read options did nothing, and the Deconvolver's record on sequencing carried the array label. Test which cells are present in a sequenced sample on both atlases (the IAM Sequencing Atlas and IAM-Atlas v2.1), and whether v2.1 can serve as a healthy reference for sequenced samples. Let the Locator read every place in the genome, not only the places whose level differs between cell types. Remove the part of a planted conversion error the laboratory correction still left in some readings.",
+ "open_at_turnover": "The author's confirmation of the atlas route, then its explanation in every document. The Locator's loss-side power and the per-instrument 'where' lists; the variant guard for IAM-A's held errors. The remaining -0.5 % over-correction of whole-sample Met-A, and the territories, distance to maximum disorder and globe readings on the corrected levels. The commissioning and Locator supplements in the report; the cord-blood column decision.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The Locator in the one button (edits 259 and 266)",
+     "what": "The Locator in the one button (edits 259 and 266)",
+     "status": "development",
+     "outcome": "unplanted known-answer library, no places named; planted library, exactly the planted places the tested engine names on the same counts (9 loss blocks and 8 gain islands). Edit 266 fixed the sample's own rate, which had been taken over more units than the reference uses (finding F298).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Sex and age on sequencing (edit 265)",
+     "what": "Sex and age on sequencing (edit 265)",
+     "status": "development",
+     "outcome": "the sample's sex is now read from its own chrX and chrY molecules; on 49 never-used libraries it agreed with the declared sex in every case it could judge. The partial-read options were removed. Edit 271 runs intake and the sex reading on mixtures too.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Presence on IAM-Atlas v2.1 (edits 267, 270, 271), six in-silico mixtures through the full one button",
+     "what": "Presence on IAM-Atlas v2.1 (edits 267, 270, 271), six in-silico mixtures through the full one button",
+     "status": "development",
+     "outcome": "the Sequencing Atlas read granulocytes 0.59-0.64 (planted 0.60), T cells 0.22-0.25 (0.25), monocytes 0.05-0.11 (0.08), NK 0.05-0.07 (0.07), erythrocyte progenitors 0.078 (0.10), with no false presence at 5 %, also at plasma depth. On sequenced blood v2.1 read monocytes and NK at 0 and put 26-36 % in lung macrophages; on the liver mixture, whose sources are in neither atlas, the two atlases agreed (hepatocytes 0.59 of 0.70) (finding F307).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); IAM-Atlas v2.1 as the second atlas"
+    },
+    {
+     "title": "v2.1 as a healthy reference for sequenced samples (edits 268, 269, the agreement test, 51 reads on 17 never-used healthy",
+     "what": "v2.1 as a healthy reference for sequenced samples (edits 268, 269, the agreement test, 51 reads on 17 never-used healthy libraries)",
+     "status": "development",
+     "outcome": "neither conversion met its bar; the offset depends on the cell type, about 2-3 % for cardiomyocytes and up to 23 % for cortical neurons (finding F301).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); IAM-Atlas v2.1 as the second atlas"
+    },
+    {
+     "title": "IAM-A is now read on every sample (edit 272); a sample outside its type's healthy shape is read and flagged, never stopp",
+     "what": "IAM-A is now read on every sample (edit 272); a sample outside its type's healthy shape is read and flagged, never stopped.",
+     "status": "development",
+     "outcome": "IAM-A is now read on every sample (edit 272); a sample outside its type's healthy shape is read and flagged, never stopped.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Every place (edits 273, 274, 275)",
+     "what": "Every place (edits 273, 274, 275)",
+     "status": "development",
+     "outcome": "the 156 healthy Sequencing Atlas input libraries were recounted on all 592,067 places (half on Google machines, half on GitHub runs, identical to the earlier counts on shared places), and the Locator's healthy reference and measured null were rebuilt over every place.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Laboratory correction (edit 276)",
+     "what": "Laboratory correction (edit 276)",
+     "status": "development",
+     "outcome": "the per-site clip was the main cause of the residual (finding F302); with level fits taking unclipped levels and the Met-A family reading against expectations put on the sample's own conversion, whole-sample Met-A planted over unplanted went from 1.039 to 0.995, the second cell share from 1.129 to 0.966 (finding F305).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    },
+    {
+     "title": "Variant guard (edit 277)",
+     "what": "Variant guard (edit 277)",
+     "status": "development",
+     "outcome": "on every place, the unplanted library named one island; 147 of its 160 errors sat at one CpG changed on 97 % of molecules, a genetic variant read as a lost mark (finding F304). The Locator now reads each named place CpG by CpG and marks such a place as a probable genetic variant; tested on the same library, it marks that island and counts 0 changes.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "IAM Sequencing Atlas (GSE186458); test library GSM5652214"
+    }
+   ]
+  }
+ ]
+}
