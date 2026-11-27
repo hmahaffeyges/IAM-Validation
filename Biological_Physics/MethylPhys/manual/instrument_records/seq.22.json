@@ -800,7 +800,7 @@
     "fields": [
      [
       "How it works",
-      "For each instrument, every place it reads (an island or block for the Law Sphere and the counts; a region for the globe) is tested: the sample's count at the place against the count the healthy atlas expects there at the sample's own read depth and cell mix, judged against the spread measured among healthy libraries (not counting alone), with Benjamini-Hochberg false-discovery control across that instrument's places. Each place named is given its chromosome and position, its CpG island context (island, shore, shelf, open sea), its genes (promoter: within 2 kb of a transcription start; gene body; or the nearest gene and its distance), and whether any array probe covers it."
+      "For each instrument, every place it reads (an island or block for the Law Sphere and the counts; a region for the globe) is tested: the sample's count at the place against the count the healthy atlas expects there at the sample's own read depth and cell mix, judged against the spread measured among healthy libraries (not counting alone), with Benjamini-Hochberg false-discovery control across that instrument's places. Each place named is given its chromosome and position, its CpG island context (island, shore, shelf, open sea), its genes (promoter: within 2 kb of a transcription start; gene body; or the nearest gene and its distance), and whether any array probe covers it. Since a chain update every place is read: all 592,067 Law Sphere units over the 28,217,448 hg19 CpGs (islands, and 50-CpG blocks between them), against a healthy reference and measured null built from all 156 Sequencing Atlas inputs over every unit. Since a chain update each named place is read again CpG by CpG from the sample's own molecules: a place whose excess sits at one or two CpGs, changed on most of the molecules covering them, is printed as 'probable genetic variant at a CpG' with the CpG and not counted as a change of methylation (a variant such as C to T changes one CpG on every molecule that carries it; a change of methylation spreads over the place)."
      ],
      [
       "Why",
@@ -815,12 +815,20 @@
       "Positions reference built from public UCSC hg19 files and checked against all 813,951 array probe positions; healthy null by leave-one-out over the 205 atlas libraries; planted-place tests for detection."
      ],
      [
+      "Known-answer test",
+      "Known-answer library GSM5652214 through the one button: unplanted, 0 places except one island marked as a probable genetic variant (147 of 152 held molecules changed at one CpG in ABCA2; the guard counts 0 changes); planted, gain side 18-19 of 20 planted islands with no other place; loss side by added lost marks per 50-CpG block: under 10, 0 of 4; 10-19, 11 of 83; 20-39, 20 of 30; 40 or more, 3 of 3; no false place in any of six reads; no planted place marked as a variant."
+     ],
+     [
       "Limits",
-      "Detection depends on depth: at about 30-fold, a loss block expecting about 5 held errors is named once it shows about 4 to 6 times that (finding ); each report prints its own sample's limit, so 'nothing found' is read against it. Promoter calls depend on the gene table (both kept). Positions are hg19."
+      "Detection depends on depth: at about 30-fold, a loss block expecting about 5 held errors is named once it shows about 4 to 6 times that (finding ); each report prints its own sample's limit, so 'nothing found' is read against it. Promoter calls depend on the gene table (both kept). Positions are hg19. On every place the false-discovery cut is about 20 times stricter than on the type-informative units alone, so a single 50-CpG loss block at this depth is named reliably only from about 20-40 added lost marks; loss spread thinly over many blocks is read by the grouped regions. The variant guard reads named places only."
      ],
      [
       "How to rebuild it",
       "python3 'chain/Runtime Matrices/Where/build_where_ref.py' hg19.fa.gz cpgIslandExt.txt.gz refGene.txt.gz sites_sequencing_key.parquet units.npz OUT; then build_where_genes_v2.py OUT refGene.txt.gz knownGene.txt.gz kgXref.txt.gz cpgIslandExt.txt.gz OUT (public UCSC hg19 files from hgdownload.soe.ucsc.edu; both builds check themselves and stop on any disagreement)"
+     ],
+     [
+      "History",
+      "Dated entries in the development log (METHYLPHYS_DEVELOPMENT_LOG.md) and the instrument's development record."
      ]
     ],
     "id": "R22-LOCATOR",
@@ -848,7 +856,7 @@
       "finding"
      ]
     ],
-    "status": "development"
+    "status": "development: tested on the known-answer library, planted and unplanted"
    }
   ],
   "report_section": "v4-locator",
