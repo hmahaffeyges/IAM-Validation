@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-27](2026-11-27.md) | The atlas route decided; the cord blood B column built; a common-variant mask for IAM-A; the cause of the last laboratory-correction residual |
 | [2026-11-26](2026-11-26.md) | The Locator in the one button and on every place; the variant guard; presence on two atlases; the laboratory correction without the clip |
 | [2026-11-25](2026-11-25.md) | The islands floor route on by default; depth-free C-Score; the Locator's gene relation; the Decoder and SOP generated from the code; the route map finds a refusal defect |
 | [2026-11-24](2026-11-24.md) | The sequencing report rebuilt one page per test from the instruments database; the islands floor route corrects the counted readings; the atlas molecule files go to Zenodo |
