@@ -693,7 +693,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         if ok.sum() < RULE["coverage_min"] * len(S): r["coverage_flag"] = f"read on {int(ok.sum())} of {len(S)} identity sites ({ok.sum() / len(S):.0%}; below the {RULE['coverage_min']:.0%} of the commissioned rule)"
         he = float(_H(e[ok]).mean()); _xr = None
         if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
-            _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_counts(e[ok].to_numpy(), _n)))
+            _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_spread(e[ok].to_numpy(), _n, _spread(cells, F, e[ok].index).to_numpy()) if SPREAD else expected_H_counts(e[ok].to_numpy(), _n)))   # edit 286
             if SELFCAL is not None:   # 2026-11-10 (development, --dev-seq-self-cal): the found cell's own correction (its atlas column without the atlas's end
                 # calls, moved by this library's measured end error) applied to the mixed expectation; exact for a sorted sample, an approximation in a mix
                 _sc = self_calibrated(c, mu[ok], counts, SELFCAL)
@@ -955,7 +955,7 @@ def territory_reading(beta, shares, counts=None):
         if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
-        hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())
+        hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts, _spread(cells, F, es.index) if (SPREAD and counts is not None) else None); A = float(hx.mean() / he.mean())   # edit 286
         if TERR_SITE_OUT:   # 2026-11-01 (development, run_sample.py --dev-terr-sites): each territory site's reads, levels and disorder, and the main cell's level
             _n3 = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy() if counts is not None else np.zeros(len(es), "int64")
             _T = pd.DataFrame(dict(site=es.index, reads=_n3, sample_level=xs.to_numpy(), expected_level=es.to_numpy(), H_measured=hx, H_expected=he))
@@ -987,9 +987,33 @@ def plant_territory(beta, name, frac, size, seed=20261023):
 
 
 
-def _he(es, counts):   # 2026-10-23: the healthy expectation of H, at each site's own read count on sequencing (expected_H_counts), else H(e)
+SPREAD = False   # edit 286 (development, run_sample.py's spread option): sequencing expectations beta-binomial with the atlas's donor spread
+
+def expected_H_spread(p, n, v):
+    """Edit 286 (development; F319): the expected disorder H(k/n) at each site when the sample's level is drawn around the healthy level p with
+    variance v (the atlas's person-to-person spread in the sample's shares) and then read as k of n reads: k ~ BetaBinomial(n, a, b) with mean
+    p and variance v (a + b = p(1 - p)/v - 1). Where v is 0 (or above p(1 - p)), the exact binomial (_expected_H_binom). Nothing fitted."""
+    from scipy.stats import betabinom
+    p = np.clip(np.asarray(p, dtype="float64"), 1e-6, 1 - 1e-6); n = np.asarray(n, dtype="int64"); v = np.nan_to_num(np.asarray(v, dtype="float64"))
+    v = np.minimum(v, p * (1 - p) * 0.999); out = _expected_H_binom(p, n); use = (v > 1e-10) & (n >= 1) & (n <= N_EXACT)
+    t = np.where(use, p * (1 - p) / np.maximum(v, 1e-12) - 1, 1.0)
+    for mm in np.unique(n[use]):
+        i = use & (n == mm); k = np.arange(mm + 1); hk = np.asarray(_H(pd.Series(k / mm)), dtype="float64")
+        out[i] = betabinom.pmf(k[None, :], mm, (p[i] * t[i])[:, None], ((1 - p[i]) * t[i])[:, None]) @ hk
+    return out
+
+def _spread(cells, F, idx):
+    """Edit 286: the variance of a healthy sample's level at each site of idx, from the atlas's donor spread of each cell in the shares F:
+    sum_k f_k^2 sd_k^2 over the cells with a column there, the shares renormalized over those cells (as the expectation's own mix rule)."""
+    SD = pd.concat([_col("donor_sd", k).reindex(idx).rename(k) for k in cells], axis=1); have = SD.notna(); Fk = pd.Series({k: float(F[k]) for k in cells})
+    w = have.mul(Fk, axis=1); w = w.div(w.sum(1).where(w.sum(1) > 0), axis=0)
+    return (w.pow(2) * SD.fillna(0.0).pow(2)).sum(1)
+
+def _he(es, counts, v=None):   # 2026-10-23: the healthy expectation of H, at each site's own read count on sequencing (expected_H_counts), else H(e)
     if counts is None: return np.asarray(_H(es), dtype="float64")
-    n = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy(); return np.asarray(expected_H_counts(es.to_numpy(), n), dtype="float64")
+    n = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy()
+    if SPREAD and v is not None: return np.asarray(expected_H_spread(es.to_numpy(), n, pd.Series(v).reindex(es.index).fillna(0.0).to_numpy()), dtype="float64")   # edit 286
+    return np.asarray(expected_H_counts(es.to_numpy(), n), dtype="float64")
 
 TERR_COUNTED = False   # 2026-11-01 (development, run_sample.py --dev-terr-counted): the islands' expectation from the reference's own reads (expected_H_mix_counts)
 TERR_HALF = None       # the donor half the islands are read against (run_sample.py --dev-seq-ref-half); None: every donor
@@ -1235,7 +1259,7 @@ def read_whole(beta, shares, counts=None, raw=None):
     _ab = absent_cells(cells)
     if _ab: out["absent_from_ruler"] = {k: round(float(F[k]), 4) for k in _ab}   # 2026-11-09: cells with no column at these sites, set aside from the cover
     if ok.sum() < 10000: out["reason"] = f"only {int(ok.sum())} sites with an expectation"; return out
-    w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts)
+    w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts, _spread(cells, F, es.index) if (SPREAD and counts is not None) else None)   # edit 286
     if WHOLE_SITE_OUT:   # 2026-10-31 (development, run_sample.py --dev-whole-sites): every site's level, expectation, reads, weight and disorder
         _T = territory_sets(); _n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy() if counts is not None else np.zeros(len(xs), np.int64)
         pd.DataFrame(dict(site=xs.index, reads=_n, sample_level=xs.to_numpy(), expected_level=es.to_numpy(), weight=w, H_measured=hx, H_expected=he,

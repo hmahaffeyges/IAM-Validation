@@ -4561,3 +4561,9 @@ Sequenced samples are read against the IAM Sequencing Atlas only: which cells ar
 
 ### stage_seq_atlas.py::swap_dir
 Edit 285 (development, run_sample.py's rebuilt-atlas option (dev_seq_atlas_dir)): reads a rebuilt IAM Sequencing Atlas in place of the committed one, for each reference the rebuilt folder holds under the same name and place as under Runtime Matrices/Seq_Atlas (the names in SWAPPABLE: in-mix sites, Deconvolver reference, Met-A reference, held-error reference, floor sites, input floors, the per-input count tables, sphere and noise columns, the inner reference; and law_sphere/). Function defaults bound to the old path at import are repointed too. Used for a new cell's held-out test (the cord blood B column: each donor read against the atlas rebuilt without it). The bundle lists what was read from the rebuilt folder, not door-checked.
+
+### stage_metaa_atlas.py::expected_H_spread
+Edit 286 (development, run_sample.py's spread option; findings F313-F319): the expected disorder at each site of a sequenced sample when its level is drawn around the healthy level with the atlas's person-to-person spread (variance v) and then read as k of n reads, k ~ BetaBinomial; the exact binomial where v is 0. With SPREAD on it replaces the copy correction for whole-sample Met-A, the territories and Met-A in the mix: the copy correction read uneven floor sites as copies where there were none, and a conversion error moved it; the spread is measured by the atlas itself.
+
+### stage_metaa_atlas.py::_spread
+Edit 286: the variance of a healthy sample's level at each site, sum_k f_k^2 sd_k^2 over the cells in the sample's shares that have a column there (each cell's donor_sd from the atlas), the shares renormalized over those cells as the expectation's own mix rule.

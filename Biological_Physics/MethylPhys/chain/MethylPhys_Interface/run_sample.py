@@ -842,6 +842,7 @@ def main():
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
     ap.add_argument("--dev-seq-copies", action="store_true", help="DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01)")
     ap.add_argument("--dev-line-wide", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): the array's line measured on every site this sample's own mix holds firmly (below 0.05 or above 0.95), the identity sites of the cells found set aside, instead of only the ruler's anchors")
+    ap.add_argument("--dev-seq-spread", action="store_true", help="DEVELOPMENT (2026-11-27, edit 286): on sequencing, expectations beta-binomial with the atlas's person-to-person spread in the sample's shares, in place of the copy correction, for whole-sample Met-A, the territories and Met-A in the mix")
     ap.add_argument("--dev-line-censored", action="store_true", help="DEVELOPMENT (2026-11-07, DEV-METAA-HEALTHY-01): the array's line at the anchor sites measured with readings at exactly 0 or 1 counted as censored")
     ap.add_argument("--dev-floor-class", action="store_true", help="DEVELOPMENT (2026-11-07): the islands read with the sample's and the reference's floors each counted at the islands read, where the sample's own mix expects them unmarked, both at the higher (stage_metaa_atlas.FLOOR_CLASS)")
     ap.add_argument("--dev-floor-equal", action="store_true", help="DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two)")
@@ -870,6 +871,7 @@ def main():
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
     if getattr(a, "dev_line_wide", False): import stage_metaa_atlas as _SAlw0; _SAlw0.LINE_WIDE = True   # 2026-11-08: every route
+    if getattr(a, "dev_seq_spread", False): import stage_metaa_atlas as _SAsp0; _SAsp0.SPREAD = True   # edit 286
     if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc0; _SAlc0.LINE_CENSORED = True   # 2026-11-07: every route, arrays included (the first placement was inside the sequencing branches; synthetic test 4 ran without it)
     if getattr(a, "dev_pred_raw", False): import stage_metaa_atlas as _SApr0; _SApr0.PRED_RAW = True   # 2026-11-07
     if getattr(a, "dev_seq_atlas_dir", None):   # 2026-11-09 (development): a rebuilt sequencing atlas in place of the committed one
