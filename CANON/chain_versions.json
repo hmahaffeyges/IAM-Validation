@@ -1810,6 +1810,11 @@
    "chain_sha": "6985aae59d9f503b1e59628dc72552416df91b855d0275ead942fe8201f8ddda",
    "first_commit_after": "c7634b26",
    "date": "2026-11-28"
+  },
+  {
+   "chain_sha": "08bd3e601ab26ede6fdfed0559e47dc2265f84222eb5bb388d0e151c49caa6b6",
+   "first_commit_after": "f872ea51",
+   "date": "2026-11-28"
   }
  ]
 }

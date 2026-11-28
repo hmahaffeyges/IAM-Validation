@@ -149,7 +149,7 @@ def width(cell):
     un = (_col("mu_hi", cell) - _col("mu_lo", cell)) / 3.92
     return np.sqrt(_col("donor_sd", cell) ** 2 + un ** 2)
 
-IDENTITY_OF = {"granulocytes": "neutrophils"}   # 2026-11-02 (the sequencing atlas's granulocyte column): IAM-Atlas v2.1 has no granulocyte
+IDENTITY_OF = {"granulocytes": "neutrophils", "cord blood b cells": "naive b cells"}   # edit 287: cord blood B cells are mostly naive (PMC12354479)   # 2026-11-02 (the sequencing atlas's granulocyte column): IAM-Atlas v2.1 has no granulocyte
 # column; blood granulocytes are mostly neutrophils, so the column is read at v2.1's neutrophil identity sites (stated, not fitted)
 
 def identity_sites(cell):

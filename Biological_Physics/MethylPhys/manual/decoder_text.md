@@ -3722,6 +3722,7 @@ One cell's atlas column (best value, the ends of its 95 % range, or the person-t
 Each site's healthy width: the person-to-person spread and the atlas's uncertainty (half the 95 % range over 1.96), combined in quadrature.
 
 ### stage_metaa_atlas.py::identity_sites
+Edit 287: IDENTITY_OF also reads the cord blood B cell column of the IAM Sequencing Atlas (three open sorted CD19+ cord blood donors of GSE116229) at IAM-Atlas v2.1's naive B cell identity sites, as the granulocyte column at the neutrophils': v2.1 has no cord blood column, and cord blood B cells are mostly naive (about 80 % naive, 3 % memory, PMC12354479).
 The cell's identity sites by the rule above (up to 3,000 per side): methylated side, then unmethylated side.
 
 ### stage_metaa_atlas.py::expected_H_counts
