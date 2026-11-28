@@ -995,3 +995,22 @@ def ref_compare(cell, seq_cell=None, min_reads=10):
                          seq_level=round(float(lv[m].mean()), 4), seq_H=round(float(H(lv[m]).mean()), 4))
     return out
 
+
+SWAPPABLE = ("ARRAY_COLS", "DECONV_REF", "METAA_REF", "HELD_REF", "FLOOR_SITES", "INPUT_FLOORS", "METAA_COUNTS_DIR", "SPHERE_DIR", "NOISE_DIR",
+             "TERR_DIR", "METAA_DONORS_DIR", "METAA_INNER")   # edit 285: the Sequencing Atlas references a rebuilt folder may replace
+
+def swap_dir(d):
+    """Edit 285 (development, run_sample.py's rebuilt-atlas option (dev_seq_atlas_dir)): read the rebuilt Sequencing Atlas in folder d in place of the committed one,
+    for every reference d holds under the same name and place as under Runtime Matrices/Seq_Atlas (SWAPPABLE, and law_sphere/). Repoints the
+    module path, every function default bound to the old path at import, and stage_metaa_atlas's floor-sites path. Returns the swapped names."""
+    import sys as _s
+    base = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas"); mod = _s.modules[__name__]; done = []
+    for nm in SWAPPABLE:
+        old = getattr(mod, nm); new = os.path.join(d, os.path.relpath(old, base))
+        if not os.path.exists(new): continue
+        setattr(mod, nm, new); done.append(os.path.relpath(old, base))
+        for f in list(vars(mod).values()):
+            if callable(f) and getattr(f, "__defaults__", None) and old in f.__defaults__: f.__defaults__ = tuple(new if x == old else x for x in f.__defaults__)
+    if os.path.isdir(os.path.join(d, "law_sphere")):
+        import stage_law_sphere as _LS; _LS.REF_DIR = os.path.join(d, "law_sphere"); done.append("law_sphere/")
+    return done

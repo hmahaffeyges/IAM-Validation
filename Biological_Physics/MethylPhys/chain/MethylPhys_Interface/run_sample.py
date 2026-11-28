@@ -876,7 +876,7 @@ def main():
         import stage_seq_atlas as _SQdd
         for _p in ("array_sites/mu_part1.parquet", "deconv_reference_v1.parquet"):
             if not os.path.exists(os.path.join(a.dev_seq_atlas_dir, _p)): ap.error(f"--dev-seq-atlas-dir: {_p} not in {a.dev_seq_atlas_dir}")
-        _SQdd.ARRAY_COLS = os.path.join(a.dev_seq_atlas_dir, "array_sites"); _SQdd.DECONV_REF = os.path.join(a.dev_seq_atlas_dir, "deconv_reference_v1.parquet")
+        a._atlas_swapped = _SQdd.swap_dir(a.dev_seq_atlas_dir)   # edit 285: every reference the rebuilt folder holds
         print(f"DEVELOPMENT: read against the rebuilt sequencing atlas in {a.dev_seq_atlas_dir}", flush=True)
     if not getattr(a, "build", None):   # 2026-11-07, lock 1 (reference_door.py): the atlases checked against their checksums before any reading
         import reference_door as _RD; _rdc = _RD.check()
@@ -1855,7 +1855,7 @@ def main():
     try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
     except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     if getattr(a, "dev_seq_atlas_dir", None) and isinstance(o.get("reference"), dict):   # 2026-11-09: the rebuilt atlas named, and not door-checked
-        o["reference"]["development_atlas"] = dict(folder=os.path.basename(os.path.normpath(a.dev_seq_atlas_dir)), files=["array_sites/", "deconv_reference_v1.parquet"], checked=False, megakaryocyte_column="left out (not in the rebuilt atlas)",
+        o["reference"]["development_atlas"] = dict(folder=os.path.basename(os.path.normpath(a.dev_seq_atlas_dir)), files=getattr(a, "_atlas_swapped", ["array_sites/", "deconv_reference_v1.parquet"]), checked=False, megakaryocyte_column="left out (not in the rebuilt atlas)",
                                                    about="a development rebuild of the IAM Sequencing Atlas read in place of the committed one (--dev-seq-atlas-dir); not in the reference manifest")
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")

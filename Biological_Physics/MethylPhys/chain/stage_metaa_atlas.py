@@ -1104,7 +1104,7 @@ def _floor_probes():
     """The library-floor sites (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked), by probe."""
     if "p" not in _FP:
         import pyarrow.parquet as _pq
-        t = _pq.read_table(os.path.join(HERE, "Runtime Matrices", "Seq_Atlas", "floor_sites_v1.parquet")).to_pandas()
+        t = _pq.read_table(__import__("stage_seq_atlas").FLOOR_SITES).to_pandas()   # edit 285: the module path (swap_dir may repoint it)
         _FP["p"] = set(t.loc[t.side == "unmarked", "probe"])
     return _FP["p"]
 

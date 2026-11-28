@@ -37,7 +37,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **40 Python files** holding **632 functions** (nested ones included); 632 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **40 Python files** holding **633 functions** (nested ones included); 633 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -80,7 +80,7 @@ Read from the code at build time: the one command can load **40 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 998 | 52 | 0 | 0 |
+| `stage_seq_atlas.py` | 1,017 | 53 | 0 | 0 |
 
 ## The one command's options
 
@@ -6228,7 +6228,7 @@ replacement from that cell's reads, so no level is treated as exact (exactly unb
 
 The library-floor sites by probe (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked there). The class floor (--dev-floor-class) counts a sample's and its reference's false-call rate at those of them that lie inside the islands read, so a call there is a false call and never the islands' own low methylation.
 
-*Code:* `stage_metaa_atlas.py` line 1103 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`, `_FP` · files named: `floor_sites_v1.parquet`, `import pyarrow.parquet`
+*Code:* `stage_metaa_atlas.py` line 1103 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `_FP` · files named: `import pyarrow.parquet`
 
 ### `stage_metaa_atlas.py::islands_counted`
 
@@ -6604,6 +6604,12 @@ Sequenced samples are read against the IAM Sequencing Atlas only: which cells ar
 
 *Code:* `stage_where.py` line 134 (43 lines) · arguments: pat_path, out, isl_first, isl_last, block, min_calls, min_meth · calls: not called on the traced runs · constants read: `VARIANT_TOP`, `VARIANT_T_MIN`
 
+### `stage_seq_atlas.py::swap_dir`
+
+Edit 285 (development, run_sample.py's rebuilt-atlas option (dev_seq_atlas_dir)): reads a rebuilt IAM Sequencing Atlas in place of the committed one, for each reference the rebuilt folder holds under the same name and place as under Runtime Matrices/Seq_Atlas (the names in SWAPPABLE: in-mix sites, Deconvolver reference, Met-A reference, held-error reference, floor sites, input floors, the per-input count tables, sphere and noise columns, the inner reference; and law_sphere/). Function defaults bound to the old path at import are repointed too. Used for a new cell's held-out test (the cord blood B column: each donor read against the atlas rebuilt without it). The bundle lists what was read from the rebuilt folder, not door-checked.
+
+*Code:* `stage_seq_atlas.py` line 1002 (15 lines) · arguments: d · calls: not called on the traced runs · constants read: `SWAPPABLE`
+
 ## How the references are split and loaded
 
 Generated from the reference files when this document is built. `chain/Runtime Matrices/` holds 983.4 MB; `atlas/` holds 512.8 MB. A copy of the repository carries every reference. A table that holds cell types as columns can be read for the cell types a sample needs only; the last column lists the readers whose code reads selected columns of a table. A large table is split into parts so that each file stays under the repository's 100 MB file limit, in one of two ways, read from the files: split by cell types (every part holds every site for a group of cell types, so a reader opens only the parts holding the cell types it needs) or split by rows (every part holds every cell type for a range of sites).
@@ -6629,7 +6635,7 @@ Generated from the reference files when this document is built. `chain/Runtime M
 | `chain/Runtime Matrices/Provisional_References` | 4 | 8.4 MB | no | `megakaryocytes_v1.parquet`: 708,961 rows, 4 columns, columns not named by cell type and field; `megakaryocytes_v2.parquet`: 197,580 rows, 4 columns, columns not named by cell type and field | `MethylPhys_Interface/run_sample.py`, `stage_provisional.py` | `MethylPhys_Interface/run_sample.py` |
 | `chain/Runtime Matrices/Replication_Timing` | 4 | 43 kB | no | no tables | `MethylPhys_Interface/run_sample.py`, `stage_q2_selfref.py` | `MethylPhys_Interface/run_sample.py` |
 | `chain/Runtime Matrices/Report` | 1 | 50 kB | no | no tables | `MethylPhys_Interface/report_v3.py`, `MethylPhys_Interface/report_v4.py`, `build_chain_sequence.py` | none |
-| `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet` (6 parts, split by cell types), `meth_part*.parquet` (3 parts, split by cell types), `mu_hi_part*.parquet` (3 parts, split by cell types), `mu_lo_part*.parquet` (3 parts, split by cell types), `mu_part*.parquet` (6 parts, split by cell types), `mu_se_part*.parquet` (3 parts, split by cell types), `reads_part*.parquet` (3 parts, split by cell types), `seq_sphere_ref_part*.parquet` (4 parts, split by rows) | `deconv_reference_mk_dev.parquet`: 5,799 rows, 117 columns, one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: 5,699 rows, 115 columns, one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: 813,951 rows, 19 columns, one column per cell type, the cell types split across the parts (57 cell types); `floor_sites_v1.parquet`: 46,947 rows, 3 columns, columns not named by cell type and field; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_metaa_atlas.py`, `stage_seq_atlas.py` |
+| `chain/Runtime Matrices/Seq_Atlas` | 66 | 689.4 MB | `donor_sd_part*.parquet` (6 parts, split by cell types), `meth_part*.parquet` (3 parts, split by cell types), `mu_hi_part*.parquet` (3 parts, split by cell types), `mu_lo_part*.parquet` (3 parts, split by cell types), `mu_part*.parquet` (6 parts, split by cell types), `mu_se_part*.parquet` (3 parts, split by cell types), `reads_part*.parquet` (3 parts, split by cell types), `seq_sphere_ref_part*.parquet` (4 parts, split by rows) | `deconv_reference_mk_dev.parquet`: 5,799 rows, 117 columns, one column per cell type and field (58 cell types); `deconv_reference_v1.parquet`: 5,699 rows, 115 columns, one column per cell type and field (57 cell types); `donor_sd_part*.parquet`: 813,951 rows, 19 columns, one column per cell type, the cell types split across the parts (57 cell types); `floor_sites_v1.parquet`: 46,947 rows, 3 columns, columns not named by cell type and field; and 16 more tables | `MethylPhys_Interface/run_sample.py`, `reference_door.py`, `stage_law_sphere.py`, `stage_seq_atlas.py` | `MethylPhys_Interface/run_sample.py`, `stage_seq_atlas.py` |
 | `chain/Runtime Matrices/Stage_T` | 2 | 26.3 MB | no | no tables | `dev_stages.py`, `release_check_v3.py`, `stage_metaa_atlas.py`, `stage_t_selftare.py` | `stage_metaa_atlas.py` |
 | `chain/Runtime Matrices/Where` | 23 | 241.1 MB | no | `where_regions_v1.parquet`: 28,218 rows, 9 columns, columns not named by cell type and field; `where_regions_v2.parquet`: 28,218 rows, 20 columns, columns not named by cell type and field; `where_units_v1.parquet`: 592,067 rows, 10 columns, columns not named by cell type and field; `where_units_v2.parquet`: 592,067 rows, 21 columns, columns not named by cell type and field | `stage_where.py` | `stage_where.py` |
 | `atlas/external_manifests` | 3 | 44.4 MB | no | no tables | none found by name | none |

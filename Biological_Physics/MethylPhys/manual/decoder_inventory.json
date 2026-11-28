@@ -8938,11 +8938,9 @@
      "lines": 7,
      "doc": "The library-floor sites (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked), by probe.",
      "constants": [
-      "HERE",
       "_FP"
      ],
      "data_files": [
-      "floor_sites_v1.parquet",
       "import pyarrow.parquet"
      ],
      "traced_calls": {}
@@ -11264,7 +11262,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 998,
+   "lines": 1017,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -12294,11 +12292,28 @@
      "constants": [],
      "data_files": [],
      "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "swap_dir",
+     "name": "swap_dir",
+     "line": 1002,
+     "end": 1016,
+     "args": [
+      "d"
+     ],
+     "lines": 15,
+     "doc": "Edit 285 (development, run_sample.py's rebuilt-atlas option (dev_seq_atlas_dir)): read the rebuilt Sequencing Atlas in folder d in place of the committed one, for every reference d holds under the same name and place as under Runtime Matrices/Seq_Atlas (SWAPPABLE, and law_sphere/). Repoints the module path, every function default bound to the old path at import, and stage_metaa_atlas's floor-sites",
+     "constants": [
+      "SWAPPABLE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
     }
    ],
    "first_entered": null
   }
  ],
  "n_files": 40,
- "n_functions": 632
+ "n_functions": 633
 }
